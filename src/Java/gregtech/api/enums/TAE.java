@@ -70,7 +70,7 @@ public class TAE {
 		}
 		Logger.INFO("Finalising TAE.");
 		for (int aKeyTae : mTAE.keySet()) {
-			Textures.BlockIcons.CASING_BLOCKS[aKeyTae] = mTAE.get(aKeyTae);			
+			Textures.BlockIcons.setCasingTextureForId(aKeyTae, mTAE.get(aKeyTae));
 		}
 		Logger.INFO("Finalised TAE.");
 	}
@@ -96,7 +96,7 @@ public class TAE {
 			
 			//set to page 1.
 			else {
-				Textures.BlockIcons.CASING_BLOCKS[gtPPLastUsedIndex] = gt_CopiedBlockTexture;
+				Textures.BlockIcons.setCasingTextureForId(gtPPLastUsedIndex, gt_CopiedBlockTexture);
 				Logger.INFO("[TAE} Registered Texture with ID "+(gtPPLastUsedIndex)+" in main index.");
 				gtPPLastUsedIndex++;
 				return true;
@@ -112,10 +112,10 @@ public class TAE {
 	public static ITexture getTexture(int index){
 		if (gtPPLastUsedIndex >= 128) {
 			if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() > 30) {
-				return Textures.BlockIcons.CASING_BLOCKS[((64*128)+index)];
+				return Textures.BlockIcons.getCasingTextureForId(((64*128)+index));
 			}
 		}
-		return Textures.BlockIcons.CASING_BLOCKS[(64+index)];
+		return Textures.BlockIcons.getCasingTextureForId((64+index));
 	}
 
 	public static int GTPP_INDEX(int ID){
