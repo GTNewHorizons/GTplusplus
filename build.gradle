@@ -153,7 +153,7 @@ dependencies {
 //    compile("com.github.GTNewHorizons:GT5-Unofficial:experimental-SNAPSHOT:dev") {
 //        setChanging(true)
 //    }
-    compile files('libs/gregtech-5.09.37.05-dev.jar')
+    compile files('libs/gregtech-5.09.37.07-dev.jar')
     compile ("com.github.GTNewHorizons:StructureLib:${config.structurelib.version}:deobf")
 
     provided "net.industrial-craft:industrialcraft-2:${config.ic2.version}:dev"  
