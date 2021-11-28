@@ -85,6 +85,7 @@ implements IConfigureNEI {
 		Logger.INFO("NEI Registration: Registering NEI handler for "+DecayableRecipeHandler.mNEIName);
 		API.registerRecipeHandler(new DecayableRecipeHandler());
 		API.registerUsageHandler(new DecayableRecipeHandler());
+		API.registerStackStringifyHandler(new FluidStackStringifyHandler());
 		sIsAdded = true;
 	}
 

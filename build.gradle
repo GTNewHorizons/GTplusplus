@@ -165,9 +165,9 @@ dependencies {
 	//compile "ic2:IC2Classic:1.2.1.8:dev" - Does not mirror internal class structure or visibility of IC2, won't ever compile.
 
 	compile "mcp.mobius.waila:Waila:1.5.11-RC2-NONEI_1.7.10:dev"
-	compile "codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev"
-	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
-	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev"
+	compile "com.github.GTNewHorizons:CodeChickenLib:master-SNAPSHOT:dev"
+	compile "com.github.GTNewHorizons:CodeChickenCore:master-SNAPSHOT:dev"
+	compile "com.github.GTNewHorizons:NotEnoughItems:2.1.16-GTNH:dev"
 	compile "api.player:PlayerAPI:1.7.10-1.4"
 	
 	compile "minetweaker:MineTweaker3:1.7.10-3.0.10:dev-full"
