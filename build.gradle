@@ -176,10 +176,6 @@ minecraft {
     version = minecraftVersion + "-" + forgeVersion + "-" + minecraftVersion
     runDir = "run"
 
-    /*srgExtra "PK: org/dom4j gtpp/shaded/org/dom4j"
-    srgExtra "PK: org/javassist gtpp/shaded/org/javassist"
-    srgExtra "PK: org/reflections/reflections gtpp/shaded/org/reflections"*/
-
     if (replaceGradleTokenInFile) {
         replaceIn replaceGradleTokenInFile
         if(gradleTokenModId) {
