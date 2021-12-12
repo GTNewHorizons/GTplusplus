@@ -33,18 +33,7 @@ import gtPlusPlus.core.material.state.MaterialState;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_AlloySmelter;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Assembler;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_BlastSmelter;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_DustGeneration;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Extruder;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_FluidCanning;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Fluids;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_MaterialProcessing;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Ore;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Plates;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Recycling;
-import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_ShapedCrafting;
+import gtPlusPlus.xmod.gregtech.loaders.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -203,6 +192,7 @@ public class MaterialGenerator {
 				new RecipeGen_BlastSmelter(matInfo);
 			}
 			new RecipeGen_Extruder(matInfo);
+			new RecipeGen_MetalRecipe(matInfo);
 			new RecipeGen_Fluids(matInfo);
 			new RecipeGen_Plates(matInfo);
 			new RecipeGen_ShapedCrafting(matInfo);
@@ -272,6 +262,7 @@ public class MaterialGenerator {
 				new RecipeGen_Plates(matInfo);
 				new RecipeGen_Extruder(matInfo);
 				new RecipeGen_Assembler(matInfo);
+				new RecipeGen_MetalRecipe(matInfo);
 			}
 
 			new RecipeGen_ShapedCrafting(matInfo);

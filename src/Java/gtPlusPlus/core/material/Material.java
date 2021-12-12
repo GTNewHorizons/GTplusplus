@@ -8,6 +8,7 @@ import java.util.*;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TextureSet;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
@@ -29,6 +30,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class Material {
 
@@ -722,16 +724,21 @@ public class Material {
 
 	public final ItemStack getComponentByPrefix(OrePrefixes aPrefix, int stacksize) {
 		String aKey = aPrefix.name();
-		Map<String, ItemStack> g =  mComponentMap.get(this.unlocalizedName);
+		String aOreName = aKey + this.unlocalizedName;
+		for (ItemStack tTarget : OreDictionary.getOres(aOreName)) {
+			if ("bartworks".equals(ItemUtils.getModId(tTarget)) || "gregtech".equals(ItemUtils.getModId(tTarget)))
+				return GT_Utility.copyAmount(stacksize, tTarget);
+		}
+		Map<String, ItemStack> g = mComponentMap.get(this.unlocalizedName);
 		if (g == null) {
 			Map<String, ItemStack> aMap = new HashMap<String, ItemStack>();
 			mComponentMap.put(unlocalizedName, aMap);
 			g = aMap;
-		}		
+		}
 		ItemStack i = g.get(aKey);
 		if (i != null) {
 			return ItemUtils.getSimpleStack(i, stacksize);
-		}		
+		}
 		else {
 			// Try get a GT Material
 			Materials Erf = MaterialUtils.getMaterial(this.unlocalizedName);
@@ -754,7 +761,6 @@ public class Material {
 			//Logger.MATERIALS("Unabled to find \"" + aKey + this.unlocalizedName + "\"");
 			return ItemUtils.getErrorStack(stacksize, (aKey + this.unlocalizedName+" x"+stacksize));
 		}
-		
 	}
 
 	final public Block getBlock(){

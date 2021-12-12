@@ -37,7 +37,6 @@ public class BaseItemIngotHot extends BaseItemIngot{
 		this.setTextureName(CORE.MODID + ":" + "itemIngotHot");
 		this.outputIngot = material.getIngot(1);
 		this.mTier = material.vTier;
-		this.generateRecipe();
 	}
 
 	@Override
@@ -49,11 +48,6 @@ public class BaseItemIngotHot extends BaseItemIngot{
 	@Override
 	public int getColorFromItemStack(final ItemStack stack, final int HEX_OxFFFFFF) {
 		return Utils.rgbtoHexValue(225, 225, 225);
-	}
-
-	private void generateRecipe(){
-		Logger.WARNING("Adding Vacuum Freezer recipe for a Hot Ingot of "+this.materialName+".");
-		GT_Values.RA.addVacuumFreezerRecipe(ItemUtils.getSimpleStack(this), this.outputIngot.copy(), 60*this.mTier);
 	}
 
 	@Override
