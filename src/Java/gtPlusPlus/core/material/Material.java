@@ -37,6 +37,7 @@ public class Material {
 	public static final Set<Material> mMaterialMap = new HashSet<Material>();
 
 	public static final Map<String, Map<String, ItemStack>> mComponentMap = new HashMap<String, Map<String, ItemStack>>();
+	public static final Map<String, ItemStack> mOreDictItemCache = new HashMap<String, ItemStack>();
 
 	private String unlocalizedName;
 	private String localizedName;
@@ -725,10 +726,19 @@ public class Material {
 	public final ItemStack getComponentByPrefix(OrePrefixes aPrefix, int stacksize) {
 		String aKey = aPrefix.name();
 		String aOreName = aKey + this.unlocalizedName;
-		for (ItemStack tTarget : OreDictionary.getOres(aOreName)) {
-			if ("bartworks".equals(ItemUtils.getModId(tTarget)) || "gregtech".equals(ItemUtils.getModId(tTarget)))
-				return GT_Utility.copyAmount(stacksize, tTarget);
+
+		if (mOreDictItemCache.containsKey(aOreName)) {
+			return GT_Utility.copyAmount(stacksize, mOreDictItemCache.get(aOreName));
 		}
+		else {
+			for (ItemStack tTarget : OreDictionary.getOres(aOreName)) {
+				if ("bartworks".equals(ItemUtils.getModId(tTarget)) || "gregtech".equals(ItemUtils.getModId(tTarget))) {
+					mOreDictItemCache.put(aOreName, tTarget);
+					return GT_Utility.copyAmount(stacksize, tTarget);
+				}
+			}
+		}
+
 		Map<String, ItemStack> g = mComponentMap.get(this.unlocalizedName);
 		if (g == null) {
 			Map<String, ItemStack> aMap = new HashMap<String, ItemStack>();

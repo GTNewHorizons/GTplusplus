@@ -62,10 +62,10 @@ public class RecipeGen_MetalRecipe extends RecipeGen_Base {
                     null,
                     (int) Math.max(material.getMass() * 2L, 1L),
                     material.vVoltageMultiplier)){
-                Logger.WARNING("Cut Blot Recipe: "+material.getLocalizedName()+" - Success");
+                Logger.WARNING("Cut Bolt Recipe: "+material.getLocalizedName()+" - Success");
             }
             else {
-                Logger.WARNING("Cut Blot Recipe: "+material.getLocalizedName()+" - Failed");
+                Logger.WARNING("Cut Bolt Recipe: "+material.getLocalizedName()+" - Failed");
             }
 
         if (ItemUtils.checkForInvalidItems(material.getIngot(1)) && ItemUtils.checkForInvalidItems(material.getHotIngot(1)))
