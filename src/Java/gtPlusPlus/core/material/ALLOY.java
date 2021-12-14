@@ -821,10 +821,10 @@ public final class ALLOY {
 			//Material Stacks with Percentage of required elements.
 			new MaterialStack[]{
 					new MaterialStack(ALLOY.INCONEL_792, 16),
-					new MaterialStack(ALLOY.EGLIN_STEEL, 10),
+					new MaterialStack(ELEMENT.getInstance().PLUTONIUM241, 10),
 					new MaterialStack(ELEMENT.getInstance().NAQUADAH_ENRICHED, 8),
 					new MaterialStack(ELEMENT.getInstance().CERIUM, 6),
-					new MaterialStack(ELEMENT.getInstance().ANTIMONY, 4),
+					new MaterialStack(ELEMENT.getInstance().IRIDIUM, 4),
 					new MaterialStack(ELEMENT.getInstance().PLATINUM, 4),					
 					new MaterialStack(ELEMENT.getInstance().YTTERBIUM, 2),
 					new MaterialStack(ALLOY.TUNGSTENSTEEL, 8)
