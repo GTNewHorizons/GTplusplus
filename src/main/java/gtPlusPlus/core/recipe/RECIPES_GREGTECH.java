@@ -482,8 +482,8 @@ public class RECIPES_GREGTECH {
 				Materials.Infinity.getMolten(144),
 				ALLOY.QUANTUM.getFluidStack(288),
 				ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
-				6.4,
-				960000,
+				20 * 6.4,
+				16 * 30000,
 				2000000000);
 
 		//Rhugnor
