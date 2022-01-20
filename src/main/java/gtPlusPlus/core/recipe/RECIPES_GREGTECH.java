@@ -482,7 +482,7 @@ public class RECIPES_GREGTECH {
 				Materials.Infinity.getMolten(144),
 				ALLOY.QUANTUM.getFluidStack(288),
 				ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
-				20 * 6.4,
+				128,
 				16 * 30000,
 				2000000000);
 
