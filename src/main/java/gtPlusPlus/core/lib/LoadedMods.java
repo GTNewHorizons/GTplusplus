@@ -5,7 +5,6 @@ import static gtPlusPlus.core.lib.CORE.*;
 import java.util.HashMap;
 
 import cpw.mods.fml.common.Loader;
-
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechTextures;
@@ -67,7 +66,7 @@ public class LoadedMods {
 	public static boolean GoodGenerator = false;
 
 	private static int totalMods;
-	
+
 	@SuppressWarnings("deprecation")
 	public static void checkLoaded(){
 		Logger.INFO("Looking for optional mod prereqs.");
@@ -180,6 +179,7 @@ public class LoadedMods {
 			OpenBlocks = true;
 			Logger.INFO("Components enabled for: OpenBlocks");
 			totalMods++;
+		}
 		if (isModLoaded("Thaumcraft")){
 			Thaumcraft = true;
 			Logger.INFO("Components enabled for: Thaumcraft");
@@ -340,17 +340,17 @@ public class LoadedMods {
 			KekzTech  = true;
 			Logger.INFO("Components enabled for: KekzTech");
 			totalMods++;
-		}	
+		}
 		if (isModLoaded("witchery")){
 			Witchery  = true;
 			Logger.INFO("Components enabled for: Witchery");
 			totalMods++;
-		}	
+		}
 		if (isModLoaded("RIO")){
 			RemoteIO  = true;
 			Logger.INFO("Components enabled for: RemoteIO");
 			totalMods++;
-		}		
+		}
 
 		Logger.INFO("Content found for "+totalMods+" mods");
 
@@ -360,7 +360,7 @@ public class LoadedMods {
 		final String ver = cpw.mods.fml.common.FMLCommonHandler.instance().findContainerFor(modName).getVersion();
 		return ver;
 	}
-	
+
 	private static final HashMap<String, Boolean> mLoadedModCache = new HashMap<String, Boolean>();
 
 	public static boolean isModLoaded(String aModName) {
