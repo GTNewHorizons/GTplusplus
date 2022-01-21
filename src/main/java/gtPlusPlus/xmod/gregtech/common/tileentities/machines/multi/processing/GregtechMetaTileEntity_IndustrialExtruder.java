@@ -1,20 +1,20 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+
 import java.util.ArrayList;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
+
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
@@ -22,10 +22,6 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialExtruder> {
 
@@ -55,69 +51,63 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Material Extruder")
-				.addInfo("250% faster than using single block machines of the same voltage")
-				.addInfo("Processes four items per voltage tier")
-				.addInfo("Extrusion Shape for recipe goes in the Input Bus")
-				.addInfo("Each Input Bus can have a different shape!")
-				.addInfo("You can use several input buses per multiblock")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 5, true)
-				.addController("Front Center")
-				.addCasingInfo("Inconel Reinforced Casings", 28)
-				.addInputBus("Any Casing", 1)
-				.addOutputBus("Any Casing", 1)
-				.addEnergyHatch("Any Casing", 1)
-				.addMaintenanceHatch("Any Casing", 1)
-				.addMufflerHatch("Back Center", 2)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Material Extruder")
+		.addInfo("250% faster than using single block machines of the same voltage")
+		.addInfo("Processes four items per voltage tier")
+		.addInfo("Extrusion Shape for recipe goes in the Input Bus")
+		.addInfo("Each Input Bus can have a different shape!")
+		.addInfo("You can use several input buses per multiblock")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 5, true)
+		.addController("Front Center")
+		.addCasingInfo("Inconel Reinforced Casings", 28)
+		.addInputBus("Any Casing", 1)
+		.addOutputBus("Any Casing", 1)
+		.addEnergyHatch("Any Casing", 1)
+		.addMaintenanceHatch("Any Casing", 1)
+		.addMufflerHatch("Back Center", 2)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_IndustrialExtruder> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialExtruder>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC", "CCC", "CCC"},
-							{"C~C", "C-C", "C-C", "C-C", "CMC"},
-							{"CCC", "CCC", "CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialExtruder>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC", "CCC", "CCC"},
+						{"C~C", "C-C", "C-C", "C-C", "CCC"},
+						{"CCC", "CCC", "CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_IndustrialExtruder::addIndustrialExtruderList, getCasingTextureIndex(), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													getCasingBlock(), getCasingMeta()
+													)
 											)
 									)
 							)
-					)
-					.addElement(
-							'M',
-							ofHatchAdder(
-									GregtechMetaTileEntity_IndustrialExtruder::addIndustrialExtruderMufflerList, getCasingTextureIndex(), 2
-							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 28 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 28 && checkHatch();
 	}
 
 	public final boolean addIndustrialExtruderList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -135,19 +125,6 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			}
-		}
-		return false;
-	}
-
-	public final boolean addIndustrialExtruderMufflerList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-		if (aTileEntity == null) {
-			return false;
-		} else {
-			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
-				((GT_MetaTileEntity_Hatch) aMetaTileEntity).updateTexture(aBaseCasingIndex);
-				return this.mMufflerHatches.add((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity);
 			}
 		}
 		return false;
@@ -183,7 +160,7 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 
 	@Override
 	public boolean checkRecipe(final ItemStack aStack) {
-		for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
+		for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
 			ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
 			tBus.mRecipeMap = getRecipeMap();
 			if (isValidMetaTileEntity(tBus)) {
@@ -191,25 +168,25 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 					if (tBus.getBaseMetaTileEntity().getStackInSlot(i) != null)
 						tBusItems.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
 				}
-			}			
+			}
 			ItemStack[] inputs = new ItemStack[tBusItems.size()];
 			int slot = 0;
 			for (ItemStack g : tBusItems) {
 				inputs[slot++] = g;
-			}			
-			if (inputs.length > 0) {				
+			}
+			if (inputs.length > 0) {
 				int para = (4* GT_Utility.getTier(this.getMaxInputVoltage()));
-				log("Recipe. ["+inputs.length+"]["+para+"]");				
+				log("Recipe. ["+inputs.length+"]["+para+"]");
 				if (checkRecipeGeneric(inputs, new FluidStack[]{}, para, 100, 250, 10000)) {
 					log("Recipe 2.");
 					return true;
 				}
-			}			
+			}
 
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int getMaxParallelRecipes() {
 		return (4 * GT_Utility.getTier(this.getMaxInputVoltage()));
