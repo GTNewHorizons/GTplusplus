@@ -92,6 +92,7 @@ public class RECIPES_GREGTECH {
 		chemplantRecipes();
 		packagerRecipes();
 		implosionRecipes();
+		alloySmelterRecipes();
 
 
 		/**
@@ -108,7 +109,17 @@ public class RECIPES_GREGTECH {
 		addFuels();
 	}
 
+	private static void alloySmelterRecipes() {
+		
+		//Wood's Glass Laser Lens
+		GT_Values.RA.addAlloySmelterRecipe(
+				MISC_MATERIALS.WOODS_GLASS.getDust(5),
+				ItemList.Shape_Mold_Ball.get(0),
+				GregtechItemList.Laser_Lens_WoodsGlass.get(1),
+				20 * 300, 
+				MaterialUtils.getVoltageForTier(3));
 
+	}
 
 	private static void packagerRecipes() {
 
@@ -1136,29 +1147,6 @@ public class RECIPES_GREGTECH {
 				20 * 120,
 				480*4);
 
-
-		//Wood's Glass Laser Lens
-		CORE.RA.addBlastSmelterRecipe(
-				new ItemStack[] { 
-						ItemUtils.getGregtechCircuit(5),
-						ItemList.Shape_Mold_Ball.get(0),
-						ELEMENT.getInstance().BARIUM.getDust(1),
-						ELEMENT.getInstance().SODIUM.getDust(1),
-						ELEMENT.getInstance().SILICON.getDust(2),
-						ELEMENT.getInstance().NICKEL.getDust(1),
-						ItemUtils.getItemStackOfAmountFromOreDict("dustGlass", 5)
-				},
-				FluidUtils.getUUM(1000),
-				null,
-				new ItemStack[] { 
-						GregtechItemList.Laser_Lens_WoodsGlass.get(1)
-				},
-				new int[] {10000},
-				20 * 300,
-				(int) GT_Values.V[3]);
-
-
-
 	}
 
 	private static void fluidcannerRecipes() {
@@ -1694,15 +1682,17 @@ public class RECIPES_GREGTECH {
 				10 * 20, 
 				60);
 
-		final FluidStack[] sulfurdioxideOutput = { 
-				FluidUtils.getFluidStack("oxygen", 2000) 
-		};
-		GT_Values.RA.addDistillationTowerRecipe(
-				FluidUtils.getFluidStack("sulfurdioxide", 144 * 3),
-				sulfurdioxideOutput,
-				ItemUtils.getItemStackOfAmountFromOreDict("dustSulfur", 1),
-				5 * 20, 
-				30);
+		if (!GTNH) {
+			final FluidStack[] sulfurdioxideOutput = {
+					FluidUtils.getFluidStack("oxygen", 2000)
+			};
+			GT_Values.RA.addDistillationTowerRecipe(
+					FluidUtils.getFluidStack("sulfurdioxide", 144 * 3),
+					sulfurdioxideOutput,
+					ItemUtils.getItemStackOfAmountFromOreDict("dustSulfur", 1),
+					5 * 20,
+					30);
+		}
 	}
 
 	private static void addFuels() {

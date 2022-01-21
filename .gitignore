@@ -26,6 +26,6 @@ whitelist.json
 *.ipr
 *.iws
 src/main/resources/mixins.*.json
-asm
+*.batasm
 /screenshots
 /world
