@@ -9,22 +9,26 @@ import ic2.api.crops.ICropTile;
 import net.minecraft.item.ItemStack;
 
 public class Crop_Hemp extends BaseAestheticCrop {
-	
+
+	@Override
 	public int tier() {
 		return 2;
 	}
 
+	@Override
 	public String name() {
 		return "Hemp";
 	}
 
+	@Override
 	public String discoveredBy() {
 		return "Alkalus";
 	}
 
+	@Override
 	public int growthDuration(ICropTile crop) {
 		int ret = 550;
-		
+
 		/*if (crop.isBlockBelow(Blocks.dirt) || crop.isBlockBelow(Blocks.flowing_water)) {
 			ret = 225;
 		}*/
@@ -36,12 +40,14 @@ public class Crop_Hemp extends BaseAestheticCrop {
 		return ret;
 	}
 
+	@Override
 	public String[] attributes() {
 		return new String[]{"Green", "Soil", "Orange"};
 	}
 
+	@Override
 	public ItemStack getGain(ICropTile crop) {
-		
+
 		ItemStack ret = this.getDisplayItem();
 		if (MathUtils.randInt(0, 10) > 8) {
 			ret = ItemUtils.getSimpleStack(ModItems.itemRope, MathUtils.randInt(1, 3));
@@ -50,6 +56,7 @@ public class Crop_Hemp extends BaseAestheticCrop {
 		return ret;
 	}
 
+	@Override
 	public ItemStack getDisplayItem() {
 		return ItemUtils.getSimpleStack(ModItems.itemRope, 0);
 	}

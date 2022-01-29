@@ -1,51 +1,43 @@
 package gtPlusPlus.core.proxy;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.client.registry.*;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.*;
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
-import gtPlusPlus.australia.entity.model.ModelBoar;
-import gtPlusPlus.australia.entity.model.ModelDingo;
-import gtPlusPlus.australia.entity.model.ModelOctopus;
+import gtPlusPlus.australia.entity.model.*;
 import gtPlusPlus.australia.entity.render.*;
 import gtPlusPlus.australia.entity.type.*;
+import gtPlusPlus.core.client.keys.AutoWalkKeyBind;
 import gtPlusPlus.core.client.model.ModelGiantChicken;
 import gtPlusPlus.core.client.renderer.*;
 import gtPlusPlus.core.common.CommonProxy;
 import gtPlusPlus.core.common.compat.COMPAT_PlayerAPI;
-import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
-import gtPlusPlus.core.entity.EntityTeslaTowerLightning;
+import gtPlusPlus.core.entity.*;
 import gtPlusPlus.core.entity.monster.*;
 import gtPlusPlus.core.entity.projectile.*;
 import gtPlusPlus.core.handler.render.FirepitRender;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.lib.LoadedMods;
-import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
-import gtPlusPlus.core.tileentities.general.TileEntityFirepit;
+import gtPlusPlus.core.tileentities.general.*;
+import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.particles.EntityParticleFXMysterious;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
-import gtPlusPlus.xmod.gregtech.common.render.GTPP_CapeRenderer;
-import gtPlusPlus.xmod.gregtech.common.render.GTPP_FlaskRenderer;
-import gtPlusPlus.xmod.gregtech.common.render.GTPP_Render_MachineBlock;
+import gtPlusPlus.xmod.gregtech.common.render.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.entity.RenderFireball;
-import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.*;
 
 public class ClientProxy extends CommonProxy implements Runnable{
 
@@ -54,7 +46,7 @@ public class ClientProxy extends CommonProxy implements Runnable{
 	public static boolean mFancyGraphics = false;
 
 	public ClientProxy(){
-		mCapeRenderer = new GTPP_CapeRenderer();
+		this.mCapeRenderer = new GTPP_CapeRenderer();
 		//Get Graphics Mode.
 		mFancyGraphics = Minecraft.isFancyGraphicsEnabled();
 	}
@@ -62,7 +54,7 @@ public class ClientProxy extends CommonProxy implements Runnable{
 	@SubscribeEvent
 	public void receiveRenderSpecialsEvent(net.minecraftforge.client.event.RenderPlayerEvent.Specials.Pre aEvent) {
 		if (ConfigSwitches.enableCustomCapes){
-			mCapeRenderer.receiveRenderSpecialsEvent(aEvent);
+			this.mCapeRenderer.receiveRenderSpecialsEvent(aEvent);
 		}
 	}
 
@@ -73,7 +65,7 @@ public class ClientProxy extends CommonProxy implements Runnable{
 	public void preInit(final FMLPreInitializationEvent e) {
 		super.preInit(e);
 		if (ConfigSwitches.enableCustomCapes){
-			onPreLoad();			
+			onPreLoad();
 		}
 		//Do this weird things for textures.
 		GTplusplus.loadTextures();
@@ -94,12 +86,13 @@ public class ClientProxy extends CommonProxy implements Runnable{
 		 */
 		new CustomOreBlockRenderer();
 		new CustomItemBlockRenderer();
-		new GTPP_Render_MachineBlock();	
+		new GTPP_Render_MachineBlock();
 
 		if (Meta_GT_Proxy.sDoesVolumetricFlaskExist) {
-	        new GTPP_FlaskRenderer();
+			new GTPP_FlaskRenderer();
 		}
-		
+		Utils.registerEvent(new AutoWalkKeyBind());
+
 		super.init(e);
 	}
 
@@ -160,9 +153,9 @@ public class ClientProxy extends CommonProxy implements Runnable{
 
 		/**
 		 * Items
-		 */		
-		for (Pair<Item, IItemRenderer> sItemRenderMappings : mItemRenderMappings) {
-			MinecraftForgeClient.registerItemRenderer(sItemRenderMappings.getKey(), sItemRenderMappings.getValue());			
+		 */
+		for (Pair<Item, IItemRenderer> sItemRenderMappings : this.mItemRenderMappings) {
+			MinecraftForgeClient.registerItemRenderer(sItemRenderMappings.getKey(), sItemRenderMappings.getValue());
 		}
 
 	}
@@ -262,10 +255,10 @@ public class ClientProxy extends CommonProxy implements Runnable{
 	public World getClientWorld() {
 		return FMLClientHandler.instance().getClient().theWorld;
 	}
-	
+
 	@Override
 	public EntityPlayer getPlayerEntity(MessageContext ctx) {
-	 return (ctx.side.isClient() ? Minecraft.getMinecraft().thePlayer : super.getPlayerEntity(ctx));
+		return (ctx.side.isClient() ? Minecraft.getMinecraft().thePlayer : super.getPlayerEntity(ctx));
 	}
 
 }
