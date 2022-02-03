@@ -6,7 +6,8 @@ import java.util.*;
 import com.mojang.authlib.GameProfile;
 
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.minecraft.AABB;
+import gtPlusPlus.api.objects.minecraft.*;
+import gtPlusPlus.core.entity.ai.EntityAITryMoveToTargetBlockpos;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.*;
@@ -16,9 +17,9 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
-import net.minecraft.pathfinding.PathEntity;
+import net.minecraft.nbt.*;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.*;
 import net.minecraftforge.common.util.FakePlayer;
 
@@ -45,6 +46,7 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 
 	@Override
 	public void updateEntity() {
+		updateMeta();
 		tick(this);
 	}
 
@@ -56,85 +58,6 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 		}
 		if (this.mFoodHolder != null) {
 			this.mFoodHolder.setPosition(this.xCoord, this.yCoord, this.zCoord);
-			List<EntityAnimal> animals = getAnimalsInRange(aAnimal);
-			for (EntityAnimal creature : animals) {
-				for (ItemStack aStack : this.mInventory) {
-					if (ItemUtils.checkForInvalidItems(aStack)) {
-						if (creature.isBreedingItem(aStack)) {
-							this.mFoodHolder.setCurrentItemOrArmor(0, aStack);
-
-							Logger.INFO("Set target");
-							creature.setTarget(this.mFoodHolder);
-
-							if (!creature.isChild() && !creature.isInLove()) {
-								PathEntity aNewPath = this.worldObj.getPathEntityToEntity(creature, this.mFoodHolder, 32, true, true, true, true);
-								if (aNewPath != null) {
-									Logger.INFO("Created path for "+creature.getCommandSenderName());
-									creature.setPathToEntity(aNewPath);
-									ReflectionUtils.setField(creature, aPath, aNewPath);
-									//ReflectionUtils.invokeNonBool(creature, aFindPlayer, new Object[] {});
-									Vec3 vec3 = aNewPath.getPosition(creature);
-									double d0 = creature.width * 2.0F;
-									while (vec3 != null	&& vec3.squareDistanceTo(creature.posX, vec3.yCoord, creature.posZ) < d0 * d0) {
-										aNewPath.incrementPathIndex();
-										if (aNewPath.isFinished()) {
-											vec3 = null;
-											aNewPath = null;
-										} else {
-											vec3 = aNewPath.getPosition(creature);
-										}
-									}
-									int i = MathHelper.floor_double(creature.boundingBox.minY + 0.5D);
-									creature.rotationPitch = 0.0F;
-									if (vec3 != null) {
-										double d1 = vec3.xCoord - creature.posX;
-										double d2 = vec3.zCoord - creature.posZ;
-										double d3 = vec3.yCoord - i;
-										float f1 = (float) (Math.atan2(d2, d1) * 180.0D / Math.PI) - 90.0F;
-										float f2 = MathHelper.wrapAngleTo180_float(f1 - creature.rotationYaw);
-										creature.moveForward = (float) creature
-												.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-												.getAttributeValue();
-
-										if (f2 > 30.0F) {
-											f2 = 30.0F;
-										}
-
-										if (f2 < -30.0F) {
-											f2 = -30.0F;
-										}
-
-										creature.rotationYaw += f2;
-
-										if (true) {
-											double d4 = this.mFoodHolder.posX - creature.posX;
-											double d5 = this.mFoodHolder.posZ - creature.posZ;
-											float f3 = creature.rotationYaw;
-											creature.rotationYaw = (float) (Math.atan2(d5, d4) * 180.0D / Math.PI)
-													- 90.0F;
-											f2 = (f3 - creature.rotationYaw + 90.0F) * (float) Math.PI / 180.0F;
-											creature.moveStrafing = -MathHelper.sin(f2) * creature.moveForward * 1.0F;
-											creature.moveForward = MathHelper.cos(f2) * creature.moveForward * 1.0F;
-										}
-
-										if (d3 > 0.0D) {
-											creature.setJumping(true);
-										}
-									}
-									if (this.mFoodHolder != null) {
-										creature.faceEntity(this.mFoodHolder, 30.0F, 30.0F);
-									}
-								}
-								else {
-									Logger.INFO("Failed to create path for "+creature.getCommandSenderName());
-								}
-							}
-						}
-					}
-				}
-			}
-			Logger.INFO("Bloop");
-			this.mFoodHolder.setCurrentItemOrArmor(0, null);
 			return this.mFoodHolder;
 		}
 		return null;
@@ -142,6 +65,31 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 
 	public World getWorld() {
 		return this.worldObj;
+	}
+
+	public void updateMeta() {
+		if (this.isEmpty()) {
+			this.worldObj.setBlockMetadataWithNotify(this.xCoord, this.yCoord, this.zCoord, 0, 2);
+		}
+		else {
+			this.worldObj.setBlockMetadataWithNotify(this.xCoord, this.yCoord, this.zCoord, 1, 2);
+		}
+	}
+
+	public static List<EntityAnimal> getAnimalsInRange(TileEntityFeedingTrough aTile){
+		ArrayList<EntityAnimal> aReturn = new ArrayList<EntityAnimal>();
+		if (aTile == null) {
+			Logger.INFO("Bad TileEntity");
+			return aReturn;
+		}
+		List<EntityAnimal> animals = aTile.worldObj.getEntitiesWithinAABB(EntityAnimal.class, new AABB(aTile, MAX_RANGE, MAX_RANGE, MAX_RANGE).get());
+		for (EntityAnimal animal : animals) {
+			if (!EntityPlayer.class.isInstance(animal)) {
+				aReturn.add(animal);
+				setFeedTask(animal);
+			}
+		}
+		return animals;
 	}
 
 	public static List<EntityAnimal> getAnimalsInRange(Entity aEntity){
@@ -154,13 +102,16 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 		for (EntityAnimal animal : animals) {
 			if (!EntityPlayer.class.isInstance(animal)) {
 				aReturn.add(animal);
+				setFeedTask(animal);
 			}
 		}
 		return animals;
 	}
 
-	public static List<EntityAnimal> getAnimalsInRange(TileEntityFeedingTrough aTile){
-		return getAnimalsInRange(aTile.mFoodHolder);
+	public static void setFeedTask(EntityCreature aEntity) {
+		if (!EntityAITryMoveToTargetBlockpos.hasTask(aEntity)) {
+			aEntity.tasks.addTask(1, new EntityAITryMoveToTargetBlockpos(aEntity, 1.25f, 32));
+		}
 	}
 
 	public static void tick(TileEntityFeedingTrough be) {
@@ -171,14 +122,15 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 			else {
 				be.mCooldown = MAX_COOLDOWN; // minimize aabb calls
 				if (be.mFoodHolder == null) {
-					be.getFoodHolder(null);
+					be.mFoodHolder = be.getFoodHolder(null);
 				}
 				Logger.INFO("Bleep");
-				List<EntityAnimal> animals = getAnimalsInRange(be.mFoodHolder);
-				Logger.INFO("Bleep 1");
+				List<EntityAnimal> animals = getAnimalsInRange(be);
+				Logger.INFO("Bleep 1 | "+animals.size());
 
 				for (EntityAnimal creature : animals) {
 					Logger.INFO("Bleep 2");
+					EntityAITryMoveToTargetBlockpos.setTaskLocation(creature, new BlockPos(be).getUp());
 					EntityPlayer aPlayer = be.getFoodHolder(creature);
 					if (aPlayer != null && canFallInLove(creature) && creature.getAge() == 0) {
 						for (int i = 0; i < be.getSizeInventory(); i++) {
@@ -202,7 +154,7 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 								aPlayer.setCurrentItemOrArmor(0, null);
 								be.markDirty();
 								//creature.playSound("random.eat", 0.5F + 0.5F * be.getWorld().rand.nextInt(2), (be.getWorld().rand.nextFloat() - be.getWorld().rand.nextFloat()) * 0.2F + 1.0F);
-								return;
+								break;
 							}
 						}
 					}
@@ -254,6 +206,36 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 	@Override
 	public void markDirty() {
 		super.markDirty();
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound aNBT) {
+		super.readFromNBT(aNBT);
+		final NBTTagList list = aNBT.getTagList("Items", 10);
+		this.mInventory = new ItemStack[getSizeInventory()];
+		for(int i = 0;i<list.tagCount();i++){
+			final NBTTagCompound data = list.getCompoundTagAt(i);
+			final int slot = data.getInteger("Slot");
+			if((slot >= 0) && (slot < getSizeInventory())){
+				this.mInventory[slot] = ItemStack.loadItemStackFromNBT(data);
+			}
+		}
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound aNBT) {
+		super.writeToNBT(aNBT);
+		final NBTTagList list = new NBTTagList();
+		for(int i = 0;i<getSizeInventory();i++){
+			final ItemStack stack = this.mInventory[i];
+			if(stack != null){
+				final NBTTagCompound data = new NBTTagCompound();
+				stack.writeToNBT(data);
+				data.setInteger("Slot", i);
+				list.appendTag(data);
+			}
+		}
+		aNBT.setTag("Items", list);
 	}
 
 	private Random getSpecialRand() {

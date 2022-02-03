@@ -21,7 +21,9 @@ import net.minecraft.world.*;
 public class Machine_FeedingTrough extends BlockContainer implements ITileTooltip {
 
 	@SideOnly(Side.CLIENT)
-	private IIcon textureTop;
+	private IIcon textureTopEmpty;
+	@SideOnly(Side.CLIENT)
+	private IIcon textureTopFull;
 	@SideOnly(Side.CLIENT)
 	private IIcon textureBottom;
 	@SideOnly(Side.CLIENT)
@@ -44,19 +46,20 @@ public class Machine_FeedingTrough extends BlockContainer implements ITileToolti
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(final int p_149691_1_, final int p_149691_2_) {
-		return p_149691_1_ == 1 ? this.textureTop
-				: (p_149691_1_ == 0 ? this.textureBottom
-						: ((p_149691_1_ != 2) && (p_149691_1_ != 4) ? this.blockIcon : this.textureFront));
+	public IIcon getIcon(final int aSide, final int aMeta) {
+		return aSide == 1 ? (aMeta == 0 ? this.textureTopEmpty : this.textureTopFull)
+				: (aSide == 0 ? this.textureBottom
+						: ((aSide != 2) && (aSide != 4) ? this.blockIcon : this.textureFront));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(final IIconRegister p_149651_1_) {
-		this.blockIcon = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "bronze_side_cabinet");
-		this.textureTop = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "bronze_top_crafting");
-		this.textureBottom = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "bronze_side");
-		this.textureFront = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "bronze_side_cabinet");
+		this.blockIcon = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "FeedBox_Side");
+		this.textureTopEmpty = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "FeedBox_Empty");
+		this.textureTopFull = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "FeedBox_Full");
+		this.textureBottom = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "FeedBox_Side");
+		this.textureFront = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "FeedBox_Side");
 	}
 
 	/**

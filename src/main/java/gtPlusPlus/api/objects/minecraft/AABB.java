@@ -32,9 +32,9 @@ public class AABB {
 			this.mWorld = aEntity.worldObj;
 			BlockPos aEntityLocation = EntityUtils.findBlockPosUnderEntity(aEntity);
 			int xMin, xMax, yMin, yMax, zMin, zMax;
-			xMin = aEntityLocation.xPos;
-			yMin = aEntityLocation.yPos;
-			zMin = aEntityLocation.zPos;
+			xMin = aEntityLocation.xPos - x;
+			yMin = aEntityLocation.yPos - y;
+			zMin = aEntityLocation.zPos - z;
 			xMax = aEntityLocation.xPos + x;
 			yMax = aEntityLocation.yPos + y;
 			zMax = aEntityLocation.zPos + z;
@@ -52,9 +52,9 @@ public class AABB {
 			this.mWorld = aTile.getWorldObj();
 			BlockPos aEntityLocation = new BlockPos(aTile);
 			int xMin, xMax, yMin, yMax, zMin, zMax;
-			xMin = aEntityLocation.xPos;
-			yMin = aEntityLocation.yPos;
-			zMin = aEntityLocation.zPos;
+			xMin = aEntityLocation.xPos - x;
+			yMin = aEntityLocation.yPos - y;
+			zMin = aEntityLocation.zPos - z;
 			xMax = aEntityLocation.xPos + x;
 			yMax = aEntityLocation.yPos + y;
 			zMax = aEntityLocation.zPos + z;

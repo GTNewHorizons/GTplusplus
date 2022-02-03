@@ -1,15 +1,14 @@
 package gtPlusPlus.api.objects.minecraft;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gtPlusPlus.api.objects.data.AutoMap;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
-import gtPlusPlus.api.objects.data.AutoMap;
 import net.minecraftforge.common.DimensionManager;
 
 public class BlockPos implements Serializable{
@@ -20,12 +19,12 @@ public class BlockPos implements Serializable{
 	public final int zPos;
 	public final int dim;
 	public final transient World world;
-	
+
 	public static BlockPos generateBlockPos(String sUUID) {
 		String[] s2 = sUUID.split("@");
 		return new BlockPos(s2);
 	}
-	
+
 	public BlockPos(String[] s){
 		this(Integer.parseInt(s[1]), Integer.parseInt(s[2]), Integer.parseInt(s[3]), Integer.parseInt(s[0]));
 	}
@@ -42,22 +41,22 @@ public class BlockPos implements Serializable{
 		this.xPos = x;
 		this.yPos = y;
 		this.zPos = z;
-		
+
 		if (dim != null) {
 			this.dim = dim.provider.dimensionId;
-			this.world = dim;			
+			this.world = dim;
 		}
 		else {
 			this.dim = 0;
-			this.world = null;			
+			this.world = null;
 		}
-		
+
 	}
-	
+
 	public BlockPos(IGregTechTileEntity b) {
 		this (b.getXCoord(), b.getYCoord(), b.getZCoord(), b.getWorld());
 	}
-	
+
 	public BlockPos(TileEntity b) {
 		this (b.xCoord, b.yCoord, b.zCoord, b.getWorldObj());
 	}
@@ -65,11 +64,11 @@ public class BlockPos implements Serializable{
 	public String getLocationString() {
 		return "[X: "+this.xPos+"][Y: "+this.yPos+"][Z: "+this.zPos+"][Dim: "+this.dim+"]";
 	}
-	
+
 	public String getUniqueIdentifier() {
 		String S = ""+this.dim+"@"+this.xPos+"@"+this.yPos+"@"+this.zPos;
 		return S;
-	}	
+	}
 
 	@Override
 	public  int hashCode() {
@@ -99,7 +98,7 @@ public class BlockPos implements Serializable{
 	public int distanceFrom(BlockPos target) {
 		if (target.dim != this.dim) {
 			return Short.MIN_VALUE;
-		}    	
+		}
 		return distanceFrom(target.xPos, target.yPos, target.zPos);
 	}
 
@@ -117,10 +116,10 @@ public class BlockPos implements Serializable{
 		return distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ;
 	}
 
-	public boolean isWithinRange(BlockPos target, int range) {    	
+	public boolean isWithinRange(BlockPos target, int range) {
 		if (target.dim != this.dim) {
 			return false;
-		}    	
+		}
 		return isWithinRange(target.xPos, target.yPos, target.zPos, range);
 	}
 
@@ -128,23 +127,23 @@ public class BlockPos implements Serializable{
 		return distanceFrom(x, y, z) <= (range * range);
 	}
 
-	
+
 	public BlockPos getUp() {
 		return new BlockPos(this.xPos, this.yPos+1, this.zPos, this.dim);
 	}
-	
+
 	public BlockPos getDown() {
 		return new BlockPos(this.xPos, this.yPos-1, this.zPos, this.dim);
-	}	
+	}
 
 	public BlockPos getXPos() {
 		return new BlockPos(this.xPos+1, this.yPos, this.zPos, this.dim);
 	}
-	
+
 	public BlockPos getXNeg() {
 		return new BlockPos(this.xPos-1, this.yPos, this.zPos, this.dim);
 	}
-	
+
 	public BlockPos getZPos() {
 		return new BlockPos(this.xPos, this.yPos, this.zPos+1, this.dim);
 	}
@@ -152,7 +151,7 @@ public class BlockPos implements Serializable{
 	public BlockPos getZNeg() {
 		return new BlockPos(this.xPos, this.yPos, this.zPos-1, this.dim);
 	}
-	
+
 	public AutoMap<BlockPos> getSurroundingBlocks(){
 		AutoMap<BlockPos> sides = new AutoMap<BlockPos>();
 		sides.put(getUp());
@@ -160,43 +159,43 @@ public class BlockPos implements Serializable{
 		sides.put(getXPos());
 		sides.put(getXNeg());
 		sides.put(getZPos());
-		sides.put(getZNeg());		
+		sides.put(getZNeg());
 		return sides;
 	}
-	
+
 	public Block getBlockAtPos() {
 		return getBlockAtPos(this);
 	}
-	
+
 	public Block getBlockAtPos(BlockPos pos) {
-		return getBlockAtPos(world, pos);
+		return getBlockAtPos(this.world, pos);
 	}
-	
+
 	public Block getBlockAtPos(World world, BlockPos pos) {
 		return world.getBlock(pos.xPos, pos.yPos, pos.zPos);
 	}
-	
+
 	public int getMetaAtPos() {
 		return getMetaAtPos(this);
 	}
-	
+
 	public int getMetaAtPos(BlockPos pos) {
-		return getMetaAtPos(world, pos);
+		return getMetaAtPos(this.world, pos);
 	}
-	
+
 	public int getMetaAtPos(World world, BlockPos pos) {
 		return world.getBlockMetadata(pos.xPos, pos.yPos, pos.zPos);
 	}
-	
+
 	public boolean hasSimilarNeighbour() {
 		return hasSimilarNeighbour(false);
-	}	
-	
+	}
+
 	/**
 	 * @param strict - Does this check Meta Data?
 	 * @return - Does this block have a neighbour that is the same?
 	 */
-	public boolean hasSimilarNeighbour(boolean strict) {		
+	public boolean hasSimilarNeighbour(boolean strict) {
 		for (BlockPos g : getSurroundingBlocks().values()) {
 			if (getBlockAtPos(g) == getBlockAtPos()) {
 				if (!strict) {
@@ -208,20 +207,20 @@ public class BlockPos implements Serializable{
 					}
 				}
 			}
-		}		
+		}
 		return false;
 	}
-	
+
 	public AutoMap<BlockPos> getSimilarNeighbour() {
 		return getSimilarNeighbour(false);
-	}	
-	
+	}
+
 	/**
 	 * @param strict - Does this check Meta Data?
 	 * @return - Does this block have a neighbour that is the same?
 	 */
 	public AutoMap<BlockPos> getSimilarNeighbour(boolean strict) {
-		AutoMap<BlockPos> sides = new AutoMap<BlockPos>();		
+		AutoMap<BlockPos> sides = new AutoMap<BlockPos>();
 		for (BlockPos g : getSurroundingBlocks().values()) {
 			if (getBlockAtPos(g) == getBlockAtPos()) {
 				if (!strict) {
@@ -233,18 +232,25 @@ public class BlockPos implements Serializable{
 					}
 				}
 			}
-		}		
+		}
 		return sides;
 	}
-	
+
 	public Set<BlockPos> getValidNeighboursAndSelf(){
 		AutoMap<BlockPos> h = getSimilarNeighbour(true);
-		h.put(this);		
+		h.put(this);
 		Set<BlockPos> result = new HashSet<BlockPos>();
 		for (BlockPos f : h.values()) {
 			result.add(f);
-		}		
+		}
 		return result;
 	}
-	
+
+	public double getDistanceSqToEntity(Entity mThisEntity) {
+		double d0 = this.xPos - mThisEntity.posX;
+		double d1 = this.yPos - mThisEntity.posY;
+		double d2 = this.zPos - mThisEntity.posZ;
+		return d0 * d0 + d1 * d1 + d2 * d2;
+	}
+
 }
