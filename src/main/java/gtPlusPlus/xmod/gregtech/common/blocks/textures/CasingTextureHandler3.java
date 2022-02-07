@@ -1,7 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 
-import net.minecraft.util.IIcon;
 import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks3;
+import net.minecraft.util.IIcon;
 
 public class CasingTextureHandler3 {
 
@@ -45,11 +45,11 @@ public class CasingTextureHandler3 {
 				//Adv. EBF
 				return TexturesGtBlock.TEXTURE_CASING_ADVANCED_VOLCNUS.getIcon();
 			case 12:
-				return TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_II.getIcon();
+				return TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_III.getIcon();
 			case 13:
-				return TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_II_INNER.getIcon();
+				return TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_III_INNER.getIcon();
 			case 14:
-				return TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_ULTRA.getIcon();
+				return TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_HYPER.getIcon();
 			case 15:
 				return TexturesGtBlock.TEXTURE_MAGIC_PANEL_A.getIcon();
 
