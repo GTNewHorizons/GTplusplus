@@ -1,10 +1,12 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.advanced;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
+
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import com.gtnewhorizon.structurelib.structure.*;
+
+import cpw.mods.fml.relauncher.*;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
@@ -13,26 +15,18 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import gtPlusPlus.core.util.minecraft.*;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
 public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_DistillationTower> {
 
@@ -48,47 +42,48 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		super(aName);
 	}
 
+	@Override
 	public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
 		return new GregtechMetaTileEntity_Adv_DistillationTower(this.mName);
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_Adv_DistillationTower> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_DistillationTower>builder()
-					.addShape(mName + "bottom", transpose(new String[][]{
-							{"I~I", "III", "III"}
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_DistillationTower>builder()
+					.addShape(this.mName + "bottom", transpose(new String[][]{
+						{"I~I", "III", "III"}
 					}))
-					.addShape(mName + "mid", transpose(new String[][]{
-							{"CCC", "C-C", "CCC"}
+					.addShape(this.mName + "mid", transpose(new String[][]{
+						{"CCC", "C-C", "CCC"}
 					}))
-					.addShape(mName + "top", transpose(new String[][]{
-							{"MMM", "MMM", "MMM"}
+					.addShape(this.mName + "top", transpose(new String[][]{
+						{"MMM", "MMM", "MMM"}
 					}))
 					.addElement(
 							'I',
 							ofHatchAdderOptional(
 									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerBottomList, getCasingTextureID(),
 									1, GregTech_API.sBlockCasings4, 1
+									)
 							)
-					)
 					.addElement(
 							'C',
 							ofHatchAdderOptional(
 									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerMidList, getCasingTextureID(),
 									2, GregTech_API.sBlockCasings4, 1
+									)
 							)
-					)
 					.addElement(
 							'M',
 							ofHatchAdderOptional(
 									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerTopList, getCasingTextureID(),
 									3, GregTech_API.sBlockCasings4, 1
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	public final boolean addAdvDistillationTowerBottomList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -141,58 +136,65 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Advanced Distillation Tower")
-				.addInfo("T1 and T2 constructed identical to standard DT")
-				.addInfo("Right click the controller with screwdriver to change mode.")
-				.addInfo("Max parallel dictated by tower tier and mode")
-				.addInfo("DTower Mode: T1=4, T2=12")
-				.addInfo("Distilery Mode: Tower Tier * (4*InputTier)")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.addCasingInfo("Clean Stainless Steel Machine Casing", 7)
-				.addInputBus("Bottom Casing", 1)
-				.addOutputBus("Bottom Casing", 1)
-				.addInputHatch("Bottom Casing", 1)
-				.addMaintenanceHatch("Bottom Casing", 1)
-				.addEnergyHatch("Bottom Casing", 1)
-				.addOutputHatch("One per layer except bottom", 2)
-				.addMufflerHatch("Top Casing", 3)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Advanced Distillation Tower")
+		.addInfo("T1 constructed identical to standard DT")
+		.addInfo("T2 is not variable height - Size(WxHxD): 3x26x3")
+		.addInfo("Right click the controller with screwdriver to change mode.")
+		.addInfo("Max parallel dictated by tower tier and mode")
+		.addInfo("DTower Mode: T1=4, T2=12")
+		.addInfo("Distilery Mode: Tower Tier * (4*InputTier)")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.addCasingInfo("Clean Stainless Steel Machine Casing", 7)
+		.addInputBus("Bottom Casing", 1)
+		.addOutputBus("Bottom Casing", 1)
+		.addInputHatch("Bottom Casing", 1)
+		.addMaintenanceHatch("Bottom Casing", 1)
+		.addEnergyHatch("Bottom Casing", 1)
+		.addOutputHatch("One per layer except bottom", 2)
+		.addMufflerHatch("Top Casing", 3)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		int layer = Math.min(stackSize.stackSize + 2, 12);
-		buildPiece(mName + "bottom", stackSize, hintsOnly, 1, 0, 0);
+		int layer = stackSize.stackSize <= 1 ? 12 : 26;
+		buildPiece(this.mName + "bottom", stackSize, hintsOnly, 1, 0, 0);
 		for (int i = 1; i < layer - 1; i++) {
-			buildPiece(mName + "mid", stackSize, hintsOnly, 1, i, 0);
+			buildPiece(this.mName + "mid", stackSize, hintsOnly, 1, i, 0);
 		}
-		buildPiece(mName + "top", stackSize, hintsOnly, 1, layer - 1, 0);
+		buildPiece(this.mName + "top", stackSize, hintsOnly, 1, layer - 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		if (!checkPiece(mName + "bottom", 1, 0, 0))
+		if (!checkPiece(this.mName + "bottom", 1, 0, 0))
 			return false;
 		int layer = 1;
-		while (checkPiece(mName + "mid", 1, layer, 0)) {
-			if (layer != mOutputHatches.size()) return false;
+		while (checkPiece(this.mName + "mid", 1, layer, 0)) {
+			if (layer != this.mOutputHatches.size()) {
+				return false;
+			}
 			layer ++;
 		}
-		if (layer > 12 || !checkPiece(mName + "top", 1, layer, 0))
+		if (layer > (!this.mUpgraded ? 12 : 26) || !checkPiece(this.mName + "top", 1, layer, 0)) {
 			return false;
-		return layer == mOutputHatches.size() && checkHatch();
+		}
+		return layer == this.mOutputHatches.size() && checkHatch();
 	}
 
+	@Override
 	public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-		return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName()+(mUpgraded ? " T2" : ""), "MultiblockDisplay.png");
+		return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName()+(this.mUpgraded ? " T2" : ""), "MultiblockDisplay.png");
 	}
 
+	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-		return mMode == 0 ? GT_Recipe.GT_Recipe_Map.sDistillationRecipes : GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
+		return this.mMode == 0 ? GT_Recipe.GT_Recipe_Map.sDistillationRecipes : GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
 	}
 
+	@Override
 	public boolean isCorrectMachinePart(ItemStack aStack) {
 		return true;
 	}
@@ -203,10 +205,12 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		return (d, r, f) -> d.offsetY == 0 && r.isNotRotated() && !f.isVerticallyFliped();
 	}
 
+	@Override
 	public int getMaxEfficiency(ItemStack aStack) {
 		return 10000;
 	}
 
+	@Override
 	public int getPollutionPerSecond(ItemStack aStack) {
 		if (this.mMode == 1) return CORE.ConfigSwitches.pollutionPerSecondMultiAdvDistillationTower_ModeDistillery;
 		return CORE.ConfigSwitches.pollutionPerSecondMultiAdvDistillationTower_ModeDT;
@@ -214,19 +218,19 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
-		aNBT.setByte("mMode", mMode);
+		aNBT.setByte("mMode", this.mMode);
 		aNBT.setInteger("mCasingTier", this.mCasingTier);
-		aNBT.setBoolean("mUpgraded", mUpgraded);
+		aNBT.setBoolean("mUpgraded", this.mUpgraded);
 		super.saveNBTData(aNBT);
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
-		mMode = aNBT.getByte("mMode");
-		mCasingTier = aNBT.getInteger("mCasingTier");
-		mUpgraded = aNBT.getBoolean("mUpgraded");
+		this.mMode = aNBT.getByte("mMode");
+		this.mCasingTier = aNBT.getInteger("mCasingTier");
+		this.mUpgraded = aNBT.getBoolean("mUpgraded");
 		super.loadNBTData(aNBT);
-	}	
+	}
 
 	@Override
 	public String getSound() {
@@ -240,20 +244,22 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 
 	@Override
 	public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-		mMode++;		
-		if (mMode > 1){
-			mMode = 0;
+		this.mMode++;
+		if (this.mMode > 1){
+			this.mMode = 0;
 			PlayerUtils.messagePlayer(aPlayer, "Now running in Distillation Tower Mode.");
 		}
 		else {
 			PlayerUtils.messagePlayer(aPlayer, "Now running in Distillery Mode.");
-		}		
+		}
 	}
 
+	@Override
 	public int getDamageToComponent(ItemStack aStack) {
 		return 0;
 	}
 
+	@Override
 	public boolean explodesOnComponentBreak(ItemStack aStack) {
 		return false;
 	}
@@ -266,7 +272,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	public boolean addOutput(FluidStack aLiquid) {
 		if (aLiquid == null) return false;
 		FluidStack tLiquid = aLiquid.copy();
-		for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
+		for (GT_MetaTileEntity_Hatch_Output tHatch : this.mOutputHatches) {
 			if (isValidMetaTileEntity(tHatch) && GT_ModHandler.isSteam(aLiquid) ? tHatch.outputsSteam() : tHatch.outputsLiquids()) {
 				if (tHatch.getBaseMetaTileEntity().getYCoord() == getControllerY() + 1) {
 					int tAmount = tHatch.fill(tLiquid, false);
@@ -284,9 +290,9 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	@Override
 	protected void addFluidOutputs(FluidStack[] mOutputFluids2) {
 		for (int i = 0; i < mOutputFluids2.length; i++) {
-			if (mOutputHatches.size() > i && mOutputHatches.get(i) != null && mOutputFluids2[i] != null && isValidMetaTileEntity(mOutputHatches.get(i))) {
-				if (mOutputHatches.get(i).getBaseMetaTileEntity().getYCoord() == getControllerY() + 1 + i) {
-					mOutputHatches.get(i).fill(mOutputFluids2[i], true);
+			if (this.mOutputHatches.size() > i && this.mOutputHatches.get(i) != null && mOutputFluids2[i] != null && isValidMetaTileEntity(this.mOutputHatches.get(i))) {
+				if (this.mOutputHatches.get(i).getBaseMetaTileEntity().getYCoord() == getControllerY() + 1 + i) {
+					this.mOutputHatches.get(i).fill(mOutputFluids2[i], true);
 				}
 			}
 		}
@@ -314,13 +320,13 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	@Override
-	public boolean checkRecipe(final ItemStack aStack) {		
+	public boolean checkRecipe(final ItemStack aStack) {
 		// Run standard recipe handling for distillery recipes
-		if (mMode == 1) {
+		if (this.mMode == 1) {
 			return this.checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 100);
 		}
 		else {
-			for (GT_MetaTileEntity_Hatch_Input hatch : mInputHatches) {
+			for (GT_MetaTileEntity_Hatch_Input hatch : this.mInputHatches) {
 				FluidStack tFluid = hatch.getFluid();
 				if (tFluid != null) {
 					int para = (4* GT_Utility.getTier(this.getMaxInputVoltage()));
@@ -334,13 +340,13 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	@Override
-	public int getMaxParallelRecipes() {		
+	public int getMaxParallelRecipes() {
 		if (this.mMode == 0) {
-			return getTierOfTower() == 1 ? 4 : getTierOfTower() == 2 ? 12 : 0;			
+			return getTierOfTower() == 1 ? 4 : getTierOfTower() == 2 ? 12 : 0;
 		}
 		else if (this.mMode == 1) {
 			return getTierOfTower() * (4 * GT_Utility.getTier(this.getMaxInputVoltage()));
-		}		
+		}
 		return 0;
 	}
 
@@ -350,13 +356,13 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	private int getTierOfTower() {
-		return mUpgraded ? 2 : 1;
+		return this.mUpgraded ? 2 : 1;
 	}
 
 	private int mCasingTier = 0;
 
 	private int getMachineCasingTier() {
-		return mCasingTier;
+		return this.mCasingTier;
 	}
 
 	@Override
@@ -369,7 +375,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 
 		}
 		// Check the Tier Client Side
-		int aTier = mCasingTier;		
+		int aTier = this.mCasingTier;
 
 		if (aTier == 0) {
 			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(49);
@@ -389,7 +395,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 
 	private int getCasingTextureID() {
 		// Check the Tier Client Side
-		int aTier = mCasingTier;		
+		int aTier = this.mCasingTier;
 
 		if (aTier == 1) {
 			return 49;
@@ -402,9 +408,9 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		}
 	}
 
-	public boolean addToMachineList(IGregTechTileEntity aTileEntity) {		
-		int aMaxTier = getMachineCasingTier();		
-		final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();		
+	public boolean addToMachineList(IGregTechTileEntity aTileEntity) {
+		int aMaxTier = getMachineCasingTier();
+		final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 		if (aMetaTileEntity instanceof GT_MetaTileEntity_TieredMachineBlock) {
 			GT_MetaTileEntity_TieredMachineBlock aMachineBlock = (GT_MetaTileEntity_TieredMachineBlock) aMetaTileEntity;
 			int aTileTier = aMachineBlock.mTier;
@@ -419,13 +425,13 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		else {
 			Logger.INFO("Bad Tile Entity being added to hatch map."); // Shouldn't ever happen, but.. ya know..
 			return false;
-		}		
+		}
 	}
 
 	@Override
 	public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
 		super.onPostTick(aBaseMetaTileEntity, aTick);
-		if (aTick % 20 == 0 && !mUpgraded) {
+		if (aTick % 20 == 0 && !this.mUpgraded) {
 			ItemStack aGuiStack = this.getGUIItemStack();
 			if (aGuiStack != null) {
 				if (GT_Utility.areStacksEqual(aGuiStack, GregtechItemList.Distillus_Upgrade_Chip.get(1))) {
@@ -450,13 +456,13 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		try {
 			Block aInitStructureCheck;
 			int aInitStructureCheckMeta;
-			IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();	
+			IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
 			if (aBaseMetaTileEntity == null || aBaseMetaTileEntity.getWorld() == null || aBaseMetaTileEntity.getWorld().getChunkFromBlockCoords(aBaseMetaTileEntity.getXCoord(), aBaseMetaTileEntity.getZCoord()) == null) {
 				return 0;
 			}
 			for (int i=1;i<10;i++) {
 				aInitStructureCheck = aBaseMetaTileEntity.getBlockOffset(0, i, 0);
-				aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(0, i, 0);	
+				aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(0, i, 0);
 				if (aInitStructureCheck == null) {
 					continue;
 				}
@@ -465,7 +471,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 				}
 				else if (aInitStructureCheck == ModBlocks.blockCasingsTieredGTPP) {
 					return 1;
-				}				
+				}
 			}
 		}
 		catch (Throwable t) {
@@ -477,7 +483,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 
 	@Override
 	public void setItemNBT(NBTTagCompound aNBT) {
-		aNBT.setBoolean("mUpgraded", mUpgraded);
+		aNBT.setBoolean("mUpgraded", this.mUpgraded);
 		super.setItemNBT(aNBT);
 	}
 }
