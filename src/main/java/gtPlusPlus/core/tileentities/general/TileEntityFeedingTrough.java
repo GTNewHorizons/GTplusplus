@@ -1,18 +1,14 @@
 package gtPlusPlus.core.tileentities.general;
 
-import java.lang.reflect.*;
 import java.util.*;
-
-import com.mojang.authlib.GameProfile;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.*;
 import gtPlusPlus.core.entity.ai.EntityAITryMoveToTargetBlockpos;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.*;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import net.minecraft.entity.*;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.particles.ParticleUtils;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -20,22 +16,19 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
-import net.minecraft.world.*;
-import net.minecraftforge.common.util.FakePlayer;
+import net.minecraft.world.World;
 
 public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 
-	private static final GameProfile DUMMY_PROFILE = new GameProfile(UUID.randomUUID(), "[FeedingTrough]");
 	public static final int MAX_COOLDOWN = 100;
 	public static final int MAX_ANIMALS = 32;
 	public static final int MAX_RANGE = 16;
 	public static final double MAX_LOVE_CHANCE = 0.333333333;
-	private static Method aFindPlayer = ReflectionUtils.getMethod(EntityAnimal.class, "findPlayerToAttack");
-	private static Field aPath = ReflectionUtils.getField(EntityAnimal.class, "pathToEntity");
+
+	public BlockPos[] mBlocksAroundCache = new BlockPos[5];
+	private boolean mSetNeighbours = false;
 
 	private ItemStack[] mInventory;
-
-	private FakePlayer mFoodHolder = null;
 
 	private int mCooldown = 0;
 	private long mInternalRNG = 0;
@@ -46,21 +39,19 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 
 	@Override
 	public void updateEntity() {
+		if (!this.mSetNeighbours) {
+			BlockPos aThisBlock = new BlockPos(this);
+			this.mBlocksAroundCache[0] = aThisBlock.getUp();
+			this.mBlocksAroundCache[1] = aThisBlock.getXNeg();
+			this.mBlocksAroundCache[2] = aThisBlock.getXPos();
+			this.mBlocksAroundCache[3] = aThisBlock.getZNeg();
+			this.mBlocksAroundCache[4] = aThisBlock.getZPos();
+			this.mSetNeighbours = true;
+		}
 		updateMeta();
-		tick(this);
-	}
-
-	public FakePlayer getFoodHolder(EntityAnimal aAnimal) {
-		if (this.mFoodHolder == null && Utils.isServer()) {
-			if(this.worldObj instanceof WorldServer) {
-				this.mFoodHolder = new MovableFakePlayer((WorldServer) this.worldObj, DUMMY_PROFILE);
-			}
+		if (this.mSetNeighbours) {
+			tick(this);
 		}
-		if (this.mFoodHolder != null) {
-			this.mFoodHolder.setPosition(this.xCoord, this.yCoord, this.zCoord);
-			return this.mFoodHolder;
-		}
-		return null;
 	}
 
 	public World getWorld() {
@@ -86,31 +77,14 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 		for (EntityAnimal animal : animals) {
 			if (!EntityPlayer.class.isInstance(animal)) {
 				aReturn.add(animal);
-				setFeedTask(animal);
 			}
 		}
 		return animals;
 	}
 
-	public static List<EntityAnimal> getAnimalsInRange(Entity aEntity){
-		ArrayList<EntityAnimal> aReturn = new ArrayList<EntityAnimal>();
-		if (aEntity == null) {
-			Logger.INFO("Bad Entity");
-			return aReturn;
-		}
-		List<EntityAnimal> animals = aEntity.worldObj.getEntitiesWithinAABB(EntityAnimal.class, new AABB(aEntity, MAX_RANGE, MAX_RANGE, MAX_RANGE).get());
-		for (EntityAnimal animal : animals) {
-			if (!EntityPlayer.class.isInstance(animal)) {
-				aReturn.add(animal);
-				setFeedTask(animal);
-			}
-		}
-		return animals;
-	}
-
-	public static void setFeedTask(EntityCreature aEntity) {
+	public static void setFeedTask(EntityCreature aEntity, BlockPos aPos) {
 		if (!EntityAITryMoveToTargetBlockpos.hasTask(aEntity)) {
-			aEntity.tasks.addTask(1, new EntityAITryMoveToTargetBlockpos(aEntity, 1.25f, 32));
+			aEntity.tasks.addTask(1, new EntityAITryMoveToTargetBlockpos(aEntity, 1.25f, 32, aPos));
 		}
 	}
 
@@ -121,29 +95,26 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 			}
 			else {
 				be.mCooldown = MAX_COOLDOWN; // minimize aabb calls
-				if (be.mFoodHolder == null) {
-					be.mFoodHolder = be.getFoodHolder(null);
-				}
-				Logger.INFO("Bleep");
 				List<EntityAnimal> animals = getAnimalsInRange(be);
-				Logger.INFO("Bleep 1 | "+animals.size());
-
-				for (EntityAnimal creature : animals) {
+				animal : for (EntityAnimal creature : animals) {
 					Logger.INFO("Bleep 2");
-					EntityAITryMoveToTargetBlockpos.setTaskLocation(creature, new BlockPos(be).getUp());
-					EntityPlayer aPlayer = be.getFoodHolder(creature);
-					if (aPlayer != null && canFallInLove(creature) && creature.getAge() == 0) {
-						for (int i = 0; i < be.getSizeInventory(); i++) {
+					setFeedTask(creature, be.mBlocksAroundCache[MathUtils.randInt(0, 4)]);
+					if (canFallInLove(creature) && creature.getAge() == 0) {
+						food : for (int i = 0; i < be.getSizeInventory(); i++) {
 							ItemStack stack = be.getStackInSlot(i);
 							if (stack != null && creature.isBreedingItem(stack) && creature.getGrowingAge() == 0 && !creature.isInLove()) {
-								aPlayer.setCurrentItemOrArmor(0, stack);
 								//creature.playSound("random.eat", 0.5F + 0.5F * be.getWorld().rand.nextInt(2), (be.getWorld().rand.nextFloat() - be.getWorld().rand.nextFloat()) * 0.2F + 1.0F);
 								be.addItemParticles(creature, stack, MathUtils.randInt(32, 64));
 								if(be.getSpecialRand().nextDouble() < MAX_LOVE_CHANCE) {
 									List<EntityAnimal> animalsAround = getAnimalsInRange(be);
 									if(animalsAround.size() <= MAX_ANIMALS){
-										creature.func_146082_f(aPlayer);
-										creature.playSound("random.eat", 0.5F + 0.5F * be.getWorld().rand.nextInt(2), (be.getWorld().rand.nextFloat() - be.getWorld().rand.nextFloat()) * 0.2F + 1.0F);
+										creature.func_146082_f(null);
+										if (MathUtils.randInt(1, 3) == 3) {
+											creature.playSound("random.burp", 0.5F, be.getWorld().rand.nextFloat() * 0.1F + 0.9F);
+										}
+										else {
+											creature.playSound("random.eat", 0.5F + 0.5F * be.getWorld().rand.nextInt(2), (be.getWorld().rand.nextFloat() - be.getWorld().rand.nextFloat()) * 0.2F + 1.0F);
+										}
 									}
 								}
 								--stack.stackSize;
@@ -151,10 +122,9 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 									be.setInventorySlotContents(i, null);
 									stack = null;
 								}
-								aPlayer.setCurrentItemOrArmor(0, null);
 								be.markDirty();
 								//creature.playSound("random.eat", 0.5F + 0.5F * be.getWorld().rand.nextInt(2), (be.getWorld().rand.nextFloat() - be.getWorld().rand.nextFloat()) * 0.2F + 1.0F);
-								break;
+								break food;
 							}
 						}
 					}
@@ -176,7 +146,8 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 			if (stack.getHasSubtypes()) {
 				s.append("_").append(stack.getItemDamage());
 			}
-			this.worldObj.spawnParticle(s.toString(), vec31.xCoord, vec31.yCoord, vec31.zCoord, vec3.xCoord, vec3.yCoord + 0.05D, vec3.zCoord);
+			ParticleUtils.SpawnParticles(this.worldObj, s.toString(), vec31.xCoord, vec31.yCoord, vec31.zCoord, vec3.xCoord, vec3.yCoord + 0.05D, vec3.zCoord, 1);
+			//this.worldObj.spawnParticle(s.toString(), vec31.xCoord, vec31.yCoord, vec31.zCoord, vec3.xCoord, vec3.yCoord + 0.05D, vec3.zCoord);
 		}
 	}
 
@@ -210,7 +181,6 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 
 	@Override
 	public void readFromNBT(NBTTagCompound aNBT) {
-		super.readFromNBT(aNBT);
 		final NBTTagList list = aNBT.getTagList("Items", 10);
 		this.mInventory = new ItemStack[getSizeInventory()];
 		for(int i = 0;i<list.tagCount();i++){
@@ -220,11 +190,11 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 				this.mInventory[slot] = ItemStack.loadItemStackFromNBT(data);
 			}
 		}
+		super.readFromNBT(aNBT);
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound aNBT) {
-		super.writeToNBT(aNBT);
 		final NBTTagList list = new NBTTagList();
 		for(int i = 0;i<getSizeInventory();i++){
 			final ItemStack stack = this.mInventory[i];
@@ -236,6 +206,7 @@ public class TileEntityFeedingTrough extends TileEntity implements IInventory {
 			}
 		}
 		aNBT.setTag("Items", list);
+		super.writeToNBT(aNBT);
 	}
 
 	private Random getSpecialRand() {

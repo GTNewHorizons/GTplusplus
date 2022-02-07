@@ -7,7 +7,7 @@ import net.minecraft.entity.ai.EntityAITasks.EntityAITaskEntry;
 import net.minecraft.util.Vec3;
 
 public class EntityAITryMoveToTargetBlockpos extends EntityAIBase {
-	
+
 	private EntityCreature mThisEntity;
 	private BlockPos mTarget;
 	private double mMovePosX;
@@ -20,17 +20,18 @@ public class EntityAITryMoveToTargetBlockpos extends EntityAIBase {
 	 */
 	private float maxTargetDistance;
 
-	public EntityAITryMoveToTargetBlockpos(EntityCreature aThisEntity, double aSpeed, float aMaxDistance) {
+	public EntityAITryMoveToTargetBlockpos(EntityCreature aThisEntity, double aSpeed, float aMaxDistance, BlockPos aPos) {
 		this.mThisEntity = aThisEntity;
 		this.mSpeed = aSpeed;
 		this.maxTargetDistance = aMaxDistance;
+		this.mTarget = aPos;
 		this.setMutexBits(1);
 	}
-	
+
 	public static boolean hasTask(EntityLiving aEntity) {
 		return getTask(aEntity) != null;
 	}
-	
+
 	public static EntityAITryMoveToTargetBlockpos getTask(EntityLiving aEntity) {
 		EntityAITasks aTasks = aEntity.tasks;
 		if (aTasks != null && aTasks.taskEntries != null && !aTasks.taskEntries.isEmpty()) {
@@ -46,7 +47,7 @@ public class EntityAITryMoveToTargetBlockpos extends EntityAIBase {
 		}
 		return null;
 	}
-	
+
 	public static boolean setTaskLocation(EntityLiving aEntity, BlockPos aPos) {
 		if (hasTask(aEntity)) {
 			EntityAITryMoveToTargetBlockpos aTask = getTask(aEntity);
@@ -64,10 +65,10 @@ public class EntityAITryMoveToTargetBlockpos extends EntityAIBase {
 
 		if (this.mTarget == null) {
 			return false;
-		} 
+		}
 		else if (this.mTarget.getDistanceSqToEntity(this.mThisEntity) > this.maxTargetDistance * this.maxTargetDistance) {
 			return false;
-		} 
+		}
 		else {
 			Vec3 vec3 = RandomPositionGenerator.findRandomTargetBlockTowards(this.mThisEntity, 16, 7,
 					Vec3.createVectorHelper(this.mTarget.xPos, this.mTarget.yPos, this.mTarget.zPos));
