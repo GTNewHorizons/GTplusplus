@@ -23,11 +23,11 @@ public interface IGregtech_RecipeAdder {
 
 
 	public boolean addCokeOvenRecipe(int aCircuit, ItemStack aInput2,	FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUt);
-	
-	
+
+
 	public boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2,	FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUt);
 
-	
+
 	public boolean addFuel(ItemStack aInput1, ItemStack aOutput1, int aEU, int aType);
 
 
@@ -128,7 +128,7 @@ public interface IGregtech_RecipeAdder {
 	public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt);
 
 	public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance, int aDuration, int aEUt, int aSpecialValue);
-	
+
 	/**
 	 * Adds a Recipe for the LFTRr. (up to 9 Inputs)
 	 *
@@ -149,7 +149,7 @@ public interface IGregtech_RecipeAdder {
 	public boolean addLFTRRecipe(ItemStack aInput1, FluidStack aInput2, ItemStack aOutput1, FluidStack aOutput2, int aDuration, int aEUt);
 	public boolean addLFTRRecipe(FluidStack aInput1, FluidStack aInput2, FluidStack aOutput1, int aDuration, int aEUt);
 
-	
+
 	/**
 	 * Adds a custom Semifluid fuel for the GT++ SemiFluid Generators.
 	 * @param aFuelItem - A Fluidstack to be consumed.
@@ -157,7 +157,7 @@ public interface IGregtech_RecipeAdder {
 	 * @return - Was the Fuel added?
 	 */
 	public boolean addSemifluidFuel(FluidStack aFuelItem, int aFuelValue);
-	
+
 	/**
 	 * Adds a custom Semifluid fuel for the GT++ SemiFluid Generators.
 	 * @param aFuelItem - A Fluidstack to be consumed.
@@ -165,16 +165,16 @@ public interface IGregtech_RecipeAdder {
 	 * @return - Was the Fuel added?
 	 */
 	public boolean addSemifluidFuel(ItemStack aFuelItem, int aFuelValue);
-	
+
 	public boolean addFissionFuel(
 			FluidStack aInput1, FluidStack aInput2, FluidStack aInput3,
 			FluidStack aInput4, FluidStack aInput5, FluidStack aInput6,
 			FluidStack aInput7, FluidStack aInput8, FluidStack aInput9,
 			FluidStack aOutput1, FluidStack aOutput2,
 			int aDuration, int aEUt);
-	
+
 	public boolean addFissionFuel(
-			boolean aOptimise, 
+			boolean aOptimise,
 			FluidStack aInput1, FluidStack aInput2, FluidStack aInput3,
 			FluidStack aInput4, FluidStack aInput5, FluidStack aInput6,
 			FluidStack aInput7, FluidStack aInput8, FluidStack aInput9,
@@ -214,27 +214,27 @@ public interface IGregtech_RecipeAdder {
 	public boolean addAssemblerRecipeWithOreDict(Object aInput1, int aAmount1, Object aInput2, int aAmount2, FluidStack aInputFluid, ItemStack aOutput, int a1, int a2);
 
 	public boolean addSixSlotAssemblingRecipe(ItemStack[] aInputs, FluidStack aInputFluid, ItemStack aOutput1, int aDuration, int aEUt);
-    /**
-     * Adds an Assemblyline Recipe
-     *
-     * @param aInputs      must be != null, 4-16 inputs
-     * @param aFluidInputs 0-4 fluids
-     * @param aOutput1     must be != null
-     * @param aDuration    must be > 0
-     * @param aEUt         should be > 0
-     */
+	/**
+	 * Adds an Assemblyline Recipe
+	 *
+	 * @param aInputs      must be != null, 4-16 inputs
+	 * @param aFluidInputs 0-4 fluids
+	 * @param aOutput1     must be != null
+	 * @param aDuration    must be > 0
+	 * @param aEUt         should be > 0
+	 */
 	public boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack aOutput, int aDuration, int aEUt);
-	
-    /**
-     * Adds a Assemblyline Recipe
-     *
-     * @param aInputs elements should be: ItemStack for single item;
-     *                ItemStack[] for multiple equivalent items;
-     *                {OreDict, amount} for oredict.
-     */
-    boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, Object[] aInputs, FluidStack[] aFluidInputs, ItemStack aOutput1, int aDuration, int aEUt);
 
-	
+	/**
+	 * Adds a Assemblyline Recipe
+	 *
+	 * @param aInputs elements should be: ItemStack for single item;
+	 *                ItemStack[] for multiple equivalent items;
+	 *                {OreDict, amount} for oredict.
+	 */
+	boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, Object[] aInputs, FluidStack[] aFluidInputs, ItemStack aOutput1, int aDuration, int aEUt);
+
+
 	public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid, ItemStack output, int time, int eu);
 	public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid, ItemStack output, Object object, int time, int eu);
 	public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid, ItemStack output, ItemStack object, int time);
@@ -242,64 +242,75 @@ public interface IGregtech_RecipeAdder {
 
 	public boolean addMultiblockChemicalRecipe(ItemStack[] itemStacks, FluidStack[] fluidStacks, FluidStack[] fluidStacks2, ItemStack[] outputs, int time, int eu);
 
-    public boolean addCompressorRecipe(ItemStack aInput1, ItemStack aOutput1, int aDuration, int aEUt);
+	public boolean addCompressorRecipe(ItemStack aInput1, ItemStack aOutput1, int aDuration, int aEUt);
 
-    public boolean addBrewingRecipe(ItemStack aIngredient, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,  boolean aHidden);
-    
-    public boolean addBrewingRecipe(int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,  boolean aHidden);
+	public boolean addBrewingRecipe(ItemStack aIngredient, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,  boolean aHidden);
+
+	public boolean addBrewingRecipe(int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,  boolean aHidden);
 
 	public boolean addSmeltingAndAlloySmeltingRecipe(ItemStack aDust, ItemStack aOutput);
 
 	public boolean addFluidExtractionRecipe(ItemStack input, FluidStack output, int aTime, int aEu);
-	
+
 	public boolean addFluidExtractionRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidOut, int aTime, int aEu);
 
 	public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn);
-	
+
 	public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn, FluidStack rFluidOut);
-	
+
 	public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn, FluidStack rFluidOut, int aTime, int aEu);
-	
+
 	/**
-     * Adds a Fusion reactor Recipe
-     *
-     * @param aInput1                        = first Input (not null, and respects StackSize)
-     * @param aInput2                        = second Input (not null, and respects StackSize)
-     * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
-     * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
-     * @param aEu           = The EU generated per Tick (can even be negative!)
-     * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
-     */		
+	 * Adds a Fusion reactor Recipe
+	 *
+	 * @param aInput1                        = first Input (not null, and respects StackSize)
+	 * @param aInput2                        = second Input (not null, and respects StackSize)
+	 * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
+	 * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
+	 * @param aEu           = The EU generated per Tick (can even be negative!)
+	 * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
+	 */
 	public boolean addFusionReactorRecipe(ItemStack aInputStackA, ItemStack aInputStackB, FluidStack plasma, int aFusionDurationInTicks, int aEu, int aSpecial);
 	/**
-     * Adds a Fusion reactor Recipe
-     *
-     * @param aInput1                        = first Input (not null, and respects StackSize)
-     * @param aInput2                        = second Input (not null, and respects StackSize)
-     * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
-     * @param aOutputChance = chance to output plasma (can be 0)
-     * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
-     * @param aEu           = The EU generated per Tick (can even be negative!)
-     * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
-     */		
-	public boolean addFusionReactorRecipe(FluidStack aInputStackA, FluidStack aInputStackB, FluidStack plasma, int aOutputChance, int aFusionDurationInTicks, int aEu, int aSpecial);
-	/**
-     * Adds a Fusion reactor Recipe
-     *
-     * @param aInput1                        = first Input (not null, and respects StackSize)
-     * @param aInput2                        = second Input (not null, and respects StackSize)
-     * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
-     * @param aOutputChance = chance to output plasma (can be 0)
-     * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
-     * @param aEu           = The EU generated per Tick (can even be negative!)
-     * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
-     */		
+	 * Adds a Fusion reactor Recipe
+	 *
+	 * @param aInput1                        = first Input (not null, and respects StackSize)
+	 * @param aInput2                        = second Input (not null, and respects StackSize)
+	 * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
+	 * @param aOutputChance = chance to output plasma (can be 0)
+	 * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
+	 * @param aEu           = The EU generated per Tick (can even be negative!)
+	 * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
+	 */
 	public boolean addFusionReactorRecipe(ItemStack aInputStackA, ItemStack aInputStackB, FluidStack plasma, int aOutputChance, int aFusionDurationInTicks, int aEu, int aSpecial);
+	/**
+	 * Adds a Fusion reactor Recipe
+	 *
+	 * @param aInput1                        = first Input (not null, and respects StackSize)
+	 * @param aInput2                        = second Input (not null, and respects StackSize)
+	 * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
+	 * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
+	 * @param aEu           = The EU generated per Tick (can even be negative!)
+	 * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
+	 */
+	public boolean addFusionReactorRecipe(FluidStack aInputStackA, FluidStack aInputStackB, FluidStack plasma, int aFusionDurationInTicks, int aFusionEnergyPerTick, int aEnergyNeededForStartingFusion);
+	/**
+	 * Adds a Fusion reactor Recipe
+	 *
+	 * @param aInput1                        = first Input (not null, and respects StackSize)
+	 * @param aInput2                        = second Input (not null, and respects StackSize)
+	 * @param plasma                        = Output of the Fusion (can be null, and respects StackSize)
+	 * @param aOutputChance = chance to output plasma (can be 0)
+	 * @param aFusionDurationInTicks         = How many ticks the Fusion lasts (must be > 0)
+	 * @param aEu           = The EU generated per Tick (can even be negative!)
+	 * @param aSpecial = EU needed for heating the Reactor up (must be >= 0)
+	 */
+	public boolean addFusionReactorRecipe(FluidStack aInputStackA, FluidStack aInputStackB, FluidStack plasma, int aOutputChance, int aFusionDurationInTicks, int aFusionEnergyPerTick, int aEnergyNeededForStartingFusion);
 
-	
-    public boolean addVacuumFurnaceRecipe(ItemStack aInput1, ItemStack aInput2,
-            FluidStack aFluidInput, FluidStack aFluidOutput, ItemStack aOutput1,
-            ItemStack aOutput2, int aDuration, int aEUt, int aLevel);
+
+	public boolean addVacuumFurnaceRecipe(ItemStack aInput1, ItemStack aInput2,
+			FluidStack aFluidInput, FluidStack aFluidOutput, ItemStack aOutput1,
+			ItemStack aOutput2, int aDuration, int aEUt, int aLevel);
 
 	public boolean addVacuumFurnaceRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack[] aOutputs, FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aLevel);
 
@@ -313,14 +324,14 @@ public interface IGregtech_RecipeAdder {
 
 	public boolean addPyrolyseRecipe(ItemStack aInput, FluidStack aFluidInput, int intCircuit, ItemStack aOutput, FluidStack aFluidOutput, int aDuration, int aEUt);
 
-	public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);	
+	public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
 
 	public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aChance, int aDuration, int aEUt);
 
 	public boolean addDistilleryRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, ItemStack aSolidOutput, int aDuration, int aEUt, boolean aHidden);
 
 	public boolean addPulverisationRecipe(final ItemStack aInput, ItemStack aOutput1, ItemStack aOutput2, final ItemStack aOutput3);
-	
+
 	public boolean addMillingRecipe(Materials aMat, int aEU);
 	public boolean addMillingRecipe(Material aMat, int aEU);
 
@@ -332,13 +343,13 @@ public interface IGregtech_RecipeAdder {
 	public boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage);
 
 	public boolean addColdTrapRecipe(int aCircuit, ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs, int[] aChances, FluidStack aFluidOutput, int aTime, int aEU);
-	
+
 	public boolean addReactorProcessingUnitRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput, ItemStack[] aOutputs, int[] aChances, FluidStack aFluidOutput, int aTime, int aEU);
 
-    public boolean addFluidHeaterRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration, int aEUt);
+	public boolean addFluidHeaterRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration, int aEUt);
 
 	public boolean addVacuumFreezerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
-	
+
 	public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU, int aAmps);
 
 }

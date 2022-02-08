@@ -164,6 +164,15 @@ public class HANDLER_GT {
 		}
 	}
 
+	public static void dumpAllFusionRecipes() {
+		for (GT_Recipe aRecipe : GT_Recipe_Map.sFusionRecipes.mRecipeList) {
+			String[] aData = RecipeUtils.getRecipeInfo(aRecipe);
+			for (String s : aData) {
+				Logger.INFO(s);
+			}
+		}
+		CORE.crash("Fusion Debug! >:D");
+	}
 
 	private static void generateElementalDuplicatorRecipes() {
 		for (GT_Recipe aRecipe : GT_Recipe_Map.sReplicatorFakeRecipes.mRecipeList) {
