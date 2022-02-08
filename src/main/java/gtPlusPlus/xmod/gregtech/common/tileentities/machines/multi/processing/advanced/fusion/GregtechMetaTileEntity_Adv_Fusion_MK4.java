@@ -49,11 +49,6 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GregtechMetaTileEntit
 	}
 
 	@Override
-	public int tierOverclock() {
-		return 9;
-	}
-
-	@Override
 	public int getMaxParallelRecipes() {
 		return 4;
 	}

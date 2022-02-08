@@ -4,8 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.GregTech_API.sBlockCasings4;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
@@ -33,6 +32,7 @@ public class GregtechMetaTileEntity_Adv_Implosion extends GregtechMeta_MultiBloc
 		super(aName);
 	}
 
+	@Override
 	public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
 		return new GregtechMetaTileEntity_Adv_Implosion(this.mName);
 	}
@@ -46,49 +46,49 @@ public class GregtechMetaTileEntity_Adv_Implosion extends GregtechMeta_MultiBloc
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Factory Grade Advanced Implosion Compressor")
-				.addInfo("Speed: 100% | Eu Usage: 100% | Parallel: ((Tier/2)+1)")
-				.addInfo("Constructed exactly the same as a normal Implosion Compressor")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
-				.addController("Front center")
-				.addCasingInfo("Robust TungstenSteel Casing", 10)
-				.addInputBus("Any casing", 1)
-				.addOutputBus("Any casing", 1)
-				.addEnergyHatch("Any casing", 1)
-				.addMaintenanceHatch("Any casing", 1)
-				.addMufflerHatch("Any casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Factory Grade Advanced Implosion Compressor")
+		.addInfo("Speed: 100% | Eu Usage: 100% | Parallel: ((Tier/2)+1)")
+		.addInfo("Constructed exactly the same as a normal Implosion Compressor")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 3, true)
+		.addController("Front center")
+		.addCasingInfo("Robust TungstenSteel Casing", 10)
+		.addInputBus("Any casing", 1)
+		.addOutputBus("Any casing", 1)
+		.addEnergyHatch("Any casing", 1)
+		.addMaintenanceHatch("Any casing", 1)
+		.addMufflerHatch("Any casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_Adv_Implosion> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_Implosion>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"C~C", "C-C", "CCC"},
-							{"CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_Implosion>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC"},
+						{"C~C", "C-C", "CCC"},
+						{"CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_Adv_Implosion::addAdvImplosionList, 48, 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													sBlockCasings4, 0
+													)
 											)
 									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	public final boolean addAdvImplosionList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -113,15 +113,16 @@ public class GregtechMetaTileEntity_Adv_Implosion extends GregtechMeta_MultiBloc
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName, stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName, stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 10 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 10 && checkHatch();
 	}
 
+	@Override
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
 		if (aSide == aFacing) {
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
@@ -144,42 +145,50 @@ public class GregtechMetaTileEntity_Adv_Implosion extends GregtechMeta_MultiBloc
 		return true;
 	}
 
+	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return GT_Recipe.GT_Recipe_Map.sImplosionRecipes;
 	}
 
+	@Override
 	public boolean isCorrectMachinePart(ItemStack aStack) {
 		return true;
 	}
 
+	@Override
 	public boolean checkRecipe(final ItemStack aStack) {
 		return checkRecipeGeneric((GT_Utility.getTier(this.getMaxInputVoltage())/2+1), 100, 100);
 	}
 
+	@Override
 	public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
 		super.startSoundLoop(aIndex, aX, aY, aZ);
 		if (aIndex == 20) {
-			GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(5)), 10, 1.0F, aX, aY, aZ);
+			GT_Utility.doSoundAtClient(GregTech_API.sSoundList.get(Integer.valueOf(5)), 10, 1.0F, aX, aY, aZ);
 		}
-	}	
+	}
 
 	@Override
 	public String getSound() {
-		return (String) GregTech_API.sSoundList.get(Integer.valueOf(5)); 
+		return GregTech_API.sSoundList.get(Integer.valueOf(5));
 	}
 
+	@Override
 	public int getMaxEfficiency(ItemStack aStack) {
 		return 10000;
 	}
 
+	@Override
 	public int getPollutionPerSecond(ItemStack aStack) {
 		return CORE.ConfigSwitches.pollutionPerSecondMultiAdvImplosion;
 	}
 
+	@Override
 	public int getDamageToComponent(ItemStack aStack) {
 		return 0;
 	}
 
+	@Override
 	public boolean explodesOnComponentBreak(ItemStack aStack) {
 		return false;
 	}
