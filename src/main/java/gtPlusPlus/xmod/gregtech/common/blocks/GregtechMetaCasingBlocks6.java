@@ -21,9 +21,9 @@ extends GregtechMetaCasingBlocksAbstract {
 	public static boolean mConnectedMachineTextures = false;
 	CasingTextureHandler6 TextureHandler = new CasingTextureHandler6();
 
-	public static class GregtechMetaCasingItemBlocks3 extends GregtechMetaCasingItems {
+	public static class GregtechMetaCasingItemBlocks6 extends GregtechMetaCasingItems {
 
-		public GregtechMetaCasingItemBlocks3(Block par1) {
+		public GregtechMetaCasingItemBlocks6(Block par1) {
 			super(par1);
 		}
 
@@ -34,7 +34,7 @@ extends GregtechMetaCasingBlocksAbstract {
 	}
 
 	public GregtechMetaCasingBlocks6() {
-		super(GregtechMetaCasingItemBlocks3.class, "gtplusplus.blockcasings.6", GT_Material_Casings.INSTANCE);
+		super(GregtechMetaCasingItemBlocks6.class, "gtplusplus.blockcasings.6", GT_Material_Casings.INSTANCE);
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".0.name", "Fusion Machine Casing MK III");
 		TAE.registerTexture(3, 4, new GT_CopiedBlockTexture(this, 6, 0));
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".1.name", "Advanced Fusion Coil I");

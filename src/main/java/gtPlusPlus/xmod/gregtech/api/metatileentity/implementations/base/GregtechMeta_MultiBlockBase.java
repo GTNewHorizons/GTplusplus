@@ -2303,6 +2303,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	public GT_Recipe findRecipe(final IHasWorldObjectAndCoords aTileEntity, final GT_Recipe aRecipe,
 			final boolean aNotUnificated, final boolean aDontCheckStackSizes, final long aVoltage,
 			final FluidStack[] aFluids, final ItemStack aSpecialSlot, ItemStack... aInputs) {
+		if (this.getRecipeMap() == null) {
+			log("No Recipe Map Assigned!");
+		}
 		if (this.getRecipeMap().mRecipeList.isEmpty()) {
 			log("No Recipes in Map to search through.");
 			return null;

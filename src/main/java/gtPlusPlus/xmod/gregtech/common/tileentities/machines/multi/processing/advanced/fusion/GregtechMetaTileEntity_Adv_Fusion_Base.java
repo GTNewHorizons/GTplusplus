@@ -14,6 +14,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.*;
 import gregtech.api.util.*;
+import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.common.gui.GT_GUIContainer_FusionReactor;
 import gtPlusPlus.core.lib.*;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -106,7 +107,9 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		super(aName);
 	}
 
-	public abstract String getMinimumHatchTier();
+	public final String getMinimumHatchTierString() {
+		return GT_Values.VN[getMinimumHatchTier()];
+	}
 
 	public abstract String getCasingName();
 
@@ -147,7 +150,7 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		.addEnergyHatch("1-16, Specified casings", 2)
 		.addInputHatch("2-16, Specified casings", 1)
 		.addOutputHatch("1-16, Specified casings", 3)
-		.addStructureInfo("ALL Hatches must be "+getMinimumHatchTier()+" or better");
+		.addStructureInfo("ALL Hatches must be "+getMinimumHatchTierString()+" or better");
 		if (LoadedMods.TecTech) {
 			tt.addStructureInfo("Supports Laser Hatches");
 		}
@@ -155,11 +158,11 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		return tt;
 	}
 
-	public abstract int tier();
+	public abstract int getMinimumHatchTier();
 
 	@Override
 	public final long maxEUStore() {
-		return getEuStoragePerHatch() * this.mEnergyHatches.size();
+		return getEuStoragePerHatch() * this.mAllEnergyHatches.size();
 	}
 
 	@Override
@@ -213,15 +216,22 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		if (checkPiece(STRUCTURE_PIECE_MAIN, 7, 1, 12) && this.mInputHatches.size() > 1 && !this.mOutputHatches.isEmpty() && !this.mEnergyHatches.isEmpty()) {
+		boolean aStructCheck = checkPiece(STRUCTURE_PIECE_MAIN, 7, 1, 12);
+		boolean aInjectors = this.mInputHatches.size() > 1;
+		boolean aExtractors = !this.mOutputHatches.isEmpty();
+		boolean aEnergy = !this.mAllEnergyHatches.isEmpty();
+		if (aStructCheck && aInjectors && aExtractors && aEnergy) {
 			this.mWrench = true;
 			this.mScrewdriver = true;
 			this.mSoftHammer = true;
 			this.mHardHammer = true;
 			this.mSolderingTool = true;
 			this.mCrowbar = true;
+			log("Structure? "+aStructCheck+" | Injectors? "+aInjectors+" | Extractors? "+aExtractors+" | Energy? "+aEnergy);
 			return true;
 		}
+		log("Structure? "+aStructCheck+" | Injectors? "+aInjectors+" | Extractors? "+aExtractors+" | Energy? "+aEnergy);
+		log("Injectors? "+this.mInputHatches.size()+" | Extractors? "+this.mOutputHatches.size()+" | Energy? "+this.mAllEnergyHatches.size());
 		return false;
 	}
 
@@ -230,25 +240,40 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	}
 
 	private boolean addInjector(IGregTechTileEntity aBaseMetaTileEntity, int aBaseCasingIndex) {
+		if (aBaseMetaTileEntity == null) {
+			return false;
+		}
 		IMetaTileEntity aMetaTileEntity = aBaseMetaTileEntity.getMetaTileEntity();
-		if (aMetaTileEntity == null) return false;
-		if (!(aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input)) return false;
-		GT_MetaTileEntity_Hatch_Input tHatch = (GT_MetaTileEntity_Hatch_Input) aMetaTileEntity;
-		if (tHatch.mTier < tier()) return false;
-		tHatch.updateTexture(aBaseCasingIndex);
-		tHatch.mRecipeMap = getRecipeMap();
-		return this.mInputHatches.add(tHatch);
+		if (aMetaTileEntity == null) {
+			return false;
+		}
+		if (!(aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input)) {
+			return false;
+		}
+		return addHatch(aMetaTileEntity, aBaseCasingIndex);
 	}
 
 	private boolean addExtractor(IGregTechTileEntity aBaseMetaTileEntity, int aBaseCasingIndex) {
-		if (aBaseMetaTileEntity == null) return false;
+		if (aBaseMetaTileEntity == null) {
+			return false;
+		}
 		IMetaTileEntity aMetaTileEntity = aBaseMetaTileEntity.getMetaTileEntity();
-		if (aMetaTileEntity == null) return false;
-		if (!(aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output)) return false;
-		GT_MetaTileEntity_Hatch_Output tHatch = (GT_MetaTileEntity_Hatch_Output) aMetaTileEntity;
-		if (tHatch.mTier < tier()) return false;
-		tHatch.updateTexture(aBaseCasingIndex);
-		return this.mOutputHatches.add(tHatch);
+		if (aMetaTileEntity == null) {
+			return false;
+		}
+		if (!(aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output)) {
+			return false;
+		}
+		return addHatch(aMetaTileEntity, aBaseCasingIndex);
+	}
+
+	private boolean addHatch(IMetaTileEntity aMetaTileEntity, int aBaseCasingIndex) {
+		GT_MetaTileEntity_Hatch tHatch = (GT_MetaTileEntity_Hatch) aMetaTileEntity;
+		if (tHatch.mTier < getMinimumHatchTier()) {
+			return false;
+		}
+		return this.addToMachineList(aMetaTileEntity, aBaseCasingIndex);
+
 	}
 
 	public abstract Block getCasing();
@@ -388,7 +413,7 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	public boolean turnCasingActive(boolean status) {
 		if (this.mEnergyHatches != null) {
-			for (GT_MetaTileEntity_Hatch_Energy hatch : this.mEnergyHatches) {
+			for (GT_MetaTileEntity_Hatch hatch : this.mAllEnergyHatches) {
 				hatch.updateTexture(status ? getCasingOverlayActive() : getCasingOverlayInactive());
 			}
 		}
@@ -426,6 +451,9 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 				checkRecipe(this.mInventory[1]);
 			}
 			if (--this.mUpdate == 0 || --this.mStartUpCheck == 0) {
+				this.mInputHatches.clear();
+				this.mEnergyHatches.clear();
+				this.mDynamoHatches.clear();
 				this.mTecTechEnergyHatches.clear();
 				this.mTecTechDynamoHatches.clear();
 				this.mAllEnergyHatches.clear();
@@ -508,6 +536,11 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	}
 
 	@Override
+	public GT_Recipe_Map getRecipeMap() {
+		return GT_Recipe_Map.sFusionRecipes;
+	}
+
+	@Override
 	public boolean checkRecipe(ItemStack aStack) {
 		return checkRecipeGeneric(1, 100, 0);
 	}
@@ -545,12 +578,18 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
-		log("Running checkRecipeGeneric(0)");
-
-		GT_Recipe tRecipe = findRecipe(
-				getBaseMetaTileEntity(), this.mLastRecipe, false, false,
-				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
-
+		log("Running checkRecipeGeneric(0) | "+tVoltage+" | "+tTier+" | "+tEnergy);
+		GT_Recipe tRecipe;
+		try {
+			tRecipe = findRecipe(
+					getBaseMetaTileEntity(), this.mLastRecipe, false, false,
+					gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
+		}
+		catch (Throwable t) {
+			t.printStackTrace();
+			shutdown();
+			return false;
+		}
 		log("Running checkRecipeGeneric(1)");
 		// Remember last recipe - an optimization for findRecipe()
 		this.mLastRecipe = tRecipe;
@@ -606,6 +645,7 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 			return false;
 		}
 
+		log("Parallel: "+parallelRecipes);
 		// -- Try not to fail after this point - inputs have already been consumed! --
 		turnCasingActive(true);
 
@@ -615,11 +655,13 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
 		float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
 		this.mMaxProgresstime = (int)(tRecipe.mDuration * tTimeFactor);
-
+		log("mMaxProgresstime: "+this.mMaxProgresstime);
 		this.mEUt = (int)Math.ceil(tTotalEUt);
+		log("mEUt: "+this.mEUt);
 
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
 		this.mEfficiencyIncrease = 10000;
+		log("mEfficiency: "+this.mEfficiency);
 
 		// Overclock
 		if (this.mEUt <= 16) {
@@ -636,12 +678,16 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 				}
 			}
 		}
+		log("mMaxProgresstime: "+this.mMaxProgresstime);
+		log("mEUt: "+this.mEUt);
 
 		if (this.mEUt > 0) {
 			this.mEUt = (-this.mEUt);
 		}
+		log("mEUt: "+this.mEUt);
 
 		this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+		log("mMaxProgresstime: "+this.mMaxProgresstime);
 		this.mRunningOnLoad = false;
 
 		// Collect fluid outputs

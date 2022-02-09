@@ -19,7 +19,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GregtechMetaTileEntit
 	}
 
 	@Override
-	public int tier() {
+	public int getMinimumHatchTier() {
 		return 9;
 	}
 
@@ -59,11 +59,6 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GregtechMetaTileEntit
 	}
 
 	@Override
-	public String getMinimumHatchTier() {
-		return GT_Values.VN[9];
-	}
-
-	@Override
 	public String getCasingName() {
 		return "Fusion Machine Casings MK III";
 	}
@@ -80,7 +75,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GregtechMetaTileEntit
 
 	@Override
 	public int getCasingOverlayActive() {
-		return TAE.getIndexFromPage(2, 14);
+		return TAE.getIndexFromPage(3, 6);
 	}
 
 	@Override
