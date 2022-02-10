@@ -26,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.FoodStats;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
@@ -229,142 +230,100 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
 
 	@Override //TODO
 	public void onWornTick(final ItemStack aBaubleStack, final EntityLivingBase arg1) {
-		if (arg1 != null && arg1.worldObj != null && !arg1.worldObj.isRemote){
-			
-			//Try Charge First
+		if(arg1 == null || arg1.worldObj == null || arg1.worldObj.isRemote)
+			return;
+		//Try Charge First
 
-			//Inv Slots
+		//Inv Slots
+		if (this.getCharge(aBaubleStack) < this.getMaxCharge(aBaubleStack))
 			for (final ItemStack aInvStack : ((EntityPlayer) arg1).inventory.mainInventory) {
-				if (aInvStack == aBaubleStack) {
+				if (aInvStack == aBaubleStack)
 					continue;
-				}
-				
-				if (this.getCharge(aBaubleStack) == this.getMaxCharge(aBaubleStack)) {
-					break;
-				}
-				
-				if (aInvStack != null) {
-					if (ChargingHelper.isItemValid(aInvStack)) {
-						
-						
-						double aTransferRate;	
-						double aCurrentChargeForThisBauble;
-						int mTier;
-						final IElectricItem electricItem = (IElectricItem) aInvStack.getItem();
-						
-						if (electricItem != null) {
-							
-							aTransferRate = electricItem.getTransferLimit(aInvStack);	
-							mTier = electricItem.getTier(aInvStack);	
-							aCurrentChargeForThisBauble = ElectricItem.manager.getCharge(aBaubleStack);
-							
-							if (aCurrentChargeForThisBauble < maxValueEU) {								
-								if ((ElectricItem.manager.getCharge(aInvStack) >= aTransferRate)) {
-									if (electricItem.canProvideEnergy(aInvStack)) {
-										double d = ElectricItem.manager.discharge(aInvStack, aTransferRate, mTier, false, true, false);
-										//Logger.INFO("Charging from "+aInvStack.getDisplayName() +" | "+d);
-										ElectricItem.manager.charge(aBaubleStack, d, mTier, true, false);	
-									}
-								}																
-							}	
-						}
+				if(!ChargingHelper.isItemValid(aInvStack))
+					continue;
+				double aTransferRate;
+				double aCurrentChargeForThisBauble;
+				int mTier;
+				final IElectricItem electricItem = (IElectricItem) aInvStack.getItem();
+
+				if (electricItem != null) {
+
+					aTransferRate = electricItem.getTransferLimit(aInvStack);
+					mTier = electricItem.getTier(aInvStack);
+					aCurrentChargeForThisBauble = ElectricItem.manager.getCharge(aBaubleStack);
+
+					if (aCurrentChargeForThisBauble < maxValueEU && (ElectricItem.manager.getCharge(aInvStack) >= aTransferRate) && electricItem.canProvideEnergy(aInvStack)) {
+						double d = ElectricItem.manager.discharge(aInvStack, aTransferRate, mTier, false, true, false);
+						//Logger.INFO("Charging from "+aInvStack.getDisplayName() +" | "+d);
+						ElectricItem.manager.charge(aBaubleStack, d, mTier, true, false);
 					}
 				}
-				if (this.getCharge(aBaubleStack) <= (this.getMaxCharge(aBaubleStack) - getTransferLimit(aBaubleStack))) {
-					continue;
-				}
-				else {
+				if (!(this.getCharge(aBaubleStack) <= (this.getMaxCharge(aBaubleStack) - getTransferLimit(aBaubleStack))))
 					break;
-				}						
 			}
-			
-			
-			//Try Heal
-			if (this.getCharge(aBaubleStack) > 0){
-
-				//health Check
-				float hp = 0;
-				if (arg1.getHealth() < arg1.getMaxHealth()){
-					final float rx = arg1.getMaxHealth()-arg1.getHealth();
-					Logger.INFO("rx:"+rx);
-					arg1.heal(rx*2);	
-					hp = rx;
-					this.discharge(aBaubleStack, (1638400)*rx, 6, true, true, false);
-				}
-
-				//Hunger Check
-				int hunger = 0;
-				if (arg1 instanceof EntityPlayerMP) {
-					EntityPlayerMP g = (EntityPlayerMP) arg1;
-					if (g != null) {
-						hunger = 20 - g.getFoodStats().getFoodLevel();
-						g.getFoodStats().setFoodLevel(g.getFoodStats().getFoodLevel() + hunger);
-						this.discharge(aBaubleStack, (1638400) * hunger, 6, true, true, false);
-					}
-				}
-
-				//Saturation Check
-				float saturation = 0;
-				if (arg1 instanceof EntityPlayerMP) {
-					EntityPlayerMP g = (EntityPlayerMP) arg1;
-					if (g != null) {
-						saturation = 5f - g.getFoodStats().getSaturationLevel();
-						g.getFoodStats().setFoodSaturationLevel(g.getFoodStats().getSaturationLevel() + saturation);
-						this.discharge(aBaubleStack, (1638400) * saturation, 6, true, true, false);
-					}
-				}
 
 
-				saturation = (int) saturation;
-				
-				//Only show Messages if they're enabled.
-				if (getShowMessages(aBaubleStack)) {
-					if (hp > 0 || hunger > 0 || saturation > 0)
-						PlayerUtils.messagePlayer((EntityPlayer) arg1,
-								"Your NanoBooster Whirs! Leaving you feeling stronger.");
-					
-					if (hp > 0)
-						PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + hp + " hp.");
-					
-					if (hunger > 0)
-						PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + hunger + " hunger.");
-					
-					if (saturation > 0)
-						PlayerUtils.messagePlayer((EntityPlayer) arg1, "Satured Hunger by " + saturation + ".");
-					
-					if (hp > 0 || hunger > 0 || saturation > 0)
-						PlayerUtils.messagePlayer((EntityPlayer) arg1,
-								"You check it's remaining uses, it has " + (int) this.secondsLeft(aBaubleStack) + ".");
+		//Try Heal
+		if (this.getCharge(aBaubleStack) > 0) {
 
-				}
+			//health Check
+			float hp = 0;
+			if (arg1.getHealth() < arg1.getMaxHealth()){
+				final float rx = arg1.getMaxHealth()-arg1.getHealth();
+				Logger.INFO("rx:"+rx);
+				arg1.heal(rx*2);
+				hp = rx;
+				this.discharge(aBaubleStack, (1638400)*rx, 6, true, true, false);
+			}
+
+			int hunger = 0;
+			float saturation = 0f;
+
+			EntityPlayerMP g = (EntityPlayerMP) arg1;
+
+			FoodStats fs = g.getFoodStats();
+
+			//Hunger Check
+			hunger = 20 - fs.getFoodLevel();
+			if(hunger > 0) {
+				fs.addStats(hunger, 0f);
+				this.discharge(aBaubleStack, (1638400) * hunger, 6, true, true, false);
+			}
+
+			// Saturation check
+
+			saturation = 5f - fs.getSaturationLevel();
+			if(saturation > 0) {
+				fs.addStats(1, saturation / 2f);
+				this.discharge(aBaubleStack, (1638400) * saturation, 6, true, true, false);
+			}
 
 
+			saturation = (int) saturation;
 
+			//Only show Messages if they're enabled.
+			if (getShowMessages(aBaubleStack)) {
+				if (hp > 0 || hunger > 0 || saturation > 0)
+					PlayerUtils.messagePlayer((EntityPlayer) arg1,
+							"Your NanoBooster Whirs! Leaving you feeling stronger.");
+
+				if (hp > 0)
+					PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + hp + " hp.");
+
+				if (hunger > 0)
+					PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + hunger + " hunger.");
+
+				if (saturation > 0)
+					PlayerUtils.messagePlayer((EntityPlayer) arg1, "Saturated Hunger by " + saturation + ".");
+
+				if (hp > 0 || hunger > 0 || saturation > 0)
+					PlayerUtils.messagePlayer((EntityPlayer) arg1,
+							"You check it's remaining uses, it has " + (int) this.secondsLeft(aBaubleStack) + ".");
 
 			}
+
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	
 	private static boolean createNBT(ItemStack rStack){
 		final NBTTagCompound tagMain = new NBTTagCompound();
