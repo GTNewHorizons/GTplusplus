@@ -49,11 +49,6 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GregtechMetaTileEntit
 	}
 
 	@Override
-	public int getMaxParallelRecipes() {
-		return 8;
-	}
-
-	@Override
 	public int getEuDiscountForParallelism() {
 		return 0;
 	}
@@ -75,17 +70,17 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GregtechMetaTileEntit
 
 	@Override
 	public int getCasingOverlayActive() {
-		return TAE.getIndexFromPage(2, 14);
+		return TAE.getIndexFromPage(2, 12);
 	}
 
 	@Override
 	public int getCasingOverlayInactive() {
-		return 53;
+		return 56;
 	}
 
 	@Override
 	public CustomIcon getFusionCasingTexture() {
-		return TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_HYPER;
+		return TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_III;
 	}
 
 	@Override

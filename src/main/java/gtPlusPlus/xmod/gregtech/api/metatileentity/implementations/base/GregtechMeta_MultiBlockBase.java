@@ -80,6 +80,15 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	protected long mTotalRunTime = 0;
 	protected boolean mVoidExcess = false;
 
+	/**
+	 * Implement this myself, because handling changed and it breaks custom implementations of onPostTick()
+	 */
+	public volatile boolean mUpdated = false;
+	/**
+	 * Implement this myself, because handling changed and it breaks custom implementations of onPostTick()
+	 */
+	public int mUpdate = 0;
+
 	public ArrayList<GT_MetaTileEntity_Hatch_ControlCore> mControlCoreBus = new ArrayList<GT_MetaTileEntity_Hatch_ControlCore>();
 	public ArrayList<GT_MetaTileEntity_Hatch_AirIntake> mAirIntakes = new ArrayList<GT_MetaTileEntity_Hatch_AirIntake>();
 	public ArrayList<GT_MetaTileEntity_Hatch_InputBattery> mChargeHatches = new ArrayList<GT_MetaTileEntity_Hatch_InputBattery>();
@@ -112,6 +121,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	public long getTotalRuntimeInTicks() {
 		return this.mTotalRunTime;
+	}
+
+	@Override
+	/**
+	 * Implement this myself, because handling changed and it breaks custom implementations of onPostTick()
+	 */
+	public void onMachineBlockUpdate() {
+		this.mUpdated = true;
 	}
 
 	@Override
@@ -1652,6 +1669,37 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 		}
 		}
 		return b;
+	}
+
+	protected void checkMaintenanceStatus() {
+		if (disableMaintenance) {
+			this.mWrench = true;
+			this.mScrewdriver = true;
+			this.mSoftHammer = true;
+			this.mHardHammer = true;
+			this.mSolderingTool = true;
+			this.mCrowbar = true;
+
+			return;
+		}
+		for (GT_MetaTileEntity_Hatch_Maintenance tHatch : this.mMaintenanceHatches) {
+			if (isValidMetaTileEntity(tHatch)) {
+				if (tHatch.mAuto && !( this.mWrench && this.mScrewdriver && this.mSoftHammer && this.mHardHammer && this.mSolderingTool && this.mCrowbar)) tHatch.autoMaintainance();
+				if (tHatch.mWrench) this.mWrench = true;
+				if (tHatch.mScrewdriver) this.mScrewdriver = true;
+				if (tHatch.mSoftHammer) this.mSoftHammer = true;
+				if (tHatch.mHardHammer) this.mHardHammer = true;
+				if (tHatch.mSolderingTool) this.mSolderingTool = true;
+				if (tHatch.mCrowbar) this.mCrowbar = true;
+
+				tHatch.mWrench = false;
+				tHatch.mScrewdriver = false;
+				tHatch.mSoftHammer = false;
+				tHatch.mHardHammer = false;
+				tHatch.mSolderingTool = false;
+				tHatch.mCrowbar = false;
+			}
+		}
 	}
 
 	public void fixAllMaintenanceIssue() {

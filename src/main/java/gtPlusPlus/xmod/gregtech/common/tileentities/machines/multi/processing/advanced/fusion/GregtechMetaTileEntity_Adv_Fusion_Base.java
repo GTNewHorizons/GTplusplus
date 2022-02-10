@@ -5,6 +5,7 @@ import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
 import com.gtnewhorizon.structurelib.structure.*;
 
+import gregtech.GT_Mod;
 import gregtech.api.enums.*;
 import gregtech.api.gui.GT_Container_MultiMachine;
 import gregtech.api.interfaces.*;
@@ -16,8 +17,10 @@ import gregtech.api.objects.*;
 import gregtech.api.util.*;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.common.gui.GT_GUIContainer_FusionReactor;
+import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.*;
 import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
@@ -28,76 +31,45 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraftforge.fluids.FluidStack;
 
-public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
+public abstract class GregtechMetaTileEntity_Adv_Fusion_Base
+extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 
 	public static final String STRUCTURE_PIECE_MAIN = "main";
+	private int mCurrentParallels = 0;
 	private static final ClassValue<IStructureDefinition<GregtechMetaTileEntity_Adv_Fusion_Base>> STRUCTURE_DEFINITION = new ClassValue<IStructureDefinition<GregtechMetaTileEntity_Adv_Fusion_Base>>() {
 		@Override
 		protected IStructureDefinition<GregtechMetaTileEntity_Adv_Fusion_Base> computeValue(Class<?> type) {
 			return StructureDefinition.<GregtechMetaTileEntity_Adv_Fusion_Base>builder()
-					.addShape(STRUCTURE_PIECE_MAIN, transpose(new String[][]{
-						{
-							"               ",
-							"      ihi      ",
-							"    hh   hh    ",
-							"   h       h   ",
-							"  h         h  ",
-							"  h         h  ",
-							" i           i ",
-							" h           h ",
-							" i           i ",
-							"  h         h  ",
-							"  h         h  ",
-							"   h       h   ",
-							"    hh   hh    ",
-							"      ihi      ",
-							"               ",
-						},
-						{
-							"      xhx      ",
-							"    hhccchh    ",
-							"   eccxhxcce   ",
-							"  eceh   hece  ",
-							" hce       ech ",
-							" hch       hch ",
-							"xcx         xcx",
-							"hch         hch",
-							"xcx         xcx",
-							" hch       hch ",
-							" hce       ech ",
-							"  eceh   hece  ",
-							"   eccx~xcce   ",
-							"    hhccchh    ",
-							"      xhx      ",
-						},
-						{
-							"               ",
-							"      ihi      ",
-							"    hh   hh    ",
-							"   h       h   ",
-							"  h         h  ",
-							"  h         h  ",
-							" i           i ",
-							" h           h ",
-							" i           i ",
-							"  h         h  ",
-							"  h         h  ",
-							"   h       h   ",
-							"    hh   hh    ",
-							"      ihi      ",
-							"               ",
-						}
-					}))
+					.addShape(STRUCTURE_PIECE_MAIN,
+							transpose(new String[][] {
+								{ "               ", "      ihi      ", "    hh   hh    ", "   h       h   ",
+									"  h         h  ", "  h         h  ", " i           i ", " h           h ",
+									" i           i ", "  h         h  ", "  h         h  ", "   h       h   ",
+									"    hh   hh    ", "      ihi      ", "               ", },
+								{ "      xhx      ", "    hhccchh    ", "   eccxhxcce   ", "  eceh   hece  ",
+										" hce       ech ", " hch       hch ", "xcx         xcx", "hch         hch",
+										"xcx         xcx", " hch       hch ", " hce       ech ", "  eceh   hece  ",
+										"   eccx~xcce   ", "    hhccchh    ", "      xhx      ", },
+								{ "               ", "      ihi      ", "    hh   hh    ", "   h       h   ",
+											"  h         h  ", "  h         h  ", " i           i ", " h           h ",
+											" i           i ", "  h         h  ", "  h         h  ", "   h       h   ",
+											"    hh   hh    ", "      ihi      ", "               ", } }))
 					.addElement('c', lazy(t -> ofBlock(t.getFusionCoil(), t.getFusionCoilMeta())))
 					.addElement('h', lazy(t -> ofBlock(t.getCasing(), t.getCasingMeta())))
-					.addElement('i', lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addInjector, 53, 1, t.getCasing(), t.getCasingMeta())))
-					.addElement('e', lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addEnergyInjector, 53, 2, t.getCasing(), t.getCasingMeta())))
-					.addElement('x', lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addExtractor, 53, 3, t.getCasing(), t.getCasingMeta())))
+					.addElement('i',
+							lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addInjector, 53, 1,
+									t.getCasing(), t.getCasingMeta())))
+					.addElement('e',
+							lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addEnergyInjector,
+									53, 2, t.getCasing(), t.getCasingMeta())))
+					.addElement('x',
+							lazy(t -> ofHatchAdderOptional(GregtechMetaTileEntity_Adv_Fusion_Base::addExtractor, 53, 3,
+									t.getCasing(), t.getCasingMeta())))
 					.build();
 		}
 	};
 
-	public int mEUStore;
+	public long mEUStore;
 
 	public GregtechMetaTileEntity_Adv_Fusion_Base(int aID, String aName, String aNameRegional, int tier) {
 		super(aID, aName, aNameRegional);
@@ -126,31 +98,23 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	@Override
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-		tt.addMachineType("Fusion Reactor")
-		.addInfo(getTooltipText())
-		.addInfo("Controller block for the Fusion Reactor Mk "+getFusionTier())
-		.addInfo("Has 4/4 Overclocks")
-		.addInfo(MathUtils.formatNumbers(getEuPerTickInPerHatch())+" EU/t per Energy Hatch")
-		.addInfo(MathUtils.formatNumbers(getEuStoragePerHatch())+" EU capacity per Energy Hatch")
+		tt.addMachineType("Fusion Reactor").addInfo(getTooltipText())
+		.addInfo("Controller block for the Fusion Reactor Mk " + getFusionTier()).addInfo("Has 4/4 Overclocks")
+		.addInfo(MathUtils.formatNumbers(getEuPerTickInPerHatch()) + " EU/t per Energy Hatch")
+		.addInfo(MathUtils.formatNumbers(getEuStoragePerHatch()) + " EU capacity per Energy Hatch")
 		.addInfo("If the recipe has a startup cost greater than the")
-		.addInfo("number of energy hatches * cap, you can't do it")
-		.addSeparator()
-		.addInfo("Parallel:")
-		.addInfo("Startup < 160,000,000 EU:   "+overclock(150000000))
-		.addInfo("Startup < 320,000,000 EU:   "+overclock(300000000))
-		.addInfo("Startup < 640,000,000 EU:   "+overclock(600000000))
-		.addInfo("Startup < 1,200,000,000 EU: "+overclock(900000000))
-		.addInfo("Startup < 2,000,000,000 EU: "+overclock(1500000000))
-		.addSeparator()
-		.beginStructureBlock(15, 3, 15, false)
-		.addController("See diagram when placed")
-		.addCasingInfo(getCasingName(), 79)
-		.addStructureInfo("Cover the coils with casings")
+		.addInfo("number of energy hatches * cap, you can't do it").addSeparator().addInfo("Parallel:")
+		.addInfo("Startup < 160,000,000 EU:   " + overclock(150000000))
+		.addInfo("Startup < 320,000,000 EU:   " + overclock(300000000))
+		.addInfo("Startup < 640,000,000 EU:   " + overclock(600000000))
+		.addInfo("Startup < 1,200,000,000 EU: " + overclock(900000000))
+		.addInfo("Startup < 2,000,000,000 EU: " + overclock(1500000000)).addSeparator()
+		.beginStructureBlock(15, 3, 15, false).addController("See diagram when placed")
+		.addCasingInfo(getCasingName(), 79).addStructureInfo("Cover the coils with casings")
 		.addOtherStructurePart(getCoilName(), "Center part of the ring")
-		.addEnergyHatch("1-16, Specified casings", 2)
-		.addInputHatch("2-16, Specified casings", 1)
+		.addEnergyHatch("1-16, Specified casings", 2).addInputHatch("2-16, Specified casings", 1)
 		.addOutputHatch("1-16, Specified casings", 3)
-		.addStructureInfo("ALL Hatches must be "+getMinimumHatchTierString()+" or better");
+		.addStructureInfo("ALL Hatches must be " + getMinimumHatchTierString() + " or better");
 		if (LoadedMods.TecTech) {
 			tt.addStructureInfo("Supports Laser Hatches");
 		}
@@ -172,7 +136,8 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	@Override
 	public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-		return new GT_GUIContainer_FusionReactor(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "FusionComputer.png", GT_Recipe.GT_Recipe_Map.sFusionRecipes.mNEIName);
+		return new GT_GUIContainer_FusionReactor(aPlayerInventory, aBaseMetaTileEntity, getLocalName(),
+				"FusionComputer.png", GT_Recipe.GT_Recipe_Map.sFusionRecipes.mNEIName);
 	}
 
 	@Override
@@ -227,11 +192,14 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 			this.mHardHammer = true;
 			this.mSolderingTool = true;
 			this.mCrowbar = true;
-			log("Structure? "+aStructCheck+" | Injectors? "+aInjectors+" | Extractors? "+aExtractors+" | Energy? "+aEnergy);
+			log("Structure? " + aStructCheck + " | Injectors? " + aInjectors + " | Extractors? " + aExtractors
+					+ " | Energy? " + aEnergy);
 			return true;
 		}
-		log("Structure? "+aStructCheck+" | Injectors? "+aInjectors+" | Extractors? "+aExtractors+" | Energy? "+aEnergy);
-		log("Injectors? "+this.mInputHatches.size()+" | Extractors? "+this.mOutputHatches.size()+" | Energy? "+this.mAllEnergyHatches.size());
+		log("Structure? " + aStructCheck + " | Injectors? " + aInjectors + " | Extractors? " + aExtractors
+				+ " | Energy? " + aEnergy);
+		log("Injectors? " + this.mInputHatches.size() + " | Extractors? " + this.mOutputHatches.size() + " | Energy? "
+				+ this.mAllEnergyHatches.size());
 		return false;
 	}
 
@@ -290,18 +258,11 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 			final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		ITexture[] sTexture;
 		if (aSide == aFacing) {
-			sTexture = new ITexture[]{
-					new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
-							Dyes.getModulation(-1, Dyes._NULL.mRGBa)),
-					new GT_RenderedTexture(this.getIconOverlay())};
+			sTexture = new ITexture[] { new GT_RenderedTexture(getFusionCasingTexture()), new GT_RenderedTexture(this.getIconOverlay()) };
 		} else if (!aActive) {
-			sTexture = new ITexture[]{
-					new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
-							Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
+			sTexture = new ITexture[] { (this.getFusionTier() == 4 ? new GT_RenderedTexture(Textures.BlockIcons.FUSIONI_8) : new GT_RenderedTexture(Textures.BlockIcons.FUSIONII_8)) };
 		} else {
-			sTexture = new ITexture[]{
-					new GT_RenderedTexture(getFusionCasingTexture(),
-							Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
+			sTexture = new ITexture[] {	new GT_RenderedTexture(getFusionCasingTexture()) };
 		}
 		return sTexture;
 	}
@@ -310,11 +271,13 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	@SuppressWarnings("deprecation")
 	public ITexture getTextureOverlay() {
-		return new GT_RenderedTexture(this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3 : TexturesGtBlock.Casing_Machine_Screen_1);
+		return new GT_RenderedTexture(this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3
+				: TexturesGtBlock.Casing_Machine_Screen_1);
 	}
 
 	public IIconContainer getIconOverlay() {
-		return this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3 : TexturesGtBlock.Casing_Machine_Screen_1;
+		return this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3
+				: TexturesGtBlock.Casing_Machine_Screen_1;
 	}
 
 	@Override
@@ -327,23 +290,17 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		int aOverclock = 0;
 		if (mStartEnergy < 160000000) {
 			aOverclock = 16;
-		}
-		else if (mStartEnergy < 320000000) {
+		} else if (mStartEnergy < 320000000) {
 			aOverclock = 8;
-		}
-		else if (mStartEnergy < 640000000) {
+		} else if (mStartEnergy < 640000000) {
 			aOverclock = 4;
-		}
-		else if (mStartEnergy < 1200000000) {
+		} else if (mStartEnergy < 1200000000) {
 			aOverclock = 2;
-		}
-		else if (mStartEnergy < 2000000000) {
+		} else if (mStartEnergy < 2000000000) {
 			aOverclock = 1;
-		}
-		else if (mStartEnergy >= 2000000000 && mStartEnergy <= Integer.MAX_VALUE) {
+		} else if (mStartEnergy >= 2000000000 && mStartEnergy <= Integer.MAX_VALUE) {
 			return 1;
-		}
-		else {
+		} else {
 			return 1;
 		}
 		return aOverclock * aMulti;
@@ -356,6 +313,16 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	@Override
 	public boolean drainEnergyInput(long aEU) {
+		if (aEU <= 0) {
+			log("aEU <= 0 | " + aEU);
+			return true;
+		}
+		if (this.getBaseMetaTileEntity().getStoredEU() - aEU >= 0
+				&& this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(aEU, false)) {
+			//log("Removed " + aEU + " from EU Storage.");
+			return true;
+		}
+		log("aEU | " + aEU + " | false | " + this.mAllEnergyHatches.size());
 		return false;
 	}
 
@@ -368,32 +335,42 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	public int getDamageToComponent(ItemStack aStack) {
 		return 0;
 	}
+
 	@Override
 	public boolean explodesOnComponentBreak(ItemStack aStack) {
 		return false;
 	}
 
 	@Override
+	public final int getMaxParallelRecipes() {
+		if (this.mLastRecipe != null) {
+			return overclock(this.mLastRecipe.mSpecialValue);
+		}
+		return 0;
+	}
+
+	@Override
 	public String[] getExtraInfoData() {
-		String tier = ""+EnumChatFormatting.DARK_RED+this.getFusionTier()+EnumChatFormatting.RESET;
+		String tier = "" + EnumChatFormatting.DARK_RED + this.getFusionTier() + EnumChatFormatting.RESET;
 		float plasmaOut = 0;
 		int powerRequired = 0;
 		if (this.mLastRecipe != null) {
-			powerRequired = this.mLastRecipe.mEUt;
+			powerRequired = this.mLastRecipe.mEUt * this.mCurrentParallels;
 			if (this.mLastRecipe.getFluidOutput(0) != null) {
-				plasmaOut = (float)this.mLastRecipe.getFluidOutput(0).amount / (float)this.mLastRecipe.mDuration;
+				plasmaOut = (float) this.mLastRecipe.getFluidOutput(0).amount / (float) this.mLastRecipe.mDuration
+						* this.mCurrentParallels;
 			}
 		}
-
-		return new String[]{
-				EnumChatFormatting.RED + "Fusion Reactor MK " + EnumChatFormatting.RESET + tier,
-				StatCollector.translateToLocal("GT5U.fusion.req") + ": " +
-						EnumChatFormatting.RED + GT_Utility.formatNumbers(powerRequired) + EnumChatFormatting.RESET + "EU/t",
-						StatCollector.translateToLocal("GT5U.multiblock.energy") + ": " +
-								EnumChatFormatting.GREEN + GT_Utility.formatNumbers(this.mEUStore) + EnumChatFormatting.RESET + " EU / " +
-								EnumChatFormatting.YELLOW + GT_Utility.formatNumbers(maxEUStore()) + EnumChatFormatting.RESET + " EU",
-								StatCollector.translateToLocal("GT5U.fusion.plasma") + ": " +
-										EnumChatFormatting.YELLOW + GT_Utility.formatNumbers(plasmaOut) + EnumChatFormatting.RESET + "L/t"};
+		return new String[] { EnumChatFormatting.RED + "Fusion Reactor MK " + EnumChatFormatting.RESET + tier,
+				"Current Parallel: " + this.mCurrentParallels,
+				StatCollector.translateToLocal("GT5U.fusion.req") + ": " + EnumChatFormatting.RED
+				+ GT_Utility.formatNumbers(powerRequired) + EnumChatFormatting.RESET + "EU/t",
+				StatCollector.translateToLocal("GT5U.multiblock.energy") + ": " + EnumChatFormatting.GREEN
+				+ GT_Utility.formatNumbers(this.mEUStore) + EnumChatFormatting.RESET + " EU / "
+				+ EnumChatFormatting.YELLOW + GT_Utility.formatNumbers(maxEUStore()) + EnumChatFormatting.RESET
+				+ " EU",
+				StatCollector.translateToLocal("GT5U.fusion.plasma") + ": " + EnumChatFormatting.YELLOW
+				+ GT_Utility.formatNumbers(plasmaOut) + EnumChatFormatting.RESET + "L/t" };
 	}
 
 	@Override
@@ -412,7 +389,7 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	}
 
 	public boolean turnCasingActive(boolean status) {
-		if (this.mEnergyHatches != null) {
+		if (this.mAllEnergyHatches != null) {
 			for (GT_MetaTileEntity_Hatch hatch : this.mAllEnergyHatches) {
 				hatch.updateTexture(status ? getCasingOverlayActive() : getCasingOverlayInactive());
 			}
@@ -434,96 +411,136 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 	public abstract int getCasingOverlayInactive();
 
-
-	public void shutdown() {
-		turnCasingActive(false);
-		this.mLastRecipe = null;
-	}
-
 	@Override
 	public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
 		if (aBaseMetaTileEntity.isServerSide()) {
-			this.mTotalRunTime++;
-			if (this.mEfficiency < 0)
+			if (this.mEfficiency < 0) {
 				this.mEfficiency = 0;
+			}
+			if (this.mUpdated) {
+				this.mUpdate = 50;
+				this.mUpdated = false;
+			}
+			// Time Counter
+			this.mTotalRunTime++;
+			this.mEUStore = aBaseMetaTileEntity.getStoredEU();
 			if (this.mRunningOnLoad && checkMachine(aBaseMetaTileEntity, this.mInventory[1])) {
-				this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
 				checkRecipe(this.mInventory[1]);
 			}
 			if (--this.mUpdate == 0 || --this.mStartUpCheck == 0) {
-				this.mInputHatches.clear();
-				this.mEnergyHatches.clear();
-				this.mDynamoHatches.clear();
 				this.mTecTechEnergyHatches.clear();
 				this.mTecTechDynamoHatches.clear();
 				this.mAllEnergyHatches.clear();
 				this.mAllDynamoHatches.clear();
 				checkStructure(true, aBaseMetaTileEntity);
 			}
+			int aHatchCount = this.mAllEnergyHatches.size();
+			if (aHatchCount > 0) {
+				//log("Capacity: " + this.getBaseMetaTileEntity().getEUCapacity());
+				for (GT_MetaTileEntity_Hatch tHatch : this.mAllEnergyHatches) {
+					if (isValidMetaTileEntity(tHatch)) {
+						long aDrain = Math.min(getEuPerTickInPerHatch(), GT_Values.V[tHatch.mTier]);
+						if (this.getBaseMetaTileEntity()
+								.getStoredEU() <= (this.getBaseMetaTileEntity().getEUCapacity() - aDrain)) {
+							if (tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(aDrain, false)) {
+								this.getBaseMetaTileEntity().increaseStoredEnergyUnits(aDrain, false);
+								//log("Added " + aDrain + " to EU Storage.");
+							}
+						}
+					}
+				}
+			}
 			if (this.mStartUpCheck < 0) {
 				if (this.mMachine) {
-					if (this.mAllEnergyHatches != null) {
-						for (GT_MetaTileEntity_Hatch tHatch : this.mAllEnergyHatches)
-							if (isValidMetaTileEntity(tHatch)) {
-								if (aBaseMetaTileEntity.getStoredEU() + getEuPerTickInPerHatch() < maxEUStore()
-										&& tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(getEuPerTickInPerHatch(), false)) {
-									aBaseMetaTileEntity.increaseStoredEnergyUnits(getEuPerTickInPerHatch(), true);
-								}
-							}
-					}
-					if (this.mEUStore <= 0 && this.mMaxProgresstime > 0) {
+					checkMaintenanceStatus();
+					if (getRepairStatus() > 0) {
+						runMachine(aBaseMetaTileEntity, aTick);
+					} else {
 						stopMachine();
 					}
-					if (this.mMaxProgresstime > 0) {
-						this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(this.mEUt, true);
-						if (this.mMaxProgresstime > 0 && ++this.mProgresstime >= this.mMaxProgresstime) {
-							if (this.mOutputItems != null)
-								for (ItemStack tStack : this.mOutputItems) if (tStack != null) addOutput(tStack);
-							if (this.mOutputFluids != null)
-								for (FluidStack tStack : this.mOutputFluids) if (tStack != null) addOutput(tStack);
-							this.mEfficiency = Math.max(0, Math.min(this.mEfficiency + this.mEfficiencyIncrease, getMaxEfficiency(this.mInventory[1])));
-							this.mOutputItems = null;
-							this.mProgresstime = 0;
-							this.mMaxProgresstime = 0;
-							this.mEfficiencyIncrease = 0;
-							this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
-							if (aBaseMetaTileEntity.isAllowedToWork())
-								checkRecipe(this.mInventory[1]);
-						}
-					} else {
-						if (aTick % 100 == 0 || aBaseMetaTileEntity.hasWorkJustBeenEnabled() || aBaseMetaTileEntity.hasInventoryBeenModified()) {
-							turnCasingActive(this.mMaxProgresstime > 0);
-							if (aBaseMetaTileEntity.isAllowedToWork()) {
-								this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
-								if (checkRecipe(this.mInventory[1])) {
-									if (this.mEUStore < this.mLastRecipe.mSpecialValue - this.mEUt) {
-										this.mMaxProgresstime = 0;
-										turnCasingActive(false);
-									}
-									aBaseMetaTileEntity.decreaseStoredEnergyUnits(this.mLastRecipe.mSpecialValue - this.mEUt, true);
-								}
-							}
-							if (this.mMaxProgresstime <= 0)
-								this.mEfficiency = Math.max(0, this.mEfficiency - 1000);
-						}
-					}
 				} else {
-					turnCasingActive(false);
-					this.mLastRecipe = null;
 					stopMachine();
 				}
 			}
-			aBaseMetaTileEntity.setErrorDisplayID((aBaseMetaTileEntity.getErrorDisplayID() & ~127) | (this.mMachine ? 0 : 64));
+			aBaseMetaTileEntity
+			.setErrorDisplayID((aBaseMetaTileEntity.getErrorDisplayID() & ~127) | (this.mWrench ? 0 : 1)
+					| (this.mScrewdriver ? 0 : 2) | (this.mSoftHammer ? 0 : 4) | (this.mHardHammer ? 0 : 8)
+					| (this.mSolderingTool ? 0 : 16) | (this.mCrowbar ? 0 : 32) | (this.mMachine ? 0 : 64));
 			aBaseMetaTileEntity.setActive(this.mMaxProgresstime > 0);
+			turnCasingActive(this.mMaxProgresstime > 0);
 		}
 	}
 
 	@Override
+	protected void runMachine(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+		if (this.mMaxProgresstime > 0) {
+			boolean runningTick = onRunningTick(this.mInventory[1]);
+			if (runningTick) {
+				if (!polluteEnvironment(getPollutionPerTick(this.mInventory[1]))) {
+					stopMachine();
+				}
+				if (this.mMaxProgresstime > 0 && ++this.mProgresstime >= this.mMaxProgresstime) {
+					if (this.mOutputItems != null)
+						for (ItemStack tStack : this.mOutputItems)
+							if (tStack != null) {
+								try {
+									GT_Mod.achievements.issueAchivementHatch(aBaseMetaTileEntity.getWorld()
+											.getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()), tStack);
+								} catch (Exception ignored) {
+								}
+								addOutput(tStack);
+							}
+					if (this.mOutputFluids != null) {
+						addFluidOutputs(this.mOutputFluids);
+					}
+					this.mEfficiency = Math.max(0, Math.min(this.mEfficiency + this.mEfficiencyIncrease,
+							getMaxEfficiency(this.mInventory[1]) - ((getIdealStatus() - getRepairStatus()) * 1000)));
+					this.mOutputItems = null;
+					this.mProgresstime = 0;
+					this.mMaxProgresstime = 0;
+					this.mEfficiencyIncrease = 0;
+					if (aBaseMetaTileEntity.isAllowedToWork()) {
+						checkRecipe(this.mInventory[1]);
+					}
+					if (this.mOutputFluids != null && this.mOutputFluids.length > 0) {
+						if (this.mOutputFluids.length > 1) {
+							try {
+								GT_Mod.achievements.issueAchievement(aBaseMetaTileEntity.getWorld()
+										.getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()), "oilplant");
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
+			}
+		} else {
+			if (aTick % 100 == 0 || aBaseMetaTileEntity.hasWorkJustBeenEnabled()
+					|| aBaseMetaTileEntity.hasInventoryBeenModified()) {
+				// log("C1 | "+aBaseMetaTileEntity.hasWorkJustBeenEnabled()+" |
+				// "+aBaseMetaTileEntity.hasInventoryBeenModified()+" |
+				// "+aBaseMetaTileEntity.isAllowedToWork());
+				if (aBaseMetaTileEntity.isAllowedToWork()) {
+					checkRecipe(this.mInventory[1]);
+				}
+				if (this.mMaxProgresstime <= 0) {
+					this.mEfficiency = Math.max(0, this.mEfficiency - 1000);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Called every tick the Machine runs
+	 */
+	@Override
 	public boolean onRunningTick(ItemStack aStack) {
+		if (this.mEUt > 0) {
+			addEnergyOutput(((long) this.mEUt * this.mEfficiency) / 10000);
+			return true;
+		}
 		if (this.mEUt < 0) {
 			if (!drainEnergyInput(((long) -this.mEUt * 10000) / Math.max(1000, this.mEfficiency))) {
-				this.mLastRecipe = null;
-				stopMachine();
+				criticalStopMachine();
 				return false;
 			}
 		}
@@ -532,7 +549,34 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 			stopMachine();
 			return false;
 		}
+
 		return true;
+	}
+
+	@Override
+	public void stopMachine() {
+		log("Stopped?");
+		Logger.INFO("Called from: " + ReflectionUtils.getMethodName(1));
+		Logger.INFO(ReflectionUtils.getMethodName(2));
+		Logger.INFO(ReflectionUtils.getMethodName(3));
+		Logger.INFO(ReflectionUtils.getMethodName(4));
+		Logger.INFO(ReflectionUtils.getMethodName(5));
+		this.mOutputItems = null;
+		this.mEUt = 0;
+		this.mEfficiency = 0;
+		this.mProgresstime = 0;
+		this.mMaxProgresstime = 0;
+		this.mEfficiencyIncrease = 0;
+		getBaseMetaTileEntity().disableWorking();
+		turnCasingActive(false);
+		this.mLastRecipe = null;
+		this.mCurrentParallels = 0;
+	}
+
+	@Override
+	public void criticalStopMachine() {
+		stopMachine();
+		getBaseMetaTileEntity().setShutdownStatus(true);
 	}
 
 	@Override
@@ -556,15 +600,15 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 	}
 
 	@Override
-	public boolean checkRecipeGeneric(int aMaxParallelRecipes, int aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
-		return checkRecipeGeneric(new ItemStack[] {}, this.getCompactedFluids(), aMaxParallelRecipes, aEUPercent, aSpeedBonusPercent, aOutputChanceRoll);
+	public boolean checkRecipeGeneric(int aMaxParallelRecipes, int aEUPercent, int aSpeedBonusPercent,
+			int aOutputChanceRoll) {
+		return checkRecipeGeneric(new ItemStack[] {}, this.getCompactedFluids(), aMaxParallelRecipes, aEUPercent,
+				aSpeedBonusPercent, aOutputChanceRoll);
 	}
 
 	@Override
-	public boolean checkRecipeGeneric(
-			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
-			int aMaxParallelRecipes, int aEUPercent,
-			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
+	public boolean checkRecipeGeneric(ItemStack[] aItemInputs, FluidStack[] aFluidInputs, int aMaxParallelRecipes,
+			int aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
 		// Based on the Processing Array. A bit overkill, but very flexible.
 
 		aFluidInputs = this.getCompactedFluids();
@@ -572,49 +616,43 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		// Reset outputs and progress stats
 		this.mEUt = 0;
 		this.mMaxProgresstime = 0;
-		this.mOutputItems = new ItemStack[]{};
-		this.mOutputFluids = new FluidStack[]{};
+		this.mOutputItems = new ItemStack[] {};
+		this.mOutputFluids = new FluidStack[] {};
 
-		long tVoltage = getMaxInputVoltage();
+		long tVoltage = this.mAllEnergyHatches.size() * getEuPerTickInPerHatch();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
 		log("Running checkRecipeGeneric(0) | "+tVoltage+" | "+tTier+" | "+tEnergy);
 		GT_Recipe tRecipe;
 		try {
-			tRecipe = findRecipe(
-					getBaseMetaTileEntity(), this.mLastRecipe, false, false,
+			tRecipe = findRecipe(getBaseMetaTileEntity(), this.mLastRecipe, false, false,
 					gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
-		}
-		catch (Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
-			shutdown();
+			stopMachine();
 			return false;
 		}
-		log("Running checkRecipeGeneric(1)");
+		// log("Running checkRecipeGeneric(1)");
 		// Remember last recipe - an optimization for findRecipe()
 		this.mLastRecipe = tRecipe;
 
 		if ((tRecipe == null && !this.mRunningOnLoad) || (tRecipe != null && maxEUStore() < tRecipe.mSpecialValue)) {
-			shutdown();
+			stopMachine();
 			return false;
-		}
-		else if (tRecipe == null ) {
-			shutdown();
+		} else if (tRecipe == null) {
+			stopMachine();
 			return false;
-		}
-		else {
+		} else {
 			aMaxParallelRecipes = this.overclock(tRecipe.mSpecialValue);
-			log("Setting Max parallel to "+aMaxParallelRecipes);
+			log("Setting Max parallel to " + aMaxParallelRecipes);
 		}
 
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
-			log("BAD RETURN - 2");
-			shutdown();
+			// log("BAD RETURN - 2");
+			stopMachine();
 			return false;
 		}
-
-
 
 		// EU discount
 		float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
@@ -622,46 +660,47 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 
 		int parallelRecipes = 0;
 
-		log("parallelRecipes: "+parallelRecipes);
-		log("aMaxParallelRecipes: "+aMaxParallelRecipes);
-		log("tTotalEUt: "+tTotalEUt);
-		log("tVoltage: "+tVoltage);
-		log("tRecipeEUt: "+tRecipeEUt);
-		// Count recipes to do in parallel, consuming input items and fluids and considering input voltage limits
+		// log("parallelRecipes: "+parallelRecipes);
+		// log("aMaxParallelRecipes: "+aMaxParallelRecipes);
+		// log("tTotalEUt: "+tTotalEUt);
+		// log("tVoltage: "+tVoltage);
+		// log("tRecipeEUt: "+tRecipeEUt);
+		// Count recipes to do in parallel, consuming input items and fluids and
+		// considering input voltage limits
 		for (; parallelRecipes < aMaxParallelRecipes && tTotalEUt < (tEnergy - tRecipeEUt); parallelRecipes++) {
 			if (!this.mRunningOnLoad) {
 				if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
-					log("Broke at "+parallelRecipes+".");
+					// log("Broke at "+parallelRecipes+".");
 					break;
 				}
 			}
-			log("Bumped EU from "+tTotalEUt+" to "+(tTotalEUt+tRecipeEUt)+".");
+			// log("Bumped EU from "+tTotalEUt+" to "+(tTotalEUt+tRecipeEUt)+".");
 			tTotalEUt += tRecipeEUt;
 		}
 
 		if (parallelRecipes == 0) {
-			log("BAD RETURN - 3");
-			shutdown();
+			// log("BAD RETURN - 3");
+			stopMachine();
 			return false;
 		}
 
-		log("Parallel: "+parallelRecipes);
+		log("Parallel: " + parallelRecipes);
+		this.mCurrentParallels = parallelRecipes;
 		// -- Try not to fail after this point - inputs have already been consumed! --
 		turnCasingActive(true);
-
 
 		// Convert speed bonus to duration multiplier
 		// e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
 		aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
 		float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
-		this.mMaxProgresstime = (int)(tRecipe.mDuration * tTimeFactor);
-		log("mMaxProgresstime: "+this.mMaxProgresstime);
-		this.mEUt = (int)Math.ceil(tTotalEUt);
-		log("mEUt: "+this.mEUt);
+		this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
+		// log("mMaxProgresstime: "+this.mMaxProgresstime);
+		this.mEUt = (int) Math.ceil(tTotalEUt);
+		// log("mEUt: "+this.mEUt);
 
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
 		this.mEfficiencyIncrease = 10000;
-		log("mEfficiency: "+this.mEfficiency);
+		// log("mEfficiency: "+this.mEfficiency);
 
 		// Overclock
 		if (this.mEUt <= 16) {
@@ -672,22 +711,21 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 				this.mEUt *= 4;
 				if (hasPerfectOverclock()) {
 					this.mMaxProgresstime /= 4;
-				}
-				else {
+				} else {
 					this.mMaxProgresstime /= 2;
 				}
 			}
 		}
-		log("mMaxProgresstime: "+this.mMaxProgresstime);
-		log("mEUt: "+this.mEUt);
+		// log("mMaxProgresstime: "+this.mMaxProgresstime);
+		// log("mEUt: "+this.mEUt);
 
 		if (this.mEUt > 0) {
 			this.mEUt = (-this.mEUt);
 		}
-		log("mEUt: "+this.mEUt);
+		log("mEUt: " + this.mEUt);
 
 		this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
-		log("mMaxProgresstime: "+this.mMaxProgresstime);
+		log("mMaxProgresstime: " + this.mMaxProgresstime);
 		this.mRunningOnLoad = false;
 
 		// Collect fluid outputs
@@ -696,6 +734,12 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 			if (tRecipe.getFluidOutput(h) != null) {
 				tOutputFluids[h] = tRecipe.getFluidOutput(h).copy();
 				tOutputFluids[h].amount *= parallelRecipes;
+			}
+		}
+
+		for (FluidStack output : tOutputFluids) {
+			if (output != null) {
+				log("Outputting " + output.amount + "L of " + output.getLocalizedName());
 			}
 		}
 
@@ -710,6 +754,5 @@ public abstract class GregtechMetaTileEntity_Adv_Fusion_Base extends GregtechMet
 		log("GOOD RETURN - 1");
 		return true;
 	}
-
 
 }
