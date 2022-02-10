@@ -56,11 +56,11 @@ extends GregtechMetaCasingBlocksAbstract {
 			final int aSide) {
 		final Block thisBlock = aWorld.getBlock(xCoord, yCoord, zCoord);
 		final int tMeta = aWorld.getBlockMetadata(xCoord, yCoord, zCoord);
-		if ((tMeta != 12)|| !GregtechMetaCasingBlocks6.mConnectedMachineTextures) {
+		if ((tMeta != 0)|| !GregtechMetaCasingBlocks6.mConnectedMachineTextures) {
 			return getIcon(aSide, tMeta);
 		}
 		final int tStartIndex = 0;
-		if (tMeta == 12) {
+		if (tMeta == 0) {
 			final boolean[] tConnectedSides = {
 					aWorld.getBlock(xCoord, yCoord - 1, zCoord) == thisBlock
 							&& aWorld.getBlockMetadata(xCoord, yCoord - 1, zCoord) == tMeta,
