@@ -17,10 +17,8 @@ import gregtech.api.objects.*;
 import gregtech.api.util.*;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.common.gui.GT_GUIContainer_FusionReactor;
-import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.*;
 import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
@@ -289,15 +287,15 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 		int aMulti = this.getFusionTier() == 4 ? 1 : 2;
 		int aOverclock = 0;
 		if (mStartEnergy < 160000000) {
-			aOverclock = 16;
+			aOverclock = 32;
 		} else if (mStartEnergy < 320000000) {
-			aOverclock = 8;
+			aOverclock = 16;
 		} else if (mStartEnergy < 640000000) {
-			aOverclock = 4;
+			aOverclock = 8;
 		} else if (mStartEnergy < 1200000000) {
-			aOverclock = 2;
+			aOverclock = 4;
 		} else if (mStartEnergy < 2000000000) {
-			aOverclock = 1;
+			aOverclock = 2;
 		} else if (mStartEnergy >= 2000000000 && mStartEnergy <= Integer.MAX_VALUE) {
 			return 1;
 		} else {
@@ -314,7 +312,7 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 	@Override
 	public boolean drainEnergyInput(long aEU) {
 		if (aEU <= 0) {
-			log("aEU <= 0 | " + aEU);
+			//log("aEU <= 0 | " + aEU);
 			return true;
 		}
 		if (this.getBaseMetaTileEntity().getStoredEU() - aEU >= 0
@@ -322,7 +320,7 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 			//log("Removed " + aEU + " from EU Storage.");
 			return true;
 		}
-		log("aEU | " + aEU + " | false | " + this.mAllEnergyHatches.size());
+		//log("aEU | " + aEU + " | false | " + this.mAllEnergyHatches.size());
 		return false;
 	}
 
@@ -555,12 +553,6 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 
 	@Override
 	public void stopMachine() {
-		log("Stopped?");
-		Logger.INFO("Called from: " + ReflectionUtils.getMethodName(1));
-		Logger.INFO(ReflectionUtils.getMethodName(2));
-		Logger.INFO(ReflectionUtils.getMethodName(3));
-		Logger.INFO(ReflectionUtils.getMethodName(4));
-		Logger.INFO(ReflectionUtils.getMethodName(5));
 		this.mOutputItems = null;
 		this.mEUt = 0;
 		this.mEfficiency = 0;

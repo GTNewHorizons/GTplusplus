@@ -90,7 +90,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GregtechMetaTileEntit
 
 	@Override
 	public long getEuPerTickInPerHatch() {
-		return GT_Values.V[6];
+		return GT_Values.V[8];
 	}
 
 	@Override
