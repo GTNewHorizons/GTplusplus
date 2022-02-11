@@ -272,7 +272,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 			mInfo.add(StatCollector.translateToLocal("GTPP.CC.discount")+": "+
 					EnumChatFormatting.GREEN+(getEuDiscountForParallelism())+EnumChatFormatting.RESET + "%");
 
-			mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel")+": "+EnumChatFormatting.GREEN+(getMaxParallelRecipes())+EnumChatFormatting.RESET);
+			mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel")+": "+EnumChatFormatting.GREEN+(getRealMaxParallel())+EnumChatFormatting.RESET);
 
 
 			mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks)+EnumChatFormatting.RESET+" Weeks, " + EnumChatFormatting.DARK_GREEN+ Integer.toString(days) +EnumChatFormatting.RESET+ " Days, ");
@@ -363,6 +363,18 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	public abstract int getMaxParallelRecipes();
 	public abstract int getEuDiscountForParallelism();
+
+	private int getRealMaxParallel() {
+		if (getMaxParallelRecipes() > 0) {
+			if (this.canHaveParallelUpgraded()) {
+				return getMaxParallelRecipes() * this.getParallelBonusMultiplier();
+			}
+			else {
+				return getMaxParallelRecipes();
+			}
+		}
+		return 1;
+	}
 
 	@Override
 	public boolean isCorrectMachinePart(final ItemStack paramItemStack) {
