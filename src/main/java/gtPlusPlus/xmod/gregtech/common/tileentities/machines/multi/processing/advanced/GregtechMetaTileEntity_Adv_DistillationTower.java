@@ -351,6 +351,11 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
+	@Override
 	public int getEuDiscountForParallelism() {
 		return 15;
 	}

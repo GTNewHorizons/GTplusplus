@@ -1,23 +1,20 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import java.util.*;
+
+import com.gtnewhorizon.structurelib.structure.*;
+
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
-import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -25,13 +22,8 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_AlloyBlastSmelter> {
 
@@ -64,71 +56,71 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Alloy Blast Smelter")
-				.addInfo("20% Faster than the Electric Blast Furnace")
-				.addInfo("Allows Complex GT++ alloys to be created")
-				.addInfo("This multiblock cannot be overclocked")
-				.addInfo("Circuit for recipe goes in the Input Bus or GUI slot")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 4, 3, true)
-				.addController("Bottom Center")
-				.addCasingInfo("Blast Smelter Casings", 10)
-				.addCasingInfo("Blast Smelter Heat Containment Coils", 16)
-				.addInputBus("Any Casing", 1)
-				.addInputHatch("Any Casing", 1)
-				.addOutputHatch("Any Casing", 1)
-				.addEnergyHatch("Any Casing", 1)
-				.addMaintenanceHatch("Any Casing", 1)
-				.addMufflerHatch("Any Casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Alloy Blast Smelter")
+		.addInfo("20% Faster than the Electric Blast Furnace")
+		.addInfo("Allows Complex GT++ alloys to be created")
+		.addInfo("This multiblock cannot be overclocked")
+		.addInfo("Circuit for recipe goes in the Input Bus or GUI slot")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 4, 3, true)
+		.addController("Bottom Center")
+		.addCasingInfo("Blast Smelter Casings", 10)
+		.addCasingInfo("Blast Smelter Heat Containment Coils", 16)
+		.addInputBus("Any Casing", 1)
+		.addInputHatch("Any Casing", 1)
+		.addOutputHatch("Any Casing", 1)
+		.addEnergyHatch("Any Casing", 1)
+		.addMaintenanceHatch("Any Casing", 1)
+		.addMufflerHatch("Any Casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_AlloyBlastSmelter> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_AlloyBlastSmelter>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"HHH", "H-H", "HHH"},
-							{"HHH", "H-H", "HHH"},
-							{"C~C", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_AlloyBlastSmelter>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC"},
+						{"HHH", "H-H", "HHH"},
+						{"HHH", "H-H", "HHH"},
+						{"C~C", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_AlloyBlastSmelter::addAlloyBlastSmelterList, TAE.GTPP_INDEX(15), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													ModBlocks.blockCasingsMisc, 15
+													)
 											)
 									)
 							)
-					)
 					.addElement(
 							'H',
 							ofBlock(
 									ModBlocks.blockCasingsMisc, 14
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 3, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 1, 3, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 3, 0) && mCasing >= 10 && mEnergyHatches.size() == 1 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 3, 0) && this.mCasing >= 10 && this.mEnergyHatches.size() == 1 && checkHatch();
 	}
 
 	public final boolean addAlloyBlastSmelterList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -172,7 +164,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 	@Override
 	public boolean hasSlotInGUI() {
 		return true;
-	}	
+	}
 
 	@Override
 	public boolean requiresVanillaGtGUI() {
@@ -182,11 +174,16 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 	@Override
 	public String getCustomGUIResourceName() {
 		return "ElectricBlastFurnace";
-	}	
+	}
 
 	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes;
+	}
+
+	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
 	}
 
 	@Override
@@ -197,7 +194,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 				circuit = CI.getNumberedCircuit(0).getItem();
 			}
 			if (aStack != null && aStack.getItem() == circuit) {
-				this.mMode = aStack.getItemDamage();	
+				this.mMode = aStack.getItemDamage();
 				return this.isUsingControllerCircuit = true;
 			}
 			else {
@@ -235,11 +232,11 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 			}
 
 			//Validity check
-			if ((isUsingControllerCircuit && tInputList.size() < 1) || (!isUsingControllerCircuit && tInputList.size() < 2)) {
+			if ((this.isUsingControllerCircuit && tInputList.size() < 1) || (!this.isUsingControllerCircuit && tInputList.size() < 2)) {
 				Logger.WARNING("Not enough inputs.");
 				return false;
 			}
-			else if (isUsingControllerCircuit  && tInputList.size() >= 1) {
+			else if (this.isUsingControllerCircuit  && tInputList.size() >= 1) {
 				tInputList.add(CI.getNumberedCircuit(this.mMode));
 			}
 
@@ -288,10 +285,10 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 					for (ItemStack tOut : tRecipe.mOutputs) {
 						if (ItemUtils.checkForInvalidItems(tOut)) {
 							tOutPutItems.add(tOut);
-						}	
+						}
 					}
 					if (tOutPutItems.size() > 0)
-					this.mOutputItems = tOutPutItems.toArray(new ItemStack[tOutPutItems.size()]);
+						this.mOutputItems = tOutPutItems.toArray(new ItemStack[tOutPutItems.size()]);
 					this.updateSlots();
 					return true;
 				}
@@ -299,8 +296,8 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 		}
 		Logger.WARNING("Failed to find some Valid Inputs or Clientside.");
 		return false;
-	}	
-	
+	}
+
 	@Override
 	public int getMaxParallelRecipes() {
 		return 1;

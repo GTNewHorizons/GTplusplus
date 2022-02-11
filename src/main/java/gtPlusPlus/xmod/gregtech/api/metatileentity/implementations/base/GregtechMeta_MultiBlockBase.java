@@ -39,6 +39,7 @@ import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.asm.AsmConfig;
 import gtPlusPlus.xmod.gregtech.api.gui.*;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.*;
+import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.IInventory;
@@ -79,6 +80,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	private boolean mInternalCircuit = false;
 	protected long mTotalRunTime = 0;
 	protected boolean mVoidExcess = false;
+	protected short mUpgradeTier = 0;
 
 	/**
 	 * Implement this myself, because handling changed and it breaks custom implementations of onPostTick()
@@ -940,6 +942,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 		this.mOutputItems = new ItemStack[]{};
 		this.mOutputFluids = new FluidStack[]{};
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
@@ -2287,6 +2290,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
+		aNBT.setShort("mUpgradeTier", this.mUpgradeTier);
 		aNBT.setLong("mTotalRunTime", this.mTotalRunTime);
 		aNBT.setBoolean("mVoidExcess", this.mVoidExcess);
 		super.saveNBTData(aNBT);
@@ -2294,9 +2298,58 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
+		this.mUpgradeTier = aNBT.getShort("mUpgradeTier");
 		this.mTotalRunTime = aNBT.getLong("mTotalRunTime");
 		this.mVoidExcess = aNBT.getBoolean("mVoidExcess");
 		super.loadNBTData(aNBT);
+	}
+
+	public static boolean isParallelUpgradeChip(ItemStack aStack) {
+		if (aStack != null && aStack.getItem() instanceof MetaGeneratedGregtechItems) {
+			if (aStack.getItemDamage() >= 32163 && aStack.getItemDamage() <= 32172) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static int getParallelUpgradeChipTier(ItemStack aStack) {
+		if (isParallelUpgradeChip(aStack)) {
+			return aStack.getItemDamage() - 32162;
+		}
+		return 0;
+	}
+
+	public boolean upgradeParallelTier(ItemStack aStack) {
+		if (!canHaveParallelUpgraded()) {
+			log("Cannot upgrade this multi.");
+			return false;
+		}
+		int aChipTier = getParallelUpgradeChipTier(aStack);
+		if (aChipTier > 0) {
+			if (aChipTier > this.mUpgradeTier) {
+				short aCurrentTier = this.mUpgradeTier;
+				this.mUpgradeTier = MathUtils.min((short) aChipTier, (short) 10);
+				boolean aDidUpgrade = this.mUpgradeTier > aCurrentTier;
+				log(aDidUpgrade ? "Upgraded from T"+aCurrentTier+" to T"+aChipTier : "Did not upgrade from T"+aCurrentTier+" to T"+aChipTier);
+				return aDidUpgrade;
+			}
+			log("Chip Tier <= "+this.mUpgradeTier);
+			return false;
+		}
+		log("Bad Tier? "+aChipTier);
+		return false;
+	}
+
+	public boolean canHaveParallelUpgraded() {
+		return true;
+	}
+
+	public int getParallelBonusMultiplier() {
+		if (!canHaveParallelUpgraded()) {
+			return 1;
+		}
+		return this.mUpgradeTier + 1;
 	}
 
 
@@ -2522,11 +2575,40 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 						}
 					}
 				}
+				if (tCurrentItem.getItem() instanceof MetaGeneratedGregtechItems) {
+					//Logger.INFO("Is GT_MetaGenerated_Tool.");
+					int[] aOreID = OreDictionary.getOreIDs(tCurrentItem);
+					for (int id : aOreID) {
+						// Parallel Upgrade Chip
+						if (OreDictionary.getOreName(id).equals("chipMultiblockUpgradeParallel")) {
+							//Logger.INFO("Is Plunger.");
+							return onParallelUpgradeChipRightClick(aPlayer, tCurrentItem);
+						}
+					}
+				}
 			}
 		}
 		//Do Super
 		boolean aSuper = super.onRightclick(aBaseMetaTileEntity, aPlayer, aSide, aX, aY, aZ);
 		return aSuper;
+	}
+
+	public boolean onParallelUpgradeChipRightClick(EntityPlayer aPlayer, ItemStack aCurrentStack) {
+		if (!this.canHaveParallelUpgraded()) {
+			PlayerUtils.messagePlayer(aPlayer, "You cannot upgrade the parallel of this multiblock.");
+			return false;
+		}
+		boolean aDidUpgrade = upgradeParallelTier(aCurrentStack);
+		if (aDidUpgrade && !PlayerUtils.isCreative(aPlayer)) {
+			if (aCurrentStack.stackSize > 1) {
+				aCurrentStack.stackSize--;
+			}
+			else {
+				aPlayer.destroyCurrentEquippedItem();
+			}
+		}
+		PlayerUtils.messagePlayer(aPlayer, aDidUpgrade ? "Upgraded multiblock parallel bonus multiplier to "+getParallelBonusMultiplier()+"." : "Failed to upgrade parallel of current multiblock.");
+		return aDidUpgrade;
 	}
 
 	public boolean onPlungerRightClick(EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {

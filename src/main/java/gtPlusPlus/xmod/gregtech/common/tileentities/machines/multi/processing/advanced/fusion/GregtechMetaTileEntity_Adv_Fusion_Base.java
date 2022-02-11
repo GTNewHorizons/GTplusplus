@@ -158,7 +158,6 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 
 	@Override
 	public boolean allowCoverOnSide(byte aSide, GT_ItemStack aStack) {
-
 		return aSide != getBaseMetaTileEntity().getFrontFacing();
 	}
 
@@ -297,7 +296,7 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 		} else if (mStartEnergy < 2000000000) {
 			aOverclock = 2;
 		} else if (mStartEnergy >= 2000000000 && mStartEnergy <= Integer.MAX_VALUE) {
-			return 1;
+			aOverclock = 1;
 		} else {
 			return 1;
 		}
@@ -307,6 +306,11 @@ extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_Fusion_Base> {
 	@Override
 	public boolean hasPerfectOverclock() {
 		return true;
+	}
+
+	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
 	}
 
 	@Override

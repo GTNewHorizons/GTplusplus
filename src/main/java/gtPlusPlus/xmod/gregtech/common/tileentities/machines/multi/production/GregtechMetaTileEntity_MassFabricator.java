@@ -8,8 +8,7 @@ import java.util.*;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
@@ -23,12 +22,10 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.*;
-import gtPlusPlus.xmod.gregtech.api.gui.CONTAINER_MatterFab;
-import gtPlusPlus.xmod.gregtech.api.gui.GUI_MatterFab;
+import gtPlusPlus.xmod.gregtech.api.gui.*;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
@@ -38,7 +35,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	public static int sUUAperUUM = 1;
 	public static int sUUASpeedBonus = 4;
 	public static int sDurationMultiplier = 3200;
-	
+
 	public int mMatterProduced = 0;
 	public int mScrapProduced = 0;
 	public int mAmplifierProduced = 0;
@@ -48,7 +45,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	public static String mCasingName1 = "Matter Fabricator Casing";
 	public static String mCasingName2 = "Containment Casing";
 	public static String mCasingName3 = "Matter Generation Coil";
-	
+
 	private int mMode = 0;
 
 	private final static int MODE_SCRAP = 1;
@@ -90,26 +87,26 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Matter Fabricator")
-				.addInfo("Speed: 100% | Eu Usage: 80%")
-				.addInfo("Parallel: Scrap = 64 | UU = 8 * Tier")
-				.addInfo("Produces UU-A, UU-M & Scrap")
-				.addInfo("Change mode with screwdriver")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(5, 4, 5, true)
-				.addController("Front Center")
-				.addCasingInfo(mCasingName3, 9)
-				.addCasingInfo(mCasingName2, 24)
-				.addCasingInfo(mCasingName1, 40)
-				.addInputBus("Any Casing", 1)
-				.addOutputBus("Any Casing", 1)
-				.addInputHatch("Any Casing", 1)
-				.addOutputHatch("Any Casing", 1)
-				.addEnergyHatch("Any Casing", 1)
-				.addMaintenanceHatch("Any Casing", 1)
-				.addMufflerHatch("Any Casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Matter Fabricator")
+		.addInfo("Speed: 100% | Eu Usage: 80%")
+		.addInfo("Parallel: Scrap = 64 | UU = 8 * Tier")
+		.addInfo("Produces UU-A, UU-M & Scrap")
+		.addInfo("Change mode with screwdriver")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(5, 4, 5, true)
+		.addController("Front Center")
+		.addCasingInfo(mCasingName3, 9)
+		.addCasingInfo(mCasingName2, 24)
+		.addCasingInfo(mCasingName1, 40)
+		.addInputBus("Any Casing", 1)
+		.addOutputBus("Any Casing", 1)
+		.addInputHatch("Any Casing", 1)
+		.addOutputHatch("Any Casing", 1)
+		.addEnergyHatch("Any Casing", 1)
+		.addMaintenanceHatch("Any Casing", 1)
+		.addMufflerHatch("Any Casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -163,15 +160,15 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	}
 
 	public static boolean sInit = false;
-	
+
 	public static void init() {
 		if (!sInit) {
 			if (mScrap[0] == null) {
 				mScrap[0] = ItemUtils.getSimpleStack(ItemUtils.getItemFromFQRN("IC2:itemScrap"));
-			}	
+			}
 			if (mScrap[1] == null) {
 				mScrap[1] = ItemUtils.getSimpleStack(ItemUtils.getItemFromFQRN("IC2:itemScrapbox"));
-			}		
+			}
 			if (mUU[0] == null) {
 				mUU[0] = Materials.UUAmplifier.getFluid(100);
 			}
@@ -179,59 +176,59 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 				mUU[1] = Materials.UUMatter.getFluid(100);
 			}
 			sInit = true;
-		}		
+		}
 	}
-	
+
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_MassFabricator> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_MassFabricator>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC"},
-							{"CGGGC", "G---G", "G---G", "G---G", "CGGGC"},
-							{"CGGGC", "G---G", "G---G", "G---G", "CGGGC"},
-							{"CC~CC", "CHHHC", "CHHHC", "CHHHC", "CCCCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_MassFabricator>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC"},
+						{"CGGGC", "G---G", "G---G", "G---G", "CGGGC"},
+						{"CGGGC", "G---G", "G---G", "G---G", "CGGGC"},
+						{"CC~CC", "CHHHC", "CHHHC", "CHHHC", "CCCCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_MassFabricator::addMassFabricatorList, TAE.GTPP_INDEX(9), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													ModBlocks.blockCasingsMisc, 9
+													)
 											)
 									)
 							)
-					)
 					.addElement(
 							'H',
 							ofBlock(
 									ModBlocks.blockCasingsMisc, 8
+									)
 							)
-					)
 					.addElement(
 							'G',
 							ofBlock(
 									ModBlocks.blockCasings3Misc, 15
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 2, 3, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 2, 3, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 2, 3, 0) && mCasing >= 40 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 2, 3, 0) && this.mCasing >= 40 && checkHatch();
 	}
 
 	public final boolean addMassFabricatorList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -302,13 +299,14 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		else {
 			return checkRecipeUU(aItemInputs, aFluidInputs, getMaxParallelRecipes(), getEuDiscountForParallelism(), aSpeedBonusPercent, aOutputChanceRoll);
 		}
-	}	
-	
+	}
+
 	public boolean checkRecipeScrap(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll) {
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
@@ -384,7 +382,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 			tOutputItems = removeNulls(tOutputItems);
 			for (ItemStack aOutputStack : tOutputItems) {
 				if (aOutputStack != null) {
-					mScrapProduced += aOutputStack.stackSize;
+					this.mScrapProduced += aOutputStack.stackSize;
 				}
 			}
 			// Sanitize item stack size, splitting any stacks greater than max
@@ -419,14 +417,14 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		}
 		return false;
 	}
-	
+
 	public boolean checkRecipeUU(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
-			int aSpeedBonusPercent, int aOutputChanceRoll) {	
-		
+			int aSpeedBonusPercent, int aOutputChanceRoll) {
 
-		// Based on the Processing Array. A bit overkill, but very flexible.		
+
+		// Based on the Processing Array. A bit overkill, but very flexible.
 
 		// Reset outputs and progress stats
 		this.mEUt = 0;
@@ -434,15 +432,16 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		this.mOutputItems = new ItemStack[]{};
 		this.mOutputFluids = new FluidStack[]{};
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
 		log("Running checkRecipeGeneric(0)");
-		
+
 		GT_Recipe tRecipe = findRecipe(
-				getBaseMetaTileEntity(), mLastRecipe, false,
-				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);		
-		
+				getBaseMetaTileEntity(), this.mLastRecipe, false,
+				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
+
 		log("Running checkRecipeGeneric(1)");
 		// Remember last recipe - an optimization for findRecipe()
 		this.mLastRecipe = tRecipe;
@@ -450,8 +449,8 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		if (tRecipe == null) {
 			log("BAD RETURN - 1");
 			return false;
-		}	
-		
+		}
+
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
 			log("BAD RETURN - 2");
@@ -497,7 +496,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		this.mEUt = (int)Math.ceil(tTotalEUt);
 
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-		this.mEfficiencyIncrease = 10000;		
+		this.mEfficiencyIncrease = 10000;
 
 		// Overclock
 		if (this.mEUt <= 16) {
@@ -545,13 +544,13 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		}
 
 		tOutputItems = removeNulls(tOutputItems);
-		
-		
+
+
 		int aMatterProduced = 0;
 		int aAmplifierProduced = 0;
 		int aScrapUsed = 0;
 		int aAmplifierUsed = 0;
-		
+
 		for (int i=0; i<parallelRecipes; i++) {
 			//Logger.INFO("Trying to bump stats "+i);
 			for (ItemStack aInput : tRecipe.mInputs) {
@@ -610,7 +609,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		// Commit outputs
 		this.mOutputItems = tOutputItems;
 		this.mOutputFluids = tOutputFluids;
-		
+
 		updateSlots();
 
 		// Play sounds (GT++ addition - GT multiblocks play no sounds)
@@ -618,9 +617,9 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 
 		log("GOOD RETURN - 1");
 		return true;
-		
+
 	}
-	
+
 	@Override
 	public int getMaxParallelRecipes() {
 		return this.mMode == MODE_SCRAP ? 64 : 8 * (Math.max(1, GT_Utility.getTier(getMaxInputVoltage())));
@@ -663,23 +662,23 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
-		aNBT.setInteger("mScrapProduced", mScrapProduced);
-		aNBT.setInteger("mAmplifierProduced", mAmplifierProduced);
-		aNBT.setInteger("mMatterProduced", mMatterProduced);
-		aNBT.setInteger("mScrapUsed", mScrapUsed);
-		aNBT.setInteger("mAmplifierUsed", mAmplifierUsed);
-		aNBT.setInteger("mMode", mMode);
+		aNBT.setInteger("mScrapProduced", this.mScrapProduced);
+		aNBT.setInteger("mAmplifierProduced", this.mAmplifierProduced);
+		aNBT.setInteger("mMatterProduced", this.mMatterProduced);
+		aNBT.setInteger("mScrapUsed", this.mScrapUsed);
+		aNBT.setInteger("mAmplifierUsed", this.mAmplifierUsed);
+		aNBT.setInteger("mMode", this.mMode);
 		super.saveNBTData(aNBT);
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
-		mScrapProduced = aNBT.getInteger("mScrapProduced");
-		mAmplifierProduced = aNBT.getInteger("mAmplifierProduced");
-		mMatterProduced = aNBT.getInteger("mMatterProduced");
-		mScrapUsed = aNBT.getInteger("mScrapUsed");
-		mAmplifierUsed = aNBT.getInteger("mAmplifierUsed");
-		mMode = aNBT.getInteger("mMode");
+		this.mScrapProduced = aNBT.getInteger("mScrapProduced");
+		this.mAmplifierProduced = aNBT.getInteger("mAmplifierProduced");
+		this.mMatterProduced = aNBT.getInteger("mMatterProduced");
+		this.mScrapUsed = aNBT.getInteger("mScrapUsed");
+		this.mAmplifierUsed = aNBT.getInteger("mAmplifierUsed");
+		this.mMode = aNBT.getInteger("mMode");
 		super.loadNBTData(aNBT);
 	}
 

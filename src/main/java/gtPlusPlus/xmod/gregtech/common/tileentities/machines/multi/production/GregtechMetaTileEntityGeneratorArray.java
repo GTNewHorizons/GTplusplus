@@ -1,26 +1,20 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import java.util.*;
+
+import com.gtnewhorizon.structurelib.structure.*;
+
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
-import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
@@ -28,10 +22,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntityGeneratorArray> {
 
@@ -60,20 +50,20 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Generator Array")
-				.addInfo("Runs supplied generators as if placed in the world")
-				.addInfo("Place up to 16 Single Block GT Generators into the Controller")
-				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
-				.addController("Front center")
-				.addCasingInfo("Robust Tungstensteel Machine Casings", 10)
-				.addInputBus("Any casing", 1)
-				.addOutputBus("Any casing", 1)
-				.addInputHatch("Any Casing", 1)
-				.addOutputHatch("Any Casing", 1)
-				.addDynamoHatch("Any casing", 1)
-				.addMaintenanceHatch("Any casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Generator Array")
+		.addInfo("Runs supplied generators as if placed in the world")
+		.addInfo("Place up to 16 Single Block GT Generators into the Controller")
+		.addSeparator()
+		.beginStructureBlock(3, 3, 3, true)
+		.addController("Front center")
+		.addCasingInfo("Robust Tungstensteel Machine Casings", 10)
+		.addInputBus("Any casing", 1)
+		.addOutputBus("Any casing", 1)
+		.addInputHatch("Any Casing", 1)
+		.addOutputHatch("Any Casing", 1)
+		.addDynamoHatch("Any casing", 1)
+		.addMaintenanceHatch("Any casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -93,7 +83,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	@Override
 	public String getCustomGUIResourceName() {
 		return "ProcessingArray";
-	}	
+	}
 
 	@Override
 	public boolean requiresVanillaGtGUI() {
@@ -101,7 +91,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	}
 
 	@Override
-	public GT_Recipe.GT_Recipe_Map getRecipeMap() {		
+	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		this.mMode = getModeFromInventorySlot(this.getGUIItemStack());
 		if (this.mMode == MODE_NONE) {
 			return null;
@@ -149,7 +139,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	protected int fuelValue = 0;
 	protected int fuelRemaining = 0;
 	protected boolean boostEu = false;
-	
+
 	int mMode = 0;
 
 	private final static int MODE_STEAM = 0;
@@ -174,14 +164,14 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	private final static int[] ID_MAGIC_B_DISABLED = new int[] {1127, 1128, 1129, 1130};
 	private final static int[] ID_PLASMA = new int[] {1196, 1197, 1198};
 	private final static int[] ID_NAQUADAH = new int[] {1190, 1191, 1192};
-	
-	private static final int getModeFromInventorySlot(ItemStack aStack) {	
-		
+
+	private static final int getModeFromInventorySlot(ItemStack aStack) {
+
 		if (aStack == null) {
 			return MODE_NONE;
 		}
-		
-		String aItemStackName = aStack == null ? "" : aStack.getUnlocalizedName();	
+
+		String aItemStackName = aStack == null ? "" : aStack.getUnlocalizedName();
 		//Logger.INFO("Item Name: "+aItemStackName+" ("+aStack.getItemDamage()+")");
 		if (aItemStackName.toLowerCase().contains("gt.blockmachines")) {
 			for (int g : ID_STEAM) {
@@ -228,32 +218,37 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 				if (aStack.getItemDamage() == g) {
 					return MODE_NAQUADAH;
 				}
-			}		
-		}		
-		return MODE_NONE;		
+			}
+		}
+		return MODE_NONE;
 	}
-	
+
+	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
 	@Override
 	public boolean checkRecipe(ItemStack aStack) {
-		
+
 		this.resetRecipeMapForAllInputHatches();
-		this.mMode = getModeFromInventorySlot(aStack);		
-		if (mMode == MODE_NONE) {
+		this.mMode = getModeFromInventorySlot(aStack);
+		if (this.mMode == MODE_NONE) {
 			Logger.INFO("Did not find valid generator.");
 			return false;
 		}
 		else {
-			Logger.INFO("Changed Mode to "+mMode);
+			Logger.INFO("Changed Mode to "+this.mMode);
 		}
 		int aMulti = this.getGUIItemStack() != null ? this.getGUIItemStack().stackSize : 0;
 		if (aMulti > 16 || aMulti == 0) {
 			return false;
 		}
-				
-		
-		
-		ArrayList<FluidStack> tFluids = this.getStoredFluids();		
-		
+
+
+
+		ArrayList<FluidStack> tFluids = this.getStoredFluids();
+
 		Collection<GT_Recipe> tRecipeList = this.getRecipeMap().mRecipeList;
 		Logger.INFO("Got Recipe Map");
 		if (tFluids.size() > 0 && tRecipeList != null) {
@@ -261,7 +256,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 			Iterator<FluidStack> arg3 = tFluids.iterator();
 			int aCount = 0;
 			while (arg3.hasNext()) {
-				FluidStack hatchFluid1 = (FluidStack) arg3.next();
+				FluidStack hatchFluid1 = arg3.next();
 				Logger.INFO("Iterating Fluid Found "+(aCount++)+" | "+hatchFluid1.getLocalizedName());
 				Iterator<GT_Recipe> arg5 = tRecipeList.iterator();
 
@@ -269,7 +264,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 				int totalFuelValue = 0;
 				while (arg5.hasNext()) {
 					Logger.INFO("Iterating Recipe "+(Hatch++));
-					GT_Recipe aFuel = (GT_Recipe) arg5.next();
+					GT_Recipe aFuel = arg5.next();
 					FluidStack tLiquid;
 					boolean addedFuelOnce = false;
 					for (int a = 0; a < aMulti; a++) {
@@ -277,12 +272,12 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 								&& hatchFluid1.isFluidEqual(tLiquid)) {
 							this.fuelConsumption = tLiquid.amount = this.boostEu
 									? 4096 / aFuel.mSpecialValue
-									: 2048 / aFuel.mSpecialValue;
+											: 2048 / aFuel.mSpecialValue;
 							if (this.depleteInput(tLiquid)) {
 								Logger.INFO("Depleted Fuel");
 								this.boostEu = this.depleteInput(Materials.Oxygen.getGas(2L));
 
-/*if (!tFluids.contains(Materials.Lubricant.getFluid(1L))) {
+								/*if (!tFluids.contains(Materials.Lubricant.getFluid(1L))) {
 									Logger.INFO("No Lube.");
 									return false;
 								}*/
@@ -322,41 +317,41 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntityGeneratorArray> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntityGeneratorArray>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"C~C", "C-C", "CCC"},
-							{"CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntityGeneratorArray>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC"},
+						{"C~C", "C-C", "CCC"},
+						{"CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntityGeneratorArray::addGeneratorArrayList, 48, 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													GregTech_API.sBlockCasings4, 0
+													)
 											)
 									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 10;
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 10;
 	}
 
 	public final boolean addGeneratorArrayList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -427,16 +422,16 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 			int tFuelValue;
 			tFuelValue = this.getFuelValue(a);
 			if (tFuelValue > 0) {
-				ItemStack tEmptyContainer1 = this.getEmptyContainer(a);				
+				ItemStack tEmptyContainer1 = this.getEmptyContainer(a);
 				if (this.addOutput(tEmptyContainer1)) {
-					aBaseMetaTileEntity.increaseStoredEnergyUnits((long) tFuelValue, true);
+					aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
 					this.depleteInput(a);
 					PollutionUtils.addPollution(this.getBaseMetaTileEntity(), 10 * this.getPollutionPerTick(null));
 				}
 			}
 		}
 	}
-	
+
 	public void tryProcessFuel(IGregTechTileEntity aBaseMetaTileEntity, long aTick, FluidStack mFluid) {
 		if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && aTick % 10L == 0L) {
 			int tFuelValue;
@@ -444,13 +439,13 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 				tFuelValue = this.getFuelValue(mFluid);
 				int tEmptyContainer = this.consumedFluidPerOperation(mFluid);
 				if (tFuelValue > 0 && tEmptyContainer > 0 && mFluid.amount > tEmptyContainer) {
-					long tFluidAmountToUse = Math.min((long) (mFluid.amount / tEmptyContainer),
-							(this.maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / (long) tFuelValue);
+					long tFluidAmountToUse = Math.min(mFluid.amount / tEmptyContainer,
+							(this.maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / tFuelValue);
 					if (tFluidAmountToUse > 0L && aBaseMetaTileEntity
-							.increaseStoredEnergyUnits(tFluidAmountToUse * (long) tFuelValue, true)) {
+							.increaseStoredEnergyUnits(tFluidAmountToUse * tFuelValue, true)) {
 						PollutionUtils.addPollution(this.getBaseMetaTileEntity(), 10 * this.getPollutionPerTick(null));
-						mFluid.amount = (int) ((long) mFluid.amount
-								- tFluidAmountToUse * (long) tEmptyContainer);
+						mFluid.amount = (int) (mFluid.amount
+								- tFluidAmountToUse * tEmptyContainer);
 					}
 				}
 			}
@@ -464,7 +459,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 		}
 
 	}
-	
+
 	public boolean isFluidInputAllowed(FluidStack aFluid) {
 		return this.getFuelValue(aFluid) > 0;
 	}
@@ -481,12 +476,12 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 				Iterator<GT_Recipe> arg3 = tRecipeList.iterator();
 
 				while (arg3.hasNext()) {
-					GT_Recipe tFuel = (GT_Recipe) arg3.next();
+					GT_Recipe tFuel = arg3.next();
 					FluidStack tLiquid;
 					if ((tLiquid = GT_Utility.getFluidForFilledItem(tFuel.getRepresentativeInput(0), true)) != null
 							&& aLiquid.isFluidEqual(tLiquid)) {
 						return (int) ((long) tFuel.mSpecialValue * (long) this.mEfficiency
-								* (long) this.consumedFluidPerOperation(tLiquid) / 100L);
+								* this.consumedFluidPerOperation(tLiquid) / 100L);
 					}
 				}
 			}
@@ -501,7 +496,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 		if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
 			GT_Recipe tFuel = this.getRecipeMap().findRecipe(this.getBaseMetaTileEntity(), false, Long.MAX_VALUE,
 					(FluidStack[]) null, new ItemStack[]{aStack});
-			return tFuel != null ? (int) ((long) tFuel.mSpecialValue * 1000L * (long) this.mEfficiency / 100L) : 0;
+			return tFuel != null ? (int) (tFuel.mSpecialValue * 1000L * this.mEfficiency / 100L) : 0;
 		} else {
 			return 0;
 		}
@@ -513,7 +508,7 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 					(FluidStack[]) null, new ItemStack[]{aStack});
 			return tFuel != null
 					? GT_Utility.copy(new Object[]{tFuel.getOutput(0)})
-					: GT_Utility.getContainerItem(aStack, true);
+							: GT_Utility.getContainerItem(aStack, true);
 		} else {
 			return null;
 		}

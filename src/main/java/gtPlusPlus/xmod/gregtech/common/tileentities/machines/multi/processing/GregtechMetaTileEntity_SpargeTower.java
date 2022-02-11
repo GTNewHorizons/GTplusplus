@@ -1,18 +1,12 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.enums.Textures.BlockIcons;
@@ -22,13 +16,8 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.render.TextureFactory;
-import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.util.*;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
-import gregtech.api.util.GasSpargingRecipe;
-import gregtech.api.util.GasSpargingRecipeMap;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -36,8 +25,7 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -148,24 +136,29 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 		return GTPP_Recipe_Map.sSpargeTowerRecipes;
 	}
 
+	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
 	private static boolean generateRecipes() {
 		for (GasSpargingRecipe aRecipe : GasSpargingRecipeMap.mRecipes) {
 			GTPP_Recipe newRecipe = new GTPP_Recipe(
-					false, 
+					false,
 					new ItemStack[] {},
 					new ItemStack[] {},
 					null,
 					null,
 					aRecipe.mFluidInputs.clone(),
 					new FluidStack[] {},
-					aRecipe.mDuration, 
-					aRecipe.mEUt, 
+					aRecipe.mDuration,
+					aRecipe.mEUt,
 					0);
 			GTPP_Recipe_Map.sSpargeTowerRecipes.add(newRecipe);
 		}
 		if (GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
 			return false;
-		}    	
+		}
 		return true;
 	}
 
@@ -197,30 +190,30 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 					this.mOutputItems = new ItemStack[]{};
 					this.mOutputFluids = new FluidStack[]{};
 					this.mLastRecipe = tRecipe;
-					
+
 					calculateOverclockedNessMulti(tRecipe.mEUt, tRecipe.mDuration, 1, tVoltage);
 					int aDevProgress = this.mMaxProgresstime / 10;
 					this.mMaxProgresstime = Math.max(1, aDevProgress);
 					this.mOutputItems = new ItemStack[]{};
-					ArrayList<FluidStack> aFluidOutputs = getByproductsOfSparge(tRecipe.mFluidInputs[0], tRecipe.mFluidInputs[1]);					
-					this.mOutputFluids = (FluidStack[]) aFluidOutputs.toArray(new FluidStack[0]);
+					ArrayList<FluidStack> aFluidOutputs = getByproductsOfSparge(tRecipe.mFluidInputs[0], tRecipe.mFluidInputs[1]);
+					this.mOutputFluids = aFluidOutputs.toArray(new FluidStack[0]);
 					updateSlots();
-					Logger.INFO("Done!");  
+					Logger.INFO("Done!");
 					return true;
 				}
 			}
 			else {
-				Logger.INFO("Did not find recipe!");        		
+				Logger.INFO("Did not find recipe!");
 			}
 		}
 		this.mEUt = 0;
 		this.mEfficiency = 0;
-		Logger.INFO("Did not find recipe! (2)"); 
+		Logger.INFO("Did not find recipe! (2)");
 		return false;
 	}
 
-	private static ArrayList<FluidStack> getByproductsOfSparge(final FluidStack aSpargeGas, final FluidStack aSpentFuel){		
-		GasSpargingRecipe aSpargeRecipe = GasSpargingRecipeMap.findRecipe(aSpargeGas, aSpentFuel);	
+	private static ArrayList<FluidStack> getByproductsOfSparge(final FluidStack aSpargeGas, final FluidStack aSpentFuel){
+		GasSpargingRecipe aSpargeRecipe = GasSpargingRecipeMap.findRecipe(aSpargeGas, aSpentFuel);
 		ArrayList<FluidStack> aOutputGases = new ArrayList<FluidStack>();
 		if (aSpargeRecipe == null) {
 			Logger.INFO("Did not find sparge recipe!");
@@ -228,7 +221,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 		}
 		int aSpargeGasAmount = aSpargeRecipe.mInputGas.amount;
 
-		aOutputGases.add(aSpargeRecipe.mOutputSpargedFuel.copy());	
+		aOutputGases.add(aSpargeRecipe.mOutputSpargedFuel.copy());
 		ArrayList<FluidStack> aTempMap = new ArrayList<FluidStack>();
 		for (int i=2;i<aSpargeRecipe.mFluidOutputs.length;i++) {
 			int aGasAmount = MathUtils.randInt(0, (aSpargeRecipe.mMaxOutputQuantity[i-2]/100));
@@ -242,7 +235,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 		}
 		Logger.INFO("Sparge gas left: "+aSpargeGasAmount);
 		if (aSpargeGasAmount > 0) {
-			aOutputGases.add(new FluidStack(aSpargeRecipe.mInputGas.getFluid(), aSpargeGasAmount));	
+			aOutputGases.add(new FluidStack(aSpargeRecipe.mInputGas.getFluid(), aSpargeGasAmount));
 		}
 		//Logger.INFO("Sparge Outputs: "+ItemUtils.getArrayStackNames(aTempMap));
 		aOutputGases.addAll(aTempMap);
@@ -252,11 +245,11 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 	}
 
 	protected void onCasingFound() {
-		mCasing++;
+		this.mCasing++;
 	}
 
 	protected void onTopLayerFound(boolean aIsCasing) {
-		mTopLayerFound = true;
+		this.mTopLayerFound = true;
 		if (aIsCasing) {
 			onCasingFound();
 		}
@@ -267,12 +260,12 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 			Logger.INFO("Bad Output Hatch");
 			return false;
 		}
-		while (mOutputHatchesByLayer.size() < mHeight) {
-			mOutputHatchesByLayer.add(new ArrayList<>());
+		while (this.mOutputHatchesByLayer.size() < this.mHeight) {
+			this.mOutputHatchesByLayer.add(new ArrayList<>());
 		}
 		GT_MetaTileEntity_Hatch_Output tHatch = (GT_MetaTileEntity_Hatch_Output) aTileEntity.getMetaTileEntity();
 		tHatch.updateTexture(aBaseCasingIndex);
-		boolean addedHatch = mOutputHatchesByLayer.get(mHeight - 1).add(tHatch);
+		boolean addedHatch = this.mOutputHatchesByLayer.get(this.mHeight - 1).add(tHatch);
 		Logger.INFO("Added Hatch: "+addedHatch);
 		return addedHatch;
 	}
@@ -291,34 +284,34 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
 		// reset
-		mOutputHatchesByLayer.forEach(List::clear);
-		mHeight = 1;
-		mTopLayerFound = false;
-		mCasing = 0;
+		this.mOutputHatchesByLayer.forEach(List::clear);
+		this.mHeight = 1;
+		this.mTopLayerFound = false;
+		this.mCasing = 0;
 
 		// check base
 		if (!checkPiece(STRUCTURE_PIECE_BASE, 1, 0, 0)) {
-			Logger.INFO("Bad Base. Height: "+mHeight);
+			Logger.INFO("Bad Base. Height: "+this.mHeight);
 			return false;
 		}
 
 		// check each layer
-		while (mHeight < 8 && checkPiece(STRUCTURE_PIECE_LAYER, 1, mHeight, 0) && !mTopLayerFound) {
-			if (mOutputHatchesByLayer.get(mHeight - 1).isEmpty()) {
+		while (this.mHeight < 8 && checkPiece(STRUCTURE_PIECE_LAYER, 1, this.mHeight, 0) && !this.mTopLayerFound) {
+			if (this.mOutputHatchesByLayer.get(this.mHeight - 1).isEmpty()) {
 				// layer without output hatch
-				Logger.INFO("Height: "+mHeight + " - Missing output on "+(mHeight - 1));
+				Logger.INFO("Height: "+this.mHeight + " - Missing output on "+(this.mHeight - 1));
 				return false;
 			}
 			// not top
-			mHeight++;
+			this.mHeight++;
 		}
 
 		// validate final invariants...
-		Logger.INFO("Height: "+mHeight);
-		Logger.INFO("Casings: "+mCasing);
-		Logger.INFO("Required: "+(7 * mHeight - 5));
-		Logger.INFO("Found Top: "+mTopLayerFound);
-		return mCasing >= 45 && mTopLayerFound && mMaintenanceHatches.size() == 1;
+		Logger.INFO("Height: "+this.mHeight);
+		Logger.INFO("Casings: "+this.mCasing);
+		Logger.INFO("Required: "+(7 * this.mHeight - 5));
+		Logger.INFO("Found Top: "+this.mTopLayerFound);
+		return this.mCasing >= 45 && this.mTopLayerFound && this.mMaintenanceHatches.size() == 1;
 	}
 
 	@Override
@@ -343,13 +336,13 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 
 	@Override
 	protected void addFluidOutputs(FluidStack[] mOutputFluids2) {
-		for (int i = 0; i < mOutputFluids2.length && i < mOutputHatchesByLayer.size(); i++) {
+		for (int i = 0; i < mOutputFluids2.length && i < this.mOutputHatchesByLayer.size(); i++) {
 			FluidStack tStack = mOutputFluids2[i] != null ? mOutputFluids2[i].copy() : null;
 			if (tStack == null) {
 				continue;
 			}
-			if (!dumpFluid(mOutputHatchesByLayer.get(i), tStack, true)) {
-				dumpFluid(mOutputHatchesByLayer.get(i), tStack, false);
+			if (!dumpFluid(this.mOutputHatchesByLayer.get(i), tStack, true)) {
+				dumpFluid(this.mOutputHatchesByLayer.get(i), tStack, false);
 			}
 		}
 	}
@@ -393,11 +386,11 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 	public int getEuDiscountForParallelism() {
 		return 0;
 	}
-	
+
 	@Override
-	public boolean onPlungerRightClick(EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {		
+	public boolean onPlungerRightClick(EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {
 		int aLayerIndex = 0;
-		PlayerUtils.messagePlayer(aPlayer, "Trying to clear "+mOutputHatchesByLayer.size()+" layers of output hatches.");
+		PlayerUtils.messagePlayer(aPlayer, "Trying to clear "+this.mOutputHatchesByLayer.size()+" layers of output hatches.");
 		for (List<GT_MetaTileEntity_Hatch_Output> layer : this.mOutputHatchesByLayer) {
 			int aHatchIndex = 0;
 			for (GT_MetaTileEntity_Hatch_Output hatch : layer) {
@@ -407,7 +400,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 				}
 				aHatchIndex++;
 			}
-			aLayerIndex++;			
+			aLayerIndex++;
 		}
 		return aLayerIndex > 0;
 	}

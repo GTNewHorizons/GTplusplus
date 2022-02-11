@@ -153,6 +153,18 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Milling_Ball_Alumina,
 	Milling_Ball_Soapstone,
 
+	// Parallel Upgrade Chips
+	Parallel_Upgrade_Chip_I,
+	Parallel_Upgrade_Chip_II,
+	Parallel_Upgrade_Chip_III,
+	Parallel_Upgrade_Chip_IV,
+	Parallel_Upgrade_Chip_V,
+	Parallel_Upgrade_Chip_VI,
+	Parallel_Upgrade_Chip_VII,
+	Parallel_Upgrade_Chip_VIII,
+	Parallel_Upgrade_Chip_IX,
+	Parallel_Upgrade_Chip_X,
+
 
 	//----------------------------------------------------------------------------
 

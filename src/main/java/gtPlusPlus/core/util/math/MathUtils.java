@@ -1,14 +1,11 @@
 package gtPlusPlus.core.util.math;
 
 import java.text.NumberFormat;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import gregtech.api.enums.GT_Values;
-
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.data.Pair;
+import gtPlusPlus.api.objects.data.*;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 
@@ -135,7 +132,7 @@ public class MathUtils {
 	public static double findPercentage(final double current, final double max){
 		return Math.round(((current / max) * 100) * 100.00) / 100.00;
 	}
-	
+
 	/**
 	 * Returns a percentage.
 	 * The returned number is the % of X in Y.
@@ -411,56 +408,56 @@ public class MathUtils {
 	 */
 
 	public static byte getByteAverage(AutoMap<Byte> aDataSet) {
-		byte[] aNewSet = new byte[aDataSet.size()];		
+		byte[] aNewSet = new byte[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			byte b = getSafeByte(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getByteAverage(aNewSet);
 	}
 
 	public static short getShortAverage(AutoMap<Short> aDataSet) {
-		short[] aNewSet = new short[aDataSet.size()];		
+		short[] aNewSet = new short[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			short b = getSafeShort(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getShortAverage(aNewSet);
 	}
 
 	public static int getIntAverage(AutoMap<Integer> aDataSet) {
-		int[] aNewSet = new int[aDataSet.size()];		
+		int[] aNewSet = new int[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			int b = getSafeInt(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getIntAverage(aNewSet);
 	}
 
 	public static float getFloatAverage(AutoMap<Float> aDataSet) {
-		float[] aNewSet = new float[aDataSet.size()];		
+		float[] aNewSet = new float[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			float b = getSafeFloat(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getFloatAverage(aNewSet);
 	}
 
 	public static long getLongAverage(AutoMap<Long> aDataSet) {
-		long[] aNewSet = new long[aDataSet.size()];		
+		long[] aNewSet = new long[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			long b = getSafeLong(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getLongAverage(aNewSet);
 	}
 
 	public static double getDoubleAverage(AutoMap<Double> aDataSet) {
-		double[] aNewSet = new double[aDataSet.size()];		
+		double[] aNewSet = new double[aDataSet.size()];
 		for (int u=0;u<aDataSet.size();u++) {
 			double b = getSafeDouble(aDataSet.get(u));
 			aNewSet[u] = b;
-		}		
+		}
 		return getDoubleAverage(aNewSet);
 	}
 
@@ -471,12 +468,12 @@ public class MathUtils {
 			return 0;
 		}
 		int divisor = aDataSet.length;
-		byte total = 0;		
+		byte total = 0;
 		for (byte i : aDataSet) {
 			total += i;
 		}
 		byte result = safeByte(total/divisor);
-		return result;		
+		return result;
 	}
 
 	public static short getShortAverage(short[] aDataSet) {
@@ -485,68 +482,68 @@ public class MathUtils {
 		}
 		int divisor = aDataSet.length;
 		Logger.WARNING("Calculating Average Short. Divisor: "+divisor);
-		short total = 0;		
+		short total = 0;
 		for (short i : aDataSet) {
 			Logger.WARNING("Adding "+i);
 			total += i;
 		}
 		short result = safeShort((total/divisor));
 		Logger.WARNING("Average: "+result);
-		return result;		
+		return result;
 	}
 	public static int getIntAverage(int[] aDataSet) {
 		if (aDataSet.length <= 0) {
 			return 0;
 		}
 		int divisor = aDataSet.length;
-		int total = 0;		
+		int total = 0;
 		for (int i : aDataSet) {
 			total += i;
 		}
 		int result = safeInt(total/divisor);
-		return result;		
+		return result;
 	}
 	public static float getFloatAverage(float[] aDataSet) {
 		if (aDataSet.length <= 0) {
 			return 0;
 		}
 		int divisor = aDataSet.length;
-		float total = 0;		
+		float total = 0;
 		for (float i : aDataSet) {
 			total += i;
 		}
 		float result = (total/divisor);
-		return result;		
+		return result;
 	}
 	public static long getLongAverage(long[] aDataSet) {
 		if (aDataSet.length <= 0) {
 			return 0;
 		}
 		int divisor = aDataSet.length;
-		long total = 0;		
+		long total = 0;
 		for (long i : aDataSet) {
 			total += i;
 		}
 		long result = (total/divisor);
-		return result;		
+		return result;
 	}
 	public static double getDoubleAverage(double[] aDataSet) {
 		if (aDataSet.length <= 0) {
 			return 0;
 		}
 		int divisor = aDataSet.length;
-		double total = 0;		
+		double total = 0;
 		for (double i : aDataSet) {
 			total += i;
 		}
 		double result = (total/divisor);
-		return result;		
+		return result;
 	}
 
-	public static int howManyPlaces(int aValueForGen) {		
+	public static int howManyPlaces(int aValueForGen) {
 		if (aValueForGen < 0) {
 			aValueForGen = makeNegative(aValueForGen);
-		}			
+		}
 		String a = String.valueOf(aValueForGen);
 		return a.length();
 	}
@@ -601,7 +598,7 @@ public class MathUtils {
 			if (a1 >= Long.MIN_VALUE && a1 <= Long.MAX_VALUE) {
 				String s = ""+a1;
 				Long s1 = Long.valueOf(s);
-				return (V) s1;				
+				return (V) s1;
 			}
 		}
 		else if ((aNumberType.getClass() == float.class) || (aNumberType instanceof Float)){
@@ -622,44 +619,44 @@ public class MathUtils {
 		}
 
 		Integer o = 0;
-		return (V) o;	
+		return (V) o;
 
 	}
 
 	public static byte getSafeByte(Byte b) {
 		Byte a = safeCast(b);
-		return a.byteValue();	
+		return a;
 	}
 
 	public static short getSafeShort(Short b) {
 		Short a = safeCast(b);
-		return a.shortValue();		
+		return a;
 	}
 
 	public static int getSafeInt(Integer b) {
 		Integer a = safeCast(b);
-		return a.intValue();	
+		return a;
 	}
 
 	public static long getSafeLong(Long b) {
 		Long a = safeCast(b);
-		return a.longValue();		
+		return a;
 	}
 
 	public static float getSafeFloat(Float b) {
 		Float a = safeCast(b);
-		return a.floatValue();		
+		return a;
 	}
 
 	public static double getSafeDouble(Double b) {
 		Double a = safeCast(b);
-		return a.doubleValue();		
+		return a;
 	}
 
 
 	public static long safeCast_IntToLong(int o) {
-		long i = o;		
-		return i;		
+		long i = o;
+		return i;
 	}
 
 	public static int safeCast_LongToInt(long o) {
@@ -667,9 +664,9 @@ public class MathUtils {
 			return Integer.MAX_VALUE;
 		}
 		else {
-			int i = (int) o;		
+			int i = (int) o;
 			return i;
-		}			
+		}
 	}
 
 	public static short safeCast_IntToShort(int o) {
@@ -677,14 +674,14 @@ public class MathUtils {
 			return Short.MAX_VALUE;
 		}
 		else {
-			short i = (short) o;		
+			short i = (short) o;
 			return i;
-		}			
+		}
 	}
 
 	public static int safeCast_ShortToInt(short o) {
-		int i = (int) o;		
-		return i;	
+		int i = o;
+		return i;
 	}
 
 	public static byte safeCast_ShortToByte(short o) {
@@ -692,14 +689,14 @@ public class MathUtils {
 			return Byte.MAX_VALUE;
 		}
 		else {
-			byte i = (byte) o;		
+			byte i = (byte) o;
 			return i;
-		}			
+		}
 	}
 
 	public static short safeCast_ByteToshort(byte o) {
-		short i = (short) o;		
-		return i;	
+		short i = o;
+		return i;
 	}
 
 	/**
@@ -709,7 +706,7 @@ public class MathUtils {
 	 * @param aMax - The maximum bounds
 	 * @return - An Integer which will be between the bounds, or a boundary value.
 	 */
-	public static int balance(int aInput, int aMin, int aMax) {		
+	public static int balance(int aInput, int aMin, int aMax) {
 		return Math.max(Math.min(aInput, aMax), aMin);
 	}
 
@@ -720,7 +717,7 @@ public class MathUtils {
 	 * @param aMax - The maximum bounds
 	 * @return - A Number which will be between the bounds, or a boundary value.
 	 */
-	public static Number balance(Number aInput, Number aMin, Number aMax) {		
+	public static Number balance(Number aInput, Number aMin, Number aMax) {
 		return max(min(aInput, aMax), aMin);
 	}
 
@@ -731,7 +728,7 @@ public class MathUtils {
 	 * @param aMax - The maximum bounds
 	 * @return - An Integer which will be between the bounds, or a boundary value.
 	 */
-	public static int balanceInt(Number aInput, Number aMin, Number aMax) {		
+	public static int balanceInt(Number aInput, Number aMin, Number aMax) {
 		return MathUtils.safeCast_LongToInt((long) balance(max(min(aInput, aMax), aMin), Integer.MIN_VALUE, Integer.MAX_VALUE));
 	}
 
@@ -742,7 +739,7 @@ public class MathUtils {
 	 * @param aMax - The maximum bounds
 	 * @return - A Long which will be between the bounds, or a boundary value.
 	 */
-	public static long balanceLong(Number aInput, Number aMin, Number aMax) {		
+	public static long balanceLong(Number aInput, Number aMin, Number aMax) {
 		return (long) balance(max(min(aInput, aMax), aMin), Long.MIN_VALUE, Long.MAX_VALUE);
 	}
 
@@ -754,11 +751,23 @@ public class MathUtils {
 	public static Pair<Integer, Integer> splitLongIntoIntegers(long aLong){
 		int aIntMaxInLong = (int) Math.min(Integer.MAX_VALUE, Math.floor(aLong/Integer.MAX_VALUE));
 		int aRemainder = (int) (aLong - (aIntMaxInLong * Integer.MAX_VALUE));
-		return new Pair<Integer, Integer>(aIntMaxInLong, aRemainder);		
+		return new Pair<Integer, Integer>(aIntMaxInLong, aRemainder);
 	}
 
 
-
+	/**
+	 * Returns the smaller of two {@code short} values. That is,
+	 * the result the argument closer to the value of
+	 * {@link Short#MIN_VALUE}.  If the arguments have the same
+	 * value, the result is that same value.
+	 *
+	 * @param   a   an argument.
+	 * @param   b   another argument.
+	 * @return  the smaller of {@code a} and {@code b}.
+	 */
+	public static short min(short a, short b) {
+		return a <= b ? a : b;
+	}
 
 	/**
 	 * Returns the smaller of two {@code Number}s. That is,
@@ -792,7 +801,7 @@ public class MathUtils {
 		long val = (((long) a) << 32) | (b & 0xffffffffL);
 		return val;
 	}
-	
+
 	public static int[] splitLongIntoTwoIntegers(long aNum) {
 		int a = (int) (aNum >> 32);
 		int b = (int) aNum;

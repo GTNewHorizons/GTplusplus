@@ -3,25 +3,12 @@ package gtPlusPlus.xmod.gregtech.common.items;
 import static gtPlusPlus.core.util.Utils.getTcAspectStack;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
-import gregtech.api.enums.SubTag;
-import gregtech.api.enums.TC_Aspects;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
-import gregtech.api.objects.GT_MultiTexture;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.objects.ItemData;
-import gregtech.api.objects.MaterialStack;
-import gregtech.api.util.GT_FoodStat;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GTPP_Recipe;
-import gregtech.common.covers.GT_Cover_Arm;
-import gregtech.common.covers.GT_Cover_Conveyor;
-import gregtech.common.covers.GT_Cover_Pump;
-import gregtech.common.items.behaviors.Behaviour_DataOrb;
-import gregtech.common.items.behaviors.Behaviour_DataStick;
+import gregtech.api.objects.*;
+import gregtech.api.util.*;
+import gregtech.common.covers.*;
+import gregtech.common.items.behaviors.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.handler.OldCircuitHandler;
 import gtPlusPlus.core.lib.CORE;
@@ -29,16 +16,12 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes;
+import gtPlusPlus.xmod.gregtech.api.enums.*;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaItem_X32;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow;
-import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow_Item;
-import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
+import gtPlusPlus.xmod.gregtech.common.covers.*;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemStack;
 
 public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
@@ -49,11 +32,11 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 	}
 
 	public MetaGeneratedGregtechItems() {
-		super("MU-metaitem.01", new OrePrefixes[]{null});		
+		super("MU-metaitem.01", new OrePrefixes[]{null});
 	}
 
 	public void generateMetaItems() {
-		int tLastID = 0;		
+		int tLastID = 0;
 
 		registerCustomCircuits();
 		OldCircuitHandler.addCircuitItems();
@@ -146,14 +129,14 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 			//GT_ModHandler.addCraftingRecipe(GregtechItemList.Sensor_MAX.get(1L), //GT_ModHandler.RecipeBits.DISMANTLEABLE | //GT_ModHandler.RecipeBits.NOT_REMOVABLE | //GT_ModHandler.RecipeBits.REVERSIBLE, new Object[]{"P Q", "PS ", "CPP", Character.valueOf('Q'), OrePrefixes.gem.get(Materials.EnderPearl), Character.valueOf('S'), OrePrefixes.stick.get(Materials.Platinum), Character.valueOf('P'), OrePrefixes.plate.get(Materials.Titanium), Character.valueOf('C'), OrePrefixes.circuit.get(Materials.Elite)});
 
 			//Handler for ULV Components
-			registerComponents_ULV();		
+			registerComponents_ULV();
 
 
 		}
 
 		else {
 			//Simplify life.
-			registerComponents_ULV();	
+			registerComponents_ULV();
 			registerComponents_MAX();
 		}
 
@@ -207,7 +190,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		CORE.RA.addFuelForRTG(GregtechItemList.Pellet_RTG_PO210.get(1), 1, 512);
 		CORE.RA.addFuelForRTG(GregtechItemList.Pellet_RTG_AM241.get(1), MathUtils.roundToClosestInt(432/2), 16);
 		CORE.RA.addFuelForRTG(GT_ModHandler.getIC2Item("RTGPellets", 1), MathUtils.roundToClosestInt(2.6f), 8);
-		
+
 		//Computer Cube
 		GregtechItemList.Gregtech_Computer_Cube.set(this.addItem(tLastID = 55, "Gregtech Computer Cube", "Reusable", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 8L), getTcAspectStack(TC_Aspects.METALLUM, 8L), getTcAspectStack(TC_Aspects.POTENTIA, 8L)}));
 		this.setElectricStats(32000 + tLastID, GT_Values.V[6]* 10 * 60 * 20, GT_Values.V[5], 5L, -3L, true);
@@ -226,7 +209,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 			this.setFluidContainerStats(32000 + tLastID, 16L, 64L);
 
 			GregtechItemList.Fluid_Cell_1L.set(this.addItem(tLastID = 64, "1L Wrought Iron Fluid Cell", "Holds exactly one litre worth of liquid.", new Object[]{new ItemData(Materials.WroughtIron, (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount), new MaterialStack[0]), getTcAspectStack(TC_Aspects.VACUOS, 2L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
-			this.setFluidContainerStats(32000 + tLastID, 1L, 64L);			
+			this.setFluidContainerStats(32000 + tLastID, 1L, 64L);
 		}
 
 
@@ -243,12 +226,12 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_MV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(512));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_HV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(4096));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_EV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(32768));
-		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(262144));	
+		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(262144));
 
 		//Fusion Reactor MK4 Singularity
 		GregtechItemList.Compressed_Fusion_Reactor.set(this.addItem(100, "Hypervisor Matrix (Fusion)", "A memory unit containing an RI (Restricted Intelligence)"));
 
-		
+
 		//NanoTubes
 		GregtechItemList.NanoTube_Base_Substrate.set(this.addItem(101, "Silicon Base Substrate", "Used in the production of Carbon Nanotubes"));
 		GregtechItemList.NanoTube_Finished.set(this.addItem(102, "Carbon Nanotubes", "Multi-walled Zigzag nanotubes, possibly Carbon's final form"));
@@ -259,13 +242,13 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		GregtechItemList.Battery_Casing_Gem_1.set(this.addItem(106, "Containment Unit I", "Used in crafting"));
 		GregtechItemList.Battery_Casing_Gem_2.set(this.addItem(107, "Containment Unit II", "Used in crafting"));
 		GregtechItemList.Battery_Casing_Gem_3.set(this.addItem(108, "Advanced Containment Unit", "Used in crafting"));
-		GregtechItemList.Battery_Casing_Gem_4.set(this.addItem(109, "Exotic Containment Unit", "Used in crafting"));		
+		GregtechItemList.Battery_Casing_Gem_4.set(this.addItem(109, "Exotic Containment Unit", "Used in crafting"));
 
 		GregtechItemList.Battery_Gem_4.set(this.addItem(tLastID = 110, "Graviton Anomaly", "Reusable", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 64L), getTcAspectStack(TC_Aspects.METALLUM, 64L), getTcAspectStack(TC_Aspects.POTENTIA, 64L)}));
 		this.setElectricStats(32000 + tLastID, (64000000000L*16), GT_Values.V[9], 9L, -3L, false);
-		
-		
-		
+
+
+
 		/*
 		 * Bombs
 		 */
@@ -274,7 +257,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		GregtechItemList.Bomb_Cast_Set.set(this.addItem(113, "Bomb Cast (Set)", "Break it open for the goodies inside!"));
 		GregtechItemList.Bomb_Cast_Broken.set(this.addItem(114, "Bomb Cast (Broken)", "This is probably just junk"));
 		GregtechItemList.Bomb_Cast_Mold.set(this.addItem(115, "Mold (Bomb Cast)", "Used in the production of Bombs"));
-		
+
 		/*
 		 * High Tier 'Saws' for the tree Farm
 		 */
@@ -288,57 +271,82 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		this.setElectricStats(32000 + tLastID, GT_Values.V[8]* 10 * 60 * 20, GT_Values.V[7], 7L, -3L, false);
 		GregtechItemList.Farm_Processor_UV.set(this.addItem(tLastID = 128, "Farm Processor [UV]", "Reusable", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 8L), getTcAspectStack(TC_Aspects.METALLUM, 8L), getTcAspectStack(TC_Aspects.POTENTIA, 8L)}));
 		this.setElectricStats(32000 + tLastID, GT_Values.V[9]* 10 * 60 * 20, GT_Values.V[8], 8L, -3L, false);
-		
-		String aTierName;
-        int aFirstMachineCasingID = 130;
-        GregtechItemList[] mMachineCasingCovers = new GregtechItemList[] {
-                GregtechItemList.FakeMachineCasingPlate_ULV,
-                GregtechItemList.FakeMachineCasingPlate_LV,
-                GregtechItemList.FakeMachineCasingPlate_MV,
-                GregtechItemList.FakeMachineCasingPlate_HV,
-                GregtechItemList.FakeMachineCasingPlate_EV,
-                GregtechItemList.FakeMachineCasingPlate_IV,
-                GregtechItemList.FakeMachineCasingPlate_LuV,
-                GregtechItemList.FakeMachineCasingPlate_ZPM,
-                GregtechItemList.FakeMachineCasingPlate_UV,
-                GregtechItemList.FakeMachineCasingPlate_MAX,
-        };
-        for (int i=0;i<10;i++) {
-            if (i==10) {
-                break;
-            }
-            else {              
-                aTierName = GT_Values.VN[i];
-                mMachineCasingCovers[i].set(this.addItem(aFirstMachineCasingID++, aTierName+" Machine Plate Cover", "Deprecated - Shapeless Craft to new version", new Object[]{}));
-                GregTech_API.registerCover(mMachineCasingCovers[i].get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[i][0]}), new GTPP_Cover_ToggleVisual());
-             }
-        }
-        GregtechItemList.Laser_Lens_WoodsGlass.set(this.addItem(140, "Wood's Glass Lens", "Allows UV & IF to pass through, blocks visible light spectrums"));
-        
-        int aStartID = 141;
-        GregtechItemList[] aTransParts = new GregtechItemList[] {
-        		GregtechItemList.TransmissionComponent_ULV,
-        		GregtechItemList.TransmissionComponent_LV,
-        		GregtechItemList.TransmissionComponent_MV,
-        		GregtechItemList.TransmissionComponent_HV,
-        		GregtechItemList.TransmissionComponent_EV,
-        		GregtechItemList.TransmissionComponent_IV,
-        		GregtechItemList.TransmissionComponent_LuV,
-        		GregtechItemList.TransmissionComponent_ZPM,
-        		GregtechItemList.TransmissionComponent_UV,
-        		GregtechItemList.TransmissionComponent_MAX,
-        };
-        for (int aIndex=0;aIndex<10;aIndex++){
-        	aTransParts[aIndex].set(this.addItem(aStartID++, "Transmission Component ("+GT_Values.VN[aIndex]+")", "", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, aIndex), getTcAspectStack(TC_Aspects.MACHINA, aIndex), getTcAspectStack(TC_Aspects.MAGNETO, aIndex)}));
-        }
-        
-        // Distillus Chip
-        GregtechItemList.Distillus_Upgrade_Chip.set(this.addItem(151, "Upgrade Chip", "Used to upgrade Distillus to Tier 2"));
-        
 
-        GregtechItemList.Chip_MultiNerf_NoOutputBonus.set(this.addItem(160, "No-Bonus Chip", "You won't like using this"));
-        GregtechItemList.Chip_MultiNerf_NoSpeedBonus.set(this.addItem(161, "No-Bonus Chip", "You won't like using this"));
-        GregtechItemList.Chip_MultiNerf_NoEuBonus.set(this.addItem(162, "No-Bonus Chip", "You won't like using this"));        
+		String aTierName;
+		int aFirstMachineCasingID = 130;
+		GregtechItemList[] mMachineCasingCovers = new GregtechItemList[] {
+				GregtechItemList.FakeMachineCasingPlate_ULV,
+				GregtechItemList.FakeMachineCasingPlate_LV,
+				GregtechItemList.FakeMachineCasingPlate_MV,
+				GregtechItemList.FakeMachineCasingPlate_HV,
+				GregtechItemList.FakeMachineCasingPlate_EV,
+				GregtechItemList.FakeMachineCasingPlate_IV,
+				GregtechItemList.FakeMachineCasingPlate_LuV,
+				GregtechItemList.FakeMachineCasingPlate_ZPM,
+				GregtechItemList.FakeMachineCasingPlate_UV,
+				GregtechItemList.FakeMachineCasingPlate_MAX,
+		};
+		for (int i=0;i<10;i++) {
+			if (i==10) {
+				break;
+			}
+			else {
+				aTierName = GT_Values.VN[i];
+				mMachineCasingCovers[i].set(this.addItem(aFirstMachineCasingID++, aTierName+" Machine Plate Cover", "Deprecated - Shapeless Craft to new version", new Object[]{}));
+				GregTech_API.registerCover(mMachineCasingCovers[i].get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[i][0]}), new GTPP_Cover_ToggleVisual());
+			}
+		}
+		GregtechItemList.Laser_Lens_WoodsGlass.set(this.addItem(140, "Wood's Glass Lens", "Allows UV & IF to pass through, blocks visible light spectrums"));
+
+		int aStartID = 141;
+		GregtechItemList[] aTransParts = new GregtechItemList[] {
+				GregtechItemList.TransmissionComponent_ULV,
+				GregtechItemList.TransmissionComponent_LV,
+				GregtechItemList.TransmissionComponent_MV,
+				GregtechItemList.TransmissionComponent_HV,
+				GregtechItemList.TransmissionComponent_EV,
+				GregtechItemList.TransmissionComponent_IV,
+				GregtechItemList.TransmissionComponent_LuV,
+				GregtechItemList.TransmissionComponent_ZPM,
+				GregtechItemList.TransmissionComponent_UV,
+				GregtechItemList.TransmissionComponent_MAX,
+		};
+		for (int aIndex=0;aIndex<10;aIndex++){
+			aTransParts[aIndex].set(this.addItem(aStartID++, "Transmission Component ("+GT_Values.VN[aIndex]+")", "", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, aIndex), getTcAspectStack(TC_Aspects.MACHINA, aIndex), getTcAspectStack(TC_Aspects.MAGNETO, aIndex)}));
+		}
+
+		// Distillus Chip
+		GregtechItemList.Distillus_Upgrade_Chip.set(this.addItem(151, "Upgrade Chip", "Used to upgrade Distillus to Tier 2"));
+
+
+		GregtechItemList.Chip_MultiNerf_NoOutputBonus.set(this.addItem(160, "No-Bonus Chip", "You won't like using this"));
+		GregtechItemList.Chip_MultiNerf_NoSpeedBonus.set(this.addItem(161, "No-Bonus Chip", "You won't like using this"));
+		GregtechItemList.Chip_MultiNerf_NoEuBonus.set(this.addItem(162, "No-Bonus Chip", "You won't like using this"));
+
+
+		int aParallelChipID = 163;
+		GregtechItemList[] aParallelChips = new GregtechItemList[] {
+				GregtechItemList.Parallel_Upgrade_Chip_I,
+				GregtechItemList.Parallel_Upgrade_Chip_II,
+				GregtechItemList.Parallel_Upgrade_Chip_III,
+				GregtechItemList.Parallel_Upgrade_Chip_IV,
+				GregtechItemList.Parallel_Upgrade_Chip_V,
+				GregtechItemList.Parallel_Upgrade_Chip_VI,
+				GregtechItemList.Parallel_Upgrade_Chip_VII,
+				GregtechItemList.Parallel_Upgrade_Chip_VIII,
+				GregtechItemList.Parallel_Upgrade_Chip_IX,
+				GregtechItemList.Parallel_Upgrade_Chip_X,
+		};
+		String[] aParallelChipTiers = new String[] {
+				"I", "II", "III", "IV", "V",
+				"VI", "VII", "VIII", "IX", "X",
+
+		};
+		for (int i=0; i<10; i++) {
+			aParallelChips[i].set(this.addItem(aParallelChipID++, "Parallel Upgrade Chip "+aParallelChipTiers[i], "Used to increase the parallel capacity of a multiblock"));
+			ItemUtils.addItemToOreDictionary(aParallelChips[i].get(1), "chipMultiblockUpgradeParallel");
+		}
+
 
 
 		/*
@@ -348,14 +356,14 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		GregtechItemList.Cover_Overflow_Item_HV.set(this.addItem(168, "Item Overflow Valve (HV)", "Maximum void amount: 4096000", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
 		GregtechItemList.Cover_Overflow_Item_EV.set(this.addItem(169, "Item Overflow Valve (EV)", "Maximum void amount: 32768000", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
 		GregtechItemList.Cover_Overflow_Item_IV.set(this.addItem(170, "Item Overflow Valve (IV)", "Maximum void amount: 262144000", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
-		
+
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_ULV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[4][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(8));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_LV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[4][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(64));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_MV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(512));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_HV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(4096));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_EV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(32768));
-		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(262144));	
-		*/
+		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_Item_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow_Item(262144));
+		 */
 	}
 
 	private boolean registerComponents_ULV(){

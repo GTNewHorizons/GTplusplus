@@ -1,41 +1,33 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.algae;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gtPlusPlus.core.lib.CORE;
 import org.apache.commons.lang3.ArrayUtils;
 
+import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
+import com.gtnewhorizon.structurelib.structure.*;
+
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.*;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_AlgaeFarm;
-import ic2.core.init.BlocksItems;
-import ic2.core.init.InternalName;
+import ic2.core.init.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -68,82 +60,87 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
+	@Override
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Grows Algae!")
-				.addInfo("Controller Block for the Algae Farm")
-				.addInfo("Provide compost to boost production by one tier")
-				.addInfo("Does not require power or maintenance")
-				.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
-				.addInfo("Fill Input Hatch with water.")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(9, 3, 9, true)
-				.addController("Front Center")
-				.addCasingInfo("Machine Casings", 64)
-				.addCasingInfo("Sterile Farm Casings", 34)
-				.addInputBus("Any Casing", 1)
-				.addOutputBus("Any Casing", 1)
-				.addInputHatch("Any Casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Grows Algae!")
+		.addInfo("Controller Block for the Algae Farm")
+		.addInfo("Provide compost to boost production by one tier")
+		.addInfo("Does not require power or maintenance")
+		.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
+		.addInfo("Fill Input Hatch with water.")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(9, 3, 9, true)
+		.addController("Front Center")
+		.addCasingInfo("Machine Casings", 64)
+		.addCasingInfo("Sterile Farm Casings", 34)
+		.addInputBus("Any Casing", 1)
+		.addOutputBus("Any Casing", 1)
+		.addInputHatch("Any Casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	public void setMeta(int meta) {
-		checkMeta = meta;
+		this.checkMeta = meta;
 	}
 
 	public int getMeta() {
-		return checkMeta;
+		return this.checkMeta;
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMTE_AlgaePondBase> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_AlgaePondBase>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"XXXXXXXXX", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "XXXXXXXXX"},
-							{"XXXXXXXXX", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "XXXXXXXXX"},
-							{"CCCC~CCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_AlgaePondBase>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"XXXXXXXXX", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "XXXXXXXXX"},
+						{"XXXXXXXXX", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "X       X", "XXXXXXXXX"},
+						{"CCCC~CCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMTE_AlgaePondBase::addAlgaePondBaseList, TAE.getIndexFromPage(1, 15), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											addTieredBlock(
 													GregTech_API.sBlockCasings1, GregtechMTE_AlgaePondBase::setMeta, GregtechMTE_AlgaePondBase::getMeta, 10
+													)
 											)
 									)
 							)
-					)
 					.addElement(
 							'X',
 							ofBlock(
 									ModBlocks.blockCasings2Misc, 15
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 4, 2, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 4, 2, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		mLevel = 0;
-		checkMeta = 0;
-		if (checkPiece(mName, 4, 2, 0) && mCasing >= 64 && checkMeta > 0) {
-			mLevel = checkMeta - 1;
+		this.mCasing = 0;
+		this.mLevel = 0;
+		this.checkMeta = 0;
+		if (checkPiece(this.mName, 4, 2, 0) && this.mCasing >= 64 && this.checkMeta > 0) {
+			this.mLevel = this.checkMeta - 1;
 			return true;
 		}
 		return false;
@@ -180,9 +177,9 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 
 		int aID = TAE.getIndexFromPage(1, 15);
-		if (mLevel > -1) {
-			aID = mLevel;
-		}		
+		if (this.mLevel > -1) {
+			aID = this.mLevel;
+		}
 		if (aSide == aFacing) {
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Default_Active : TexturesGtBlock.Overlay_Machine_Controller_Default)};
 		}
@@ -209,7 +206,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		return 0;
 	}
 
-	public boolean checkForWater() {		
+	public boolean checkForWater() {
 
 		// Get Facing direction
 		IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
@@ -249,7 +246,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 									if (stored.amount >= 1000) {
 										// Utils.LOG_WARNING("Going to try swap an air block for water from inut bus.");
 										stored.amount -= 1000;
-										Block fluidUsed = Blocks.water;																			
+										Block fluidUsed = Blocks.water;
 										aBaseMetaTileEntity.getWorld().setBlock(
 												aBaseMetaTileEntity.getXCoord() + xDir + i,
 												aBaseMetaTileEntity.getYCoord() + h,
@@ -275,7 +272,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 			Logger.INFO("Filled structure.");
 			return true;
 		}
-		else {		
+		else {
 			return false;
 		}
 	}
@@ -313,7 +310,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	@Override
 	public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
 		super.onPreTick(aBaseMetaTileEntity, aTick);
-		this.fixAllMaintenanceIssue();		
+		this.fixAllMaintenanceIssue();
 		// Silly Client Syncing
 		if (aBaseMetaTileEntity.isClientSide()) {
 			this.mLevel = getCasingTier();
@@ -326,6 +323,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 0);
 	}
 
+	@Override
 	public boolean checkRecipeGeneric(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
@@ -339,7 +337,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		if (!checkForWater()) {
 			Logger.INFO("Not enough Water.");
 			return false;
-		}		
+		}
 
 		// Reset outputs and progress stats
 		this.mEUt = 0;
@@ -347,7 +345,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		this.mOutputItems = new ItemStack[]{};
 		this.mOutputFluids = new FluidStack[]{};
 
-		Logger.INFO("Running checkRecipeGeneric(0)");			
+		Logger.INFO("Running checkRecipeGeneric(0)");
 
 		GT_Recipe tRecipe = RecipeLoader_AlgaeFarm.getTieredRecipeFromCache(this.mLevel, isUsingCompost(aItemInputs));
 
@@ -363,7 +361,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		}
 		if (tRecipe.mInputs.length > 0) {
 			for (ItemStack aInputToConsume : tRecipe.mInputs) {
-				this.depleteInput(aInputToConsume);			
+				this.depleteInput(aInputToConsume);
 			}
 		}
 
@@ -371,10 +369,10 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		// -- Try not to fail after this point - inputs have already been consumed! --
 
 
-		this.mMaxProgresstime = (int)(tRecipe.mDuration);
+		this.mMaxProgresstime = (tRecipe.mDuration);
 		this.mEUt = 0;
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-		this.mEfficiencyIncrease = 10000;	
+		this.mEfficiencyIncrease = 10000;
 		Logger.INFO("Recipe time: "+this.mMaxProgresstime);
 		this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
@@ -446,7 +444,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	private boolean isUsingCompost(ItemStack[] aItemInputs) {
-		ItemStack aCompost = ItemUtils.getSimpleStack(AgriculturalChem.mCompost, 1);	
+		ItemStack aCompost = ItemUtils.getSimpleStack(AgriculturalChem.mCompost, 1);
 		for (ItemStack i : aItemInputs) {
 			if (GT_Utility.areStacksEqual(aCompost, i)) {
 				if (i.stackSize >= 8) {
@@ -467,9 +465,9 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 			int aInitStructureCheckMeta;
 			IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
 			int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX;
-	        int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ;
+			int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ;
 			aInitStructureCheck = aBaseMetaTileEntity.getBlockOffset(xDir, -1, zDir);
-			aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir, -1, zDir);			
+			aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir, -1, zDir);
 			if (aInitStructureCheck == GregTech_API.sBlockCasings1) {
 				return aInitStructureCheckMeta;
 			}

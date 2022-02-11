@@ -1,46 +1,25 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.lazy;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Element;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
-import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.interfaces.tileentity.*;
+import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.objects.*;
+import gregtech.api.util.*;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
-import gregtech.api.util.GT_Utility;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -65,6 +44,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		super(aName);
 	}
 
+	@Override
 	public IMetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
 		return new GregtechMTE_ElementalDuplicator(this.mName);
 	}
@@ -112,8 +92,8 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
 	@Override
 	public IStructureDefinition<GregtechMTE_ElementalDuplicator> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_ElementalDuplicator>builder()
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_ElementalDuplicator>builder()
 
 					// h = Hatch
 					// c = Casing
@@ -134,7 +114,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 						{"   cec   ", "  e   e  ", " e     e ", "c   d   c", "e  ddd  e", "c   d   c", " e     e ", "  e   e  ", "   cec   "},
 						{"   cac   ", "  abfba  ", " abfgfba ", "cbfgdgfbc", "afgdddgfa", "cbfgdgfbc", " abfgfba ", "  abfba  ", "   cac   "},
 						{"   ccc   ", "  ccccc  ", " ccccccc ", "ccchhhccc", "ccchhhccc", "ccchhhccc", " ccccccc ", "  ccccc  ", "   ccc   "},
-					}))						
+					}))
 
 
 					.addElement('a', ofBlock(getCasingBlock4(), getCasingMeta6()))
@@ -144,15 +124,15 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 					.addElement('e', ofBlock(getCasingBlock2(), getCasingMeta3()))
 
 					.addElement('f', ofBlock(getCasingBlock3(), getCasingMeta4()))
-					.addElement('g', ofBlock(getCasingBlock3(), getCasingMeta5()))					
+					.addElement('g', ofBlock(getCasingBlock3(), getCasingMeta5()))
 					.addElement('c', lazy(t -> onElementPass(x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
 					.addElement('h', lazy(t -> ofChain(
 							ofHatchAdder(GregtechMTE_ElementalDuplicator::addGenericHatch, getCasingTextureIndex(), 1),
 							onElementPass(x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))
 							)))
-					.build();	
+					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
@@ -162,14 +142,14 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
+		this.mCasing = 0;
 		boolean aDidBuild = checkPiece(STRUCTURE_PIECE_MAIN, 4, 4, 0);
 		if (this.mInputHatches.size() != 1 || (this.mOutputBusses.size() != 1 && this.mOutputHatches.size() !=0) || this.mEnergyHatches.size() != 1 || this.mReplicatorDataOrbHatches.size() != 1) {
 			return false;
 		}
-		log("Casings: "+mCasing);
-		return aDidBuild && mCasing >= 138 && checkHatch();
-	}	
+		log("Casings: "+this.mCasing);
+		return aDidBuild && this.mCasing >= 138 && checkHatch();
+	}
 
 	protected static int getCasingTextureIndex() {
 		return CASING_TEXTURE_ID;
@@ -222,7 +202,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 	public final boolean addGenericHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
 		if (aTileEntity == null) {
 			return false;
-		} 
+		}
 		else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity == null) {
@@ -248,22 +228,23 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 			}
 			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_ElementalDataOrbHolder) {
 				try {
-					((GT_MetaTileEntity_Hatch_ElementalDataOrbHolder) aMetaTileEntity).mRecipeMap = getRecipeMap();            
-					return addToMachineListInternal(mReplicatorDataOrbHatches, aMetaTileEntity, aBaseCasingIndex);
+					((GT_MetaTileEntity_Hatch_ElementalDataOrbHolder) aMetaTileEntity).mRecipeMap = getRecipeMap();
+					return addToMachineListInternal(this.mReplicatorDataOrbHatches, aMetaTileEntity, aBaseCasingIndex);
 				}
 				catch (Throwable t) {
 					t.printStackTrace();
 				}
-			} 
+			}
 		}
 		return false;
 	}
 
+	@Override
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
 			final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID),
-					new GT_RenderedTexture((IIconContainer) (aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced))};
+					new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
 		}
 		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID)};
 	}
@@ -283,10 +264,12 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		return null;
 	}
 
-	public GT_Recipe.GT_Recipe_Map getRecipeMap() {				
+	@Override
+	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return GTPP_Recipe_Map.sElementalDuplicatorRecipes;
 	}
 
+	@Override
 	public boolean isCorrectMachinePart(final ItemStack aStack) {
 		return true;
 	}
@@ -302,7 +285,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
-		// Based on the Processing Array. A bit overkill, but very flexible.		
+		// Based on the Processing Array. A bit overkill, but very flexible.
 
 		// Reset outputs and progress stats
 		this.mEUt = 0;
@@ -310,6 +293,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		this.mOutputItems = new ItemStack[]{};
 		this.mOutputFluids = new FluidStack[]{};
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
@@ -320,8 +304,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		try {
 			log("Checking "+aItemInputs.length+" Data Orbs");
 
-			for (int i=0;i<aItemInputs.length;i++) {
-				ItemStack aItem = aItemInputs[i];
+			for (ItemStack aItem : aItemInputs) {
 				log("Found: "+aItem.getDisplayName());
 			}
 			ItemStack aDataOrbStack = null;
@@ -336,14 +319,14 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 								log("Found: "+aTempStack.getDisplayName()+" for "+tMaterial.name());
 								aDataOrbStack = aTempStack;
 								break recipe;
-							}				
+							}
 						}
 					}
-				}				
+				}
 			}
 			if (aDataOrbStack != null) {
 				tRecipe = findRecipe(
-						getBaseMetaTileEntity(), mLastRecipe, false, false,
+						getBaseMetaTileEntity(), this.mLastRecipe, false, false,
 						gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aDataOrbStack, aItemInputs);
 				if (tRecipe != null) {
 					Materials tMaterial = Element.get(Behaviour_DataOrb.getDataName(aDataOrbStack)).mLinkedMaterials.get(0);
@@ -371,7 +354,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		if (tRecipe == null) {
 			log("BAD RETURN - 1");
 			return false;
-		}	
+		}
 
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
@@ -418,7 +401,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		this.mEUt = (int)Math.ceil(tTotalEUt);
 
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-		this.mEfficiencyIncrease = 10000;		
+		this.mEfficiencyIncrease = 10000;
 
 		// Overclock
 		if (this.mEUt <= 16) {
@@ -514,28 +497,32 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		return 100;
 	}
 
+	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
 	}
 
+	@Override
 	public int getPollutionPerSecond(final ItemStack aStack) {
 		return CORE.ConfigSwitches.pollutionPerSecondMultiMolecularTransformer;
 	}
 
+	@Override
 	public int getDamageToComponent(final ItemStack aStack) {
 		return 0;
 	}
 
+	@Override
 	public boolean explodesOnComponentBreak(final ItemStack aStack) {
 		return false;
 	}
 
 	@Override
 	public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-		super.onPreTick(aBaseMetaTileEntity, aTick);		
+		super.onPreTick(aBaseMetaTileEntity, aTick);
 		// Fix GT bug
 		if (this.getBaseMetaTileEntity().getFrontFacing() != 1) {
-			this.getBaseMetaTileEntity().setFrontFacing((byte) 1); 
+			this.getBaseMetaTileEntity().setFrontFacing((byte) 1);
 		}
 	}
 
@@ -552,12 +539,12 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 	@Override
 	public ArrayList<ItemStack> getStoredInputs() {
 		ArrayList<ItemStack> tItems = super.getStoredInputs();
-		for (GT_MetaTileEntity_Hatch_ElementalDataOrbHolder tHatch : mReplicatorDataOrbHatches) {
+		for (GT_MetaTileEntity_Hatch_ElementalDataOrbHolder tHatch : this.mReplicatorDataOrbHatches) {
 			tHatch.mRecipeMap = getRecipeMap();
 			if (isValidMetaTileEntity(tHatch)) {
-				tItems.addAll(tHatch.getInventory());               
+				tItems.addAll(tHatch.getInventory());
 			}
-		}       
+		}
 		tItems.removeAll(Collections.singleton(null));
 		return tItems;
 	}
@@ -575,6 +562,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 	 * @param aInputs        the Item Inputs
 	 * @return the Recipe it has found or null for no matching Recipe
 	 */
+	@Override
 	public GT_Recipe findRecipe(IHasWorldObjectAndCoords aTileEntity, GT_Recipe aRecipe, boolean aNotUnificated, boolean aDontCheckStackSizes, long aVoltage, FluidStack[] aFluids, ItemStack aSpecialSlot, ItemStack... aInputs) {
 
 		GT_Recipe_Map mRecipeMap = this.getRecipeMap();
@@ -622,7 +610,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 						if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs)) {
 							ItemStack aRecipeSpecial = getSpecialSlotStack(tRecipe);
 							if (GT_Utility.areStacksEqual(aRecipeSpecial, aSpecialSlot, false) && areDataOrbsEqual(aRecipeSpecial, aSpecialSlot)) {
-								return tRecipe.mEnabled && aVoltage * mRecipeMap.mAmperage >= tRecipe.mEUt ? tRecipe : null;										
+								return tRecipe.mEnabled && aVoltage * mRecipeMap.mAmperage >= tRecipe.mEUt ? tRecipe : null;
 							}
 						}
 						tRecipes = mRecipeMap.mRecipeItemMap.get(new GT_ItemStack(tStack, true));
@@ -664,8 +652,8 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		if (aRecipe.mSpecialItems != null) {
 			if (aRecipe.mSpecialItems instanceof ItemStack[]) {
 				ItemStack[] aTempStackArray = (ItemStack[]) aRecipe.mSpecialItems;
-				aStack = aTempStackArray[0];				
-			}					
+				aStack = aTempStackArray[0];
+			}
 		}
 		return aStack;
 	}

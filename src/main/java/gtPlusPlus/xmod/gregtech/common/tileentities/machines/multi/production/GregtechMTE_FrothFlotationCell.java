@@ -1,35 +1,23 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GTPP_Recipe;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
@@ -66,19 +54,19 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Process that milled ore!")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
-				.addController("Front Center")
-				.addCasingInfo("Inconel Reinforced Casing", 68)
-				.addCasingInfo("Flotation Casing", 52)
-				.addInputBus("Bottom Casing", 1)
-				.addInputHatch("Bottom Casing", 1)
-				.addOutputHatch("Bottom Casing", 1)
-				.addEnergyHatch("Bottom Casing", 1)
-				.addMaintenanceHatch("Bottom Casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Process that milled ore!")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 3, true)
+		.addController("Front Center")
+		.addCasingInfo("Inconel Reinforced Casing", 68)
+		.addCasingInfo("Flotation Casing", 52)
+		.addInputBus("Bottom Casing", 1)
+		.addInputHatch("Bottom Casing", 1)
+		.addOutputHatch("Bottom Casing", 1)
+		.addEnergyHatch("Bottom Casing", 1)
+		.addMaintenanceHatch("Bottom Casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -118,59 +106,59 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public IStructureDefinition<GregtechMTE_FrothFlotationCell> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_FrothFlotationCell>builder()
-					.addShape(mName, new String[][]{
-							{"       ", "       ", "   X   ", "  X~X  ", "   X   ", "       ", "       "},
-							{"       ", "   F   ", "  FFF  ", " FF FF ", "  FFF  ", "   F   ", "       "},
-							{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
-							{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
-							{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
-							{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
-							{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
-							{"  CCC  ", " CCCCC ", "CCCCCCC", "CCCCCCC", "CCCCCCC", " CCCCC ", "  CCC  "},
-							{"  CCC  ", " CCCCC ", "CCCCCCC", "CCCCCCC", "CCCCCCC", " CCCCC ", "  CCC  "},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_FrothFlotationCell>builder()
+					.addShape(this.mName, new String[][]{
+						{"       ", "       ", "   X   ", "  X~X  ", "   X   ", "       ", "       "},
+						{"       ", "   F   ", "  FFF  ", " FF FF ", "  FFF  ", "   F   ", "       "},
+						{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
+						{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
+						{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
+						{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
+						{"       ", "   F   ", "  F F  ", " F   F ", "  F F  ", "   F   ", "       "},
+						{"  CCC  ", " CCCCC ", "CCCCCCC", "CCCCCCC", "CCCCCCC", " CCCCC ", "  CCC  "},
+						{"  CCC  ", " CCCCC ", "CCCCCCC", "CCCCCCC", "CCCCCCC", " CCCCC ", "  CCC  "},
 					})
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMTE_FrothFlotationCell::addFrothFlotationCellList, TAE.getIndexFromPage(2, 1), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													ModBlocks.blockCasings3Misc, 1
+													)
 											)
 									)
 							)
-					)
 					.addElement(
 							'F',
 							ofBlock(
 									ModBlocks.blockSpecialMultiCasings, 9
+									)
 							)
-					)
 					.addElement(
 							'X',
 							ofBlock(
 									ModBlocks.blockCasings3Misc, 1
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 3, 3, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 3, 3, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 3,  3, 0) && mCasing >= 68 - 4 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 3,  3, 0) && this.mCasing >= 68 - 4 && checkHatch();
 	}
 
 	public final boolean addFrothFlotationCellList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -225,11 +213,11 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-		super.onPreTick(aBaseMetaTileEntity, aTick);		
+		super.onPreTick(aBaseMetaTileEntity, aTick);
 		// Fix GT bug
 		if (this.getBaseMetaTileEntity().getFrontFacing() != 1) {
 			log("Fixing Bad Facing. (GT Bug)");
-			this.getBaseMetaTileEntity().setFrontFacing((byte) 1); 
+			this.getBaseMetaTileEntity().setFrontFacing((byte) 1);
 		}
 	}
 
@@ -237,13 +225,13 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	public boolean checkRecipe(ItemStack arg0) {
 		return super.checkRecipeGeneric();
 	}
-	
+
 	@Override
 	public boolean checkRecipeGeneric(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
-		// Based on the Processing Array. A bit overkill, but very flexible.		
+		// Based on the Processing Array. A bit overkill, but very flexible.
 
 		// Reset outputs and progress stats
 		this.mEUt = 0;
@@ -251,15 +239,16 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 		this.mOutputItems = new ItemStack[]{};
 		this.mOutputFluids = new FluidStack[]{};
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
 		log("Running checkRecipeGeneric(0)");
-		
+
 		GT_Recipe tRecipe = findRecipe(
-				getBaseMetaTileEntity(), mLastRecipe, false,
-				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);		
-		
+				getBaseMetaTileEntity(), this.mLastRecipe, false,
+				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
+
 		log("Running checkRecipeGeneric(1)");
 		// Remember last recipe - an optimization for findRecipe()
 		this.mLastRecipe = tRecipe;
@@ -268,32 +257,32 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 			log("BAD RETURN - 1");
 			return false;
 		}
-		
+
 		/*
-		 * 
+		 *
 		 * Material Hash checks
 		 * Makes sure we can only ever use one type of material in this flotation cell.
-		 * 
+		 *
 		 */
 		int aExpectedMaterialHash;
 		// Set the hash of expected material type
-		if (mLockedOreType == -1) {
-			mLockedOreType = FlotationRecipeHandler.getHashForMaterial(FlotationRecipeHandler.getMaterialOfMilledProduct(FlotationRecipeHandler.findMilledStack(aRecipe)));
+		if (this.mLockedOreType == -1) {
+			this.mLockedOreType = FlotationRecipeHandler.getHashForMaterial(FlotationRecipeHandler.getMaterialOfMilledProduct(FlotationRecipeHandler.findMilledStack(aRecipe)));
 		}
 		// Set the hash for this recipe check
-		aExpectedMaterialHash = mLockedOreType;
-		
+		aExpectedMaterialHash = this.mLockedOreType;
+
 		// Compute hash of current inputs
 		int aFoundMaterialHash = FlotationRecipeHandler.getHashForMaterial(FlotationRecipeHandler.getMaterialOfMilledProduct(FlotationRecipeHandler.findMilledStack(aItemInputs)));
-		
+
 		// Check hashes match
 		if (aExpectedMaterialHash != aFoundMaterialHash) {
 			log("Did not find the correct milled type.");
 			log("Found: "+aFoundMaterialHash);
-			log("Expected: "+mLockedOreType);
+			log("Expected: "+this.mLockedOreType);
 			return false;
 		}
-		
+
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
 			log("BAD RETURN - 2");
@@ -339,7 +328,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 		this.mEUt = (int)Math.ceil(tTotalEUt);
 
 		this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-		this.mEfficiencyIncrease = 10000;		
+		this.mEfficiencyIncrease = 10000;
 
 		// Overclock
 		if (this.mEUt <= 16) {
@@ -423,7 +412,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 		log("GOOD RETURN - 1");
 		return true;
 	}
-	
+
 	/*
 	 * Handle NBT
 	 */
@@ -432,8 +421,8 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public void setItemNBT(NBTTagCompound aNBT) {
-		if (mLockedOreType != -1) {
-			aNBT.setInteger("mLockedOreType", mLockedOreType);			
+		if (this.mLockedOreType != -1) {
+			aNBT.setInteger("mLockedOreType", this.mLockedOreType);
 		}
 		super.setItemNBT(aNBT);
 	}
@@ -441,15 +430,15 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
 		super.saveNBTData(aNBT);
-		if (mLockedOreType != -1) {
-			aNBT.setInteger("mLockedOreType", mLockedOreType);
+		if (this.mLockedOreType != -1) {
+			aNBT.setInteger("mLockedOreType", this.mLockedOreType);
 		}
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
 		super.loadNBTData(aNBT);
-		mLockedOreType = aNBT.getInteger("mLockedOreType");
+		this.mLockedOreType = aNBT.getInteger("mLockedOreType");
 	}
-	
+
 }

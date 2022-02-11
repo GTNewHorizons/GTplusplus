@@ -1,34 +1,22 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GTPP_Recipe;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -43,9 +31,9 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 
 	private int mCasing;
 	private IStructureDefinition<GregtechMetaTileEntity_IndustrialChisel> STRUCTURE_DEFINITION = null;
-    private ItemStack mInputCache;
-    private ItemStack mOutputCache;
-    private GTPP_Recipe mCachedRecipe;
+	private ItemStack mInputCache;
+	private ItemStack mOutputCache;
+	private GTPP_Recipe mCachedRecipe;
 
 	public GregtechMetaTileEntity_IndustrialChisel(int aID, String aName, String aNameRegional) {
 		super(aID, aName, aNameRegional);
@@ -55,6 +43,7 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		super(aName);
 	}
 
+	@Override
 	public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
 		return new GregtechMetaTileEntity_IndustrialChisel(this.mName);
 	}
@@ -68,50 +57,50 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Factory Grade Auto Chisel")
-				.addInfo("Target block goes in GUI slot")
-				.addInfo("If no target provided, firdt chisel result is used")
-				.addInfo("Speed: 200% | Eu Usage: 75% | Parallel: Tier x 16")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
-				.addController("Front center")
-				.addCasingInfo("Sturdy Printer Casing", 10)
-				.addInputBus("Any casing", 1)
-				.addOutputBus("Any casing", 1)
-				.addEnergyHatch("Any casing", 1)
-				.addMaintenanceHatch("Any casing", 1)
-				.addMufflerHatch("Any casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Factory Grade Auto Chisel")
+		.addInfo("Target block goes in GUI slot")
+		.addInfo("If no target provided, firdt chisel result is used")
+		.addInfo("Speed: 200% | Eu Usage: 75% | Parallel: Tier x 16")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 3, true)
+		.addController("Front center")
+		.addCasingInfo("Sturdy Printer Casing", 10)
+		.addInputBus("Any casing", 1)
+		.addOutputBus("Any casing", 1)
+		.addEnergyHatch("Any casing", 1)
+		.addMaintenanceHatch("Any casing", 1)
+		.addMufflerHatch("Any casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_IndustrialChisel> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialChisel>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"C~C", "C-C", "CCC"},
-							{"CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialChisel>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC"},
+						{"C~C", "C-C", "CCC"},
+						{"CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_IndustrialChisel::addAdvChiselList, 90, 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													ModBlocks.blockCasings5Misc, 5
+													)
 											)
 									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	public final boolean addAdvChiselList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -136,15 +125,16 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName, stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName, stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 10 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 10 && checkHatch();
 	}
 
+	@Override
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
 		if (aSide == aFacing) {
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
@@ -167,35 +157,37 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		return true;
 	}
 
+	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return null;
 	}
 
+	@Override
 	public boolean isCorrectMachinePart(ItemStack aStack) {
 		return true;
 	}
-	
-    private boolean hasValidCache(ItemStack aStack, ItemStack aSpecialSlot, boolean aClearOnFailure) {
-        if (mInputCache != null && mOutputCache != null && mCachedRecipe != null) {        	
-        	if (GT_Utility.areStacksEqual(aStack, mInputCache) && GT_Utility.areStacksEqual(aSpecialSlot, mOutputCache)) {
-            	return true;        		
-        	}        	
-        }
-        // clear cache if it was invalid
-        if (aClearOnFailure) {
-            mInputCache = null;
-            mOutputCache = null;
-            mCachedRecipe = null;
-        }
-        return false;
-    }
-    
-    private void cacheItem(ItemStack aInputItem, ItemStack aOutputItem, GTPP_Recipe aRecipe) {
-        mInputCache = aInputItem.copy();
-        mOutputCache = aOutputItem.copy();
-        mCachedRecipe = aRecipe;
-    }
-	
+
+	private boolean hasValidCache(ItemStack aStack, ItemStack aSpecialSlot, boolean aClearOnFailure) {
+		if (this.mInputCache != null && this.mOutputCache != null && this.mCachedRecipe != null) {
+			if (GT_Utility.areStacksEqual(aStack, this.mInputCache) && GT_Utility.areStacksEqual(aSpecialSlot, this.mOutputCache)) {
+				return true;
+			}
+		}
+		// clear cache if it was invalid
+		if (aClearOnFailure) {
+			this.mInputCache = null;
+			this.mOutputCache = null;
+			this.mCachedRecipe = null;
+		}
+		return false;
+	}
+
+	private void cacheItem(ItemStack aInputItem, ItemStack aOutputItem, GTPP_Recipe aRecipe) {
+		this.mInputCache = aInputItem.copy();
+		this.mOutputCache = aOutputItem.copy();
+		this.mCachedRecipe = aRecipe;
+	}
+
 	// lets make sure the user isn't trying to make something from a block that doesn't have this as a valid target
 	private static boolean canBeMadeFrom(ItemStack from, ItemStack to) {
 		List<ItemStack> results = getItemsForChiseling(from);
@@ -206,17 +198,17 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		}
 		return false;
 	}
-	
+
 	// lets make sure the user isn't trying to make something from a block that doesn't have this as a valid target
 	private static boolean hasChiselResults(ItemStack from) {
-		List<ItemStack> results = getItemsForChiseling(from);		
+		List<ItemStack> results = getItemsForChiseling(from);
 		return results.size() > 0;
 	}
-	
+
 	private static List<ItemStack> getItemsForChiseling(ItemStack aStack){
 		return Carving.chisel.getItemsForChiseling(aStack);
 	}
-	
+
 	private static ItemStack getChiselOutput(ItemStack aInput, ItemStack aTarget) {
 		ItemStack tOutput = null;
 		if (aTarget != null && canBeMadeFrom(aInput, aTarget)) {
@@ -230,50 +222,51 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		}
 		return tOutput;
 	}
-	
+
 	private GTPP_Recipe generateChiselRecipe(ItemStack aInput, ItemStack aTarget) {
-        boolean tIsCached = hasValidCache(aInput, aTarget, true);
+		boolean tIsCached = hasValidCache(aInput, aTarget, true);
 		if (tIsCached || aInput != null && hasChiselResults(aInput)) {
-			ItemStack tOutput = tIsCached ? mOutputCache.copy() : getChiselOutput(aInput, aTarget);			
-			if (tOutput != null) {				
-				if (mCachedRecipe != null && GT_Utility.areStacksEqual(aInput, mInputCache) && GT_Utility.areStacksEqual(tOutput, mOutputCache)) {
-					return mCachedRecipe;
-				}				
+			ItemStack tOutput = tIsCached ? this.mOutputCache.copy() : getChiselOutput(aInput, aTarget);
+			if (tOutput != null) {
+				if (this.mCachedRecipe != null && GT_Utility.areStacksEqual(aInput, this.mInputCache) && GT_Utility.areStacksEqual(tOutput, this.mOutputCache)) {
+					return this.mCachedRecipe;
+				}
 				// We can chisel this
 				GTPP_Recipe aRecipe = new GTPP_Recipe(
 						false,
 						new ItemStack[] {ItemUtils.getSimpleStack(aInput, 1)},
 						new ItemStack[] {ItemUtils.getSimpleStack(tOutput, 1)},
-						null, 
-						new int[] {10000}, 
-						new FluidStack[] {}, 
+						null,
+						new int[] {10000},
+						new FluidStack[] {},
 						new FluidStack[] {},
 						20,
 						16,
 						0);
-				
+
 				// Cache it
-				cacheItem(aInput, tOutput, aRecipe);				
+				cacheItem(aInput, tOutput, aRecipe);
 				return aRecipe;
 			}
 		}
 		return null;
 	}
 
+	@Override
 	public boolean checkRecipe(final ItemStack aStack) {
 		ArrayList<ItemStack> aItems = this.getStoredInputs();
-		if (!aItems.isEmpty()) {		
+		if (!aItems.isEmpty()) {
 
 			GT_Recipe tRecipe = generateChiselRecipe(aItems.get(0), this.getGUIItemStack());
-			
+
 			if (tRecipe == null) {
 				log("BAD RETURN - 0");
-				return false;	
+				return false;
 			}
 
-			// Based on the Processing Array. A bit overkill, but very flexible.	
-			ItemStack[] aItemInputs = aItems.toArray(new ItemStack[aItems.size()]);	
-			FluidStack[] aFluidInputs = new FluidStack[] {};	
+			// Based on the Processing Array. A bit overkill, but very flexible.
+			ItemStack[] aItemInputs = aItems.toArray(new ItemStack[aItems.size()]);
+			FluidStack[] aFluidInputs = new FluidStack[] {};
 
 			// Reset outputs and progress stats
 			this.mEUt = 0;
@@ -284,7 +277,7 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 			long tVoltage = getMaxInputVoltage();
 			byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 			long tEnergy = getMaxInputEnergy();
-			log("Running checkRecipeGeneric(0)");	
+			log("Running checkRecipeGeneric(0)");
 
 			log("Running checkRecipeGeneric(1)");
 			// Remember last recipe - an optimization for findRecipe()
@@ -343,7 +336,7 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 			this.mEUt = (int)Math.ceil(tTotalEUt);
 
 			this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-			this.mEfficiencyIncrease = 10000;		
+			this.mEfficiencyIncrease = 10000;
 
 			// Overclock
 			if (this.mEUt <= 16) {
@@ -429,7 +422,7 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		}
 
 		return false;
-	}	
+	}
 
 	@Override
 	public int getMaxParallelRecipes() {
@@ -439,10 +432,10 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 	@Override
 	public int getEuDiscountForParallelism() {
 		return 75;
-	}	
-	
+	}
+
 	private static String sChiselSound = null;
-	
+
 	private static final String getChiselSound() {
 		if (sChiselSound == null) {
 			sChiselSound = Carving.chisel.getVariationSound(Blocks.stone, 0);
@@ -452,21 +445,25 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 
 	@Override
 	public String getSound() {
-		return getChiselSound(); 
+		return getChiselSound();
 	}
 
+	@Override
 	public int getMaxEfficiency(ItemStack aStack) {
 		return 10000;
 	}
 
+	@Override
 	public int getPollutionPerSecond(ItemStack aStack) {
 		return CORE.ConfigSwitches.pollutionPerSecondMultiIndustrialChisel;
 	}
 
+	@Override
 	public int getDamageToComponent(ItemStack aStack) {
 		return 0;
 	}
 
+	@Override
 	public boolean explodesOnComponentBreak(ItemStack aStack) {
 		return false;
 	}

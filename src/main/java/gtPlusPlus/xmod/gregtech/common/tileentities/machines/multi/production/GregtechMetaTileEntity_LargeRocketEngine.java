@@ -287,6 +287,11 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends GregtechMeta_Multi
 	}
 
 	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
+	@Override
 	public boolean checkRecipe(final ItemStack aStack) {
 		final ArrayList<FluidStack> tFluids = this.getStoredFluids();
 

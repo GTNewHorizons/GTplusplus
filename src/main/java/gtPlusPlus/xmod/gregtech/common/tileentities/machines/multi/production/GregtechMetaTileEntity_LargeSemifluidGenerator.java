@@ -1,20 +1,21 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+
 import java.util.ArrayList;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.structure.*;
+
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.Textures;
+import gregtech.api.enums.*;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.*;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
@@ -23,10 +24,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_LargeSemifluidGenerator> {
 
@@ -50,27 +47,28 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Controller Block for the Large Semifluid Generator")
-				.addInfo("Engine Intake Casings must not be obstructed in front (only air blocks)")
-				.addInfo("Supply Semifluid Fuels and 2000L of Lubricant per hour to run.")
-				.addInfo("Supply 80L of Oxygen per second to boost output (optional).")
-				.addInfo("Default: Produces 2048EU/t at 100% efficiency")
-				.addInfo("Boosted: Produces 6144EU/t at 150% efficiency")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 4, false)
-				.addController("Front Center")
-				.addCasingInfo("Stable Titanium Machine Casing", 16)
-				.addCasingInfo("Steel Gear Box Machine Casing", 2)
-				.addCasingInfo("Engine Intake Machine Casing", 8)
-				.addInputHatch("Any Casing", 1)
-				.addMaintenanceHatch("Any Casing", 1)
-				.addMufflerHatch("Any Casing", 1)
-				.addDynamoHatch("Back Center", 2)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Controller Block for the Large Semifluid Generator")
+		.addInfo("Engine Intake Casings must not be obstructed in front (only air blocks)")
+		.addInfo("Supply Semifluid Fuels and 2000L of Lubricant per hour to run.")
+		.addInfo("Supply 80L of Oxygen per second to boost output (optional).")
+		.addInfo("Default: Produces 2048EU/t at 100% efficiency")
+		.addInfo("Boosted: Produces 6144EU/t at 150% efficiency")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 4, false)
+		.addController("Front Center")
+		.addCasingInfo("Stable Titanium Machine Casing", 16)
+		.addCasingInfo("Steel Gear Box Machine Casing", 2)
+		.addCasingInfo("Engine Intake Machine Casing", 8)
+		.addInputHatch("Any Casing", 1)
+		.addMaintenanceHatch("Any Casing", 1)
+		.addMufflerHatch("Any Casing", 1)
+		.addDynamoHatch("Back Center", 2)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
+	@Override
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
 		if (aSide == aFacing) {
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50), new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE)};
@@ -83,6 +81,7 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 		return getMaxEfficiency(aStack) > 0;
 	}
 
+	@Override
 	public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
 		return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "LargeDieselEngine.png");
 	}
@@ -103,8 +102,8 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 				oxygen.amount = Math.max(oxygen.amount, hatchFluid.amount);
 			}
 		}
-		boostEu = oxygen.amount >= 4L;
-		long lubricantCost = boostEu ? 2L : 1L;
+		this.boostEu = oxygen.amount >= 4L;
+		long lubricantCost = this.boostEu ? 2L : 1L;
 		if (lubricant.amount < lubricantCost) {
 			return false;
 		}
@@ -116,27 +115,27 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 				continue;
 			}
 
-			int newEUt = boostEu ? 4096 : 2048;
-			fuelConsumption = newEUt / aFuel.mSpecialValue; //Calc fuel consumption
-			FluidStack tLiquid = new FluidStack(hatchFluid.getFluid(), fuelConsumption);
+			int newEUt = this.boostEu ? 4096 : 2048;
+			this.fuelConsumption = newEUt / aFuel.mSpecialValue; //Calc fuel consumption
+			FluidStack tLiquid = new FluidStack(hatchFluid.getFluid(), this.fuelConsumption);
 			if(depleteInput(tLiquid)) { //Deplete that amount
 				// We checked beforehand, so both of these depletions should succeed.
 				// But check the return values anyway just to be safe.
-				if (boostEu) {
+				if (this.boostEu) {
 					if (!depleteInput(Materials.Oxygen.getGas(4L))) {
 						return false;
 					}
 				}
 				//Deplete Lubricant. 2000L should = 1 hour of runtime (if baseEU = 2048)
-				if(mRuntime % 72 == 0 || mRuntime == 0) {
+				if(this.mRuntime % 72 == 0 || this.mRuntime == 0) {
 					if(!depleteInput(Materials.Lubricant.getFluid(lubricantCost))) {
 						return false;
 					}
 				}
 
-				fuelValue = aFuel.mSpecialValue;
-				fuelRemaining = hatchFluid.amount; //Record available fuel
-				this.mEUt = mEfficiency < 2000 ? 0 : newEUt; //Output 0 if startup is less than 20%
+				this.fuelValue = aFuel.mSpecialValue;
+				this.fuelRemaining = hatchFluid.amount; //Record available fuel
+				this.mEUt = this.mEfficiency < 2000 ? 0 : newEUt; //Output 0 if startup is less than 20%
 				this.mProgresstime = 1;
 				this.mMaxProgresstime = 1;
 				this.mEfficiencyIncrease = 15;
@@ -151,60 +150,60 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_LargeSemifluidGenerator> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_LargeSemifluidGenerator>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"III", "CCC", "CCC", "CCC"},
-							{"I~I", "CGC", "CGC", "CMC"},
-							{"III", "CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_LargeSemifluidGenerator>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"III", "CCC", "CCC", "CCC"},
+						{"I~I", "CGC", "CGC", "CMC"},
+						{"III", "CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GregtechMetaTileEntity_LargeSemifluidGenerator::addLargeSemifluidGeneratorList, getCasingTextureIndex(), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													getCasingBlock(), getCasingMeta()
+													)
 											)
 									)
 							)
-					)
 					.addElement(
 							'G',
 							ofBlock(
 									getGearboxBlock(), getGearboxMeta()
+									)
 							)
-					)
 					.addElement(
 							'I',
 							ofBlock(
 									getIntakeBlock(), getIntakeMeta()
+									)
 							)
-					)
 					.addElement(
 							'M',
 							ofHatchAdder(
 									GregtechMetaTileEntity_LargeSemifluidGenerator::addLargeSemifluidGeneratorBackList, getCasingTextureIndex(), 2
+									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		mDynamoHatches.clear();
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 16 && checkHatch();
+		this.mCasing = 0;
+		this.mDynamoHatches.clear();
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 16 && checkHatch();
 	}
 
 	public final boolean addLargeSemifluidGeneratorList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -283,8 +282,9 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 		return 1;
 	}
 
+	@Override
 	public int getMaxEfficiency(ItemStack aStack) {
-		return boostEu ? 15000 : 10000;
+		return this.boostEu ? 15000 : 10000;
 	}
 
 	@Override
@@ -301,11 +301,11 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 	public String[] getExtraInfoData() {
 		return new String[]{
 				"Large Semifluid Generator",
-				"Current Output: " + mEUt * mEfficiency / 10000 + " EU/t",
-				"Fuel Consumption: " + fuelConsumption + "L/t",
-				"Fuel Value: " + fuelValue + " EU/L",
-				"Fuel Remaining: " + fuelRemaining + " Litres",
-				"Current Efficiency: " + (mEfficiency / 100) + "%",
+				"Current Output: " + this.mEUt * this.mEfficiency / 10000 + " EU/t",
+				"Fuel Consumption: " + this.fuelConsumption + "L/t",
+				"Fuel Value: " + this.fuelValue + " EU/L",
+				"Fuel Remaining: " + this.fuelRemaining + " Litres",
+				"Current Efficiency: " + (this.mEfficiency / 100) + "%",
 				getIdealStatus() == getRepairStatus() ? "No Maintainance issues" : "Needs Maintainance"};
 	}
 
@@ -332,6 +332,11 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 	@Override
 	public int getMaxParallelRecipes() {
 		return 0;
+	}
+
+	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
 	}
 
 	@Override

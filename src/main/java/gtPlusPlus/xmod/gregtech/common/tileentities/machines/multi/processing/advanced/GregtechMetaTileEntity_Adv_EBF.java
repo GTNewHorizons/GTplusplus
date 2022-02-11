@@ -1,43 +1,32 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.advanced;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofCoil;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.*;
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-import gregtech.api.enums.HeatingCoilLevel;
-import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GT_MetaTileEntity_Hatch_CustomFluidBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentTranslation;
 import org.apache.commons.lang3.ArrayUtils;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import com.gtnewhorizon.structurelib.structure.*;
+
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.*;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
 
 public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_EBF> {
@@ -68,6 +57,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		return "Blast Furnace";
 	}
 
+	@Override
 	public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
 		return new GregtechMetaTileEntity_Adv_EBF(this.mName);
 	}
@@ -98,9 +88,9 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public IStructureDefinition<GregtechMetaTileEntity_Adv_EBF> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_EBF>builder()
-					.addShape(mName, transpose(new String[][]{
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_Adv_EBF>builder()
+					.addShape(this.mName, transpose(new String[][]{
 						{"CCC", "CCC", "CCC"},
 						{"HHH", "H-H", "HHH"},
 						{"HHH", "H-H", "HHH"},
@@ -128,20 +118,20 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 							)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName, stackSize, hintsOnly, 1, 3, 0);
+		buildPiece(this.mName, stackSize, hintsOnly, 1, 3, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		mHaveHatch = false;
+		this.mCasing = 0;
+		this.mHaveHatch = false;
 		setCoilLevel(HeatingCoilLevel.None);
-		return checkPiece(mName, 1, 3, 0) && mCasing >= 9 && mHaveHatch && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
+		return checkPiece(this.mName, 1, 3, 0) && this.mCasing >= 9 && this.mHaveHatch && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
 	}
 
 	public final boolean addAdvEBFList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -150,7 +140,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		} else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_CustomFluidBase && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 968) {
-				mHaveHatch = true;
+				this.mHaveHatch = true;
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}
 			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
@@ -172,6 +162,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		return false;
 	}
 
+	@Override
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
 			boolean aActive, boolean aRedstone) {
 		if (aSide == aFacing) {
@@ -196,19 +187,21 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		return "ElectricBlastFurnace";
 	}
 
+	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return GT_Recipe.GT_Recipe_Map.sBlastRecipes;
 	}
 
+	@Override
 	public boolean isCorrectMachinePart(ItemStack aStack) {
 		return true;
 	}
 
 	@Override
 	public boolean checkRecipe(ItemStack aStack) {
-		if (isBussesSeparate) {
+		if (this.isBussesSeparate) {
 			FluidStack[] tFluids = getStoredFluids().toArray(new FluidStack[0]);
-			for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
+			for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
 				ArrayList<ItemStack> tInputs = new ArrayList<>();
 				if (isValidMetaTileEntity(tBus)) {
 					for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
@@ -229,18 +222,22 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		}
 	}
 
+	@Override
 	public int getMaxEfficiency(ItemStack aStack) {
 		return 10000;
 	}
 
+	@Override
 	public int getPollutionPerSecond(ItemStack aStack) {
 		return CORE.ConfigSwitches.pollutionPerSecondMultiAdvEBF;
 	}
 
+	@Override
 	public int getDamageToComponent(ItemStack aStack) {
 		return 0;
 	}
 
+	@Override
 	public boolean explodesOnComponentBreak(ItemStack aStack) {
 		return false;
 	}
@@ -256,12 +253,13 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 		this.mOutputItems = new ItemStack[] {};
 		this.mOutputFluids = new FluidStack[] {};
 
+		aMaxParallelRecipes = aMaxParallelRecipes * getParallelBonusMultiplier();
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
 		Logger.WARNING("Running checkRecipeGeneric(0)");
 
-		GT_Recipe tRecipe = this.getRecipeMap().findRecipe(getBaseMetaTileEntity(), mLastRecipe, false,
+		GT_Recipe tRecipe = this.getRecipeMap().findRecipe(getBaseMetaTileEntity(), this.mLastRecipe, false,
 				gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
 
 		Logger.WARNING("Running checkRecipeGeneric(1)");
@@ -281,7 +279,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 
 		// EU discount
 		float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
-		int tHeatCapacityDivTiers = (int) (mHeatingCapacity.getHeat() - tRecipe.mSpecialValue) / 900;
+		int tHeatCapacityDivTiers = (int) (this.mHeatingCapacity.getHeat() - tRecipe.mSpecialValue) / 900;
 		if (tHeatCapacityDivTiers > 0)
 			tRecipeEUt = (int) (tRecipeEUt * (Math.pow(0.95, tHeatCapacityDivTiers)));
 		float tTotalEUt = 0.0f;
@@ -325,10 +323,10 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 			while (this.mEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
 				this.mEUt *= 4;
 				if (tHalfHeatCapacityDivTiers > 0) {
-					this.mMaxProgresstime = mMaxProgresstime / 4;
+					this.mMaxProgresstime = this.mMaxProgresstime / 4;
 					tHalfHeatCapacityDivTiers--;
 				} else {
-					this.mMaxProgresstime = mMaxProgresstime / 2;
+					this.mMaxProgresstime = this.mMaxProgresstime / 2;
 				}
 				if (this.mMaxProgresstime <= 1) {
 					break;
@@ -412,20 +410,20 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 	private volatile int mGraceTimer = 2;
 
 	@Override
-	public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {		
-		super.onPostTick(aBaseMetaTileEntity, aTick);		
+	public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+		super.onPostTick(aBaseMetaTileEntity, aTick);
 		//Try dry Pyrotheum after all other logic
 		if (this.mStartUpCheck < 0) {
-			if (this.mMaxProgresstime > 0 && this.mProgresstime != 0 || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()) {			
+			if (this.mMaxProgresstime > 0 && this.mProgresstime != 0 || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()) {
 				if (aTick % 10 == 0 || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()) {
-					if (!this.depleteInput(FluidUtils.getFluidStack("pyrotheum", 5))) {						
-						if (mGraceTimer-- == 0) {
+					if (!this.depleteInput(FluidUtils.getFluidStack("pyrotheum", 5))) {
+						if (this.mGraceTimer-- == 0) {
 							this.causeMaintenanceIssue();
 							this.stopMachine();
-							mGraceTimer = 2;
-						}						
+							this.mGraceTimer = 2;
+						}
 					}
-				}			
+				}
 			}
 		}
 
@@ -443,27 +441,27 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-		isBussesSeparate = !isBussesSeparate;
-		aPlayer.addChatMessage(new ChatComponentTranslation(isBussesSeparate ? "interaction.separateBusses.enabled" : "interaction.separateBusses.disabled"));
+		this.isBussesSeparate = !this.isBussesSeparate;
+		aPlayer.addChatMessage(new ChatComponentTranslation(this.isBussesSeparate ? "interaction.separateBusses.enabled" : "interaction.separateBusses.disabled"));
 	}
 
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
-		aNBT.setBoolean("isBussesSeparate", isBussesSeparate);
+		aNBT.setBoolean("isBussesSeparate", this.isBussesSeparate);
 		super.saveNBTData(aNBT);
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
-		isBussesSeparate = aNBT.getBoolean("isBussesSeparate");
+		this.isBussesSeparate = aNBT.getBoolean("isBussesSeparate");
 		super.loadNBTData(aNBT);
 	}
 
 	public HeatingCoilLevel getCoilLevel() {
-		return mHeatingCapacity;
+		return this.mHeatingCapacity;
 	}
 
 	public void setCoilLevel(HeatingCoilLevel aCoilLevel) {
-		mHeatingCapacity = aCoilLevel;
+		this.mHeatingCapacity = aCoilLevel;
 	}
 }

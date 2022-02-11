@@ -1,11 +1,11 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-import gregtech.api.enums.ItemList;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+
+import com.gtnewhorizon.structurelib.structure.*;
+
+import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -21,18 +21,11 @@ import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+import net.minecraft.item.*;
+import net.minecraftforge.fluids.*;
 
 public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Entity_ThermalBoiler> {
-	
+
 	private int mCasing;
 	private IStructureDefinition<GT4Entity_ThermalBoiler> STRUCTURE_DEFINITION = null;
 	private int mSuperEfficencyIncrease = 0;
@@ -73,16 +66,21 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 		//log("Trying to damage component.");
 		return ItemList.Component_LavaFilter.get(1L).getClass().isInstance(aStack) ? 1 : 0;
 	}
-	
+
 	private static Item mLavaFilter;
 	private static Fluid mLava = null;
 	private static Fluid mPahoehoe = null;
 	private static Fluid mSolarSaltHot = null;
 
 	@Override
+	public boolean canHaveParallelUpgraded() {
+		return false;
+	}
+
+	@Override
 	public boolean checkRecipe(ItemStack aStack) {
 		this.mSuperEfficencyIncrease=0;
-		
+
 		if (mLavaFilter == null) {
 			mLavaFilter = ItemList.Component_LavaFilter.getItem();
 		}
@@ -95,23 +93,23 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 		if (mSolarSaltHot == null) {
 			mSolarSaltHot = MISC_MATERIALS.SOLAR_SALT_HOT.getFluid();
 		}
-		
-		
-		
+
+
+
 		//Try reload new Lava Filter
 		if (aStack == null) {
 			ItemStack uStack = this.findItemInInventory(mLavaFilter);
-			if (uStack != null) {				
+			if (uStack != null) {
 				this.setGUIItemStack(uStack);
 				aStack = this.getGUIItemStack();
 			}
 		}
-		
+
 
 		for (GT_Recipe tRecipe : GTPP_Recipe.GTPP_Recipe_Map.sThermalFuels.mRecipeList) {
 			FluidStack tFluid = tRecipe.mFluidInputs[0];
 			if (tFluid != null) {
-				
+
 				if (tFluid.getFluid() == mLava || tFluid.getFluid() == mPahoehoe) {
 					if (depleteInput(tFluid)) {
 						this.mMaxProgresstime = Math.max(1, runtimeBoost(tRecipe.mSpecialValue * 2));
@@ -121,19 +119,19 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 						if (mLavaFilter.getClass().isInstance(aStack.getItem())) {
 							if ((tRecipe.getOutput(0) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(0))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(0) }) };
-							} 
+							}
 							if ((tRecipe.getOutput(1) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(1))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(1) }) };
-							} 
+							}
 							if ((tRecipe.getOutput(2) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(2))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(2) }) };
-							} 
+							}
 							if ((tRecipe.getOutput(3) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(3))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(3) }) };
-							} 
+							}
 							if ((tRecipe.getOutput(4) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(4))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(4) }) };
-							} 
+							}
 							if ((tRecipe.getOutput(5) != null) && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE) < tRecipe.getOutputChance(5))) {
 								this.mOutputItems = new ItemStack[] { GT_Utility.copy(new Object[] { tRecipe.getOutput(5) }) };
 							}
@@ -150,7 +148,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 				else if (tFluid.getFluid() == mSolarSaltHot) {
 					if (depleteInput(tFluid)) {
 						this.mMaxProgresstime = tRecipe.mDuration;
-						this.mEfficiency = 10000;						
+						this.mEfficiency = 10000;
 						for (FluidStack aOutput : tRecipe.mFluidOutputs) {
 							this.addOutput(FluidUtils.getFluidStack(aOutput, aOutput.amount));
 						}
@@ -162,8 +160,8 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 		this.mMaxProgresstime = 0;
 		this.mEUt = 0;
 		return false;
-	}	
-	
+	}
+
 	@Override
 	public int getMaxParallelRecipes() {
 		return 1;
@@ -224,6 +222,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 		return CORE.ConfigSwitches.pollutionPerSecondMultiThermalBoiler;
 	}
 
+	@Override
 	public int getAmountOfOutputs()
 	{
 		return 7;
@@ -233,21 +232,21 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-				.addInfo("Thermal Boiler Controller")
-				.addInfo("Converts Water & Heat into Steam")
-				.addInfo("Consult user manual for more information")
-				.addPollutionAmount(getPollutionPerSecond(null))
-				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
-				.addController("Front Center")
-				.addCasingInfo("Thermal Containment Casings", 10)
-				.addInputBus("Any Casing", 1)
-				.addOutputBus("Any Casing", 1)
-				.addInputHatch("Any Casing", 1)
-				.addOutputHatch("Any Casing", 1)
-				.addMaintenanceHatch("Any Casing", 1)
-				.addMufflerHatch("Any Casing", 1)
-				.toolTipFinisher(CORE.GT_Tooltip_Builder);
+		.addInfo("Thermal Boiler Controller")
+		.addInfo("Converts Water & Heat into Steam")
+		.addInfo("Consult user manual for more information")
+		.addPollutionAmount(getPollutionPerSecond(null))
+		.addSeparator()
+		.beginStructureBlock(3, 3, 3, true)
+		.addController("Front Center")
+		.addCasingInfo("Thermal Containment Casings", 10)
+		.addInputBus("Any Casing", 1)
+		.addOutputBus("Any Casing", 1)
+		.addInputHatch("Any Casing", 1)
+		.addOutputHatch("Any Casing", 1)
+		.addMaintenanceHatch("Any Casing", 1)
+		.addMufflerHatch("Any Casing", 1)
+		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -262,41 +261,41 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 
 	@Override
 	public IStructureDefinition<GT4Entity_ThermalBoiler> getStructureDefinition() {
-		if (STRUCTURE_DEFINITION == null) {
-			STRUCTURE_DEFINITION = StructureDefinition.<GT4Entity_ThermalBoiler>builder()
-					.addShape(mName, transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"C~C", "C-C", "CCC"},
-							{"CCC", "CCC", "CCC"},
+		if (this.STRUCTURE_DEFINITION == null) {
+			this.STRUCTURE_DEFINITION = StructureDefinition.<GT4Entity_ThermalBoiler>builder()
+					.addShape(this.mName, transpose(new String[][]{
+						{"CCC", "CCC", "CCC"},
+						{"C~C", "C-C", "CCC"},
+						{"CCC", "CCC", "CCC"},
 					}))
 					.addElement(
 							'C',
 							ofChain(
 									ofHatchAdder(
 											GT4Entity_ThermalBoiler::addThermalBoilerList, TAE.getIndexFromPage(0, 1), 1
-									),
+											),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
 													ModBlocks.blockCasings2Misc, 11
+													)
 											)
 									)
 							)
-					)
 					.build();
 		}
-		return STRUCTURE_DEFINITION;
+		return this.STRUCTURE_DEFINITION;
 	}
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 1, 0);
+		buildPiece(this.mName , stackSize, hintsOnly, 1, 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 1, 0) && mCasing >= 10 && checkHatch();
+		this.mCasing = 0;
+		return checkPiece(this.mName, 1, 1, 0) && this.mCasing >= 10 && checkHatch();
 	}
 
 	public final boolean addThermalBoilerList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -329,14 +328,14 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 				long currentUse = ItemLavaFilter.getFilterDamage(filter);
 
 				//Remove broken Filter
-				if (currentUse >= 100-1){			
+				if (currentUse >= 100-1){
 					this.mInventory[1] = null;
 				}
 				else {
 					//Do Damage
 					ItemLavaFilter.setFilterDamage(filter, currentUse+1);
 				}
-			}		
+			}
 		}
 
 	}
@@ -350,13 +349,13 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 					for (GT_MetaTileEntity_Hatch_InputBus aBus : this.mInputBusses) {
 						for (ItemStack aStack : aBus.mInventory) {
 							if (aStack != null && aStack.getItem() instanceof ItemLavaFilter) {
-								this.setGUIItemStack(aStack);								
+								this.setGUIItemStack(aStack);
 							}
-						}						
+						}
 					}
 				}
-			}			
-			
+			}
+
 			if (this.mEUt > 0){
 				if (aTick % 600L == 0L){
 					damageFilter();
@@ -374,6 +373,6 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 	@Override
 	public String getCustomGUIResourceName() {
 		return "Generic3By3";
-	}	
+	}
 
 }
