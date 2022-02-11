@@ -20,6 +20,7 @@ public final class MISC_MATERIALS {
 		MaterialUtils.generateSpecialDustAndAssignToAMaterial(STRONTIUM_OXIDE, false);
 		MaterialUtils.generateSpecialDustAndAssignToAMaterial(STRONTIUM_HYDROXIDE, false);
 		MaterialUtils.generateSpecialDustAndAssignToAMaterial(CYANOACETIC_ACID, false);
+		MaterialUtils.generateSpecialDustAndAssignToAMaterial(SODIUM_CYANIDE, false);
 		MaterialUtils.generateSpecialDustAndAssignToAMaterial(COPPER_SULFATE, false);
 		MaterialUtils.generateSpecialDustAndAssignToAMaterial(COPPER_SULFATE_HYDRATED, false);
 		WATER.registerComponentForMaterial(FluidUtils.getWater(1000));
@@ -403,11 +404,14 @@ public final class MISC_MATERIALS {
 			"Acetic Anhydride",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {250, 240, 110}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			-73, //Melting Point in C
+			139, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"(CH3CO)2O",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 4),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 6),
@@ -418,11 +422,14 @@ public final class MISC_MATERIALS {
 			"Chloroacetic Acid",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {230, 200, 90}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			63, //Melting Point in C
+			189, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"ClCH2-COOH",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 3),
@@ -434,11 +441,14 @@ public final class MISC_MATERIALS {
 			"Dichloroacetic Acid",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {190, 160, 60}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			13, //Melting Point in C
+			194, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"Cl2CH-COOH",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 2),
@@ -450,11 +460,14 @@ public final class MISC_MATERIALS {
 			"Trichloroacetic Acid",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {120, 100, 30}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			57, //Melting Point in C
+			196, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"Cl3C-COOH",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),
@@ -467,8 +480,8 @@ public final class MISC_MATERIALS {
 			MaterialState.LIQUID, //State
 			null,
 			new short[] {210, 160, 10},
-			-1,
-			-1,
+			40,
+			192,
 			-1,
 			-1,
 			false,
@@ -486,12 +499,14 @@ public final class MISC_MATERIALS {
 			"Sodium Cyanide",
 			MaterialState.SOLID, //State
 			new short[] {180, 190, 255}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			563, //Melting Point in C
+			1496, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			//Material Stacks with Percentage of required elements.
+			"NaCN",
+			0,
+			false,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().SODIUM, 1),
 					new MaterialStack(ELEMENT.getInstance().CARBON, 1),
@@ -502,12 +517,14 @@ public final class MISC_MATERIALS {
 			"Cyanoacetic Acid",
 			MaterialState.SOLID, //State
 			new short[] {130, 130, 40}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			66, //Melting Point in C
+			108, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			//Material Stacks with Percentage of required elements.
+			"C3H3NO2",
+			0,
+			false,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 3),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 3),
@@ -519,12 +536,14 @@ public final class MISC_MATERIALS {
 			"Solid Acid Catalyst Mixture",
 			MaterialState.LIQUID, //State
 			new short[] {80, 40, 0}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			-10, //Melting Point in C
+			337, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			//Material Stacks with Percentage of required elements.
+			"?H2SO4?",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 2),
 					new MaterialStack(ELEMENT.getInstance().SULFUR, 1),
@@ -535,12 +554,14 @@ public final class MISC_MATERIALS {
 			"Copper(II) Sulfate",
 			MaterialState.SOLID, //State
 			new short[] {200, 200, 200}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			590, //Melting Point in C
+			650, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			//Material Stacks with Percentage of required elements.
+			"CuSO4",
+			0,
+			false,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().COPPER, 1),
 					new MaterialStack(ELEMENT.getInstance().SULFUR, 1),
@@ -551,12 +572,14 @@ public final class MISC_MATERIALS {
 			"Copper(II) Sulfate Pentahydrate",
 			MaterialState.SOLID, //State
 			new short[] {90, 170, 255}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			590, //Melting Point in C
+			650, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			//Material Stacks with Percentage of required elements.
+			"CuSO4∙5H2O",
+			0,
+			false,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().COPPER, 1),
 					new MaterialStack(ELEMENT.getInstance().SULFUR, 1),
@@ -567,11 +590,14 @@ public final class MISC_MATERIALS {
 			"Ethyl Cyanoacetate",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {0, 75, 160}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			-22, //Melting Point in C
+			210, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"C5H7NO2",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),
@@ -583,11 +609,14 @@ public final class MISC_MATERIALS {
 			"Cyanoacrylate Polymer",
 			MaterialState.LIQUID, //State
 			new short[] {140, 150, 160}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			-25, //Melting Point in C
+			55, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"(-C6H7NO2-)n",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),
@@ -599,11 +628,14 @@ public final class MISC_MATERIALS {
 			"Ethyl Cyanoacrylate (Super Glue)",
 			MaterialState.PURE_LIQUID, //State
 			new short[] {170, 190, 200}, //Material Colour
-			-1, //Melting Point in C
-			-1, //Boiling Point in C
+			-25, //Melting Point in C
+			55, //Boiling Point in C
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
+			"C6H7NO2",
+			0,
+			true,
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
 					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),

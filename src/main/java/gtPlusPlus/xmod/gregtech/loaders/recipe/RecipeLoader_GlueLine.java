@@ -163,11 +163,31 @@ public class RecipeLoader_GlueLine {
                 2*20,
                 10000,
                 5);
+
+        CORE.RA.addChemicalPlantRecipe(
+                new ItemStack[] {
+                        CI.getNumberedCircuit(17),
+                        ItemUtils.getSimpleStack(GenericChem.mPinkCatalyst, 1)
+                },
+                new FluidStack[] {
+                        FluidUtils.getFluidStack("methane", 2000),
+                        FluidUtils.getFluidStack("ammonia", 2000),
+                        FluidUtils.getFluidStack("oxygen", 3000)
+                },
+                new ItemStack[] {
+                },
+                new FluidStack[] {
+                        MISC_MATERIALS.HYDROGEN_CYANIDE.getFluidStack(2000),
+                        FluidUtils.getWater(6000)
+                },
+                10*20,
+                2000,
+                4);
     }
 
     private static void chemicalReactorRecipes() {
         GT_Values.RA.addChemicalRecipe(
-                CI.getNumberedBioCircuit(16),
+                CI.getNumberedCircuit(17),
                 ItemUtils.getItemStackOfAmountFromOreDict("dustSodiumHydroxide", 1),
                 MISC_MATERIALS.HYDROGEN_CYANIDE.getFluidStack(200),
                 FluidUtils.getWater(200),
@@ -175,7 +195,7 @@ public class RecipeLoader_GlueLine {
                 60 * 20);
 
         GT_Values.RA.addChemicalRecipe(
-                CI.getNumberedBioCircuit(16),
+                CI.getNumberedCircuit(18),
                 ItemUtils.getItemStackOfAmountFromOreDict("dustCopper", 1),
                 FluidUtils.getFluidStack("sulfuricacid", 500),
                 FluidUtils.getFluidStack("dilutedsulfuricacid", 500),
@@ -186,6 +206,7 @@ public class RecipeLoader_GlueLine {
     private static void dehydratorRecipes() {
         CORE.RA.addDehydratorRecipe(
                 new ItemStack[]{
+                        CI.getNumberedCircuit(19),
                         MISC_MATERIALS.COPPER_SULFATE_HYDRATED.getDust(1),
                         ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 1)
                 },
@@ -209,14 +230,14 @@ public class RecipeLoader_GlueLine {
                         MISC_MATERIALS.TRICHLOROACETIC_ACID.getFluidStack(400)
                 },
                 null,
-                120 * 60 * 20,
-                MaterialUtils.getVoltageForTier(3));
+                4 * 20,
+                MaterialUtils.getVoltageForTier(4));
     }
 
     private static void fluidHeaterRecipes() {
 
         CORE.RA.addFluidHeaterRecipe(
-                null,
+                CI.getNumberedCircuit(16),
                 MISC_MATERIALS.CYANOACRYLATE_POLYMER.getFluidStack(1000),
                 MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(1000),
                 30 * 30,
@@ -226,7 +247,7 @@ public class RecipeLoader_GlueLine {
 
     private static void mixerRecipes() {
         GT_Values.RA.addMixerRecipe(
-                CI.getNumberedCircuit(18),
+                CI.getNumberedCircuit(1),
                 MISC_MATERIALS.DICHLOROACETIC_ACID.getCell(1),
                 null,
                 null,
@@ -238,7 +259,7 @@ public class RecipeLoader_GlueLine {
 
         GT_Values.RA.addMixerRecipe(
                 ItemUtils.getItemStackOfAmountFromOreDict("cellSulfurTrioxide", 1),
-                CI.getNumberedCircuit(18),
+                CI.getNumberedCircuit(2),
                 null,
                 null,
                 FluidUtils.getFluidStack("sulfuricacid", 1000),
