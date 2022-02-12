@@ -375,6 +375,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Casing_Turbine_Shaft, 
 	Casing_Turbine_LP, Casing_Turbine_HP,
 	Casing_Turbine_Gas, Casing_Turbine_Plasma,
+	XL_HeatExchanger, Casing_XL_HeatExchanger,
 	
 	// Large Engine
 	Casing_Reinforced_Engine_Casing,
