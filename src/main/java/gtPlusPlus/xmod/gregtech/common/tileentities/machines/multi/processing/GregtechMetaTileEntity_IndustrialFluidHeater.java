@@ -26,7 +26,7 @@ import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialFluidHeater> {
 
-	private int mCasing;
+	private int mCasing1;
 	private IStructureDefinition<GregtechMetaTileEntity_IndustrialFluidHeater> STRUCTURE_DEFINITION = null;
 
 	public GregtechMetaTileEntity_IndustrialFluidHeater(final int aID, final String aName, final String aNameRegional) {
@@ -57,14 +57,17 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_M
 				.addInfo("Processes eight items per voltage tier")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
-				.beginStructureBlock(3, 2, 3, false)
+				.beginStructureBlock(5, 6, 5, true)
 				.addController("Front Center")
-				.addCasingInfo("Thermal Processing Casings/Noise Hazard Sign Blocks", 8)
-				.addInputBus("Bottom Casing", 1)
-				.addOutputBus("Bottom Casing", 1)
-				.addEnergyHatch("Bottom Casing", 1)
-				.addMaintenanceHatch("Bottom Casing", 1)
-				.addMufflerHatch("Bottom Casing", 1)
+				.addCasingInfo("Top/Bottom layer: Multi-use Casings", 34)
+				.addCasingInfo("Middle layers: Thermal Containment Casing", 47)
+				.addInputBus("Bottom Layer (optional)", 1)
+				.addInputHatch("Bottom Layer", 1)
+				.addOutputBus("Top Layer (optional)", 1)
+				.addOutputHatch("Top Layer", 1)
+				.addEnergyHatch("Any Multi-use Casing", 1)
+				.addMaintenanceHatch("Any Multi-use Casing", 1)
+				.addMufflerHatch("Any Multi-use Casing", 1)
 				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
@@ -74,46 +77,24 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_M
 		if (STRUCTURE_DEFINITION == null) {
 			STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialFluidHeater>builder()
 					.addShape(mName, transpose(new String[][]{
-							{"X~X", "XXX", "XXX"},
-							{"CCC", "CCC", "CCC"},
+							{" TTT ", "TTTTT", "TTTTT", "TTTTT", " TTT "},
+							{" XXX ", "X---X", "X---X", "X---X", " XXX "},
+							{" XXX ", "X---X", "X---X", "X---X", " XXX "},
+							{" XXX ", "X---X", "X---X", "X---X", " XXX "},
+							{" X~X ", "X---X", "X---X", "X---X", " XXX "},
+							{" BBB ", "BBBBB", "BBBBB", "BBBBB", " BBB "},
 					}))
-					.addElement(
-							'C',
-							ofChain(
-									ofHatchAdder(
-											GregtechMetaTileEntity_IndustrialFluidHeater::addIndustrialThermalCentrifugeList, getCasingTextureIndex(), 1
-									),
-									onElementPass(
-											x -> ++x.mCasing,
-											ofBlock(
-													ModBlocks.blockCasings2Misc, 0
-											)
-									),
-									onElementPass(
-											x -> ++x.mCasing,
-											ofBlock(
-													GregTech_API.sBlockCasings3, 9
-											)
-									)
-							)
-					)
-					.addElement(
-							'X',
-							ofChain(
-									onElementPass(
-											x -> ++x.mCasing,
-											ofBlock(
-													ModBlocks.blockCasings2Misc, 0
-											)
-									),
-									onElementPass(
-											x -> ++x.mCasing,
-											ofBlock(
-													GregTech_API.sBlockCasings3, 9
-											)
-									)
-							)
-					)
+					
+					.addElement('B', ofChain(
+									ofHatchAdder(GregtechMetaTileEntity_IndustrialFluidHeater::addIndustrialFluidHeaterInputList, getCasingTextureIndex(), 1),
+									onElementPass(x -> ++x.mCasing1, ofBlock(getCasingBlock2(), getCasingMeta2()))))
+					
+					.addElement('X', ofBlock(getCasingBlock1(), getCasingMeta1()))
+					
+					.addElement('T', ofChain(
+							ofHatchAdder(GregtechMetaTileEntity_IndustrialFluidHeater::addIndustrialFluidHeaterOutputList, getCasingTextureIndex(), 1),
+							onElementPass(x -> ++x.mCasing1, ofBlock(getCasingBlock2(), getCasingMeta2()))))
+					
 					.build();
 		}
 		return STRUCTURE_DEFINITION;
@@ -121,33 +102,61 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_M
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		buildPiece(mName , stackSize, hintsOnly, 1, 0, 0);
+		buildPiece(mName , stackSize, hintsOnly, 2, 4, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		mCasing = 0;
-		return checkPiece(mName, 1, 0, 0) && mCasing >= 8 && checkHatch();
+		mCasing1 = 0;
+		boolean didBuild = checkPiece(mName, 2, 4, 0);
+		log("Built? "+didBuild+", "+mCasing1);
+		return didBuild && mCasing1 >= 34 && checkHatch();
 	}
 
-	public final boolean addIndustrialThermalCentrifugeList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+	public final boolean addIndustrialFluidHeaterInputList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
 		if (aTileEntity == null) {
 			return false;
-		} else {
+		}
+		else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance){
+			} 
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy){
+			} 
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus) {
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
+			} 
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+			}
+		}
+		return false;
+	}
+	
+	public final boolean addIndustrialFluidHeaterOutputList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+		if (aTileEntity == null) {
+			return false;
+		} 
+		else {
+			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output) {
+			} 
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance){
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} 
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy){
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output) {
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}
 		}
@@ -157,9 +166,9 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_M
 	@Override
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Default_Active : TexturesGtBlock.Overlay_Machine_Controller_Default)};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 1)), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
 		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex())};
+		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 1))};
 	}
 
 	@Override
@@ -212,16 +221,24 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends GregtechMeta_M
 		return false;
 	}
 
-	public Block getCasingBlock() {
+	public Block getCasingBlock1() {
 		return ModBlocks.blockCasings2Misc;
 	}
 
-	public byte getCasingMeta() {
-		return 0;
+	public byte getCasingMeta1() {
+		return 11;
+	}
+	
+	public Block getCasingBlock2() {
+		return ModBlocks.blockCasings3Misc;
+	}
+
+	public byte getCasingMeta2() {
+		return 2;
 	}
 
 	public byte getCasingTextureIndex() {
-		return (byte) TAE.GTPP_INDEX(16);
+		return (byte) TAE.getIndexFromPage(2, 2);
 	}
 
 }

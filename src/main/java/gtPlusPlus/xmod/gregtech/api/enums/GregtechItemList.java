@@ -421,6 +421,8 @@ public enum GregtechItemList implements GregtechItemContainer {
 	
 	// Big Steam Macerator
 	Controller_SteamMaceratorMulti,
+	// Big Steam Compressor
+	Controller_SteamCompressorMulti,
 	
 	// Industrial Rock Breaker
 	Controller_IndustrialRockBreaker,
@@ -428,6 +430,9 @@ public enum GregtechItemList implements GregtechItemContainer {
 	// Industrial Chisel
 	Controller_IndustrialAutoChisel,
 	Casing_IndustrialAutoChisel,
+	
+	// Industrial Fluid Heater
+	Controller_IndustrialFluidHeater,
 
 	// Custom Machine Casings
 	Casing_Machine_Custom_1,
