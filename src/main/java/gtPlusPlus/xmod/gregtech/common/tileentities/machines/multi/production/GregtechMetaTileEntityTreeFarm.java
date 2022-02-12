@@ -166,6 +166,23 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 		}
 		getWoodFromSapling();
 		try {
+			int aFert = hasLiquidFert();
+			if (aFert > 0) {
+				int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5)*(mMaxProgresstime/20) / 10;
+				if (aFert < aOutputAmount) {
+					aOutputAmount /= 10;
+				}
+				if (aFert >= aOutputAmount) {
+					if (tryConsumeLiquidFert(aOutputAmount)) {
+						int aFullStacks = aOutputAmount / 64;
+						for (int i = 0; i < aFullStacks; i++) {
+							this.addOutput(ItemUtils.getSimpleStack(currSapling, 64));
+							aOutputAmount -= 64;
+						}
+						this.addOutput(ItemUtils.getSimpleStack(currSapling, aOutputAmount));
+					}					
+				}
+			}
 			int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5)*(mMaxProgresstime/20) * aModifier;
 			int aFullStacks = aOutputAmount / 64;
 			for (int i = 0; i < aFullStacks; i++) {
@@ -443,18 +460,23 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 	
 	private static Fluid sFertFluid;
 	
-	public boolean tryConsumeLiquidFert() {
+	public int hasLiquidFert() {
 		if (sFertFluid == null) {
 			sFertFluid = gtPlusPlus.core.item.ModItems.fluidFertBasic;
 		}
 		ArrayList<FluidStack> aFluids = this.getStoredFluids();
 		for (FluidStack aFluid : aFluids) {
 			if (aFluid.getFluid() == sFertFluid) {
-				if (this.depleteInput(FluidUtils.getFluidStack(sFertFluid, 1))) {
-					return true;
-				}
+				return aFluid.amount;
 			}
 		}
-		return false;
+		return 0;
+	}
+	
+	public boolean tryConsumeLiquidFert(int aFluidAmount) {
+		if (sFertFluid == null) {
+			sFertFluid = gtPlusPlus.core.item.ModItems.fluidFertBasic;
+		}
+		return this.depleteInput(FluidUtils.getFluidStack(sFertFluid, aFluidAmount));
 	}
 }
