@@ -1133,7 +1133,7 @@ public class RECIPES_Machines {
 				EV_MACHINE_Centrifuge= ItemList.Machine_IV_Centrifuge.get(1);
 				EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
 				EV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
-				EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
+				EV_MACHINE_Sifter = ItemList.Machine_EV_Sifter.get(1);
 				EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
 				EV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
 				EV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);  
@@ -1774,9 +1774,9 @@ public class RECIPES_Machines {
 
 				//Industrial Sieve
 				RecipeUtils.addShapedGregtechRecipe(
-						"plateEglinSteel", CI.circuitTier2, "plateEglinSteel",
-						cableTier3, EV_MACHINE_Sifter, cableTier3,
-						"plateEglinSteel", CI.circuitTier2, "plateEglinSteel",
+						"plateEglinSteel", CI.circuitTier4, "plateEglinSteel",
+						cableTier5, EV_MACHINE_Sifter, cableTier5,
+						"plateEglinSteel", CI.circuitTier4, "plateEglinSteel",
 						RECIPE_IndustrialSieveController);
 				//Industrial Sieve Casing
 				RecipeUtils.addShapedGregtechRecipe(
