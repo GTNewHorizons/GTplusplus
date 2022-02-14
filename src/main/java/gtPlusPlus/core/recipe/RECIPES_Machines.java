@@ -282,7 +282,7 @@ public class RECIPES_Machines {
 		
 		RecipeUtils.addShapedGregtechRecipe(
 				CI.getPlate(5, 1), CI.circuitTier5, CI.getPlate(5, 1),
-				pipeTier4, ItemList.Machine_IV_FluidHeater.get(1), pipeTier4,
+				pipeTier7, ItemList.Machine_IV_FluidHeater.get(1), pipeTier7,
 				CI.getPlate(5, 1), CI.circuitTier4, CI.getPlate(5, 1),
 				GregtechItemList.Controller_IndustrialFluidHeater.get(1));
 	}
@@ -1312,9 +1312,9 @@ public class RECIPES_Machines {
 					GregtechItemList.Controller_SteamMaceratorMulti.get(1));
 			// Steam Compressor Multi
 			RecipeUtils.addShapedGregtechRecipe(
-					aBronzeBricks, aBronzeBricks, aBronzeBricks,
+					aBronzeBricks, "craftingPiston", aBronzeBricks,
 					ALLOY.TUMBAGA.getGear(1), ALLOY.TUMBAGA.getFrameBox(1), ALLOY.TUMBAGA.getGear(1),
-					aBronzeBricks, aBronzeBricks, aBronzeBricks,
+					aBronzeBricks, "craftingPiston", aBronzeBricks,
 					GregtechItemList.Controller_SteamCompressorMulti.get(1));
 
 			// Steam Hatch
