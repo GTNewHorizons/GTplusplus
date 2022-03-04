@@ -163,15 +163,13 @@ public class RecipeGen_BlastSmelterGT_GTNH {
 
 						//Build correct input stack
 						ArrayList<ItemStack> aTempList = new ArrayList<ItemStack>();
-						for (ItemStack aPossibleCircuit : inputs) {
-							if (!ItemUtils.isControlCircuit(aPossibleCircuit)) {
-								aTempList.add(aPossibleCircuit);
-							}
-							else {
-								aTempList.add(aPossibleCircuit);
+						for (ItemStack recipeItem : inputs) {
+							if (ItemUtils.isControlCircuit(recipeItem)) {
 								circuitFound = true;
 							}
+							aTempList.add(recipeItem);
 						}
+
 						inputs = aTempList.toArray(new ItemStack[aTempList.size()]);						
 						int inputLength = inputs.length;
 						// If no circuit was found, increase array length by 1 to add circuit at newInput[0]
