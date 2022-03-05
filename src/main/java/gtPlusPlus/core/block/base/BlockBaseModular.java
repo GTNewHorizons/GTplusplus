@@ -76,7 +76,7 @@ public class BlockBaseModular extends BasicBlock {
 		}
 	}
 
-	public String unifyMaterialName(String rawMaterName) {
+	public static String unifyMaterialName(String rawMaterName) {
 		return rawMaterName.replace(" ", "").replace("-", "").replace("_", "");
 	}
 	
