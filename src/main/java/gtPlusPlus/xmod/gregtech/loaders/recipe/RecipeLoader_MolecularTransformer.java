@@ -23,9 +23,11 @@ public class RecipeLoader_MolecularTransformer {
 	    	int aTicksRoundedUp = MathUtils.roundToClosestInt(Math.ceil(aTicks));
 	    	Logger.INFO("Ticks: "+aTicksRoundedUp);
 	    	Logger.INFO("Total EU equal or greater? "+((aTicksRoundedUp * aEU) >= aRecipe.energyPerOperation));
-	    	CORE.RA.addMolecularTransformerRecipe(aRecipe.inputStack, aRecipe.outputStack, aTicksRoundedUp, aEU, 2);
+	    	CORE.RA.addMolecularTransformerRecipe(aRecipe.inputStack, aRecipe.outputStack, aTicksRoundedUp, aEU*2, 1);
 	    	Logger.INFO("=======================");
 	    }
+		
+		transformerRecipes.clear();
 		
 	}
 	
