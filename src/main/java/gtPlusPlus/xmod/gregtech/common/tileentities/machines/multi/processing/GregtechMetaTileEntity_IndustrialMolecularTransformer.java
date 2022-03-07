@@ -265,5 +265,9 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer extends Gregt
 			this.getBaseMetaTileEntity().setFrontFacing((byte) 1); 
 		}
 	}
+        @Override
+	public boolean hasPerfectOverclock() {
+		return true;
+	}
 
 }
