@@ -1,5 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+import cpw.mods.fml.common.Loader;
 import static advsolar.utils.MTRecipeManager.transformerRecipes;
 import gregtech.api.enums.*;
 import gregtech.api.interfaces.IMaterialHandler;
