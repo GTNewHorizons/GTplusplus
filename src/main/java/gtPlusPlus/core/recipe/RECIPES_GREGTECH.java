@@ -1387,7 +1387,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 1),
 						ItemUtils.getItemStackOfAmountFromOreDict("plateDenseLead", 4),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(3), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(3), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorHV", 2)
 				},
 				FluidUtils.getFluidStack("oxygen", 16000),
 				ItemUtils.getSimpleStack(GregtechItemList.Casing_Vanadium_Redox.get(1), 1), 
@@ -1414,7 +1415,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						T1,
 						ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTitanium", 4),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(4), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(4), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorEV", 2)
 				},
 				FluidUtils.getFluidStack("nitrogen", 16000),
 				T2, 
@@ -1433,7 +1435,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						T2,
 						ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTungstenSteel", 4),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(5), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(5), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorIV", 2)
 				},
 				FluidUtils.getFluidStack("helium", 8000),
 				T3, 
@@ -1450,7 +1453,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						T3,
 						ItemUtils.getItemStackOfAmountFromOreDict("plateAlloyIridium", 16),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorLuV", 2)
 				},
 				FluidUtils.getFluidStack("argon", 4000),
 				T4, 
@@ -1467,7 +1471,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						T4,
 						ItemUtils.getItemStackOfAmountFromOreDict("plateDenseNaquadah", 4),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(7), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(7), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorZPM", 2)
 				},
 				FluidUtils.getFluidStack("radon", 4000),
 				T5, 
@@ -1484,7 +1489,8 @@ public class RECIPES_GREGTECH {
 				new ItemStack[] {
 						T5,
 						ItemUtils.getItemStackOfAmountFromOreDict("plateDenseAmericium", 4),
-						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(8), 4)
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(8), 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorUV", 2)
 				},
 				FluidUtils.getFluidStack("krypton", 500),
 				T6, 

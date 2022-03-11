@@ -420,7 +420,7 @@ public class GregtechMetaTileEntity_PowerSubStationController extends GregtechMe
 	}
 
 	// Define storage capacity of smallest cell tier (EV) and compute higher tiers from it
-	private static final long CELL_TIER_EV_CAPACITY = 10 * 1000 * 1000; 
+	private static final long CELL_TIER_EV_CAPACITY = 100 * 1000 * 1000; 
 	private static final long CELL_TIER_MULTIPLIER = 4; // each tier's capacity is this many times the previous tier
 
 	public static long getCapacityFromCellTier(int aOverallCellTier) {
