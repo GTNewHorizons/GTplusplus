@@ -43,7 +43,6 @@ public class RecipeLoader_GlueLine {
         chemicalReactorRecipes();
         dehydratorRecipes();
         distillationTowerRecipes();
-        electrolyzerRecipes();
         fluidHeaterRecipes();
         mixerRecipes();
 
@@ -204,14 +203,27 @@ public class RecipeLoader_GlueLine {
                 MISC_MATERIALS.SODIUM_CYANIDE.getDust(1),
                 10 * 20);
 
-        GT_Values.RA.addChemicalRecipe(
-                CI.getNumberedCircuit(18),
-                ItemUtils.getSimpleStack(ModItems.dustCalciumCarbonate, 1),
-                Materials.SaltWater.getFluid(1000L),
-                FluidUtils.getWater(1000),
-                Materials.SodiumCarbonate.getDust(1),
-                MISC_MATERIALS.CALCIUM_CHLORIDE.getDust(1),
-                5 * 20);
+        if (LoadedMods.BartWorks) {
+            GT_Values.RA.addChemicalRecipe(
+                    CI.getNumberedCircuit(18),
+                    ItemUtils.getSimpleStack(ModItems.dustCalciumCarbonate, 1),
+                    Materials.SaltWater.getFluid(1000L),
+                    FluidUtils.getWater(1000),
+                    Materials.SodiumCarbonate.getDust(1),
+                    ItemUtils.getItemStackFromFQRN("bartworks:gt.bwMetaGenerateddust:63", 1),
+                    5 * 20);
+        }
+
+        else {
+            GT_Values.RA.addChemicalRecipe(
+                    CI.getNumberedCircuit(18),
+                    ItemUtils.getSimpleStack(ModItems.dustCalciumCarbonate, 1),
+                    Materials.SaltWater.getFluid(1000L),
+                    FluidUtils.getWater(1000),
+                    Materials.SodiumCarbonate.getDust(1),
+                    Materials.Calcium.getDust(1),
+                    5 * 20);
+        }
 
         GT_Values.RA.addChemicalRecipe(
                 CI.getNumberedCircuit(19),
@@ -252,25 +264,7 @@ public class RecipeLoader_GlueLine {
                 MaterialUtils.getVoltageForTier(5));
     }
 
-    private static void electrolyzerRecipes() {
-        GT_Values.RA.addElectrolyzerRecipe(
-                CI.getNumberedCircuit(1),
-                MISC_MATERIALS.CALCIUM_CHLORIDE.getDust(1),
-                null,
-                Materials.Chlorine.getFluid(2000), // Out
-                Materials.Calcium.getDust(1),
-                null,
-                null,
-                null,
-                null,
-                null,
-                new int[] {10000, 10000, 10000},
-                20 * 30,
-                120);
-    }
-
     private static void fluidHeaterRecipes() {
-
         CORE.RA.addFluidHeaterRecipe(
                 CI.getNumberedCircuit(16),
                 MISC_MATERIALS.CYANOACRYLATE_POLYMER.getFluidStack(100),
