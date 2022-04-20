@@ -1329,7 +1329,7 @@ public class RECIPES_GREGTECH {
 						CI.getNumberedAdvancedCircuit(18),
 						CI.emptyCells(1)
 				},
-				FluidUtils.getFluidStack("fluid.aceticacid", 2000),
+				FluidUtils.getFluidStack("aceticacid", 2000),
 				MISC_MATERIALS.ACETIC_ANHYDRIDE.getFluidStack(1000),
 				new ItemStack[] {
 						ItemUtils.getItemStackOfAmountFromOreDict("cellWater", 1),
