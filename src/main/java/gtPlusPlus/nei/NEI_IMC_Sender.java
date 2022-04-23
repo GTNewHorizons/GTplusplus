@@ -62,9 +62,10 @@ public class NEI_IMC_Sender {
         sendCatalyst("crafting", "gregtech:gt.blockmachines:31096", -10);
         sendCatalyst("crafting", "gregtech:gt.blockmachines:31097", -10);
         sendCatalyst("crafting", "gregtech:gt.blockmachines:31098", -10);
-        if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            sendCatalyst("gt.recipe.fakeAssemblylineProcess", "gregtech:gt.blockmachines:31024");
-        }
+//        if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
+//            // Compound Fabricator
+//            sendCatalyst("gt.recipe.fakeAssemblylineProcess", "gregtech:gt.blockmachines:31024");
+//        }
         if (LoadedMods.AdvancedSolarPanel) {
             sendCatalyst("gtpp.recipe.moleculartransformer", "gregtech:gt.blockmachines:31072");
         }
