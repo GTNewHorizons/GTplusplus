@@ -36,8 +36,9 @@ extends GregtechMetaCasingBlocksAbstract {
 		TAE.registerTexture(1, 10, new GTPP_CopiedBlockTexture(this, 6, 5));
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".6.name", "Forge Casing"); // Forge Hammer Casing
 		TAE.registerTexture(1, 11, new GTPP_CopiedBlockTexture(this, 6, 6));
-		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".7.name", ""); // Unused
-		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", ""); // Unused
+		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".7.name", "Industrial Superheater Casing"); // Large Boiler Casing
+		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", "Reinforced Superheater Casing"); // Reinforced Large Boiler Casing
+		TAE.registerTexture(1, 13, new GTPP_CopiedBlockTexture(this, 6, 6));
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".9.name", ""); // Unused
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".10.name", ""); // Unused
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", ""); // Unused
@@ -53,6 +54,8 @@ extends GregtechMetaCasingBlocksAbstract {
 		GregtechItemList.Casing_Sparge_Tower_Exterior.set(new ItemStack(this, 1, 4));
 		GregtechItemList.Casing_IndustrialAutoChisel.set(new ItemStack(this, 1, 5));
 		GregtechItemList.Casing_IndustrialForgeHammer.set(new ItemStack(this, 1, 6));
+		GregtechItemList.Casing_IndustrialSuperheater.set(new ItemStack(this, 1, 7));
+		GregtechItemList.Casing_IndustrialSuperheaterReinforced.set(new ItemStack(this, 1, 8));
 	}
 	
 	@Override
@@ -78,6 +81,10 @@ extends GregtechMetaCasingBlocksAbstract {
 					return TexturesGtBlock.Casing_Machine_Metal_Sheet_I.getIcon();
 				case 6:
 					return TexturesGtBlock.TEXTURE_TECH_PANEL_H.getIcon();
+				case 7:
+					return TexturesGtBlock.TEXTURE_CASING_INDUSTRIAL_SUPERHEATER.getIcon();
+				case 8:
+					return TexturesGtBlock.TEXTURE_CASING_INDUSTRIAL_SUPERHEATER_REINFORCED.getIcon();
 			}
 		}
 		return Textures.BlockIcons.RENDERING_ERROR.getIcon();		

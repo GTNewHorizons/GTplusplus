@@ -166,6 +166,7 @@ public class COMPAT_HANDLER {
 			GregtechIndustrialRockBreaker.run();
 			GregtechIndustrialChisel.run();
 			GregtechIndustrialFluidHeater.run();
+			GregtechIndustrialSuperheater.run();
 
 			//New Horizons Content
 			NewHorizonsAccelerator.run();

@@ -968,7 +968,23 @@ public final class ALLOY {
 					new MaterialStack(ELEMENT.getInstance().ARSENIC, 2)
 			});
 
-
+	public static final Material RPTH_STEELUX = new Material(
+			"RPTh Steelux Alloy", //Material Name
+			MaterialState.SOLID, //State
+			null, //Material Colour
+			2500, //Melting Point in C
+			5000,
+			-1,
+			-1,
+			true, //Uses Blast furnace?
+			//Material Stacks with Percentage of required elements.
+			new MaterialStack[]{
+					new MaterialStack(ELEMENT.getInstance().RHODIUM, 5),
+					new MaterialStack(ELEMENT.getInstance().PALLADIUM, 5),
+					new MaterialStack(ELEMENT.getInstance().TUNGSTEN, 2),
+					new MaterialStack(ELEMENT.getInstance().THAUMIUM, 3),
+					new MaterialStack(ELEMENT.getInstance().HELIUM, 2)
+			});
 
 
 

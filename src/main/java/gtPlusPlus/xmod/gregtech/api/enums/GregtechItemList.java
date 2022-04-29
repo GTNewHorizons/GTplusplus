@@ -435,6 +435,11 @@ public enum GregtechItemList implements GregtechItemContainer {
 	// Industrial Fluid Heater
 	Controller_IndustrialFluidHeater,
 
+	// Industrial Superheater
+	Controller_IndustrialSuperheater,
+	Casing_IndustrialSuperheater,
+	Casing_IndustrialSuperheaterReinforced,
+
 	// Custom Machine Casings
 	Casing_Machine_Custom_1,
 	Casing_Machine_Custom_2,
