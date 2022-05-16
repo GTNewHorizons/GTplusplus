@@ -7,6 +7,7 @@ import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
+import gregtech.api.GregTech_API;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
@@ -49,7 +50,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
                 {" f f ", "f   f", "     ", "f   f", " f f "},
                 {" f f ", "f   f", "     ", "f   f", " f f "},
             }))
-            .addElement('P', ofBlock(ModBlocks.blockCustomPipeGearCasings, 11))
+            .addElement('P', ofBlock(GregTech_API.sBlockCasings2, 15))
             .addElement('f', ofBlock(getFrame(), 0))
             .addElement('C', ofChain(
                     ofHatchAdder(GregtechMetaTileEntity_Adv_HeatExchanger::addColdFluidOutputToMachineList, CASING_INDEX, 2),
@@ -92,6 +93,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
                 .addInfo("Controller Block for the XL Heat Exchanger")
                 .addInfo("More complicated than a Fusion Reactor. Seriously")
                 .addInfo("But you know this by now, right?")
+                .addInfo("Works as fast as 16 Large Heat Exchangers")
                 .addSeparator()
                 .addInfo("Inputs are Hot Coolant or Lava")
                 .addInfo("Outputs Coolant or Pahoehoe Lava and SH Steam/Steam")
@@ -100,13 +102,13 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
                 .addSeparator()
                 .beginStructureBlock(5, 9, 5, false)
                 .addController("Front bottom")
-                .addCasingInfo("Stable Titanium Machine Casing", 20)
-                .addOtherStructurePart("Titanium Pipe Casing", "Center 2 blocks")
+                .addCasingInfo("Reinforced Heat Exchanger Casing", 90)
+                .addOtherStructurePart("Tungstensteel Pipe Casing", "Center 3x5x3 (45 blocks)")
                 .addMaintenanceHatch("Any casing", 1)
                 .addInputHatch("Hot fluid, bottom center", 2)
-                .addInputHatch("Distilled water, any casing", 1)
+                .addInputHatch("Distilled water, any bottom layer casing", 1)
                 .addOutputHatch("Cold fluid, top center", 3)
-                .addOutputHatch("Steam/SH Steam, any casing", 1)
+                .addOutputHatch("Steam/SH Steam, any bottom layer casing", 1)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
@@ -152,9 +154,11 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
 
         int fluidAmountToConsume = mInputHotFluidHatch.getFluidAmount(); // how much fluid is in hatch
 
-        superheated_threshold = 4000;   // default: must have 4000L per second to generate superheated steam
+        // The XL LHE works as fast as 16 regular LHEs. These are the comments from the original LHE,
+        // with changes where the values needed to change for the 16x speed multiplier
+        superheated_threshold = 64000;   // default: must have 4000L -> 64000L per second to generate superheated steam
         float efficiency = 1f;              // default: operate at 100% efficiency with no integrated circuitry
-        int shs_reduction_per_config = 150; // reduce threshold 150L/s per circuitry level (1-25)
+        int shs_reduction_per_config = 2400; // reduce threshold 150L -> 2400L per second per circuitry level (1-25)
         float steam_output_multiplier = 20f; // default: multiply output by 4 * 10 (boosted x5)
         float penalty = 0.0f;               // penalty to apply to output based on circuitry level (1-25).
         boolean do_lava = false;
@@ -185,7 +189,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
         }
 
         superheated = fluidAmountToConsume >= superheated_threshold; // set the internal superheated flag if we have enough hot fluid.  Used in the onRunningTick method.
-        fluidAmountToConsume = Math.min(fluidAmountToConsume, superheated_threshold * 2); // Don't consume too much hot fluid per second
+        fluidAmountToConsume = Math.min(fluidAmountToConsume, superheated_threshold * 2); // Don't consume too much hot fluid per second, maximum is 2x SH threshold.
         mInputHotFluidHatch.drain(fluidAmountToConsume, true);
         this.mMaxProgresstime = 20;
         this.mEUt = (int) (fluidAmountToConsume * steam_output_multiplier * efficiency);
@@ -248,7 +252,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
         mOutputColdFluidHatch = null;
         mInputHotFluidHatch = null;
         mCasingAmount = 0;
-        return checkPiece(STRUCTURE_PIECE_MAIN, 2, 5, 0) && mCasingAmount >= 20 && mMaintenanceHatches.size() == 1;
+        return checkPiece(STRUCTURE_PIECE_MAIN, 2, 5, 0) && mCasingAmount >= 90 && mMaintenanceHatches.size() == 1;
     }
 
     public boolean addColdFluidOutputToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
