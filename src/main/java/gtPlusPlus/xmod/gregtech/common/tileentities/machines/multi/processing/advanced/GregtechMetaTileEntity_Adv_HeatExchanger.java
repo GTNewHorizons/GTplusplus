@@ -157,11 +157,11 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
 
         int fluidAmountToConsume = mInputHotFluidHatch.getFluidAmount(); // how much fluid is in hatch
 
-        // The XL LHE works as fast as 16 regular LHEs. These are the comments from the original LHE,
-        // with changes where the values needed to change for the 16x speed multiplier
-        superheated_threshold = 64000;   // default: must have 4000L -> 64000L per second to generate superheated steam
+        // The XL LHE works as fast as 32 regular LHEs. These are the comments from the original LHE,
+        // with changes where the values needed to change for the 32x speed multiplier
+        superheated_threshold = 128000;   // default: must have 4000L -> 128000L per second to generate superheated steam
         float efficiency = 1f;              // default: operate at 100% efficiency with no integrated circuitry
-        int shs_reduction_per_config = 2400; // reduce threshold 150L -> 2400L per second per circuitry level (1-25)
+        int shs_reduction_per_config = 4800; // reduce threshold 150L -> 4800L per second per circuitry level (1-25)
         float steam_output_multiplier = 20f; // default: multiply output by 4 * 10 (boosted x5)
         float penalty = 0.0f;               // penalty to apply to output based on circuitry level (1-25).
         boolean do_lava = false;
