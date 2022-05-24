@@ -79,15 +79,15 @@ public class HANDLER_Railcraft {
 			CORE.RA.addCokeOvenRecipe(aInputs2[i], CI.getNumberedCircuit(4), FluidUtils.getFluidStack("nitrogen", 50), FluidUtils.getFluidStack("charcoal_byproducts", 100), aOutputs[i], 20, 16);
 
 			// Generate renewable Coal Tar and Coal Gas from these Cokes
-			CORE.RA.addCokeOvenRecipe(aOutputs[i], CI.getNumberedCircuit(5), FluidUtils.getFluidStack("steam", 100), FluidUtils.getFluidStack("fluid.coaltar", 200), null, 60, 240);
-			CORE.RA.addCokeOvenRecipe(aOutputs[i], CI.getNumberedCircuit(6), FluidUtils.getFluidStack("steam", 100), FluidUtils.getFluidStack("fluid.coalgas", 300), null, 60, 240);
+			CORE.RA.addCokeOvenRecipe(aOutputs[i], CI.getNumberedCircuit(5), FluidUtils.getFluidStack("steam", 100), FluidUtils.getFluidStack("fluid.coaltar", 200), Materials.Ash.getDustSmall(1), 60, 240);
+			CORE.RA.addCokeOvenRecipe(aOutputs[i], CI.getNumberedCircuit(6), FluidUtils.getFluidStack("steam", 100), FluidUtils.getFluidStack("fluid.coalgas", 300), Materials.Ash.getDustSmall(1), 60, 240);
 
 			// Fluid Extracting the Charcoals for Wood Tar
 			GT_Values.RA.addFluidExtractionRecipe(aInputs2[i], GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Ash, 1L), Materials.WoodTar.getFluid(50L), 1000, 30, 16);
 
 			// Processing the Charcoals with Oxygen to get CO and CO2
 			GT_Values.RA.addChemicalRecipe(aInputs2[i], GT_Utility.getIntegratedCircuit(1), Materials.Oxygen.getGas(500), Materials.CarbonMonoxide.getGas(500), Materials.Ash.getDustTiny(1), 80, 8);
-			GT_Values.RA.addChemicalRecipe(aInputs2[i], GT_Utility.getIntegratedCircuit(2), Materials.Oxygen.getGas(1000), Materials.CarbonDioxide.getGas(500), Materials.Ash.getDustTiny(1), 40, 8);
+			GT_Values.RA.addChemicalRecipe(aInputs2[i], GT_Utility.getIntegratedCircuit(2), Materials.Oxygen.getGas(1000), Materials.CarbonDioxide.getGas(1000), Materials.Ash.getDustTiny(1), 40, 8);
 
 		}
 		if (LoadedMods.Railcraft) {		
