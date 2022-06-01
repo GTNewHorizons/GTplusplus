@@ -173,10 +173,6 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 		return super.addToMachineList(aTileEntity, aBaseCasingIndex);
 	}
 
-	public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-		return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "LargeDieselEngine.png");
-	}
-
 	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
 		return GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes;
@@ -386,7 +382,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public boolean hasSlotInGUI() {
-		return false;
+		return true;
 	}
 
 	@Override
