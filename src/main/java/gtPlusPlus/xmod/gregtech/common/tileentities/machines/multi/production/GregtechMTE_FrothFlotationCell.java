@@ -69,7 +69,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 				.addInfo("Process that milled ore!")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
-				.beginStructureBlock(3, 3, 3, true)
+				.beginStructureBlock(3, 9, 3, true)
 				.addController("Front Center")
 				.addCasingInfo("Inconel Reinforced Casing", 68)
 				.addCasingInfo("Flotation Casing", 52)
