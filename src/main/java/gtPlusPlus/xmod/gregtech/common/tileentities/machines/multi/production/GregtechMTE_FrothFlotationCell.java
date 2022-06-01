@@ -450,6 +450,8 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	public void loadNBTData(NBTTagCompound aNBT) {
 		super.loadNBTData(aNBT);
 		mLockedOreType = aNBT.getInteger("mLockedOreType");
+		if (mLockedOreType == 0) {
+			mLockedOreType = -1;
+		}
 	}
-	
 }
