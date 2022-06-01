@@ -454,4 +454,11 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 			mLockedOreType = -1;
 		}
 	}
+
+	@Override
+	public String[] getExtraInfoData() {
+		return new String[] {
+				"Locked Ore Type: " + mLockedOreType
+		};
+	}
 }
