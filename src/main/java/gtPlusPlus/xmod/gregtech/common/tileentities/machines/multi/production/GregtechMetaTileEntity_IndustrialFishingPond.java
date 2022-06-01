@@ -323,25 +323,13 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends GregtechMeta_M
 		}
 		
 		boolean isValidWater = tAmount >= 60;
-		
 		if (isValidWater) {
 			log("Filled structure.");
-			return true;
 		}
-		else {			
-			
-			long aAvgVoltage = 0;
-			for (GT_MetaTileEntity_Hatch_Energy g : this.mEnergyHatches) {
-				if (g != null) {
-					aAvgVoltage += (g.maxEUInput() * g.maxAmperesIn());
-				}
-			}			
-			this.mEUt = (int) Math.max(30, aAvgVoltage);
-			this.mMaxProgresstime = (int) Math.max(((aAvgVoltage/8)*20/10), 100);
-			this.mProgresstime = 1;
-			log("Did not fill structure. Consuming "+aAvgVoltage+"eu/t to try fill.");			
-			return false;
+		else {
+			log("Did not fill structure.");
 		}
+		return isValidWater;
 	}
 
 	private static AutoMap<AutoMap<WeightedRandomFishable>> categories = new AutoMap<AutoMap<WeightedRandomFishable>>();

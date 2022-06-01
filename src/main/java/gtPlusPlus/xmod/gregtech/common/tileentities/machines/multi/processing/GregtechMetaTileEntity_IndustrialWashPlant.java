@@ -308,13 +308,15 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends GregtechMeta_Mul
 				}
 			}
 		}
-		if ((tAmount >= 45)){
+
+		boolean isValidWater = tAmount >= 45;
+		if (isValidWater){
 			Logger.WARNING("Filled structure.");
 		}
 		else {
 			Logger.WARNING("Did not fill structure.");
 		}
-		return (tAmount >= 45);
+		return isValidWater;
 	}
 
 	@Override
