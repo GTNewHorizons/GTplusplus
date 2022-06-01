@@ -343,7 +343,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends GregtechMeta_M
 		return block == Blocks.air
 			|| block == Blocks.flowing_water
 			|| block == BlocksItems.getFluidBlock(InternalName.fluidDistilledWater)
-			|| cofhWater != null && cofhWater.isAssignableFrom(block.getClass()) && meta != 0;
+			|| (cofhWater != null && cofhWater.isAssignableFrom(block.getClass()) && meta != 0);
 	}
 
 	private static AutoMap<AutoMap<WeightedRandomFishable>> categories = new AutoMap<AutoMap<WeightedRandomFishable>>();
