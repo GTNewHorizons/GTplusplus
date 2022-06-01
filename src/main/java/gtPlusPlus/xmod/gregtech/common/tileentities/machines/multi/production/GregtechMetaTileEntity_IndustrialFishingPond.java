@@ -79,6 +79,8 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends GregtechMeta_M
 				.addInfo("Circuit 14 for Fish")
 				.addInfo("Circuit 15 for Junk")
 				.addInfo("Circuit 16 for Treasure")
+				.addInfo("Need to be filled with water.")
+				.addInfo("Will automatically fill water from input hatch.")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
 				.beginStructureBlock(9, 3, 9, true)
