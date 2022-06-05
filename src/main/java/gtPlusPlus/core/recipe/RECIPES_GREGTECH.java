@@ -2195,7 +2195,7 @@ public class RECIPES_GREGTECH {
 				new int[] {100},
 				20 * (GTNH ? 300 : 60),
 				(int) MaterialUtils.getVoltageForTier(6),
-				1000 * 20);
+				750 * 20);
 
 		/*
 		 * Ions
@@ -2266,7 +2266,7 @@ public class RECIPES_GREGTECH {
 				new int[] { 125, 125, 125, 125, 125, 125, 125, 125, 125 },
 				20 * 20,
 				(int) MaterialUtils.getVoltageForTier(6),
-				15000);
+				2500);
 
 		// Generate Hydrogen Plasma Recipe
 		CORE.RA.addCyclotronRecipe(
@@ -2284,7 +2284,7 @@ public class RECIPES_GREGTECH {
 						Particle.getBaseParticle(Particle.UNKNOWN),
 						CI.emptyCells(1)
 				}, 
-				FluidUtils.getFluidStack("plasma.hydrogen", 1),
+				FluidUtils.getFluidStack("plasma.hydrogen", 100),
 				new int[] { 250, 250, 250, 500, 500, 500, 10000 },
 				20 * 60 * 2,
 				(int) MaterialUtils.getVoltageForTier(6),
