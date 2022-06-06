@@ -2192,10 +2192,10 @@ public class RECIPES_GREGTECH {
 						GregtechItemList.Laser_Lens_Special.get(1)
 				}, 
 				null,
-				new int[] {1500},
+				new int[] {100},
 				20 * (GTNH ? 300 : 60),
-				(int) MaterialUtils.getVoltageForTier(7),
-				750 * 20);
+				(int) MaterialUtils.getVoltageForTier(8),
+				500 * 20);
 
 		/*
 		 * Ions
