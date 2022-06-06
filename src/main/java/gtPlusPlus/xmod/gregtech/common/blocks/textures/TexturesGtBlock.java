@@ -318,6 +318,8 @@ public class TexturesGtBlock {
 	public static final CustomIcon TEXTURE_CASING_ROCKETDYNE = new CustomIcon("TileEntities/MACHINE_CASING_ROCKETDYNE");
 	public static final CustomIcon TEXTURE_CASING_GRINDING_MILL = new CustomIcon("TileEntities/MACHINE_CASING_GRINDING_FACTORY");
 	public static final CustomIcon TEXTURE_CASING_FLOTATION = new CustomIcon("TileEntities/MACHINE_CASING_FLOTATION");
+	public static final CustomIcon TEXTURE_CASING_INDUSTRIAL_SUPERHEATER = new CustomIcon("TileEntities/MACHINE_CASING_INDUSTRIAL_SUPERHEATER");
+	public static final CustomIcon TEXTURE_CASING_INDUSTRIAL_SUPERHEATER_REINFORCED = new CustomIcon("TileEntities/MACHINE_CASING_INDUSTRIAL_SUPERHEATER_REINFORCED");
 		
 	// Custom Pipes
 	public static final CustomIcon TEXTURE_PIPE_GRINDING_MILL = new CustomIcon("TileEntities/MACHINE_CASING_PIPE_T1");	

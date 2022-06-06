@@ -16,6 +16,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.*;
@@ -27,6 +28,7 @@ import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
+import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GlueLine;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -2426,6 +2428,31 @@ public class RECIPES_Machines {
 						"wireFineElectrum", ItemUtils.getSimpleStack(ModBlocks.blockFishTrap), "wireFineElectrum",
 						plate,CI.getTieredCircuit(2),plate,
 						GregtechItemList.Industrial_FishingPond.get(1));
+			}
+
+			if (CORE.ConfigSwitches.enableMultiblock_IndustrialSuperheater){
+				ItemStack plate = ALLOY.RPTH_STEELUX.getPlate(1);
+				RecipeUtils.addShapedRecipe(
+						plate, CI.craftingToolHammer_Hard, plate,
+						"plateTalonite", "frameGtTalonite", "plateTalonite",
+						plate, CI.craftingToolWrench, plate,
+						GregtechItemList.Casing_IndustrialSuperheater.get(1));
+
+				CORE.RA.addSixSlotAssemblingRecipe(
+						new ItemStack[] {
+								GregtechItemList.Casing_IndustrialSuperheater.get(1),
+								ALLOY.RPTH_STEELUX.getPlate(2)
+						},
+						MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(200), //Input Fluid
+						GregtechItemList.Casing_IndustrialSuperheaterReinforced.get(1),
+						20 * 10  * 6,
+						MaterialUtils.getVoltageForTier(6));
+
+				RecipeUtils.addShapedRecipe(
+						plate,CI.getTieredCircuit(7),plate,
+						"plateTalonite", ItemUtils.getSimpleStack(ModBlocks.blockFishTrap), "plateTalonite",
+						plate,CI.getTieredCircuit(6),plate,
+						GregtechItemList.Controller_IndustrialSuperheater.get(1));
 			}
 
 			if (true) {

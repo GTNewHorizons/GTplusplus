@@ -41,7 +41,7 @@ extends GregtechMetaCasingBlocksAbstract {
 	public GregtechMetaCasingBlocks2() {
 		super(GregtechMetaCasingItemBlocks2.class, "gtplusplus.blockcasings.2", GT_Material_Casings.INSTANCE);
 		for (byte i = 0; i < 16; i = (byte) (i + 1)) {
-			if (i == 4 || i == 10 || i == 11 || i == 12 || i == 14) {
+			if (i == 4 || i == 10 || i == 11 || i == 12 || i == 13 || i == 14) {
 				continue;
 			}
 			TAE.registerTexture(1, i, new GTPP_CopiedBlockTexture(this, 6, i));
