@@ -151,7 +151,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
 		getWoodFromSapling();
 
-		if (mTreeType == null) return false;
+		if (currSapling == null) return false;
 
 		mToolType = TreeFarmHelper.isCorrectMachinePart(aStack);
 
@@ -330,6 +330,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 				}
 			}
 		}
+		this.currSapling = null;
 		this.mTreeType = null;
 	}
 
