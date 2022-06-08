@@ -311,9 +311,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 						if (registryName.equals("Forestry:sapling")) {
 
 							ITree tree = TreeManager.treeRoot.getMember(uStack);
-							float tHeight = tree.getGenome().getHeight();
 
-							this.heightModifier = tHeight > 1 ? tHeight * 2 : 1;
+							this.heightModifier = Math.max(3 * (tree.getGenome().getHeight() - 1), 0) + 1;
 							this.saplingsModifier = Math.max(tree.getGenome().getFertility() * 20, 1);
 							this.girthModifier = tree.getGenome().getGirth();
 							boolean fireproof = ((IAlleleBoolean) tree.getGenome().getChromosomes()[EnumTreeChromosome.FIREPROOF.ordinal()].getActiveAllele()).getValue();
