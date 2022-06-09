@@ -105,6 +105,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends GregtechM
 		.addInfo("Optimal flow will increase or decrease accordingly on mode switch")
 		.addInfo("Fast Mode increases speed to 48x instead of 16x, with some penalties")
 		.addInfo("Maintenance problems and turbine damage happen 12x as often in Fast Mode")
+		.addInfo("XL Steam Turbines can use Loose Mode with either Slow or Fast Mode")
 		.addPollutionAmount(getPollutionPerSecond(null))
 		.addInfo("Pollution is 3x higher in Fast Mode")
 		.addSeparator()
