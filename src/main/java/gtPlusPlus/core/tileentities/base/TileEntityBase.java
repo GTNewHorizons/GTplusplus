@@ -9,10 +9,7 @@ import gregtech.api.interfaces.IDescribable;
 import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.net.GT_Packet_Block_Event;
-import gregtech.api.util.GT_CoverBehavior;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -875,7 +872,12 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
         }
     }
 
-    @Override
+	@Override
+	public boolean setCoverIDAtSideNoUpdate(byte b, int i) {
+		return false;
+	}
+
+	@Override
     public void setCoverItemAtSide(byte aSide, ItemStack aCover) {
         GregTech_API.getCoverBehavior(aCover).placeCover(aSide, aCover, this);
     }
@@ -906,7 +908,12 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
         if (aSide >= 0 && aSide < 6) mCoverData[aSide] = aData;
     }
 
-    @Override
+	@Override
+	public void setCoverIdAndDataAtSide(byte b, int i, ISerializableObject iSerializableObject) {
+
+	}
+
+	@Override
     public int getCoverDataAtSide(byte aSide) {
         if (aSide >= 0 && aSide < 6) return mCoverData[aSide];
         return 0;
