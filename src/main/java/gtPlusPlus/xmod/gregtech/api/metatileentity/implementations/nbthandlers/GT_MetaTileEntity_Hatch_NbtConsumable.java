@@ -72,7 +72,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
 
 	@Override
 	public final boolean isValidSlot(int aIndex) {
-		return aIndex < mInputslotCount;
+		return true;
 	}
 
 	@Override
@@ -253,7 +253,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
 
 	@Override
 	public final boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-		return aSide == getBaseMetaTileEntity().getFrontFacing() && isItemValidForUsageSlot(aStack);
+		return aSide == getBaseMetaTileEntity().getFrontFacing() && isItemValidForUsageSlot(aStack) && aIndex < mInputslotCount;
 	}
 	
 	/**
