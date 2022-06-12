@@ -417,7 +417,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
 	}
 
 	public boolean applyFertilizer(ICropTile aCrop) {
-		if (aCrop.getNutrientStorage() >= 100) {
+		if (aCrop.getNutrientStorage() >= 1) {
 			return false;
 		} else {
 			//Logger.INFO("Current Nutrient: "+aCrop.getNutrientStorage()+" for "+aCrop.getCrop().displayName());
