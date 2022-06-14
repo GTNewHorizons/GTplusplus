@@ -31,6 +31,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
@@ -39,6 +42,8 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	private byte mMode = 0;
 	private boolean mUpgraded = false;
 	private IStructureDefinition<GregtechMetaTileEntity_Adv_DistillationTower> STRUCTURE_DEFINITION = null;
+
+	private ArrayList<GT_MetaTileEntity_Hatch_InputBus> mInputBusses = new ArrayList<>();
 
 	public GregtechMetaTileEntity_Adv_DistillationTower(int aID, String aName, String aNameRegional) {
 		super(aID, aName, aNameRegional);
@@ -97,6 +102,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		} else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
+				mInputBusses.add((GT_MetaTileEntity_Hatch_InputBus) aMetaTileEntity);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
@@ -142,6 +148,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Advanced Distillation Tower")
+				.addInfo("250% faster than a standard DT in DT mode")
 				.addInfo("T1 and T2 constructed identical to standard DT")
 				.addInfo("Right click the controller with screwdriver to change mode.")
 				.addInfo("Max parallel dictated by tower tier and mode")
@@ -320,11 +327,30 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 			return this.checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 100);
 		}
 		else {
+			ArrayList<ItemStack> tInputList = getStoredInputs();
+			int tInputList_sS = tInputList.size();
+			for (int i = 0; i < tInputList_sS - 1; i++) {
+				for (int j = i + 1; j < tInputList_sS; j++) {
+					if (GT_Utility.areStacksEqual(tInputList.get(i), tInputList.get(j))) {
+						if (tInputList.get(i).stackSize >= tInputList.get(j).stackSize) {
+							tInputList.remove(j--);
+							tInputList_sS = tInputList.size();
+						} else {
+							tInputList.remove(i--);
+							tInputList_sS = tInputList.size();
+							break;
+						}
+					}
+				}
+			}
+			tInputList.add(mInventory[1]);
+			ItemStack[] inputs = tInputList.toArray(new ItemStack[0]);
+	
 			for (GT_MetaTileEntity_Hatch_Input hatch : mInputHatches) {
 				FluidStack tFluid = hatch.getFluid();
 				if (tFluid != null) {
-					int para = (4* GT_Utility.getTier(this.getMaxInputVoltage()));
-					if (checkRecipeGeneric(null, new FluidStack[]{tFluid}, para,100, 250, 10000)) {
+					int para = (4 * GT_Utility.getTier(this.getMaxInputVoltage()));
+					if (checkRecipeGeneric(inputs, new FluidStack[]{tFluid}, para, 100, 250, 10000)) {
 						return true;
 					}
 				}
@@ -348,6 +374,23 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	public int getEuDiscountForParallelism() {
 		return 15;
 	}
+
+	@Override
+	public ArrayList<ItemStack> getStoredInputs() {
+        ArrayList<ItemStack> rList = new ArrayList<>();
+        for (GT_MetaTileEntity_Hatch_InputBus tHatch : mInputBusses) {
+            tHatch.mRecipeMap = getRecipeMap();
+            if (isValidMetaTileEntity(tHatch)) {
+                for (int i = tHatch.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
+                    if (tHatch.getBaseMetaTileEntity().getStackInSlot(i) != null)
+                        rList.add(tHatch.getBaseMetaTileEntity().getStackInSlot(i));
+                }
+            }
+        }
+        if(this.getStackInSlot(1) != null && this.getStackInSlot(1).getUnlocalizedName().startsWith("gt.integrated_circuit"))
+            rList.add(getStackInSlot(1));
+        return rList;
+    }
 
 	private int getTierOfTower() {
 		return mUpgraded ? 2 : 1;
