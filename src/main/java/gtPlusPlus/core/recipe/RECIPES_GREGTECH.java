@@ -422,7 +422,7 @@ public class RECIPES_GREGTECH {
 
 					},
 					new FluidStack[] {
-							FluidUtils.getHydrofluoricAcid(6000)
+							FluidUtils.getHydrofluoricAcid(4000)
 					},
 					30 * 20,
 					480,
