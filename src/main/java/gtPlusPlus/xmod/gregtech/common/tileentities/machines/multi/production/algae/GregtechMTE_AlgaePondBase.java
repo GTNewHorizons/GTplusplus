@@ -49,6 +49,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	private int mCasing;
 	private IStructureDefinition<GregtechMTE_AlgaePondBase> STRUCTURE_DEFINITION = null;
 	private int checkMeta;
+	private int minTierOfHatch = 100;
 	private static final Class<?> cofhWater;
 
 	static {
@@ -82,6 +83,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 				.addInfo("Provide compost to boost production by one tier")
 				.addInfo("Does not require power or maintenance")
 				.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
+				.addInfo("All Buses/Hatches must, at least, match the tier of the Casings")
+				.addInfo("Place the controller after everything else to make sure it forms correctly!")
 				.addInfo("Fill Input Hatch with water.")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
@@ -150,7 +153,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		checkMeta = 0;
 		if (checkPiece(mName, 4, 2, 0) && mCasing >= 64 && checkMeta > 0) {
 			mLevel = checkMeta - 1;
-			return true;
+			return mLevel <= minTierOfHatch;
 		}
 		return false;
 	}
@@ -161,10 +164,13 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		} else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_InputBus) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus) {
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_OutputBus) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}
 		}
