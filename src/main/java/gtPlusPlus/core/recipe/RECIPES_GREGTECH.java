@@ -1037,7 +1037,36 @@ public class RECIPES_GREGTECH {
 				20 * 40,
 				7680);
 
-
+		
+		//INDALLOY_140_ALT
+		GT_Values.RA.addMixerRecipe(
+				ItemUtils.getGregtechCircuit(5), 
+				ELEMENT.getInstance().BISMUTH.getDust(47), 
+				ELEMENT.getInstance().LEAD.getDust(25), 
+				ELEMENT.getInstance().TIN.getDust(13), 
+				ELEMENT.getInstance().CADMIUM.getDust(10),
+				ELEMENT.getInstance().INDIUM.getDust(5),
+				null, 
+				null, 
+				ALLOY.INDALLOY_140.getDust(100), 
+				20 * 10, 
+				7680
+			);
+		
+		CORE.RA.addBlastRecipe(
+				new ItemStack[]	{
+					ItemUtils.getGregtechCircuit(1),
+					ALLOY.INDALLOY_140.getDust(1)
+					}, 
+				null, 
+				new ItemStack[] {
+						ALLOY.INDALLOY_140.getIngot(1)
+				}, 
+				null, 
+				20 * 80, 
+				7680, 
+				3600
+			);
 
 
 		// Germanium Roasting

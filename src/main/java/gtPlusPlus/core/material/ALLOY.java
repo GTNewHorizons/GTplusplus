@@ -976,7 +976,7 @@ public final class ALLOY {
 			6500,
 			-1,
 			-1,
-			false, //Uses Blast furnace?
+			true, //Uses Blast furnace?
 			//Material Stacks with Percentage of required elements.
 			new MaterialStack[]{
 					new MaterialStack(ELEMENT.getInstance().BISMUTH, 47),
