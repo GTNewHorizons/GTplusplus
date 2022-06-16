@@ -421,7 +421,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
 			return false;
 		} else {
 			//Logger.INFO("Current Nutrient: "+aCrop.getNutrientStorage()+" for "+aCrop.getCrop().displayName());
-			aCrop.setNutrientStorage(100);
+			aCrop.setNutrientStorage(200);
 			return true;
 		}
 	}
