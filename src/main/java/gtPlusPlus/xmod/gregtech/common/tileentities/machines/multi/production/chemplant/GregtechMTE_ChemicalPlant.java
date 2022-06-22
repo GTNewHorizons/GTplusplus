@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.StructureLibAPI;
@@ -408,7 +409,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(aCasingID);
 
 		if (aSide == aFacing) {
-			return new ITexture[]{aOriginalTexture, new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
+			if (aActive)
+				return new ITexture[]{aOriginalTexture,
+						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
+			return new ITexture[]{aOriginalTexture,
+					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
 		}
 		return new ITexture[]{aOriginalTexture};
 	}

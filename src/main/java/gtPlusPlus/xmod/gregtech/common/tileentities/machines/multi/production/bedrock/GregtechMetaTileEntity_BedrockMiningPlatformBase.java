@@ -9,6 +9,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.GT_Worldgen_GT_Ore_Layer;
@@ -26,6 +27,7 @@ import gtPlusPlus.core.util.minecraft.MiningUtils;
 import gtPlusPlus.core.util.minecraft.OreDictUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -72,13 +74,13 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
 		this.casingTextureIndex = this.getCasingTextureIndex();
 	}
 
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-			final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
-			return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex),
-					new GT_RenderedTexture(
-							(IIconContainer) (aActive ? Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE
-									: Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT)) };
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex),
+						TextureFactory.builder().addIcon(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex),
+					TextureFactory.builder().addIcon(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT).extFacing().build()};
 		}
 		return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex) };
 	}

@@ -12,6 +12,7 @@ import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
@@ -194,9 +195,13 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		int aID = TAE.getIndexFromPage(1, 15);
 		if (mLevel > -1) {
 			aID = mLevel;
-		}		
+		}
 		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Default_Active : TexturesGtBlock.Overlay_Machine_Controller_Default)};
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
+						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default_Active).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
+					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default).extFacing().build()};
 		}
 		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID)};
 	}

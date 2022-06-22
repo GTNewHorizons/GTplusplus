@@ -18,6 +18,7 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
@@ -29,6 +30,7 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -138,7 +140,11 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
 	@Override
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()), new GT_RenderedTexture(aActive ? gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
+						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
+					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
 		}
 		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex())};
 	}

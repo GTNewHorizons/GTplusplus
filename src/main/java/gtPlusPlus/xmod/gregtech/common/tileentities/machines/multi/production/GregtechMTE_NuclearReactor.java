@@ -24,6 +24,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -35,6 +36,7 @@ import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.nuclear.NUCLIDE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
@@ -125,15 +127,21 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
 		boolean aWarmedUp = this.mEfficiency == this.getMaxEfficiency(null);
 		if (!aBaseMetaTileEntity.isActive() || !aWarmedUp){
 			if (aSide == aFacing) {
+				if (aActive)
+					return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(12)),
+							TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR_ACTIVE).extFacing().build()};
 				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(12)),
-						new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR)};
+						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR).extFacing().build()};
 			}
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(12))};
 		}
 		else if(aBaseMetaTileEntity.isActive() && aWarmedUp){
 			if (aSide == aFacing) {
+				if (aActive)
+					return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(13)),
+							TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR_ACTIVE).extFacing().build()};
 				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(13)),
-						new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR)};
+						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_REPLICATOR).extFacing().build()};
 			}
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(13))};
 		}

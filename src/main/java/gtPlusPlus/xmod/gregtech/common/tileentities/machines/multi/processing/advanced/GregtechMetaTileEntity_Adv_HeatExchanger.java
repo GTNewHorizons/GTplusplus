@@ -15,6 +15,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.block.base.BasicBlock.BlockTypes;
@@ -129,9 +130,13 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger extends GregtechMeta_Multi
     }
 
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_INDEX), new GTPP_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
+        if (aSide == aFacing) {
+            if (aActive)
+                return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_INDEX),
+                        TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
+            return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_INDEX),
+                    TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
+        }
 		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_INDEX)};
 	}
 

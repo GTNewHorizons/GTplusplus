@@ -13,6 +13,7 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -24,6 +25,7 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -392,7 +394,11 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		}
 
 		if (aSide == aFacing) {
-			return new ITexture[]{aOriginalTexture, new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER)};
+			if (aActive)
+				return new ITexture[]{aOriginalTexture,
+						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE).extFacing().build()};
+			return new ITexture[]{aOriginalTexture,
+					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER).extFacing().build()};
 		}
 		return new ITexture[]{aOriginalTexture};
 	}

@@ -6,6 +6,7 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
 import java.util.*;
 
+import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -116,8 +117,11 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	@Override
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9)),
+						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_MatterFab_Active_Animated).extFacing().build()};
 			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9)),
-					new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_MatterFab_Active_Animated : TexturesGtBlock.Overlay_MatterFab_Animated)};
+					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_MatterFab_Animated).extFacing().build()};
 		}
 		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9))};
 	}

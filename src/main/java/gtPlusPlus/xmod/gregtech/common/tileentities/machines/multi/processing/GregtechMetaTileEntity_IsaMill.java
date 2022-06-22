@@ -11,9 +11,12 @@ import java.util.List;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import org.apache.commons.lang3.ArrayUtils;
 
 import gregtech.api.enums.TAE;
@@ -56,16 +59,14 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 	private int mCasing;
 	private IStructureDefinition<GregtechMetaTileEntity_IsaMill> STRUCTURE_DEFINITION = null;
 
-	private static ITexture frontFace;
-	private static ITexture frontFaceActive;
+	private static final IIconContainer frontFaceActive = new CustomIcon("iconsets/Grinder/GRINDER_ACTIVE5");
+	private static final IIconContainer frontFace = new CustomIcon("iconsets/Grinder/GRINDER5");
 
 	private ArrayList<GT_MetaTileEntity_Hatch_MillingBalls> mMillingBallBuses = new ArrayList<GT_MetaTileEntity_Hatch_MillingBalls>();
 	private static final DamageSource mIsaMillDamageSource = new DamageSource("gtpp.grinder").setDamageBypassesArmor();
 
 	public GregtechMetaTileEntity_IsaMill(int aID, String aName, String aNameRegional) {
 		super(aID, aName, aNameRegional);
-		frontFaceActive = new GT_RenderedTexture(new CustomIcon("iconsets/Grinder/GRINDER_ACTIVE5"));
-		frontFace = new GT_RenderedTexture(new CustomIcon("iconsets/Grinder/GRINDER5"));
 	}
 
 	public GregtechMetaTileEntity_IsaMill(String aName) {
@@ -154,9 +155,14 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 	}
 
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		return new ITexture[]{
-				Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
-				aFacing == aSide ? aActive ? frontFaceActive : frontFace : Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2))};
+		if (aSide == aFacing) {
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
+						TextureFactory.builder().addIcon(frontFaceActive).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
+					TextureFactory.builder().addIcon(frontFace).extFacing().build()};
+		}
+		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2))};
 	}
 
 	@Override

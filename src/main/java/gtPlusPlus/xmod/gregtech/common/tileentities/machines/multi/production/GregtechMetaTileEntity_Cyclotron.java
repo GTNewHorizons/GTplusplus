@@ -13,6 +13,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -266,17 +267,15 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
 
 	@Override
 	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		ITexture[] sTexture;
 		if (aSide == aFacing) {
-			sTexture = new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44), new GT_RenderedTexture(getIconOverlay())};
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44),
+						TextureFactory.builder().addIcon(getIconOverlay()).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44),
+					TextureFactory.builder().addIcon(getIconOverlay()).extFacing().build()};
 		} else {
-			if (!aActive) {
-				sTexture = new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44)};
-			} else {
-				sTexture = new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44)};
-			}
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44)};
 		}
-		return sTexture;
 	}
 
 	public IIconContainer getIconOverlay() {

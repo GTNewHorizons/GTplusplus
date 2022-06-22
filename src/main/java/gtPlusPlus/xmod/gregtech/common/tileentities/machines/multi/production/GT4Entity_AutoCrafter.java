@@ -7,7 +7,9 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -149,12 +151,13 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-			final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		if (aSide == aFacing) {
-			return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)),
-					new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE
-							: Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER) };
+			if (aActive)
+				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)),
+						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE).extFacing().build()};
+			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)),
+					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER).extFacing().build()};
 		}
 		return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)) };
 	}
