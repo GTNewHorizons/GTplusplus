@@ -216,6 +216,7 @@ public class RECIPES_GREGTECH {
 				1024,
 				5);
 
+		//3NO2 + H2O = 2HNO3 + NO
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedAdvancedCircuit(16),
@@ -223,14 +224,14 @@ public class RECIPES_GREGTECH {
 				},
 				new FluidStack[] {
 						FluidUtils.getFluidStack(GenericChem.Nitrogen_Dioxide, 3000),
-						FluidUtils.getDistilledWater(5000)
+						FluidUtils.getDistilledWater(1000)
 				},
 				new ItemStack[] {
 
 				},
 				new FluidStack[] {
 						FluidUtils.getFluidStack("nitricacid", 2000),	
-						FluidUtils.getFluidStack(GenericChem.Nitric_Oxide, 1500),				
+						FluidUtils.getFluidStack(GenericChem.Nitric_Oxide, 1000),
 				},
 				10 * 20,
 				480,
@@ -251,9 +252,8 @@ public class RECIPES_GREGTECH {
 				new FluidStack[] {
 						FluidUtils.getFluidStack("boricacid", 2000),
 						FluidUtils.getWater(5000)
-
 				},
-				20 * 30, 
+				20 * 30,
 				MaterialUtils.getVoltageForTier(3), 
 				3);
 
@@ -422,7 +422,7 @@ public class RECIPES_GREGTECH {
 
 					},
 					new FluidStack[] {
-							FluidUtils.getHydrofluoricAcid(6000)
+							FluidUtils.getHydrofluoricAcid(4500)
 					},
 					30 * 20,
 					480,
@@ -1039,9 +1039,6 @@ public class RECIPES_GREGTECH {
 				20 * 40,
 				7680);
 
-
-
-
 		// Germanium Roasting
 		CORE.RA.addBlastSmelterRecipe(
 				new ItemStack[] { 
@@ -1054,7 +1051,6 @@ public class RECIPES_GREGTECH {
 				0,
 				20 * 300,
 				4000);
-
 
 		// Ruthenium Roasting
 		CORE.RA.addBlastSmelterRecipe(
@@ -1315,7 +1311,7 @@ public class RECIPES_GREGTECH {
 				2 * 20, 
 				500); // EU
 
-
+		//C8H10 = C8H8 + 2H
 		CORE.RA.addDehydratorRecipe(
 				new ItemStack[] {
 						CI.getNumberedAdvancedCircuit(18),
@@ -1357,6 +1353,7 @@ public class RECIPES_GREGTECH {
 
 	private static void largeChemReactorRecipes() {
 		//Styrene
+		//C8H10 = C8H8 + 2H
 		CORE.RA.addMultiblockChemicalRecipe(
 				new ItemStack[]{CI.getNumberedCircuit(24)},
 				new FluidStack[]{
@@ -1370,6 +1367,7 @@ public class RECIPES_GREGTECH {
 				30,
 				30);
 		//Short-cut Styrene
+		//C6H6 + C2H4 = C8H8 + 2H
 		CORE.RA.addMultiblockChemicalRecipe(
 				new ItemStack[]{CI.getNumberedCircuit(24)},
 				new FluidStack[]{
@@ -1539,13 +1537,9 @@ public class RECIPES_GREGTECH {
 				120);
 
 
-
 		/*addAR(ItemUtils.getItemStackOfAmountFromOreDict("plateIncoloy020", 16),
 				ItemUtils.getItemStackOfAmountFromOreDict("frameGtIncoloyMA956", 4), null,
 				GregtechItemList.Casing_Power_SubStation.get(4), 80, 120);*/
-
-
-
 
 
 		/*CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {
@@ -1563,14 +1557,9 @@ public class RECIPES_GREGTECH {
 
 		*/
 
-
-
-
-
 		CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {ItemUtils.getSimpleStack(ModItems.itemRope, 6)}, null, ItemUtils.getSimpleStack(ModBlocks.blockNet, 2), 1*20, 8);
 		CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {ItemUtils.getSimpleStack(CI.explosiveITNT, 2), ItemUtils.getSimpleStack(CI.explosiveTNT, 4), ELEMENT.getInstance().SULFUR.getDust(2), ELEMENT.getInstance().IRON.getFrameBox(1)}, null, ItemUtils.getSimpleStack(ModBlocks.blockMiningExplosive, 3), 5*20, 60);		
 		CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {ItemUtils.getSimpleStack(Items.nether_star), ItemUtils.getItemStackOfAmountFromOreDict("plateTungstenSteel", 8), ItemUtils.getItemStackOfAmountFromOreDict("stickBlackSteel", 8)}, null, ItemUtils.getSimpleStack(ModBlocks.blockWitherGuard, 32), 30*20, 500);
-
 
 		ItemStack aFluidReg1 = ItemUtils.getValueOfItemList("FluidRegulator_LV", ItemList.Pump_LV).get(1);
 		ItemStack aFluidReg2 = ItemUtils.getValueOfItemList("FluidRegulator_MV", ItemList.Pump_MV).get(1);
@@ -1615,10 +1604,6 @@ public class RECIPES_GREGTECH {
 		GT_Values.RA.addAssemblerRecipe(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 2, 1), CI.getNumberedCircuit(20), ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1001, 1), 120, 120);
 		GT_Values.RA.addAssemblerRecipe(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 3, 1), CI.getNumberedCircuit(20), ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1002, 1), 480, 480);
 		GT_Values.RA.addAssemblerRecipe(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 4, 1), CI.getNumberedCircuit(20), ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1003, 1), 1820, 1820);
-
-
-
-
 
 		//Low tier Charge Packs
 
@@ -1703,8 +1688,6 @@ public class RECIPES_GREGTECH {
 
 		if (LoadedMods.Baubles) {
 
-
-
 			// Turbine Housing Research Page
 			CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {
 					ItemUtils.getGregtechCircuit(17),
@@ -1732,7 +1715,6 @@ public class RECIPES_GREGTECH {
 					20 * 60 * 10,
 					(int) GT_Values.V[7]);
 
-
 			// Supreme Pizza Gloves
 			CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {
 					ItemUtils.getGregtechCircuit(19),
@@ -1746,10 +1728,6 @@ public class RECIPES_GREGTECH {
 					20 * 60 * 5,
 					30);
 		}
-
-
-
-
 
 	}
 
@@ -1893,14 +1871,15 @@ public class RECIPES_GREGTECH {
 	}
 
 	private static void mixerRecipes() {
-		
+
+		//S + 2O = SO2
 		GT_Values.RA.addMixerRecipe(
 				ItemUtils.getItemStackOfAmountFromOreDict("dustSulfur", 1),
 				null, 
 				null,
 				null,
 				FluidUtils.getFluidStack("oxygen", 2000), 
-				FluidUtils.getFluidStack("sulfurdioxide", 3000),
+				FluidUtils.getFluidStack("sulfurdioxide", 1000),
 				null,
 				600, 
 				60);
@@ -1915,8 +1894,6 @@ public class RECIPES_GREGTECH {
 				MISC_MATERIALS.SOLAR_SALT_COLD.getCell(10),
 				20 * 10, 
 				120);
-
-
 
 	}
 
@@ -1947,24 +1924,25 @@ public class RECIPES_GREGTECH {
 				ItemUtils.getItemStackOfAmountFromOreDict("dustSmallSulfur", 8), 
 				20 * 20);		
 
+		//K + HNO3 = KNO3 + H
 		GT_Values.RA.addChemicalRecipe(
 				Materials.Potassium.getDust(1),
 				CI.getNumberedAdvancedCircuit(1), 
 				Materials.NitricAcid.getFluid(1000),
-				GT_Values.NF, 
-				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(1), 
-				100, 
-				30);    	
-
-		GT_Values.RA.addChemicalRecipe(
-				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 1),
-				CI.getNumberedAdvancedCircuit(1), 
-				Materials.NitricAcid.getFluid(1000),
-				GT_Values.NF, 
-				MISC_MATERIALS.SODIUM_NITRATE.getDust(1), 
-				100, 
+				Materials.Hydrogen.getGas(1000),
+				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(5),
+				100,
 				30);
 
+		//Na2CO3 + 2HNO3 = 2NaNO3 + CO2 + H2O
+		GT_Values.RA.addChemicalRecipe(
+				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 6),
+				CI.getNumberedAdvancedCircuit(1), 
+				Materials.NitricAcid.getFluid(2000),
+				Materials.CarbonDioxide.getGas(1000),
+				MISC_MATERIALS.SODIUM_NITRATE.getDust(5),
+				100, 
+				30);
 
 	}
 
@@ -1975,7 +1953,6 @@ public class RECIPES_GREGTECH {
 		//FluidStack aFluidInput, FluidStack aFluidOutput, 
 		//ItemStack aOutput1, ItemStack aOutput2,
 		//int aDuration, int aEUt, int aLevel)	
-
 
 		//Synthetic Graphite
 		GT_Values.RA.addBlastRecipe(
@@ -2022,7 +1999,6 @@ public class RECIPES_GREGTECH {
 	}
 
 	private static void benderRecipes() {
-
 		if (CORE.ConfigSwitches.enableMultiblock_PowerSubstation) {
 			GT_Values.RA.addBenderRecipe(ItemUtils.getItemStackOfAmountFromOreDict("ingotVanadium", 1),
 					ItemUtils.getItemStackOfAmountFromOreDict("plateVanadium", 1), 8, 16);
@@ -2036,7 +2012,6 @@ public class RECIPES_GREGTECH {
 				ItemUtils.getItemStackOfAmountFromOreDict("plateMeatRaw", 1));
 		GT_ModHandler.addCompressionRecipe(ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 9),
 				ItemUtils.getItemStackOfAmountFromOreDict("blockMeatRaw", 1));
-
 		CORE.RA.addCompressorRecipe(ItemList.FusionComputer_UV.get(9), GregtechItemList.Compressed_Fusion_Reactor.get(1), (int) GT_Values.V[7], (int) GT_Values.V[8]);
 	}
 
@@ -2373,10 +2348,6 @@ public class RECIPES_GREGTECH {
 				20 * 60 * 15,
 				(int) MaterialUtils.getVoltageForTier(7),
 				250);
-
-
-
-
 
 	}
 
