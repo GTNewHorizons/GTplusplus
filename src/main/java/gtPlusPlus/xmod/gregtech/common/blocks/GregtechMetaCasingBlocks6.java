@@ -8,6 +8,7 @@ import gregtech.api.objects.GT_CopiedBlockTexture;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.common.blocks.GT_Material_Casings;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,11 +37,11 @@ extends GregtechMetaCasingBlocksAbstract {
 	public GregtechMetaCasingBlocks6() {
 		super(GregtechMetaCasingItemBlocks6.class, "gtplusplus.blockcasings.6", GT_Material_Casings.INSTANCE);
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".0.name", "Fusion Machine Casing MK III");
-		TAE.registerTexture(3, 4, new GT_CopiedBlockTexture(this, 6, 0));
+		TAE.registerTexture(3, 4, new GTPP_CopiedBlockTexture(this, 6, 0));
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".1.name", "Advanced Fusion Coil I");
-		TAE.registerTexture(3, 5, new GT_CopiedBlockTexture(this, 6, 1));
+		TAE.registerTexture(3, 5, new GTPP_CopiedBlockTexture(this, 6, 1));
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".2.name", "Unnamed"); // Can Use, don't change texture (Used for Fusion MK4)
-		TAE.registerTexture(3, 6, new GT_CopiedBlockTexture(this, 6, 2));
+		TAE.registerTexture(3, 6, new GTPP_CopiedBlockTexture(this, 6, 2));
 		GregtechItemList.Casing_Fusion_External.set(new ItemStack(this, 1, 0));
 		GregtechItemList.Casing_Fusion_Internal.set(new ItemStack(this, 1, 1));
 	}
