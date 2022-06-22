@@ -549,7 +549,7 @@ public class RECIPES_Machines {
 				},
 				GregtechItemList.Controller_MolecularTransformer.get(1),
 				20 * 60 * 10 * (GTNH ? 2 : 1),
-				MaterialUtils.getVoltageForTier(6));
+				(int) MaterialUtils.getVoltageForTier(6));
 
 		CORE.RA.addSixSlotAssemblingRecipe(
 				new ItemStack[] {
@@ -873,7 +873,7 @@ public class RECIPES_Machines {
 				},
 				GregtechItemList.Casing_ElementalDuplicator.get(1),
 				20 * 60 * (GTNH ? 20 : 10),
-				MaterialUtils.getVoltageForTier(6));
+				(int) MaterialUtils.getVoltageForTier(6));
 
 	}
 
@@ -922,33 +922,33 @@ public class RECIPES_Machines {
 
 	private static void chemPlant() {
 
-		GT_ModHandler.addCraftingRecipe(
-				GregtechItemList.Casing_Machine_Custom_1.get(2L, new Object[0]),
-				CI.bits,
-				new Object[]{
-						"PhP",
-						"PFP",
-						"PwP",
-						'P',
-						OrePrefixes.plate.get(Materials.Bronze),
-						'F',
-						OrePrefixes.frameGt.get(Materials.Bronze)
-				}
-				);
+        GT_ModHandler.addCraftingRecipe(
+        		GregtechItemList.Casing_Machine_Custom_1.get(2L, new Object[0]),
+        		CI.bits,
+        		new Object[]{
+        				"PhP",
+        				"PFP",
+        				"PwP",
+        				'P',
+        				OrePrefixes.plate.get(Materials.Bronze),
+        				'F',
+        				OrePrefixes.frameGt.get(Materials.Bronze)
+        				}
+        		);
 
-		GT_ModHandler.addCraftingRecipe(
-				GregtechItemList.Casing_Machine_Custom_2.get(2L, new Object[0]),
-				CI.bits,
-				new Object[]{
-						"PhP",
-						"PFP",
-						"PwP",
-						'P',
-						OrePrefixes.plate.get(Materials.Aluminium),
-						'F',
-						OrePrefixes.frameGt.get(Materials.Aluminium)
-				}
-				);
+        GT_ModHandler.addCraftingRecipe(
+        		GregtechItemList.Casing_Machine_Custom_2.get(2L, new Object[0]),
+        		CI.bits,
+        		new Object[]{
+        				"PPP",
+        				"hFw",
+        				"PPP",
+        				'P',
+        				OrePrefixes.plate.get(Materials.Aluminium),
+        				'F',
+        				OrePrefixes.frameGt.get(Materials.Aluminium)
+        				}
+        		);
 
 		CORE.RA.addSixSlotAssemblingRecipe(
 				new ItemStack[] {
