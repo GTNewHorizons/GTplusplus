@@ -78,7 +78,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends GregtechM
 		.addInfo("Controller Block for the XL "+getTurbineType()+" Turbine")
 		.addPollutionAmount(getPollutionPerSecond(null))
 		.addSeparator()
-		.beginStructureBlock(3, 9, 3, false)
+		.beginStructureBlock(7, 9, 7, false)
 		.addController("Top Middle")
 		.addCasingInfo(getCasingName(), 360)
 		.addOtherStructurePart("Rotor Assembly", "Any 1 dot hint", 1)
@@ -138,6 +138,9 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends GregtechM
 	}
 
 	private boolean requiresMufflers() {
+		if (!PollutionUtils.isPollutionEnabled()) {
+			return false;
+		}
 		return getPollutionPerSecond(null) > 0;
 	}
 
@@ -419,10 +422,11 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends GregtechM
 		return false;
 	}
 
+	@Override
 	public boolean checkRecipeGeneric(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
 			int aMaxParallelRecipes, int aEUPercent,
-			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe, boolean isPerpectOC) {
+			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
 
 		try {
 			ArrayList<GT_MetaTileEntity_Hatch_Turbine> aEmptyTurbineRotorHatches = getEmptyTurbineAssemblies();

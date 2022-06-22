@@ -13,6 +13,9 @@ import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+import static gtPlusPlus.core.util.Utils.addBookPagesLocalization;
+import static gtPlusPlus.core.util.Utils.addBookTitleLocalization;
+
 public class BookHandler {
 
 	public static int mBookKeeperCount = 0;
@@ -249,7 +252,7 @@ public class BookHandler {
 						"27x Coils" + "\n" +
 						"18x Pipe Casings" + "\n" +
 						"57x Tiered Machine Casings" + "\n" +
-						"80+ Solid Casings" + "\n" +
+						"70+ Solid Casings" + "\n" +
 						"1x Catalyst Housing (Catalysts cannot go inside an Input Bus)",
 
 						// Construction Guide
@@ -379,7 +382,12 @@ public class BookHandler {
 
 	private static BookTemplate writeBookTemplate(String aMapping, String aTitle, String aAuthor, String[] aPages){
 		mBookKeeperCount++;
-		BookTemplate mTemp = new BookTemplate(mBookKeeperCount, aMapping, aTitle, aAuthor, aPages);
+        for (int i = 0; i < aPages.length; i++) {
+            aPages[i] = aPages[i].replaceAll("\n", "<BR>");
+        }
+        addBookTitleLocalization(aTitle);
+        addBookPagesLocalization(aTitle, aPages);
+        BookTemplate mTemp = new BookTemplate(mBookKeeperCount, aMapping, aTitle, aAuthor, aPages);
 		mBookMap.put(mBookKeeperCount-1, mTemp);
 		return mTemp;
 	}

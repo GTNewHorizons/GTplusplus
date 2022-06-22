@@ -308,15 +308,15 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		for (int i = 0; i < 8; i++) {
 			this.checkCasing[i] = 0;
 		}
-		this.checkCoil = 0;
-		this.checkPipe = 0;
-		this.checkMachine = 0;
-		this.mSolidCasingTier = 0;
-		this.mMachineCasingTier = 0;
-		this.mPipeCasingTier = 0;
-		this.mCoilTier = 0;
-		this.mCatalystBuses.clear();
-		if (checkPiece(this.mName, 3, 6, 0) && this.mCasing >= 80) {
+		checkCoil = 0;
+		checkPipe = 0;
+		checkMachine = 0;
+		mSolidCasingTier = 0;
+		mMachineCasingTier = 0;
+		mPipeCasingTier = 0;
+		mCoilTier = 0;
+		mCatalystBuses.clear();
+		if (checkPiece(mName, 3, 6, 0) && mCasing >= 70) {
 			for (int i = 0; i < 8; i++) {
 				if (this.checkCasing[i] == this.mCasing) {
 					this.mSolidCasingTier = i;
@@ -838,51 +838,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		}
 	}
 
-	private static boolean areInputsEqual(GT_Recipe aComparator, ItemStack[] aInputs, FluidStack[] aFluids) {
-		int aInputCount = aComparator.mInputs.length;
-		if (aInputCount > 0) {
-			//Logger.INFO("Looking for recipe with "+aInputCount+" Items");
-			int aMatchingInputs = 0;
-			recipe : for (ItemStack a : aComparator.mInputs) {
-				for (ItemStack b : aInputs) {
-					if (a.getItem() == b.getItem()) {
-						if (a.getItemDamage() == b.getItemDamage()) {
-							//Logger.INFO("Found matching Item Input - "+b.getUnlocalizedName());
-							aMatchingInputs++;
-							continue recipe;
-						}
-					}
-				}
-			}
-			if (aMatchingInputs != aInputCount) {
-				return false;
-			}
-		}
-		int aFluidInputCount = aComparator.mFluidInputs.length;
-		if (aFluidInputCount > 0) {
-			//Logger.INFO("Looking for recipe with "+aFluidInputCount+" Fluids");
-			int aMatchingFluidInputs = 0;
-			recipe : for (FluidStack b : aComparator.mFluidInputs) {
-				//Logger.INFO("Checking for fluid "+b.getLocalizedName());
-				for (FluidStack a : aFluids) {
-					if (GT_Utility.areFluidsEqual(a, b)) {
-						//Logger.INFO("Found matching Fluid Input - "+b.getLocalizedName());
-						aMatchingFluidInputs++;
-						continue recipe;
-					}
-					else {
-						//Logger.INFO("Found fluid which did not match - "+a.getLocalizedName());
-					}
-				}
-			}
-			if (aMatchingFluidInputs != aFluidInputCount) {
-				return false;
-			}
-		}
-		Logger.INFO("Recipes Match!");
-		return true;
-	}
-
 	public GT_Recipe findRecipe(final GT_Recipe aRecipe, final long aVoltage, final long aSpecialValue, ItemStack[] aInputs, final FluidStack[] aFluids) {
 		if (!mInitRecipeCache) {
 			initRecipeCaches();
@@ -896,7 +851,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 			log("We have "+aInputs.length+" Items and "+aFluids.length+" Fluids.");
 			// Try check the cached recipe first
 			if (aRecipe != null) {
-				if (areInputsEqual(aRecipe, aInputs, aFluids)) {
+				if (aRecipe.isRecipeInputEqual(false, aFluids, aInputs)) {
 					if (aRecipe.mEUt <= aVoltage) {
 						Logger.INFO("Using cached recipe.");
 						return aRecipe;
@@ -914,7 +869,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 			// Iterate the tiers recipes until we find the one with all inputs matching
 			master : for (AutoMap<GT_Recipe> aTieredMap : aMasterMap) {
 				for (GT_Recipe aRecipeToCheck : aTieredMap) {
-					if (areInputsEqual(aRecipeToCheck, aInputs, aFluids)) {
+					if (aRecipeToCheck.isRecipeInputEqual(false, aFluids, aInputs)) {
 						log("Found recipe with matching inputs!");
 						if (aRecipeToCheck.mSpecialValue <= aSpecialValue) {
 							if (aRecipeToCheck.mEUt <= aVoltage) {

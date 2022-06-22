@@ -8,6 +8,7 @@ import cpw.mods.fml.common.Loader;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechTextures;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 
@@ -65,6 +66,7 @@ public class LoadedMods {
 	public static boolean RemoteIO = false;
 	public static boolean BartWorks = false;
 	public static boolean GoodGenerator = false;
+	public static boolean ExtraTrees = false;
 
 	private static int totalMods;
 	@SuppressWarnings("deprecation")
@@ -87,7 +89,7 @@ public class LoadedMods {
 
 			totalMods++;
 		}
-		if (isModLoaded("dreamcraft")){
+		if (isModLoaded("dreamcraft") || ReflectionUtils.doesClassExist("gregtech.api.util.GT_Multiblock_Tooltip_Builder")){
 			DreamCraft = true;
 			GTNH = true;
 			Logger.INFO("Components enabled for: DreamCraft");
@@ -350,8 +352,12 @@ public class LoadedMods {
 			RemoteIO  = true;
 			Logger.INFO("Components enabled for: RemoteIO");
 			totalMods++;
-		}		
-
+		}
+		if (isModLoaded("ExtraTrees")){
+			ExtraTrees = true;
+			Logger.INFO("Components enabled for: ExtraTrees");
+			totalMods++;
+		}
 		Logger.INFO("Content found for "+totalMods+" mods");
 
 	}

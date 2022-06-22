@@ -28,6 +28,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_DistillationTower> {
 
 	private byte mMode = 0;
@@ -326,11 +331,14 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 			return this.checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 100);
 		}
 		else {
-			for (GT_MetaTileEntity_Hatch_Input hatch : this.mInputHatches) {
+
+			ItemStack[] inputs = getCompactedInputs();
+	
+			for (GT_MetaTileEntity_Hatch_Input hatch : mInputHatches) {
 				FluidStack tFluid = hatch.getFluid();
 				if (tFluid != null) {
-					int para = (4* GT_Utility.getTier(this.getMaxInputVoltage()));
-					if (checkRecipeGeneric(null, new FluidStack[]{tFluid}, para,100, 250, 10000)) {
+					int para = (4 * GT_Utility.getTier(this.getMaxInputVoltage()));
+					if (checkRecipeGeneric(inputs, new FluidStack[]{tFluid}, para, 100, 250, 10000)) {
 						return true;
 					}
 				}

@@ -47,7 +47,7 @@ extends GregtechMetaCasingBlocksAbstract {
 			if (i >= 4 && i <= 8) {
 				continue;
 			}
-			TAE.registerTexture(2, i, new GT_CopiedBlockTexture(this, 6, i));
+			TAE.registerTexture(2, i, new GTPP_CopiedBlockTexture(this, 6, i));
 		}
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".0.name", "Aquatic Casing");
 		GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".1.name", "Inconel Reinforced Casing");

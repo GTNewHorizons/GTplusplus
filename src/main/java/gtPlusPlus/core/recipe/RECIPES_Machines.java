@@ -251,7 +251,9 @@ public class RECIPES_Machines {
 		sparging();
 		chisels();
 		rockBreaker();
-
+		thermicFluidHeater();
+		advHeatExchanger();
+		
 		gt4FarmManager();
 		gt4Redstone();
 		gt4Inventory();
@@ -269,6 +271,43 @@ public class RECIPES_Machines {
 		modulators();
 
 
+	}
+	
+
+	private static void thermicFluidHeater() {
+		
+		RecipeUtils.addShapedGregtechRecipe(
+				CI.getPlate(5, 1), CI.circuitTier5, CI.getPlate(5, 1),
+				pipeTier7, ItemList.Machine_IV_FluidHeater.get(1), pipeTier7,
+				CI.getPlate(5, 1), CI.circuitTier4, CI.getPlate(5, 1),
+				GregtechItemList.Controller_IndustrialFluidHeater.get(1));
+	}
+
+	private static void advHeatExchanger() {
+		CORE.RA.addSixSlotAssemblingRecipe(
+				new ItemStack[] {
+						CI.getNumberedAdvancedCircuit(18),
+						ItemList.Machine_Multi_HeatExchanger.get(1),
+						CI.getDoublePlate(6, 8),
+						CI.getScrew(6, 16),
+						CI.getCircuit(5, 8)
+				},
+				CI.tieredMaterials[5].getMolten(144 * 8),
+				GregtechItemList.XL_HeatExchanger.get(1),
+				20 * 60,
+				MaterialUtils.getVoltageForTier(6));
+
+		CORE.RA.addSixSlotAssemblingRecipe(
+				new ItemStack[] {
+						CI.getNumberedAdvancedCircuit(18),
+						ItemList.Casing_StableTitanium.get(1),
+						CI.getPlate(5, 4),
+						CI.getScrew(5, 8),
+				},
+				CI.tieredMaterials[5].getMolten(144 * 2),
+				GregtechItemList.Casing_XL_HeatExchanger.get(1),
+				20 * 5,
+				MaterialUtils.getVoltageForTier(6));
 	}
 
 	private static void computerCube() {
@@ -425,15 +464,15 @@ public class RECIPES_Machines {
 
 	private static void multiGeneratorArray() {
 
-		GT_ModHandler.addCraftingRecipe(
-				ItemList.Processing_Array.get(1L),
-				CI.bitsd,
-				new Object[]{"CTC", "FMF", "CBC",
-						'M', CI.getTieredGTPPMachineCasing(4, 1),
-						'B', OrePrefixes.pipeHuge.get(Materials.StainlessSteel),
-						'C', OrePrefixes.circuit.get(Materials.Data),
-						'F', ItemList.Electric_Pump_EV,
-						'T', CI.getSensor(4, 1)});
+        GT_ModHandler.addCraftingRecipe(
+        		GregtechItemList.Generator_Array_Controller.get(1L),
+        		CI.bitsd, 
+        		new Object[]{"CTC", "FMF", "CBC",
+        				'M', CI.getTieredGTPPMachineCasing(4, 1),
+        				'B', OrePrefixes.pipeHuge.get(Materials.StainlessSteel),
+        				'C', OrePrefixes.circuit.get(Materials.Data),
+        				'F', ItemList.Electric_Pump_EV,
+        				'T', CI.getSensor(4, 1)});
 	}
 
 	private static void multiForgeHammer() {
@@ -883,7 +922,6 @@ public class RECIPES_Machines {
 
 	private static void chemPlant() {
 
-
 		GT_ModHandler.addCraftingRecipe(
 				GregtechItemList.Casing_Machine_Custom_1.get(2L, new Object[0]),
 				CI.bits,
@@ -1290,10 +1328,16 @@ public class RECIPES_Machines {
 			ItemStack aBronzeBricks = ItemUtils.simpleMetaStack(GregTech_API.sBlockCasings1, 10, 1);
 			// Steam Macerator Multi
 			RecipeUtils.addShapedGregtechRecipe(
-					aBronzeBricks, ALLOY.TUMBAGA.getGear(1), aBronzeBricks,
-					aBronzeBricks, ALLOY.TUMBAGA.getFrameBox(1), aBronzeBricks,
-					aBronzeBricks, ALLOY.TUMBAGA.getGear(1), aBronzeBricks,
+					aBronzeBricks, "gemDiamond", aBronzeBricks,
+					"craftingPiston", ALLOY.TUMBAGA.getFrameBox(1), "craftingPiston",
+					aBronzeBricks, "gemDiamond", aBronzeBricks,
 					GregtechItemList.Controller_SteamMaceratorMulti.get(1));
+			// Steam Compressor Multi
+			RecipeUtils.addShapedGregtechRecipe(
+					aBronzeBricks, "craftingPiston", aBronzeBricks,
+					ALLOY.TUMBAGA.getGear(1), ALLOY.TUMBAGA.getFrameBox(1), ALLOY.TUMBAGA.getGear(1),
+					aBronzeBricks, "craftingPiston", aBronzeBricks,
+					GregtechItemList.Controller_SteamCompressorMulti.get(1));
 
 			// Steam Hatch
 			RecipeUtils.addShapedGregtechRecipe(
@@ -1769,9 +1813,9 @@ public class RECIPES_Machines {
 
 				//Industrial Sieve
 				RecipeUtils.addShapedGregtechRecipe(
-						"plateEglinSteel", CI.circuitTier2, "plateEglinSteel",
-						cableTier3, EV_MACHINE_Sifter, cableTier3,
-						"plateEglinSteel", CI.circuitTier2, "plateEglinSteel",
+						"plateEglinSteel", CI.circuitTier3, "plateEglinSteel",
+						cableTier4, EV_MACHINE_Sifter, cableTier4,
+						"plateEglinSteel", CI.circuitTier3, "plateEglinSteel",
 						RECIPE_IndustrialSieveController);
 				//Industrial Sieve Casing
 				RecipeUtils.addShapedGregtechRecipe(
@@ -1926,9 +1970,9 @@ public class RECIPES_Machines {
 
 				//Pollution Detector
 				RecipeUtils.addShapedGregtechRecipe(
-						CI.component_Plate[1], CI.sensor_MV, CI.component_Plate[1],
-						CI.component_Plate[2], CI.electricMotor_ULV, CI.component_Plate[2],
-						CI.getTieredCircuit(1), CI.machineHull_LV, CI.getTieredCircuit(0),
+						"plateSteel", CI.sensor_LV, "plateSteel",
+						"plateSteel", CI.electricMotor_LV, "plateSteel",
+						CI.getTieredCircuit(1), CI.machineHull_LV, CI.getTieredCircuit(1),
 						GregtechItemList.Pollution_Detector.get(1));
 
 				//ULV
@@ -2073,15 +2117,15 @@ public class RECIPES_Machines {
 							RECIPE_LFTRController);
 				} else  {
 					RecipeUtils.addShapedGregtechRecipe(
-							controlCircuit, "cableGt12NaquadahAlloy", controlCircuit,
+							controlCircuit, "cableGt12Naquadah", controlCircuit,
 							"plateDoubleHastelloyN", GregtechItemList.Gregtech_Computer_Cube.get(1), "plateDoubleHastelloyN",
 							"plateThorium232", CI.machineHull_IV, "plateThorium232",
 							RECIPE_LFTRController);
 				}
 				RecipeUtils.addShapedGregtechRecipe(
-						"plateDoubleZeron100", CI.craftingToolScrewdriver, "plateDoubleZeron100",
+						"plateDoubleHastelloyC276", CI.craftingToolScrewdriver, "plateDoubleHastelloyC276",
 						"gearGtTalonite", CI.fieldGenerator_MV, "gearGtTalonite",
-						"plateDoubleZeron100", CI.craftingToolHammer_Hard, "plateDoubleZeron100",
+						"plateDoubleHastelloyC276", CI.craftingToolHammer_Hard, "plateDoubleHastelloyC276",
 						RECIPE_LFTRInnerCasing);
 
 				ItemStack IC2HeatPlate = ItemUtils.getItemStackFromFQRN("IC2:reactorPlatingHeat", 1);
@@ -2092,8 +2136,11 @@ public class RECIPES_Machines {
 						RECIPE_LFTROuterCasing);
 
 				//LFTR Control Circuit
-				ItemStack circuitT5 = ItemList.Circuit_Master.get(1);
-				GT_Values.RA.addAssemblerRecipe(circuitT5, CI.fieldGenerator_HV, controlCircuit, 240*20, 500);
+				CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] {
+						ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 1),
+						CI.fieldGenerator_HV
+				},
+						null, controlCircuit, 240*20, 500);
 
 
 				//Fission Fuel Plant

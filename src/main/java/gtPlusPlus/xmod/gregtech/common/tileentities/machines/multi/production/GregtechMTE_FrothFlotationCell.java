@@ -54,19 +54,19 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Process that milled ore!")
-		.addPollutionAmount(getPollutionPerSecond(null))
-		.addSeparator()
-		.beginStructureBlock(3, 3, 3, true)
-		.addController("Front Center")
-		.addCasingInfo("Inconel Reinforced Casing", 68)
-		.addCasingInfo("Flotation Casing", 52)
-		.addInputBus("Bottom Casing", 1)
-		.addInputHatch("Bottom Casing", 1)
-		.addOutputHatch("Bottom Casing", 1)
-		.addEnergyHatch("Bottom Casing", 1)
-		.addMaintenanceHatch("Bottom Casing", 1)
-		.toolTipFinisher(CORE.GT_Tooltip_Builder);
+				.addInfo("Process that milled ore!")
+				.addPollutionAmount(getPollutionPerSecond(null))
+				.addSeparator()
+				.beginStructureBlock(3, 9, 3, true)
+				.addController("Front Center")
+				.addCasingInfo("Inconel Reinforced Casing", 68)
+				.addCasingInfo("Flotation Casing", 52)
+				.addInputBus("Bottom Casing", 1)
+				.addInputHatch("Bottom Casing", 1)
+				.addOutputHatch("Bottom Casing", 1)
+				.addEnergyHatch("Bottom Casing", 1)
+				.addMaintenanceHatch("Bottom Casing", 1)
+				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -438,7 +438,16 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
 		super.loadNBTData(aNBT);
-		this.mLockedOreType = aNBT.getInteger("mLockedOreType");
+		mLockedOreType = aNBT.getInteger("mLockedOreType");
+		if (mLockedOreType == 0) {
+			mLockedOreType = -1;
+		}
 	}
 
+	@Override
+	public String[] getExtraInfoData() {
+		return new String[] {
+				"Locked Ore Type: " + mLockedOreType
+		};
+	}
 }

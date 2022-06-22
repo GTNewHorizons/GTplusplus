@@ -61,7 +61,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		tt.addMachineType(getMachineType())
 		.addInfo("Produces Elemental Material from UU Matter")
 		.addInfo("Speed: 100% | Eu Usage: 100% | Parallel: 8 * Tier")
-		.addInfo("This multiblock cannot be overclocked")
 		.addInfo("Maximum 1x of each bus/hatch.")
 		.addInfo("Does not require both Output Hatch & Bus")
 		.addPollutionAmount(getPollutionPerSecond(null))
@@ -70,7 +69,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		.addController("Top Center")
 		.addCasingInfo("Elemental Confinement Shell", 138)
 		.addCasingInfo("Matter Fabricator Casing", 24)
-		.addCasingInfo("Containment Casing", 24)
+		.addCasingInfo("Particle Containment Casing", 24)
 		.addCasingInfo("Matter Generation Coil", 24)
 		.addCasingInfo("High Voltage Current Capacitor", 20)
 		.addCasingInfo("Resonance Chamber III", 24)
@@ -309,7 +308,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 			}
 			ItemStack aDataOrbStack = null;
 			recipe : for (GT_Recipe nRecipe : this.getRecipeMap().mRecipeList) {
-				log("Checking Recipe for: "+(nRecipe.mOutputs.length > 0 && nRecipe.mOutputs[0] != null ? nRecipe.mOutputs[0].getDisplayName() : nRecipe.mFluidOutputs[0].getLocalizedName()));
+				//log("Checking Recipe for: "+(nRecipe.mOutputs.length > 0 && nRecipe.mOutputs[0] != null ? nRecipe.mOutputs[0].getDisplayName() : nRecipe.mFluidOutputs[0].getLocalizedName()));
 				ItemStack aTempStack = getSpecialSlotStack(nRecipe);
 				if (aTempStack != null) {
 					for (ItemStack aItem : aItemInputs) {

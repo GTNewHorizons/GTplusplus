@@ -64,23 +64,23 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Controller Block for the Large Grinding Machine")
-		.addInfo("Grind ores.")
-		.addPollutionAmount(getPollutionPerSecond(null))
-		.addSeparator()
-		.beginStructureBlock(3, 3, 7, false)
-		.addController("Front Center")
-		.addCasingInfo("IsaMill Exterior Casing", 40)
-		.addOtherStructurePart("IsaMill Gearbox", "Inner Blocks")
-		.addOtherStructurePart("IsaMill Piping", "8x, ring around controller")
-		.addStructureInfo("IsaMill Pipings must not be obstructed in front (only air blocks)")
-		.addOtherStructurePart("Milling Ball Hatch", "Any Casing")
-		.addInputBus("Any Casing", 1)
-		.addOutputBus("Any Casing", 1)
-		.addEnergyHatch("Any Casing", 1)
-		.addMaintenanceHatch("Any Casing", 1)
-		.addMufflerHatch("Any Casing", 1)
-		.toolTipFinisher(CORE.GT_Tooltip_Builder);
+				.addInfo("Controller Block for the Large Grinding Machine")
+				.addInfo("Grind ores.")
+				.addPollutionAmount(getPollutionPerSecond(null))
+				.addSeparator()
+				.beginStructureBlock(3, 3, 7, false)
+				.addController("Front Center")
+				.addCasingInfo("IsaMill Exterior Casing", 40)
+                .addOtherStructurePart("IsaMill Gearbox", "5x, Inner Blocks")
+                .addOtherStructurePart("IsaMill Piping", "8x, ring around controller")
+                .addStructureInfo("IsaMill Pipings must not be obstructed in front (only air blocks)")
+				.addOtherStructurePart("Milling Ball Hatch", "Any Casing")
+				.addInputBus("Any Casing", 1)
+				.addOutputBus("Any Casing", 1)
+				.addEnergyHatch("Any Casing", 1)
+				.addMaintenanceHatch("Any Casing", 1)
+				.addMufflerHatch("Any Casing", 1)
+				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -137,6 +137,10 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 	}
 
 	@Override
+	public boolean checkHatch() {
+		return super.checkHatch() && mMillingBallBuses.size() == 1;
+	}
+
 	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
 		return new ITexture[]{
 				Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
@@ -377,7 +381,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
 	@Override
 	public boolean hasSlotInGUI() {
-		return false;
+		return true;
 	}
 
 	@Override

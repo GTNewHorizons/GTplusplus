@@ -12,6 +12,7 @@ import gtPlusPlus.api.interfaces.IComparableRecipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.*;
 
@@ -69,6 +70,10 @@ public class GTPP_Recipe extends GT_Recipe  implements IComparableRecipe {
 
 	private final void checkModified() {
 		if (hasBeenModified()) {
+			String[] aInfo = RecipeUtils.getRecipeInfo(this);
+			for (String s : aInfo) {
+				Logger.INFO(s);
+			}
 			CORE.crash("Someone has edited an internal GT++ recipe, which is no longer allowed. Please complain to whoever has done this, not Alkalus.");
 		}
 	}
@@ -229,81 +234,6 @@ public class GTPP_Recipe extends GT_Recipe  implements IComparableRecipe {
 		return this.mFluidOutputs[aIndex].copy();
 	}
 
-	@Override
-	public boolean isRecipeInputEqual(final boolean aDecreaseStacksizeBySuccess, final FluidStack[] aFluidInputs, final ItemStack... aInputs) {
-		return this.isRecipeInputEqual(aDecreaseStacksizeBySuccess, false, aFluidInputs, aInputs);
-	}
-
-	@Override
-	public boolean isRecipeInputEqual(final boolean aDecreaseStacksizeBySuccess, final boolean aDontCheckStackSizes, final FluidStack[] aFluidInputs, final ItemStack... aInputs) {
-		if ((this.mFluidInputs.length > 0) && (aFluidInputs == null)) {
-			return false;
-		}
-		for (final FluidStack tFluid : this.mFluidInputs) {
-			if (tFluid != null) {
-				boolean temp = true;
-				for (final FluidStack aFluid : aFluidInputs) {
-					if ((aFluid != null) && aFluid.isFluidEqual(tFluid) && (aDontCheckStackSizes || (aFluid.amount >= tFluid.amount))) {
-						temp = false;
-						break;
-					}
-				}
-				if (temp) {
-					return false;
-				}
-			}
-		}
-
-		if ((this.mInputs.length > 0) && (aInputs == null)) {
-			return false;
-		}
-
-		for (final ItemStack tStack : this.mInputs) {
-			if (tStack != null) {
-				boolean temp = true;
-				for (final ItemStack aStack : aInputs) {
-					if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true)) && (aDontCheckStackSizes || (aStack.stackSize >= tStack.stackSize))) {
-						temp = false;
-						break;
-					}
-				}
-				if (temp) {
-					return false;
-				}
-			}
-		}
-
-		if (aDecreaseStacksizeBySuccess) {
-			if (aFluidInputs != null) {
-				for (final FluidStack tFluid : this.mFluidInputs) {
-					if (tFluid != null) {
-						for (final FluidStack aFluid : aFluidInputs) {
-							if ((aFluid != null) && aFluid.isFluidEqual(tFluid) && (aDontCheckStackSizes || (aFluid.amount >= tFluid.amount))) {
-								aFluid.amount -= tFluid.amount;
-								break;
-							}
-						}
-					}
-				}
-			}
-
-			if (aInputs != null) {
-				for (final ItemStack tStack : this.mInputs) {
-					if (tStack != null) {
-						for (final ItemStack aStack : aInputs) {
-							if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true)) && (aDontCheckStackSizes || (aStack.stackSize >= tStack.stackSize))) {
-								aStack.stackSize -= tStack.stackSize;
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		return true;
-	}
-
 	public static class GTPP_Recipe_Map_Internal extends GT_Recipe_Map {
 
 		public static final Collection<GTPP_Recipe_Map_Internal> sMappingsEx = new ArrayList<>();
@@ -432,7 +362,8 @@ public class GTPP_Recipe extends GT_Recipe  implements IComparableRecipe {
 		// Flotation Cell
 		public static final GTPP_Recipe_Map_Internal sFlotationCellRecipes = new GTPP_Recipe_Map_Internal(new HashSet<GT_Recipe>(10000), "gtpp.recipe.flotationcell", "Flotation Cell", null, RES_PATH_GUI + "basicmachines/LFTR", 6, 4, 1, 1, 1, "Ore Key: ", 1, E, true, false);
 
-
+		// Tree Growth Simulator
+		public static final GTPP_Recipe_Map_Internal sTreeSimFakeRecipes = new GTPP_Recipe_Map_Internal(new HashSet<GT_Recipe>(100), "gtpp.recipe.treefarm", "Tree Growth Simulator", null, RES_PATH_GUI + "basicmachines/FissionFuel", 9, 9, 1, 0, 1, "", 1, "", false, true);
 
 
 		/**

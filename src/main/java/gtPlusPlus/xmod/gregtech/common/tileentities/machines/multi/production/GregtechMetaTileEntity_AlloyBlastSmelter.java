@@ -56,24 +56,24 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Controller Block for the Alloy Blast Smelter")
-		.addInfo("20% Faster than the Electric Blast Furnace")
-		.addInfo("Allows Complex GT++ alloys to be created")
-		.addInfo("This multiblock cannot be overclocked")
-		.addInfo("Circuit for recipe goes in the Input Bus or GUI slot")
-		.addPollutionAmount(getPollutionPerSecond(null))
-		.addSeparator()
-		.beginStructureBlock(3, 4, 3, true)
-		.addController("Bottom Center")
-		.addCasingInfo("Blast Smelter Casings", 10)
-		.addCasingInfo("Blast Smelter Heat Containment Coils", 16)
-		.addInputBus("Any Casing", 1)
-		.addInputHatch("Any Casing", 1)
-		.addOutputHatch("Any Casing", 1)
-		.addEnergyHatch("Any Casing", 1)
-		.addMaintenanceHatch("Any Casing", 1)
-		.addMufflerHatch("Any Casing", 1)
-		.toolTipFinisher(CORE.GT_Tooltip_Builder);
+				.addInfo("Controller Block for the Alloy Blast Smelter")
+				.addInfo("20% Faster than the Electric Blast Furnace")
+				.addInfo("Allows Complex GT++ alloys to be created")
+				.addInfo("Accepts only one Energy Hatch")
+				.addInfo("Circuit for recipe goes in the Input Bus or GUI slot")
+				.addPollutionAmount(getPollutionPerSecond(null))
+				.addSeparator()
+				.beginStructureBlock(3, 4, 3, true)
+				.addController("Bottom Center")
+				.addCasingInfo("Blast Smelter Casings", 10)
+				.addCasingInfo("Blast Smelter Heat Containment Coils", 16)
+				.addInputBus("Any Casing", 1)
+				.addInputHatch("Any Casing", 1)
+				.addOutputHatch("Any Casing", 1)
+				.addEnergyHatch("Any Casing", 1)
+				.addMaintenanceHatch("Any Casing", 1)
+				.addMufflerHatch("Any Casing", 1)
+				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 

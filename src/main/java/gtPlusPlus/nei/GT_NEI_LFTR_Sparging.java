@@ -68,7 +68,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 	}
 
 	public void loadTransferRects() {
-		this.transferRects.add(new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getRecipeName(), new Object[0]));
+		this.transferRects.add(new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getOverlayIdentifier(), new Object[0]));
 	}
     
     public List<GasSpargingRecipeNEI> getCache() {
@@ -156,7 +156,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 		final long tDuration = ((GasSpargingRecipeNEI) this.arecipes.get(aRecipeIndex)).mRecipe.mDuration;
 		GT_NEI_LFTR.drawText(10, 73, "Total: " + MathUtils.formatNumbers((long) (tDuration * tEUt)) + " EU", -16777216);
 		GT_NEI_LFTR.drawText(10, 83, "Usage: " + MathUtils.formatNumbers(tEUt) + " EU/t", -16777216);
-		GT_NEI_LFTR.drawText(10, 93, "Time: " + (tDuration < 20 ? "< 1" : MathUtils.formatNumbers(Long.valueOf(tDuration / 20))) + " secs", -16777216);
+		GT_NEI_LFTR.drawText(10, 93, "Time: " + (tDuration < 20 ? "< 1" : MathUtils.formatNumbers(0.05d * tDuration)) + " secs", -16777216);
 		GT_NEI_LFTR.drawText(10, 103, "Gas not used to sparge is", -16777216);
 		GT_NEI_LFTR.drawText(10, 113, "returned alongside outputs.", -16777216);
 	}

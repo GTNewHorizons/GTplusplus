@@ -931,11 +931,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	public long getMaxInputEnergy() {
 		long rEnergy = 0;
-		if (this.mEnergyHatches.size() < 2) // so it only takes 1 amp is only 1 hatch is present so it works like most gt multies
-			return this.mEnergyHatches.get(0).getBaseMetaTileEntity().getInputVoltage();
-		for (GT_MetaTileEntity_Hatch_Energy tHatch : this.mEnergyHatches)
-			if (isValidMetaTileEntity(tHatch)) rEnergy += tHatch.getBaseMetaTileEntity().getInputVoltage() * tHatch.getBaseMetaTileEntity().getInputAmperage();
-		return rEnergy;
+		if (mEnergyHatches.size() == 1) // so it only takes 1 amp is only 1 hatch is present so it works like most gt multies
+			return mEnergyHatches.get(0).getBaseMetaTileEntity().getInputVoltage();
+        for (GT_MetaTileEntity_Hatch_Energy tHatch : mEnergyHatches)
+            if (isValidMetaTileEntity(tHatch)) rEnergy += tHatch.getBaseMetaTileEntity().getInputVoltage() * tHatch.getBaseMetaTileEntity().getInputAmperage();
+        return rEnergy;
 	}
 
 	public boolean hasPerfectOverclock() {

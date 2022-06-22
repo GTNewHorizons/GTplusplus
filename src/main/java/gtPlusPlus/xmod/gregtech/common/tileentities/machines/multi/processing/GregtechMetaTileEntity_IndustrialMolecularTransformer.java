@@ -54,27 +54,26 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer extends Gregt
 
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Changes the structure of items to produce new ones")
-		.addInfo("Speed: 100% | Eu Usage: 100%")
-		.addInfo("This multiblock cannot be overclocked")
-		.addInfo("Maximum 1x of each bus/hatch.")
-		.addPollutionAmount(getPollutionPerSecond(null))
-		.addSeparator()
-		.beginStructureBlock(7, 7, 7, false)
-		.addController("Top Center")
-		.addCasingInfo("Robust Tungstensteel Machine Casing", 40)
-		.addCasingInfo("Tungstensteel Coils", 16)
-		.addCasingInfo("Molecular Containment Casing", 52)
-		.addCasingInfo("High Voltage Current Capacitor", 32)
-		.addCasingInfo("Particle Containment Casing", 4)
-		.addCasingInfo("Resonance Chamber I", 5)
-		.addCasingInfo("Modulator I", 4)
-		.addInputBus("Any Robust Tungstensteel Machine Casing", 1)
-		.addOutputBus("Any Robust Tungstensteel Machine Casing", 1)
-		.addEnergyHatch("Any Robust Tungstensteel Machine Casing", 1)
-		.addMaintenanceHatch("Any Robust Tungstensteel Machine Casing", 1)
-		.addMufflerHatch("Any Robust Tungstensteel Machine Casing", 1)
-		.toolTipFinisher(CORE.GT_Tooltip_Builder);
+				.addInfo("Changes the structure of items to produce new ones")
+				.addInfo("Speed: 100% | Eu Usage: 100%")
+				.addInfo("Maximum 1x of each bus/hatch.")
+				.addPollutionAmount(getPollutionPerSecond(null))
+				.addSeparator()
+				.beginStructureBlock(7, 7, 7, false)
+				.addController("Top Center")
+				.addCasingInfo("Robust Tungstensteel Machine Casing", 40)
+				.addCasingInfo("Tungstensteel Coils", 16)
+				.addCasingInfo("Molecular Containment Casing", 52)
+				.addCasingInfo("High Voltage Current Capacitor", 32)
+				.addCasingInfo("Particle Containment Casing", 4)
+				.addCasingInfo("Resonance Chamber I", 5)
+				.addCasingInfo("Modulator I", 4)
+				.addInputBus("Any Robust Tungstensteel Machine Casing", 1)
+				.addOutputBus("Any Robust Tungstensteel Machine Casing", 1)
+				.addEnergyHatch("Any Robust Tungstensteel Machine Casing", 1)
+				.addMaintenanceHatch("Any Robust Tungstensteel Machine Casing", 1)
+				.addMufflerHatch("Any Robust Tungstensteel Machine Casing", 1)
+				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -268,5 +267,5 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer extends Gregt
 			this.getBaseMetaTileEntity().setFrontFacing((byte) 1);
 		}
 	}
-
+       
 }
