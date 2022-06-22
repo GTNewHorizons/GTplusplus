@@ -263,64 +263,9 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer extends Gregt
 	public boolean explodesOnComponentBreak(final ItemStack aStack) {
 		return false;
 	}
-	
-//	@Override
-//	public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-//		super.onPreTick(aBaseMetaTileEntity, aTick);
-//		// Fix GT bug
-//		if (this.getBaseMetaTileEntity().getFrontFacing() != 1) {
-//			this.getBaseMetaTileEntity().setFrontFacing((byte) 1);
-//		}
-//	}
-
-
-//	@Override
-//	public boolean isNewExtendedFacingValid(ForgeDirection direction, Rotation rotation, Flip flip) {
-//		return direction == ForgeDirection.UP;
-//	}
 
 	@Override
 	public boolean isNewExtendedFacingValid(ExtendedFacing alignment) {
 		return alignment.getDirection() == ForgeDirection.UP && super.isNewExtendedFacingValid(alignment);
-	}
-
-
-//	@Override
-//	public boolean isFacingValid(byte aFacing) {
-//		return aFacing > 1;
-//	}
-
-
-	@Override
-	public boolean onWrenchRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-		Logger.INFO("onWrenchRightClick");
-		return super.onWrenchRightClick(aSide, aWrenchingSide, aPlayer, aX, aY, aZ);
-	}
-
-	@Override
-	public boolean toolSetRotation(Rotation rotation) {
-		Logger.INFO("rotation: " + rotation);
-		if (rotation != null) {
-			return this.checkedSetRotation(rotation);
-		} else {
-			int flips = Flip.VALUES.length;
-			int rotations = Rotation.VALUES.length;
-			int ii = 0;
-
-			for(int jj = this.getFlip().ordinal(); ii < flips; ++ii) {
-				int i = 1;
-
-				for(int j = this.getRotation().ordinal(); i < rotations; ++i) {
-					if (this.checkedSetExtendedFacing(ExtendedFacing.of(this.getDirection(), Rotation.VALUES[(j + i) % rotations], Flip.VALUES[(jj + ii) % flips]))) {
-						Logger.INFO("return true:");
-						Logger.INFO(String.format("direction=%s, rotation=%s, flip=%s", this.getDirection(), Rotation.VALUES[(j + i) % rotations], Flip.VALUES[(jj + ii) % flips]));
-						return true;
-					}
-				}
-			}
-
-			Logger.INFO("return false");
-			return false;
-		}
 	}
 }
