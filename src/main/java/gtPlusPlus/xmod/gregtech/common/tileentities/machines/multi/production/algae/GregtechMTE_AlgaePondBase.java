@@ -49,7 +49,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	private int mCasing;
 	private IStructureDefinition<GregtechMTE_AlgaePondBase> STRUCTURE_DEFINITION = null;
 	private int checkMeta;
-	private int minTierOfHatch = 100;
+	private int minTierOfHatch;
 	private static final Class<?> cofhWater;
 
 	static {
@@ -84,8 +84,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 				.addInfo("Does not require power or maintenance")
 				.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
 				.addInfo("All Buses/Hatches must, at least, match the tier of the Casings")
-				.addInfo("Place the controller after everything else to make sure it forms correctly!")
-				.addInfo("Fill Input Hatch with water.")
+				.addInfo("Fill Input Hatch with Water to fill the inside of the multiblock.")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
 				.beginStructureBlock(9, 3, 9, true)
@@ -151,6 +150,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		mCasing = 0;
 		mLevel = 0;
 		checkMeta = 0;
+		minTierOfHatch = 100;
 		if (checkPiece(mName, 4, 2, 0) && mCasing >= 64 && checkMeta > 0) {
 			mLevel = checkMeta - 1;
 			return mLevel <= minTierOfHatch;
