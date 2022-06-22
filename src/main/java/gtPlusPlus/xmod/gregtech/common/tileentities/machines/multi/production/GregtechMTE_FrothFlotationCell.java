@@ -9,6 +9,7 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 import java.util.ArrayList;
 import java.util.List;
 
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -89,16 +90,18 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		int aID = TAE.getIndexFromPage(2, 1);
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID)};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.getIndexFromPage(2, 1);
 	}
 
 	@Override

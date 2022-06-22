@@ -13,6 +13,7 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -138,15 +139,18 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex())};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return getCasingTextureIndex();
 	}
 
 	@Override

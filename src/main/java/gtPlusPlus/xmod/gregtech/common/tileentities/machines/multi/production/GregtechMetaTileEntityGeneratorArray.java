@@ -11,7 +11,9 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
+import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -79,15 +81,18 @@ public class GregtechMetaTileEntityGeneratorArray extends GregtechMeta_MultiBloc
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48)};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 48;
 	}
 
 	@Override

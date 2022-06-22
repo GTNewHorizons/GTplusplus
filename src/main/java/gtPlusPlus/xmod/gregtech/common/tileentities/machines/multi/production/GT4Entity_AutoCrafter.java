@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.render.TextureFactory;
@@ -151,15 +152,18 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER).extFacing().build()};
-		}
-		return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(0, 10)) };
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.getIndexFromPage(0, 10);
 	}
 
 	@Override

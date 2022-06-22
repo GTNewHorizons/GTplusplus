@@ -6,8 +6,10 @@ import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
+import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -368,35 +370,26 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE;
+	}
 
-		ITexture aOriginalTexture;
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER;
+	}
 
-		// Check things exist client side (The worst code ever)
-		if (aBaseMetaTileEntity.getWorld() != null) {
-
+	@Override
+	protected int getCasingTextureId() {
+		if (mCasingTier == 0) {
+			return 49;
 		}
-		// Check the Tier Client Side
-		int aTier = mCasingTier;		
-
-		if (aTier == 0) {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(49);
-		}
-		else if (aTier == 1) {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(43);
+		else if (mCasingTier == 1) {
+			return 43;
 		}
 		else {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(49);
+			return 49;
 		}
-
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{aOriginalTexture,
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE).extFacing().build()};
-			return new ITexture[]{aOriginalTexture,
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER).extFacing().build()};
-		}
-		return new ITexture[]{aOriginalTexture};
 	}
 
 	private int getCasingTextureID() {

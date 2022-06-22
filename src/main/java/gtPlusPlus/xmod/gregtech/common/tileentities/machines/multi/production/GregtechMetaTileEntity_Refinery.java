@@ -4,6 +4,7 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -68,15 +69,18 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(18)),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(18)),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(18))};
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(18);
 	}
 
 	@Override

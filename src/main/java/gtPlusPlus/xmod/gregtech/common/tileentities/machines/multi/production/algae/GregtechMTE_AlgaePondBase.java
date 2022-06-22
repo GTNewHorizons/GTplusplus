@@ -11,6 +11,7 @@ import java.util.List;
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -184,20 +185,22 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default_Active;
+	}
 
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
 		int aID = TAE.getIndexFromPage(1, 15);
 		if (mLevel > -1) {
 			aID = mLevel;
 		}
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID)};
+		return aID;
 	}
 
 	@Override

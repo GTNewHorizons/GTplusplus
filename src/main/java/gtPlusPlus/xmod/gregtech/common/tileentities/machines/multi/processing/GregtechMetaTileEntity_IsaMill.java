@@ -154,15 +154,19 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 		return super.checkHatch() && mMillingBallBuses.size() == 1;
 	}
 
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
-						TextureFactory.builder().addIcon(frontFaceActive).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2)),
-					TextureFactory.builder().addIcon(frontFace).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(2))};
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return frontFaceActive;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return frontFace;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(2);
 	}
 
 	@Override

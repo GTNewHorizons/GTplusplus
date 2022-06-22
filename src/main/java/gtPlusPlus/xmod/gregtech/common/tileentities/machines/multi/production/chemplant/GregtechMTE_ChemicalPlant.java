@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import gregtech.api.enums.TAE;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -397,25 +399,18 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
 
-		ITexture aOriginalTexture;
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
 
-		// Check things exist client side (The worst code ever)
-		if (aBaseMetaTileEntity.getWorld() != null) {
-
-		}
-		int aCasingID = getCasingTextureID();
-		aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(aCasingID);
-
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{aOriginalTexture,
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
-			return new ITexture[]{aOriginalTexture,
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
-		}
-		return new ITexture[]{aOriginalTexture};
+	@Override
+	protected int getCasingTextureId() {
+		return getCasingTextureID();
 	}
 
 	@Override

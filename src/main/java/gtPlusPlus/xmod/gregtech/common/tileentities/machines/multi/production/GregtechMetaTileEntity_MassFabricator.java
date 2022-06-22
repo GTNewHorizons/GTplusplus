@@ -6,6 +6,7 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
 import java.util.*;
 
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -115,15 +116,18 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9)),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_MatterFab_Active_Animated).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9)),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_MatterFab_Animated).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(9))};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_MatterFab_Active_Animated;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_MatterFab_Animated;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(9);
 	}
 
 	@Override

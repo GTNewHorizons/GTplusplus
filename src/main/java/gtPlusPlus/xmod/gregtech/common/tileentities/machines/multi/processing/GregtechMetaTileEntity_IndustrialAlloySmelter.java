@@ -12,6 +12,7 @@ import java.util.List;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.enums.HeatingCoilLevel;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -58,15 +59,19 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends GregtechMeta_
 		return new GregtechMetaTileEntity_IndustrialAlloySmelter(this.mName);
 	}
 
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID)};
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return CASING_TEXTURE_ID;
 	}
 
 	public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {

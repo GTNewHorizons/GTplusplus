@@ -6,8 +6,10 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
+import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -73,15 +75,19 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 		return tt;
 	}
 
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50)};
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 50;
 	}
 
 	@Override

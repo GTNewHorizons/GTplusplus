@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
@@ -266,16 +267,18 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44),
-						TextureFactory.builder().addIcon(getIconOverlay()).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44),
-					TextureFactory.builder().addIcon(getIconOverlay()).extFacing().build()};
-		} else {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(44)};
-		}
+	protected IIconContainer getActiveOverlay() {
+		return getIconOverlay();
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return getIconOverlay();
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 44;
 	}
 
 	public IIconContainer getIconOverlay() {

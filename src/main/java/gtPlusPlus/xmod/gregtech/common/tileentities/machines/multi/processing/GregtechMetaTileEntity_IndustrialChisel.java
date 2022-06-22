@@ -10,6 +10,8 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 import java.util.ArrayList;
 import java.util.List;
 
+import gregtech.api.enums.TAE;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -146,15 +148,19 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 		return checkPiece(mName, 1, 1, 0) && mCasing >= 10 && checkHatch();
 	}
 
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90)};
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 90;
 	}
 
 	@Override

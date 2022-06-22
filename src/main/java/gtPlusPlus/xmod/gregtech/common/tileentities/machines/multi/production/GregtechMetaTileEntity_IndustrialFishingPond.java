@@ -14,6 +14,7 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -166,15 +167,18 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends GregtechMeta_M
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_VACUUM_FREEZER_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.OVERLAY_FRONT_VACUUM_FREEZER).extFacing().build()};
-		}
-		return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()) };
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_VACUUM_FREEZER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_VACUUM_FREEZER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return getCasingTextureIndex();
 	}
 
 	@Override

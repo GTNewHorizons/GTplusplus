@@ -10,6 +10,7 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 import java.util.ArrayList;
 import java.util.List;
 
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -169,15 +170,18 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(2, 9)),
-						TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(2, 9)),
-					TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Advanced).extFacing().build()};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(2, 9))};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.getIndexFromPage(2, 9);
 	}
 
 

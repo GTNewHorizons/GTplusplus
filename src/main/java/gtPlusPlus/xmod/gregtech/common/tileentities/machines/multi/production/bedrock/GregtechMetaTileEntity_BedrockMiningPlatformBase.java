@@ -2,6 +2,7 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.b
 
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
 import gregtech.api.interfaces.IIconContainer;
@@ -74,15 +75,19 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
 		this.casingTextureIndex = this.getCasingTextureIndex();
 	}
 
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			if (aActive)
-				return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex),
-						TextureFactory.builder().addIcon(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE).extFacing().build()};
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex),
-					TextureFactory.builder().addIcon(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT).extFacing().build()};
-		}
-		return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(this.casingTextureIndex) };
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return this.casingTextureIndex;
 	}
 
 	public Object getClientGUI(final int aID, final InventoryPlayer aPlayerInventory,
