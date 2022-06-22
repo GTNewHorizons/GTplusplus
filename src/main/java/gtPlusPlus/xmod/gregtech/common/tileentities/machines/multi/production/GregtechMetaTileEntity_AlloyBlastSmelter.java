@@ -171,7 +171,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 
 	@Override
 	protected int getCasingTextureId() {
-		return 15;
+		return TAE.GTPP_INDEX(15);
 	}
 
 	@Override
