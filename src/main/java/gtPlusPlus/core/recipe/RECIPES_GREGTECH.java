@@ -109,11 +109,11 @@ public class RECIPES_GREGTECH {
 
 	private static void implosionRecipes() {
 
-		GT_Values.RA.addImplosionRecipe(
-				ItemUtils.getSimpleStack(ModItems.itemSunnariumBit, 9),
-				16,
-				ItemUtils.getSimpleStack(AdvancedSolarPanel.itemSunnariumPart, 1),
-				GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Glowstone, 8));
+        //GT_Values.RA.addImplosionRecipe(
+        		//ItemUtils.getSimpleStack(ModItems.itemSunnariumBit, 9),
+        		//16,
+        		//ItemUtils.getSimpleStack(AdvancedSolarPanel.itemSunnariumPart, 1),
+        		//GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Glowstone, 8));
 
 	}
 
@@ -529,7 +529,7 @@ public class RECIPES_GREGTECH {
 				},
 				ItemUtils.getSimpleStack(ModBlocks.blockCasings3Misc, 15, 32),
 				20 * 60 * 10 * (GTNH ? 2 : 1),
-				MaterialUtils.getVoltageForTier(6));
+				(int) MaterialUtils.getVoltageForTier(6));
 
 		//Slow Fusion Controller
 		/*CORE.RA.addAssemblylineRecipe(
@@ -609,7 +609,7 @@ public class RECIPES_GREGTECH {
 				},
 				GregtechItemList.Hatch_Input_TurbineHousing.get(4),
 				20 * 60 * 60 * (GTNH ? 2 : 1),
-				MaterialUtils.getVoltageForTier(8));
+				(int) MaterialUtils.getVoltageForTier(8));
 
 
 		/*
@@ -648,7 +648,7 @@ public class RECIPES_GREGTECH {
 					},
 					aGemCasings[aCasingSlot++],
 					20 * 60 * 1 * (GTNH ? 2 : 1),
-					MaterialUtils.getVoltageForTier(j));
+					(int) MaterialUtils.getVoltageForTier(j));
 		}
 
 		/*
@@ -690,7 +690,7 @@ public class RECIPES_GREGTECH {
 					},
 					aGemBatteries[aCasingSlot++],
 					20 * 60 * 1 * (GTNH ? 2 : 1),
-					MaterialUtils.getVoltageForTier(j));
+					(int) MaterialUtils.getVoltageForTier(j));
 		}
 
 
@@ -719,7 +719,7 @@ public class RECIPES_GREGTECH {
 					},
 					ItemUtils.getItemStackFromFQRN("miscutils:personalHealingDevice", 1),
 					20 * 60 * 30 * (GTNH ? 2 : 1),
-					MaterialUtils.getVoltageForTier(7));
+					(int) MaterialUtils.getVoltageForTier(7));
 
 
 
@@ -763,7 +763,7 @@ public class RECIPES_GREGTECH {
 						},
 						aChargeOutputs[aCurrSlot],
 						20 * 60 * 30 * (GTNH ? 2 : 1) * (aCurrSlot+1),
-						MaterialUtils.getVoltageForTier(h));
+						(int) MaterialUtils.getVoltageForTier(h));
 				aCurrSlot++;
 			}
 
@@ -791,7 +791,7 @@ public class RECIPES_GREGTECH {
 					},
 					ItemUtils.getItemStackFromFQRN("miscutils:personalCloakingDevice", 1),
 					20 * 60 * 30 * (GTNH ? 2 : 1),
-					MaterialUtils.getVoltageForTier(8));
+					(int) MaterialUtils.getVoltageForTier(8));
 		}
 
 
@@ -2154,7 +2154,7 @@ public class RECIPES_GREGTECH {
 				null,
 				new int[] { 10, 20, 20, 10, 10, 5, 5, 2 },
 				17 * 247 * 32,
-				MaterialUtils.getVoltageForTier(8),
+				(int) MaterialUtils.getVoltageForTier(8),
 				750 * 20);
 
 		// Graviton Smash
@@ -2168,7 +2168,7 @@ public class RECIPES_GREGTECH {
 				null,
 				new int[] {15, 100},
 				20 * (GTNH ? 90 : 30),
-				MaterialUtils.getVoltageForTier(6),
+				(int) MaterialUtils.getVoltageForTier(6),
 				1000 * 20);
 
 		FluidStack aPlasma = Materials.Duranium.getMolten(GTNH ? 40 : 10);
@@ -2228,7 +2228,7 @@ public class RECIPES_GREGTECH {
 								null,
 								new int[] { 275, 250, 225, 275, 250, 225, 275, 250, 275},
 								20 * 20 * (IonCount++) * tenCountA,
-								MaterialUtils.getVoltageForTier(7),
+								(int) MaterialUtils.getVoltageForTier(7),
 								1500 * 20 * tenCountA);
 			}
 			else {
@@ -2284,7 +2284,7 @@ public class RECIPES_GREGTECH {
 				FluidUtils.getFluidStack("plasma.hydrogen", 100),
 				new int[] { 1250, 1250, 1250, 750, 750, 750, 10000 },
 				20 * 60 * 2,
-				MaterialUtils.getVoltageForTier(6),
+				(int) MaterialUtils.getVoltageForTier(6),
 				750 * 20);
 
 
