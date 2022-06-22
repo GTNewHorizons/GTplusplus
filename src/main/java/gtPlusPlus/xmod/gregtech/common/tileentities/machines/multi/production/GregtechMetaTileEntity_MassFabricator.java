@@ -7,18 +7,15 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 import java.util.*;
 
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import gregtech.api.enums.*;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.*;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.objects.Logger;

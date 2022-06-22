@@ -14,16 +14,11 @@ import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
-import gregtech.api.enums.Textures.BlockIcons;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
-import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;

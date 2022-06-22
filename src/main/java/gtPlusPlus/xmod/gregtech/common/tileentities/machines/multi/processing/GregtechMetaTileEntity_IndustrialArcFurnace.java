@@ -10,9 +10,7 @@ import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
@@ -22,15 +20,12 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maint
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;

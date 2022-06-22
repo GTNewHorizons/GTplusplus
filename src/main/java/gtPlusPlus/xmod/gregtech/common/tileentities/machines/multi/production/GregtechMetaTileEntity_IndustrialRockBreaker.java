@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -24,8 +23,6 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
@@ -34,13 +31,11 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map_Microwave;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -50,7 +45,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;

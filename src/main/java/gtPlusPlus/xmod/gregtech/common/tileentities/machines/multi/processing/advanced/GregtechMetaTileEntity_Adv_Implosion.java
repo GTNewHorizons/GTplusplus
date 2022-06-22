@@ -8,15 +8,10 @@ import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.render.TextureFactory;
 import gregtech.api.util.*;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;

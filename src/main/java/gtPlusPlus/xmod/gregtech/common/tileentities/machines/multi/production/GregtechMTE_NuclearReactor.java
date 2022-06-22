@@ -23,7 +23,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maint
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -36,7 +35,6 @@ import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.nuclear.NUCLIDE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
-import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;

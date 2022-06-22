@@ -10,16 +10,11 @@ import java.util.UUID;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;

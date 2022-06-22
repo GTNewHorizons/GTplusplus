@@ -12,7 +12,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import gregtech.api.render.TextureFactory;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -22,9 +21,7 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.Element;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
@@ -35,7 +32,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OreDictUnificator;
