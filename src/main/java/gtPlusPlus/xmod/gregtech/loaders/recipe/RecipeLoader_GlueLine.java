@@ -136,15 +136,15 @@ public class RecipeLoader_GlueLine {
                         MISC_MATERIALS.CYANOACETIC_ACID.getDust(9)
                 },
                 new FluidStack[] {
-                        FluidUtils.getFluidStack(BioRecipes.mEthanol, 100)
+                        FluidUtils.getFluidStack(BioRecipes.mEthanol, 1000)
                 },
                 new ItemStack[] {
 
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(100)
+                        MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)
                 },
-                100*20,
+                1000*20,
                 6000,
                 5);
 
