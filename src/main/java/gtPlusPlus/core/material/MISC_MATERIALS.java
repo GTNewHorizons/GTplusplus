@@ -595,7 +595,7 @@ public final class MISC_MATERIALS {
 			-1, //Protons
 			-1,
 			false, //Uses Blast furnace?
-			"CuSO4∙5H2O",
+			"CuSO4∙(H2O)5",
 			0,
 			false,
 			new MaterialStack[]{
