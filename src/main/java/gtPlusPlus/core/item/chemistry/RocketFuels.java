@@ -123,26 +123,26 @@ public class RocketFuels extends ItemPackage {
 
 	public static void createHydrazine(){		
 
+		//H2O2 + 2NH3 = N2H4 + 2H2O
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedCircuit(21)
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 2000),
+						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 1000),
 						FluidUtils.getFluidStack("ammonia", 2000),
 				}, 
 				new ItemStack[] {
 
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Hydrazine, 4000),
-
+						FluidUtils.getFluidStack(Hydrazine, 1000),
 				},
 				20 * 30, 
 				MaterialUtils.getVoltageForTier(2), 
 				1);
 
-		FluidStack aBartWorksHydrogenPeroxide = FluidUtils.getWildcardFluidStack("Hydrogen Peroxide", 2000);
+		FluidStack aBartWorksHydrogenPeroxide = FluidUtils.getWildcardFluidStack("Hydrogen Peroxide", 1000);
 		if (aBartWorksHydrogenPeroxide != null) {
 			Logger.INFO("Found BW Hydrogen Peroxide, adding compat recipe.");
 			CORE.RA.addChemicalPlantRecipe(
@@ -157,7 +157,7 @@ public class RocketFuels extends ItemPackage {
 
 					}, 
 					new FluidStack[] {
-							FluidUtils.getFluidStack(Hydrazine, 4000),
+							FluidUtils.getFluidStack(Hydrazine, 1000),
 
 					},
 					20 * 30, 
