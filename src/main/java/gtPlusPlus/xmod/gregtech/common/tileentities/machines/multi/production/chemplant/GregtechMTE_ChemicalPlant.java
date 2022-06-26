@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import gregtech.api.interfaces.IIconContainer;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.StructureLibAPI;
@@ -20,8 +21,6 @@ import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
@@ -32,7 +31,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maint
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -396,21 +394,18 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
 
-		ITexture aOriginalTexture;
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
 
-		// Check things exist client side (The worst code ever)
-		if (aBaseMetaTileEntity.getWorld() != null) {
-
-		}
-		int aCasingID = getCasingTextureID();
-		aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(aCasingID);
-
-		if (aSide == aFacing) {
-			return new ITexture[]{aOriginalTexture, new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
-		return new ITexture[]{aOriginalTexture};
+	@Override
+	protected int getCasingTextureId() {
+		return getCasingTextureID();
 	}
 
 	@Override
@@ -935,7 +930,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
 	private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
 		for (int i=0; i<parallelRecipes; i++){
-			if (MathUtils.randFloat(0, 10000000)/10000000f < (1.2f - (0.2 * this.mPipeCasingTier))) {
+			// Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
+			if (this.mCoilTier >= 11 && this.mPipeCasingTier >= 4) {
+				log("not consuming catalyst");
+			}
+			else if (MathUtils.randFloat(0, 10000000)/10000000f < (1.2f - (0.2 * this.mPipeCasingTier))) {
 				int damage = getDamage(aStack) + 1;
 				log("damage catalyst "+damage);
 				if (damage >= getMaxCatalystDurability()) {
