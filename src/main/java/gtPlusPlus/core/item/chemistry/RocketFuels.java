@@ -205,6 +205,7 @@ public class RocketFuels extends ItemPackage {
 
 	private static void createHydratedAmmoniumNitrateSlurry() {		
 
+		//NH3 + HNO3 = NH4NO3
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedAdvancedCircuit(21),
@@ -217,7 +218,7 @@ public class RocketFuels extends ItemPackage {
 
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Hydrated_Ammonium_Nitrate_Slurry, 8000),
+						FluidUtils.getFluidStack(Hydrated_Ammonium_Nitrate_Slurry, 5184),
 
 				},
 				20 * 60, 
@@ -229,7 +230,7 @@ public class RocketFuels extends ItemPackage {
 	private static void createAmmoniumNitrateDust() {
 		CORE.RA.addDehydratorRecipe(
 				new ItemStack[] {CI.getNumberedCircuit(8)}, 
-				FluidUtils.getFluidStack(Hydrated_Ammonium_Nitrate_Slurry, 8*144),
+				FluidUtils.getFluidStack(Hydrated_Ammonium_Nitrate_Slurry, 8 * 144),
 				FluidUtils.getWater(2000), 
 				new ItemStack[] {
 						ItemUtils.getSimpleStack(Ammonium_Nitrate_Dust, 8)

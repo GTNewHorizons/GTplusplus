@@ -584,12 +584,10 @@ public final class MISC_MATERIALS {
 			"C6H7NO2",
 			0,
 			true,
-			new MaterialStack[]{
-					new MaterialStack(ELEMENT.getInstance().CARBON, 2),
-					new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),
-					new MaterialStack(ELEMENT.getInstance().OXYGEN, 2),
-					new MaterialStack(ELEMENT.getInstance().CHLORINE, 3)
-			});
+			new MaterialStack(ELEMENT.getInstance().CARBON, 2),
+			new MaterialStack(ELEMENT.getInstance().HYDROGEN, 1),
+			new MaterialStack(ELEMENT.getInstance().OXYGEN, 2),
+			new MaterialStack(ELEMENT.getInstance().CHLORINE, 3));
 
 	public static final Material MUTATED_LIVING_SOLDER = new Material(
 			"Mutated Living Solder",
@@ -603,8 +601,6 @@ public final class MISC_MATERIALS {
 			"?Sn?Bi?",
 			0,
 			true,
-			new MaterialStack[]{
-					new MaterialStack(ELEMENT.getInstance().TIN, 1),
-					new MaterialStack(ELEMENT.getInstance().BISMUTH, 1)
-			});
+			new MaterialStack(ELEMENT.getInstance().TIN, 1),
+			new MaterialStack(ELEMENT.getInstance().BISMUTH, 1));
 }
