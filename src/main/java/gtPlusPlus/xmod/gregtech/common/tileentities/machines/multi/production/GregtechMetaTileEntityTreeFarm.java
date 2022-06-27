@@ -146,16 +146,16 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
 	/**
 	 * Method used to get the boost based on the ordinal of the saw
-	 * @param sawOrdinal ordinal of the saw
+	 * @param sawType ordinal of the saw
 	 * @return an int corresponding to the boost
 	 */
-	public int getSawBoost(int sawOrdinal){
-		switch(sawOrdinal){
-			case 1:
+	public int getSawBoost(SAWTOOL sawType){
+		switch(sawType){
+			case SAW:
 				return 1;
-			case 2:
+			case BUZZSAW:
 				return 2;
-			case 3:
+			case CHAINSAW:
 				return 4;
 			default:
 				return 1;
@@ -201,7 +201,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 			this.mEUt = (-this.mEUt);
 		}
 		try {
-			int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5) * (mMaxProgresstime / 20) * getSawBoost(mToolType.ordinal());
+			int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5) * (mMaxProgresstime / 20) * getSawBoost(mToolType);
 			int aFert = hasLiquidFert();
 			if (aFert > 0) { //Sapling
 				if (aFert < aOutputAmount) {
