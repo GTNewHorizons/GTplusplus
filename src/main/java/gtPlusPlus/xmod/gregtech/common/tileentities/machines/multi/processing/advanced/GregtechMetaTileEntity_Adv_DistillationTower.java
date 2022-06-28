@@ -1,42 +1,42 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.advanced;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
-
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
-import com.gtnewhorizon.structurelib.structure.*;
-
-import cpw.mods.fml.relauncher.*;
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
-import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.*;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_DistillationTower> {
 
 	private byte mMode = 0;
 	private boolean mUpgraded = false;
+	private byte mTopLayerFound = 0;
 	private IStructureDefinition<GregtechMetaTileEntity_Adv_DistillationTower> STRUCTURE_DEFINITION = null;
 
 	public GregtechMetaTileEntity_Adv_DistillationTower(int aID, String aName, String aNameRegional) {
@@ -59,11 +59,14 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 					.addShape(this.mName + "bottom", transpose(new String[][]{
 						{"I~I", "III", "III"}
 					}))
-					.addShape(this.mName + "mid", transpose(new String[][]{
-						{"CCC", "C-C", "CCC"}
+					.addShape(mName + "layer", transpose(new String[][]{
+							{"CCC", "CAC", "CCC"}
 					}))
-					.addShape(this.mName + "top", transpose(new String[][]{
-						{"MMM", "MMM", "MMM"}
+					.addShape(mName + "hintlayer", transpose(new String[][]{
+							{"CCC", "C-C", "CCC"}
+					}))
+					.addShape(mName + "hinttop", transpose(new String[][]{
+							{"MMM", "MMM", "MMM"}
 					}))
 					.addElement(
 							'I',
@@ -75,17 +78,27 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 					.addElement(
 							'C',
 							ofHatchAdderOptional(
-									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerMidList, getCasingTextureID(),
+									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerLayerList, getCasingTextureID(),
 									2, GregTech_API.sBlockCasings4, 1
 									)
 							)
 					.addElement(
 							'M',
 							ofHatchAdderOptional(
-									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerTopList, getCasingTextureID(),
+									GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerLayerList, getCasingTextureID(),
 									3, GregTech_API.sBlockCasings4, 1
 									)
 							)
+					.addElement(
+							'A',
+							ofChain(
+									onElementPass(t -> t.mTopLayerFound |= 1, ofHatchAdderOptional(
+											GregtechMetaTileEntity_Adv_DistillationTower::addAdvDistillationTowerLayerList, getCasingTextureID(),
+											2, GregTech_API.sBlockCasings4, 1
+									)),
+									isAir()
+							)
+					)
 					.build();
 		}
 		return this.STRUCTURE_DEFINITION;
@@ -111,19 +124,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		return false;
 	}
 
-	public final boolean addAdvDistillationTowerMidList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-		if (aTileEntity == null) {
-			return false;
-		} else {
-			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output){
-				return addToMachineList(aTileEntity, aBaseCasingIndex);
-			}
-		}
-		return false;
-	}
-
-	public final boolean addAdvDistillationTowerTopList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+	public final boolean addAdvDistillationTowerLayerList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
 		if (aTileEntity == null) {
 			return false;
 		} else {
@@ -131,6 +132,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output){
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler){
+				mTopLayerFound |= 2;
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}
 		}
@@ -167,26 +169,27 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 		int layer = stackSize.stackSize <= 1 ? 12 : 26;
 		buildPiece(this.mName + "bottom", stackSize, hintsOnly, 1, 0, 0);
 		for (int i = 1; i < layer - 1; i++) {
-			buildPiece(this.mName + "mid", stackSize, hintsOnly, 1, i, 0);
+			buildPiece(mName + "hintlayer", stackSize, hintsOnly, 1, i, 0);
 		}
-		buildPiece(this.mName + "top", stackSize, hintsOnly, 1, layer - 1, 0);
+		buildPiece(mName + "hinttop", stackSize, hintsOnly, 1, layer - 1, 0);
 	}
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
 		if (!checkPiece(this.mName + "bottom", 1, 0, 0))
 			return false;
-		int layer = 1;
-		while (checkPiece(this.mName + "mid", 1, layer, 0)) {
-			if (layer != this.mOutputHatches.size()) {
+		mTopLayerFound = 0;
+		int layer = 0;
+		while (checkPiece(mName + "layer", 1, layer + 1, 0)) {
+			layer++;
+			if (layer > 12)
 				return false;
-			}
-			layer ++;
+			if (layer != mOutputHatches.size())
+				return false;
+			if (mTopLayerFound == 3) break;
+			if (mTopLayerFound != 0) return false;
 		}
-		if (layer > (!this.mUpgraded ? 12 : 26) || !checkPiece(this.mName + "top", 1, layer, 0)) {
-			return false;
-		}
-		return layer == this.mOutputHatches.size() && checkHatch();
+		return mTopLayerFound == 3 && layer == mOutputHatches.size() && checkHatch();
 	}
 
 	@Override
@@ -379,31 +382,26 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends GregtechMeta_M
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE;
+	}
 
-		ITexture aOriginalTexture;
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER;
+	}
 
-		// Check things exist client side (The worst code ever)
-		if (aBaseMetaTileEntity.getWorld() != null) {
-
+	@Override
+	protected int getCasingTextureId() {
+		if (mCasingTier == 0) {
+			return 49;
 		}
-		// Check the Tier Client Side
-		int aTier = this.mCasingTier;
-
-		if (aTier == 0) {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(49);
-		}
-		else if (aTier == 1) {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(43);
+		else if (mCasingTier == 1) {
+			return 43;
 		}
 		else {
-			aOriginalTexture = Textures.BlockIcons.getCasingTextureForId(49);
+			return 49;
 		}
-
-		if (aSide == aFacing) {
-			return new ITexture[]{aOriginalTexture, new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER)};
-		}
-		return new ITexture[]{aOriginalTexture};
 	}
 
 	private int getCasingTextureID() {

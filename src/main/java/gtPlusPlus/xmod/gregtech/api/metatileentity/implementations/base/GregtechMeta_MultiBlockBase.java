@@ -1,28 +1,27 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 
-import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
-
-import java.lang.reflect.*;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.function.*;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.gtnewhorizon.structurelib.StructureLibAPI;
 import com.gtnewhorizon.structurelib.structure.IStructureElement;
-
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
-import gregtech.api.gui.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.Textures;
+import gregtech.api.gui.GT_Container_MultiMachine;
+import gregtech.api.gui.GT_GUIContainer_MultiMachine;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.*;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.util.*;
+import gregtech.api.render.TextureFactory;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.GTplusplus.INIT_PHASE;
 import gtPlusPlus.api.helpers.GregtechPlusPlus_API.Multiblock_API;
@@ -30,10 +29,12 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.*;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.api.objects.minecraft.multi.SpecialMultiBehaviour;
-import gtPlusPlus.core.lib.*;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.*;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.asm.AsmConfig;
@@ -41,14 +42,29 @@ import gtPlusPlus.xmod.gregtech.api.gui.*;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.*;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechItems;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
+import java.util.function.Function;
+
+import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
 // Glee8e - 11/12/21 - 2:15pm
 // Yeah, now I see what's wrong. Someone inherited from GregtechMeta_MultiBlockBase instead of GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialDehydrator> as it should have been
@@ -2821,5 +2837,31 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 		};
 	}
 
+	@Override
+	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+		if (aSide == aFacing) {
+			if (aActive)
+				return new ITexture[]{getCasingTexture(),
+						TextureFactory.builder().addIcon(getActiveOverlay()).extFacing().build()};
+			return new ITexture[]{getCasingTexture(),
+					TextureFactory.builder().addIcon(getInactiveOverlay()).extFacing().build()};
+		}
+		return new ITexture[]{getCasingTexture()};
+	}
 
+	protected IIconContainer getActiveOverlay() {
+		return null;
+	}
+
+	protected IIconContainer getInactiveOverlay() {
+		return null;
+	}
+
+	protected ITexture getCasingTexture() {
+		return Textures.BlockIcons.getCasingTextureForId(getCasingTextureId());
+	}
+
+	protected int getCasingTextureId() {
+		return 0;
+	}
 }

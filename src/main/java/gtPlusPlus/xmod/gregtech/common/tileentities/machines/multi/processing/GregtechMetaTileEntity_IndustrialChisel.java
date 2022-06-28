@@ -6,17 +6,22 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
 import java.util.*;
 
+import gregtech.api.interfaces.IIconContainer;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.*;
 
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
+import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -135,11 +140,18 @@ public class GregtechMetaTileEntity_IndustrialChisel extends GregtechMeta_MultiB
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(90)};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 90;
 	}
 
 	@Override

@@ -1,10 +1,5 @@
 package gtPlusPlus.core.recipe;
 
-import static gtPlusPlus.core.lib.CORE.GTNH;
-
-import java.util.ArrayList;
-
-import advsolar.common.AdvancedSolarPanel;
 import cpw.mods.fml.common.Loader;
 import gregtech.api.enums.*;
 import gregtech.api.util.*;
@@ -28,6 +23,10 @@ import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+
+import static gtPlusPlus.core.lib.CORE.GTNH;
 
 public class RECIPES_GREGTECH {
 
@@ -407,7 +406,7 @@ public class RECIPES_GREGTECH {
 
 					},
 					new FluidStack[] {
-							FluidUtils.getHydrofluoricAcid(6000)
+							FluidUtils.getHydrofluoricAcid(4000)
 					},
 					30 * 20,
 					480,
@@ -1337,9 +1336,21 @@ public class RECIPES_GREGTECH {
 					5 * 20,
 					180);
 		}
-
+		//Alternative ACETIC ANHYDRIDE recipe for Kevlar Line
+		CORE.RA.addDehydratorRecipe(
+				new ItemStack[] {
+						CI.getNumberedAdvancedCircuit(18),
+						CI.emptyCells(1)
+				},
+				FluidUtils.getFluidStack("aceticacid", 2000),
+				MISC_MATERIALS.ACETIC_ANHYDRIDE.getFluidStack(1000),
+				new ItemStack[] {
+						ItemUtils.getItemStackOfAmountFromOreDict("cellWater", 1),
+				},
+				new int[] {10000},
+				30 * 20,
+				480);
 	}
-
 	private static void largeChemReactorRecipes() {
 		//Styrene
 		CORE.RA.addMultiblockChemicalRecipe(

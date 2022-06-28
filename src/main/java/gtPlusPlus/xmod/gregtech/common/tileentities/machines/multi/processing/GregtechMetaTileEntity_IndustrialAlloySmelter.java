@@ -6,21 +6,25 @@ import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
 import java.util.*;
 
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.enums.HeatingCoilLevel;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gtPlusPlus.core.lib.CORE;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.enums.*;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -50,11 +54,18 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends GregtechMeta_
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID), new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID)};
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return CASING_TEXTURE_ID;
 	}
 
 	@Override

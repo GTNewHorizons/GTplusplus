@@ -1990,28 +1990,30 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
 
 	@Override
-	public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt, int aAmps) {
-		if ((aInput == null) || (aOutput == null)) {
-			return false;
-		}
-		GTPP_Recipe aRecipe = new GTPP_Recipe(
-				false,
-				new ItemStack[] {aInput},
-				new ItemStack[] {aOutput},
-				null,
-				new int[] {10000},
-				new FluidStack[] {},
-				new FluidStack[] {},
-				aDuration,
-				aEUt,
-				aAmps);
+	public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt) {
+    	if ((aInput == null) || (aOutput == null)) {
+    		return false;
+    	}        
+    	GTPP_Recipe aRecipe = new GTPP_Recipe(
+    			false,
+    			new ItemStack[] {aInput},
+    			new ItemStack[] {aOutput},
+    			null,
+    			new int[] {10000},
+    			new FluidStack[] {},
+    			new FluidStack[] {},
+    			aDuration,
+    			aEUt,
+    			0);
 
-		int aSize = GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size();
-		GTPP_Recipe_Map.sMolecularTransformerRecipes.add(aRecipe);
-		return GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size() > aSize;
+    	int aSize = GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size();
+    	GTPP_Recipe_Map.sMolecularTransformerRecipes.add(aRecipe);
+    	return GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size() > aSize;
 	}
 
 
-
-
+	@Override
+	public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt, int aAmps) {
+		return addMolecularTransformerRecipe(aInput, aOutput, aDuration, aEUt);
+	}
 }

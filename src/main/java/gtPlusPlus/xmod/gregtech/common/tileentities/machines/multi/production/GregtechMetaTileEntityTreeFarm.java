@@ -9,13 +9,11 @@ import forestry.api.arboriculture.TreeManager;
 import forestry.api.genetics.IAlleleBoolean;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
-import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.*;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.render.TextureFactory;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.util.*;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gtPlusPlus.api.objects.Logger;
@@ -108,11 +106,19 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 		return tt;
 	}
 
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID), TextureFactory.of(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(CASING_TEXTURE_ID)};
+	@Override
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return CASING_TEXTURE_ID;
 	}
 
 	@Override
@@ -144,6 +150,24 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 	public boolean isCorrectMachinePart(final ItemStack aStack) {
 		// is correct part && either not powered tool or have enough power
 		return TreeFarmHelper.isValidForGUI(aStack) && !GT_ModHandler.isElectricItem(aStack) || GT_ModHandler.canUseElectricItem(aStack, 1);
+	}
+
+	/**
+	 * Method used to get the boost based on the ordinal of the saw
+	 * @param sawType type of the saw
+	 * @return an int corresponding to the boost
+	 */
+	public int getSawBoost(SAWTOOL sawType){
+		switch(sawType){
+			case SAW:
+				return 1;
+			case BUZZSAW:
+				return 2;
+			case CHAINSAW:
+				return 4;
+			default:
+				return 1;
+		}
 	}
 
 	@Override
@@ -187,7 +211,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 			this.mEUt = (-this.mEUt);
 		}
 		try {
-			int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5) * (mMaxProgresstime / 20) * mToolType.ordinal();
+			int aOutputAmount = ((2 * (tTier * tTier)) - (2 * tTier) + 5) * (mMaxProgresstime / 20) * getSawBoost(mToolType);
 			int aFert = hasLiquidFert();
 			if (aFert > 0) { //Sapling
 				if (aFert < aOutputAmount) {

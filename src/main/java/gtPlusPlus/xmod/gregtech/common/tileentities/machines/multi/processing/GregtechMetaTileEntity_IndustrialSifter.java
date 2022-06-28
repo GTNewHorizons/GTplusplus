@@ -7,12 +7,11 @@ import java.util.Random;
 
 import com.gtnewhorizon.structurelib.structure.*;
 
-import gregtech.api.enums.*;
-import gregtech.api.interfaces.ITexture;
+import gregtech.api.enums.TAE;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -145,11 +144,18 @@ public class GregtechMetaTileEntity_IndustrialSifter extends GregtechMeta_MultiB
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(21)), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Default_Active : TexturesGtBlock.Overlay_Machine_Controller_Default)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(21))};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(21);
 	}
 
 	@Override

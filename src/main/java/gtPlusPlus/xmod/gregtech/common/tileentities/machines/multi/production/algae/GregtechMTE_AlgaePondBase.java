@@ -9,6 +9,7 @@ import java.util.*;
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gtPlusPlus.core.lib.CORE;
@@ -19,18 +20,16 @@ import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
-import gregtech.api.interfaces.ITexture;
+import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.*;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_AlgaeFarm;
@@ -47,6 +46,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	private int mCasing;
 	private IStructureDefinition<GregtechMTE_AlgaePondBase> STRUCTURE_DEFINITION = null;
 	private int checkMeta;
+	private int minTierOfHatch;
 	private static final Class<?> cofhWater;
 
 	static {
@@ -80,22 +80,23 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Grows Algae!")
-		.addInfo("Controller Block for the Algae Farm")
-		.addInfo("Provide compost to boost production by one tier")
-		.addInfo("Does not require power or maintenance")
-		.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
-		.addInfo("Fill Input Hatch with water.")
-		.addPollutionAmount(getPollutionPerSecond(null))
-		.addSeparator()
-		.beginStructureBlock(9, 3, 9, true)
-		.addController("Front Center")
-		.addCasingInfo("Machine Casings", 64)
-		.addCasingInfo("Sterile Farm Casings", 34)
-		.addInputBus("Any Casing", 1)
-		.addOutputBus("Any Casing", 1)
-		.addInputHatch("Any Casing", 1)
-		.toolTipFinisher(CORE.GT_Tooltip_Builder);
+				.addInfo("Grows Algae!")
+				.addInfo("Controller Block for the Algae Farm")
+				.addInfo("Provide compost to boost production by one tier")
+				.addInfo("Does not require power or maintenance")
+				.addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
+				.addInfo("All Buses/Hatches must, at least, match the tier of the Casings")
+				.addInfo("Fill Input Hatch with Water to fill the inside of the multiblock.")
+				.addPollutionAmount(getPollutionPerSecond(null))
+				.addSeparator()
+				.beginStructureBlock(9, 3, 9, true)
+				.addController("Front Center")
+				.addCasingInfo("Machine Casings", 64)
+				.addCasingInfo("Sterile Farm Casings", 34)
+				.addInputBus("Any Casing", 1)
+				.addOutputBus("Any Casing", 1)
+				.addInputHatch("Any Casing", 1)
+				.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
 
@@ -148,12 +149,13 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
 	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		this.mCasing = 0;
-		this.mLevel = 0;
-		this.checkMeta = 0;
-		if (checkPiece(this.mName, 4, 2, 0) && this.mCasing >= 64 && this.checkMeta > 0) {
-			this.mLevel = this.checkMeta - 1;
-			return true;
+		mCasing = 0;
+		mLevel = 0;
+		checkMeta = 0;
+		minTierOfHatch = 100;
+		if (checkPiece(mName, 4, 2, 0) && mCasing >= 64 && checkMeta > 0) {
+			mLevel = checkMeta - 1;
+			return mLevel <= minTierOfHatch;
 		}
 		return false;
 	}
@@ -164,10 +166,13 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 		} else {
 			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
 			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_InputBus) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus) {
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_OutputBus) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+				minTierOfHatch = Math.min(minTierOfHatch, ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mTier);
 				return addToMachineList(aTileEntity, aBaseCasingIndex);
 			}
 		}
@@ -186,16 +191,22 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default_Active;
+	}
 
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Default;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
 		int aID = TAE.getIndexFromPage(1, 15);
-		if (this.mLevel > -1) {
-			aID = this.mLevel;
+		if (mLevel > -1) {
+			aID = mLevel;
 		}
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Default_Active : TexturesGtBlock.Overlay_Machine_Controller_Default)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(aID)};
+		return aID;
 	}
 
 	@Override

@@ -1,17 +1,15 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
-
-import com.gtnewhorizon.structurelib.structure.*;
-
-import gregtech.api.enums.*;
-import gregtech.api.interfaces.ITexture;
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.TAE;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.general.ItemLavaFilter;
@@ -23,6 +21,9 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraftforge.fluids.*;
+
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Entity_ThermalBoiler> {
 
@@ -251,12 +252,18 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(1)),
-					new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(1))};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(1);
 	}
 
 	@Override

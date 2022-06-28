@@ -1,22 +1,23 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
-
-import com.gtnewhorizon.structurelib.structure.*;
-
-import gregtech.api.enums.*;
-import gregtech.api.interfaces.ITexture;
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import gregtech.api.enums.TAE;
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import net.minecraft.item.ItemStack;
+
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Refinery> {
 
@@ -63,11 +64,18 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
 	}
 
 	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing, final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(18)), new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(18))};
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_MULTI_SMELTER;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return TAE.GTPP_INDEX(18);
 	}
 
 	@Override

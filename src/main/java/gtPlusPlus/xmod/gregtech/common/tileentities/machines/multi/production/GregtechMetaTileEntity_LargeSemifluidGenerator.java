@@ -10,12 +10,12 @@ import com.gtnewhorizon.structurelib.structure.*;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.*;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
-import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.*;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
@@ -69,11 +69,18 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends GregtechMeta
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50), new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(50)};
+	protected IIconContainer getActiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE_ACTIVE;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return Textures.BlockIcons.OVERLAY_FRONT_DIESEL_ENGINE;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 50;
 	}
 
 	@Override

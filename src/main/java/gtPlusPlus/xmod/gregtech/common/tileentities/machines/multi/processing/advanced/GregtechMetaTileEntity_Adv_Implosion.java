@@ -7,12 +7,10 @@ import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import com.gtnewhorizon.structurelib.structure.*;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.*;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
@@ -123,11 +121,18 @@ public class GregtechMetaTileEntity_Adv_Implosion extends GregtechMeta_MultiBloc
 	}
 
 	@Override
-	public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-		if (aSide == aFacing) {
-			return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48), new GT_RenderedTexture(aActive ? TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active : TexturesGtBlock.Overlay_Machine_Controller_Advanced)};
-		}
-		return new ITexture[]{Textures.BlockIcons.getCasingTextureForId(48)};
+	protected IIconContainer getActiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
+	}
+
+	@Override
+	protected IIconContainer getInactiveOverlay() {
+		return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
+	}
+
+	@Override
+	protected int getCasingTextureId() {
+		return 48;
 	}
 
 	@Override
