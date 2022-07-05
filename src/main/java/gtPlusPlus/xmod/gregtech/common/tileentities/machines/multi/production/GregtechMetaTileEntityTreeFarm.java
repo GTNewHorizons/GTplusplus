@@ -89,6 +89,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 				.addInfo("Chainsaw = 4x")
 				.addInfo("Add a sapling in the input bus to select wood type output")
 				.addInfo("Tools can also be fed to the controller via input bus")
+				.addInfo("The working speed is fixed for 5s")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
 				.beginStructureBlock(3, 3, 3, true)
