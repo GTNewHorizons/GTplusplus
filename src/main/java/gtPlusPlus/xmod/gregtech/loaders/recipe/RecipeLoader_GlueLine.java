@@ -95,7 +95,7 @@ public class RecipeLoader_GlueLine {
                         FluidUtils.getFluidStack("hydrochloricacid_gt5u", 2000)
                 },
                 new ItemStack[] {
-                        MISC_MATERIALS.CYANOACETIC_ACID.getDust(18),
+                        MISC_MATERIALS.CYANOACETIC_ACID.getDust(9),
                         Materials.Salt.getDust(6)
                 },
                 new FluidStack[] {
@@ -105,8 +105,6 @@ public class RecipeLoader_GlueLine {
                 20*20,
                 1000,
                 4);
-
-        BioRecipes.mEthanol = FluidUtils.getFluidStack("bioethanol", 1).getFluid();
 
         //CuSO4 + 5C3H3NO2 + 5C2H6O = CuSO4·5(H2O) + 5C5H7NO2
         CORE.RA.addChemicalPlantRecipe(

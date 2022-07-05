@@ -52,12 +52,10 @@ public class GenericChem extends ItemPackage {
 			false,
 			null,
 			0,
-			new MaterialStack[] {
-					new MaterialStack(NONMATERIAL.PTFE, 75),
-					new MaterialStack(NONMATERIAL.PLASTIC, 15),
-					new MaterialStack(ELEMENT.getInstance().CARBON, 5),
-					new MaterialStack(ELEMENT.getInstance().SODIUM, 5)
-			});
+			new MaterialStack(NONMATERIAL.PTFE, 75),
+			new MaterialStack(NONMATERIAL.PLASTIC, 15),
+			new MaterialStack(ELEMENT.getInstance().CARBON, 5),
+			new MaterialStack(ELEMENT.getInstance().SODIUM, 5));
 
 	/**
 	 * Fluids
@@ -954,63 +952,47 @@ public class GenericChem extends ItemPackage {
 
 	private void recipe2Ethylanthraquinone() {
 
+		//C6H4(CO)2O + C6H5CH2CH3 = C6H4(CO)2C6H3CH2CH3 + H2O
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedCircuit(4),		
-						ItemUtils.getItemStackOfAmountFromOreDict("dustPhthalicAnhydride", 4),				
-				}, 
+						ItemUtils.getItemStackOfAmountFromOreDict("dustPhthalicAnhydride", 15),
+				},
 				new FluidStack[] {
-						FluidUtils.getFluidStack(CoalTar.Ethylbenzene, 2000),
-				}, 
+						FluidUtils.getFluidStack(CoalTar.Ethylbenzene, 1000),
+				},
 				new ItemStack[] {
 
-				}, 
+				},
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Ethylanthraquinone2, 2000+(144*4)),
+						FluidUtils.getFluidStack(Ethylanthraquinone2, 1000),
 				}, 
 				20 * 15, 
 				120, 
-				2);		
-
-		/*GT_Values.RA.addChemicalRecipe(
-				ItemUtils.getItemStackOfAmountFromOreDict("dustPhthalicAnhydride", 4),
-				ItemUtils.getItemStackOfAmountFromOreDict("cellEthylbenzene", 2),
-				null,
-				FluidUtils.getFluidStack("fluid.2ethylanthraquinone", 2000+(144*4)),
-				ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 2),
-				20*16);*/
-
+				2);
 	}
 
 	private void recipe2Ethylanthrahydroquinone() {
 
+		//C6H4(CO)2C6H3CH2CH3 + 2H = C6H4(COH)2C6H3CH2CH3
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedCircuit(4),		
 						ItemUtils.getSimpleStack(mOrangeCatalyst, 0),			
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Ethylanthraquinone2, 4000),
+						FluidUtils.getFluidStack(Ethylanthraquinone2, 1000),
 						FluidUtils.getFluidStack("hydrogen", 2000),
 				}, 
 				new ItemStack[] {
 
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Ethylanthrahydroquinone2, 5000),
+						FluidUtils.getFluidStack(Ethylanthrahydroquinone2, 1000),
 				}, 
 				20 * 40, 
 				120, 
-				2);	
-
-		/*GT_Values.RA.addChemicalRecipe(
-				ItemUtils.getItemStackOfAmountFromOreDict("platePalladium", 0),
-				ItemUtils.getItemStackOfAmountFromOreDict("cell2Ethylanthraquinone", 1),
-				FluidUtils.getFluidStack("hydrogen", 500),
-				FluidUtils.getFluidStack("fluid.2ethylanthrahydroquinone", 1200),
-				ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 1),
-				20*40);*/
-
+				2);
 	}
 
 	private void recipeLithiumPeroxide() {
@@ -1068,23 +1050,43 @@ public class GenericChem extends ItemPackage {
 
 	private void recipeHydrogenPeroxide() {	
 
+		//C6H4(COH)2C6H3CH2CH3 + 2O =(C6H4CH)2= H2O2 + C6H4(CO)2C6H3CH2CH3
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedCircuit(4),
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack("air", 15000),
+						FluidUtils.getFluidStack("air", 20000),
 						FluidUtils.getFluidStack(Ethylanthrahydroquinone2, 5000),
 						FluidUtils.getFluidStack("fluid.anthracene", 50),
 				}, 
 				new ItemStack[] {					
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack(Ethylanthraquinone2, 4000),
-						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 2000),						
+						FluidUtils.getFluidStack(Ethylanthraquinone2, 5000),
+						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 5000),
 				}, 
 				20 * 30, 
 				240, 
+				1);
+
+		CORE.RA.addChemicalPlantRecipe(
+				new ItemStack[] {
+						CI.getNumberedCircuit(4),
+				},
+				new FluidStack[] {
+						Materials.Oxygen.getGas(10000),
+						FluidUtils.getFluidStack(Ethylanthrahydroquinone2, 5000),
+						FluidUtils.getFluidStack("fluid.anthracene", 50),
+				},
+				new ItemStack[] {
+				},
+				new FluidStack[] {
+						FluidUtils.getFluidStack(Ethylanthraquinone2, 5000),
+						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 5000),
+				},
+				20 * 30,
+				240,
 				1);
 
 		/*		CORE.RA.addChemicalRecipe(

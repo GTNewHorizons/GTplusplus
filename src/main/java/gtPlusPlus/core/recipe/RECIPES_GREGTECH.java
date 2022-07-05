@@ -233,19 +233,20 @@ public class RECIPES_GREGTECH {
 				2);
 
 		// Produce Boric Acid
+		//Na2B4O7·10H2O + 2HCl = 4B(OH)3 + 2NaCl + 5H2O
 		CORE.RA.addChemicalPlantRecipe(
 				new ItemStack[] {
 						CI.getNumberedAdvancedCircuit(21),
-						ItemUtils.getItemStackOfAmountFromOreDict("dustBorax", 4),
+						ItemUtils.getItemStackOfAmountFromOreDict("dustBorax", 23),
 				}, 
 				new FluidStack[] {
 						FluidUtils.getFluidStack(GenericChem.HydrochloricAcid, 2000)
 				}, 
 				new ItemStack[] {
-						ItemUtils.getItemStackOfAmountFromOreDict("dustSalt", 5),
+						ItemUtils.getItemStackOfAmountFromOreDict("dustSalt", 4),
 				}, 
 				new FluidStack[] {
-						FluidUtils.getFluidStack("boricacid", 2000),
+						FluidUtils.getFluidStack("boricacid", 4000),
 						FluidUtils.getWater(5000)
 				},
 				20 * 30,
@@ -428,7 +429,6 @@ public class RECIPES_GREGTECH {
 
 	private static void fluidheaterRecipes() {
 		GT_Values.RA.addFluidHeaterRecipe(CI.getNumberedCircuit(20), FluidUtils.getWater(1000), FluidUtils.getHotWater(1000), 30, 30);
-
 	}
 
 	private static void vacuumFreezerRecipes() {
@@ -1862,12 +1862,12 @@ public class RECIPES_GREGTECH {
 
 		GT_Values.RA.addCentrifugeRecipe(
 				CI.getNumberedAdvancedCircuit(2),
-				MISC_MATERIALS.SOLAR_SALT_COLD.getCell(10), 
+				MISC_MATERIALS.SOLAR_SALT_COLD.getCell(5),
 				null,
 				null,
-				MISC_MATERIALS.SODIUM_NITRATE.getDust(6),
-				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(4),
-				CI.emptyCells(10), 
+				MISC_MATERIALS.SODIUM_NITRATE.getDust(15),
+				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(10),
+				CI.emptyCells(5),
 				null, 
 				null, 
 				null, 
@@ -1893,12 +1893,12 @@ public class RECIPES_GREGTECH {
 
 		GT_Values.RA.addMixerRecipe(
 				CI.getNumberedAdvancedCircuit(2),
-				CI.emptyCells(10),
-				MISC_MATERIALS.SODIUM_NITRATE.getDust(6), 
-				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(4),
+				CI.emptyCells(5),
+				MISC_MATERIALS.SODIUM_NITRATE.getDust(15),
+				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(10),
 				null, 
 				null,
-				MISC_MATERIALS.SOLAR_SALT_COLD.getCell(10),
+				MISC_MATERIALS.SOLAR_SALT_COLD.getCell(5),
 				20 * 10, 
 				120);
 
@@ -1931,12 +1931,12 @@ public class RECIPES_GREGTECH {
 				ItemUtils.getItemStackOfAmountFromOreDict("dustSmallSulfur", 8), 
 				20 * 20);		
 
-		//K + HNO3 = KNO3 + H
+		//KOH + HNO3 = KNO3 + H2O
 		GT_Values.RA.addChemicalRecipe(
-				Materials.Potassium.getDust(1),
+				ItemUtils.getSimpleStack(GenericChem.mPotassiumHydroxide, 3),
 				CI.getNumberedAdvancedCircuit(1), 
 				Materials.NitricAcid.getFluid(1000),
-				Materials.Hydrogen.getGas(1000),
+				Materials.Water.getFluid(1000),
 				MISC_MATERIALS.POTASSIUM_NITRATE.getDust(5),
 				100,
 				30);
@@ -1947,7 +1947,7 @@ public class RECIPES_GREGTECH {
 				CI.getNumberedAdvancedCircuit(1), 
 				Materials.NitricAcid.getFluid(2000),
 				Materials.CarbonDioxide.getGas(1000),
-				MISC_MATERIALS.SODIUM_NITRATE.getDust(5),
+				MISC_MATERIALS.SODIUM_NITRATE.getDust(10),
 				100, 
 				30);
 

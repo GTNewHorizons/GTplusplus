@@ -969,14 +969,14 @@ public class BioRecipes {
 	}
 
 	private static void recipeAlumina() {
-		//2NaAlO2 + 2NaOH + 2CO2 = Al2O3 + 2NaCO3 + H2O
+		//2NaAlO2 + 2NaOH + 2CO2 = Al2O3 + 2Na2CO3 + H2O
 		GT_Values.RA.addBlastRecipe(
 				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumAluminate, 8),
 				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumHydroxide, 6),
 				FluidUtils.getFluidStack(mCarbonDioxide, 2000),
 				GT_Values.NF,
 				ItemUtils.getSimpleStack(AgriculturalChem.mAlumina, 5),
-				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 10),
+				ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 12),
 				20 * 40,
 				120,
 				1200);
