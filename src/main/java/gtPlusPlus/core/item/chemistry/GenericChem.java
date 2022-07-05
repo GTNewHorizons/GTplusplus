@@ -1085,7 +1085,7 @@ public class GenericChem extends ItemPackage {
 						FluidUtils.getFluidStack(Ethylanthraquinone2, 5000),
 						FluidUtils.getFluidStack("fluid.hydrogenperoxide", 5000),
 				},
-				20 * 30,
+				20 * 5,
 				240,
 				1);
 
