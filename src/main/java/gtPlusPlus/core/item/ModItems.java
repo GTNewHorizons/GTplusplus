@@ -32,10 +32,8 @@ import gtPlusPlus.core.item.general.capture.ItemEntityCatcher;
 import gtPlusPlus.core.item.general.chassis.*;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
 import gtPlusPlus.core.item.general.throwables.*;
-import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.*;
-import gtPlusPlus.core.item.tool.misc.box.*;
 import gtPlusPlus.core.item.tool.staballoy.*;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.*;
@@ -416,12 +414,6 @@ public final class ModItems {
 		backpack_Black = new BaseItemBackpack("backpackBlack", Utils.rgbtoHexValue(20, 20, 20));
 		backpack_White = new BaseItemBackpack("backpackWhite", Utils.rgbtoHexValue(240, 240, 240));
 
-
-		//Load Custom Box/bags
-		boxTools = new UniversalToolBox("Tool Box");
-		boxFood = new AutoLunchBox("Eatotron-9000");
-		boxMagic = new MagicToolBag("Mystic Bag");
-
 		itemBlueprintBase = new ItemBlueprint("itemBlueprint");
 
 		itemGemShards = new ItemGemShards("itemGemShards", "Gem Shards", AddToCreativeTab.tabMisc, 32, 0, "They glitter in the light", EnumRarity.rare, EnumChatFormatting.GRAY, false, Utils.rgbtoHexValue(182, 114, 18)).setTextureName(CORE.MODID + ":itemHeliumBlob");
@@ -429,8 +421,6 @@ public final class ModItems {
 		itemSulfuricPotion = new ItemSulfuricAcidPotion("itemSulfuricPotion", "Throwable Vial of Sulfuric Acid", "Burn your foes alive!").setTextureName(CORE.MODID + ":itemSulfuricAcidPotion");
 		itemHydrofluoricPotion = new ItemHydrofluoricAcidPotion("itemHydrofluoricPotion", "Throwable Vial of Hydrofluoric Acid", "They won't see this coming, nor anything after!").setTextureName(CORE.MODID + ":itemPotion");
 		//Start meta Item Generation
-		ItemsFoods.load();
-
 
 		try{
 
