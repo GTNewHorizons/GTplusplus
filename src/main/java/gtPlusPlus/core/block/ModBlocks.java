@@ -64,8 +64,6 @@ public final class ModBlocks {
 	public static Block blockCustomPipeGearCasings;	
 	
 	public static Block blockMetaTileEntity;
-	public static Block blockHeliumGenerator;
-	public static Block blockNHG;
 	public static Block blockCharger;
 
 	public static Block MatterFabricatorEffectBlock;
@@ -74,8 +72,6 @@ public final class ModBlocks {
 	public static Block blockFluidSludge;
 
 	public static Block blockFirePit;
-
-	public static Block blockOreFluorite;
 
 	public static Block blockMiningExplosive;
 
@@ -97,7 +93,6 @@ public final class ModBlocks {
 	public static Block blockPlayerDoorCustom_Cactus;
 
 	public static Block blockCustomMobSpawner;
-	public static Block blockCustomSuperLight;
 	public static Block blockCustomJukebox;
 	
 	public static Block blockPooCollector;
@@ -120,13 +115,18 @@ public final class ModBlocks {
 		FluidRegistryHandler.registerFluids();
 
 		//Workbench
-		blockHeliumGenerator = new HeliumGenerator();
-		blockFirePit = new FirePit();
 		blockFishTrap = new FishTrap();
+
+		// Creative fluid tank block for dev testing.
 		blockInfiniteFLuidTank = new FluidTankInfinite();
-		//blockOreFluorite = new BlockBaseOre.oldOreBlock("oreFluorite", "Fluorite", Material.rock, BlockTypes.ORE, Utils.rgbtoHexValue(120, 120, 30), 3);
+
+		// Large explosive that drops all blocks/items, can be very laggy.
 		blockMiningExplosive = new MiningExplosives();
+
+		// Fire made from disc.
 		blockHellfire = new HellFire();
+
+
 		blockProjectTable =  new Machine_ProjectTable();
 		blockTradeTable =  new Machine_TradeTable();
 		blockModularTable =  new Machine_ModularityTable();
