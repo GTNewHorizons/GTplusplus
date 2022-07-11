@@ -12,6 +12,9 @@ Click the Green Passed/Red Failed button for the latest BETA builds!
 Make sure you are signed in via Github/BitBucket.  
 If you have not done so, login here first. [Sign into CircleCI here!](https://circleci.com/vcs-authorize/)  
 Downloads can be found on the artefacts tab (builds) located within each job.  
+
+### Attribution.
+Huge thanks to Jimbno, author of [UU-Tex](https://github.com/Jimbno/UU-Tex) for many texture updates and contributions.
   
 ### Discord  
 [Join the GT++ Channel - Click here](https://discord.gg/YdXJbgb)  
