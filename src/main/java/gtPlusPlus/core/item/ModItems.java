@@ -188,8 +188,6 @@ public final class ModItems {
 
 	public static Item cellHydrogenChlorideMix;
 
-	public static BaseEuItem metaItem2;
-
 	public static Item shardAer;
 	public static Item shardIgnis;
 	public static Item shardTerra;
@@ -783,16 +781,6 @@ public final class ModItems {
 
 		//Juice
 		FluidUtils.generateFluidNonMolten("RaisinJuice", "Raisin Juice", 2, new short[]{51, 0, 51, 100}, ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foodRaisins", 1), ItemUtils.getItemStackOfAmountFromOreDictNoBroken("fruitRaisins", 1), 50, true);
-
-
-		//Test items
-		metaItem2 = new BaseEuItem();
-		metaItem2.registerItem(0, EnumChatFormatting.BLACK+"Test Item 0", 0, 0, "I am 0.");
-		metaItem2.registerItem(1, EnumChatFormatting.GREEN+"Test Item 1", 1006346000, 1, "I Hold EU 1.", 500);
-		metaItem2.registerItem(2, EnumChatFormatting.GOLD+"Test Item 2", 1004630000, 2, "I Hold EU 2.", 8000);
-		metaItem2.registerItem(3, "Test Item 3", 1000765000, 4, "I Hold EU 3.", 32000);
-		metaItem2.registerItem(4, "Whirlygig", 1043644000, (short) 5, "Spin me right round.", EnumRarity.rare, EnumChatFormatting.DARK_GREEN, true);
-		metaItem2.registerItem(5, "Whirlygig 2", 2124867000, (short) 7, "Spin me right round.", EnumRarity.uncommon, EnumChatFormatting.RED, true);
 
 		toolGregtechPump = new GregtechPump();
 		toolGregtechPump.registerPumpType(0, "Simple Hand Pump", 0, 0);
