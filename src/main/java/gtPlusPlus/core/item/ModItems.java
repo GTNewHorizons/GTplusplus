@@ -382,9 +382,6 @@ public final class ModItems {
 		//Register Old Helium Blob, this will be replaced when held by a player.
 		itemHeliumBlob = new CoreItem("itemHeliumBlob", tabMisc, ItemUtils.getSimpleStack(itemHydrogenBlob)).setTextureName(CORE.MODID + ":itemHydrogenBlob");
 
-		//Register this neato device, for making some fires.
-		itemBasicFireMaker = new ItemBasicFirestarter();
-
 		//Register Rope
 		itemFiber = new CoreItem("itemFiber", "Plant Fiber", tabMisc);
 		itemRope = new CoreItem("itemRope", "Rope", tabMisc);

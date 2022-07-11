@@ -34,7 +34,7 @@ public class ItemBlockBasicTile extends ItemBlock {
 			list.add("Allows for SMP trade-o-mat type trading.");
 		} 
 		else if (this.mID == 3) { // Project
-			list.add("Scan any crafting recipe in this to mass fabricate them in the Autocrafter..");
+			list.add("Scan any crafting recipe in this to mass fabricate them in the Autocrafter.");
 		} 
 		else if (this.mID == 4) { // Circuit Table
 			list.add("Easy Circuit Configuration");

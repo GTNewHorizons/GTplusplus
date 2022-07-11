@@ -15,12 +15,10 @@ import gtPlusPlus.core.tileentities.general.TileEntityPlayerDoorBase;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import gtPlusPlus.core.tileentities.general.TileEntityXpConverter;
 import gtPlusPlus.core.tileentities.machines.TileEntityAdvPooCollector;
-import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
-import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
 
@@ -34,8 +32,6 @@ public class ModTileEntities {
 		GameRegistry.registerTileEntity(TileEntityFirepit.class, "TileFirePit");
 		GameRegistry.registerTileEntity(TileEntityInfiniteFluid.class, "TileInfiniteFluid");
 		GameRegistry.registerTileEntity(TileEntityProjectTable.class, "TileProjectTable");
-		GameRegistry.registerTileEntity(TileEntityTradeTable.class, "TileTradeTable");		
-		GameRegistry.registerTileEntity(TileEntityModularityTable.class, "TileEntityModularityTable");
 		GameRegistry.registerTileEntity(TileEntityXpConverter.class, "TileEntityXpConverter");
 		GameRegistry.registerTileEntity(TileEntityGenericSpawner.class, "TileEntityGenericSpawner");
 		GameRegistry.registerTileEntity(TileEntityCircuitProgrammer.class, "TileCircuitProgrammer");
