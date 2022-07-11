@@ -129,7 +129,6 @@ public class GregtechThreadedBuffers {
 				new ItemStack[]{
 						ItemList.Automation_SuperBuffer_MAX.get(1L, new Object[0]),
 						ItemList.Tool_DataOrb.get(1L, new Object[0]),
-						GregtechItemList.Conveyor_Module_MAX.get(1L, new Object[0]),
 				},
 				null, null, null, 20, 32, -100);
 	}

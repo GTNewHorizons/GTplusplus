@@ -111,42 +111,33 @@ public class LOADER_Machine_Components {
 		}
 		
 		registerComponentsULV();
-		registerComponentsMAX();
 	}
 
 	private static void registerGTStandardComponents(){
 		CI.electricMotor_LuV = GregtechItemList.Electric_Motor_LuV.get(1);
 		CI.electricMotor_ZPM = GregtechItemList.Electric_Motor_ZPM.get(1);
 		CI.electricMotor_UV = GregtechItemList.Electric_Motor_UV.get(1);
-		CI.electricMotor_MAX = GregtechItemList.Electric_Motor_MAX.get(1);
 		CI.electricPump_LuV = GregtechItemList.Electric_Pump_LuV.get(1);
 		CI.electricPump_ZPM = GregtechItemList.Electric_Pump_ZPM.get(1);
 		CI.electricPump_UV = GregtechItemList.Electric_Pump_UV.get(1);
-		CI.electricPump_MAX = GregtechItemList.Electric_Pump_MAX.get(1);
 		CI.electricPiston_LuV = GregtechItemList.Electric_Piston_LuV.get(1);
 		CI.electricPiston_ZPM = GregtechItemList.Electric_Piston_ZPM.get(1);
 		CI.electricPiston_UV = GregtechItemList.Electric_Piston_UV.get(1);
-		CI.electricPiston_MAX = GregtechItemList.Electric_Piston_MAX.get(1);
 		CI.robotArm_LuV = GregtechItemList.Robot_Arm_LuV.get(1);
 		CI.robotArm_ZPM = GregtechItemList.Robot_Arm_ZPM.get(1);
 		CI.robotArm_UV = GregtechItemList.Robot_Arm_UV.get(1);
-		CI.robotArm_MAX = GregtechItemList.Robot_Arm_MAX.get(1);
 		CI.conveyorModule_LuV = GregtechItemList.Conveyor_Module_LuV.get(1);
 		CI.conveyorModule_ZPM = GregtechItemList.Conveyor_Module_ZPM.get(1);
 		CI.conveyorModule_UV = GregtechItemList.Conveyor_Module_UV.get(1);
-		CI.conveyorModule_MAX = GregtechItemList.Conveyor_Module_MAX.get(1);
 		CI.emitter_LuV = GregtechItemList.Emitter_LuV.get(1);
 		CI.emitter_ZPM = GregtechItemList.Emitter_ZPM.get(1);
 		CI.emitter_UV = GregtechItemList.Emitter_UV.get(1);
-		CI.emitter_MAX = GregtechItemList.Emitter_MAX.get(1);
 		CI.fieldGenerator_LuV = GregtechItemList.Field_Generator_LuV.get(1);
 		CI.fieldGenerator_ZPM = GregtechItemList.Field_Generator_ZPM.get(1);
 		CI.fieldGenerator_UV = GregtechItemList.Field_Generator_UV.get(1);
-		CI.fieldGenerator_MAX = GregtechItemList.Field_Generator_MAX.get(1);
 		CI.sensor_LuV = GregtechItemList.Sensor_LuV.get(1);
 		CI.sensor_ZPM = GregtechItemList.Sensor_ZPM.get(1);
 		CI.sensor_UV = GregtechItemList.Sensor_UV.get(1);
-		CI.sensor_MAX = GregtechItemList.Sensor_MAX.get(1);
 
 		if(CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
 			CI.fluidRegulator_LuV = ItemUtils.getValueOfItemList("FluidRegulator_LuV", ItemList.Pump_LuV).get(1);
@@ -197,16 +188,6 @@ public class LOADER_Machine_Components {
 			CI.fluidRegulator_UV = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32667, 1);
 		}
 
-		// Thanks 0lafe
-		CI.electricMotor_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32596, 1);
-		CI.electricPump_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32618, 1);
-		CI.electricPiston_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32648, 1);
-		CI.robotArm_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32658, 1);
-		CI.conveyorModule_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32638, 1);
-		CI.emitter_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32688, 1);
-		CI.fieldGenerator_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32678, 1);
-		CI.sensor_MAX = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32698, 1);
-
 		registerComponentsULV();
 	}
 
@@ -223,19 +204,5 @@ public class LOADER_Machine_Components {
 		return true;
 	}
 
-	private static boolean registerComponentsMAX() {
-
-		// Max Tier Components Blood Never added... Useless, lol.
-		CI.electricMotor_MAX = GregtechItemList.Electric_Motor_MAX.get(1);
-		CI.electricPump_MAX = GregtechItemList.Electric_Pump_MAX.get(1);
-		CI.electricPiston_MAX = GregtechItemList.Electric_Piston_MAX.get(1);
-		CI.robotArm_MAX = GregtechItemList.Robot_Arm_MAX.get(1);
-		CI.conveyorModule_MAX = GregtechItemList.Conveyor_Module_MAX.get(1);
-		CI.emitter_MAX = GregtechItemList.Emitter_MAX.get(1);
-		CI.fieldGenerator_MAX = GregtechItemList.Field_Generator_MAX.get(1);
-		CI.sensor_MAX = GregtechItemList.Sensor_MAX.get(1);
-
-		return true;
-	}
 
 }

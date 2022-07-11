@@ -101,9 +101,6 @@ public class RECIPES_MachineComponents {
 		}
 		else {
 			onlyULVComponents();
-			if (!CORE.GTNH) {
-				onlyMaxComponents();
-			}
 		}
 		gregtechMachinePhase();
 	}
@@ -125,11 +122,6 @@ public class RECIPES_MachineComponents {
 				wireTier9, rodTier9b, wireTier9,
 				rodTier9a, wireTier9, cableTier9,
 				CI.electricMotor_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, wireTier10, rodTier10a,
-				wireTier10, rodTier10b, wireTier10,
-				rodTier10a, wireTier10, cableTier10,
-				CI.electricMotor_MAX);
 
 		//Electric Pump
 		RecipeUtils.addShapedGregtechRecipe(
@@ -147,11 +139,7 @@ public class RECIPES_MachineComponents {
 				CI.craftingToolScrewdriver, pipeTier9, CI.craftingToolWrench,
 				itemRubberRing, CI.electricMotor_UV, cableTier9,
 				CI.electricPump_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, rotorTier10, itemRubberRing,
-				CI.craftingToolScrewdriver, pipeTier10, CI.craftingToolWrench,
-				itemRubberRing, CI.electricMotor_MAX, cableTier10,
-				CI.electricPump_MAX);
+
 
 		//Electric Pump
 		RecipeUtils.addShapedGregtechRecipe(
@@ -169,11 +157,7 @@ public class RECIPES_MachineComponents {
 				cableTier9, rodTier9a, rodTier9a,
 				cableTier9, CI.electricMotor_UV, smallGearTier9,
 				CI.electricPiston_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				plateTier10, plateTier10, plateTier10,
-				cableTier10, rodTier10a, rodTier10a,
-				cableTier10, CI.electricMotor_MAX, smallGearTier10,
-				CI.electricPiston_MAX);
+
 
 		//Robot Arms
 		RecipeUtils.addShapedGregtechRecipe(
@@ -191,11 +175,6 @@ public class RECIPES_MachineComponents {
 				CI.electricMotor_UV, rodTier9a, CI.electricMotor_UV,
 				CI.electricPiston_UV, circuitTier9, rodTier9a,
 				CI.robotArm_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, cableTier10, cableTier10,
-				CI.electricMotor_MAX, rodTier10a, CI.electricMotor_MAX,
-				CI.electricPiston_MAX, circuitTier10, rodTier10a,
-				CI.robotArm_MAX);
 
 		//Conveyor Modules
 		RecipeUtils.addShapedGregtechRecipe(
@@ -213,11 +192,6 @@ public class RECIPES_MachineComponents {
 				CI.electricMotor_UV, cableTier9, CI.electricMotor_UV,
 				plateRubber, plateRubber, plateRubber,
 				CI.conveyorModule_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				plateRubber, plateRubber, plateRubber,
-				CI.electricMotor_MAX, cableTier10, CI.electricMotor_MAX,
-				plateRubber, plateRubber, plateRubber,
-				CI.conveyorModule_MAX);
 
 		//Emitter Modules
 		RecipeUtils.addShapedGregtechRecipe(
@@ -235,11 +209,6 @@ public class RECIPES_MachineComponents {
 				cableTier9, circuitTier8, rodTier9c,
 				circuitTier9, cableTier9, rodTier9c,
 				CI.emitter_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				rodTier10c, rodTier10c, circuitTier10,
-				cableTier10, circuitTier9, rodTier10c,
-				circuitTier10, cableTier10, rodTier10c,
-				CI.emitter_MAX);
 
 		//Field Generator Modules
 		RecipeUtils.addShapedGregtechRecipe(
@@ -257,11 +226,6 @@ public class RECIPES_MachineComponents {
 				circuitTier9, circuitTier8, circuitTier9,
 				wireTier9, circuitTier9, wireTier9,
 				CI.fieldGenerator_UV);
-		RecipeUtils.addShapedGregtechRecipe(
-				wireTier10, circuitTier10, wireTier10,
-				circuitTier10, circuitTier9, circuitTier10,
-				wireTier10, circuitTier10, wireTier10,
-				CI.fieldGenerator_MAX);
 
 		//Sensor Modules
 		RecipeUtils.addShapedRecipe(
@@ -279,11 +243,6 @@ public class RECIPES_MachineComponents {
 				plateTier9, rodTier9c, null,
 				circuitTier9, plateTier9, plateTier9,
 				CI.sensor_UV);
-		RecipeUtils.addShapedRecipe(
-				plateTier10, null, circuitTier9,
-				plateTier10, rodTier10c, null,
-				circuitTier10, plateTier10, plateTier10,
-				CI.sensor_MAX);
 
 		onlyULVComponents();
 
@@ -341,48 +300,6 @@ public class RECIPES_MachineComponents {
 				CI.sensor_ULV);
 	}
 
-	private static void onlyMaxComponents(){
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, wireTier10, rodTier10a,
-				wireTier10, rodTier10b, wireTier10,
-				rodTier10a, wireTier10, cableTier10,
-				CI.electricMotor_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, rotorTier10, itemRubberRing,
-				CI.craftingToolScrewdriver, pipeTier10, CI.craftingToolWrench,
-				itemRubberRing, CI.electricMotor_MAX, cableTier10,
-				CI.electricPump_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				plateTier10, plateTier10, plateTier10,
-				cableTier10, rodTier10a, rodTier10a,
-				cableTier10, CI.electricMotor_MAX, smallGearTier10,
-				CI.electricPiston_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				cableTier10, cableTier10, cableTier10,
-				CI.electricMotor_MAX, rodTier10a, CI.electricMotor_MAX,
-				CI.electricPiston_MAX, circuitTier10, rodTier10a,
-				CI.robotArm_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				plateRubber, plateRubber, plateRubber,
-				CI.electricMotor_MAX, cableTier10, CI.electricMotor_MAX,
-				plateRubber, plateRubber, plateRubber,
-				CI.conveyorModule_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				rodTier10c, rodTier10c, circuitTier10,
-				cableTier10, circuitTier9, rodTier10c,
-				circuitTier10, cableTier10, rodTier10c,
-				CI.emitter_MAX);
-		RecipeUtils.addShapedGregtechRecipe(
-				wireTier10, circuitTier10, wireTier10,
-				circuitTier10, circuitTier9, circuitTier10,
-				wireTier10, circuitTier10, wireTier10,
-				CI.fieldGenerator_MAX);
-		RecipeUtils.addShapedRecipe(
-				plateTier10, null, circuitTier9,
-				plateTier10, rodTier10c, null,
-				circuitTier10, plateTier10, plateTier10,
-				CI.sensor_MAX);
-	}
 
 	private static void gregtechMachinePhase(){
 		if (CORE.ConfigSwitches.enableCustomCircuits && !CORE.GTNH){
