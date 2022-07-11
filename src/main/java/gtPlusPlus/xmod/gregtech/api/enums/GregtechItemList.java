@@ -27,14 +27,14 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Armour_Hazmat_Advanced_Boots,
 
 	//Gregtech Machine Parts
-	Electric_Motor_LuV, Electric_Motor_ZPM, Electric_Motor_UV, Electric_Motor_MAX,
-	Electric_Pump_LuV, Electric_Pump_ZPM, Electric_Pump_UV, Electric_Pump_MAX,
-	Conveyor_Module_LuV, Conveyor_Module_ZPM, Conveyor_Module_UV, Conveyor_Module_MAX,
-	Electric_Piston_LuV, Electric_Piston_ZPM, Electric_Piston_UV, Electric_Piston_MAX,
-	Robot_Arm_LuV, Robot_Arm_ZPM, Robot_Arm_UV, Robot_Arm_MAX,
-	Field_Generator_LuV, Field_Generator_ZPM, Field_Generator_UV, Field_Generator_MAX,
-	Emitter_LuV, Emitter_ZPM, Emitter_UV, Emitter_MAX,
-	Sensor_LuV, Sensor_ZPM, Sensor_UV, Sensor_MAX,
+	Electric_Motor_LuV, Electric_Motor_ZPM, Electric_Motor_UV,
+	Electric_Pump_LuV, Electric_Pump_ZPM, Electric_Pump_UV,
+	Conveyor_Module_LuV, Conveyor_Module_ZPM, Conveyor_Module_UV,
+	Electric_Piston_LuV, Electric_Piston_ZPM, Electric_Piston_UV,
+	Robot_Arm_LuV, Robot_Arm_ZPM, Robot_Arm_UV,
+	Field_Generator_LuV, Field_Generator_ZPM, Field_Generator_UV,
+	Emitter_LuV, Emitter_ZPM, Emitter_UV,
+	Sensor_LuV, Sensor_ZPM, Sensor_UV,
 
 	//ULV Components
 	Electric_Motor_ULV,
@@ -275,12 +275,15 @@ public enum GregtechItemList implements GregtechItemContainer {
 	//Fish Pond
 	Industrial_FishingPond,
 	Casing_FishPond,  
-	
+
+
 	//Algae
 	AlgaeFarm_Controller,
-	
+
+
 	//Chemical Plant
 	ChemicalPlant_Controller,
+
 
 	//GT4 autoCrafter
 	GT4_Multi_Crafter, 
