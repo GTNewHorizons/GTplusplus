@@ -330,7 +330,7 @@ public class RecipeLoader_GlueLine {
         GT_Values.RA.addAssemblerRecipe(
                 new ItemStack[] {
                         ItemUtils.getItemStackOfAmountFromOreDict("dustGraphite", 64),
-                        ItemList.Circuit_Silicon_Wafer4.get(1L),
+                        ItemList.Circuit_Silicon_Wafer4.get(2L),
                         CI.getNumberedCircuit(2)
                 },
                 MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(500),
