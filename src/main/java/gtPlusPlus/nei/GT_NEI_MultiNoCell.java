@@ -26,5 +26,9 @@ public class GT_NEI_MultiNoCell extends GTPP_NEI_DefaultHandler {
 		GuiDraw.changeTexture(this.getGuiTexture());
 		GuiDraw.drawTexturedModalRect(-4, -8, 1, 3, 174, 89);
 	}
-	
+
+	@Override
+	protected int getDescriptionYOffset() {
+		return 85;
+	}
 }
