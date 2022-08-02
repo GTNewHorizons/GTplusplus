@@ -29,7 +29,7 @@ public class GTPP_NEI_DefaultHandler extends GT_NEI_DefaultHandler {
 	}
 
 	@Override
-	public List<String> handleItemTooltip(GuiRecipe gui, ItemStack aStack, List<String> currenttip, int aRecipeIndex) {
+	public List<String> handleItemTooltip(GuiRecipe<?> gui, ItemStack aStack, List<String> currenttip, int aRecipeIndex) {
 		super.handleItemTooltip(gui, aStack, currenttip, aRecipeIndex);
 		CachedRecipe tObject = this.arecipes.get(aRecipeIndex);
 		if (tObject instanceof CachedDefaultRecipe) {

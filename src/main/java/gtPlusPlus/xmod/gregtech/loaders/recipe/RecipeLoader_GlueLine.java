@@ -115,7 +115,7 @@ public class RecipeLoader_GlueLine {
                         MISC_MATERIALS.CYANOACETIC_ACID.getDust(45)
                 },
                 new FluidStack[] {
-                        FluidUtils.getFluidStack(BioRecipes.mEthanol, 5000)
+                        Materials.Ethanol.getFluid(5000)
                 },
                 new ItemStack[] {
                         MISC_MATERIALS.COPPER_SULFATE_HYDRATED.getDust(11)
@@ -134,7 +134,7 @@ public class RecipeLoader_GlueLine {
                         MISC_MATERIALS.CYANOACETIC_ACID.getDust(9)
                 },
                 new FluidStack[] {
-                        FluidUtils.getFluidStack(BioRecipes.mEthanol, 1000)
+                        Materials.Ethanol.getFluid(1000)
                 },
                 new ItemStack[] {
 
@@ -329,12 +329,12 @@ public class RecipeLoader_GlueLine {
         // Graphene recipes from later wafer tiers, using superglue instead of the bronze age glue
         GT_Values.RA.addAssemblerRecipe(
                 new ItemStack[] {
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustGraphite", 32),
-                        ItemList.Circuit_Silicon_Wafer4.get(1L),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustGraphite", 64),
+                        ItemList.Circuit_Silicon_Wafer4.get(2L),
                         CI.getNumberedCircuit(2)
                 },
-                MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(200),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustGraphene", 32),
+                MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(500),
+                ItemUtils.getItemStackOfAmountFromOreDict("dustGraphene", 64),
                 120,
                 30
         );
@@ -345,7 +345,7 @@ public class RecipeLoader_GlueLine {
                         ItemList.Circuit_Silicon_Wafer5.get(1L),
                         CI.getNumberedCircuit(2)
                 },
-                MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(200),
+                MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(250),
                 ItemUtils.getItemStackOfAmountFromOreDict("dustGraphene", 64),
                 120,
                 30
