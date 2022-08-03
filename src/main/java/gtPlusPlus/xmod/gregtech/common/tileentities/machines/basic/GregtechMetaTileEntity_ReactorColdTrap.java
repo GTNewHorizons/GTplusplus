@@ -9,6 +9,7 @@ import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -31,7 +32,7 @@ public class GregtechMetaTileEntity_ReactorColdTrap extends GT_MetaTileEntity_Ba
 	}
 
 	public GregtechMetaTileEntity_ReactorColdTrap(String aName, int aTier, String aDescription, ITexture[][][] aTextures, String aGUIName, String aNEIName) {
-		super(aName, aTier, 1, aDescription, aTextures, 1, 1, aGUIName, aNEIName);
+		super(aName, aTier, 1, aDescription, aTextures, 2, 9, aGUIName, aNEIName);
 	}
 
 	@Override
@@ -42,6 +43,11 @@ public class GregtechMetaTileEntity_ReactorColdTrap extends GT_MetaTileEntity_Ba
 	@Override
 	public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
 		return new GregtechMetaTileEntity_ReactorColdTrap(this.mName, this.mTier, this.mDescription, this.mTextures, this.mGUIName, this.mNEIName);
+	}
+
+	@Override
+	public boolean allowSelectCircuit() {
+		return true;
 	}
 
 	@Override
