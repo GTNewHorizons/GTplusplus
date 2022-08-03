@@ -1853,9 +1853,9 @@ public class RECIPES_Machines {
 				}
 				else {
 					RecipeUtils.addShapedGregtechRecipe(
-							ItemList.Field_Generator_IV.get(1), "rotorIncoloyMA956", ItemList.Field_Generator_IV.get(1),
-							"plateNitinol60", GregtechItemList.GTPP_Casing_IV.get(1), "plateNitinol60",
-							ItemList.Field_Generator_IV.get(1), "pipeMediumIncoloy792", ItemList.Field_Generator_IV.get(1),
+							ItemList.Field_Generator_IV.get(1), ALLOY.INCOLOY_MA956.getRotor(1), ItemList.Field_Generator_IV.get(1),
+							ALLOY.NITINOL_60.getPlate(1), GregtechItemList.GTPP_Casing_IV.get(1), ALLOY.NITINOL_60.getPlate(1),
+							ItemList.Field_Generator_IV.get(1), ALLOY.INCONEL_792.getComponentByPrefix(OrePrefixes.pipeMedium, 1), ItemList.Field_Generator_IV.get(1),
 							RECIPE_TreeFarmController);
 				}
 				//Industrial Tree Farm Frame
