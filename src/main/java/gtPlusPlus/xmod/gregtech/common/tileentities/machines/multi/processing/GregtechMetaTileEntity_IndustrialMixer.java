@@ -58,6 +58,7 @@ public class GregtechMetaTileEntity_IndustrialMixer extends GregtechMeta_MultiBl
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Mixer")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("250% faster than using single block machines of the same voltage")
 				.addInfo("Processes eight recipes per voltage tier")
 				.addPollutionAmount(getPollutionPerSecond(null))
@@ -227,6 +228,11 @@ public class GregtechMetaTileEntity_IndustrialMixer extends GregtechMeta_MultiBl
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

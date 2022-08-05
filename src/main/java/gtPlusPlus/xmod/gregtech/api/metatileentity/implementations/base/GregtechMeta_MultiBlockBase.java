@@ -101,6 +101,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	protected long mTotalRunTime = 0;
 	protected boolean mVoidExcess = false;
 
+
+	public byte mMaxTier = 0;
+	public boolean mTierCover = false;
 	public ArrayList<GT_MetaTileEntity_Hatch_ControlCore> mControlCoreBus = new ArrayList<GT_MetaTileEntity_Hatch_ControlCore>();
 	public ArrayList<GT_MetaTileEntity_Hatch_AirIntake> mAirIntakes = new ArrayList<GT_MetaTileEntity_Hatch_AirIntake>();
 	public ArrayList<GT_MetaTileEntity_Hatch_InputBattery> mChargeHatches = new ArrayList<GT_MetaTileEntity_Hatch_InputBattery>();
@@ -271,11 +274,19 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 						EnumChatFormatting.GREEN+tTier+EnumChatFormatting.RESET);
 			}
 
-			mInfo.add(StatCollector.translateToLocal("GTPP.CC.discount")+": "+
-					EnumChatFormatting.GREEN+(getEuDiscountForParallelism())+EnumChatFormatting.RESET + "%");
+			long tVoltage = getMaxInputVoltage();
+			byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
+			boolean tTierUnlocked = mMaxTier >= tTier || !isTieredMachine();
 
-			mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel")+": "+EnumChatFormatting.GREEN+(getMaxParallelRecipes())+EnumChatFormatting.RESET);
+			if (isTieredMachine()) {
+				mInfo.add(StatCollector.translateToLocal("GTPP.CC.covertier")+": "+
+							EnumChatFormatting.GREEN+mMaxTier+EnumChatFormatting.RESET);
+			}
 
+			mInfo.add(StatCollector.translateToLocal("GTPP.CC.discount") + ": " +
+					EnumChatFormatting.GREEN + (tTierUnlocked ? getEuDiscountForParallelism() : 100) + EnumChatFormatting.RESET + "%");
+
+			mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel") + ": " + EnumChatFormatting.GREEN + (tTierUnlocked ? getMaxParallelRecipes() : 1) + EnumChatFormatting.RESET);
 
 			mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks)+EnumChatFormatting.RESET+" Weeks, " + EnumChatFormatting.DARK_GREEN+ Integer.toString(days) +EnumChatFormatting.RESET+ " Days, ");
 			mInfo.add(EnumChatFormatting.DARK_GREEN + Long.toString(hours) +EnumChatFormatting.RESET + " Hours, " + EnumChatFormatting.DARK_GREEN+ Long.toString(minutes) +EnumChatFormatting.RESET+ " Minutes, " + EnumChatFormatting.DARK_GREEN+ Long.toString(second) +EnumChatFormatting.RESET+ " Seconds.");
@@ -362,6 +373,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	public int getAmountOfOutputs() {
 		return 1;
 	}
+
+	public boolean isTieredMachine() {
+		return false;
+	}
+
 
 	public abstract int getMaxParallelRecipes();
 	public abstract int getEuDiscountForParallelism();
@@ -944,6 +960,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
+		boolean tTierUnlocked = tTier <= mMaxTier || !isTieredMachine();
 		log("Running checkRecipeGeneric(0)");
 		
 		GT_Recipe tRecipe = findRecipe(
@@ -1001,8 +1018,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 					}
 				}							
 			}			
-		}		
-		
+		}
+
+		if (!tTierUnlocked) {
+			aMaxParallelRecipes = 1;
+			aEUPercent = 100;
+			aSpeedBonusPercent = 0;
+		}
+
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
 			log("BAD RETURN - 2");
@@ -2259,6 +2282,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	public void saveNBTData(NBTTagCompound aNBT) {
 		aNBT.setLong("mTotalRunTime", this.mTotalRunTime);
 		aNBT.setBoolean("mVoidExcess", this.mVoidExcess);
+		aNBT.setBoolean("mTierCover", this.mTierCover);
+		aNBT.setByte("mMaxTier", this.mMaxTier);
 		super.saveNBTData(aNBT);
 	}
 
@@ -2266,6 +2291,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	public void loadNBTData(NBTTagCompound aNBT) {
 		this.mTotalRunTime = aNBT.getLong("mTotalRunTime");
 		this.mVoidExcess = aNBT.getBoolean("mVoidExcess");
+		this.mTierCover = aNBT.getBoolean("mTierCover");
+		this.mMaxTier = aNBT.getByte("mMaxTier");
 		super.loadNBTData(aNBT);
 	}
 

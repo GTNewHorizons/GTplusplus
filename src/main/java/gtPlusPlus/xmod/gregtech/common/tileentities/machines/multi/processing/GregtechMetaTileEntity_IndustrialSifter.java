@@ -49,6 +49,7 @@ public class GregtechMetaTileEntity_IndustrialSifter extends GregtechMeta_MultiB
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Sifter")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("400% faster than single-block machines of the same voltage")
 				.addInfo("Only uses 75% of the eu/t normally required")
 				.addInfo("Processes four items per voltage tier")
@@ -210,6 +211,11 @@ public class GregtechMetaTileEntity_IndustrialSifter extends GregtechMeta_MultiB
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

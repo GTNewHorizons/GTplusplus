@@ -117,6 +117,7 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends GregtechMeta_
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Alloy Smelter")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("Gains one parallel per voltage tier")
 				.addInfo("Gains one multiplier per coil tier")
 				.addInfo("parallel = tier * coil tier")
@@ -220,6 +221,11 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends GregtechMeta_
 	@Override
 	public int getEuDiscountForParallelism() {
 		return 100;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 

@@ -27,7 +27,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Armour_Hazmat_Advanced_Boots,
 
 	//Gregtech Machine Parts
-	Electric_Motor_LuV, Electric_Motor_ZPM, Electric_Motor_UV, Electric_Motor_MAX,
+	Electric_Motor_LuV, Electric_Motor_ZPM, Electric_Motor_UV, Electric_Motor_UHV, Electric_Motor_UEV, Electric_Motor_UIV, Electric_Motor_UMV, Electric_Motor_MAX,
 	Electric_Pump_LuV, Electric_Pump_ZPM, Electric_Pump_UV, Electric_Pump_MAX,
 	Conveyor_Module_LuV, Conveyor_Module_ZPM, Conveyor_Module_UV, Conveyor_Module_MAX,
 	Electric_Piston_LuV, Electric_Piston_ZPM, Electric_Piston_UV, Electric_Piston_MAX,
@@ -799,11 +799,14 @@ public enum GregtechItemList implements GregtechItemContainer {
 	 */
 
 	//Fluid Void Covers
-	Cover_Overflow_ULV, Cover_Overflow_LV, Cover_Overflow_MV, Cover_Overflow_HV, Cover_Overflow_EV, Cover_Overflow_IV, 
-	
+	Cover_Overflow_ULV, Cover_Overflow_LV, Cover_Overflow_MV, Cover_Overflow_HV, Cover_Overflow_EV, Cover_Overflow_IV,
+
 	//Item Void Covers
-	Cover_Overflow_Item_ULV, Cover_Overflow_Item_LV, Cover_Overflow_Item_MV, Cover_Overflow_Item_HV, Cover_Overflow_Item_EV, Cover_Overflow_Item_IV, 
-	
+	Cover_Overflow_Item_ULV, Cover_Overflow_Item_LV, Cover_Overflow_Item_MV, Cover_Overflow_Item_HV, Cover_Overflow_Item_EV, Cover_Overflow_Item_IV,
+
+	//Tiered Covers
+	Cover_Tiered_Upgrade_LV, Cover_Tiered_Upgrade_MV, Cover_Tiered_Upgrade_HV, Cover_Tiered_Upgrade_EV, Cover_Tiered_Upgrade_IV, Cover_Tiered_Upgrade_LUV, Cover_Tiered_Upgrade_ZPM, Cover_Tiered_Upgrade_UV, Cover_Tiered_Upgrade_UHV, Cover_Tiered_Upgrade_UEV, Cover_Tiered_Upgrade_UIV, Cover_Tiered_Upgrade_UMV,
+
 	//Fake Hull Covers
 	FakeMachineCasingPlate_ULV, FakeMachineCasingPlate_LV,
 	FakeMachineCasingPlate_MV, FakeMachineCasingPlate_HV,

@@ -78,6 +78,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends GregtechMeta_M
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 		.addInfo("Controller Block for the Industrial Rock Breaker")
+		.addInfo("Needs appropriate tiered cover to get the following bonuses")
 		.addInfo("Speed: 200% | Eu Usage: 75% | Parallel: Tier x 8")
 		.addInfo("Circuit goes in the Input Bus or GUI slot")
 		.addInfo("1 = cobble, 2 = stone, 3 = obsidian")
@@ -364,6 +365,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends GregtechMeta_M
 			long tVoltage = getMaxInputVoltage();
 			byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 			long tEnergy = getMaxInputEnergy();
+			boolean tTierUnlocked = tTier <= mMaxTier || !isTieredMachine();
 			log("Running checkRecipeGeneric(0)");	
 
 			log("Running checkRecipeGeneric(1)");
@@ -373,6 +375,12 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends GregtechMeta_M
 			int aMaxParallelRecipes = getMaxParallelRecipes();
 			int aEUPercent = getEuDiscountForParallelism();
 			int aSpeedBonusPercent = 200;
+
+			if (!tTierUnlocked) {
+				aMaxParallelRecipes = 1;
+				aEUPercent = 100;
+				aSpeedBonusPercent = 0;
+			}
 
 			aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 			if (aMaxParallelRecipes == 0) {
@@ -529,6 +537,11 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends GregtechMeta_M
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

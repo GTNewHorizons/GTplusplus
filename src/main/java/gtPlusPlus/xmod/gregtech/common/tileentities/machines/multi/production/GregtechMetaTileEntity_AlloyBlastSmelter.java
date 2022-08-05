@@ -224,20 +224,8 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 		if (this.getBaseMetaTileEntity().isServerSide()) {
 			//Get Controller Circuit
 			this.isUsingControllerCircuit = isCorrectMachinePart(aStack);
-
 			final ArrayList<ItemStack> tInputList = this.getStoredInputs();
-			for (int i = 0; i < (tInputList.size() - 1); i++) {
-				for (int j = i + 1; j < tInputList.size(); j++) {
-					if (GT_Utility.areStacksEqual(tInputList.get(i), tInputList.get(j))) {
-						if (tInputList.get(i).stackSize >= tInputList.get(j).stackSize) {
-							tInputList.remove(j--);
-						} else {
-							tInputList.remove(i--);
-							break;
-						}
-					}
-				}
-			}
+
 
 			//Validity check
 			if ((isUsingControllerCircuit && tInputList.size() < 1) || (!isUsingControllerCircuit && tInputList.size() < 2)) {
@@ -252,18 +240,6 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends GregtechMeta_Multi
 			final ItemStack[] tInputs = Arrays.copyOfRange(tInputList.toArray(new ItemStack[tInputList.size()]), 0, tInputList.size());
 
 			final ArrayList<FluidStack> tFluidList = this.getStoredFluids();
-			for (int i = 0; i < (tFluidList.size() - 1); i++) {
-				for (int j = i + 1; j < tFluidList.size(); j++) {
-					if (GT_Utility.areFluidsEqual(tFluidList.get(i), tFluidList.get(j))) {
-						if (tFluidList.get(i).amount >= tFluidList.get(j).amount) {
-							tFluidList.remove(j--);
-						} else {
-							tFluidList.remove(i--);
-							break;
-						}
-					}
-				}
-			}
 			final FluidStack[] tFluids = Arrays.copyOfRange(tFluidList.toArray(new FluidStack[tInputList.size()]), 0, 1);
 			if (tInputList.size() > 1) {
 				final long tVoltage = this.getMaxInputVoltage();

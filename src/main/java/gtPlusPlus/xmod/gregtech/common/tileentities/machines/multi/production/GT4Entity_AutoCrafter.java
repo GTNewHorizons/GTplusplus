@@ -130,6 +130,7 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
 		tt.addMachineType(getMachineType())
 				.addInfo("Highly Advanced Autocrafter")
 				.addInfo("Right Click with a Screwdriver to change mode")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("200% faster than using single block machines of the same voltage")
 				.addInfo("Processes two items per voltage tier")
 				.addPollutionAmount(getPollutionPerSecond(null))
@@ -358,6 +359,11 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
 	@Override
 	public int getEuDiscountForParallelism() {
 		return 100;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	public boolean doDisassembly() {

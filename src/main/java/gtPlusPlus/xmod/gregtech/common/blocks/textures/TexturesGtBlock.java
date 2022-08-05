@@ -499,6 +499,9 @@ public class TexturesGtBlock {
 	//Covers
 	private static final CustomIcon Internal_Overlay_Overflow_Valve = new CustomIcon("iconsets/OVERLAY_OVERFLOW_VALVE");
 	public static final CustomIcon Overlay_Overflow_Valve = Internal_Overlay_Overflow_Valve;
+
+	private static final CustomIcon Internal_Overlay_Tiered_Cover = new CustomIcon("iconsets/OVERLAY_TIERED_COVER");
+	public static final CustomIcon Overlay_Tiered_Cover = Internal_Overlay_Tiered_Cover;
 	
 	
 	//Hatch Overlays

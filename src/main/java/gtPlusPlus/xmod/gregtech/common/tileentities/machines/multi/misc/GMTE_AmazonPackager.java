@@ -142,6 +142,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 		.addInfo("If inserted into the controller, it is shared across all busses")
 		.addInfo("1x, 2x, 3x & Other Schematics are to be placed into the controller GUI slot")
 		.addInfo("Uncomparably fast compared to a single packager of the same tier")
+		.addInfo("Needs appropriate tiered cover to get the following bonuses")
 		.addInfo("Only uses 75% of the eu/t normally required")
 		.addInfo("Processes 16 items per voltage tier")
 		.addPollutionAmount(getPollutionPerSecond(null))
@@ -414,6 +415,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
+		boolean tTierUnlocked = tTier <= mMaxTier;
 		log("Running checkRecipeGeneric(0)");
 
 		ItemStack aInput = getRecipeInput(aItemInputs);
@@ -428,7 +430,13 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 		if (tRecipe == null) {
 			log("BAD RETURN - 1");
 			return false;
-		}	
+		}
+
+		if (!tTierUnlocked) {
+			aMaxParallelRecipes = 1;
+			aEUPercent = 100;
+			aSpeedBonusPercent = 0;
+		}
 
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
@@ -599,6 +607,11 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 	@Override
 	public int getMaxEfficiency(ItemStack p0) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

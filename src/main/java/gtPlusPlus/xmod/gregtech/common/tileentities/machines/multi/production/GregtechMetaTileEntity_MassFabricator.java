@@ -90,6 +90,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Matter Fabricator")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("Speed: 100% | Eu Usage: 80%")
 				.addInfo("Parallel: Scrap = 64 | UU = 8 * Tier")
 				.addInfo("Produces UU-A, UU-M & Scrap")
@@ -266,6 +267,11 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

@@ -22,6 +22,7 @@ GTPP.multiblock.duration=Duration
 
 
 GTPP.CC.machinetier=Control Core Tier
+GTPP.CC.covertier=Cover Tier
 GTPP.CC.discount=EU Discount
 GTPP.CC.parallel=Maximum Parallel
 

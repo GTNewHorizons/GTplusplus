@@ -54,6 +54,7 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Material Extruder")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("250% faster than using single block machines of the same voltage")
 				.addInfo("Processes four items per voltage tier")
 				.addInfo("Extrusion Shape for recipe goes in the Input Bus")
@@ -204,6 +205,11 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends GregtechMeta_Mult
 	@Override
 	public int getEuDiscountForParallelism() {
 		return 100;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

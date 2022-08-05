@@ -77,6 +77,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 		.addInfo("Produces Elemental Material from UU Matter")
+		.addInfo("Needs appropriate tiered cover to get the following bonuses")
 		.addInfo("Speed: 100% | Eu Usage: 100% | Parallel: 8 * Tier")
 		.addInfo("Maximum 1x of each bus/hatch.")
 		.addInfo("Does not require both Output Hatch & Bus")
@@ -315,6 +316,8 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
+		boolean tTierUnlocked = tTier <= mMaxTier;
+
 		log("Running checkRecipeGeneric(0)");
 
 		GT_Recipe tRecipe = null;
@@ -373,7 +376,13 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 		if (tRecipe == null) {
 			log("BAD RETURN - 1");
 			return false;
-		}	
+		}
+
+		if (!tTierUnlocked) {
+			aMaxParallelRecipes = 1;
+			aEUPercent = 100;
+			aSpeedBonusPercent = 0;
+		}
 
 		aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
 		if (aMaxParallelRecipes == 0) {
@@ -518,6 +527,11 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	public int getPollutionPerSecond(final ItemStack aStack) {

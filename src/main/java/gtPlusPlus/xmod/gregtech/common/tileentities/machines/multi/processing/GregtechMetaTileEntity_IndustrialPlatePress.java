@@ -56,6 +56,7 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends GregtechMeta_Mu
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for Advanced Bending & Forming")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("500% faster than using single block machines of the same voltage")
 				.addInfo("Processes four items per voltage tier")
 				.addInfo("Circuit for recipe goes in the Input Bus")
@@ -204,6 +205,11 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends GregtechMeta_Mu
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

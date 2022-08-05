@@ -48,6 +48,7 @@ public class GregtechMetaTileEntity_IndustrialElectrolyzer extends GregtechMeta_
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Electrolyzer")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("180% faster than using single block machines of the same voltage")
 				.addInfo("Only uses 90% of the eu/t normally required")
 				.addInfo("Processes two items per voltage tier")
@@ -168,6 +169,11 @@ public class GregtechMetaTileEntity_IndustrialElectrolyzer extends GregtechMeta_
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

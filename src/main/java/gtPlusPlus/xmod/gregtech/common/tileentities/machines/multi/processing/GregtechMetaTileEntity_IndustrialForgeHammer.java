@@ -56,6 +56,7 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends GregtechMeta_M
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 		.addInfo("Controller Block for the Industrial Forge Hammer")
+		.addInfo("Needs appropriate tiered cover to get the following bonuses")
 		.addInfo("Speed: 100% x Anvil Tier | Eu Usage: 100% | Parallel: Tier x 8")
 		.addInfo("T1 - Vanilla Anvil")
 		.addInfo("Anvil goes in Middle 3x3x3 Structure");
@@ -227,6 +228,11 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends GregtechMeta_M
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

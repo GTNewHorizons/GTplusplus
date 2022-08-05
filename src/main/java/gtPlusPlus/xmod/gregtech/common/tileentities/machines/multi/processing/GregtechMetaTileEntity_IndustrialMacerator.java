@@ -52,6 +52,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Maceration Stack")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("60% faster than using single block machines of the same voltage")
 				.addInfo("Processes 8*tier materials at a time")
 				.addInfo("ULV = Tier 0, LV = Tier 1, etc.")
@@ -245,6 +246,11 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 	@Override
 	public int getEuDiscountForParallelism() {
 		return 100;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

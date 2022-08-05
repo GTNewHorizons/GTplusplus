@@ -60,6 +60,7 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends GregtechMeta_Mu
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Centrifuge")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("125% faster than using single block machines of the same voltage")
 				.addInfo("Disable animations with a screwdriver")
 				.addInfo("Only uses 90% of the eu/t normally required")
@@ -207,6 +208,11 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends GregtechMeta_Mu
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override

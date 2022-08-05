@@ -37,6 +37,7 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow_Item;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
+import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Tiered_Upgrade;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 
@@ -243,7 +244,34 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_MV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(512));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_HV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(4096));
 		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_EV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(32768));
-		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(262144));	
+		GregTech_API.registerCover(GregtechItemList.Cover_Overflow_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)}), new GTPP_Cover_Overflow(262144));
+
+
+		GregtechItemList.Cover_Tiered_Upgrade_LV.set(this.addItem(730, "Tiered Cover (LV)", "Unlock bonuses for LV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_MV.set(this.addItem(731, "Tiered Cover (MV)", "Unlock bonuses for MV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_HV.set(this.addItem(732, "Tiered Cover (HV)", "Unlock bonuses for HV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_EV.set(this.addItem(733, "Tiered Cover (EV)", "Unlock bonuses for EV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_IV.set(this.addItem(734, "Tiered Cover (IV)", "Unlock bonuses for IV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_LUV.set(this.addItem(735, "Tiered Cover (LUV)", "Unlock bonuses for LUV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_ZPM.set(this.addItem(736, "Tiered Cover (ZPM)", "Unlock bonuses for ZPM multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_UV.set(this.addItem(737, "Tiered Cover (UV)", "Unlock bonuses for UV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_UHV.set(this.addItem(738, "Tiered Cover (UHV)", "Unlock bonuses for UHV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_UEV.set(this.addItem(739, "Tiered Cover (UEV)", "Unlock bonuses for UEV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_UIV.set(this.addItem(740, "Tiered Cover (UIV)", "Unlock bonuses for UIV multi or lower", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+		GregtechItemList.Cover_Tiered_Upgrade_UMV.set(this.addItem(741, "Tiered Cover (UMV)", "Unlock bonuses for all multi", new Object[]{getTcAspectStack(TC_Aspects.ELECTRUM, 1L), getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L), getTcAspectStack(TC_Aspects.AQUA, 1L)}));
+
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_LV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 1));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_MV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 2));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_HV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 3));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_EV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 4));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_IV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 5));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_LUV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 6));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_ZPM.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 7));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_UV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 8));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_UHV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 9));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_UEV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 10));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_UIV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 11));
+		GregTech_API.registerCover(GregtechItemList.Cover_Tiered_Upgrade_UMV.get(1L), new GT_MultiTexture(new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Tiered_Cover)}), new GTPP_Tiered_Upgrade((byte) 15));
 
 		//Fusion Reactor MK4 Singularity
 		GregtechItemList.Compressed_Fusion_Reactor.set(this.addItem(100, "Hypervisor Matrix (Fusion)", "A memory unit containing an RI (Restricted Intelligence)"));

@@ -70,6 +70,7 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends GregtechMeta_Mul
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Controller Block for the Industrial Wash Plant")
+				.addInfo("Needs appropriate tiered cover to get the following bonuses")
 				.addInfo("Can be configured with a screwdriver to also do Simple Washer and process Chemical Bathing")
 				.addInfo("400% faster than using single block machines of the same voltage")
 				.addInfo("Processes four item per voltage tier")
@@ -209,6 +210,11 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends GregtechMeta_Mul
 	@Override
 	public int getMaxEfficiency(final ItemStack aStack) {
 		return 10000;
+	}
+
+	@Override
+	public boolean isTieredMachine() {
+		return true;
 	}
 
 	@Override
