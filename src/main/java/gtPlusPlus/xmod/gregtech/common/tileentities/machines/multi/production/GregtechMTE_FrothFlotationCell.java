@@ -68,6 +68,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
 				.addInfo("Process that milled ore!")
+				.addInfo("You can only ever process one type of material per controller")
 				.addPollutionAmount(getPollutionPerSecond(null))
 				.addSeparator()
 				.beginStructureBlock(3, 9, 3, true)
