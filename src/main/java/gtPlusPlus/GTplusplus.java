@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.HashMap;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -61,6 +62,8 @@ import net.minecraft.util.IIcon;
 @MCVersion(value = "1.7.10")
 @Mod(modid = CORE.MODID, name = CORE.name, version = CORE.VERSION, dependencies = "required-after:Forge; after:TConstruct; after:PlayerAPI; after:dreamcraft; after:IC2; after:ihl; after:psychedelicraft; required-after:gregtech; after:Forestry; after:MagicBees; after:CoFHCore; after:Growthcraft; after:Railcraft; after:CompactWindmills; after:ForbiddenMagic; after:MorePlanet; after:PneumaticCraft; after:ExtraUtilities; after:Thaumcraft; after:rftools; after:simplyjetpacks; after:BigReactors; after:EnderIO; after:tectech; after:GTRedtech; after:beyondrealitycore; after:OpenBlocks; after:IC2NuclearControl; after:TGregworks; after:StevesCarts; after:xreliquary;")
 public class GTplusplus implements ActionListener {
+
+	public static boolean hasCOFH = false;
 
 	public static enum INIT_PHASE {
 		SUPER(null), PRE_INIT(SUPER), INIT(PRE_INIT), POST_INIT(
@@ -186,6 +189,7 @@ public class GTplusplus implements ActionListener {
 	// Init
 	@Mod.EventHandler
 	public void init(final FMLInitializationEvent event) {
+		hasCOFH = Loader.isModLoaded("CoFHCore");
 		INIT_PHASE.INIT.setPhaseActive(true);
 		proxy.init(event);
 		proxy.registerNetworkStuff();
