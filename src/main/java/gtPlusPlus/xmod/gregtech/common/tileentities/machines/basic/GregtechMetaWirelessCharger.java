@@ -2,6 +2,8 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic;
 
 import java.util.*;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -582,8 +584,10 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
 
 	@Override
 	public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-		if (!mHasBeenMapped && ChargingHelper.addEntry(getTileEntityPosition(), this)){
-			mHasBeenMapped = true;
+		if (aBaseMetaTileEntity.isServerSide()) {
+			if (!mHasBeenMapped && ChargingHelper.addEntry(getTileEntityPosition(), this)){
+				mHasBeenMapped = true;
+			}
 		}
 		super.onPreTick(aBaseMetaTileEntity, aTick);
 	}
