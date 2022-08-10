@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.HashMap;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
