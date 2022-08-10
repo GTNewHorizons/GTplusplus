@@ -16,6 +16,7 @@ import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
@@ -391,11 +392,12 @@ public class ChargingHelper {
 			else if (isItemValidRF(mTemp)) {
 				try {
 					IEnergyContainerItem rfItem = (IEnergyContainerItem)mTemp.getItem();
-					long RF = Math.min(rfItem.getMaxEnergyStored(mTemp) - rfItem.getEnergyStored(mTemp), mEntity.getEUVar() * mEUtoRF / 100L);
-					RF = rfItem.receiveEnergy(mTemp, RF > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) RF, false);
-					RF = RF * 100L / mEUtoRF;
-					mEntity.setEUVar(Math.max(mEntity.getEUVar() - RF, 0));
-					return RF;
+					long chargedPower = Math.min(rfItem.getMaxEnergyStored(mTemp) - rfItem.getEnergyStored(mTemp), mEntity.getEUVar() * mEUtoRF / 100L);
+					chargedPower = rfItem.receiveEnergy(mTemp, chargedPower > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) chargedPower, false);
+					chargedPower = chargedPower * 100L / mEUtoRF;
+					mEntity.setEUVar(Math.max(mEntity.getEUVar() - chargedPower, 0));
+					mChargedItems++;
+					mEuStored = mEntity.getEUVar();
 				} catch (Exception e) {
 						Logger.WARNING("Failed charging of RF-Tool");
 				}
@@ -429,7 +431,7 @@ public class ChargingHelper {
 	}
 
 	public static boolean isItemValidRF(final ItemStack itemStack) {
-		return itemStack != null && GTplusplus.hasCOFH && itemStack.getItem() instanceof IEnergyContainerItem;
+		return itemStack != null && LoadedMods.CoFHCore && itemStack.getItem() instanceof IEnergyContainerItem;
 	}
 
 	public static boolean accepts(final ItemStack stack) {
