@@ -55,13 +55,13 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
 
 	public static int getChunkRadiusForTier(int aTier) {
 		if (aTier < 4) {
-			return 1;
+			return Math.min(1, (int)Math.floor(Math.sqrt(getMaxChunkDepthFor(CORE.MODID))));
 		}
 		if (aTier < 6) {
-			return 3;
+			return Math.min(3, (int)Math.floor(Math.sqrt(getMaxChunkDepthFor(CORE.MODID))));
 		}
 		if (aTier < 8) {
-			return 7;
+			return Math.min(7, (int)Math.floor(Math.sqrt(getMaxChunkDepthFor(CORE.MODID))));
 		}
 		else {
 			return 0;
