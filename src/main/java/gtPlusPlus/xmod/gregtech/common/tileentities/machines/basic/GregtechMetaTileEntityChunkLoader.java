@@ -24,7 +24,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 
@@ -379,8 +378,9 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
 			if (ticket != null) {
 				if (ticket.world == getBaseMetaTileEntity().getWorld()) {
 					for (ChunkCoordIntPair chunk : ticket.getChunkList()) {
-						if (ForgeChunkManager.getPersistentChunksFor(getBaseMetaTileEntity().getWorld()).keys().contains(chunk))
+						if (ForgeChunkManager.getPersistentChunksFor(getBaseMetaTileEntity().getWorld()).keys().contains(chunk)) {
 							ForgeChunkManager.unforceChunk(ticket, chunk);
+						}
 					}
 					ForgeChunkManager.releaseTicket(ticket);
 				}
@@ -398,8 +398,9 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
 	}
 
 	public UUID getUUID() {
-		if (uuid == null)
+		if (uuid == null) {
 			uuid = UUID.randomUUID();
+		}
 		return uuid;
 	}
 }
