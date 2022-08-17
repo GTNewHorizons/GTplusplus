@@ -291,14 +291,6 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 			foundMaterialName = foundMaterial.getUnlocalizedName();
 		}
 
-		// Set material locked for this controller
-		if (lockedMaterialName == null) {
-			if (foundMaterialName != null) {
-				lockedMaterialName = foundMaterialName;
-			}
-		}
-
-		// Check material match
 		if (foundMaterialName == null) {
 			log("Did not find material from Milled Ore.");
 			ItemStack milledStack = FlotationRecipeHandler.findMilledStack(tRecipe);
@@ -307,6 +299,13 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 			}
 			return false;
 		}
+
+		// Set material locked for this controller
+		if (lockedMaterialName == null) {
+			lockedMaterialName = foundMaterialName;
+		}
+
+		// Check material match
 		if (!Objects.equals(lockedMaterialName, foundMaterialName)) {
 			log("Did not find the correct milled type.");
 			log("Found: "+foundMaterialName);
