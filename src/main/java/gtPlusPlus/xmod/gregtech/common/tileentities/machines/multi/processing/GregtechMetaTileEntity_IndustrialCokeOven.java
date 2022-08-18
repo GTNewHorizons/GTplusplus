@@ -1,7 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
-import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
-import com.gtnewhorizon.structurelib.structure.IItemSource;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.GregTech_API;
@@ -9,26 +7,22 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.util.GTPP_Recipe;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
+import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
-
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.GT_HatchElement.*;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialCokeOven> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialCokeOven> {
 	
 	private int mLevel = 0;
 	private int mCasing;
@@ -89,23 +83,19 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_Mult
 							{"HHH", "H-H", "HHH"},
 							{"C~C", "CCC", "CCC"},
 					}))
-					.addShape(mName + "1", transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"aaa", "a-a", "aaa"},
-							{"C~C", "CCC", "CCC"},
-					}))
-					.addShape(mName + "2", transpose(new String[][]{
-							{"CCC", "CCC", "CCC"},
-							{"bbb", "b-b", "bbb"},
-							{"C~C", "CCC", "CCC"},
-					}))
 					.addElement(
 							'C',
-							buildHatchAdder(GregtechMetaTileEntity_IndustrialCokeOven.class)
-									.atLeast(InputBus, OutputBus, InputHatch, OutputHatch, Maintenance, Energy, Muffler)
-									.casingIndex(TAE.GTPP_INDEX(1))
-									.dot(1)
-									.buildAndChain(onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasingsMisc, 1)))
+							ofChain(
+									ofHatchAdder(
+											GregtechMetaTileEntity_IndustrialCokeOven::addIndustrialCokeOvenList, TAE.GTPP_INDEX(1), 1
+									),
+									onElementPass(
+											x -> ++x.mCasing,
+											ofBlock(
+													ModBlocks.blockCasingsMisc, 1
+											)
+									)
+							)
 					)
 					.addElement(
 							'H',
@@ -124,18 +114,6 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_Mult
 									)
 							)
 					)
-					.addElement(
-							'a',
-							ofBlock(
-									ModBlocks.blockCasingsMisc, 2
-							)
-					)
-					.addElement(
-							'b',
-							ofBlock(
-									ModBlocks.blockCasingsMisc, 3
-							)
-					)
 					.build();
 		}
 		return STRUCTURE_DEFINITION;
@@ -143,19 +121,7 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_Mult
 
 	@Override
 	public void construct(ItemStack stackSize, boolean hintsOnly) {
-		if (stackSize.stackSize == 1)
-			buildPiece(mName + "1" , stackSize, hintsOnly, 1, 2, 0);
-		else
-			buildPiece(mName + "2" , stackSize, hintsOnly, 1, 2, 0);
-	}
-
-	@Override
-	public int survivalConstruct(ItemStack stackSize, int elementBudget, IItemSource source, EntityPlayerMP actor) {
-		if (mMachine) return -1;
-		if (stackSize.stackSize == 1)
-			return survivialBuildPiece(mName + "1", stackSize, 1, 2, 0, elementBudget, source, actor, false, true);
-		else
-			return survivialBuildPiece(mName + "2", stackSize, 1, 2, 0, elementBudget, source, actor, false, true);
+		buildPiece(mName , stackSize, hintsOnly, 1, 2, 0);
 	}
 
 	@Override
@@ -168,6 +134,30 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends GregtechMeta_Mult
 			if (mCasing1 == 8) mLevel = 1;
 			if (mCasing2 == 8) mLevel = 2;
 			return mLevel > 0 && mCasing >= 8 && checkHatch();
+		}
+		return false;
+	}
+
+	public final boolean addIndustrialCokeOvenList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+		if (aTileEntity == null) {
+			return false;
+		} else {
+			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus){
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance){
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy){
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			} else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
 		}
 		return false;
 	}

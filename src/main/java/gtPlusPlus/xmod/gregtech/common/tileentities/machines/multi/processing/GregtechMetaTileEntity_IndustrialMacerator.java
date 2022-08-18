@@ -2,8 +2,6 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
 import java.util.Random;
 
-import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
-import com.gtnewhorizon.structurelib.structure.IItemSource;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.GregTech_API;
@@ -11,6 +9,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -18,18 +17,13 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
-
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.GT_HatchElement.*;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMacerator> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMacerator> {
 	
 	private int mCasing;
 	private int mPerLayer;
@@ -91,18 +85,9 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 					.addElement(
 							'C',
 							ofChain(
-									buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class)
-											.atLeast(OutputBus)
-											.shouldReject(t -> t.mPerLayer + 1 == t.mOutputBusses.size())
-											.casingIndex(TAE.GTPP_INDEX(7))
-											.dot(2)
-											.build(),
-									buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class)
-											.atLeast(Energy, Maintenance, Muffler)
-											.shouldReject(t -> t.mPerLayer + 1 == t.mOutputBusses.size())
-											.casingIndex(TAE.GTPP_INDEX(7))
-											.dot(2)
-											.build(),
+									ofHatchAdder(
+											GregtechMetaTileEntity_IndustrialMacerator::addIndustrialMaceratorMidList, TAE.GTPP_INDEX(7), 2
+									),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
@@ -114,11 +99,9 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 					.addElement(
 							'B',
 							ofChain(
-									buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class)
-											.atLeast(Energy, Maintenance, InputBus)
-											.casingIndex(TAE.GTPP_INDEX(7))
-											.dot(2)
-											.build(),
+									ofHatchAdder(
+											GregtechMetaTileEntity_IndustrialMacerator::addIndustrialMaceratorBottomList, TAE.GTPP_INDEX(7), 1
+									),
 									onElementPass(
 											x -> ++x.mCasing,
 											ofBlock(
@@ -143,27 +126,6 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 	}
 
 	@Override
-	public int survivalConstruct(ItemStack stackSize, int elementBudget, IItemSource source, EntityPlayerMP actor) {
-		if (mMachine) return -1;
-		int built;
-		built = survivialBuildPiece(mName + "bottom", stackSize, 1, 0, 0, elementBudget, source, actor, false, true);
-		mPerLayer = 0;
-		if (built >= 0) return built;
-		built = survivialBuildPiece(mName + "mid", stackSize, 1, 1, 0, elementBudget, source, actor, false, true);
-		mPerLayer = 1;
-		if (built >= 0) return built;
-		built = survivialBuildPiece(mName + "mid", stackSize, 1, 2, 0, elementBudget, source, actor, false, true);
-		if (built >= 0) return built;
-		mPerLayer = 2;
-		built = survivialBuildPiece(mName + "mid", stackSize, 1, 3, 0, elementBudget, source, actor, false, true);
-		if (built >= 0) return built;
-		mPerLayer = 3;
-		built = survivialBuildPiece(mName + "mid", stackSize, 1, 4, 0, elementBudget, source, actor, false, true);
-		if (built >= 0) return built;
-		return survivialBuildPiece(mName + "top", stackSize, 1, 5, 0, elementBudget, source, actor, false, true);
-	}
-
-	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
 		mCasing = 0;
 		mPerLayer = 0;
@@ -174,6 +136,47 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends GregtechMeta_Mul
 				mPerLayer ++;
 			}
 			return checkPiece(mName + "top", 1, 5, 0) && mOutputBusses.size() == 5 && mCasing >= 26 && checkHatch();
+		}
+		return false;
+	}
+
+	public final boolean addIndustrialMaceratorBottomList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+		if (aTileEntity == null) {
+			return false;
+		}
+		else {
+			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+		}
+		return false;
+	}
+
+	public final boolean addIndustrialMaceratorMidList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+		if (aTileEntity == null) {
+			return false;
+		}
+		else {
+			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_OutputBus) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+			else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy) {
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
 		}
 		return false;
 	}

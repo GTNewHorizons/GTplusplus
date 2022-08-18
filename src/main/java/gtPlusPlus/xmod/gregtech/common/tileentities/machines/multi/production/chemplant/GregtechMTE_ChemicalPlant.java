@@ -1,20 +1,36 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.chemplant;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
+import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.Consumer;
+
+import gregtech.api.interfaces.IIconContainer;
+import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizon.structurelib.StructureLibAPI;
-import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
-import com.gtnewhorizon.structurelib.structure.*;
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.IStructureElement;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.HeatingCoilLevel;
-import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.GregTechTileClientEvents;
-import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -31,44 +47,29 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.tuple.Pair;
 
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.GT_HatchElement.*;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
-import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
-import static gregtech.api.util.GT_StructureUtility.ofCoil;
-import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
-
-public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<GregtechMTE_ChemicalPlant> implements ISurvivalConstructable {
+public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<GregtechMTE_ChemicalPlant> {
 
 	private int mSolidCasingTier = 0;
 	private int mMachineCasingTier = 0;
 	private int mPipeCasingTier = 0;
 	private int mCoilTier = 0;
-	private HeatingCoilLevel checkCoil;
+	private int checkCoil;
 	private int[] checkCasing = new int[8];
 	private int checkMachine;
 	private int checkPipe;
 	private int maxTierOfHatch;
 	private int mCasing;
-	private volatile int mBuiltState = 1;
 	private IStructureDefinition<GregtechMTE_ChemicalPlant> STRUCTURE_DEFINITION = null;
 
-	private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses = new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
+	private ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses = new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
 
-	private static final HashMap<Integer, Triplet<Block, Integer, Integer>> mTieredBlockRegistry = new HashMap<>();
-	private static final HashMap<Pair<Block, Integer>, Integer> mReverseMap = new HashMap<>();
+	private static final HashMap<Integer, Triplet<Block, Integer, Integer>> mTieredBlockRegistry = new HashMap<Integer, Triplet<Block, Integer, Integer>>();
 
 	public GregtechMTE_ChemicalPlant(final int aID, final String aName, final String aNameRegional) {
 		super(aID, aName, aNameRegional);
@@ -79,13 +80,15 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	public static boolean registerMachineCasingForTier(int aTier, Block aBlock, int aMeta, int aCasingTextureID) {
+		int aSize = mTieredBlockRegistry.size();
+		int aSize2 = aSize;
 		Triplet<Block, Integer, Integer> aCasingData = new Triplet<Block, Integer, Integer>(aBlock, aMeta, aCasingTextureID);
 		if (mTieredBlockRegistry.containsKey(aTier)) {
 			CORE.crash("Tried to register a Machine casing for tier "+aTier+" to the Chemical Plant, however this tier already contains one.");
 		}
 		mTieredBlockRegistry.put(aTier, aCasingData);
-		mReverseMap.put(Pair.of(aBlock, aMeta), aTier);
-		return true;
+		aSize = mTieredBlockRegistry.size();
+		return aSize > aSize2;
 	}
 
 	private static int getCasingTextureIdForTier(int aTier) {
@@ -143,11 +146,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		return checkPipe;
 	}
 
-	public void setCoilMeta(HeatingCoilLevel meta) {
+	public void setCoilMeta(int meta) {
 		checkCoil = meta;
 	}
 
-	public HeatingCoilLevel getCoilMeta() {
+	public int getCoilMeta() {
 		return checkCoil;
 	}
 
@@ -187,24 +190,9 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 					.addElement(
 							'C',
 							ofChain(
-									buildHatchAdder(GregtechMTE_ChemicalPlant.class)
-											.atLeast(Maintenance)
-											.casingIndex(getCasingTextureID())
-											.dot(1)
-											.build(),
-									buildHatchAdder(GregtechMTE_ChemicalPlant.class)
-											.atLeast(InputHatch, OutputHatch, InputBus, OutputBus)
-											.adder(GregtechMTE_ChemicalPlant::addChemicalPlantList)
-											.hatchItemFilterAnd((t, s) -> filterByMTETier(Integer.MIN_VALUE, s.stackSize >= 10 ? Integer.MAX_VALUE : s.stackSize))
-											.casingIndex(getCasingTextureID())
-											.dot(1)
-											.build(),
-									buildHatchAdder(GregtechMTE_ChemicalPlant.class)
-											.hatchClass(GT_MetaTileEntity_Hatch_Catalysts.class)
-											.adder(GregtechMTE_ChemicalPlant::addChemicalPlantList)
-											.casingIndex(getCasingTextureID())
-											.dot(1)
-											.build(),
+									ofHatchAdder(
+											GregtechMTE_ChemicalPlant::addChemicalPlantList, getCasingTextureID(), 1
+									),
 									onElementPass(
 											x -> {++x.checkCasing[0]; ++x.mCasing;},
 											ofSolidCasing(0)
@@ -284,7 +272,9 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 					)
 					.addElement(
 							'H',
-							ofCoil(GregtechMTE_ChemicalPlant::setCoilMeta, GregtechMTE_ChemicalPlant::getCoilMeta)
+							addTieredBlock(
+									GregTech_API.sBlockCasings5, GregtechMTE_ChemicalPlant::setCoilMeta, GregtechMTE_ChemicalPlant::getCoilMeta, 14
+							)
 					)
 					.addElement(
 							'P',
@@ -301,10 +291,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		return new IStructureElement<T>() {
 			@Override
 			public boolean check(T t, World world, int x, int y, int z) {
-				return check(aIndex, world, x, y, z);
-			}
-
-			private boolean check(int aIndex, World world, int x, int y, int z) {
 				Block block = world.getBlock(x, y, z);
 				int meta = world.getBlockMetadata(x, y, z);
 				Block target = mTieredBlockRegistry.get(aIndex).getValue_1();
@@ -327,12 +313,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 			public boolean placeBlock(T t, World world, int x, int y, int z, ItemStack trigger) {
 				return world.setBlock(x, y, z, mTieredBlockRegistry.get(getIndex(trigger.stackSize)).getValue_1(), mTieredBlockRegistry.get(getIndex(trigger.stackSize)).getValue_2(), 3);
 			}
-
-			@Override
-			public PlaceResult survivalPlaceBlock(T t, World world, int x, int y, int z, ItemStack trigger, IItemSource s, EntityPlayerMP actor, Consumer<IChatComponent> chatter) {
-				if (check(getIndex(trigger.stackSize), world, x, y, z)) return PlaceResult.SKIP;
-				return StructureUtility.survivalPlaceBlock(mTieredBlockRegistry.get(getIndex(trigger.stackSize)).getValue_1(), mTieredBlockRegistry.get(getIndex(trigger.stackSize)).getValue_2(), world, x, y, z, s, actor, chatter);
-			}
 		};
 	}
 
@@ -342,17 +322,12 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 	}
 
 	@Override
-	public int survivalConstruct(ItemStack stackSize, int elementBudget, IItemSource source, EntityPlayerMP actor) {
-		if (mMachine) return -1;
-		return survivialBuildPiece(mName, stackSize, 3, 6, 0, elementBudget, source, actor, false, true);
-	}
-
-	@Override
 	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
 		mCasing = 0;
 		for (int i = 0; i < 8; i++) {
 			checkCasing[i] = 0;
 		}
+		checkCoil = 0;
 		checkPipe = 0;
 		checkMachine = 0;
 		mSolidCasingTier = 0;
@@ -370,8 +345,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 			}
 			mMachineCasingTier = checkMachine - 1;
 			mPipeCasingTier = checkPipe - 12;
-			mCoilTier = checkCoil.getTier();
-			getBaseMetaTileEntity().sendBlockEvent(GregTechTileClientEvents.CHANGE_CUSTOM_DATA, getUpdateData());
+			mCoilTier = coilTier(checkCoil - 1);
 			updateHatchTexture();
 			return mMachineCasingTier >= 9 || mMachineCasingTier >= maxTierOfHatch;
 		}
@@ -562,7 +536,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
 	// Same speed bonus as pyro oven
 	public int getSpeedBonus() {
-		return 50 * (this.mCoilTier - 1);
+		return 50 * (this.mCoilTier - 2);
 	}
 
 	public int getMaxCatalystDurability() {
@@ -576,22 +550,14 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 				this.mCatalystBuses.clear();
 			}
 		}
-		super.onPostTick(aBaseMetaTileEntity, aTick);
-	}
-
-	@Override
-	public byte getUpdateData() {
-		return (byte) mSolidCasingTier;
-	}
-
-	@Override
-	public void receiveClientEvent(byte aEventID, byte aValue) {
-		super.receiveClientEvent(aEventID, aValue);
-		if (aEventID == GregTechTileClientEvents.CHANGE_CUSTOM_DATA && (aValue & 0x80) == 0) {
-			// received an update data from above method
-			// if no &0x80 clause it might catch the noop texture page event
-			mSolidCasingTier = aValue;
+		// Silly Client Syncing
+		if (aBaseMetaTileEntity.isClientSide()) {
+			if (this != null && this.getBaseMetaTileEntity() != null && this.getBaseMetaTileEntity().getWorld() != null) {
+				this.mSolidCasingTier = getCasingTierOnClientSide();
+				markDirty();
+			}			
 		}
+		super.onPostTick(aBaseMetaTileEntity, aTick);
 	}
 
 	@Override
@@ -998,9 +964,44 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 		ItemGenericChemBase.setCatalystDamage(aStack, aAmount);
 	}
 
+	@SideOnly(Side.CLIENT)
+	private final int getCasingTierOnClientSide() {
+
+		if (this == null || this.getBaseMetaTileEntity().getWorld() == null) {
+			return 0;
+		}
+		try {
+			Block aInitStructureCheck;
+			int aInitStructureCheckMeta;
+			IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
+			int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX * 3;
+			int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ * 3;
+			if (xDir == 0) {			
+				aInitStructureCheck = aBaseMetaTileEntity.getBlockOffset(zDir, 1, 0);
+				aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(zDir, 1, 0);
+			}
+			else {			
+				aInitStructureCheck = aBaseMetaTileEntity.getBlockOffset(0, 1, xDir);
+				aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(0, 1, xDir);
+			}
+			for (int aTier : mTieredBlockRegistry.keySet()) {
+				Triplet<Block, Integer, Integer> aData = mTieredBlockRegistry.get(aTier);
+				if (aData.getValue_1() == aInitStructureCheck && aData.getValue_2() == aInitStructureCheckMeta) {
+					return aTier;
+				}			
+			}
+			return 0;
+		}
+		catch (Throwable t) {
+			t.printStackTrace();
+			return 0;
+		}
+	}
+
 	/*
 	 *  Catalyst Handling
 	 */
+
 	@Override
 	public ArrayList<ItemStack> getStoredInputs() {
 		ArrayList<ItemStack> tItems = super.getStoredInputs();
