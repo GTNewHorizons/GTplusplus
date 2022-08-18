@@ -617,6 +617,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 				GT_MetaTileEntity_Hatch_Output aHatch = aOutputHatches.get(i).getValue_1();
 				// Fluid in the Hatch
 				FluidStack aHatchStack = aOutputHatches.get(i).getValue_2();
+				// Fluid that the hatch is locked to
+				String aHatchLockedFluid = aOutputHatches.get(i).getValue_1().getLockedFluidName();
 				// Space left in Hatch
 				int aSpaceLeftInHatch = aHatch.getCapacity() - aHatch.getFluidAmount();		
 				// Hatch is full,
@@ -625,14 +627,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 					aOutputHatches.remove(aOutputHatches.get(i));
 					i--;
 					continue;
-				}			
+				}
 				// Hatch has space
 				else {	
 					// Check if any fluids match
 					//aFluidMatch: for (FluidStack aOutputStack : aOutputFluids) {
 					for(int j = 0;j<aOutputFluids.size();j++) {
 						//log(" aHatchStack "+aHatchStack.getLocalizedName()+" aOutput stack "+aOutputStack.getLocalizedName());
-						if (GT_Utility.areFluidsEqual(aHatchStack, aOutputFluids.get(j))) {
+						if (GT_Utility.areFluidsEqual(aHatchStack, aOutputFluids.get(j)) && (aHatchLockedFluid == null || aHatchLockedFluid.equals(aOutputFluids.get(j).getFluid().getName()))) {
 							int aFluidToPutIntoHatch = aOutputFluids.get(j).amount * aParallelRecipes;
 							// Not Enough space to insert all of the fluid.
 							// We fill this hatch and add a smaller Fluidstack back to the iterator.
@@ -698,6 +700,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 							}
 
 						}
+						else if (aHatchLockedFluid == null || aHatchLockedFluid.equals(aOutputFluids.get(j).getFluid().getName())) {
+							aEmptyFluidHatches++;
+						}
 						else {
 							continue;
 						}
@@ -707,7 +712,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 			for (Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aFreeHatchCheck : aOutputHatches) {
 				// Free Hatch
-				if (aFreeHatchCheck.getValue_2() == null || aFreeHatchCheck.getValue_3() == 0 || aFreeHatchCheck.getValue_1().getFluid() == null) {
+				if ((aFreeHatchCheck.getValue_2() == null || aFreeHatchCheck.getValue_3() == 0 || aFreeHatchCheck.getValue_1().getFluid() == null) && !aFreeHatchCheck.getValue_1().isFluidLocked()) {
 					aEmptyFluidHatches++;
 				}
 			}
@@ -751,11 +756,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 		return checkRecipeGeneric(1, 100, 0);
 	}
 
-	public boolean checkRecipeGeneric(int aMaxParallelRecipes, int aEUPercent, int aSpeedBonusPercent) {
+	public boolean checkRecipeGeneric(int aMaxParallelRecipes, long aEUPercent, int aSpeedBonusPercent) {
 		return checkRecipeGeneric(aMaxParallelRecipes, aEUPercent, aSpeedBonusPercent, 10000);
 	}
 
-	public boolean checkRecipeGeneric(int aMaxParallelRecipes, int aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
+	public boolean checkRecipeGeneric(int aMaxParallelRecipes, long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
 		ArrayList<ItemStack> tItems = getStoredInputs();
 		ArrayList<FluidStack> tFluids = getStoredFluids();
 		ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
@@ -764,7 +769,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	}
 
 	public boolean checkRecipeGeneric(GT_Recipe aRecipe, 
-			int aMaxParallelRecipes, int aEUPercent,
+			int aMaxParallelRecipes, long aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll) {		
 		if (aRecipe == null) {
 			return false;
@@ -778,7 +783,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
 	public boolean checkRecipeGeneric(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
-			int aMaxParallelRecipes, int aEUPercent,
+			int aMaxParallelRecipes, long aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll) {
 		return checkRecipeGeneric(aItemInputs, aFluidInputs, aMaxParallelRecipes, aEUPercent, aSpeedBonusPercent, aOutputChanceRoll, null);
 	}
@@ -937,7 +942,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	
 	public boolean checkRecipeGeneric(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
-			int aMaxParallelRecipes, int aEUPercent,
+			int aMaxParallelRecipes, long aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
 		// Based on the Processing Array. A bit overkill, but very flexible.		
 
@@ -1237,7 +1242,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 	 */
 	public boolean checkRecipeBoostedOutputs(
 			ItemStack[] aItemInputs, FluidStack[] aFluidInputs,
-			int aMaxParallelRecipes, int aEUPercent,
+			int aMaxParallelRecipes, long aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
 
 		long tVoltage = getMaxInputVoltage();
