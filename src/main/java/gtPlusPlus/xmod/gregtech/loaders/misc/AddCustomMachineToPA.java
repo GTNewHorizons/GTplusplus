@@ -8,8 +8,6 @@ import gtPlusPlus.api.objects.Logger;
 public class AddCustomMachineToPA {
 	public static void register() {
 
-		// Dehydrator
-		GT_ProcessingArray_Manager.addRecipeMapToPA("machine.dehydrator", GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes);
 		// Simple Washers
 		GT_ProcessingArray_Manager.addRecipeMapToPA("simplewasher.01", GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes);
 
