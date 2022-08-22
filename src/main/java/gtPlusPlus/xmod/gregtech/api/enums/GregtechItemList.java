@@ -19,7 +19,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	/**
 	 * Items
 	 */
-	
+
 	// Advanced Hazmat Suit
 	Armour_Hazmat_Advanced_Helmet,
 	Armour_Hazmat_Advanced_Chest,
@@ -47,22 +47,22 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Sensor_ULV,
 
 	// Mixed Components
-	TransmissionComponent_ULV, TransmissionComponent_LV, 
-	TransmissionComponent_MV, TransmissionComponent_HV, 
+	TransmissionComponent_ULV, TransmissionComponent_LV,
+	TransmissionComponent_MV, TransmissionComponent_HV,
 	TransmissionComponent_EV, TransmissionComponent_IV,
-	TransmissionComponent_LuV, TransmissionComponent_ZPM, 
-	TransmissionComponent_UV, TransmissionComponent_MAX, 
-	
+	TransmissionComponent_LuV, TransmissionComponent_ZPM,
+	TransmissionComponent_UV, TransmissionComponent_MAX,
+
 	//Recipe Circuit
 	Circuit_BioRecipeSelector,
 	Circuit_T3RecipeSelector,
-	
+
 	//Circuits
 	Old_Circuit_Primitive, Old_Circuit_Basic, Old_Circuit_Good,
 	Old_Circuit_Advanced, Old_Circuit_Data, Old_Circuit_Elite,
 	Old_Circuit_Master, Old_Tool_DataOrb, Old_Circuit_Ultimate, Old_Tool_DataStick,
 	Circuit_IV, Circuit_LuV, Circuit_ZPM,
-	
+
 	//Circuit Parts
 	Circuit_Board_IV, Circuit_Board_LuV, Circuit_Board_ZPM,
 	Circuit_Parts_Crystal_Chip_IV, Circuit_Parts_Crystal_Chip_LuV, Circuit_Parts_Crystal_Chip_ZPM,
@@ -73,11 +73,11 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Old_Circuit_Board_Basic, Old_Circuit_Board_Advanced, Old_Circuit_Board_Elite,
 	Old_Circuit_Parts_Crystal_Chip_Elite, Old_Circuit_Parts_Crystal_Chip_Master, Old_Circuit_Parts_Advanced,
 	Old_Circuit_Parts_Wiring_Basic, Old_Circuit_Parts_Wiring_Advanced, Old_Circuit_Parts_Wiring_Elite,
-	Old_Empty_Board_Basic, Old_Empty_Board_Elite, 
+	Old_Empty_Board_Basic, Old_Empty_Board_Elite,
 
 	//Batteries
-	Battery_RE_EV_Sodium, 
-	Battery_RE_EV_Cadmium, 
+	Battery_RE_EV_Sodium,
+	Battery_RE_EV_Cadmium,
 	Battery_RE_EV_Lithium,
 
 	//Shapes for Extruder
@@ -89,101 +89,101 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Fluid Cells to regulate flows.
-	Fluid_Cell_1L, Fluid_Cell_16L, 
+	Fluid_Cell_1L, Fluid_Cell_16L,
 	Fluid_Cell_36L, Fluid_Cell_144L,
 
 	//Debug
-	TESTITEM, 
-	
+	TESTITEM,
+
 	// Larger Volumetric Flasks
 	VOLUMETRIC_FLASK_8k,
 	VOLUMETRIC_FLASK_32k,
 
 	//RTG Fuels
 	Pellet_RTG_PU238, Pellet_RTG_SR90,
-	Pellet_RTG_PO210, Pellet_RTG_AM241, 
+	Pellet_RTG_PO210, Pellet_RTG_AM241,
 
 	//Computer Cube
-	Gregtech_Computer_Cube, 
-	Gregtech_Computer_Cube_Machine, 
+	Gregtech_Computer_Cube,
+	Gregtech_Computer_Cube_Machine,
 
 	//Casings for batteries
 	Battery_Casing_Gem_1, Battery_Casing_Gem_2,
 	Battery_Casing_Gem_3, Battery_Casing_Gem_4,
-	
+
 	//Custom Batteries
-	Battery_Gem_1, Battery_Gem_2, 
+	Battery_Gem_1, Battery_Gem_2,
 	Battery_Gem_3, Battery_Gem_4,
-	
+
 	//Compressed Fusion MK3
 	Compressed_Fusion_Reactor,
-	
+
 	//Carbon Materials
-	NanoTube_Base_Substrate, 
+	NanoTube_Base_Substrate,
 	NanoTube_Finished,
 	Carbyne_Tube_Finished,
 	Carbyne_Sheet_Finished,
-	
+
 	//End Game Laser Engraver Lens
 	Laser_Lens_WoodsGlass,
 	Laser_Lens_Special,
-	
+
 	//Bombs
-	Bomb_Cast, Bomb_Cast_Molten, 
+	Bomb_Cast, Bomb_Cast_Molten,
 	Bomb_Cast_Set, Bomb_Cast_Broken,
 	Bomb_Cast_Mold,
-	
+
 	// Pellet Mold
 	Pellet_Mold,
-	
+
 	//Charged Items for Tree Farms
-	Farm_Processor_EV, 
+	Farm_Processor_EV,
 	Farm_Processor_IV,
-	Farm_Processor_LuV, 
-	Farm_Processor_ZPM, 
+	Farm_Processor_LuV,
+	Farm_Processor_ZPM,
 	Farm_Processor_UV,
-	
+
 	// Upgrade chip for Distillus
 	Distillus_Upgrade_Chip,
-	
-	
+
+
 	// Chips used to nerf my multis via custom behavioural attachments
 	Chip_MultiNerf_NoOutputBonus,
 	Chip_MultiNerf_NoSpeedBonus,
 	Chip_MultiNerf_NoEuBonus,
-	
+
 	// Milling Balls
 	Milling_Ball_Alumina,
 	Milling_Ball_Soapstone,
-	
+
 
 	//----------------------------------------------------------------------------
-	
-	
-	
+
+
+
 	/**
 	 * MultiBlocks
 	 */
 
-	
+
 	// Tier GT++ Casings
-	GTPP_Casing_ULV, GTPP_Casing_LV, 
-	GTPP_Casing_MV, GTPP_Casing_HV, 
-	GTPP_Casing_EV, GTPP_Casing_IV, 
-	GTPP_Casing_LuV, GTPP_Casing_ZPM, 
+	GTPP_Casing_ULV, GTPP_Casing_LV,
+	GTPP_Casing_MV, GTPP_Casing_HV,
+	GTPP_Casing_EV, GTPP_Casing_IV,
+	GTPP_Casing_LuV, GTPP_Casing_ZPM,
 	GTPP_Casing_UV, GTPP_Casing_MAX,
-	
+
 	//IronBlastFurnace Machine_Bronze_BlastFurnace
-	Machine_Iron_BlastFurnace, 
+	Machine_Iron_BlastFurnace,
 	Casing_IronPlatedBricks,
 
 	//Large Centrifuge
-	Industrial_Centrifuge, 
+	Industrial_Centrifuge,
 	Casing_Centrifuge1,
 
 	// Large Alloy Smelter
 	Industrial_AlloySmelter,
-	
+
 	//Coke Oven
 	Industrial_CokeOven,
 	Casing_CokeOven,
@@ -196,13 +196,15 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 	//Matter Fab
 	Industrial_MassFab,
-	Casing_MatterGen, 
+	Casing_MatterGen,
 	Casing_MatterFab,
 
 	//ABS
 	Industrial_AlloyBlastSmelter,
-	Casing_Coil_BlastSmelter, 
-	Casing_BlastSmelter,	
+	Casing_Coil_BlastSmelter,
+	Casing_BlastSmelter,
+	Industrial_Adv_AlloyBlastSmelter,
+	Casing_Coil_Adv_BlastSmelter,
 
 	//Industrial Electrolyzer
 	Industrial_Electrolyzer,
@@ -210,7 +212,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 	//Industrial Maceration Stack
 	Industrial_MacerationStack,
-	Casing_MacerationStack, 	
+	Casing_MacerationStack,
 
 	//Industrial Wire Factory
 	Industrial_WireFactory,
@@ -224,17 +226,17 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Casing_Vanadium_Redox_ZPM,
 	Casing_Vanadium_Redox_UV,
 	Casing_Vanadium_Redox_MAX,
-	Casing_Power_SubStation, 
+	Casing_Power_SubStation,
 
 
 	//LFTR
 	ThoriumReactor,
-	Casing_Reactor_I, 
+	Casing_Reactor_I,
 	Casing_Reactor_II,
 
 	//Multitank
 	/*Industrial_MultiTank,*/
-	Industrial_MultiTankDense, 
+	Industrial_MultiTankDense,
 	Casing_MultitankExterior,
 
 
@@ -246,7 +248,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Industrial Sifter
-	Industrial_Sifter, 
+	Industrial_Sifter,
 	Casing_Sifter,
 	Casing_SifterGrate,
 
@@ -257,13 +259,13 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Cyclotron
-	COMET_Cyclotron, 
+	COMET_Cyclotron,
 	Casing_Cyclotron_Coil,
 	Casing_Cyclotron_External,
 
 	//Thermal Boiler
 	GT4_Thermal_Boiler,
-	Casing_ThermalContainment, 
+	Casing_ThermalContainment,
 
 
 	//Tree Farm
@@ -274,21 +276,21 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 	//Fish Pond
 	Industrial_FishingPond,
-	Casing_FishPond,  
-	
+	Casing_FishPond,
+
 	//Algae
 	AlgaeFarm_Controller,
-	
+
 	//Chemical Plant
 	ChemicalPlant_Controller,
 
 	//GT4 autoCrafter
-	GT4_Multi_Crafter, 
+	GT4_Multi_Crafter,
 	Casing_Autocrafter,
 
 
 	//industrial Ore-Washer
-	Industrial_WashPlant, 	
+	Industrial_WashPlant,
 	Casing_WashPlant,
 
 
@@ -297,59 +299,59 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Cutting Factory Controller
-	Industrial_CuttingFactoryController, 
-	Casing_CuttingFactoryFrame, 
+	Industrial_CuttingFactoryController,
+	Casing_CuttingFactoryFrame,
 
 
 	//Tesla Tower
 	TelsaTower,
-	Casing_TeslaTower, 
+	Casing_TeslaTower,
 
 
 	//Large Extruder
-	Industrial_Extruder, 
-	Casing_Extruder, 
+	Industrial_Extruder,
+	Casing_Extruder,
 
 
 	//Multi-Machine
-	Industrial_MultiMachine, 
-	Casing_Multi_Use, 
+	Industrial_MultiMachine,
+	Casing_Multi_Use,
 
 
 	//Bedrock Mining Platforms
 	/*BedrockMiner_MKI, */
 	/*BedrockMiner_MKII, */
 	/*BedrockMiner_MKIII, */
-	Casing_BedrockMiner, 
+	Casing_BedrockMiner,
 
 
 	//Large Packager
-	Amazon_Warehouse_Controller, 
-	Casing_AmazonWarehouse, 
+	Amazon_Warehouse_Controller,
+	Casing_AmazonWarehouse,
 
 
 	//Advanced GT vanilla Multis
-	Machine_Adv_BlastFurnace, 
+	Machine_Adv_BlastFurnace,
 	Casing_Adv_BlastFurnace,
-	Machine_Adv_ImplosionCompressor, 
+	Machine_Adv_ImplosionCompressor,
 	Machine_Adv_DistillationTower,
 
 	//Advanced Assembly Line
 	Machine_Adv_AssemblyLine,
-	
+
 	//Advanced Vacuum Freezer
-	Industrial_Cryogenic_Freezer, 
-	Casing_AdvancedVacuum,	
+	Industrial_Cryogenic_Freezer,
+	Casing_AdvancedVacuum,
 
 
-	//FusionTek MK IV	
-	FusionComputer_UV2, 
-	Casing_Fusion_External, 
-	Casing_Fusion_Internal, 
+	//FusionTek MK IV
+	FusionComputer_UV2,
+	Casing_Fusion_External,
+	Casing_Fusion_Internal,
 
 
 	//large mixer
-	Industrial_Mixer, 
+	Industrial_Mixer,
 
 
 	//Naq Reactor
@@ -357,29 +359,29 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Casing_Naq_Reactor_B,
 	Casing_Naq_Reactor_C,
 	/*Controller_Naq_Reactor, */
-	Casing_Containment,	
-	
+	Casing_Containment,
+
 	//Arc Furnace
 	Industrial_Arc_Furnace,
-	Casing_Industrial_Arc_Furnace, 
-	
+	Casing_Industrial_Arc_Furnace,
+
 	//Solar Tower
 	Industrial_Solar_Tower,
-	Casing_SolarTower_Structural, 
-	Casing_SolarTower_SaltContainment, 
-	Casing_SolarTower_HeatContainment, 
-	
+	Casing_SolarTower_Structural,
+	Casing_SolarTower_SaltContainment,
+	Casing_SolarTower_HeatContainment,
+
 	//Larger Turbines
 	Large_Steam_Turbine, Large_HPSteam_Turbine,
 	Large_Gas_Turbine, Large_Plasma_Turbine,
-	Casing_Turbine_Shaft, 
+	Casing_Turbine_Shaft,
 	Casing_Turbine_LP, Casing_Turbine_HP,
 	Casing_Turbine_Gas, Casing_Turbine_Plasma,
 	XL_HeatExchanger, Casing_XL_HeatExchanger,
-	
+
 	// Large Engine
 	Casing_Reinforced_Engine_Casing,
-	
+
 	//Large Vacuum Furnace
 	Casing_Vacuum_Furnace,
 	Controller_Vacuum_Furnace,
@@ -387,29 +389,29 @@ public enum GregtechItemList implements GregtechItemContainer {
 	// Large Rocket Engine
 	Casing_RocketEngine,
 	Controller_RocketEngine,
-	
+
 	// Large Semi-Fluid
 	Controller_LargeSemifluidGenerator,
-	
+
 	// IsaMill
 	Controller_IsaMill,
 	Casing_IsaMill_Casing,
 	Casing_IsaMill_Gearbox,
 	Casing_IsaMill_Pipe,
-	
+
 	// Flotation Cell
 	Controller_Flotation_Cell,
 	Casing_Flotation_Cell,
-	
+
 	// Sparge Tower
 	Controller_Sparge_Tower,
 	Casing_Sparge_Tower_Exterior,
 	Casing_Sparge_Tower_Interior,
-	
+
 	// Elemental Duplicator
 	Controller_ElementalDuplicator,
 	Casing_ElementalDuplicator,
-	
+
 	// Forge Hammer
 	Controller_IndustrialForgeHammer,
 	Casing_IndustrialForgeHammer,
@@ -419,19 +421,19 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Casing_Molecular_Transformer_1,
 	Casing_Molecular_Transformer_2,
 	Casing_Molecular_Transformer_3,
-	
+
 	// Big Steam Macerator
 	Controller_SteamMaceratorMulti,
 	// Big Steam Compressor
 	Controller_SteamCompressorMulti,
-	
+
 	// Industrial Rock Breaker
 	Controller_IndustrialRockBreaker,
-	
+
 	// Industrial Chisel
 	Controller_IndustrialAutoChisel,
 	Casing_IndustrialAutoChisel,
-	
+
 	// Industrial Fluid Heater
 	Controller_IndustrialFluidHeater,
 
@@ -442,7 +444,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	Casing_Machine_Custom_4,
 	Casing_Machine_Custom_5,
 	Casing_Machine_Custom_6,
-	
+
 
 	//----------------------------------------------------------------------------
 
@@ -451,25 +453,25 @@ public enum GregtechItemList implements GregtechItemContainer {
 	 */
 
 	//Buffer Dynamos
-	Hatch_Buffer_Dynamo_ULV, Hatch_Buffer_Dynamo_LV, Hatch_Buffer_Dynamo_MV, Hatch_Buffer_Dynamo_HV, Hatch_Buffer_Dynamo_EV, 
-	Hatch_Buffer_Dynamo_IV, Hatch_Buffer_Dynamo_LuV, Hatch_Buffer_Dynamo_ZPM, Hatch_Buffer_Dynamo_UV, Hatch_Buffer_Dynamo_MAX, 
+	Hatch_Buffer_Dynamo_ULV, Hatch_Buffer_Dynamo_LV, Hatch_Buffer_Dynamo_MV, Hatch_Buffer_Dynamo_HV, Hatch_Buffer_Dynamo_EV,
+	Hatch_Buffer_Dynamo_IV, Hatch_Buffer_Dynamo_LuV, Hatch_Buffer_Dynamo_ZPM, Hatch_Buffer_Dynamo_UV, Hatch_Buffer_Dynamo_MAX,
 
 	//Air Intake hatch
 	Hatch_Air_Intake,
 	Hatch_Air_Intake_Extreme,
-	
+
 	//Reservoir Hatch
 	Hatch_Reservoir,
-	
+
 	//XL Turbine Rotor Hatch
 	Hatch_Turbine_Rotor,
-	
+
 	//Standard Turbine Rotor Hatch
 	Hatch_Input_TurbineHousing,
-	
+
 	//Control Core
 	Hatch_Control_Core,
-	
+
 	// Milling Ball Bus
 	Bus_Milling_Balls,
 
@@ -478,45 +480,45 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 	//Custom Fluid Hatches
 	Hatch_Input_Cryotheum,
-	Hatch_Input_Pyrotheum,	
-	Hatch_Input_Naquadah, 
+	Hatch_Input_Pyrotheum,
+	Hatch_Input_Naquadah,
 	Hatch_Input_Steam,
-	
+
 	//Steam Multi Buses
 	Hatch_Input_Bus_Steam,
-	Hatch_Output_Bus_Steam,	
+	Hatch_Output_Bus_Steam,
 
 	//Elemental Duplicator Data Orb Bus
 	Hatch_Input_Elemental_Duplicator,
-	
-	//RTG Hatch 
+
+	//RTG Hatch
 	Hatch_RTG_LV,
 	Hatch_RTG_MV,
 	Hatch_RTG_HV,
 
 	//Battery hatches for PSS
-	Hatch_Input_Battery_MV, 
-	Hatch_Input_Battery_EV, 
-	Hatch_Output_Battery_MV, 
-	Hatch_Output_Battery_EV, 
-	
+	Hatch_Input_Battery_MV,
+	Hatch_Input_Battery_EV,
+	Hatch_Output_Battery_MV,
+	Hatch_Output_Battery_EV,
+
 	//Advanced Mufflers
-	Hatch_Muffler_Adv_LV, Hatch_Muffler_Adv_MV, Hatch_Muffler_Adv_HV, 
-	Hatch_Muffler_Adv_EV, Hatch_Muffler_Adv_IV, Hatch_Muffler_Adv_LuV, 
-	Hatch_Muffler_Adv_ZPM, Hatch_Muffler_Adv_UV, Hatch_Muffler_Adv_MAX, 
+	Hatch_Muffler_Adv_LV, Hatch_Muffler_Adv_MV, Hatch_Muffler_Adv_HV,
+	Hatch_Muffler_Adv_EV, Hatch_Muffler_Adv_IV, Hatch_Muffler_Adv_LuV,
+	Hatch_Muffler_Adv_ZPM, Hatch_Muffler_Adv_UV, Hatch_Muffler_Adv_MAX,
 
 	//Super Input Busses
 	Hatch_SuperBus_Input_ULV, Hatch_SuperBus_Input_LV, Hatch_SuperBus_Input_MV,
 	Hatch_SuperBus_Input_HV, Hatch_SuperBus_Input_EV, Hatch_SuperBus_Input_IV,
 	Hatch_SuperBus_Input_LuV, Hatch_SuperBus_Input_ZPM, Hatch_SuperBus_Input_UV,
-	Hatch_SuperBus_Input_MAX,  
+	Hatch_SuperBus_Input_MAX,
 
 	//Super Output Busses
 	Hatch_SuperBus_Output_ULV, Hatch_SuperBus_Output_LV, Hatch_SuperBus_Output_MV,
 	Hatch_SuperBus_Output_HV, Hatch_SuperBus_Output_EV, Hatch_SuperBus_Output_IV,
 	Hatch_SuperBus_Output_LuV, Hatch_SuperBus_Output_ZPM, Hatch_SuperBus_Output_UV,
-	Hatch_SuperBus_Output_MAX,  
-	
+	Hatch_SuperBus_Output_MAX,
+
 
 	//----------------------------------------------------------------------------
 
@@ -524,8 +526,8 @@ public enum GregtechItemList implements GregtechItemContainer {
 	/**
 	 * Blocks
 	 */
-	
-	
+
+
 	ResonanceChamber_I,
 	ResonanceChamber_II,
 	ResonanceChamber_III,
@@ -544,20 +546,20 @@ public enum GregtechItemList implements GregtechItemContainer {
 	 */
 
 	//ULV Generators
-	Generator_Diesel_ULV, Generator_Gas_Turbine_ULV, Generator_Steam_Turbine_ULV, 
+	Generator_Diesel_ULV, Generator_Gas_Turbine_ULV, Generator_Steam_Turbine_ULV,
 
 	//Crate Box
-	CrateStorage, 
+	CrateStorage,
 
 	//Auto TC Research Creator
-	Thaumcraft_Researcher, 
+	Thaumcraft_Researcher,
 
 	//Threaded Buffers
 	Automation_Threaded_SuperBuffer_ULV, Automation_Threaded_SuperBuffer_LV, Automation_Threaded_SuperBuffer_MV, Automation_Threaded_SuperBuffer_HV, Automation_Threaded_SuperBuffer_EV,
-	Automation_Threaded_SuperBuffer_IV, Automation_Threaded_SuperBuffer_LuV, Automation_Threaded_SuperBuffer_ZPM, Automation_Threaded_SuperBuffer_UV, Automation_Threaded_SuperBuffer_MAX, 
+	Automation_Threaded_SuperBuffer_IV, Automation_Threaded_SuperBuffer_LuV, Automation_Threaded_SuperBuffer_ZPM, Automation_Threaded_SuperBuffer_UV, Automation_Threaded_SuperBuffer_MAX,
 
 	//infinite Items
-	Infinite_Item_Chest, 
+	Infinite_Item_Chest,
 
 	//GT4 Redstone
 	GT4_Redstone_Lamp,
@@ -569,7 +571,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	//Gt4 Workbenches
 	GT4_Workbench_Bronze,
 	GT4_Workbench_Advanced,
-	
+
 	//GT4 automation
 	GT4_Electric_Auto_Workbench_LV,
 	GT4_Electric_Auto_Workbench_MV,
@@ -587,7 +589,7 @@ public enum GregtechItemList implements GregtechItemContainer {
 	GT4_Electric_Inventory_Manager_LuV,
 	GT4_Electric_Inventory_Manager_ZPM,
 	GT4_Electric_Inventory_Manager_UV,
-	
+
 	//GT4 Crop Harvester
 	GT4_Crop_Harvester_LV,
 	GT4_Crop_Harvester_MV,
@@ -600,8 +602,8 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Geothermal Engines
-	Geothermal_Engine_EV, 
-	Geothermal_Engine_IV, 
+	Geothermal_Engine_EV,
+	Geothermal_Engine_IV,
 	Geothermal_Engine_LuV,
 
 
@@ -611,46 +613,46 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Advanced Boilers
-	Boiler_Advanced_LV, 
-	Boiler_Advanced_MV, 
-	Boiler_Advanced_HV, 
+	Boiler_Advanced_LV,
+	Boiler_Advanced_MV,
+	Boiler_Advanced_HV,
 
 
 	//Fancy Pollution Devices
-	Pollution_Detector, 
+	Pollution_Detector,
 	Pollution_Cleaner_ULV, Pollution_Cleaner_LV,
 	Pollution_Cleaner_MV, Pollution_Cleaner_HV,
-	Pollution_Cleaner_EV, Pollution_Cleaner_IV, 
-	Pollution_Cleaner_LuV, Pollution_Cleaner_ZPM, 
-	Pollution_Cleaner_UV, Pollution_Cleaner_MAX, 
+	Pollution_Cleaner_EV, Pollution_Cleaner_IV,
+	Pollution_Cleaner_LuV, Pollution_Cleaner_ZPM,
+	Pollution_Cleaner_UV, Pollution_Cleaner_MAX,
 
 
 	//Debug machine
-	Pollution_Creator, 
+	Pollution_Creator,
 	Garbage_Collector_Debug_Machine,
 
 
 	//Basically is an automatic Cauldron
-	SimpleDustWasher_ULV, 
-	SimpleDustWasher_MV, 
-	SimpleDustWasher_EV, 
-	SimpleDustWasher_LuV, 
-	SimpleDustWasher_UV, 
-	
+	SimpleDustWasher_ULV,
+	SimpleDustWasher_MV,
+	SimpleDustWasher_EV,
+	SimpleDustWasher_LuV,
+	SimpleDustWasher_UV,
+
 	//Solar Tower Reflector
 	Solar_Tower_Reflector,
 
 	//Super Tier Chests
-	Super_Chest_LV, Super_Chest_MV, Super_Chest_HV, Super_Chest_EV, Super_Chest_IV, 
+	Super_Chest_LV, Super_Chest_MV, Super_Chest_HV, Super_Chest_EV, Super_Chest_IV,
 
 	//Chunkloader
-	GT_Chunkloader_HV, GT_Chunkloader_ZPM, GT_Chunkloader_IV, 
+	GT_Chunkloader_HV, GT_Chunkloader_ZPM, GT_Chunkloader_IV,
 
 
 	//Wireless Chargers
 	Charger_LV,	Charger_MV, Charger_HV,
-	Charger_EV,	Charger_IV,	Charger_LuV, 
-	Charger_ZPM, Charger_UV, Charger_MAX, 
+	Charger_EV,	Charger_IV,	Charger_LuV,
+	Charger_ZPM, Charger_UV, Charger_MAX,
 
 
 	//Tiny Fusion
@@ -658,29 +660,29 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Component Makers
-	Machine_LV_Component_Maker, 
-	Machine_MV_Component_Maker, 
-	Machine_HV_Component_Maker, 
-	Machine_EV_Component_Maker, 
-	Machine_IV_Component_Maker,  
+	Machine_LV_Component_Maker,
+	Machine_MV_Component_Maker,
+	Machine_HV_Component_Maker,
+	Machine_EV_Component_Maker,
+	Machine_IV_Component_Maker,
 	Machine_LuV_Component_Maker,
 	Machine_ZPM_Component_Maker,
 	Machine_UV_Component_Maker,
-	
+
 	// Reactor Processing Unit
-	ReactorProcessingUnit_IV, 
+	ReactorProcessingUnit_IV,
 	ReactorProcessingUnit_ZPM,
-	
+
 	// Cold Trap
-	ColdTrap_IV, 
+	ColdTrap_IV,
 	ColdTrap_ZPM,
-	
+
 	//Breakers
 	BreakerBox_ULV, BreakerBox_LV, BreakerBox_MV,
 	BreakerBox_HV, BreakerBox_EV, BreakerBox_IV,
 	BreakerBox_LuV, BreakerBox_ZPM, BreakerBox_UV,
 	BreakerBox_MAX,
-	
+
 
 	//Solar Generators
 	GT_Solar_ULV, GT_Solar_LV, GT_Solar_MV,
@@ -713,46 +715,46 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Player owned Safes
-	GT_Safe_ULV, GT_Safe_LV, 
-	GT_Safe_MV, GT_Safe_HV, 
-	GT_Safe_EV, GT_Safe_IV, 
-	GT_Safe_LuV, GT_Safe_ZPM, 
+	GT_Safe_ULV, GT_Safe_LV,
+	GT_Safe_MV, GT_Safe_HV,
+	GT_Safe_EV, GT_Safe_IV,
+	GT_Safe_LuV, GT_Safe_ZPM,
 	GT_Safe_UV, GT_Safe_MAX,
 
 
 	//Rocket Engines
-	Rocket_Engine_EV, 
-	Rocket_Engine_IV, 
+	Rocket_Engine_EV,
+	Rocket_Engine_IV,
 	Rocket_Engine_LuV,
 
 
 	//GT4 Shelves
-	GT4_Shelf, GT4_Shelf_Iron, 
-	GT4_Shelf_FileCabinet, GT4_Shelf_Desk, 
+	GT4_Shelf, GT4_Shelf_Iron,
+	GT4_Shelf_FileCabinet, GT4_Shelf_Desk,
 	GT4_Shelf_Compartment, GT4_Shelf_Large,
 
 
 	//Hi Amp Transformers
 	Transformer_HA_LV_ULV, Transformer_HA_MV_LV, Transformer_HA_HV_MV,
 	Transformer_HA_EV_HV, Transformer_HA_IV_EV, Transformer_HA_LuV_IV,
-	Transformer_HA_ZPM_LuV, Transformer_HA_UV_ZPM, Transformer_HA_MAX_UV, 
+	Transformer_HA_ZPM_LuV, Transformer_HA_UV_ZPM, Transformer_HA_MAX_UV,
 
 
 	//Semi-Fluid generators
-	Generator_SemiFluid_LV, 
-	Generator_SemiFluid_MV, 
-	Generator_SemiFluid_HV, 
+	Generator_SemiFluid_LV,
+	Generator_SemiFluid_MV,
+	Generator_SemiFluid_HV,
 
 
 	//Advanced Mixer 4x4
-	Machine_Advanced_LV_Mixer, Machine_Advanced_MV_Mixer, Machine_Advanced_HV_Mixer, 
-	Machine_Advanced_EV_Mixer, Machine_Advanced_IV_Mixer, Machine_Advanced_LuV_Mixer, 
+	Machine_Advanced_LV_Mixer, Machine_Advanced_MV_Mixer, Machine_Advanced_HV_Mixer,
+	Machine_Advanced_EV_Mixer, Machine_Advanced_IV_Mixer, Machine_Advanced_LuV_Mixer,
 	Machine_Advanced_ZPM_Mixer, Machine_Advanced_UV_Mixer,
 
 
 	//Block that enables uplink to a superconductor network
 	SuperConductorInputNode,
-	
+
 	//Heat Pipes
 	HeatPipe_Tier_1,
 	HeatPipe_Tier_2,
@@ -760,59 +762,59 @@ public enum GregtechItemList implements GregtechItemContainer {
 
 
 	//Chemical Dehydrators for nuclear fuels
-	GT_Dehydrator_MV, GT_Dehydrator_HV, 
-	GT_Dehydrator_EV, GT_Dehydrator_IV, 
+	GT_Dehydrator_MV, GT_Dehydrator_HV,
+	GT_Dehydrator_EV, GT_Dehydrator_IV,
 	GT_Dehydrator_LuV, GT_Dehydrator_ZPM,
 
 
 	//Fluid Storage Tanks
-	GT_FluidTank_ULV, GT_FluidTank_LV, 
-	GT_FluidTank_MV, GT_FluidTank_HV, 
-	GT_FluidTank_EV, GT_FluidTank_IV, 
-	GT_FluidTank_LuV, GT_FluidTank_ZPM, 
+	GT_FluidTank_ULV, GT_FluidTank_LV,
+	GT_FluidTank_MV, GT_FluidTank_HV,
+	GT_FluidTank_EV, GT_FluidTank_IV,
+	GT_FluidTank_LuV, GT_FluidTank_ZPM,
 	GT_FluidTank_UV, GT_FluidTank_MAX,
 
-	//Tick Accelerators from GTNH	
-	AcceleratorLV, AcceleratorMV, 
+	//Tick Accelerators from GTNH
+	AcceleratorLV, AcceleratorMV,
 	AcceleratorHV, AcceleratorEV,
-	AcceleratorIV, AcceleratorLuV, 
-	AcceleratorZPM, AcceleratorUV, 
+	AcceleratorIV, AcceleratorLuV,
+	AcceleratorZPM, AcceleratorUV,
 
 	//GT RTG
 	RTG,
-	
+
 
 	// Chisel Machines
-	GT_Chisel_LV, 
-	GT_Chisel_MV, 
-	GT_Chisel_HV, 
-	
+	GT_Chisel_LV,
+	GT_Chisel_MV,
+	GT_Chisel_HV,
+
 	//Plasma Tank
 	/*Plasma_Tank,*/
-	
-	
+
+
 	//----------------------------------------------------------------------------
-	
+
 
 	/**
 	 * Covers
 	 */
 
 	//Fluid Void Covers
-	Cover_Overflow_ULV, Cover_Overflow_LV, Cover_Overflow_MV, Cover_Overflow_HV, Cover_Overflow_EV, Cover_Overflow_IV, 
-	
+	Cover_Overflow_ULV, Cover_Overflow_LV, Cover_Overflow_MV, Cover_Overflow_HV, Cover_Overflow_EV, Cover_Overflow_IV,
+
 	//Item Void Covers
-	Cover_Overflow_Item_ULV, Cover_Overflow_Item_LV, Cover_Overflow_Item_MV, Cover_Overflow_Item_HV, Cover_Overflow_Item_EV, Cover_Overflow_Item_IV, 
-	
+	Cover_Overflow_Item_ULV, Cover_Overflow_Item_LV, Cover_Overflow_Item_MV, Cover_Overflow_Item_HV, Cover_Overflow_Item_EV, Cover_Overflow_Item_IV,
+
 	//Fake Hull Covers
 	FakeMachineCasingPlate_ULV, FakeMachineCasingPlate_LV,
 	FakeMachineCasingPlate_MV, FakeMachineCasingPlate_HV,
 	FakeMachineCasingPlate_EV, FakeMachineCasingPlate_IV,
 	FakeMachineCasingPlate_LuV, FakeMachineCasingPlate_ZPM,
-	FakeMachineCasingPlate_UV, FakeMachineCasingPlate_MAX, 
-	
-	
-	
+	FakeMachineCasingPlate_UV, FakeMachineCasingPlate_MAX,
+
+
+
 
 	//----------------------------------------------------------------------------
 

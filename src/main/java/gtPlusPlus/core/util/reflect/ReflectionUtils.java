@@ -35,11 +35,11 @@ public class ReflectionUtils {
 		private final Constructor<?> METHOD;
 
 		public CachedConstructor(Constructor<?> aCons) {
-			METHOD = aCons;
+			this.METHOD = aCons;
 		}
 
 		public Constructor<?> get() {
-			return METHOD;
+			return this.METHOD;
 		}
 
 	}
@@ -50,16 +50,16 @@ public class ReflectionUtils {
 		private final Method METHOD;
 
 		public CachedMethod(Method aMethod, boolean isStatic) {
-			METHOD = aMethod;
-			STATIC = isStatic;
+			this.METHOD = aMethod;
+			this.STATIC = isStatic;
 		}
 
 		public Method get() {
-			return METHOD;
+			return this.METHOD;
 		}
 
 		public boolean type() {
-			return STATIC;
+			return this.STATIC;
 		}
 
 	}
@@ -70,67 +70,67 @@ public class ReflectionUtils {
 		private final Field FIELD;
 
 		public CachedField(Field aField, boolean isStatic) {
-			FIELD = aField;
-			STATIC = isStatic;
+			this.FIELD = aField;
+			this.STATIC = isStatic;
 		}
 
 		public Field get() {
-			return FIELD;
+			return this.FIELD;
 		}
 
 		public boolean type() {
-			return STATIC;
+			return this.STATIC;
 		}
 
 	}
 
-	private static boolean cacheClass(Class<?> aClass) {		
+	private static boolean cacheClass(Class<?> aClass) {
 		if (aClass == null) {
 			return false;
-		}		
+		}
 		Class<?> y = mCachedClasses.get(aClass.getCanonicalName());
 		if (y == null) {
 			mCachedClasses.put(aClass.getCanonicalName(), aClass);
 			return true;
-		}		
+		}
 		return false;
 	}
 
-	private static boolean cacheMethod(Class<?> aClass, Method aMethod) {		
+	private static boolean cacheMethod(Class<?> aClass, Method aMethod) {
 		if (aMethod == null) {
 			return false;
-		}		
-		boolean isStatic = Modifier.isStatic(aMethod.getModifiers());		
+		}
+		boolean isStatic = Modifier.isStatic(aMethod.getModifiers());
 		CachedMethod y = mCachedMethods.get(aClass.getName()+"."+aMethod.getName()+"."+ArrayUtils.toString(aMethod.getParameterTypes()));
 		if (y == null) {
 			mCachedMethods.put(aClass.getName()+"."+aMethod.getName()+"."+ArrayUtils.toString(aMethod.getParameterTypes()), new CachedMethod(aMethod, isStatic));
 			return true;
-		}		
+		}
 		return false;
 	}
 
-	private static boolean cacheField(Class<?> aClass, Field aField) {		
+	private static boolean cacheField(Class<?> aClass, Field aField) {
 		if (aField == null) {
 			return false;
-		}		
+		}
 		boolean isStatic = Modifier.isStatic(aField.getModifiers());
 		CachedField y = mCachedFields.get(aClass.getName()+"."+aField.getName());
 		if (y == null) {
 			mCachedFields.put(aClass.getName()+"."+aField.getName(), new CachedField(aField, isStatic));
 			return true;
-		}		
+		}
 		return false;
 	}
 
-	private static boolean cacheConstructor(Class<?> aClass, Constructor<?> aConstructor) {		
+	private static boolean cacheConstructor(Class<?> aClass, Constructor<?> aConstructor) {
 		if (aConstructor == null) {
 			return false;
-		}		
+		}
 		CachedConstructor y = mCachedConstructors.get(aClass.getName()+"."+ArrayUtils.toString(aConstructor.getParameterTypes()));
 		if (y == null) {
 			mCachedConstructors.put(aClass.getName()+"."+ArrayUtils.toString(aConstructor.getParameterTypes()), new CachedConstructor(aConstructor));
 			return true;
-		}		
+		}
 		return false;
 	}
 
@@ -144,7 +144,7 @@ public class ReflectionUtils {
 	public static Constructor<?> getConstructor(Class<?> aClass, Class<?>... aTypes) {
 		if (aClass == null || aTypes == null) {
 			return null;
-		}		
+		}
 
 		String aMethodKey = ArrayUtils.toString(aTypes);
 		//Logger.REFLECTION("Looking up method in cache: "+(aClass.getName()+"."+aMethodName + "." + aMethodKey));
@@ -174,7 +174,7 @@ public class ReflectionUtils {
 	public static Class<?> getClass(String aClassCanonicalName) {
 		if (aClassCanonicalName == null || aClassCanonicalName.length() <= 0) {
 			return null;
-		}		
+		}
 		Class<?> y = mCachedClasses.get(aClassCanonicalName);
 		if (y == null) {
 			y = getClass_Internal(aClassCanonicalName);
@@ -210,7 +210,7 @@ public class ReflectionUtils {
 	public static Method getMethod(Class<?> aClass, String aMethodName, Class<?>... aTypes) {
 		if (aClass == null || aMethodName == null || aMethodName.length() <= 0) {
 			return null;
-		}		
+		}
 		String aMethodKey = ArrayUtils.toString(aTypes);
 		//Logger.REFLECTION("Looking up method in cache: "+(aClass.getName()+"."+aMethodName + "." + aMethodKey));
 		CachedMethod y = mCachedMethods.get(aClass.getName()+"."+aMethodName + "." + aMethodKey);
@@ -250,7 +250,7 @@ public class ReflectionUtils {
 	public static Field getField(final Class<?> aClass, final String aFieldName) {
 		if (aClass == null || aFieldName == null || aFieldName.length() <= 0) {
 			return null;
-		}		
+		}
 		CachedField y = mCachedFields.get(aClass.getName()+"."+aFieldName);
 		if (y == null) {
 			Field u;
@@ -273,14 +273,14 @@ public class ReflectionUtils {
 	public static Field[] getAllFields(final Class<?> aClass) {
 		if (aClass == null) {
 			return null;
-		}		
+		}
 		Field[] aFields = aClass.getDeclaredFields();
 		for (Field f : aFields) {
 			CachedField y = mCachedFields.get(aClass.getName()+"."+f.getName());
 			if (y == null) {
 				makeFieldAccessible(f);
 				cacheField(aClass, f);
-			}			
+			}
 		}
 		return aFields;
 	}
@@ -317,10 +317,10 @@ public class ReflectionUtils {
 	 * @return - a Class<?> or null
 	 */
 	public static Class<?> getTypeOfGenericObject(Object o) {
-		Class<?> aTypeParam = findSuperClassParameterType(o, o.getClass(), 0);	
+		Class<?> aTypeParam = findSuperClassParameterType(o, o.getClass(), 0);
 		if (aTypeParam == null) {
 			aTypeParam = findSubClassParameterType(o, o.getClass(), 0);
-		}		
+		}
 		return aTypeParam;
 	}
 
@@ -357,8 +357,8 @@ public class ReflectionUtils {
 
 
 	/**
-	 * 
-	 * @param aPackageName - The full {@link Package} name in {@link String} form. 
+	 *
+	 * @param aPackageName - The full {@link Package} name in {@link String} form.
 	 * @return - {@link Boolean} object. True if loaded > 0 classes.
 	 */
 	public static boolean dynamicallyLoadClassesInPackage(String aPackageName) {
@@ -379,7 +379,7 @@ public class ReflectionUtils {
 
 		return loaded > 0;
 	}
-	
+
 	public static void loadClass(String aClassName) {
 		try {
 			Class.forName(aClassName, true, ReflectionUtils.class.getClassLoader());
@@ -403,7 +403,7 @@ public class ReflectionUtils {
 			try {
 				final Field field = getField(clazz, fieldName);
 				if (field != null) {
-					setFieldValue_Internal(object, field, fieldValue);					
+					setFieldValue_Internal(object, field, fieldValue);
 					return true;
 				}
 			} catch (final NoSuchFieldException e) {
@@ -432,7 +432,7 @@ public class ReflectionUtils {
 			try {
 				final Field field2 = getField(clazz, field.getName());
 				if (field2 != null) {
-					setFieldValue_Internal(object, field, fieldValue);					
+					setFieldValue_Internal(object, field, fieldValue);
 					return true;
 				}
 			} catch (final NoSuchFieldException e) {
@@ -503,7 +503,7 @@ public class ReflectionUtils {
 	public static boolean invoke(Object objectInstance, String methodName, Class[] parameters, Object[] values){
 		if (objectInstance == null || methodName == null || parameters == null || values == null){
 			return false;
-		}		
+		}
 		Class<?> mLocalClass = (objectInstance instanceof Class ? (Class<?>) objectInstance : objectInstance.getClass());
 		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+mLocalClass.getCanonicalName()+".");
 		try {
@@ -514,20 +514,20 @@ public class ReflectionUtils {
 		}
 		catch (NoSuchMethodException | SecurityException | IllegalArgumentException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+mLocalClass.getName());
-		}		
+		}
 
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return false;
 	}
 
-	public static boolean invoke(Object objectInstance, Method method, Object[] values){		
+	public static boolean invoke(Object objectInstance, Method method, Object[] values){
 		if (method == null || values == null || (!ReflectionUtils.isStaticMethod(method)  && objectInstance == null)){
 			//Logger.REFLECTION("Null value when trying to Dynamically invoke "+methodName+" on an object of type: "+objectInstance.getClass().getName());
 			return false;
-		}		
+		}
 		String methodName = method.getName();
 		String classname = objectInstance != null ? objectInstance.getClass().getCanonicalName() : method.getDeclaringClass().getCanonicalName();
-		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+classname+".");		
+		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+classname+".");
 		try {
 			Method mInvokingMethod = method;
 			if (mInvokingMethod != null){
@@ -544,38 +544,38 @@ public class ReflectionUtils {
 		catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+classname);
 		}
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return false;
 	}
 
-	public static boolean invokeVoid(Object objectInstance, Method method, Object[] values){		
+	public static boolean invokeVoid(Object objectInstance, Method method, Object[] values){
 		if (method == null || values == null || (!ReflectionUtils.isStaticMethod(method)  && objectInstance == null)){
 			//Logger.REFLECTION("Null value when trying to Dynamically invoke "+methodName+" on an object of type: "+objectInstance.getClass().getName());
 			return false;
-		}		
+		}
 		String methodName = method.getName();
 		String classname = objectInstance != null ? objectInstance.getClass().getCanonicalName() : method.getDeclaringClass().getCanonicalName();
-		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+classname+".");		
+		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+classname+".");
 		try {
 			Method mInvokingMethod = method;
 			if (mInvokingMethod != null){
 				Logger.REFLECTION(methodName+" was not null.");
 				mInvokingMethod.invoke(objectInstance, values);
 				Logger.REFLECTION("Successfully invoked "+methodName+".");
-				return true;				
+				return true;
 			}
 		}
 		catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+classname);
 		}
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return false;
 	}
 
 	public static boolean invokeVoid(Object objectInstance, String methodName, Class[] parameters, Object[] values){
 		if (objectInstance == null || methodName == null || parameters == null || values == null){
 			return false;
-		}		
+		}
 		Class<?> mLocalClass = (objectInstance instanceof Class ? (Class<?>) objectInstance : objectInstance.getClass());
 		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+mLocalClass.getCanonicalName()+".");
 		try {
@@ -584,60 +584,60 @@ public class ReflectionUtils {
 				Logger.REFLECTION(methodName+" was not null.");
 				mInvokingMethod.invoke(objectInstance, values);
 				Logger.REFLECTION("Successfully invoked "+methodName+".");
-				return true;				
+				return true;
 			}
 			else {
-				Logger.REFLECTION(methodName+" is null.");				
+				Logger.REFLECTION(methodName+" is null.");
 			}
 		}
 		catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+mLocalClass.getName());
-		}		
+		}
 
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return false;
 	}
 
 
-	public static Object invokeNonBool(Object objectInstance, Method method, Object[] values){
+	public static <T> T invokeNonBool(Object objectInstance, Method method, Object... values){
 		if ((!ReflectionUtils.isStaticMethod(method)  && objectInstance == null) || method == null || values == null){
-			return false;
-		}		
+			return null;
+		}
 		String methodName = method.getName();
 		String classname = objectInstance != null ? objectInstance.getClass().getCanonicalName() : method.getDeclaringClass().getCanonicalName();
 		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+classname+".");
 		try {
-			return method.invoke(objectInstance, values);
+			return (T) method.invoke(objectInstance, values);
 		}
 		catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+classname);
-		}		
+		}
 
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return null;
 	}
 
 	public static Object invokeNonBool(Object objectInstance, String methodName, Class[] parameters, Object[] values){
 		if (objectInstance == null || methodName == null || parameters == null || values == null){
 			return false;
-		}		
+		}
 		Class<?> mLocalClass = (objectInstance instanceof Class ? (Class<?>) objectInstance : objectInstance.getClass());
 		Logger.REFLECTION("Trying to invoke "+methodName+" on an instance of "+mLocalClass.getCanonicalName()+".");
 		try {
 			Method mInvokingMethod = mLocalClass.getDeclaredMethod(methodName, parameters);
 			if (mInvokingMethod != null){
 				Logger.REFLECTION(methodName+" was not null.");
-				return mInvokingMethod.invoke(objectInstance, values);	
+				return mInvokingMethod.invoke(objectInstance, values);
 			}
 			else {
-				Logger.REFLECTION(methodName+" is null.");				
+				Logger.REFLECTION(methodName+" is null.");
 			}
 		}
 		catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			Logger.REFLECTION("Failed to Dynamically invoke "+methodName+" on an object of type: "+mLocalClass.getName());
-		}		
+		}
 
-		Logger.REFLECTION("Invoke failed or did something wrong.");		
+		Logger.REFLECTION("Invoke failed or did something wrong.");
 		return null;
 	}
 
@@ -663,7 +663,7 @@ public class ReflectionUtils {
 
 	/*
 	 * Internal Magic that probably should not get exposed.
-	 */	
+	 */
 
 
 
@@ -674,9 +674,9 @@ public class ReflectionUtils {
 
 
 	/*
-	 * 
+	 *
 	 * Below Code block is used for determining generic types associated with type<E>
-	 * 
+	 *
 	 */
 
 
@@ -788,9 +788,9 @@ public class ReflectionUtils {
 
 
 	/*
-	 * 
+	 *
 	 * End of Generics Block
-	 * 
+	 *
 	 */
 
 
@@ -806,7 +806,7 @@ public class ReflectionUtils {
 			Logger.REFLECTION("Field: Internal Lookup Failed: "+fieldName);
 			final Class<?> superClass = clazz.getSuperclass();
 			if (superClass == null) {
-				Logger.REFLECTION("Unable to find field '"+fieldName+"'");	
+				Logger.REFLECTION("Unable to find field '"+fieldName+"'");
 				//Logger.REFLECTION("Failed to get Field from Class. "+fieldName+" does not existing within "+clazz.getCanonicalName()+".");
 				throw e;
 			}
@@ -814,10 +814,10 @@ public class ReflectionUtils {
 			//Logger.REFLECTION("Failed to get Field from Class. "+fieldName+" does not existing within "+clazz.getCanonicalName()+". Trying super class.");
 			return getField_Internal(superClass, fieldName);
 		}
-	}	
+	}
 
 	/**
-	 * if (isPresent("com.optionaldependency.DependencyClass")) || 
+	 * if (isPresent("com.optionaldependency.DependencyClass")) ||
 	 * This block will never execute when the dependency is not present. There is
 	 * therefore no more risk of code throwing NoClassDefFoundException.
 	 */
@@ -847,7 +847,7 @@ public class ReflectionUtils {
 		Method m = null;
 		try {
 			Logger.REFLECTION("Method: Internal Lookup: "+aMethodName);
-			m = aClass.getDeclaredMethod(aMethodName, aTypes);	
+			m = aClass.getDeclaredMethod(aMethodName, aTypes);
 			if (m != null) {
 				m.setAccessible(true);
 				int modifiers = m.getModifiers();
@@ -862,7 +862,7 @@ public class ReflectionUtils {
 			try {
 				m = getMethodRecursively(aClass, aMethodName);
 			} catch (NoSuchMethodException e) {
-				Logger.REFLECTION("Unable to find method '"+aMethodName+"'");	
+				Logger.REFLECTION("Unable to find method '"+aMethodName+"'");
 				e.printStackTrace();
 				dumpClassInfo(aClass);
 			}
@@ -889,7 +889,7 @@ public class ReflectionUtils {
 			try {
 				c = getConstructorRecursively(aClass, aTypes);
 			} catch (Exception e) {
-				Logger.REFLECTION("Unable to find method '"+aClass.getName()+"'");	
+				Logger.REFLECTION("Unable to find method '"+aClass.getName()+"'");
 				e.printStackTrace();
 				dumpClassInfo(aClass);
 			}
@@ -932,24 +932,24 @@ public class ReflectionUtils {
 			}
 			return getMethod_Internal(superClass, aMethodName);
 		}
-	}	
+	}
 
 	private static void dumpClassInfo(Class<?> aClass) {
-		Logger.INFO("We ran into an error processing reflection in "+aClass.getName()+", dumping all data for debugging.");	
+		Logger.INFO("We ran into an error processing reflection in "+aClass.getName()+", dumping all data for debugging.");
 		// Get the methods
 		Method[] methods = aClass.getDeclaredMethods();
 		Field[] fields = aClass.getDeclaredFields();
-		Constructor[] consts = aClass.getDeclaredConstructors(); 
+		Constructor[] consts = aClass.getDeclaredConstructors();
 
-		Logger.INFO("Dumping all Methods.");	
+		Logger.INFO("Dumping all Methods.");
 		for (Method method : methods) {
 			System.out.println(method.getName()+" | "+StringUtils.getDataStringFromArray(method.getParameterTypes()));
 		}
-		Logger.INFO("Dumping all Fields.");	
+		Logger.INFO("Dumping all Fields.");
 		for (Field f : fields) {
 			System.out.println(f.getName());
 		}
-		Logger.INFO("Dumping all Constructors.");	
+		Logger.INFO("Dumping all Constructors.");
 		for (Constructor<?> c : consts) {
 			System.out.println(c.getName()+" | "+c.getParameterCount()+" | "+StringUtils.getDataStringFromArray(c.getParameterTypes()));
 		}
@@ -1007,7 +1007,7 @@ public class ReflectionUtils {
 			}
 		}
 
-		if (aClass == null) {			
+		if (aClass == null) {
 			String aClassName = "";
 			Logger.REFLECTION("Splitting "+string+" to try look for hidden classes.");
 			String[] aData = string.split("\\.");
@@ -1018,12 +1018,12 @@ public class ReflectionUtils {
 			}
 			if (aClassName != null && aClassName.length() > 0) {
 				Logger.REFLECTION("Trying to search '"+aClassName+"' for inner classes.");
-				Class<?> clazz = ReflectionUtils.getClass(aClassName);			
+				Class<?> clazz = ReflectionUtils.getClass(aClassName);
 				if (clazz != null) {
 					Class[] y = clazz.getDeclaredClasses();
 					if (y == null || y.length <= 0) {
 						Logger.REFLECTION("No hidden inner classes found.");
-						return null;				
+						return null;
 					}
 					else {
 						boolean found = false;
@@ -1035,7 +1035,7 @@ public class ReflectionUtils {
 								ReflectionUtils.mCachedClasses.put(string, h);
 								aClass = h;
 								found = true;
-								break;						
+								break;
 							}
 						}
 						if (!found) {
@@ -1055,7 +1055,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 
+	 *
 	 * Set the value of a field reflectively.
 	 */
 	private static void setFieldValue_Internal(Object owner, Field field, Object value) throws Exception {
@@ -1113,7 +1113,7 @@ public class ReflectionUtils {
 		return null;
 	}
 
-	public static Enum getEnum(Class<Enum> sgtbees, String name) {		
+	public static Enum getEnum(Class<Enum> sgtbees, String name) {
 		if (sgtbees.isEnum()) {
 			Object[] aValues = sgtbees.getEnumConstants();
 			for (Object o : aValues) {
@@ -1121,8 +1121,15 @@ public class ReflectionUtils {
 					return (Enum) o;
 				}
 			}
-		}		
+		}
 		return null;
+	}
+
+	public static Enum[] getEnumValues(Class<Enum> enumClass) {
+		if (enumClass.isEnum()) {
+			return enumClass.getEnumConstants();
+		}
+		return new Enum[]{};
 	}
 
 

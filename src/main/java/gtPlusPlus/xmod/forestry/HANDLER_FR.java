@@ -3,7 +3,6 @@ package gtPlusPlus.xmod.forestry;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import binnie.extratrees.genetics.ExtraTreeSpecies;
 import cpw.mods.fml.common.Optional;
 import forestry.api.arboriculture.EnumGermlingType;
 import forestry.api.arboriculture.EnumWoodType;
@@ -24,7 +23,7 @@ public class HANDLER_FR {
 	public static void preInit(){
 		if (LoadedMods.Forestry){
 			FR_ItemRegistry.Register();
-		}		
+		}
 	}
 
 	public static void Init(){
@@ -57,15 +56,15 @@ public class HANDLER_FR {
 			Class oClass;
 			try {
 				oClass = ReflectionUtils.getClass("forestry.core.proxy.ProxyCommon");
-				Object oProxy = ReflectionUtils.getField(oClass, "common");				
-				if (oProxy != null && oClass.isInstance(oProxy)){					
-					Method mParticles = ReflectionUtils.getMethod(oClass, "addBlockDestroyEffects", World.class, int.class, int.class, int.class, Block.class, int.class);					
-					mParticles.invoke(oProxy, world, x, y, z, block, 0);				
+				Object oProxy = ReflectionUtils.getField(oClass, "common");
+				if (oProxy != null && oClass.isInstance(oProxy)){
+					Method mParticles = ReflectionUtils.getMethod(oClass, "addBlockDestroyEffects", World.class, int.class, int.class, int.class, Block.class, int.class);
+					mParticles.invoke(oProxy, world, x, y, z, block, 0);
 				}
 			}
 			catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			}
-		}		
+		}
 	}
 
 	@Optional.Method(modid = "Forestry")
@@ -91,18 +90,30 @@ public class HANDLER_FR {
 
 	@Optional.Method(modid = "ExtraTrees")
 	private static void mapExtraTreesSaplingToLog() {
-		for (ExtraTreeSpecies value : ExtraTreeSpecies.values()) {
-			ItemStack aSaplingStack = TreeManager.treeRoot.getMemberStack(TreeManager.treeRoot.templateAsIndividual(value.getTemplate()), 0);
+
+		// Let's not have a hard dep for a single call.
+		// Learn to use reflection, it's cached, it's fast.
+		Class extraTrees = ReflectionUtils.getClass("binnie.extratrees.genetics.ExtraTreeSpecies");
+		Class logType = ReflectionUtils.getClass("binnie.extratrees.block.ILogType");
+		Enum[] trees = ReflectionUtils.getEnumValues(extraTrees);
+		Method getTemplate = ReflectionUtils.getMethod(extraTrees, "getTemplate");
+		Method getLog = ReflectionUtils.getMethod(extraTrees, "getLog");
+		Method getUID = ReflectionUtils.getMethod(extraTrees, "getUID");
+		Method getItemStack = ReflectionUtils.getMethod(logType, "getItemStack");
+		for (Enum value : trees) {
+			ItemStack aSaplingStack = TreeManager.treeRoot.getMemberStack(TreeManager.treeRoot.templateAsIndividual(ReflectionUtils.invokeNonBool(value, getTemplate)), 0);
 			ItemStack aLog = null;
-			if (value.getLog() != null) {
-				aLog = value.getLog().getItemStack();
-
-				GregtechMetaTileEntityTreeFarm.sLogCache.put(value.getUID(), aLog);
-				GregtechMetaTileEntityTreeFarm.sLogCache.put(value.getUID() + "fireproof", aLog);
+			Object logTypeObj = ReflectionUtils.invokeNonBool(value, getLog);
+			if (logTypeObj != null && logType.isInstance(logTypeObj)) {
+				aLog = ReflectionUtils.invokeNonBool(logTypeObj, getItemStack);
+				String UID = ReflectionUtils.invokeNonBool(value, getUID);
+				GregtechMetaTileEntityTreeFarm.sLogCache.put(UID, aLog);
+				GregtechMetaTileEntityTreeFarm.sLogCache.put(UID + "fireproof", aLog);
+				GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
 			}
-
-			GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
 		}
+
+
 	}
 
 }
