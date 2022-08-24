@@ -100,11 +100,13 @@ public class HANDLER_Railcraft {
 				RailcraftUtils.addCokeOvenRecipe(aInputs2[i], true, true, aOutputs[i], FluidUtils.getFluidStack("creosote", 30), 500);			
 			}
 			
-			for (int i=0;i<aOutputs.length;i++) {
-				RailcraftUtils.addAdvancedCokeOvenRecipe(aInputs1[i], true, true, aInputs2[i], 20);
-			}
-			for (int i=0;i<aOutputs.length;i++) {
-				RailcraftUtils.addAdvancedCokeOvenRecipe(aInputs2[i], true, true, aInputs2[i], 20);
+			if(LoadedMods.DreamCraft){
+				for (int i=0;i<aOutputs.length;i++) {
+					RailcraftUtils.addAdvancedCokeOvenRecipe(aInputs1[i], true, true, aInputs2[i], 20);
+				}
+				for (int i=0;i<aOutputs.length;i++) {
+					RailcraftUtils.addAdvancedCokeOvenRecipe(aInputs2[i], true, true, aInputs2[i], 20);
+				}
 			}
 		}
 	}
