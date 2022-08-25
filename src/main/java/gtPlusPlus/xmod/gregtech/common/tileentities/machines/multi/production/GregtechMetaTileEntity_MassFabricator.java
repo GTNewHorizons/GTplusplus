@@ -174,7 +174,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
 		FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
 		init();
-		return checkRecipeGeneric(tItemInputs, tFluidInputs, 4, 80, 00, 100);
+		return checkRecipeGeneric(tItemInputs, tFluidInputs, 4, 80, 00, 10000);
 	}
 
 	public static boolean sInit = false;
