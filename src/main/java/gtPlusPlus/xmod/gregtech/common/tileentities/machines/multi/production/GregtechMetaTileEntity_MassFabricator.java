@@ -300,6 +300,10 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 			int aMaxParallelRecipes, int aEUPercent,
 			int aSpeedBonusPercent, int aOutputChanceRoll) {
 
+		if (aItemInputs == null || aItemInputs.length <= 0) {
+			return false;
+		}
+
 		long tVoltage = getMaxInputVoltage();
 		byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 		long tEnergy = getMaxInputEnergy();
