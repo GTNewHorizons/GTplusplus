@@ -462,7 +462,7 @@ public class GregtechMetaTileEntity_MassFabricator extends GregtechMeta_MultiBlo
 		log("tRecipeEUt: "+tRecipeEUt);
 		// Count recipes to do in parallel, consuming input items and fluids and considering input voltage limits
 		for (; parallelRecipes < aMaxParallelRecipes && tTotalEUt < (tEnergy - tRecipeEUt); parallelRecipes++) {
-			if (!tRecipe.isRecipeInputEqual(true, true, aFluidInputs, aItemInputs)) {
+			if (!tRecipe.isRecipeInputEqual(true, false, aFluidInputs, aItemInputs)) {
 				break;
 			}
 			log("Bumped EU from "+tTotalEUt+" to "+(tTotalEUt+tRecipeEUt)+".");
