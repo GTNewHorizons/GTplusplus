@@ -225,17 +225,17 @@ public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock 
 
 	@Override
 	public void saveNBTData(NBTTagCompound aNBT) {
-		aNBT.setBoolean("mHasTower", false);
+		/*aNBT.setBoolean("mHasTower", mHasTower);
 		if (this.mHasTower) {
 			aNBT.setInteger("mTX", mTX);
 			aNBT.setInteger("mTY", mTY);
 			aNBT.setInteger("mTZ", mTZ);
-		}
+		}*/
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound aNBT) {
-		this.mHasTower = aNBT.getBoolean("mHasTower");
+		/*this.mHasTower = aNBT.getBoolean("mHasTower");
 		if (this.mHasTower) {
 			if (aNBT.hasKey("mTX"))
 				this.mTX = aNBT.getInteger("mTX");
@@ -243,7 +243,7 @@ public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock 
 				this.mTY = aNBT.getInteger("mTY");
 			if (aNBT.hasKey("mTZ"))
 				this.mTZ = aNBT.getInteger("mTZ");
-		}
+		}*/
 	}
 
 	@Override
