@@ -492,7 +492,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 					for (int o=0;o<aSlotsNeedsForThisStack;o++) {
 						if (aStackSize < 1) break;
 						int aStackToRemove = Math.min(aStackSize, aY.getMaxStackSize());
-						aStackSize -= aY.getMaxStackSize();
+						aStackSize -= aStackToRemove;
 						aY = aY.copy();
 						aY.stackSize = 0;
 						aInputMap.add(new FlexiblePair<ItemStack, Integer>(aY, aStackToRemove));
