@@ -262,6 +262,10 @@ public class TexturesGtBlock {
 	private static final CustomIcon Internal_Casing_Centrifuge = new CustomIcon("TileEntities/MACHINE_CASING_CENTRIFUGE");
 	public static final CustomIcon Casing_Material_Centrifuge = Internal_Casing_Centrifuge;
 
+	//XL ABS Casing
+	private static final CustomIcon Internal_Casing_XL_ABS = new CustomIcon("TileEntities/MACHINE_CASING_MEGA_ABS_COIL");
+	public static final CustomIcon Casing_Coil_XL_ABS = Internal_Casing_XL_ABS;
+
 	//MACHINE_CASING_FARM_MANAGER_STRUCTURAL
 	//Farm Manager Casings
 	private static final CustomIcon Internal_Casing_Machine_Farm_Manager = new CustomIcon("TileEntities/MACHINE_CASING_FARM_MANAGER_STRUCTURAL");

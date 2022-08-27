@@ -119,7 +119,7 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
 		case 14:
 			return TexturesGtBlock.Casing_Material_Talonite.getIcon();
 		case 15:
-			return TexturesGtBlock.Casing_Laurenium_Firebox.getIcon();
+			return TexturesGtBlock.Casing_Coil_XL_ABS.getIcon();
 
 		}
 		return Textures.BlockIcons.RENDERING_ERROR.getIcon();
