@@ -1821,9 +1821,9 @@ public class RECIPES_GREGTECH {
 				new int[] { 750, 250, 250, 250, 1850 }, 0);
 
 		HotFuel.addNewHotFuel(
-				MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(1000),
-				MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(1000), 
-				FluidUtils.getSuperHeatedSteam(10000),
+				MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100),
+				MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100),
+				FluidUtils.getSuperHeatedSteam(100000),
 				0);
 
 		/*
