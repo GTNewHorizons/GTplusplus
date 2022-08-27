@@ -111,7 +111,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 		.addInfo("If inserted into the controller, it is shared across all busses")
 		.addInfo("1x, 2x, 3x & Other Schematics are to be placed into the controller GUI slot")
 		.addInfo("500% faster than using single block machines of the same voltage")
-		.addInfo("Only uses 75% of the eu/t normally required")
+		.addInfo("Only uses 75% of the EU/t normally required")
 		.addInfo("Processes 16 items per voltage tier")
 		.addPollutionAmount(getPollutionPerSecond(null))
 		.addSeparator()
