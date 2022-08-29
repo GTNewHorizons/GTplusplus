@@ -579,11 +579,18 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
 		World w = this.getBaseMetaTileEntity().getWorld();
 
 		//Manage Heat every 10s
-		//Add Heat First, if sources available and it's daytime
+		//Add Heat First, if sources available and it's daytime, heat gain is halved if raining
 		if (w != null) {
 			if (aHeaters > 0 && w.isDaytime()) {
-				this.mHeatLevel += GT_Utility.safeInt((long) (aHeaters * aEfficiency * (10 + aTier)));
-				log("Added Heat: " + aHeaters + " * " + aEfficiency + " * " + (10 + aTier) + " = " + (aHeaters * aEfficiency * (10 + aTier)));
+				if (w.isRaining() && this.getBaseMetaTileEntity().getBiome().rainfall > 0.0F) {
+					this.mHeatLevel += GT_Utility.safeInt((long) ((aHeaters / 2) * aEfficiency * (10 + aTier)));
+					log("Added Heat (rain): " + aHeaters / 2 + " * " + aEfficiency + " * " + (10 + aTier) + " = " + (aHeaters * aEfficiency * (10 + aTier)));
+				}
+				else {
+					this.mHeatLevel += GT_Utility.safeInt((long) (aHeaters * aEfficiency * (10 + aTier)));
+					log("Added Heat: " + aHeaters + " * " + aEfficiency + " * " + (10 + aTier) + " = " + (aHeaters * aEfficiency * (10 + aTier)));
+				}
+
 			}
 
 			//Remove Heat, based on time of day
@@ -614,6 +621,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
 					log("Removed Heat: " + (aFluidAmount));
 					this.depleteInput(FluidUtils.getFluidStack(mColdSalt, aFluidAmount));
 					this.addOutput(FluidUtils.getFluidStack(mHotSalt, aFluidAmount));
+					this.mHeatLevel = Math.max(this.mHeatLevel, 0);
 
 					break;
 				}
