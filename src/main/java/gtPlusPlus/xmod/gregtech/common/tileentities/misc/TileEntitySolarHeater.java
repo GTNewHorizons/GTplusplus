@@ -297,13 +297,6 @@ public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock 
         return null;
     }
 
-    public GregtechMetaTileEntity_SolarTower getSolarTower() {
-        if (this.mHasTower) {
-            return mTower;
-        }
-        return null;
-    }
-
     public boolean canSeeSky() {
         if (this.getBaseMetaTileEntity()
                 .getWorld()
