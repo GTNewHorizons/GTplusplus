@@ -231,29 +231,25 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_LuV.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[1][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                        MACHINE_CASINGS[1][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                     }),
                     new GT_Cover_Conveyor(400));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_ZPM.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[2][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                        MACHINE_CASINGS[2][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                     }),
                     new GT_Cover_Conveyor(100));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_UV.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[3][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                        MACHINE_CASINGS[3][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                     }),
                     new GT_Cover_Conveyor(20));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_MAX.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[4][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                        MACHINE_CASINGS[4][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                     }),
                     new GT_Cover_Conveyor(4));
             tLastID = 12;
@@ -370,29 +366,25 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_LuV.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[1][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        MACHINE_CASINGS[1][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(400));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_ZPM.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[2][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        MACHINE_CASINGS[2][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(100));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_UV.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[3][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        MACHINE_CASINGS[3][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(20));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_MAX.get(1L),
                     new GT_MultiTexture(new ITexture[] {
-                        MACHINE_CASINGS[4][0],
-                        new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        MACHINE_CASINGS[4][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(4));
             tLastID = 20;
@@ -764,43 +756,37 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_ULV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[4][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[4][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(8));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_LV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[4][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[4][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(64));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_MV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[5][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(512));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_HV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[5][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[5][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(4096));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_EV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[8][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(32768));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_IV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[8][0],
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
+                    MACHINE_CASINGS[8][0], new GT_RenderedTexture(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(262144));
 
@@ -1021,15 +1007,14 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_ULV.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[1][0],
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                    MACHINE_CASINGS[1][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                 }),
                 new GT_Cover_Conveyor(1600));
         GregTech_API.registerCover(
                 GregtechItemList.Robot_Arm_ULV.get(1L),
-                new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[1][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
-                }),
+                new GT_MultiTexture(
+                        new ITexture[] {MACHINE_CASINGS[1][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        }),
                 new GT_Cover_Arm(1600));
 
         return true;
@@ -1086,15 +1071,14 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_MAX.get(1L),
                 new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[4][0],
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                    MACHINE_CASINGS[4][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR)
                 }),
                 new GT_Cover_Conveyor(4));
         GregTech_API.registerCover(
                 GregtechItemList.Robot_Arm_MAX.get(1L),
-                new GT_MultiTexture(new ITexture[] {
-                    MACHINE_CASINGS[4][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
-                }),
+                new GT_MultiTexture(
+                        new ITexture[] {MACHINE_CASINGS[4][0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM)
+                        }),
                 new GT_Cover_Arm(4));
 
         return true;
