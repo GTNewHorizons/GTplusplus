@@ -538,7 +538,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 for (FlexiblePair<ItemStack, Integer> y : aItemMap) {
                     // Iterate over the 'inputs', we can safely remove these as we go.
                     outputItems:
-                    for (FlexiblePair<ItemStack, Integer> u : aInputMap) {
+                    for (Iterator<FlexiblePair<ItemStack, Integer>> iterator = aInputMap.iterator(); iterator.hasNext(); ) {
+                        FlexiblePair<ItemStack, Integer> u = iterator.next();
                         // Create local vars for readability.
                         ItemStack aOutputBusStack = y.getKey();
                         ItemStack aOutputStack = u.getKey();
@@ -554,7 +555,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                                     // Update the stack size in the bus storage map.
                                     y.setValue(aOutputBusStack.stackSize + aOutputStack.stackSize);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
-                                    aInputMap.remove(u);
+                                    iterator.remove();
                                     continue outputItems;
                                 }
                                 // Stack merging is too much, so we fill this stack, leave the remainder.
@@ -566,7 +567,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                                     FlexiblePair<ItemStack, Integer> t =
                                             new FlexiblePair<ItemStack, Integer>(u.getKey(), aRemainder);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
-                                    aInputMap.remove(u);
+                                    iterator.remove();
                                     // Add the remainder stack.
                                     aInputMap.add(t);
                                     continue outputItems;
