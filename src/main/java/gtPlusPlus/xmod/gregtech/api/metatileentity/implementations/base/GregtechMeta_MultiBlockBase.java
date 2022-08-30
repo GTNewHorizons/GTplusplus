@@ -23,6 +23,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.render.TextureFactory;
+import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
@@ -505,8 +506,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
             // A map to hold the items we will be 'inputting' into the output buses. These itemstacks are actually the
             // recipe outputs.
-            ConcurrentSet<FlexiblePair<ItemStack, Integer>> aInputMap =
-                    new ConcurrentHashSet<FlexiblePair<ItemStack, Integer>>();
+            Set<FlexiblePair<ItemStack, Integer>> aInputMap = new HashSet<>();
 
             // Iterate over the outputs, calculating require stack spacing they will require.
             for (int i = 0; i < aOutputs.size(); i++) {
@@ -538,7 +538,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 for (FlexiblePair<ItemStack, Integer> y : aItemMap) {
                     // Iterate over the 'inputs', we can safely remove these as we go.
                     outputItems:
-                    for (FlexiblePair<ItemStack, Integer> u : aInputMap) {
+                    for (Iterator<FlexiblePair<ItemStack, Integer>> iterator = aInputMap.iterator(); iterator.hasNext(); ) {
+                        FlexiblePair<ItemStack, Integer> u = iterator.next();
                         // Create local vars for readability.
                         ItemStack aOutputBusStack = y.getKey();
                         ItemStack aOutputStack = u.getKey();
@@ -554,7 +555,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                                     // Update the stack size in the bus storage map.
                                     y.setValue(aOutputBusStack.stackSize + aOutputStack.stackSize);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
-                                    aInputMap.remove(u);
+                                    iterator.remove();
                                     continue outputItems;
                                 }
                                 // Stack merging is too much, so we fill this stack, leave the remainder.
@@ -566,7 +567,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                                     FlexiblePair<ItemStack, Integer> t =
                                             new FlexiblePair<ItemStack, Integer>(u.getKey(), aRemainder);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
-                                    aInputMap.remove(u);
+                                    iterator.remove();
                                     // Add the remainder stack.
                                     aInputMap.add(t);
                                     continue outputItems;
@@ -606,166 +607,103 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
         if (aDoesOutputFluids) {
             log("We have Fluids to output.");
-            // How many slots are free across all the output buses?
-            int aFluidHatches = 0;
-            int aEmptyFluidHatches = 0;
-            int aFullFluidHatches = 0;
-            // Create Map for Fluid Output
-            ArrayList<Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>> aOutputHatches =
-                    new ArrayList<Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>>();
-            for (final GT_MetaTileEntity_Hatch_Output tBus : this.mOutputHatches) {
-                if (!isValidMetaTileEntity(tBus)) {
-                    continue;
-                }
-                aFluidHatches++;
-                // Map the Hatch with the space left for easy checking later.
-                if (tBus.getFluid() == null) {
-                    aOutputHatches.add(new Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>(
-                            tBus, null, tBus.getCapacity()));
-                } else {
-                    int aSpaceLeft = tBus.getCapacity() - tBus.getFluidAmount();
-                    aOutputHatches.add(new Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>(
-                            tBus, tBus.getFluid(), aSpaceLeft));
-                }
-            }
-            // Create a map of all the fluids we would like to output, we can iterate over this and see how many we can
-            // merge into existing hatch stacks.
-            ArrayList<FluidStack> aOutputFluids = new ArrayList<FluidStack>();
-            // Ugly ass boxing
-            aOutputFluids.addAll(new AutoMap<FluidStack>(aFluidOutputs));
-            // Iterate the Hatches, updating their 'stored' data.
-            // for (Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aHatchData : aOutputHatches) {
-            for (int i = 0; i < aOutputHatches.size(); i++) {
-                // The Hatch Itself
-                GT_MetaTileEntity_Hatch_Output aHatch = aOutputHatches.get(i).getValue_1();
-                // Fluid in the Hatch
-                FluidStack aHatchStack = aOutputHatches.get(i).getValue_2();
-                // Fluid that the hatch is locked to
-                String aHatchLockedFluid = aOutputHatches.get(i).getValue_1().getLockedFluidName();
-                // Space left in Hatch
-                int aSpaceLeftInHatch = aHatch.getCapacity() - aHatch.getFluidAmount();
-                // Hatch is full,
-                if (aSpaceLeftInHatch <= 0) {
-                    aFullFluidHatches++;
-                    aOutputHatches.remove(aOutputHatches.get(i));
-                    i--;
-                    continue;
-                }
-                // Hatch has space
-                else {
-                    // Check if any fluids match
-                    // aFluidMatch: for (FluidStack aOutputStack : aOutputFluids) {
-                    for (int j = 0; j < aOutputFluids.size(); j++) {
-                        // log(" aHatchStack "+aHatchStack.getLocalizedName()+" aOutput stack
-                        // "+aOutputStack.getLocalizedName());
-                        if (GT_Utility.areFluidsEqual(aHatchStack, aOutputFluids.get(j))
-                                && (aHatchLockedFluid == null
-                                        || aHatchLockedFluid.equals(
-                                                aOutputFluids.get(j).getFluid().getName()))) {
-                            int aFluidToPutIntoHatch = aOutputFluids.get(j).amount * aParallelRecipes;
-                            // Not Enough space to insert all of the fluid.
-                            // We fill this hatch and add a smaller Fluidstack back to the iterator.
-                            if (aSpaceLeftInHatch < aFluidToPutIntoHatch) {
-                                // Copy existing Hatch Stack
-                                FluidStack aNewHatchStack = aHatchStack.copy();
-                                aNewHatchStack.amount = 0;
-                                // Copy existing Hatch Stack again
-                                FluidStack aNewOutputStack = aHatchStack.copy();
-                                aNewOutputStack.amount = 0;
-                                // How much fluid do we have left after we fill the hatch?
-                                int aFluidLeftAfterInsert = aFluidToPutIntoHatch - aSpaceLeftInHatch;
-                                // Set new stacks to appropriate values
-                                aNewHatchStack.amount = aHatch.getCapacity();
-                                aNewOutputStack.amount = aFluidLeftAfterInsert;
-                                // Remove fluid from output list, merge success
-                                aOutputFluids.remove(aOutputFluids.get(j));
-                                j--;
-                                // Remove hatch from hatch list, data is now invalid.
-                                aOutputHatches.remove(aOutputHatches.get(i));
-                                i--;
-                                // Add remaining Fluid to Output list
-                                aOutputFluids.add(aNewOutputStack);
-                                // Re-add hatch to hatch list, with new data.
-                                // Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aNewHatchData = new
-                                // Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>(aHatch, aNewHatchStack,
-                                // aNewHatchStack.amount);
-                                // aOutputHatches.add(aNewHatchData);
-                                break;
-                            }
-                            // We can fill this hatch perfectly (rare case), may as well add it directly to the full
-                            // list.
-                            else if (aSpaceLeftInHatch == aFluidToPutIntoHatch) {
-                                // Copy Old Stack
-                                FluidStack aNewHatchStack = aHatchStack.copy();
-                                // Add in amount from output stack
-                                aNewHatchStack.amount += aFluidToPutIntoHatch;
-                                // Remove fluid from output list, merge success
-                                aOutputFluids.remove(aOutputFluids.get(j));
-                                j--;
-                                // Remove hatch from hatch list, data is now invalid.
-                                aOutputHatches.remove(aOutputHatches.get(i));
-                                i--;
-                                // Re-add hatch to hatch list, with new data.
-                                Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aNewHatchData =
-                                        new Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>(
-                                                aHatch, aNewHatchStack, aNewHatchStack.amount);
-                                aOutputHatches.add(aNewHatchData);
-                                break;
-                            }
-                            // We have more space than we need to merge, so we remove the stack from the output list and
-                            // update the hatch list.
-                            else {
-                                // Copy Old Stack
-                                FluidStack aNewHatchStack = aHatchStack.copy();
-                                // Add in amount from output stack
-                                aNewHatchStack.amount += aFluidToPutIntoHatch;
-                                // Remove fluid from output list, merge success
-                                aOutputFluids.remove(aOutputFluids.get(j));
-                                j--;
-                                // Remove hatch from hatch list, data is now invalid.
-                                aOutputHatches.remove(aOutputHatches.get(i));
-                                i--;
-                                // Re-add hatch to hatch list, with new data.
-                                Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aNewHatchData =
-                                        new Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>(
-                                                aHatch, aNewHatchStack, aNewHatchStack.amount);
-                                aOutputHatches.add(aNewHatchData);
-                                // Check next fluid
-                                continue;
-                            }
+            // the basic idea is to iterate over each output hatch one by one, prioritizing the locked hatches,
+            // and try to fill them with each of the fluid we have.
 
-                        } else if (aHatchLockedFluid == null
-                                || aHatchLockedFluid.equals(
-                                        aOutputFluids.get(j).getFluid().getName())) {
-                            aEmptyFluidHatches++;
-                        } else {
+            // this algorithm can only determine if it works under current parallel
+            // it cannot figure out if a reduced parallel will not overflow
+
+            // make a copy of fluid left to output, since we cannot modify the original FluidStack[]
+            // use ArrayList as we will usually have less than 12 fluid to output (hopefully)
+            List<FluidStack> tFluidsLeft = new ArrayList<>(aFluidOutputs.length);
+            for (FluidStack aFluidOutput : aFluidOutputs) {
+                FluidStack copy = aFluidOutput.copy();
+                copy.amount *= aParallelRecipes;
+                tFluidsLeft.add(copy);
+            }
+
+            // go over restrictive hatches first
+            for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
+                int tSpaceLeft = tHatch.getCapacity() - tHatch.getFluidAmount();
+
+                // check if hatch filled
+                if (tSpaceLeft <= 0) continue;
+
+                String tLockedFluidName = tHatch.getLockedFluidName();
+                // not restrictive hatch. leave for next pass
+                if (tHatch.mMode == 0) continue;
+
+                for (Iterator<FluidStack> iterator = tFluidsLeft.iterator(); iterator.hasNext(); ) {
+                    FluidStack tFluidOutput = iterator.next();
+                    if (GT_ModHandler.isSteam(tFluidOutput)) {
+                        if (!tHatch.outputsSteam()) {
+                            continue;
+                        }
+                    } else {
+                        if (!tHatch.outputsLiquids()) {
+                            continue;
+                        }
+                        if (tHatch.isFluidLocked()
+                                && tLockedFluidName != null
+                                && !tLockedFluidName.equals(
+                                        tFluidOutput.getFluid().getName())) {
                             continue;
                         }
                     }
+                    // this fluid is not prevented by restrictions on output hatch
+                    if (tHatch.getFluidAmount() == 0 || GT_Utility.areFluidsEqual(tHatch.getFluid(), tFluidOutput)) {
+                        // empty or same fluid - in any case, can accept
+                        if (tSpaceLeft >= tFluidOutput.amount) {
+                            // enough to hold all fluid
+                            tSpaceLeft -= tFluidOutput.amount;
+                            iterator.remove();
+                        } else {
+                            tFluidOutput.amount -= tSpaceLeft;
+                            break;
+                        }
+                    }
                 }
+                // at this point we have either visited all output or is completed empty, so we can go over to next
+                // before that, check if we have handled all fluid, if yes, bail out for early exit.
+                if (tFluidsLeft.isEmpty()) break;
             }
 
-            for (Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aFreeHatchCheck : aOutputHatches) {
-                // Free Hatch
-                if ((aFreeHatchCheck.getValue_2() == null
-                                || aFreeHatchCheck.getValue_3() == 0
-                                || aFreeHatchCheck.getValue_1().getFluid() == null)
-                        && !aFreeHatchCheck.getValue_1().isFluidLocked()) {
-                    aEmptyFluidHatches++;
+            // check non-restrictive hatches
+            for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
+                int tSpaceLeft = tHatch.getCapacity() - tHatch.getFluidAmount();
+
+                // check if hatch filled
+                if (tSpaceLeft <= 0) continue;
+
+                // restrictive hatch. done in last pass
+                if (tHatch.mMode != 0) continue;
+
+                for (Iterator<FluidStack> iterator = tFluidsLeft.iterator(); iterator.hasNext(); ) {
+                    FluidStack tFluidOutput = iterator.next();
+                    // these are not restrictive hatches, so no need to check other stuff
+                    if (tHatch.getFluidAmount() == 0 || GT_Utility.areFluidsEqual(tHatch.getFluid(), tFluidOutput)) {
+                        // empty or same fluid - in any case, can accept
+                        if (tSpaceLeft >= tFluidOutput.amount) {
+                            // enough to hold all fluid
+                            tSpaceLeft -= tFluidOutput.amount;
+                            iterator.remove();
+                        } else {
+                            tFluidOutput.amount -= tSpaceLeft;
+                            break;
+                        }
+                    }
                 }
+                // at this point we have either visited all output or is completed empty, so go over to next
+                // before that, check if we have handled all fluid, if yes, bail out for early exit.
+                if (tFluidsLeft.isEmpty()) break;
             }
 
             // We have Fluid Stacks we did not merge. Do we have space?
-            log("fluids to output " + aOutputFluids.size() + " empty hatches " + aEmptyFluidHatches);
-            if (aOutputFluids.size() > 0) {
+            log("fluids to output " + tFluidsLeft.size());
+            if (!tFluidsLeft.isEmpty()) {
                 // Not enough space to add fluids.
-                if (aOutputFluids.size() > aEmptyFluidHatches) {
-                    aParallelRecipes =
-                            (int) Math.floor((double) aEmptyFluidHatches / aOutputFluids.size() * aParallelRecipes);
-                    log("Failed to find enough space for all fluid outputs. Free: " + aEmptyFluidHatches
-                            + ", Required: " + aOutputFluids.size());
-                    return 0;
-                }
+                log("Failed to find enough space for all fluid outputs. Fluids left: " + tFluidsLeft.size());
+                return 0;
             }
 
             /*
