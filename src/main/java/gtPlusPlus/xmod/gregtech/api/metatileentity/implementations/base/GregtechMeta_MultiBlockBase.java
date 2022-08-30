@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 
 import static gtPlusPlus.core.util.data.ArrayUtils.removeNulls;
 
-
 import com.gtnewhorizon.gtnhlib.util.map.ItemStackMap;
 import com.gtnewhorizon.structurelib.StructureLibAPI;
 import com.gtnewhorizon.structurelib.structure.IItemSource;
@@ -557,10 +556,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
         // We have stacks that did not merge, do we have space for them?
         if (aInputMap.size() > 0) {
-            int tTotalLeftStacks = aInputMap.entrySet().stream().mapToInt(GregtechMeta_MultiBlockBase::toStackCount).sum();
+            int tTotalLeftStacks = aInputMap.entrySet().stream()
+                    .mapToInt(GregtechMeta_MultiBlockBase::toStackCount)
+                    .sum();
             if (tTotalLeftStacks > aInputBusSlotsFree) {
-                aParallelRecipes =
-                        (int) Math.floor((double) aInputBusSlotsFree / tTotalLeftStacks * aParallelRecipes);
+                aParallelRecipes = (int) Math.floor((double) aInputBusSlotsFree / tTotalLeftStacks * aParallelRecipes);
                 // We do not have enough free slots in total to accommodate the remaining managed stacks.
                 log(" Free: " + aInputBusSlotsFree + ", Required: " + aInputMap.size());
             }
@@ -584,8 +584,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             copy.amount *= aParallelRecipes;
             tFluidsLeft.add(copy);
         }
-        if (tFluidsLeft.isEmpty())
-            return aParallelRecipes;
+        if (tFluidsLeft.isEmpty()) return aParallelRecipes;
 
         log("We have Fluids to output.");
 
@@ -612,8 +611,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                     }
                     if (tHatch.isFluidLocked()
                             && tLockedFluidName != null
-                            && !tLockedFluidName.equals(
-                                    tFluidOutput.getFluid().getName())) {
+                            && !tLockedFluidName.equals(tFluidOutput.getFluid().getName())) {
                         continue;
                     }
                 }
