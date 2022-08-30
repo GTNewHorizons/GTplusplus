@@ -538,7 +538,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 for (FlexiblePair<ItemStack, Integer> y : aItemMap) {
                     // Iterate over the 'inputs', we can safely remove these as we go.
                     outputItems:
-                    for (Iterator<FlexiblePair<ItemStack, Integer>> iterator = aInputMap.iterator(); iterator.hasNext(); ) {
+                    for (Iterator<FlexiblePair<ItemStack, Integer>> iterator = aInputMap.iterator();
+                            iterator.hasNext(); ) {
                         FlexiblePair<ItemStack, Integer> u = iterator.next();
                         // Create local vars for readability.
                         ItemStack aOutputBusStack = y.getKey();
