@@ -69,7 +69,7 @@ extends GregtechMetaCasingBlocksAbstract {
 				case 1:
 					return TexturesGtBlock.TEXTURE_TECH_C.getIcon();
 				case 2:
-					return TexturesGtBlock.TEXTURE_ORGANIC_PANEL_A_GLOWING.getIcon();
+					return TexturesGtBlock.TEXTURE_ORGANIC_PANEL_A.getIcon();
 				case 3:					
 					return TexturesGtBlock.TEXTURE_METAL_PANEL_A.getIcon();
 				case 4:
