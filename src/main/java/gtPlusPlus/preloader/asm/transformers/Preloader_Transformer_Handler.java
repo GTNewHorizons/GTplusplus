@@ -5,7 +5,6 @@ import static gtPlusPlus.preloader.asm.ClassesToTransform.*;
 import cpw.mods.fml.relauncher.CoreModManager;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.DevHelper;
 import gtPlusPlus.preloader.Preloader_Logger;
 import gtPlusPlus.preloader.asm.AsmConfig;
