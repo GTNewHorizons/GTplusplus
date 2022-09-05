@@ -1,12 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.advanced;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static gregtech.api.enums.GT_HatchElement.Energy;
-import static gregtech.api.enums.GT_HatchElement.InputBus;
-import static gregtech.api.enums.GT_HatchElement.Maintenance;
-import static gregtech.api.enums.GT_HatchElement.Muffler;
-import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.enums.GT_HatchElement.*;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +16,9 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -27,6 +26,7 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntity_Refinery;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -39,6 +39,7 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 	protected int mChamberTier = 0;
 	protected int mFabCoilTier = 0;
 	protected int mGlassTier = 0;
+	protected int mMinimumMufflerTier = 0;
 	private IStructureDefinition<GregtechMetaTileEntity_Adv_AlloyBlastSmelter> STRUCTURE_DEFINITION = null;
 
 
@@ -64,23 +65,31 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 	protected GT_Multiblock_Tooltip_Builder createTooltip() {
 		GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
 		tt.addMachineType(getMachineType())
-		.addInfo("Controller Block for the Refined Amalgam Foundry")
+		.addInfo("Controller Block for the Quantum Force Smelter")
 		.addInfo("Can perform a maximum of "+getMaxParallelRecipes()+" recipes in parallel")
 		.addInfo("Allows Complex GT++ alloys to be created")
-		.addInfo("Accepts only one Energy Hatch")
+		.addInfo("Accepts TecTech Energy and Laser Hatches")
 		.addInfo("Each input bus can support a unique Circuit")
+		.addInfo("This multi gives bonuses when all casings of some types are upgraded")
+		.addInfo("Switch these casings with these replacements to get bonuses:")
+		.addInfo("Particle Containment Casing (pink) -> Containment Casing (blue)")
+		.addInfo("Naquadah Containment Casing -> Matter Fabrication Casing ")
+		.addInfo("Resonance Chamber III -> Resonance Chamber IV")
 		.addPollutionAmount(getPollutionPerSecond(null))
 		.addSeparator()
-		.beginStructureBlock(5, 7, 5, true) // @Steelux TODO
+		.beginStructureBlock(15, 21, 15, true) // @Steelux TODO
 		.addController("Bottom Center")
-		.addCasingInfo("Blast Smelter Casings", 10)
-		.addCasingInfo("Blast Smelter Heat Containment Coils", 16)
-		.addInputBus("Bottom Layer", 1)
-		.addInputHatch("Bottom Layer", 1)
-		.addOutputHatch("Bottom Layer", 1)
-		.addEnergyHatch("Bottom Layer", 1)
-		.addMaintenanceHatch("Bottom Layer", 1)
-		.addMufflerHatch("Top Layer (except edges), x21", 2)
+		.addCasingInfo("Bulk Production Frame", 96)
+		.addCasingInfo("Quantum Force Conductor", 177)
+		.addCasingInfo("Particle Containment Casing", 224)
+		.addCasingInfo("Naquadah Containment Casing", 234)
+		.addCasingInfo("Resonance Chamber III", 142)
+		.addInputBus("Bottom Layer", 4)
+		.addInputHatch("Bottom Layer", 4)
+		.addOutputHatch("Bottom Layer", 4)
+		.addEnergyHatch("Bottom Layer", 4)
+		.addMaintenanceHatch("Bottom Layer", 4)
+		.addMufflerHatch("Top Layer (except edges), x21", 5)
 		.toolTipFinisher(CORE.GT_Tooltip_Builder);
 		return tt;
 	}
@@ -145,17 +154,52 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 					.addElement(
 							'H',
 							buildHatchAdder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter.class)
-									.atLeast(InputBus, OutputBus, Maintenance, Energy)
-									.casingIndex(TAE.GTPP_INDEX(29))
+									.atLeast(InputBus, InputHatch, OutputHatch, Maintenance, Energy)
+									.casingIndex(TAE.GTPP_INDEX(28))
 									.dot(4)
 									.buildAndChain(onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))
 					)
 					.addElement(
-							'M', Muffler.newAny(29, 5)
+							'M',
+							buildHatchAdder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter.class)
+									.atLeast(Muffler)
+									.adder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter::addMufflerToMachineList)
+									.casingIndex(TAE.getIndexFromPage(1, 12))
+									.dot(5)
+									.build()
 					)
 					.build();
 		}
 		return this.STRUCTURE_DEFINITION;
+	}
+
+	@Override
+	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
+		this.mCasing = 0;
+		this.mMinimumMufflerTier = 0;
+		if (checkPiece(this.mName, 7, 20, 4) &&
+			checkHatch() &&
+			mMufflerHatches.size() == 21 &&
+			(mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override // The lowest tier muffler of the total 21 will decide the muffler tier in the multi
+	public boolean addMufflerToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+		if (aTileEntity == null) {
+			return false;
+		} else {
+			IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+			if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
+				if (mMinimumMufflerTier == 0 || ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier < mMinimumMufflerTier) {
+					mMinimumMufflerTier = ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier;
+				}
+				return addToMachineList(aTileEntity, aBaseCasingIndex);
+			}
+		}
+		return false;
 	}
 
 	@Override
@@ -257,12 +301,6 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 	public int getGlassTier() { return mGlassTier; }
 
 	@Override
-	public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-		this.mCasing = 0;
-		return checkPiece(this.mName, 7, 20, 4) && this.mCasing >= 1 && this.mEnergyHatches.size() == 1 && checkHatch();
-	}
-
-	@Override
 	public String getSound() {
 		return GregTech_API.sSoundList.get(Integer.valueOf(208));
 	}
@@ -279,12 +317,12 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 
 	@Override
 	protected int getCasingTextureId() {
-		return 84;
+		return 92;
 	}
 
 	@Override
 	public boolean hasSlotInGUI() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -294,12 +332,22 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 
 	@Override
 	public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-		return GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes;
+		return GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceSmelterRecipes;
 	}
 
 	@Override
 	public boolean isCorrectMachinePart(final ItemStack aStack) {
 		return true;
+	}
+
+	@Override
+	public long getMaxInputVoltage() {
+		long rVoltage = 0;
+		for (GT_MetaTileEntity_Hatch_Energy tHatch : mEnergyHatches)
+			if (isValidMetaTileEntity(tHatch)) {
+				rVoltage += tHatch.getBaseMetaTileEntity().getInputVoltage() * tHatch.getBaseMetaTileEntity().getInputAmperage();
+			}
+		return rVoltage;
 	}
 
 	@Override
@@ -319,8 +367,15 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 				inputs[slot++] = g;
 			}
 			if (inputs.length > 0) {
-				if (checkRecipeGeneric(inputs, new FluidStack[]{}, getMaxParallelRecipes(), 100, 250, 10000)) {
-					return true;
+				if (mChamberTier == 2) { // 2x bonus to multi speed with upgraded Resonance Chambers
+					if (checkRecipeGeneric(inputs, new FluidStack[]{}, getMaxParallelRecipes(), 100, 200, 10000)) {
+						return true;
+					}
+				}
+				else {
+					if (checkRecipeGeneric(inputs, new FluidStack[]{}, getMaxParallelRecipes(), 100, 100, 10000)) {
+						return true;
+					}
 				}
 			}
 
@@ -330,7 +385,10 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 
 	@Override
 	public int getMaxParallelRecipes() {
-		return 8;
+		if (mGlassTier == 2) { // 4x bonus to parallel amount with upgraded Containment Chambers (glass)
+			return 256;
+		}
+		return 64;
 	}
 
 	@Override

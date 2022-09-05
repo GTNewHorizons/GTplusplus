@@ -474,19 +474,22 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 	@Override
 	public boolean addBlastSmelterRecipe(final ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
 			final int aChance, int aDuration, final int aEUt) {
-		return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, 3700);
+		return (addBlastSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, 3700) &&
+				addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, 3700));
 	}
 
 	@Override
 	public boolean addBlastSmelterRecipe(final ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, ItemStack[] aOutputStack,
 			final int aChance[], int aDuration, final int aEUt) {
-		return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700);
+		return (addBlastSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700) &&
+				addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700));
 	}
 
 	@Override
 	public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
 			int aDuration, int aEUt, int aSpecialValue) {
-		return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, aSpecialValue);		
+		return (addBlastSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, aSpecialValue) &&
+				addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, aSpecialValue));
 	}
 
 	@Override
@@ -542,6 +545,85 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
 		return aSize > aSize2;
 	}
+
+	@Override
+	public boolean addQuantumSmelterRecipe(final ItemStack[] aInput, FluidStack aOutput, final int aChance, int aDuration,
+										 final int aEUt) {
+		return addQuantumSmelterRecipe(aInput, null, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, 3700);
+	}
+
+	@Override
+	public boolean addQuantumSmelterRecipe(final ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
+										 final int aChance, int aDuration, final int aEUt) {
+		return addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, 3700);
+	}
+
+	@Override
+	public boolean addQuantumSmelterRecipe(final ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, ItemStack[] aOutputStack,
+										 final int aChance[], int aDuration, final int aEUt) {
+		return addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700);
+	}
+
+	@Override
+	public boolean addQuantumSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
+										 int aDuration, int aEUt, int aSpecialValue) {
+		return addQuantumSmelterRecipe(aInput, aInputFluid, aOutput, new ItemStack[] {}, new int[] {aChance}, aDuration, aEUt, aSpecialValue);
+	}
+
+	@Override
+	public boolean addQuantumSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, ItemStack[] aOutputStack, int[] aChance,
+										 int aDuration, int aEUt, int aSpecialValue) {
+		if ((aInput == null) || (aOutput == null)) {
+			Logger.WARNING("Fail - Input or Output was null.");
+			return false;
+		}
+
+		if (aOutput.isFluidEqual(Materials.PhasedGold.getMolten(1))) {
+			aOutput = Materials.VibrantAlloy.getMolten(aOutput.amount);
+		}
+		if (aOutput.isFluidEqual(Materials.PhasedIron.getMolten(1))) {
+			aOutput = Materials.PulsatingIron.getMolten(aOutput.amount);
+		}
+		if ((aDuration = GregTech_API.sRecipeFile.get("quantumsmelter", aOutput.getFluid().getName(), aDuration)) <= 0) {
+			Logger.WARNING("Recipe did not register.");
+			return false;
+		}
+
+		for (int das = 0; das < aInput.length; das++) {
+			if (aInput[das] != null) {
+				Logger.WARNING("tMaterial[" + das + "]: " + aInput[das].getDisplayName() + ", Amount: "
+						+ aInput[das].stackSize);
+			}
+		}
+
+		ArrayUtils.removeNulls(aInput);
+		if (aInput.length <= 1) {
+			return false;
+		}
+
+		int aSize = GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceSmelterRecipes.mRecipeList.size();
+		int aSize2 = aSize;
+		GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceSmelterRecipes.addRecipe(
+				true,
+				aInput,
+				aOutputStack,
+				null,
+				aChance,
+				new FluidStack[] { aInputFluid },
+				new FluidStack[] { aOutput },
+				Math.max(1, aDuration),
+				Math.max(1, aEUt),
+				aSpecialValue);
+		aSize = GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceSmelterRecipes.mRecipeList.size();
+
+
+		/*GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.addRecipe(true, aInput, aOutputStack, null,
+				aChance, new FluidStack[] { aInputFluid }, new FluidStack[] { aOutput }, aDuration, aEUt,
+				aSpecialValue);*/
+
+		return aSize > aSize2;
+	}
+
 
 	@Override
 	public boolean addLFTRRecipe(final ItemStack aInput1, final FluidStack aInput2, final ItemStack aOutput1,

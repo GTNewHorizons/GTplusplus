@@ -196,6 +196,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 		public static final GTPP_Recipe_Map_Internal sChemicalDehydratorRecipes = new GTPP_Recipe_Map_Internal(new HashSet<GT_Recipe>(200), "gtpp.recipe.chemicaldehydrator", "Dehydrator", null, RES_PATH_GUI + "basicmachines/Dehydrator", 2, 9, 0, 0, 1, E, 1, E, true, true);
 		public static final GTPP_Recipe_Map_Internal sVacuumFurnaceRecipes = new GTPP_Recipe_Map_MultiNoCell(new HashSet<GT_Recipe>(500), "gtpp.recipe.vacfurnace", "Vacuum Furnace", null, RES_PATH_GUI + "basicmachines/FissionFuel", 6, 6, 1, 0, 1, "Heat Capacity: ", 1, " K", false, true);
 		public static final GTPP_Recipe_Map_Internal sAlloyBlastSmelterRecipes = new GTPP_Recipe_Map_MultiNoCell(new HashSet<GT_Recipe>(200), "gtpp.recipe.alloyblastsmelter", "Alloy Blast Smelter", null, RES_PATH_GUI + "basicmachines/FissionFuel", 9, 9, 1, 0, 1, E, 1, E, true, true);
+		public static final GTPP_Recipe_Map_Internal sQuantumForceSmelterRecipes = new GTPP_Recipe_Map_MultiNoCell(new HashSet<GT_Recipe>(200), "gtpp.recipe.quantumforcesmelter", "Quantum Force Smelter", null, RES_PATH_GUI + "basicmachines/FissionFuel", 9, 9, 1, 0, 1, E, 1, E, true, true);
 		public static final GTPP_Recipe_Map_Internal sSteamTurbineFuels = new GTPP_Recipe_Map_Internal(new HashSet<GT_Recipe>(10), "gtpp.recipe.steamturbinefuel", "GeoThermal Fuel", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, false);
 
 		//LFTR recipes
