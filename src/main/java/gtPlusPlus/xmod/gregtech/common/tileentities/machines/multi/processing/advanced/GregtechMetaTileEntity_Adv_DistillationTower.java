@@ -168,6 +168,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
                 .addInfo("Max parallel dictated by tower tier and mode")
                 .addInfo("DTower Mode: T1=4, T2=12")
                 .addInfo("Distilery Mode: Tower Tier * (4*InputTier)")
+                .addInfo("Distilery Mode require a full height tower")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .addCasingInfo("Clean Stainless Steel Machine Casing", 7)
@@ -235,7 +236,12 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
             // not top
             mHeight++;
         }
-        return mTopLayerFound && mHeight >= 2 && checkHatch();
+        boolean check = mTopLayerFound && mHeight >= 2 && checkHatch();
+        if (check && mHeight < 11) {
+            // force the mode to DT if not in full height
+            mMode = Mode.DistillationTower;
+        }
+        return check;
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
@@ -291,6 +297,10 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
 
     @Override
     public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        if (mHeight < 11) {
+            PlayerUtils.messagePlayer(aPlayer, "Cannot switch mode if not in full height.");
+            return;
+        }
         mMode = mMode.next();
         PlayerUtils.messagePlayer(aPlayer, "Now running in " + mMode + " Mode.");
     }
