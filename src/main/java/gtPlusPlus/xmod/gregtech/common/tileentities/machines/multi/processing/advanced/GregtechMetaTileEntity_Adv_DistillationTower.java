@@ -162,7 +162,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType())
                 .addInfo("Controller Block for the Advanced Distillation Tower")
-                .addInfo("Use 15% less energy in distillery mode")
+                .addInfo("Use 85% less energy in distillery mode")
                 .addInfo("250%/100% faster in DT/distillery mode")
                 .addInfo("Right click the controller with screwdriver to change mode.")
                 .addInfo("Max parallel dictated by tower tier and mode")
@@ -426,7 +426,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
 
     @Override
     public int getEuDiscountForParallelism() {
-        return 85;
+        return 15;
     }
 
     private int getTierOfTower() {
