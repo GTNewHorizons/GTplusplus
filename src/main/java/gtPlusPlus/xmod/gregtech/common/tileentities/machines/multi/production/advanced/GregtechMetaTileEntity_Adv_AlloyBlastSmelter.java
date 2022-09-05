@@ -155,7 +155,7 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 							'H',
 							buildHatchAdder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter.class)
 									.atLeast(InputBus, InputHatch, OutputHatch, Maintenance, Energy)
-									.casingIndex(TAE.GTPP_INDEX(28))
+									.casingIndex(TAE.getIndexFromPage(0, 10))
 									.dot(4)
 									.buildAndChain(onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))
 					)
@@ -164,7 +164,7 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 							buildHatchAdder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter.class)
 									.atLeast(Muffler)
 									.adder(GregtechMetaTileEntity_Adv_AlloyBlastSmelter::addMufflerToMachineList)
-									.casingIndex(TAE.getIndexFromPage(1, 12))
+									.casingIndex(TAE.getIndexFromPage(0, 10))
 									.dot(5)
 									.build()
 					)
@@ -317,7 +317,7 @@ public class GregtechMetaTileEntity_Adv_AlloyBlastSmelter extends GregtechMeta_M
 
 	@Override
 	protected int getCasingTextureId() {
-		return 92;
+		return 70;
 	}
 
 	@Override
