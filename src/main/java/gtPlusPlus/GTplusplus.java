@@ -41,6 +41,7 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.nei.NEI_IMC_Sender;
 import gtPlusPlus.plugin.manager.Core_Manager;
+import gtPlusPlus.xmod.bartworks.BW_RadHatchMaterial;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtTools;
@@ -271,6 +272,9 @@ public class GTplusplus implements ActionListener {
         generateGregtechRecipeMaps();
         // Check our maps are untouched
         GTPP_Recipe.checkRecipeModifications();
+        if (LoadedMods.BartWorks) {
+            BW_RadHatchMaterial.run();
+        }
         Logger.INFO("Passed verification checks.");
     }
 
