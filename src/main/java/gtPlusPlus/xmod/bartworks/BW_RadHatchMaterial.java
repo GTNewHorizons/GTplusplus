@@ -24,5 +24,4 @@ public class BW_RadHatchMaterial {
             }
         }
     }
-
 }
