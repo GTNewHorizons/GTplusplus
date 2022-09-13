@@ -89,7 +89,7 @@ public class RecipeLoader_LFTR {
                 },
                 100 * 20, // time
                 0, // cost
-                8192 * 4// fuel value
+                8192 * 4 // fuel value
                 );
 
         // LiFBeF2ZrF4U235 - T1
