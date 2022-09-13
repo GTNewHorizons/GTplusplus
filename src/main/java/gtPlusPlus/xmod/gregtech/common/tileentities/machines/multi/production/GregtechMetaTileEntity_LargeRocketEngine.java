@@ -1,10 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.*;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.AirIntake;
 import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTDynamo;
 
@@ -19,6 +18,9 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -127,14 +129,9 @@ public class GregtechMetaTileEntity_LargeRocketEngine
                     .addElement('C', ofBlock(getCasingBlock(), getCasingMeta()))
                     .addElement('I', ofBlock(getGearboxBlock(), getGearboxMeta()))
                     // side
-                    .addElement(
-                            'S',
-                            buildHatchAdder(GregtechMetaTileEntity_LargeRocketEngine.class)
-                                    .atLeast(ImmutableMap.of(InputBus, 1, InputHatch, 3, Maintenance, 1, AirIntake, 8))
-                                    .casingIndex(getCasingTextureIndex())
-                                    .dot(1)
-                                    .buildAndChain(onElementPass(
-                                            x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
+                    .addElement('S',
+                            ofChain(ofHatchAdder(GregtechMetaTileEntity_LargeRocketEngine::addLargeRocketEngineSideList, getCasingTextureIndex(), 1),
+                            onElementPass(x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
                     // top
                     .addElement(
                             'T',
@@ -148,6 +145,28 @@ public class GregtechMetaTileEntity_LargeRocketEngine
                     .build();
         }
         return this.STRUCTURE_DEFINITION;
+    }
+
+    public final boolean addLargeRocketEngineSideList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        if (aTileEntity == null) {
+            return false;
+        }
+        else {
+            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
+                return addToMachineList(aTileEntity, aBaseCasingIndex);
+            }
+            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_AirIntake) {
+                return addToMachineList(aTileEntity, aBaseCasingIndex);
+            }
+            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+                return addToMachineList(aTileEntity, aBaseCasingIndex);
+            }
+            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus) {
+                return addToMachineList(aTileEntity, aBaseCasingIndex);
+            }
+        }
+        return false;
     }
 
     @Override
