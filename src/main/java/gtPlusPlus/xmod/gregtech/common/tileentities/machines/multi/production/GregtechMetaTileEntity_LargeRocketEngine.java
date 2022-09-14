@@ -129,9 +129,14 @@ public class GregtechMetaTileEntity_LargeRocketEngine
                     .addElement('C', ofBlock(getCasingBlock(), getCasingMeta()))
                     .addElement('I', ofBlock(getGearboxBlock(), getGearboxMeta()))
                     // side
-                    .addElement('S',
-                            ofChain(ofHatchAdder(GregtechMetaTileEntity_LargeRocketEngine::addLargeRocketEngineSideList, getCasingTextureIndex(), 1),
-                            onElementPass(x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
+                    .addElement(
+                            'S',
+                            ofChain(
+                                    ofHatchAdder(
+                                            GregtechMetaTileEntity_LargeRocketEngine::addLargeRocketEngineSideList,
+                                            getCasingTextureIndex(),
+                                            1),
+                                    onElementPass(x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
                     // top
                     .addElement(
                             'T',
@@ -150,19 +155,15 @@ public class GregtechMetaTileEntity_LargeRocketEngine
     public final boolean addLargeRocketEngineSideList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity == null) {
             return false;
-        }
-        else {
+        } else {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
             if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
-            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_AirIntake) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_AirIntake) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
-            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
-            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
             }
         }
