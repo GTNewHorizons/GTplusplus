@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.gui.GT_GUIDialogSelectItem;
 import gregtech.api.interfaces.ITexture;
@@ -69,6 +71,12 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer.isSneaking()) return super.onSolderingToolRightClick(aSide, aWrenchingSide, aPlayer, aX, aY, aZ);
         if (!getBaseMetaTileEntity().isClientSide()) return false;
+        openCircuitSelector();
+        return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void openCircuitSelector() {
         List<ItemStack> circuits = getConfigurationCircuits();
         Minecraft.getMinecraft()
                 .displayGuiScreen(new GT_GUIDialogSelectItem(
@@ -78,7 +86,14 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
                         this::onCircuitSelected,
                         circuits,
                         GT_Utility.findMatchingStackInList(circuits, getStackInSlot(getCircuitSlot()))));
-        return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void onCircuitSelected(ItemStack selected) {
+        GT_Values.NW.sendToServer(new GT_Packet_SetConfigurationCircuit(getBaseMetaTileEntity(), selected));
+        // we will not do any validation on client side
+        // it doesn't get to actually decide what inventory contains anyway
+        setInventorySlotContents(getCircuitSlot(), selected);
     }
 
     @Override
@@ -90,13 +105,6 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             displayBusContents(aPlayer);
             return true;
         }
-    }
-
-    private void onCircuitSelected(ItemStack selected) {
-        GT_Values.NW.sendToServer(new GT_Packet_SetConfigurationCircuit(getBaseMetaTileEntity(), selected));
-        // we will not do any validation on client side
-        // it doesn't get to actually decide what inventory contains anyway
-        setInventorySlotContents(getCircuitSlot(), selected);
     }
 
     public void displayBusContents(EntityPlayer aPlayer) {
