@@ -68,6 +68,7 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
     public boolean onSolderingToolRightClick(
             byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer.isSneaking()) return super.onSolderingToolRightClick(aSide, aWrenchingSide, aPlayer, aX, aY, aZ);
+        if (!getBaseMetaTileEntity().isClientSide()) return false;
         List<ItemStack> circuits = getConfigurationCircuits();
         Minecraft.getMinecraft()
                 .displayGuiScreen(new GT_GUIDialogSelectItem(
