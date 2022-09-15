@@ -1,26 +1,31 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import gregtech.api.enums.Textures.BlockIcons;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.gui.GT_GUIDialogSelectItem;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.net.GT_Packet_SetConfigurationCircuit;
+import gregtech.api.util.GT_Utility;
 import gregtech.api.util.extensions.ArrayExt;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import java.util.List;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 
 public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_InputBus {
     public GT_MetaTileEntity_SuperBus_Input(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, getSlots(aTier));
+        super(aID, aName, aNameRegional, aTier, getSlots(aTier) + 1);
     }
 
     public GT_MetaTileEntity_SuperBus_Input(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures) {
-        super(aName, aTier, getSlots(aTier), aDescription, aTextures);
+        super(aName, aTier, getSlots(aTier) + 1, aDescription, aTextures);
     }
 
     /**
@@ -33,64 +38,49 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
         return (1 + aTier) * 16;
     }
 
-    public ITexture[] getTexturesActive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(BlockIcons.OVERLAY_PIPE_IN)};
-    }
-
-    public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(BlockIcons.OVERLAY_PIPE_IN)};
-    }
-
-    public boolean isSimpleMachine() {
-        return true;
-    }
-
-    public boolean isFacingValid(byte aFacing) {
-        return true;
-    }
-
-    public boolean isAccessAllowed(EntityPlayer aPlayer) {
-        return true;
-    }
-
-    public boolean isValidSlot(int aIndex) {
-        return true;
-    }
-
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         return new GT_MetaTileEntity_SuperBus_Input(
                 this.mName, this.mTier, ArrayExt.of(this.mDescription), this.mTextures);
     }
 
+    @Override
     public Object getServerGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
         return null;
     }
 
+    @Override
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
         return null;
     }
 
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == this.getBaseMetaTileEntity().getFrontFacing();
-    }
-
     @Override
     public String[] getDescription() {
-        String[] aDesc = new String[] {
+        return new String[] {
             "Item Input for Multiblocks",
             "This bus has no GUI, but can have items extracted",
-            "" + getSlots(this.mTier) + " Slots",
+            "" + (getSlots(this.mTier) + 1) + " Slots",
+            "To set circuit slot, right click with soldering alloy",
             CORE.GT_Tooltip
         };
-        return aDesc;
     }
 
     @Override
-    public boolean onRightclick(
-            IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {
-        return super.onRightclick(aBaseMetaTileEntity, aPlayer, aSide, aX, aY, aZ);
+    public boolean onSolderingToolRightClick(
+            byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        if (aPlayer.isSneaking()) return super.onSolderingToolRightClick(aSide, aWrenchingSide, aPlayer, aX, aY, aZ);
+        List<ItemStack> circuits = getConfigurationCircuits();
+        Minecraft.getMinecraft()
+                .displayGuiScreen(new GT_GUIDialogSelectItem(
+                        StatCollector.translateToLocal("GT5U.machines.select_circuit"),
+                        getStackForm(0),
+                        null,
+                        this::onCircuitSelected,
+                        circuits,
+                        GT_Utility.findMatchingStackInList(circuits, getStackInSlot(getCircuitSlot()))));
+        return true;
     }
 
+    @Override
     public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {
         if (aBaseMetaTileEntity.isClientSide()) {
             return true;
@@ -99,6 +89,13 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             displayBusContents(aPlayer);
             return true;
         }
+    }
+
+    private void onCircuitSelected(ItemStack selected) {
+        GT_Values.NW.sendToServer(new GT_Packet_SetConfigurationCircuit(getBaseMetaTileEntity(), selected));
+        // we will not do any validation on client side
+        // it doesn't get to actually decide what inventory contains anyway
+        setInventorySlotContents(getCircuitSlot(), selected);
     }
 
     public void displayBusContents(EntityPlayer aPlayer) {
@@ -130,15 +127,20 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             }
         } else {
 
-            String superString = "";
+            StringBuilder superString = new StringBuilder();
 
             for (String s : aNames) {
                 if (s.startsWith(" ")) {
                     s = s.substring(1);
                 }
-                superString += (s + ", ");
+                superString.append(s).append(", ");
             }
-            PlayerUtils.messagePlayer(aPlayer, superString);
+            PlayerUtils.messagePlayer(aPlayer, superString.toString());
         }
+    }
+
+    @Override
+    public int getCircuitSlot() {
+        return getSlots(mTier);
     }
 }
