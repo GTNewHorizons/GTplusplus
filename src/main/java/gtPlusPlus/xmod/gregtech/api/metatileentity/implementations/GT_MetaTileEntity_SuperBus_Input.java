@@ -61,18 +61,14 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             "Item Input for Multiblocks",
             "This bus has no GUI, but can have items extracted",
             "" + (getSlots(this.mTier) + 1) + " Slots",
-            "To set circuit slot, right click with soldering alloy",
+            "To set circuit slot, left click with empty hand",
             CORE.GT_Tooltip
         };
     }
 
     @Override
-    public boolean onSolderingToolRightClick(
-            byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        if (aPlayer.isSneaking()) return super.onSolderingToolRightClick(aSide, aWrenchingSide, aPlayer, aX, aY, aZ);
-        if (!getBaseMetaTileEntity().isClientSide()) return false;
-        openCircuitSelector();
-        return true;
+    public void onLeftclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {
+        if (aBaseMetaTileEntity.isClientSide() && aPlayer.getCurrentEquippedItem() == null) openCircuitSelector();
     }
 
     @SideOnly(Side.CLIENT)
@@ -109,7 +105,7 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
 
     public void displayBusContents(EntityPlayer aPlayer) {
         String STRIP = "Item Array: ";
-        String aNameString = ItemUtils.getArrayStackNames(getRealInventory());
+        String aNameString = ItemUtils.getArrayStackNames(mInventory);
         aNameString = aNameString.replace(STRIP, "");
 
         String[] aNames;
@@ -119,12 +115,12 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
             aNames = aNameString.split(",");
         }
 
-        if (aNames == null || aNames.length <= 0) {
-            PlayerUtils.messagePlayer(aPlayer, "This Super Bus (I) is Empty. Total Slots: " + getSlots(this.mTier));
+        if (aNames == null || aNames.length == 0) {
+            PlayerUtils.messagePlayer(aPlayer, "This Super Bus (I) is Empty. Total Slots: " + mInventory.length);
             return;
         }
 
-        PlayerUtils.messagePlayer(aPlayer, "This Super Bus (I) contains: [" + getRealInventory().length + "]");
+        PlayerUtils.messagePlayer(aPlayer, "This Super Bus (I) contains: [" + mInventory.length + "]");
 
         if (aNames.length <= 12) {
             for (String s : aNames) {
