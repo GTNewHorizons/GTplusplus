@@ -305,7 +305,8 @@ public class GregtechMetaTileEntity_PowerSubStationController
                                                                     onElementPass(x -> ++x.cellCount[2], ofCell(6)),
                                                                     onElementPass(x -> ++x.cellCount[3], ofCell(7)),
                                                                     onElementPass(x -> ++x.cellCount[4], ofCell(8)),
-                                                                    onElementPass(x -> ++x.cellCount[5], ofCell(9))))))))
+                                                                    onElementPass(
+                                                                            x -> ++x.cellCount[5], ofCell(9))))))))
                     .addElement('H', ofCell(4))
                     .build();
         }
