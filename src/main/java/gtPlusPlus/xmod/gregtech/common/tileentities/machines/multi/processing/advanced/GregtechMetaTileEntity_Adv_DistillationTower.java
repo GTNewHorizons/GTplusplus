@@ -108,7 +108,9 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
                                             .build(),
                                     onElementPass(
                                             GregtechMetaTileEntity_Adv_DistillationTower::onTopLayerFound,
-                                            ofHatchAdder(GregtechMetaTileEntity_Adv_DistillationTower::addMufflerToMachineList,
+                                            ofHatchAdder(
+                                                    GregtechMetaTileEntity_Adv_DistillationTower
+                                                            ::addMufflerToMachineList,
                                                     getCasingTextureId(),
                                                     3)),
                                     ofBlock(GregTech_API.sBlockCasings4, 1)))
