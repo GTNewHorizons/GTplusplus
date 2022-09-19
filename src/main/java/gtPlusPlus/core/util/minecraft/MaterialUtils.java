@@ -200,43 +200,7 @@ public class MaterialUtils {
 	}
 
 	public static int getTierOfMaterial(final double aMeltingPoint){
-
 		return aMeltingPoint < 1000 ? 0 : (MathUtils.roundToClosestInt(aMeltingPoint/1000f));
-
-
-		/*if ((aMeltingPoint >= 0) && (aMeltingPoint <= 1000)){
-			return 1;
-		}
-		else if((aMeltingPoint >= 1001) && (aMeltingPoint <= 2000)){
-			return 2;
-		}
-		else if((aMeltingPoint >= 2001) && (aMeltingPoint <= 3000)){
-			return 3;
-		}
-		else if((aMeltingPoint >= 3001) && (aMeltingPoint <= 4000)){
-			return 4;
-		}
-		else if((aMeltingPoint >= 4001) && (aMeltingPoint <= 5000)){
-			return 5;
-		}
-		else if((aMeltingPoint >= 5001) && (aMeltingPoint <= 6000)){
-			return 6;
-		}
-		else if((aMeltingPoint >= 6001) && (aMeltingPoint <= 7000)){
-			return 7;
-		}
-		else if((aMeltingPoint >= 7001) && (aMeltingPoint <= 8000)){
-			return 8;
-		}
-		else if((aMeltingPoint >= 8001) && (aMeltingPoint <= 9000)){
-			return 9;
-		}
-		else if((aMeltingPoint >= 9001) && (aMeltingPoint <= 9999)){
-			return 10;
-		}
-		else {
-			return 0;
-		}*/
 	}
 
 	public static int getVoltageForTier(int aTier) {
