@@ -71,8 +71,8 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                     aFluids.get(0),
                     0); // Identify a SINGLE type of fluid to process.  Doesn't matter which one. Ignore the rest!
             int fuelValue = getFuelValue(firstFuelType);
-            actualOptimalFlow =
-                    GT_Utility.safeInt((long) Math.ceil((double) aOptFlow * (double) flowMultipliers[2] / (double) fuelValue));
+            actualOptimalFlow = GT_Utility.safeInt(
+                    (long) Math.ceil((double) aOptFlow * (double) flowMultipliers[2] / (double) fuelValue));
             this.realOptFlow = actualOptimalFlow; // For scanner info
 
             int remainingFlow = GT_Utility.safeInt((long) (actualOptimalFlow
