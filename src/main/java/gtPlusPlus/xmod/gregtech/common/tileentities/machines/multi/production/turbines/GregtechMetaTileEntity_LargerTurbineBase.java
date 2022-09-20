@@ -477,7 +477,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
                                                 .getSpeedMultiplier()
                                         * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mToolSpeed
                                         * 50));
-                        if (aTotalOptimalFlow<0)
+                        if (aTotalOptimalFlow < 0)
                             GTNHLib.proxy.addDebugToChat(String.valueOf(aTotalOptimalFlow) + "Base Turbine");
                         // log("Bumped base optimal flow to "+aTotalOptimalFlow);
                     }
