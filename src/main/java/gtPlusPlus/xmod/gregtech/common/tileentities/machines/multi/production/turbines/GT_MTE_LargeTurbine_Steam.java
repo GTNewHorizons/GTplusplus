@@ -88,7 +88,7 @@ public class GT_MTE_LargeTurbine_Steam extends GregtechMetaTileEntity_LargerTurb
         int remainingFlow = MathUtils.safeInt((long) (aOptFlow
                 * 1.25f)); // Allowed to use up to 125% of optimal flow.  Variable required outside of loop for
         // multi-hatch scenarios.
-        this.realOptFlow = aOptFlow * flowMultipliers[0];
+        this.realOptFlow = (double) aOptFlow * (double) flowMultipliers[0];
 
         storedFluid = 0;
         for (int i = 0;
