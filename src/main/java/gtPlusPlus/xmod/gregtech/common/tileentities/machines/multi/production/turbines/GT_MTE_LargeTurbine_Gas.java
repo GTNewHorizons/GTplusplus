@@ -82,7 +82,7 @@ public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbin
                 return GT_Utility.safeInt((long) aOptFlow * (long) aBaseEff / 10000L);
             }
 
-            actualOptimalFlow = GT_Utility.safeInt((long) (aOptFlow * flowMultipliers[1] / fuelValue));
+            actualOptimalFlow = GT_Utility.safeInt((long) (aOptFlow * (double) flowMultipliers[1] / fuelValue));
             this.realOptFlow = actualOptimalFlow;
 
             int remainingFlow = GT_Utility.safeInt((long) (actualOptimalFlow
