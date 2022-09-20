@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
+import com.gtnewhorizon.gtnhlib.GTNHLib;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -62,7 +63,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
         return 0;
     }
 
-    @Override
+    /*@Override
     public boolean checkRecipeGeneric(
             ItemStack[] aItemInputs,
             FluidStack[] aFluidInputs,
@@ -171,10 +172,10 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             t.printStackTrace();
         }
         return false;
-    }
+    }*/
 
     @Override
-    int fluidIntoPower(ArrayList<FluidStack> aFluids, int aOptFlow, int aBaseEff) {
+    int fluidIntoPower(ArrayList<FluidStack> aFluids, long aOptFlow, int aBaseEff, float[] flowMultipliers) {
         if (aFluids.size() >= 1) {
             aOptFlow *= 800; // CHANGED THINGS HERE, check recipe runs once per 20 ticks
             int tEU = 0;
@@ -185,7 +186,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                     aFluids.get(0),
                     0); // Identify a SINGLE type of fluid to process.  Doesn't matter which one. Ignore the rest!
             int fuelValue = getFuelValue(firstFuelType);
-            actualOptimalFlow = GT_Utility.safeInt((long) Math.ceil((double) aOptFlow / (double) fuelValue));
+            actualOptimalFlow = GT_Utility.safeInt((long) Math.ceil((double) aOptFlow * flowMultipliers[2] / (double) fuelValue));
             this.realOptFlow = actualOptimalFlow; // For scanner info
 
             int remainingFlow = GT_Utility.safeInt((long) (actualOptimalFlow
