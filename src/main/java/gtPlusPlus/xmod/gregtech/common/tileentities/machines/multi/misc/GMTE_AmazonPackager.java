@@ -280,7 +280,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
                 aFluidInputs,
                 aItemInputs);
 
-        // log("Running checkRecipeGeneric(1)");
+        log("Running checkRecipeGeneric(1)");
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
