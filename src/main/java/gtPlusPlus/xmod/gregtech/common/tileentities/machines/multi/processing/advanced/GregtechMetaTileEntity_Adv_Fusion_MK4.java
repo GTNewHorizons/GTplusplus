@@ -12,22 +12,22 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energ
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_FusionComputer;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.block.Block;
-
 import java.lang.reflect.Method;
+import net.minecraft.block.Block;
 
 public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_FusionComputer {
 
-	public static final Method mUpdateHatchTexture;
-	
-	static {
-		mUpdateHatchTexture = ReflectionUtils.getMethod(GT_MetaTileEntity_Hatch.class, "updateTexture", int.class);
+    public static final Method mUpdateHatchTexture;
+
+    static {
+        mUpdateHatchTexture = ReflectionUtils.getMethod(GT_MetaTileEntity_Hatch.class, "updateTexture", int.class);
     }
 
     public GregtechMetaTileEntity_Adv_Fusion_MK4(int aID, String aName, String aNameRegional) {
@@ -55,7 +55,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
                 .addStructureInfo("ALL Hatches must be UHV or better")
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
-	}
+    }
 
     @Override
     public int tier() {
@@ -68,94 +68,107 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
     }
 
     @Override
-	public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-		return new GregtechMetaTileEntity_Adv_Fusion_MK4(mName);
-	}
+    public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
+        return new GregtechMetaTileEntity_Adv_Fusion_MK4(mName);
+    }
 
-	@Override
-	public Block getCasing() {
-		return getFusionCoil();
-	}
+    @Override
+    public Block getCasing() {
+        return getFusionCoil();
+    }
 
-	@Override
-	public int getCasingMeta() {
-		return 12;
-	}
+    @Override
+    public int getCasingMeta() {
+        return 12;
+    }
 
-	@Override
-	public Block getFusionCoil() {
-		return ModBlocks.blockCasings3Misc;
-	}
+    @Override
+    public Block getFusionCoil() {
+        return ModBlocks.blockCasings3Misc;
+    }
 
-	@Override
-	public int getFusionCoilMeta() {
-		return 13;
-	}
+    @Override
+    public int getFusionCoilMeta() {
+        return 13;
+    }
 
-	@Override
-	public int tierOverclock() {
-		return 8;
-	}
+    @Override
+    public int tierOverclock() {
+        return 8;
+    }
 
-	@Override
+    @Override
     public int overclock(int mStartEnergy) {
         return (mStartEnergy < 160000000) ? 16 : ((mStartEnergy < 320000000) ? 8 : (mStartEnergy < 640000000) ? 4 : 1);
     }
 
-	@Override
-	public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-			final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-		ITexture[] sTexture;
-		if (aSide == aFacing) {
-			sTexture = new ITexture[]{
-                    new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
-                            Dyes.getModulation(-1, Dyes._NULL.mRGBa)),
-                    new GT_RenderedTexture(this.getIconOverlay())};
-		} else if (!aActive) {
-			sTexture = new ITexture[]{
-                    new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
-                            Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
-		} else {
-			sTexture = new ITexture[]{
-                    new GT_RenderedTexture(TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_ULTRA,
-                            Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
-		}
-		return sTexture;
-	}
+    @Override
+    public ITexture[] getTexture(
+            final IGregTechTileEntity aBaseMetaTileEntity,
+            final byte aSide,
+            final byte aFacing,
+            final byte aColorIndex,
+            final boolean aActive,
+            final boolean aRedstone) {
+        if (aSide == aFacing) {
+            return new ITexture[] {
+                new GT_RenderedTexture(
+                        Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS, Dyes.getModulation(-1, Dyes._NULL.mRGBa)),
+                TextureFactory.builder()
+                        .addIcon(this.getIconOverlay())
+                        .extFacing()
+                        .build()
+            };
+        } else if (!aActive) {
+            return new ITexture[] {
+                new GT_RenderedTexture(
+                        Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS, Dyes.getModulation(-1, Dyes._NULL.mRGBa))
+            };
+        } else {
+            return new ITexture[] {
+                new GT_RenderedTexture(
+                        TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_ULTRA, Dyes.getModulation(-1, Dyes._NULL.mRGBa))
+            };
+        }
+    }
 
     @Override
     public ITexture getTextureOverlay() {
-        return new GT_RenderedTexture(this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3 : TexturesGtBlock.Casing_Machine_Screen_1);
+        return new GT_RenderedTexture(
+                this.mMaxProgresstime > 0
+                        ? TexturesGtBlock.Casing_Machine_Screen_3
+                        : TexturesGtBlock.Casing_Machine_Screen_1);
     }
 
-	public IIconContainer getIconOverlay() {
-		return this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3 : TexturesGtBlock.Casing_Machine_Screen_1;
-	}
+    public IIconContainer getIconOverlay() {
+        return this.mMaxProgresstime > 0
+                ? TexturesGtBlock.Casing_Machine_Screen_3
+                : TexturesGtBlock.Casing_Machine_Screen_1;
+    }
 
-	public boolean turnCasingActive(final boolean status) {
-		try {
-		if (this.mEnergyHatches != null) {
-			for (final GT_MetaTileEntity_Hatch_Energy hatch : this.mEnergyHatches) {
-				mUpdateHatchTexture.invoke(hatch, (status ? TAE.getIndexFromPage(2, 14) : 53));
-			}
-		}
-		if (this.mOutputHatches != null) {
-			for (final GT_MetaTileEntity_Hatch_Output hatch2 : this.mOutputHatches) {
-				mUpdateHatchTexture.invoke(hatch2, (status ? TAE.getIndexFromPage(2, 14) : 53));
-			}
-		}
-		if (this.mInputHatches != null) {
-			for (final GT_MetaTileEntity_Hatch_Input hatch3 : this.mInputHatches) {
-				mUpdateHatchTexture.invoke(hatch3, (status ? TAE.getIndexFromPage(2, 14) : 53));
-			}
-		}
-		}
-		catch (Throwable t) {
-			return false;
-		}
-		return true;
-	}
-	
+    public boolean turnCasingActive(final boolean status) {
+        try {
+            if (this.mEnergyHatches != null) {
+                for (final GT_MetaTileEntity_Hatch_Energy hatch : this.mEnergyHatches) {
+                    mUpdateHatchTexture.invoke(hatch, (status ? TAE.getIndexFromPage(2, 14) : 53));
+                }
+            }
+            if (this.mOutputHatches != null) {
+                for (final GT_MetaTileEntity_Hatch_Output hatch2 : this.mOutputHatches) {
+                    mUpdateHatchTexture.invoke(hatch2, (status ? TAE.getIndexFromPage(2, 14) : 53));
+                }
+            }
+            if (this.mInputHatches != null) {
+                for (final GT_MetaTileEntity_Hatch_Input hatch3 : this.mInputHatches) {
+                    mUpdateHatchTexture.invoke(hatch3, (status ? TAE.getIndexFromPage(2, 14) : 53));
+                }
+            }
+        } catch (Throwable t) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String[] getInfoData() {
         String tier = "IV";
@@ -164,15 +177,15 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
         if (this.mLastRecipe != null) {
             powerRequired = this.mLastRecipe.mEUt;
             if (this.mLastRecipe.getFluidOutput(0) != null) {
-                plasmaOut = (float)this.mLastRecipe.getFluidOutput(0).amount / (float)this.mLastRecipe.mDuration;
+                plasmaOut = (float) this.mLastRecipe.getFluidOutput(0).amount / (float) this.mLastRecipe.mDuration;
             }
         }
 
-        return new String[]{
-                "Fusion Reactor MK "+tier,
-                "EU Required: "+powerRequired+"EU/t",
-                "Stored EU: "+mEUStore+" / "+maxEUStore(),
-                "Plasma Output: "+plasmaOut+"L/t"};
+        return new String[] {
+            "Fusion Reactor MK " + tier,
+            "EU Required: " + powerRequired + "EU/t",
+            "Stored EU: " + mEUStore + " / " + maxEUStore(),
+            "Plasma Output: " + plasmaOut + "L/t"
+        };
     }
-    
 }
