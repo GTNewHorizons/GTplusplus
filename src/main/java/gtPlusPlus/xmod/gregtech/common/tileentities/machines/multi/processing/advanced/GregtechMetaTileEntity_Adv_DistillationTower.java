@@ -168,7 +168,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
         while (mOutputHatchesByLayer.size() < mHeight) mOutputHatchesByLayer.add(new ArrayList<>());
         GT_MetaTileEntity_Hatch_Output tHatch = (GT_MetaTileEntity_Hatch_Output) aTileEntity.getMetaTileEntity();
         tHatch.updateTexture(aBaseCasingIndex);
-        return mOutputHatchesByLayer.get(mHeight - 1).add(tHatch);
+        return mOutputHatchesByLayer.get(mHeight - 1).add(tHatch) && mOutputHatches.add(tHatch);
     }
 
     protected void onTopLayerFound() {
