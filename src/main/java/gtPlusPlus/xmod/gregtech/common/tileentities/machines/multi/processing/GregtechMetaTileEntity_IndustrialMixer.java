@@ -158,28 +158,7 @@ public class GregtechMetaTileEntity_IndustrialMixer
 
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
-        for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-            ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
-            tBus.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tBus)) {
-                for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
-                    if (tBus.getBaseMetaTileEntity().getStackInSlot(i) != null)
-                        tBusItems.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
-                }
-            }
-            ItemStack[] inputs = new ItemStack[tBusItems.size()];
-            int slot = 0;
-            for (ItemStack g : tBusItems) {
-                inputs[slot++] = g;
-            }
-            log("Recipe. [" + inputs.length + "][" + getMaxParallelRecipes() + "]");
-            FluidStack[] fluid = this.getStoredFluids().toArray(new FluidStack[] {});
-            if (checkRecipeGeneric(inputs, fluid, getMaxParallelRecipes(), getEuDiscountForParallelism(), 250, 10000)) {
-                log("Recipe 2.");
-                return true;
-            }
-        }
-        return false;
+        return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 250, 10000);
     }
 
     @Override
