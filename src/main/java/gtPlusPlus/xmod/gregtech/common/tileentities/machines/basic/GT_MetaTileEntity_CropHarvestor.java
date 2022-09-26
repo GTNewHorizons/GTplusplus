@@ -272,7 +272,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
                                         for (ItemStack aStack : aHarvest) {
                                             if (aStack != null && aStack.stackSize > 0) {
                                                 if (this.mTier * 5 > MathUtils.randInt(1, 100)) {
-                                                    aStack.stackSize += Math.floor((float) tCrop.getGain() / 10);
+                                                    aStack.stackSize += tCrop.getGain() / 10;
                                                     Logger.INFO("Bonus output given for " + aCrop.displayName());
                                                 }
                                                 Logger.INFO("Harvested " + aCrop.displayName());
