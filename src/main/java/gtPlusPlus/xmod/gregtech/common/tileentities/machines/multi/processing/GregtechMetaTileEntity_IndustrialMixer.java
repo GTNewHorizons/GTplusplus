@@ -23,10 +23,9 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-
-import java.util.ArrayList;
 
 public class GregtechMetaTileEntity_IndustrialMixer
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMixer> implements ISurvivalConstructable {
