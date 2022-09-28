@@ -26,6 +26,8 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
+import java.util.ArrayList;
+
 public class GregtechMetaTileEntity_IndustrialMixer
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMixer> implements ISurvivalConstructable {
 
@@ -158,8 +160,14 @@ public class GregtechMetaTileEntity_IndustrialMixer
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
         for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
+            ArrayList<ItemStack> rList = new ArrayList<>();
+            for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
+                if (tBus.getBaseMetaTileEntity().getStackInSlot(i) != null)
+                    rList.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
+            }
+
             if (checkRecipeGeneric(
-                    tBus.mInventory,
+                    rList.toArray(new ItemStack[0]),
                     getStoredFluids().toArray(new FluidStack[0]),
                     getMaxParallelRecipes(),
                     getEuDiscountForParallelism(),
