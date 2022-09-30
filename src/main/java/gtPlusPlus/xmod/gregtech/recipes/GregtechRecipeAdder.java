@@ -550,7 +550,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue,
-            boolean optimizeRecipe) {
+            boolean aOptimizeRecipe) {
         if ((aInput == null) || (aOutput == null)) {
             Logger.WARNING("Fail - Input or Output was null.");
             return false;
@@ -584,7 +584,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         int aSize = GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mRecipeList.size();
         int aSize2 = aSize;
         GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.addRecipe(
-                optimizeRecipe,
+                aOptimizeRecipe,
                 aInput,
                 aOutputStack,
                 null,

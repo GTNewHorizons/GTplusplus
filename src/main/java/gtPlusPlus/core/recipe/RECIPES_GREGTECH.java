@@ -1038,11 +1038,14 @@ public class RECIPES_GREGTECH {
                     ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 4),
                     ELEMENT.getInstance().CARBON.getDust(16),
                 },
-                Materials.SulfuricAcid.getFluid(5000),
+                Materials.SulfuricAcid.getFluid(1250),
                 ELEMENT.getInstance().THALLIUM.getFluidStack(288),
-                0,
-                20 * 300,
-                8000);
+                new ItemStack[] {},
+                new int[] {0},
+                20 * 75,
+                8000,
+                3700,
+                false);
 
         // Strontium processing
         CORE.RA.addBlastSmelterRecipe(
@@ -1068,13 +1071,13 @@ public class RECIPES_GREGTECH {
                     ItemUtils.getItemStackOfAmountFromOreDict("dustNitinol60", 1),
                     ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 6),
                     ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 6),
-                    ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 6)
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 3)
                 },
                 GT_Values.NF,
                 ALLOY.BOTMIUM.getFluidStack(2304),
                 0,
                 20 * 120,
-                8000);
+                491520);
     }
 
     private static void fluidcannerRecipes() {
