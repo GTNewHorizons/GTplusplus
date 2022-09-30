@@ -1034,12 +1034,12 @@ public class RECIPES_GREGTECH {
         CORE.RA.addBlastSmelterRecipe(
                 new ItemStack[] {
                     ItemUtils.getGregtechCircuit(21),
-                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedIron", 12),
-                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 16),
-                    ELEMENT.getInstance().CARBON.getDust(64),
+                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedIron", 3),
+                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 4),
+                    ELEMENT.getInstance().CARBON.getDust(16),
                 },
                 Materials.SulfuricAcid.getFluid(5000),
-                ELEMENT.getInstance().THALLIUM.getFluidStack(288 + 144),
+                ELEMENT.getInstance().THALLIUM.getFluidStack(288),
                 0,
                 20 * 300,
                 8000);
