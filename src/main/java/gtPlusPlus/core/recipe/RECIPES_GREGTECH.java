@@ -1034,7 +1034,7 @@ public class RECIPES_GREGTECH {
         CORE.RA.addBlastSmelterRecipe(
                 new ItemStack[] {
                     ItemUtils.getGregtechCircuit(21),
-                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedIron", 3),
+                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedZinc", 3),
                     ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 4),
                     ELEMENT.getInstance().CARBON.getDust(16),
                 },
