@@ -1060,6 +1060,21 @@ public class RECIPES_GREGTECH {
                 new int[] {10000, 10000}, // Output Chance
                 20 * 120,
                 480 * 4);
+
+        // molten botmium
+        CORE.RA.addBlastSmelterRecipe(
+                new ItemStack[] {
+                        ItemUtils.getGregtechCircuit(4),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustNitinol60", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 6),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 6),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 6)
+                },
+                GT_Values.NF,
+                ALLOY.BOTMIUM.getFluidStack(2304),
+                0,
+                20*120,
+                8000);
     }
 
     private static void fluidcannerRecipes() {
