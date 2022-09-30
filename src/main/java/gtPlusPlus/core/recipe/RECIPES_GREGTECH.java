@@ -1064,16 +1064,16 @@ public class RECIPES_GREGTECH {
         // molten botmium
         CORE.RA.addBlastSmelterRecipe(
                 new ItemStack[] {
-                        ItemUtils.getGregtechCircuit(4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustNitinol60", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 6),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 6),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 6)
+                    ItemUtils.getGregtechCircuit(4),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustNitinol60", 1),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 6),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 6),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 6)
                 },
                 GT_Values.NF,
                 ALLOY.BOTMIUM.getFluidStack(2304),
                 0,
-                20*120,
+                20 * 120,
                 8000);
     }
 

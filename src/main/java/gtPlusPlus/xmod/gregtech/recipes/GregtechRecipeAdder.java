@@ -537,7 +537,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue) {
-        return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, aSpecialValue, true);
+        return addBlastSmelterRecipe(
+                aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, aSpecialValue, true);
     }
 
     public boolean addBlastSmelterRecipe(
@@ -562,7 +563,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             aOutput = Materials.PulsatingIron.getMolten(aOutput.amount);
         }
         if ((aDuration = GregTech_API.sRecipeFile.get(
-                "blastsmelter", aOutput.getFluid().getName(), aDuration))
+                        "blastsmelter", aOutput.getFluid().getName(), aDuration))
                 <= 0) {
             Logger.WARNING("Recipe did not register.");
             return false;
