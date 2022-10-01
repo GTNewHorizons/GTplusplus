@@ -625,17 +625,20 @@ public class RecipeGen_Ore extends RecipeGen_Base {
             Logger.MATERIALS("[Electrolyzer] Fail 2.");
             return false;
         }
-        GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes.addRecipe(
-                true,
-                new ItemStack[] {aInput1, aInput2},
-                new ItemStack[] {aOutput1, aOutput2, aOutput3, aOutput4, aOutput5, aOutput6},
-                null,
+        GT_Values.RA.addElectrolyzerRecipe(
+                aInput1,
+                aInput2,
+                aFluidInput,
+                aFluidOutput,
+                aOutput1,
+                aOutput2,
+                aOutput3,
+                aOutput4,
+                aOutput5,
+                aOutput6,
                 aChances,
-                new FluidStack[] {aFluidInput},
-                new FluidStack[] {aFluidOutput},
                 aDuration,
-                aEUt,
-                0);
+                aEUt);
         Logger.MATERIALS("[Electrolyzer] Recipe added.");
         return true;
     }
