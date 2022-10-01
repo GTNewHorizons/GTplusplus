@@ -476,18 +476,17 @@ public class GenericChem extends ItemPackage {
         CORE.RA.addChemicalPlantRecipe(
                 new ItemStack[] {
                     ItemUtils.getSimpleStack(GenericChem.mInfiniteMutationCatalyst, 0),
-                    ItemList.Circuit_Chip_Biocell.get(64),
+                    ItemList.Circuit_Chip_Biocell.get(32),
                     ItemList.Gravistar.get(8),
                     Materials.InfinityCatalyst.getDust(2)
                 },
                 new FluidStack[] {
-                    FluidUtils.getFluidStack("plasma.tin", 18000),
-                    FluidUtils.getFluidStack("plasma.bismuth", 18000),
-                    FluidUtils.getFluidStack("cryotheum", 4000)
+                    FluidUtils.getFluidStack("molten.tin", 18000), FluidUtils.getFluidStack("molten.bismuth", 18000),
                 },
                 new ItemStack[] {},
-                new FluidStack[] {MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 280)},
-                20 * 800,
+                new FluidStack[] {MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(18000 + 18000 + 8 * 288 + 2 * 144)
+                },
+                20 * 240,
                 3842160,
                 7);
     }
