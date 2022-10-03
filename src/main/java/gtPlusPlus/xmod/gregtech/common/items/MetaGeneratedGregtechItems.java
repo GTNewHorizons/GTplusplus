@@ -88,29 +88,25 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_LuV.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[5][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
+                        Textures.BlockIcons.MACHINE_CASINGS[5][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
                     }),
                     new GT_Cover_Pump(8196));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_ZPM.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[6][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
+                        Textures.BlockIcons.MACHINE_CASINGS[6][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
                     }),
                     new GT_Cover_Pump(32768));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_UV.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[7][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
+                        Textures.BlockIcons.MACHINE_CASINGS[7][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
                     }),
                     new GT_Cover_Pump(131072));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_MAX.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[8][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
+                        Textures.BlockIcons.MACHINE_CASINGS[8][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)
                     }),
                     new GT_Cover_Pump(524288));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Electric_Pump_LuV.get(1L),
@@ -383,29 +379,25 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_LuV.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[1][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
+                        Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(400));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_ZPM.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[2][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
+                        Textures.BlockIcons.MACHINE_CASINGS[2][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(100));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_UV.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[3][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
+                        Textures.BlockIcons.MACHINE_CASINGS[3][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(20));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_MAX.get(1L),
                     TextureFactory.of(new ITexture[] {
-                        Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                        TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
+                        Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)
                     }),
                     new GT_Cover_Arm(4));
             tLastID = 20;
@@ -777,43 +769,37 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_ULV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(8));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_LV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(64));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_MV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[5][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[5][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(512));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_HV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[5][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[5][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(4096));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_EV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[8][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[8][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(32768));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_IV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[8][0],
-                    TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
+                    Textures.BlockIcons.MACHINE_CASINGS[8][0], TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)
                 }),
                 new GTPP_Cover_Overflow(262144));
 
@@ -1036,8 +1022,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_ULV.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[1][0],
-                    TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                    Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)
                 }),
                 new GT_Cover_Conveyor(1600));
         GregTech_API.registerCover(
@@ -1103,8 +1088,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_MAX.get(1L),
                 TextureFactory.of(new ITexture[] {
-                    Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                    TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)
+                    Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)
                 }),
                 new GT_Cover_Conveyor(4));
         GregTech_API.registerCover(

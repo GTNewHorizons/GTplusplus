@@ -277,16 +277,14 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     @Override
     public ITexture[] getBackActive(byte aColor) {
         return new ITexture[] {
-            super.getBackActive(aColor)[0],
-            TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
+            super.getBackActive(aColor)[0], TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
         };
     }
 
     @Override
     public ITexture[] getBottomActive(byte aColor) {
         return new ITexture[] {
-            super.getBottomActive(aColor)[0],
-            TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
+            super.getBottomActive(aColor)[0], TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
         };
     }
 

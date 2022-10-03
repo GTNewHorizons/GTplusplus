@@ -54,16 +54,11 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
     }
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
-        return new ITexture[] {
-            aBaseTexture,
-            TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)
-        };
+        return new ITexture[] {aBaseTexture, TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)};
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
-        return new ITexture[] {
-            aBaseTexture, TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE)
-        };
+        return new ITexture[] {aBaseTexture, TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE)};
     }
 
     public boolean allowPutStack(
@@ -199,9 +194,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
                     ? StaticFields59.getCasingTexturePages(a2, texturePointer)
                     : BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1];
 
-            return new ITexture[] {
-                g, TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_TOP_ACTIVE)
-            };
+            return new ITexture[] {g, TextureFactory.of(BlockIcons.NAQUADAH_REACTOR_FLUID_TOP_ACTIVE)};
         }
 
         return aSide != aFacing

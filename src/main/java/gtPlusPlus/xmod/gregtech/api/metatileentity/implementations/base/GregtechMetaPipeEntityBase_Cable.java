@@ -149,8 +149,7 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
             final float tThickNess = this.getThickNess();
             if (tThickNess < 0.37F) {
                 return new ITexture[] {
-                    TextureFactory.of(
-                            this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
+                    TextureFactory.of(this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
                     TextureFactory.of(
                             Textures.BlockIcons.INSULATION_TINY,
                             Dyes.getModulation(aColorIndex, Dyes.CABLE_INSULATION.mRGBa))
@@ -158,8 +157,7 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
             }
             if (tThickNess < 0.49F) {
                 return new ITexture[] {
-                    TextureFactory.of(
-                            this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
+                    TextureFactory.of(this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
                     TextureFactory.of(
                             Textures.BlockIcons.INSULATION_SMALL,
                             Dyes.getModulation(aColorIndex, Dyes.CABLE_INSULATION.mRGBa))
@@ -167,8 +165,7 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
             }
             if (tThickNess < 0.74F) {
                 return new ITexture[] {
-                    TextureFactory.of(
-                            this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
+                    TextureFactory.of(this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
                     TextureFactory.of(
                             Textures.BlockIcons.INSULATION_MEDIUM,
                             Dyes.getModulation(aColorIndex, Dyes.CABLE_INSULATION.mRGBa))
@@ -176,8 +173,7 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
             }
             if (tThickNess < 0.99F) {
                 return new ITexture[] {
-                    TextureFactory.of(
-                            this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
+                    TextureFactory.of(this.mMaterial.mIconSet.mTextures[TextureSet.INDEX_wire], this.mMaterial.mRGBa),
                     TextureFactory.of(
                             Textures.BlockIcons.INSULATION_LARGE,
                             Dyes.getModulation(aColorIndex, Dyes.CABLE_INSULATION.mRGBa))

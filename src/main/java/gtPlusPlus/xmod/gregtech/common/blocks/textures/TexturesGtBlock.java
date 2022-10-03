@@ -791,23 +791,23 @@ public class TexturesGtBlock {
     public static ITexture[] OVERLAYS_COMPARTMENT_FRONT;
 
     static {
-        OVERLAYS_COMPARTMENT_FRONT = new ITexture[]{
-                TextureFactory.of(OVERLAY_COMPARTMENT_1, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_2, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_3, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_4, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_5, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_6, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_7, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_8, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_9, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_10, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_11, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_12, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_13, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_14, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_15, new short[]{255, 255, 255, 0}),
-                TextureFactory.of(OVERLAY_COMPARTMENT_16, new short[]{255, 255, 255, 0}),
+        OVERLAYS_COMPARTMENT_FRONT = new ITexture[] {
+            TextureFactory.of(OVERLAY_COMPARTMENT_1, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_2, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_3, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_4, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_5, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_6, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_7, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_8, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_9, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_10, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_11, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_12, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_13, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_14, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_15, new short[] {255, 255, 255, 0}),
+            TextureFactory.of(OVERLAY_COMPARTMENT_16, new short[] {255, 255, 255, 0}),
         };
     }
 

@@ -120,9 +120,7 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
 
     @Override
     public ITexture[] getBack(byte aColor) {
-        return new ITexture[] {
-            super.getBack(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_TOP)
-        };
+        return new ITexture[] {super.getBack(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_TOP)};
     }
 
     @Override
@@ -134,16 +132,12 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
 
     @Override
     public ITexture[] getTop(byte aColor) {
-        return new ITexture[] {
-            super.getTop(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_SIDE)
-        };
+        return new ITexture[] {super.getTop(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_SIDE)};
     }
 
     @Override
     public ITexture[] getSides(byte aColor) {
-        return new ITexture[] {
-            super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_TOP)
-        };
+        return new ITexture[] {super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.DIESEL_GENERATOR_TOP)};
     }
 
     @Override

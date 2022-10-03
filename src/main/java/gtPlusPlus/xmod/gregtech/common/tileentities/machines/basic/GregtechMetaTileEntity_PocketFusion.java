@@ -408,8 +408,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     }
 
     public ITexture[] getFrontActive(final byte aColor) {
-        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)
-        };
+        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)};
     }
 
     public ITexture[] getBackActive(final byte aColor) {

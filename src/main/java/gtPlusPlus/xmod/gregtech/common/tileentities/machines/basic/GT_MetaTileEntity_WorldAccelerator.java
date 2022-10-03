@@ -102,16 +102,12 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
                 Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1],
                 (pSide < 2)
                         ? null
-                        : pActive
-                                ? TextureFactory.of(_mGTIco_Norm_Active)
-                                : TextureFactory.of(_mGTIco_Norm_Idle)
+                        : pActive ? TextureFactory.of(_mGTIco_Norm_Active) : TextureFactory.of(_mGTIco_Norm_Idle)
             };
         else
             return new ITexture[] {
                 Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1],
-                (pSide < 2)
-                        ? null
-                        : pActive ? TextureFactory.of(_mGTIco_TE_Active) : TextureFactory.of(_mGTIco_TE_Idle)
+                (pSide < 2) ? null : pActive ? TextureFactory.of(_mGTIco_TE_Active) : TextureFactory.of(_mGTIco_TE_Idle)
             };
     }
 

@@ -74,13 +74,11 @@ public class GregtechMetaTileEntityThaumcraftResearcher extends GregtechMetaTile
     }
 
     public ITexture[] getFront(final byte aColor) {
-        return new ITexture[] {getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Metal_Grate_A)
-        };
+        return new ITexture[] {getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Metal_Grate_A)};
     }
 
     public ITexture[] getBack(final byte aColor) {
-        return new ITexture[] {getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Metal_Grate_B)
-        };
+        return new ITexture[] {getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Metal_Grate_B)};
     }
 
     public ITexture[] getBottom(final byte aColor) {
@@ -88,8 +86,7 @@ public class GregtechMetaTileEntityThaumcraftResearcher extends GregtechMetaTile
     }
 
     public ITexture[] getTop(final byte aColor) {
-        return new ITexture[] {
-            getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Overlay_Machine_Dimensional_Blue)
+        return new ITexture[] {getSides(aColor)[0], TextureFactory.of(TexturesGtBlock.Overlay_Machine_Dimensional_Blue)
         };
     }
 

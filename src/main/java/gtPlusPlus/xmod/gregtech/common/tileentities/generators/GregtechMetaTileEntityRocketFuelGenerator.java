@@ -100,9 +100,7 @@ public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFue
     @Override
     public ITexture[] getBack(final byte aColor) {
         return new ITexture[] {
-            super.getBack(aColor)[0],
-            this.getCasingTexture(),
-            TextureFactory.of(TexturesGtBlock.Overlay_Machine_Vent)
+            super.getBack(aColor)[0], this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_Machine_Vent)
         };
     }
 
@@ -115,9 +113,7 @@ public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFue
 
     @Override
     public ITexture[] getTop(final byte aColor) {
-        return new ITexture[] {
-            super.getTop(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_Off)
-        };
+        return new ITexture[] {super.getTop(aColor)[0], TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_Off)};
     }
 
     @Override

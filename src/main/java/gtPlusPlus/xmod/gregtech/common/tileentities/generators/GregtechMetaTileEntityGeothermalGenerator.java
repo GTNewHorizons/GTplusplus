@@ -126,8 +126,7 @@ public class GregtechMetaTileEntityGeothermalGenerator extends GT_MetaTileEntity
 
     @Override
     public ITexture[] getSides(final byte aColor) {
-        return new ITexture[] {super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.BOILER_LAVA_FRONT)
-        };
+        return new ITexture[] {super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.BOILER_LAVA_FRONT)};
     }
 
     @Override

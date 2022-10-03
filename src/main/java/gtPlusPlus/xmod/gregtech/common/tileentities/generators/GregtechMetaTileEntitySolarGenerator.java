@@ -165,16 +165,12 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
 
     @Override
     public ITexture[] getBack(final byte aColor) {
-        return new ITexture[] {
-            super.getBack(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)
-        };
+        return new ITexture[] {super.getBack(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)};
     }
 
     @Override
     public ITexture[] getBottom(final byte aColor) {
-        return new ITexture[] {
-            super.getBottom(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)
-        };
+        return new ITexture[] {super.getBottom(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)};
     }
 
     @Override
@@ -184,9 +180,7 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
 
     @Override
     public ITexture[] getSides(final byte aColor) {
-        return new ITexture[] {
-            super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)
-        };
+        return new ITexture[] {super.getSides(aColor)[0], TextureFactory.of(Textures.BlockIcons.MACHINE_CASING_MAGIC)};
     }
 
     @Override

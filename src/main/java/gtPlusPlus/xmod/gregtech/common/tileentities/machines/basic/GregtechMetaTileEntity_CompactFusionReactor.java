@@ -404,8 +404,7 @@ public class GregtechMetaTileEntity_CompactFusionReactor extends GT_MetaTileEnti
     }
 
     public ITexture[] getFrontActive(final byte aColor) {
-        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)
-        };
+        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)};
     }
 
     public ITexture[] getBackActive(final byte aColor) {
