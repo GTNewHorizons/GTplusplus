@@ -75,7 +75,7 @@ public class TinkersUtils {
                     try {
                         mSmelteryInstance = ReflectionUtils.getField(mClass_Smeltery, "instance")
                                 .get(null);
-                    } catch (IllegalArgumentException | IllegalAccessException e) {
+                    } catch (IllegalArgumentException | IllegalAccessException ignored) {
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class TinkersUtils {
                     try {
                         mTinkersRegistryInstance = ReflectionUtils.getField(mClass_TConstructRegistry, "instance")
                                 .get(null);
-                    } catch (IllegalArgumentException | IllegalAccessException e) {
+                    } catch (IllegalArgumentException | IllegalAccessException ignored) {
                     }
                 }
             }
@@ -96,7 +96,7 @@ public class TinkersUtils {
             try {
                 return (boolean) ReflectionUtils.getField(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst")
                         .get(null);
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
         }
         return false;
@@ -115,7 +115,7 @@ public class TinkersUtils {
                 else {
                     ItemUtils.getNonTinkersDust("", 1);
                 }
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
         }
         return false;
@@ -326,7 +326,7 @@ public class TinkersUtils {
             if (m != null) {
                 try {
                     mTinkerMetalPattern = (Item) m.get(null);
-                } catch (IllegalArgumentException | IllegalAccessException e) {
+                } catch (IllegalArgumentException | IllegalAccessException ignored) {
                 }
             }
         }
@@ -432,7 +432,7 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addToolMaterial").invoke(mClass_TConstructRegistry, id, aToolMaterial);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
 
         }
     }
@@ -444,7 +444,7 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addDefaultToolPartMaterial").invoke(mClass_TConstructRegistry, id);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
         }
     }
 
@@ -456,7 +456,7 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addBowMaterial").invoke(mClass_TConstructRegistry, id, drawspeed, maxSpeed);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
         }
     }
 
@@ -468,7 +468,7 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addArrowMaterial").invoke(mClass_TConstructRegistry, id, mass, fragility);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
         }
     }
 

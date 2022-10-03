@@ -106,7 +106,7 @@ public class ItemBlockGtBlock extends ItemBlock {
             try {
                 BlockBaseModular g = (BlockBaseModular) thisBlock;
                 this.mMaterial = g.getMaterialEx();
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
 
             }
 

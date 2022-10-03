@@ -252,7 +252,7 @@ public class ReflectionUtils {
                     cacheField(aClass, u);
                     return u;
                 }
-            } catch (NoSuchFieldException e) {
+            } catch (NoSuchFieldException ignored) {
             }
             return null;
 
@@ -357,7 +357,7 @@ public class ReflectionUtils {
                     Logger.INFO("Found " + clazz.getCanonicalName() + ". [" + loaded + "]");
                 }
             }
-        } catch (ClassNotFoundException | IOException e) {
+        } catch (ClassNotFoundException | IOException ignored) {
 
         }
 
@@ -724,7 +724,7 @@ public class ReflectionUtils {
                         actualType = (TypeVariable<?>) entry.getValue();
                     }
                 }
-            } catch (NoSuchFieldException | IllegalAccessException e) {
+            } catch (NoSuchFieldException | IllegalAccessException ignored) {
 
             }
         }
@@ -1052,7 +1052,7 @@ public class ReflectionUtils {
     public static <T> T getFieldValue(Field field, Object instance) {
         try {
             return (T) field.get(instance);
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
         return null;
     }

@@ -239,7 +239,7 @@ public class BatteryPackBaseBauble extends ElectricBaseBauble {
                         }
                     }
                 }
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
 
             }
         }

@@ -229,7 +229,7 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
                         return r;
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
         } else if (this.mMachineMode == MODE.DISASSEMBLY || this.mMachineMode == MODE.CRAFTING) {
             return null;

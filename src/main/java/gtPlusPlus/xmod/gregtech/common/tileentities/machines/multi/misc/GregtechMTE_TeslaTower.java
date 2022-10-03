@@ -391,7 +391,7 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
                     }
                 }
             }
-        } catch (Throwable r) {
+        } catch (Throwable ignored) {
 
         }
         super.onPreTick(aBaseMetaTileEntity, aTick);
@@ -443,7 +443,7 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
                     }
                 }
             }
-        } catch (Throwable r) {
+        } catch (Throwable ignored) {
 
         }
         super.onPostTick(aBaseMetaTileEntity, aTick);

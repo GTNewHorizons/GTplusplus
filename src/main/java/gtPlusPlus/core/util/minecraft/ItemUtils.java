@@ -1187,7 +1187,7 @@ public class ItemUtils {
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         if (aDisplay == null || aDisplay.length() <= 0) {

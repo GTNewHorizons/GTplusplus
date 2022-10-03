@@ -51,7 +51,7 @@ public class PlayerUtils {
                     return temp;
                 }
             }
-        } catch (final Throwable e) {
+        } catch (final Throwable ignored) {
         }
         return null;
     }
@@ -79,7 +79,7 @@ public class PlayerUtils {
                     return temp;
                 }
             }
-        } catch (final NullPointerException e) {
+        } catch (final NullPointerException ignored) {
         }
         return null;
     }

@@ -69,7 +69,7 @@ public class CircuitProgrammer extends BasicTileBlockWithTooltip {
                         mDidScrewDriver = tile.onScrewdriverRightClick((byte) side, player, x, y, z);
                     }
                 }
-            } catch (final Throwable t) {
+            } catch (final Throwable ignored) {
             }
 
             if (!mDidScrewDriver) {

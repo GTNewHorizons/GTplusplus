@@ -128,7 +128,7 @@ public class CONTAINER_MultiMachine extends GT_ContainerMetaTile_Machine {
                         // Logger.INFO("5");
                         handleInternalFieldSetting();
                         // Logger.INFO("6");
-                    } catch (Throwable t) {
+                    } catch (Throwable ignored) {
 
                     }
                 }

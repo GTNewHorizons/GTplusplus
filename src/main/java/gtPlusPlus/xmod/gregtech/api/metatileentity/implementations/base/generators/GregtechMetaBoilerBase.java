@@ -185,7 +185,7 @@ public abstract class GregtechMetaBoilerBase extends GT_MetaTileEntity_BasicTank
         if (this.mSteam != null) {
             try {
                 aNBT.setTag("mSteam", this.mSteam.writeToNBT(new NBTTagCompound()));
-            } catch (final Throwable e) {
+            } catch (final Throwable ignored) {
             }
         }
     }

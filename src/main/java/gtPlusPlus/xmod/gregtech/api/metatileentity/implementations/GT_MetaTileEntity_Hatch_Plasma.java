@@ -67,10 +67,10 @@ public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Outp
                                 }
                             }
                         }
-                    } catch (ClassCastException e) {
+                    } catch (ClassCastException ignored) {
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
         }
 
@@ -191,7 +191,7 @@ public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Outp
             if (F2 != null) {
                 a2 = F2.getByte(this);
             }
-        } catch (IllegalArgumentException | IllegalAccessException n) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         int textureIndex = a1 | a2 << 7;

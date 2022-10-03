@@ -144,7 +144,7 @@ public class GenerateDictionaries {
                         return newSize > oldSize;
                     }
                 }
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
             return false;
         }

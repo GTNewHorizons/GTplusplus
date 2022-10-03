@@ -36,7 +36,7 @@ public class DevHelper {
             } else {
                 deobfuscatedEnvironment = false;
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return !deobfuscatedEnvironment;
     }
@@ -57,7 +57,7 @@ public class DevHelper {
                     return b;
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return null;
     }

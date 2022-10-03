@@ -255,7 +255,7 @@ public class GregtechAdvancedMixer {
                                 GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, Character.valueOf('G'),
                                 GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PLATE }*/ )
                         .getStackForm(1L));
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
         }
     }

@@ -51,7 +51,7 @@ public class TileEntityDecayablesChest extends TileEntity implements ISidedInven
         // Try do chesty stuff
         try {
             this.updateEntityChest();
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
 
@@ -75,7 +75,7 @@ public class TileEntityDecayablesChest extends TileEntity implements ISidedInven
                 }
                 updateSlots();
             }
-        } catch (final Throwable t) {
+        } catch (final Throwable ignored) {
         }
     }
 

@@ -50,7 +50,7 @@ public class Growthcraft_Old {
                 | InstantiationException
                 | IllegalAccessException
                 | IllegalArgumentException
-                | InvocationTargetException e) {
+                | InvocationTargetException ignored) {
         }
 
         return null;
@@ -61,7 +61,7 @@ public class Growthcraft_Old {
             Object I = createFishTrapEntry(o, p);
             m.invoke(FishTrapRegistryO, I);
             return true;
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
         }
         return false;
     }

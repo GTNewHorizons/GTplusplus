@@ -76,7 +76,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
 
         try {
             this.isValid = this.addRecipe();
-        } catch (final Throwable e) {
+        } catch (final Throwable ignored) {
         }
         if ((colour != 0) && this.isValid && (materialDurability > 10000)) {
             if (GameRegistry.findItem(CORE.MODID, Utils.sanitizeString(unlocalizedName)) == null) {
@@ -187,7 +187,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
                     return 0;
                 }
 
-            } catch (final NullPointerException e) {
+            } catch (final NullPointerException ignored) {
 
             }
         }

@@ -186,7 +186,7 @@ public class ItemAgrichemBase extends Item {
                 } catch (InstantiationException
                         | IllegalAccessException
                         | IllegalArgumentException
-                        | InvocationTargetException e) {
+                        | InvocationTargetException ignored) {
                 }
             }
         }

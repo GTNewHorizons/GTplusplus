@@ -288,7 +288,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 if ((aFluidOutput == null) || (aInputStack == null)) {
                     return false;
                 }
-            } catch (final NullPointerException e) {
+            } catch (final NullPointerException ignored) {
             }
             try {
                 if (aFluidInput == null) {
@@ -1316,7 +1316,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                         }
                         tAlts[i] = uList.toArray(new ItemStack[0]);
                         continue;
-                    } catch (Exception t) {
+                    } catch (Exception ignored) {
                     }
                 }
             }

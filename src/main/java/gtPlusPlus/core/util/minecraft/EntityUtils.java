@@ -258,7 +258,7 @@ public class EntityUtils {
         } else {
             try {
                 dealFireDamage.invoke(entity, amount);
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
             }
         }
         return false;

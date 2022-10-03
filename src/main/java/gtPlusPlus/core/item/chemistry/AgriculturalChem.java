@@ -546,7 +546,7 @@ public class AgriculturalChem extends ItemPackage {
                                 240);
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
 
             }
         }

@@ -126,7 +126,7 @@ public class BlockSuperLight extends BlockContainer {
                         updateLighting(powered);
                     }
                 }
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
         }
 

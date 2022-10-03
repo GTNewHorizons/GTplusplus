@@ -51,7 +51,7 @@ public class HandlerTooltip_GC {
                             }
                         }
                     }
-                } catch (Throwable t) {
+                } catch (Throwable ignored) {
                 }
             }
             if (mFuelNames == null) {

@@ -229,7 +229,7 @@ public class TileEntityVolumetricFlaskSetter extends TileEntity implements ISide
                 }
                 this.tickCount++;
             }
-        } catch (final Throwable t) {
+        } catch (final Throwable ignored) {
         }
     }
 

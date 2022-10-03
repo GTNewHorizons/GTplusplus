@@ -183,7 +183,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
             if (F2 != null) {
                 a2 = F2.getByte(this);
             }
-        } catch (IllegalArgumentException | IllegalAccessException n) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         int textureIndex = a1 | a2 << 7;

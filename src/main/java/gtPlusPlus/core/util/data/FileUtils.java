@@ -90,7 +90,7 @@ public class FileUtils {
                     return newSize > oldSize;
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return false;
     }

@@ -237,7 +237,7 @@ public class Utils {
                 correctTool = currentBlock.getHarvestTool(0);
                 Logger.WARNING(correctTool);
 
-            } catch (final NullPointerException e) {
+            } catch (final NullPointerException ignored) {
 
             }
         }
@@ -857,7 +857,7 @@ public class Utils {
                         return version;
                     }
                 }
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
 
             }
         }

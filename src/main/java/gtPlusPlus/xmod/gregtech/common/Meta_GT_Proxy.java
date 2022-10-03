@@ -184,7 +184,7 @@ public class Meta_GT_Proxy {
                 LangUtils.rewriteEntryForLanguageRegistry(aLangs[i], "fluidHotWater", aLangValues[i]);
                 LangUtils.rewriteEntryForLanguageRegistry(aLangs[i], "ic2.fluidHotWater", aLangValues[i]);
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
     }
@@ -320,7 +320,7 @@ public class Meta_GT_Proxy {
                         | IllegalAccessException
                         | IllegalArgumentException
                         | InvocationTargetException
-                        | SecurityException e) {
+                        | SecurityException ignored) {
                 }
             }
         }

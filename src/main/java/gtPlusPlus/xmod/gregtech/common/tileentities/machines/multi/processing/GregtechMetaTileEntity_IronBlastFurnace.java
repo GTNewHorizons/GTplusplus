@@ -271,7 +271,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                                             .getWorld()
                                             .getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()),
                                     "steel");
-                        } catch (final Exception e) {
+                        } catch (final Exception ignored) {
                         }
                     }
                 } else if (aBaseMetaTileEntity.isAllowedToWork()) {

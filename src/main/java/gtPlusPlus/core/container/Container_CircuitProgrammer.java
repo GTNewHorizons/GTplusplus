@@ -106,7 +106,7 @@ public class Container_CircuitProgrammer extends Container {
             }
 
             Logger.INFO("4");
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
     }
 

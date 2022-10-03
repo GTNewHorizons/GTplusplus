@@ -83,7 +83,7 @@ public class ToolType_Wrench extends ToolType_Base {
                 }
                 return true;
             }
-        } catch (final Throwable e) {
+        } catch (final Throwable ignored) {
         }
         if ((aBlock == Blocks.log) || (aBlock == Blocks.log2) || (aBlock == Blocks.hay_block)) {
             if ((aPlayer.capabilities.isCreativeMode)

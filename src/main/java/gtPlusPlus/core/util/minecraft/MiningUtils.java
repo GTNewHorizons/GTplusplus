@@ -43,7 +43,7 @@ public class MiningUtils {
                     Logger.WARNING("Incorrect Tool for mining this block.");
                 }
             }
-        } catch (final NullPointerException e) {
+        } catch (final NullPointerException ignored) {
 
         }
     }
@@ -178,7 +178,7 @@ public class MiningUtils {
                                 "idDimensionMoon")
                         .getInt(null);
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         // Gets Mars ID
@@ -190,7 +190,7 @@ public class MiningUtils {
                                 "dimensionIDMars")
                         .getInt(null);
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         // Get Comets ID
@@ -204,7 +204,7 @@ public class MiningUtils {
                                 "dimensionIDAsteroids")
                         .getInt(null);
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         // Clear Cache

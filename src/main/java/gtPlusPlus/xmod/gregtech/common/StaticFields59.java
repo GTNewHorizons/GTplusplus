@@ -192,7 +192,7 @@ public class StaticFields59 {
             if (g != null) {
                 return g[a][b];
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         return null;
@@ -228,7 +228,7 @@ public class StaticFields59 {
         if (proxyGT instanceof GT_Proxy) {
             try {
                 return ReflectionUtils.getField(proxyGT.getClass(), fieldName).get(proxyGT);
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
         }
         return null;

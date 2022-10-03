@@ -227,7 +227,7 @@ public class NBTUtils {
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         return false;
     }

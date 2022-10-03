@@ -94,7 +94,7 @@ public class GalacticUtils {
             if (getRocketTier != null) {
                 try {
                     return (int) getRocketTier.invoke(aEntity, new Object[] {});
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
                 }
             }
         }
@@ -110,7 +110,7 @@ public class GalacticUtils {
                     if (aIDockable.isInstance(rocket) && rocket != null) {
                         return getRocketTier((Entity) rocket);
                     }
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
                 }
             } else if (aBuggyPad.isInstance(aEntity)) {
                 Object buggy;
@@ -119,7 +119,7 @@ public class GalacticUtils {
                     if (aIDockable.isInstance(buggy) && buggy != null) {
                         return 0;
                     }
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
                 }
             }
         }

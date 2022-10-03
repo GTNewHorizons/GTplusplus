@@ -39,7 +39,7 @@ public class FishTrapHandler {
                 | SecurityException
                 | IllegalAccessException
                 | IllegalArgumentException
-                | InvocationTargetException e) {
+                | InvocationTargetException ignored) {
         }
         return null;
     }

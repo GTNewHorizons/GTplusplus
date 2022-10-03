@@ -138,7 +138,7 @@ public class TileEntityCircuitProgrammer extends TileEntity implements ISidedInv
                 }
                 this.tickCount++;
             }
-        } catch (final Throwable t) {
+        } catch (final Throwable ignored) {
         }
     }
 

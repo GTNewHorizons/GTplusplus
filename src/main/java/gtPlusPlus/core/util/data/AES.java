@@ -141,7 +141,7 @@ public class AES {
 
             return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
 

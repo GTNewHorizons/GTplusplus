@@ -44,7 +44,7 @@ public class LangUtils {
                         ReflectionUtils.setField(aInstance, aModLanguageData, aProps);
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
 
             }
         }

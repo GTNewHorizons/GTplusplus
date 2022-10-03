@@ -192,7 +192,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
                     return 0;
                 }
 
-            } catch (final NullPointerException e) {
+            } catch (final NullPointerException ignored) {
 
             }
         }
@@ -366,7 +366,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
             } else {
                 Logger.WARNING("Incorrect Tool for mining this block.");
             }
-        } catch (final NullPointerException e) {
+        } catch (final NullPointerException ignored) {
 
         }
     }

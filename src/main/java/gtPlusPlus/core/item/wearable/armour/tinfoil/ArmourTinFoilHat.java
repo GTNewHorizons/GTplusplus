@@ -158,7 +158,7 @@ public class ArmourTinFoilHat extends BaseArmourHelm {
                             }
                         }
                     }
-                } catch (Throwable t) {
+                } catch (Throwable ignored) {
                 }
             }
         }

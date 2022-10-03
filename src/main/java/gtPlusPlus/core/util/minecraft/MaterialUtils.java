@@ -344,7 +344,7 @@ public class MaterialUtils {
                 mName = (String)
                         ReflectionUtils.getField(Materials.class, "mName").get(mat);
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         if (mName == null || mName.equals("")) {

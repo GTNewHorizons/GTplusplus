@@ -26,7 +26,7 @@ public class WitchUtils {
                 a2 = getField("com.emoniph.witchery.entity.ai.EntityAIDigBlocks", "KOBOLDITE_MINER_PROFILE");
                 b1 = (GameProfile) a1.get(null);
                 b2 = (GameProfile) a2.get(null);
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
         }
         NORMAL_MINER_PROFILE = b1;

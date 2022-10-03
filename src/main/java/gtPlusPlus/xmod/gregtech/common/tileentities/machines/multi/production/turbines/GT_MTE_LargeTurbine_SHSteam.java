@@ -99,7 +99,7 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
                                         .getPlayerEntityByName(
                                                 this.getBaseMetaTileEntity().getOwnerName()),
                                 "efficientsteam");
-                    } catch (Exception e) {
+                    } catch (Exception ignored) {
                     }
                     achievement = true;
                 }

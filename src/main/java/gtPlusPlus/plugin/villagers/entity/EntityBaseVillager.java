@@ -177,7 +177,7 @@ public class EntityBaseVillager extends EntityVillager {
     protected void setField_82191_bN(float f) {
         try {
             ReflectionUtils.setField(this, "field_82191_bN", f);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException ignored) {
         }
     }
 
@@ -193,7 +193,7 @@ public class EntityBaseVillager extends EntityVillager {
     protected void setNeedsInitilization(boolean f) {
         try {
             ReflectionUtils.setField(this, "needsInitilization", f);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException ignored) {
         }
     }
 
@@ -458,7 +458,7 @@ public class EntityBaseVillager extends EntityVillager {
             } else {
 
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
     }

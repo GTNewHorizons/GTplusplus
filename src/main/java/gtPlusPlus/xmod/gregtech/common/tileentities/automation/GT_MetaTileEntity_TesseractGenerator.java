@@ -159,7 +159,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
         this.mFrequency = aNBT.getInteger("mFrequency");
         try {
             this.mOwner = UUID.fromString(aNBT.getString("mOnwer"));
-        } catch (IllegalArgumentException i) {
+        } catch (IllegalArgumentException ignored) {
 
         }
     }
@@ -215,7 +215,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
                         Logger.WARNING("Freq. -1 | " + this.mFrequency);
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 1;
 
@@ -224,7 +224,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
                         Logger.WARNING("Freq. +1 | " + this.mFrequency);
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 1;
                     default:
@@ -255,28 +255,28 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
                     case 0:
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 64;
                         break;
                     case 1:
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 64;
                         break;
                     case 2:
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 512;
                         break;
                     case 3:
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 512;
                 }
@@ -756,7 +756,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
     public void onRemoval() {
         try {
             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         super.onRemoval();
     }

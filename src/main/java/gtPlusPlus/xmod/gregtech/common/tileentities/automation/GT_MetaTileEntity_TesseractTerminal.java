@@ -170,7 +170,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                         // Utils.LOG_WARNING("Freq. -1 | " + this.mFrequency);
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 1;
                         break;
@@ -178,14 +178,14 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                         // Utils.LOG_WARNING("Freq. +1 | " + this.mFrequency);
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 1;
                     default:
                         // Utils.LOG_WARNING("Did not click the correct place.");
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         break;
                 }
@@ -215,28 +215,28 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                     case 0:
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 64;
                         break;
                     case 1:
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 64;
                         break;
                     case 2:
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency -= 512;
                         break;
                     case 3:
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                         this.mFrequency += 512;
                 }
@@ -605,7 +605,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
     public void onRemoval() {
         try {
             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         super.onRemoval();
     }

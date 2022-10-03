@@ -30,7 +30,7 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
             ForgeDirection aDir = ForgeDirection.getOrientation(aSide);
             String s = aEntity.getInventoryName() + "." + aPos.getUniqueIdentifier() + aDir.name();
             return s;
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         XSTR x = new XSTR();
         return "ERROR." + x.getSeed() + x.hashCode() + x.nextDouble() + ".ID";
@@ -109,7 +109,7 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
                 sConnectionStateForEntityMap.put(aKey, b);
                 trySetState(aSide, b == VALUE_ON ? VALUE_ON : VALUE_OFF, aTileEntity);
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         return aCoverVariable;

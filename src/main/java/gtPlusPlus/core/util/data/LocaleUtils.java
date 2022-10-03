@@ -41,7 +41,7 @@ public class LocaleUtils {
                     }
                 }
 
-            } catch (Throwable T) {
+            } catch (Throwable ignored) {
             }
         }
         writeToFile("Dumping Blocks from " + mod.getModId() + ".");
@@ -61,7 +61,7 @@ public class LocaleUtils {
                     }
                 }
 
-            } catch (Throwable T) {
+            } catch (Throwable ignored) {
             }
         }
 
@@ -76,7 +76,7 @@ public class LocaleUtils {
             writer.write(S);
             writer.newLine();
             writer.close();
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 }

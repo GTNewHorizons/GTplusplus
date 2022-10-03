@@ -29,7 +29,7 @@ public class ItemBlockSpawner extends ItemBlockMeta {
                     if (x1 != null) {
                         aList.add(EnumChatFormatting.RED + x1.getEntityName());
                     }
-                } catch (Throwable t) {
+                } catch (Throwable ignored) {
                 }
             }
         }

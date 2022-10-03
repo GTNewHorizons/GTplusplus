@@ -291,7 +291,7 @@ public class CustomDecorator extends BiomeDecorator {
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
 

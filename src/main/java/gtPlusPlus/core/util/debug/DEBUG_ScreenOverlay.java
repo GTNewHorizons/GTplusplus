@@ -39,7 +39,7 @@ public class DEBUG_ScreenOverlay extends Gui {
                 	drawString(fontRender, str, (this.width - fontRender.getStringWidth(str)) / 2, this.height / 10, 0xFFAA00);
                 }*/
             }
-        } catch (final NullPointerException e) {
+        } catch (final NullPointerException ignored) {
         }
     }
 }

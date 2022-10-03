@@ -114,7 +114,7 @@ public class ClassTransformer_LWJGL_Keyboard {
                     String[] y = (String[]) o;
                     return y;
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
         }
         return new String[] {};

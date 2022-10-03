@@ -290,7 +290,7 @@ public class TileEntityProjectTable extends TileEntity
                                                 tStack[i] = null;
                                                 container.inventoryGrid.setInventorySlotContents(i, null);
                                             }
-                                        } catch (Throwable t) {
+                                        } catch (Throwable ignored) {
 
                                         }
                                     }

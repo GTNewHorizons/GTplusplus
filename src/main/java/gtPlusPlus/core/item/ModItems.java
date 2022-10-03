@@ -1245,7 +1245,7 @@ public final class ModItems {
                 ItemUtils.getItemForOreDict("Thaumcraft:ItemResource", "ingotVoidMetal", "Void Metal Ingot", 16);
                 itemPlateVoidMetal = ItemUtils.generateSpecialUsePlate("Void", "Void", new short[] {82, 17, 82}, 0);
                 GT_OreDictUnificator.registerOre("plateVoidMetal", new ItemStack(ModItems.itemPlateVoidMetal));
-            } catch (final NullPointerException e) {
+            } catch (final NullPointerException ignored) {
             }
 
         } else {

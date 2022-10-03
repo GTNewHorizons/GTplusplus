@@ -229,7 +229,7 @@ public class MapGenExtendedVillage extends MapGenStructure {
                 // Logger.INFO("Invoking func_143027_a");
                 mMethod1.invoke(this, aWorld);
                 return true;
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
             }
         }
         return false;
@@ -249,7 +249,7 @@ public class MapGenExtendedVillage extends MapGenStructure {
                 Logger.INFO("Invoking func_143026_a");
                 mMethod2.invoke(this, aInt1, aInt2, aStruct);
                 return true;
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
             }
         }
         return false;

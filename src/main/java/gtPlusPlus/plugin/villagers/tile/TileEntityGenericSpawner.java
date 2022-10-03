@@ -222,7 +222,7 @@ public class TileEntityGenericSpawner extends TileEntityMobSpawner {
                     		}
                     	}
                     }*/
-                } catch (IllegalArgumentException | IllegalAccessException e) {
+                } catch (IllegalArgumentException | IllegalAccessException ignored) {
                 }
             }
             return false;

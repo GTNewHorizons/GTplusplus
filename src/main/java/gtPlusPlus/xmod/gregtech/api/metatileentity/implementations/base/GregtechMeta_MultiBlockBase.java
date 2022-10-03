@@ -112,7 +112,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         try {
             calculatePollutionReduction =
                     GT_MetaTileEntity_Hatch_Muffler.class.getDeclaredMethod("calculatePollutionReduction", int.class);
-        } catch (NoSuchMethodException | SecurityException e) {
+        } catch (NoSuchMethodException | SecurityException ignored) {
         }
     }
 
@@ -2182,7 +2182,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         if (calculatePollutionReduction != null) {
             try {
                 return (int) calculatePollutionReduction.invoke(i, g);
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
 
             }
         }

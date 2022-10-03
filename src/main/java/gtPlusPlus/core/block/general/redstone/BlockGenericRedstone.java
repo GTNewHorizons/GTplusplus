@@ -115,7 +115,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
                     }
                 }
             }
-        } catch (final Throwable t) {
+        } catch (final Throwable ignored) {
         }
         if (mDidTool) {
             return true;
@@ -153,7 +153,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
 
         if (!mDidTool && !aPlayer.capabilities.isCreativeMode) {

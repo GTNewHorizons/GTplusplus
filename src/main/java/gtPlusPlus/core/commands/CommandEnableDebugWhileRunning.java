@@ -255,7 +255,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         return "";
     }

@@ -208,7 +208,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
                     return true;
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         try {
@@ -220,7 +220,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
                     return true;
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         return false;
@@ -409,7 +409,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
                     try {
                         removeInputB = addUpgrade(tUpgrade, tBauble);
                         if (!removeInputB) {}
-                    } catch (Throwable t) {
+                    } catch (Throwable ignored) {
                     }
                     if (removeInputA && removeInputB) {
                         if (this.setOutputStack(tBauble)) {

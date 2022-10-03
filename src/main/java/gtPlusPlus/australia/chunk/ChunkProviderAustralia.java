@@ -94,7 +94,7 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
                     if (h instanceof BiomeGenBase) {
                         try {
                             y.add(h);
-                        } catch (Throwable t) {
+                        } catch (Throwable ignored) {
                         }
                     }
                 }
@@ -102,7 +102,7 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
             if (y.size() > villageSpawnBiomes.size()) {
                 villageSpawnBiomes = y;
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
 
         caveGenerator = TerrainGen.getModdedMapGen(

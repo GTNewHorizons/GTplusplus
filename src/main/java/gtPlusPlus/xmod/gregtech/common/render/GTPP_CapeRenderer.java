@@ -228,7 +228,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                 GL11.glPopMatrix();
                 return true;
             }
-        } catch (Throwable e) {
+        } catch (Throwable ignored) {
 
         }
         return false;
@@ -282,7 +282,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                 }
             }
             Logger.WORLD("[Capes++] Failed UUID check for " + name + ".");
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         return name;
     }

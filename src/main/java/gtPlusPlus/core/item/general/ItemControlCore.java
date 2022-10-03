@@ -83,7 +83,7 @@ public class ItemControlCore extends Item {
                         return aReturnValue;
                     }
                 }
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
         }
         if (aReturnValue == null

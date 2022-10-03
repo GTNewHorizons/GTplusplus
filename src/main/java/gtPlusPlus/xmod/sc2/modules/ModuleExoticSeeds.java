@@ -31,7 +31,7 @@ public class ModuleExoticSeeds extends ModuleAddon implements ICropModule {
                     ReflectionUtils.getField(ItemSeeds.class, "field_150925_a").get(seedItem);
 
             return cropBlock;
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         return null;

@@ -44,7 +44,7 @@ public class MultiSpadeBase extends StaballoySpade {
         this.setCreativeTab(AddToCreativeTab.tabTools);
         try {
             this.isValid = this.addRecipe();
-        } catch (final Throwable e) {
+        } catch (final Throwable ignored) {
         }
         if ((colour != 0) && this.isValid) {
             if (GameRegistry.findItem(CORE.MODID, Utils.sanitizeString(unlocalizedName)) == null) {

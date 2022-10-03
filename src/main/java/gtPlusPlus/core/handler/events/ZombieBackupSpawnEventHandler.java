@@ -23,14 +23,14 @@ public class ZombieBackupSpawnEventHandler {
                 Field mChance = FieldUtils.getDeclaredField(this.getClass(), "summonChance", true);
                 FieldUtils.removeFinalModifier(mChance, true);
                 mChance.set(this, 0);
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
             if (event.attacker != null) {
                 // SegmentHelper.getInstance().trackUser(event.attacker.getUniqueID().toString(), "Zombie Backup");
             }
             Logger.WARNING("[Zombie] ZombieEvent.SummonAidEvent.");
             event.setResult(Result.DENY);
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
     }
 
@@ -42,7 +42,7 @@ public class ZombieBackupSpawnEventHandler {
                 Logger.WARNING("Event Entity: " + event.entity.getCommandSenderName());
             }
             event.setResult(Result.DENY);
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
     }

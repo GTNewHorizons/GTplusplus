@@ -402,7 +402,7 @@ public class EntityStaballoyConstruct extends EntityIronGolem {
             if (mFirstUpdateField != null && mReflectFirstUpdate == true) {
                 try {
                     this.mReflectFirstUpdate = (boolean) mFirstUpdateField.get(this);
-                } catch (IllegalArgumentException | IllegalAccessException e) {
+                } catch (IllegalArgumentException | IllegalAccessException ignored) {
                 }
             }
         }

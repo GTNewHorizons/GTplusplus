@@ -14,7 +14,7 @@ public class StructureManager {
 
             // Register Structures within village
             MapGenStructureIO.func_143031_a(ComponentVillageBank.class, CORE.MODID + ":" + "Bank");
-        } catch (Throwable e) {
+        } catch (Throwable ignored) {
         }
     }
 }

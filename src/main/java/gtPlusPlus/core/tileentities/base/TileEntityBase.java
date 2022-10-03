@@ -1311,7 +1311,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 try {
                     this.mReleaseEnergy = true;
                     Util.emitEnergyToNetwork(GT_Values.V[5], Math.max(1L, this.getStoredEU() / GT_Values.V[5]), this);
-                } catch (Exception arg4) {
+                } catch (Exception ignored) {
                 }
             }
             this.mReleaseEnergy = false;

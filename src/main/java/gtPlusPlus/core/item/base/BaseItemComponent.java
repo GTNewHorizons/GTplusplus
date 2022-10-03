@@ -275,7 +275,7 @@ public class BaseItemComponent extends Item {
                     list.add(EnumChatFormatting.DARK_GRAY + "Hold Ctrl to show additional info.");
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
 
         super.addInformation(stack, aPlayer, list, bool);
@@ -965,7 +965,7 @@ public class BaseItemComponent extends Item {
                 }
             }
 
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
 
         }
         return this.componentColour;

@@ -473,7 +473,7 @@ public class HellFire extends BlockFire {
             final FireInfo info = this.getInfo(block, true);
             info.encouragement = encouragement;
             info.flammibility = flammibility;
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
     }
 

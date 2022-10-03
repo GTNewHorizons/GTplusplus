@@ -77,7 +77,7 @@ public class TOOL_Gregtech_ElectricSnips extends GT_Tool_WireCutter {
         try {
             GT_Mod.achievements.issueAchievement(aPlayer, "tools");
             GT_Mod.achievements.issueAchievement(aPlayer, "unitool");
-        } catch (final Exception e) {
+        } catch (final Exception ignored) {
         }
     }
 

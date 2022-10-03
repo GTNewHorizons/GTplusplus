@@ -310,7 +310,7 @@ public class RECIPES_Old_Circuits implements IOreRecipeRegistrator {
         try {
             Set.set(Get.get(1));
             return true;
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         return false;
     }

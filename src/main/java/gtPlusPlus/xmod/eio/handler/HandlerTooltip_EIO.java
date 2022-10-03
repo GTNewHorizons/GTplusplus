@@ -37,7 +37,7 @@ public class HandlerTooltip_EIO {
                             }
                         }
                     }
-                } catch (Throwable e) {
+                } catch (Throwable ignored) {
                 }
             }
 

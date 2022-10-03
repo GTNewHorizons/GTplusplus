@@ -9,7 +9,7 @@ public class BlockBreakParticles {
     public BlockBreakParticles(final World world, final int x, final int y, final int z, final Block block) {
         try {
             HANDLER_FR.createBlockBreakParticles(world, x, y, z, block);
-        } catch (final Throwable T) {
+        } catch (final Throwable ignored) {
 
         }
     }

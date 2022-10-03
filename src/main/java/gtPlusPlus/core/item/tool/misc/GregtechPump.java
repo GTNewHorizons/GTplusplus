@@ -1046,7 +1046,7 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
                     }
                 }
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         return false;
     }

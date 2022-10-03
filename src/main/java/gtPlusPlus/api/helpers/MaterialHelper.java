@@ -75,7 +75,7 @@ public class MaterialHelper {
                     | InstantiationException
                     | IllegalAccessException
                     | IllegalArgumentException
-                    | InvocationTargetException e) {
+                    | InvocationTargetException ignored) {
             }
         }
         return false;

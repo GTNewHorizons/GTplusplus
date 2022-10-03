@@ -287,7 +287,7 @@ public abstract class DEBUG_MULTIBLOCK_ShapeSpawner extends MetaTileEntity {
                                                                     .getPlayerEntityByName(
                                                                             aBaseMetaTileEntity.getOwnerName()),
                                                             tStack);
-                                                } catch (final Exception e) {
+                                                } catch (final Exception ignored) {
                                                 }
                                                 this.addOutput(tStack);
                                             }

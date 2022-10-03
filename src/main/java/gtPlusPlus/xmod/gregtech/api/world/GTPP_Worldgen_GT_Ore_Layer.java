@@ -249,7 +249,7 @@ public class GTPP_Worldgen_GT_Ore_Layer extends GTPP_Worldgen {
                 try {
                     mSetOre = GT_TileEntity_Ores.class.getMethod(
                             "setOreBlock", World.class, int.class, int.class, int.class, int.class);
-                } catch (SecurityException | NoSuchMethodException r) {
+                } catch (SecurityException | NoSuchMethodException ignored) {
                 }
             }
         }

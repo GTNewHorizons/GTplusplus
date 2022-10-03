@@ -130,7 +130,7 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
                     }
                     checkingSlot++;
                 }
-            } catch (final NullPointerException n) {
+            } catch (final NullPointerException ignored) {
             }
         }
         this.markDirty();
@@ -230,7 +230,7 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
                     this.tickCount = 0;
                 }
             }
-        } catch (final Throwable t) {
+        } catch (final Throwable ignored) {
         }
     }
 

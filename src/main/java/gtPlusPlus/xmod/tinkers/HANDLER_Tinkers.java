@@ -92,7 +92,7 @@ public class HANDLER_Tinkers {
                             }
                         }
                     }
-                } catch (IllegalArgumentException | IllegalAccessException e) {
+                } catch (IllegalArgumentException | IllegalAccessException ignored) {
                 }
             }
         }

@@ -54,7 +54,7 @@ public class MusicTocker extends MusicTicker implements Runnable {
                     return true;
                 }
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         mPlugin.log("[BGM] Failed.");

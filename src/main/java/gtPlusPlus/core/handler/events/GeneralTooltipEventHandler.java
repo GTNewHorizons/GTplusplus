@@ -132,7 +132,7 @@ public class GeneralTooltipEventHandler {
                                                                 : (ItemList.Generator_Gas_Turbine_HV.get(1)))))));
                     }
                 }
-            } catch (Throwable t) {
+            } catch (Throwable ignored) {
             }
         }
     }

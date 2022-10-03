@@ -267,7 +267,7 @@ public final class AddGregtechRecipe {
                     | NoSuchMethodException
                     | IllegalAccessException
                     | IllegalArgumentException
-                    | InvocationTargetException e) {
+                    | InvocationTargetException ignored) {
 
             }
         }

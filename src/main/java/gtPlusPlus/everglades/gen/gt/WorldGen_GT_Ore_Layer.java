@@ -67,7 +67,7 @@ public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
             try {
                 Field temp = ReflectionUtils.getField(GregTech_API.class, "sBlockStones");
                 tempBlock = temp.get(null);
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
             }
             mStoneTypes = (Block) tempBlock;
         } else {
@@ -589,7 +589,7 @@ public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
             try {
                 setOres = GT_TileEntity_Ores.class.getDeclaredMethod(
                         "setOreBlock", World.class, int.class, int.class, int.class, int.class);
-            } catch (NoSuchMethodException | SecurityException e) {
+            } catch (NoSuchMethodException | SecurityException ignored) {
 
             }
         }
@@ -598,7 +598,7 @@ public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
             try {
                 setOres = GT_TileEntity_Ores.class.getDeclaredMethod(
                         "setOreBlock", World.class, int.class, int.class, int.class, int.class, boolean.class);
-            } catch (NoSuchMethodException | SecurityException e) {
+            } catch (NoSuchMethodException | SecurityException ignored) {
 
             }
         }
@@ -611,7 +611,7 @@ public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
             } else {
                 return false;
             }
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
 
         }
         return false;

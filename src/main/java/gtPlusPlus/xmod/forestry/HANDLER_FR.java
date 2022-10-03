@@ -73,7 +73,7 @@ public class HANDLER_FR {
             } catch (SecurityException
                     | IllegalAccessException
                     | IllegalArgumentException
-                    | InvocationTargetException e) {
+                    | InvocationTargetException ignored) {
             }
         }
     }

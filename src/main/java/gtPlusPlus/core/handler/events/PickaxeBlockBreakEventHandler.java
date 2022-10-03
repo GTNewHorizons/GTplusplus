@@ -62,7 +62,7 @@ public class PickaxeBlockBreakEventHandler {
                     }
                 }
             }
-        } catch (final NullPointerException e) {
+        } catch (final NullPointerException ignored) {
 
         }
     }

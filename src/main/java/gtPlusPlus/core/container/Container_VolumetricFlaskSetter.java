@@ -92,7 +92,7 @@ public class Container_VolumetricFlaskSetter extends Container {
                 this.addSlotToContainer(new Slot(inventory, var6, 8 + (var6 * 18), 142));
             }
             detectAndSendChanges();
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
     }
 

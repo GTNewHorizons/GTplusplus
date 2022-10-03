@@ -20,7 +20,7 @@ public class ReliquaryItems {
     public static Item getItem(String name) {
         try {
             return (Item) METHOD_GETITEM.invoke(OBJECT_CONTENT, name);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
         }
         return null;
     }

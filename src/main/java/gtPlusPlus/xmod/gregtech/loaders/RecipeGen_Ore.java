@@ -261,7 +261,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                         + material.getCrushedCentrifuged(1).getDisplayName() + ", " + matDustB.getDisplayName() + ", "
                         + dustStone.getDisplayName() + ".");
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
         try {
             if (GT_ModHandler.addThermalCentrifugeRecipe(
@@ -276,7 +276,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                         + material.getCrushedCentrifuged(1).getDisplayName() + ", " + matDustA.getDisplayName() + ", "
                         + dustStone.getDisplayName() + ".");
             }
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         }
 
         /**
