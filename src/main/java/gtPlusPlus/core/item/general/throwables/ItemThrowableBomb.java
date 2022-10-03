@@ -97,7 +97,7 @@ public class ItemThrowableBomb extends CoreItem {
 
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return this.icons[meta];
+        return icons[meta];
     }
 
     @SuppressWarnings({"unchecked"})

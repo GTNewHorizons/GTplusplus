@@ -43,7 +43,7 @@ public class ItemControlCore extends Item {
 
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return this.icons[meta];
+        return icons[meta];
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

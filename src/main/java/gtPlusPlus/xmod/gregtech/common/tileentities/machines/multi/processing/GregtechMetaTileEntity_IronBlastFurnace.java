@@ -266,7 +266,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                         this.mProgresstime = 0;
                         this.mMaxProgresstime = 0;
                         try {
-                            GT_Mod.instance.achievements.issueAchievement(
+                            GT_Mod.achievements.issueAchievement(
                                     aBaseMetaTileEntity
                                             .getWorld()
                                             .getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()),
