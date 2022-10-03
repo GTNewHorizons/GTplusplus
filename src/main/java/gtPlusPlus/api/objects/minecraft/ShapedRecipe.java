@@ -122,7 +122,7 @@ public class ShapedRecipe {
                     for (Pair<Character, Object> h : aRecipePairs) {
                         if (h.getKey() != null) {
                             aGridWhole.append(String.valueOf(h.getKey()));
-                            Logger.RECIPE("Adding '" + String.valueOf(h.getKey()) + "' to aGridWhole.");
+                            Logger.RECIPE("Adding '" + h.getKey() + "' to aGridWhole.");
                         }
                     }
 

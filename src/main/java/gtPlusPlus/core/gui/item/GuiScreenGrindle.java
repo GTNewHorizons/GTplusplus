@@ -342,7 +342,7 @@ public class GuiScreenGrindle extends GuiContainer {
                 return;
             default:
                 if ((this.bookTitle.length() < 16) && ChatAllowedCharacters.isAllowedCharacter(p_146460_1_)) {
-                    this.bookTitle = this.bookTitle + Character.toString(p_146460_1_);
+                    this.bookTitle = this.bookTitle + p_146460_1_;
                     this.updateButtons();
                     this.field_146481_r = true;
                 }

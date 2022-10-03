@@ -115,16 +115,16 @@ public class GT_MetaTileEntity_TieredTank extends GT_MetaTileEntity_BasicTank {
                 GT_Values.VOLTAGE_NAMES[this.mTier] + " Fluid Tank",
                 "Stored Fluid:",
                 "No Fluid",
-                Integer.toString(0) + "L",
-                Integer.toString(this.getCapacity()) + "L"
+                    0 + "L",
+                    this.getCapacity() + "L"
             };
         }
         return new String[] {
             GT_Values.VOLTAGE_NAMES[this.mTier] + " Fluid Tank",
             "Stored Fluid:",
             this.mFluid.getLocalizedName(),
-            Integer.toString(this.mFluid.amount) + "L",
-            Integer.toString(this.getCapacity()) + "L"
+                this.mFluid.amount + "L",
+                this.getCapacity() + "L"
         };
     }
 

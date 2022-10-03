@@ -252,21 +252,21 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             // Lets borrow the GTNH handling
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.progress") + ": " + EnumChatFormatting.GREEN
-                    + Integer.toString(mProgresstime / 20) + EnumChatFormatting.RESET + " s / "
+                    + mProgresstime / 20 + EnumChatFormatting.RESET + " s / "
                     + EnumChatFormatting.YELLOW
-                    + Integer.toString(mMaxProgresstime / 20) + EnumChatFormatting.RESET + " s");
+                    + mMaxProgresstime / 20 + EnumChatFormatting.RESET + " s");
 
             if (!this.mAllEnergyHatches.isEmpty()) {
                 long storedEnergy = getStoredEnergyInAllEnergyHatches();
                 long maxEnergy = getMaxEnergyStorageOfAllEnergyHatches();
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + ":");
-                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(storedEnergy)
-                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(maxEnergy)
+                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + storedEnergy
+                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + maxEnergy
                         + EnumChatFormatting.RESET + " EU"));
 
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.mei") + ":");
                 mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.YELLOW
-                        + Long.toString(getMaxInputVoltage()) + EnumChatFormatting.RESET + " EU/t(*2A) "
+                        + getMaxInputVoltage() + EnumChatFormatting.RESET + " EU/t(*2A) "
                         + StatCollector.translateToLocal("GTPP.machines.tier") + ": " + EnumChatFormatting.YELLOW
                         + GT_Values.VN[GT_Utility.getTier(getMaxInputVoltage())] + EnumChatFormatting.RESET));
                 ;
@@ -275,25 +275,25 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 long storedEnergy = getStoredEnergyInAllDynamoHatches();
                 long maxEnergy = getMaxEnergyStorageOfAllDynamoHatches();
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + " In Dynamos:");
-                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(storedEnergy)
-                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(maxEnergy)
+                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + storedEnergy
+                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + maxEnergy
                         + EnumChatFormatting.RESET + " EU"));
             }
 
             if (-mEUt > 0) {
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
                 mInfo.add(StatCollector.translateToLocal(
-                        "" + EnumChatFormatting.RED + Integer.toString(-mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                        "" + EnumChatFormatting.RED + -mEUt + EnumChatFormatting.RESET + " EU/t"));
             } else {
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
                 mInfo.add(StatCollector.translateToLocal(
-                        "" + EnumChatFormatting.GREEN + Integer.toString(mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                        "" + EnumChatFormatting.GREEN + mEUt + EnumChatFormatting.RESET + " EU/t"));
             }
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.problems") + ": " + EnumChatFormatting.RED
                     + (getIdealStatus() - getRepairStatus()) + EnumChatFormatting.RESET + " "
                     + StatCollector.translateToLocal("GTPP.multiblock.efficiency") + ": " + EnumChatFormatting.YELLOW
-                    + Float.toString(mEfficiency / 100.0F) + EnumChatFormatting.RESET + " %");
+                    + mEfficiency / 100.0F + EnumChatFormatting.RESET + " %");
 
             if (this.getPollutionPerSecond(null) > 0) {
                 int mPollutionReduction = getPollutionReductionForAllMufflers();
@@ -315,13 +315,13 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel") + ": " + EnumChatFormatting.GREEN
                     + (getMaxParallelRecipes()) + EnumChatFormatting.RESET);
 
-            mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks)
-                    + EnumChatFormatting.RESET + " Weeks, " + EnumChatFormatting.DARK_GREEN + Integer.toString(days)
+            mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + weeks
+                    + EnumChatFormatting.RESET + " Weeks, " + EnumChatFormatting.DARK_GREEN + days
                     + EnumChatFormatting.RESET + " Days, ");
             mInfo.add(EnumChatFormatting.DARK_GREEN + Long.toString(hours) + EnumChatFormatting.RESET + " Hours, "
-                    + EnumChatFormatting.DARK_GREEN + Long.toString(minutes) + EnumChatFormatting.RESET + " Minutes, "
-                    + EnumChatFormatting.DARK_GREEN + Long.toString(second) + EnumChatFormatting.RESET + " Seconds.");
-            mInfo.add("Total Time in ticks: " + EnumChatFormatting.DARK_GREEN + Long.toString(this.mTotalRunTime));
+                    + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET + " Minutes, "
+                    + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds.");
+            mInfo.add("Total Time in ticks: " + EnumChatFormatting.DARK_GREEN + this.mTotalRunTime);
 
             String[] mInfo2 = mInfo.toArray(new String[0]);
             return mInfo2;

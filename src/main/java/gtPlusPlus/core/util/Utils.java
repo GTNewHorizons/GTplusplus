@@ -377,7 +377,7 @@ public class Utils {
         }
         final Color c = new Color(r, g, b);
         String temp = Integer.toHexString(c.getRGB() & 0xFFFFFF).toUpperCase();
-        temp = Utils.appenedHexNotationToString(String.valueOf(temp));
+        temp = Utils.appenedHexNotationToString(temp);
         // Logger.WARNING("Made " + temp + " - Hopefully it's not a mess.");
         // Logger.WARNING("It will decode into " + Integer.decode(temp) + ".");
         return Integer.decode(temp);
@@ -468,7 +468,7 @@ public class Utils {
                 final String temp = padWithZerosLefts(aa, 6);
                 result = temp;
             } else {
-                result = hexChar + String.valueOf(hexAsStringOrInt);
+                result = hexChar + hexAsStringOrInt;
             }
             return result;
         } else {
@@ -480,7 +480,7 @@ public class Utils {
         final String hexChar = "0x";
         String result;
         Logger.WARNING(String.valueOf(hexAsStringOrInt));
-        result = hexChar + String.valueOf(hexAsStringOrInt);
+        result = hexChar + hexAsStringOrInt;
         return Integer.getInteger(result);
     }
 

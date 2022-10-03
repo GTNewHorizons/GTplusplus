@@ -120,31 +120,31 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             }
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.progress") + ": " + EnumChatFormatting.GREEN
-                    + Integer.toString(((CONTAINER_MultiMachine) this.mContainer).mProgressTime / 20)
+                    + ((CONTAINER_MultiMachine) this.mContainer).mProgressTime / 20
                     + EnumChatFormatting.RESET + " s / " + EnumChatFormatting.YELLOW
-                    + Integer.toString(((CONTAINER_MultiMachine) this.mContainer).mMaxProgressTime / 20)
+                    + ((CONTAINER_MultiMachine) this.mContainer).mMaxProgressTime / 20
                     + EnumChatFormatting.RESET + " s");
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + ":");
-            mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(aStoredEnergy)
-                    + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(aMaxEnergy)
+            mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + aStoredEnergy
+                    + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + aMaxEnergy
                     + EnumChatFormatting.RESET + " EU"));
 
             if (aRecipeEU != 0 && aRecipeDuration > 0) {
                 if (aRecipeEU > 0) {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.RED + Integer.toString(-aRecipeEU)
+                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.RED + -aRecipeEU
                             + EnumChatFormatting.RESET + " EU/t/parallel"));
                 } else {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Integer.toString(aRecipeEU)
+                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + aRecipeEU
                             + EnumChatFormatting.RESET + " EU/t/parallel"));
                 }
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.duration") + ": " + EnumChatFormatting.RED
-                        + Integer.toString(aRecipeDuration) + EnumChatFormatting.RESET + " ticks");
+                        + aRecipeDuration + EnumChatFormatting.RESET + " ticks");
                 if (aRecipeSpecial > 0) {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.specialvalue") + ": "
-                            + EnumChatFormatting.RED + Integer.toString(aRecipeEU) + EnumChatFormatting.RESET + "");
+                            + EnumChatFormatting.RED + aRecipeEU + EnumChatFormatting.RESET + "");
                 }
             }
 
@@ -155,7 +155,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                     + EnumChatFormatting.RESET));
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.efficiency") + ": " + EnumChatFormatting.YELLOW
-                    + Float.toString(aEfficiency / 100.0F) + EnumChatFormatting.RESET + " %");
+                    + aEfficiency / 100.0F + EnumChatFormatting.RESET + " %");
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.pollution") + ": " + EnumChatFormatting.RED
                     + (aPollutionTick * 20) + EnumChatFormatting.RESET + "/sec");
@@ -166,15 +166,15 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             // "+EnumChatFormatting.GREEN+(aMaxParallel)+EnumChatFormatting.RESET);
 
             mInfo.add("Total Time Since Built: ");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks) + EnumChatFormatting.RESET
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + weeks + EnumChatFormatting.RESET
                     + " Weeks,");
             mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + Integer.toString(days) + EnumChatFormatting.RESET + " Days,");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Long.toString(hours) + EnumChatFormatting.RESET + " Hours,");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Long.toString(minutes) + EnumChatFormatting.RESET
+                    "" + EnumChatFormatting.DARK_GREEN + days + EnumChatFormatting.RESET + " Days,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + hours + EnumChatFormatting.RESET + " Hours,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET
                     + " Minutes,");
             mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + Long.toString(second) + EnumChatFormatting.RESET + " Seconds");
+                    "" + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds");
 
             // Machine Name
             // fontRendererObj.drawString(this.mName, 6, 7, 16448255);
