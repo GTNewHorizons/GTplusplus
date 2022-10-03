@@ -17,10 +17,10 @@ import net.minecraft.item.ItemStack;
  */
 public class LoaderOfTheCrops {
 
-    private static List<Boolean> mHasCropObj = new ArrayList<>();
-    private CropCard mCropObj;
+    private static final List<Boolean> mHasCropObj = new ArrayList<>();
+    private final CropCard mCropObj;
     private ItemStack mBaseSeed;
-    private static List<LoaderOfTheCrops> mCropList = cropLoader();
+    private static final List<LoaderOfTheCrops> mCropList = cropLoader();
 
     public LoaderOfTheCrops(CropCard cropObj) {
         this.mCropObj = cropObj;

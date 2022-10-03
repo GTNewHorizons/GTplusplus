@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class BaseItemIngotHot extends BaseItemIngot {
 
     private final ItemStack outputIngot;
-    private int tickCounter = 0;
+    private final int tickCounter = 0;
     private final int tickCounterMax = 200;
     private final int mTier;
 

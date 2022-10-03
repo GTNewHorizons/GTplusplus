@@ -49,7 +49,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     public static final int[] SIDES = new int[] {SIDE_Up, SIDE_Down, SIDE_XPos, SIDE_XNeg, SIDE_ZPos, SIDE_ZNeg};
 
     // Neighbour Cache
-    private GT_MetaTileEntity_ConnectableCrate[] mNeighbourCache = new GT_MetaTileEntity_ConnectableCrate[6];
+    private final GT_MetaTileEntity_ConnectableCrate[] mNeighbourCache = new GT_MetaTileEntity_ConnectableCrate[6];
     // Cached Crate Location
     private BlockPos mCurrentPos = null;
     // Master Crate Position

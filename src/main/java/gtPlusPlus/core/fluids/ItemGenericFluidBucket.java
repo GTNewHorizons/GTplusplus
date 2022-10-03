@@ -66,9 +66,7 @@ public class ItemGenericFluidBucket extends ItemBucket {
         boolean flag = isFull == Blocks.air;
         MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(aWorld, aPlayer, flag);
 
-        if (movingobjectposition == null || isFull == null) {
-            return aStack;
-        } else {
+        if (movingobjectposition != null && isFull != null) {
             FillBucketEvent event = new FillBucketEvent(aPlayer, aStack, aWorld, movingobjectposition);
             if (MinecraftForge.EVENT_BUS.post(event)) {
                 return aStack;
@@ -154,8 +152,8 @@ public class ItemGenericFluidBucket extends ItemBucket {
                 }
             }
 
-            return aStack;
         }
+        return aStack;
     }
 
     private ItemStack func_150910_a(ItemStack p_150910_1_, EntityPlayer p_150910_2_, Item p_150910_3_) {

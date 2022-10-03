@@ -15,9 +15,9 @@ public enum GTPP_PropolisType {
     public int mChance;
     public int mID;
 
-    private String mName;
-    private String mNameUnlocal;
-    private int mColour;
+    private final String mName;
+    private final String mNameUnlocal;
+    private final int mColour;
 
     private static void map(int aId, GTPP_PropolisType aType) {
         GTPP_Bees.sPropolisMappings.put(aId, aType);

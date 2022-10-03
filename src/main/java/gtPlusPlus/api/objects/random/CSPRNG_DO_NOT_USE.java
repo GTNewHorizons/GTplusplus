@@ -98,7 +98,7 @@ public class CSPRNG_DO_NOT_USE extends Random implements IRandomGenerator {
     /**
      * main parameter
      */
-    private BigInteger n;
+    private final BigInteger n;
 
     private BigInteger state;
 

@@ -11,9 +11,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenAustralianOre extends WorldGenerator {
 
-    private Block mOreToSpawn;
-    private int numberOfBlocks;
-    private Block mBlockToReplace;
+    private final Block mOreToSpawn;
+    private final int numberOfBlocks;
+    private final Block mBlockToReplace;
     private int mineableBlockMeta;
 
     public WorldGenAustralianOre(Block aBlock, int aNumber) {

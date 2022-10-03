@@ -24,7 +24,7 @@ public class ModularArmourUtils {
         BOOST_MINING("skill.miningboost"),
         BOOST_DAMAGE("skill.damageboost"),
         BOOST_HOLY("skill.holyboost");
-        private String MODIFIER_NAME;
+        private final String MODIFIER_NAME;
 
         Modifiers(final String mModifier) {
             this.MODIFIER_NAME = mModifier;

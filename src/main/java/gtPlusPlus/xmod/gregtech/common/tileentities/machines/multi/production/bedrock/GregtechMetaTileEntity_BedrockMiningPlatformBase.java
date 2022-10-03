@@ -48,8 +48,8 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
     private int yDrill;
     private int zDrill;
 
-    private int[] xCenter = new int[5];
-    private int[] zCenter = new int[5];
+    private final int[] xCenter = new int[5];
+    private final int[] zCenter = new int[5];
 
     public GregtechMetaTileEntity_BedrockMiningPlatformBase(
             final int aID, final String aName, final String aNameRegional) {

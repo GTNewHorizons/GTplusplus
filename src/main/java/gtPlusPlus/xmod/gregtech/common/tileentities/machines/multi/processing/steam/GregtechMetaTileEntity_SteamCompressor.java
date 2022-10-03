@@ -25,7 +25,7 @@ import net.minecraft.item.ItemStack;
 public class GregtechMetaTileEntity_SteamCompressor
         extends GregtechMeta_SteamMultiBase<GregtechMetaTileEntity_SteamCompressor> implements ISurvivalConstructable {
 
-    private String mCasingName = "Bronze Plated Bricks";
+    private final String mCasingName = "Bronze Plated Bricks";
     private IStructureDefinition<GregtechMetaTileEntity_SteamCompressor> STRUCTURE_DEFINITION = null;
     private int mCasing;
 

@@ -255,9 +255,6 @@ public abstract class TileEntityRedstoneHandler extends TileEntity implements IT
      * @return true To be notified of changes
      */
     public boolean getWeakChanges(IBlockAccess world, int x, int y, int z) {
-        if (mTilePos == null) {
-            return false;
-        }
         return false;
     }
 

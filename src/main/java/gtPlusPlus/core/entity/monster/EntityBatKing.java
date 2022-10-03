@@ -45,8 +45,8 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
     public int attackCounter;
     private int explosionStrength = 1;
 
-    private EntityAIBatKingAttack aiAttack = new EntityAIBatKingAttack(this, null, 1.0D, 20, 60, 15.0F, true);
-    private EntityAIAttackOnCollide aiAttackOnCollide =
+    private final EntityAIBatKingAttack aiAttack = new EntityAIBatKingAttack(this, null, 1.0D, 20, 60, 15.0F, true);
+    private final EntityAIAttackOnCollide aiAttackOnCollide =
             new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false);
 
     public EntityBatKing(World p_i1680_1_) {

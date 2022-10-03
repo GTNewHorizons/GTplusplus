@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class TF_Block_Fluid_Ender extends BlockFluidCoFHBase {
     public static final int LEVELS = 4;
     public static final Material materialFluidEnder = new MaterialLiquid(MapColor.greenColor);
-    private static boolean effect = true;
+    private static final boolean effect = true;
 
     public TF_Block_Fluid_Ender() {
         super(CORE.MODID, TF_Fluids.fluidEnder, materialFluidEnder, "ender");

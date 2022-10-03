@@ -119,7 +119,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
         return s2;
     }
 
-    private static String[] aDescCache = new String[3];
+    private static final String[] aDescCache = new String[3];
 
     private String formatFluidString(FluidStack f) {
         FluidStack mLockedStack = f;

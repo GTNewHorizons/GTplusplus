@@ -21,7 +21,8 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
     public int mSuccess = 0, mTargetStackSize = 0;
     public UUID ownerUUID;
     // UnbreakableBlockManager Xasda = new UnbreakableBlockManager();
-    private boolean value_last = false, value_current = false;
+    private final boolean value_last = false;
+    private final boolean value_current = false;
 
     public GregtechMetaSafeBlockBase(
             final int aID,

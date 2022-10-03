@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class AustraliaWorldGenerator implements IWorldGenerator {
-    private LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<>();
+    private final LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<>();
     // private final WorldHandlerCoven covenGen;
     // private final WorldHandlerWickerMan wickerManGen;
     private final WorldHandlerShack shackGen;

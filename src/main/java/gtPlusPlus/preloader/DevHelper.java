@@ -104,12 +104,12 @@ public class DevHelper {
     public static class DevHelperInternals {
         public static final Map<String, String> srgToForge = new HashMap<>();
         public static final Map<String, String> forgeToSrg = new HashMap<>();
-        private static WeakAutoMap<Pair<String, String>> mInitMap = new WeakAutoMap<>();
+        private static final WeakAutoMap<Pair<String, String>> mInitMap = new WeakAutoMap<>();
 
         // Obfuscation
         public static final Map<String, String> obToDeOb = new HashMap<>();
         public static final Map<String, String> deObToOb = new HashMap<>();
-        private static WeakAutoMap<Pair<String, String>> mObInitMap = new WeakAutoMap<>();
+        private static final WeakAutoMap<Pair<String, String>> mObInitMap = new WeakAutoMap<>();
 
         private static boolean init() {
             init1();

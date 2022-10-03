@@ -31,7 +31,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
 public class ChargingHelper {
 
-    private static Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
+    private static final Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
             new HashMap<>();
     protected static Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap =
             new HashMap<>();

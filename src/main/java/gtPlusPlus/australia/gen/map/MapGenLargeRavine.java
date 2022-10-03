@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.MapGenRavine;
 
 public class MapGenLargeRavine extends MapGenRavine {
-    private float[] field_75046_d = new float[1024];
+    private final float[] field_75046_d = new float[1024];
 
     @Override
     protected void func_151540_a(

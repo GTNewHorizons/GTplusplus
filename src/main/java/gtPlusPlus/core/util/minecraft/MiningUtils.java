@@ -158,13 +158,13 @@ public class MiningUtils {
     }
 
     public static AutoMap<GT_Worldgen_GT_Ore_Layer>[] mOreMaps = new AutoMap[7];
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Overworld = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Nether = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_End = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Moon = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Mars = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Comets = new AutoMap<>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Misc = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Overworld = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Nether = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_End = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Moon = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Mars = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Comets = new AutoMap<>();
+    private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Misc = new AutoMap<>();
 
     public static boolean findAndMapOreTypesFromGT() {
         // Gets Moon ID

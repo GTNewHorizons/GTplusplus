@@ -37,7 +37,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderAustralia extends ChunkProviderGenerate implements IChunkProvider {
-    private Random rand;
+    private final Random rand;
     private NoiseGeneratorOctaves noiseGen1;
     private NoiseGeneratorOctaves noiseGen2;
     private NoiseGeneratorOctaves noiseGen3;
@@ -45,9 +45,9 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
     /**
      * Reference to the World object.
      */
-    private World worldObj;
+    private final World worldObj;
 
-    private WorldType worldType;
+    private final WorldType worldType;
     private final double[] field_147434_q;
     private final float[] parabolicField;
     private double[] stoneNoise = new double[256];

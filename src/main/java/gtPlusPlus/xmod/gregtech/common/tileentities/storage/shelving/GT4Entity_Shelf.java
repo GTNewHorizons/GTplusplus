@@ -280,9 +280,9 @@ public class GT4Entity_Shelf extends GT_MetaTileEntity_BasicHull_NonElectric {
         return tmp;
     }
 
-    private static ITexture x1 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_FRONT);
-    private static ITexture x2 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_PAPER_FRONT);
-    private static ITexture x3 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_CANS_FRONT);
+    private static final ITexture x1 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_FRONT);
+    private static final ITexture x2 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_PAPER_FRONT);
+    private static final ITexture x3 = TextureFactory.of(TexturesGtBlock.OVERLAY_WOODEN_SHELF_CANS_FRONT);
 
     public ITexture[] getFrontNormal() {
         return new ITexture[] {x1};

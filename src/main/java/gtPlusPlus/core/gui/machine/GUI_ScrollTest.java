@@ -29,7 +29,7 @@ import org.lwjgl.Sys;
 @SideOnly(Side.CLIENT)
 public class GUI_ScrollTest extends GuiScreen {
     private static final Logger logger = LogManager.getLogger();
-    private GuiScreen aThisGUIScreen;
+    private final GuiScreen aThisGUIScreen;
     private List<?> field_146966_g;
     private List<?> field_146969_h;
     private GuiResourcePackAvailable MapOfFreeResourcePacks;

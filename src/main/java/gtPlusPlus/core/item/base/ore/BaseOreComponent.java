@@ -237,10 +237,10 @@ public class BaseOreComponent extends Item {
         CRUSHEDPURIFIED("crushedPurified", "Purified Crushed ", " Ore", true),
         MILLED("milled", "Milled ", " Ore", true);
 
-        private String COMPONENT_NAME;
-        private String PREFIX;
-        private String DISPLAY_NAME;
-        private boolean HAS_OVERLAY;
+        private final String COMPONENT_NAME;
+        private final String PREFIX;
+        private final String DISPLAY_NAME;
+        private final boolean HAS_OVERLAY;
 
         ComponentTypes(
                 final String LocalName, final String prefix, final String DisplayName, final boolean overlay) {

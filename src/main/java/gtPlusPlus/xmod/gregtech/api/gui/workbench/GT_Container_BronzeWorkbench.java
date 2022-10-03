@@ -107,7 +107,6 @@ public class GT_Container_BronzeWorkbench extends GT_ContainerMetaTile_Machine {
                                 aPlayer.inventory.setItemStack(
                                         ((GT_MetaTileEntity_BronzeCraftingTable) mTileEntity.getMetaTileEntity())
                                                 .consumeMaterials(aPlayer, aPlayer.inventory.getItemStack()));
-                            return aPlayer.inventory.getItemStack();
                         } else {
                             for (int i = 0;
                                     i < tCraftedStack.getMaxStackSize() / tCraftedStack.stackSize
@@ -125,8 +124,8 @@ public class GT_Container_BronzeWorkbench extends GT_ContainerMetaTile_Machine {
                                         ((GT_MetaTileEntity_BronzeCraftingTable) mTileEntity.getMetaTileEntity())
                                                 .consumeMaterials(aPlayer, aPlayer.inventory.getItemStack()));
                             }
-                            return aPlayer.inventory.getItemStack();
                         }
+                        return aPlayer.inventory.getItemStack();
                     }
                 }
                 return null;

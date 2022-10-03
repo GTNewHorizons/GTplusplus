@@ -26,7 +26,7 @@ public class MaterialUtils {
     public static short firstID = 791;
 
     @SuppressWarnings({"rawtypes", "unused"})
-    private static Class[][] commonTypes = {
+    private static final Class[][] commonTypes = {
         {
             Materials.class,
             int.class,
@@ -66,7 +66,7 @@ public class MaterialUtils {
         return null;
     }
 
-    private static Map<String, Material> mGeneratedMaterialMap = new HashMap();
+    private static final Map<String, Material> mGeneratedMaterialMap = new HashMap();
 
     public static Material generateMaterialFromGtENUM(final Materials material) {
         return generateMaterialFromGtENUM(material, null, null);
