@@ -286,9 +286,7 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer
             }
         }
         if (LoadedMods.ThaumicBases) {
-            if (sThaumiumAnvil == aBlock || sVoidAnvil == aBlock) {
-                return true;
-            }
+            return sThaumiumAnvil == aBlock || sVoidAnvil == aBlock;
         }
         return false;
     }

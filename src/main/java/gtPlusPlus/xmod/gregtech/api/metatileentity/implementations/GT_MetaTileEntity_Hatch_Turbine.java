@@ -197,11 +197,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
         super.onPostTick(aBaseMetaTileEntity, aTick);
         if (this.mHasController) {
             if (aTick % 20 == 0) {
-                if (isControllerActive()) {
-                    this.getBaseMetaTileEntity().setActive(true);
-                } else {
-                    this.getBaseMetaTileEntity().setActive(false);
-                }
+                this.getBaseMetaTileEntity().setActive(isControllerActive());
             }
         } else if (!this.mHasController && this.mControllerLocation != null) {
             // Weird Invalid State
@@ -248,10 +244,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
     }
 
     public boolean canSetNewController() {
-        if ((mControllerLocation != null && mControllerLocation.length() > 0) || this.mHasController) {
-            return false;
-        }
-        return true;
+        return (mControllerLocation == null || mControllerLocation.length() <= 0) && !this.mHasController;
     }
 
     public boolean setController(BlockPos aPos) {

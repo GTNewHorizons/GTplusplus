@@ -369,17 +369,14 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
     }
 
     private boolean spaceForOutput(final ItemStack aStack1, final ItemStack aStack2) {
-        if (((this.mInventory[2] == null)
-                        || (aStack1 == null)
-                        || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
-                                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
+        return ((this.mInventory[2] == null)
+                || (aStack1 == null)
+                || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
+                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
                 && ((this.mInventory[3] == null)
-                        || (aStack2 == null)
-                        || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
-                                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))))) {
-            return true;
-        }
-        return false;
+                || (aStack2 == null)
+                || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
+                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))));
     }
 
     private int getProperTime(int time) {

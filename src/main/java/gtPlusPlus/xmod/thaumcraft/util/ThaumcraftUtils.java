@@ -424,19 +424,13 @@ public class ThaumcraftUtils {
     }
 
     public static boolean isItemResearchNotes(ItemStack aStack) {
-        if (aStack != null
+        return aStack != null
                 && aStack.getItem() == HANDLER_Thaumcraft.mResearchNotes
-                && HANDLER_Thaumcraft.mResearchNotes.getClass().isInstance(aStack.getItem())) {
-            return true;
-        }
-        return false;
+                && HANDLER_Thaumcraft.mResearchNotes.getClass().isInstance(aStack.getItem());
     }
 
     public static boolean isItemStackValidResearchNotes(ItemStack aStack) {
-        if (isItemResearchNotes(aStack) && aStack.getItemDamage() < 64) {
-            return true;
-        }
-        return false;
+        return isItemResearchNotes(aStack) && aStack.getItemDamage() < 64;
     }
 
     public static TC_ResearchNoteData_Wrapper gatherResults(ItemStack note) {

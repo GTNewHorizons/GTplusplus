@@ -307,9 +307,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
     @Override
     public boolean isDamageable() {
         if (this.getMaxDamage() > 0 && !this.hasSubtypes) {
-            if (this.canBreak) {
-                return true;
-            }
+            return this.canBreak;
         }
         return false;
     }

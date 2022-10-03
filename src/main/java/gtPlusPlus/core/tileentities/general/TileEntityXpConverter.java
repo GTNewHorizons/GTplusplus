@@ -25,11 +25,7 @@ public class TileEntityXpConverter extends TileBasicTank {
     }
 
     private void changeMode() {
-        if (this.mConvertToEssence) {
-            this.mConvertToEssence = false;
-        } else {
-            this.mConvertToEssence = true;
-        }
+        this.mConvertToEssence = !this.mConvertToEssence;
         return;
     }
 
@@ -148,9 +144,7 @@ public class TileEntityXpConverter extends TileBasicTank {
                 return false;
             }
         } else {
-            if (aSide == 0 || aSide == 1) {
-                return true;
-            }
+            return aSide == 0 || aSide == 1;
         }
         return false;
     }
@@ -158,9 +152,7 @@ public class TileEntityXpConverter extends TileBasicTank {
     @Override
     public boolean isLiquidOutput(byte aSide) {
         if (mConvertToEssence) {
-            if (aSide == 0 || aSide == 1) {
-                return true;
-            }
+            return aSide == 0 || aSide == 1;
         } else {
             if (aSide == 0 || aSide == 1) {
                 return false;

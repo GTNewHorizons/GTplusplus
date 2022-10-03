@@ -128,10 +128,7 @@ public class GalacticUtils {
 
     public static boolean isFuelValidForTier(int aTier, FluidStack aFuel) {
         FluidStack aValidForThisTier = getValidFuelForTier(aTier);
-        if (aFuel.isFluidEqual(aValidForThisTier)) {
-            return true;
-        }
-        return false;
+        return aFuel.isFluidEqual(aValidForThisTier);
     }
 
     public static FluidStack getValidFuelForTier(Entity aEntity) {

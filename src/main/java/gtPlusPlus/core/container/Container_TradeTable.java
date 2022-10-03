@@ -198,10 +198,7 @@ public class Container_TradeTable extends Container {
 
     public ItemStack getOutputContent() {
         ItemStack output = this.inventoryOutputs.getStackInSlot(0);
-        if (output != null) {
-            return output;
-        }
-        return null;
+        return output;
     }
 
     public ItemStack[] getInputComponents() {

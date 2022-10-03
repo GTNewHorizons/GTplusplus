@@ -192,12 +192,9 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
             // Logger.INFO("To add: "+this.getAmountOfFluidToGenerate());
             // Logger.INFO("Space Free: "+(this.getCapacity()-this.getFluidAmount()));
         }
-        if (this.mFluid == null
+        return this.mFluid == null
                 || (this.mFluid != null
-                        && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()))) {
-            return true;
-        }
-        return false;
+                && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
     }
 
     @Override

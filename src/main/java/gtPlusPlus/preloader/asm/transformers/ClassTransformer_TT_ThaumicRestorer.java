@@ -174,11 +174,7 @@ public class ClassTransformer_TT_ThaumicRestorer {
                 "Patching: " + aUpdateEntity + ", Are we patching obfuscated methods? " + obfuscated);
         // injectMethod(aUpdateEntity, aTempWriter, obfuscated);
         injectMethodNew(aTempWriter, obfuscated);
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         Preloader_Logger.LOG("Thaumic Tinkerer RepairItem Patch", Level.INFO, "Valid? " + isValid + ".");
         reader = aTempReader;
         writer = aTempWriter;

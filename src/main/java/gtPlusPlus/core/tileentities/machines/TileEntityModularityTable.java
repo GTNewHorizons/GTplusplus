@@ -101,20 +101,13 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
     }
 
     public boolean setInputStacks(ItemStack tBauble, ItemStack tUpgrade) {
-        if (tBauble != null) {
-            this.mInputstackA = tBauble;
-        } else {
-            this.mInputstackA = null;
-        }
+        this.mInputstackA = tBauble;
         if (tUpgrade != null) {
             this.mInputstackB = tBauble;
         } else {
             this.mInputstackB = null;
         }
-        if (this.mInputstackA != null && this.mInputstackB != null) {
-            return true;
-        }
-        return false;
+        return this.mInputstackA != null && this.mInputstackB != null;
     }
 
     public boolean setOutputStack(ItemStack mNewBauble) {
@@ -182,17 +175,11 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
 
     public static boolean generateUpgradeData(ItemStack tStack, Modifiers tMod, int tLevel) {
         Pair<Modifiers, Integer> tTemp = new Pair<>(tMod, tLevel);
-        if (mValidUpgradeList.put(tStack, tTemp) != null) {
-            return true;
-        }
-        return false;
+        return mValidUpgradeList.put(tStack, tTemp) != null;
     }
 
     public static boolean generateUpgradeFormData(ItemStack tStack, BT tMod) {
-        if (mValidUpgradeListFormChange.put(tStack, tMod) != null) {
-            return true;
-        }
-        return false;
+        return mValidUpgradeListFormChange.put(tStack, tMod) != null;
     }
 
     public static boolean addUpgrade(ItemStack tStack, ItemStack tBauble) {
@@ -330,10 +317,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
     @Override
     public boolean canExtractItem(int slot, ItemStack item, int side) {
         Logger.INFO("Slot:" + slot + " | side? " + side);
-        if (slot == 11 || slot <= 8) {
-            return true;
-        }
-        return false;
+        return slot == 11 || slot <= 8;
     }
 
     @Override
@@ -431,10 +415,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
     }
 
     public static boolean isValidModularPiece(final ItemStack itemstack) {
-        if (itemstack.getItem() instanceof ModularBauble) {
-            return true;
-        }
-        return false;
+        return itemstack.getItem() instanceof ModularBauble;
     }
 
     public static boolean isValidUpgrade(final ItemStack itemstack) {

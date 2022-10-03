@@ -281,11 +281,7 @@ public class EntityUtils {
                     o = aRegistry2.get(null);
                     if (o != null) {
                         Map classToNameMap = (Map) o;
-                        if (!classToNameMap.containsKey(aTileClass)) {
-                            return false;
-                        } else {
-                            return true;
-                        }
+                        return classToNameMap.containsKey(aTileClass);
                     }
                 } else {
                     return true;

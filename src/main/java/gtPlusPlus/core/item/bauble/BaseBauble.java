@@ -110,10 +110,7 @@ public class BaseBauble extends Item implements IBauble {
     public boolean SetBaubleType(BaubleType arg0) {
         BaubleType temp = this.mThisBauble;
         this.mThisBauble = arg0;
-        if (this.mThisBauble != temp) {
-            return true;
-        }
-        return false;
+        return this.mThisBauble != temp;
     }
 
     @Override

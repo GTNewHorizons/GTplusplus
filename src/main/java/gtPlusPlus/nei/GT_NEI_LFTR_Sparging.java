@@ -432,9 +432,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
                     GasSpargingRecipeNEI p = (GasSpargingRecipeNEI) obj;
                     if (p != null) {
                         if (GT_Utility.areStacksEqual(p.mInputs.get(0).item, this.mInputs.get(0).item, true)) {
-                            if (p.mOutputs.size() == this.mOutputs.size()) {
-                                return true;
-                            }
+                            return p.mOutputs.size() == this.mOutputs.size();
                         }
                     }
                 }

@@ -35,10 +35,7 @@ public class ModularArmourUtils {
         }
 
         public boolean isValidLevel(int i) {
-            if (i >= 0 && i <= 100) {
-                return true;
-            }
-            return false;
+            return i >= 0 && i <= 100;
         }
     }
 

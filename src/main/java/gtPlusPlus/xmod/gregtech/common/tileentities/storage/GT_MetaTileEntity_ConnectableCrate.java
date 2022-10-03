@@ -338,9 +338,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
             if (aType == 0) {
                 return true;
             } else {
-                if (g.mIsMaster) {
-                    return true;
-                }
+                return g.mIsMaster;
             }
         }
         return false;

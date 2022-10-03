@@ -134,23 +134,17 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         Logger.INFO("Checking if we can pull " + aStack.getDisplayName() + " from slot " + aIndex);
-        if (aIndex == mInventory.length - 1
+        return aIndex == mInventory.length - 1
                 && ItemUtils.isControlCircuit(aStack)
-                && aSide == getBaseMetaTileEntity().getFrontFacing()) {
-            return true;
-        }
-        return false;
+                && aSide == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         Logger.INFO("Checking if we can put " + aStack.getDisplayName() + " into slot " + aIndex);
-        if (aIndex == mInventory.length - 1
+        return aIndex == mInventory.length - 1
                 && ItemUtils.isControlCircuit(aStack)
-                && aSide == getBaseMetaTileEntity().getFrontFacing()) {
-            return true;
-        }
-        return false;
+                && aSide == getBaseMetaTileEntity().getFrontFacing();
     }
 
     public ArrayList<ItemStack> getInventory() {

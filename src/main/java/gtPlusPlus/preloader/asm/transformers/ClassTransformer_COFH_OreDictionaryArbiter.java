@@ -44,11 +44,7 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
         aTempWriter = new ClassWriter(aTempReader, ClassWriter.COMPUTE_FRAMES);
         aTempReader.accept(new localClassVisitor(aTempWriter), 0);
 
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         reader = aTempReader;
         writer = aTempWriter;
 

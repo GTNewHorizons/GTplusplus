@@ -224,10 +224,7 @@ public class MathUtils {
      * @return boolean Whether or not it divides evenly.
      */
     public static boolean divideXintoY(final int x, final int y) {
-        if ((x % y) == 0) {
-            return true;
-        }
-        return false;
+        return (x % y) == 0;
     }
 
     /**
@@ -239,10 +236,7 @@ public class MathUtils {
      * @return boolean Whether or not it divides evenly.
      */
     public static boolean isNumberEven(final long x) {
-        if ((x % 2) == 0) {
-            return true;
-        }
-        return false;
+        return (x % 2) == 0;
     }
 
     /**
@@ -350,11 +344,7 @@ public class MathUtils {
     public static int returnLargestNumber(final int a, final int b) {
         if (a > b) {
             return a;
-        } else if (a == b) {
-            return a;
-        } else {
-            return b;
-        }
+        } else return b;
     }
 
     public static byte safeByte(long number) {

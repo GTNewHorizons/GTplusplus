@@ -36,14 +36,12 @@ public class Core_SulfuricChemistry implements IPlugin {
         /*CORE.DEVENV*/ false) {
             shouldLoad = true;
         }
-        if (shouldLoad) return true;
-        return false;
+        return shouldLoad;
     }
 
     @Override
     public boolean init() {
-        if (shouldLoad) return true;
-        return false;
+        return shouldLoad;
     }
 
     @Override

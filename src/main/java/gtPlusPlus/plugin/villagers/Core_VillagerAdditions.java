@@ -93,34 +93,22 @@ public class Core_VillagerAdditions implements IPlugin {
 
     @Override
     public boolean init() {
-        if (shouldLoad) {
-            return true;
-        }
-        return false;
+        return shouldLoad;
     }
 
     @Override
     public boolean postInit() {
-        if (shouldLoad) {
-            return true;
-        }
-        return false;
+        return shouldLoad;
     }
 
     @Override
     public boolean serverStart() {
-        if (shouldLoad) {
-            return true;
-        }
-        return false;
+        return shouldLoad;
     }
 
     @Override
     public boolean serverStop() {
-        if (shouldLoad) {
-            return true;
-        }
-        return false;
+        return shouldLoad;
     }
 
     @Override

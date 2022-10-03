@@ -110,10 +110,7 @@ public class Container_ModularityTable extends Container {
     }
 
     public TileEntityModularityTable getTileentityViaContainer() {
-        if (this.tile_entity != null) {
-            return this.tile_entity;
-        }
-        return null;
+        return this.tile_entity;
     }
 
     @Override

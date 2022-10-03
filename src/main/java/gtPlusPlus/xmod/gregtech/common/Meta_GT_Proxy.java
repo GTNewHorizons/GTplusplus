@@ -431,11 +431,7 @@ public class Meta_GT_Proxy {
         final int version = GregTech_API.VERSION;
         if ((version == 508) || (version == 507)) {
             return false;
-        } else if (version == 509) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return version == 509;
     }
 
     static final GT_Proxy[] mProxies = new GT_Proxy[2];

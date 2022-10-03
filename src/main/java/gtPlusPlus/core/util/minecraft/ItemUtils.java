@@ -727,10 +727,7 @@ public class ItemUtils {
         } else if (materialName.toLowerCase().contains("thorium")) {
             sRadiation = 1;
         }
-        if (sRadiation >= 1) {
-            return true;
-        }
-        return false;
+        return sRadiation >= 1;
     }
 
     public static int getRadioactivityLevel(final String materialName) {
@@ -950,10 +947,7 @@ public class ItemUtils {
         String mItemName = mPrefix.name() + mName;
         // Utils.LOG_INFO("[Component Maker] Trying to get "+mItemName+".");
         ItemStack gregstack = ItemUtils.getItemStackOfAmountFromOreDictNoBroken(mItemName, mAmount);
-        if (gregstack == null) {
-            // Utils.LOG_INFO("[Component Maker] Failed to get "+mItemName+".");
-            return null;
-        }
+        // Utils.LOG_INFO("[Component Maker] Failed to get "+mItemName+".");
         // Utils.LOG_INFO("[Component Maker] Found "+mItemName+".");
         return (gregstack);
     }
@@ -964,9 +958,6 @@ public class ItemUtils {
 
         String mItemName = mPrefix.name() + mName;
         ItemStack gregstack = ItemUtils.getItemStackOfAmountFromOreDictNoBroken(mItemName, mAmount);
-        if (gregstack == null) {
-            return null;
-        }
         return (gregstack);
     }
 
@@ -1221,69 +1212,45 @@ public class ItemUtils {
         final Item mItem = aStack.getItem();
         final Item aSkookum = ItemUtils.getItemFromFQRN("miscutils:gt.plusplus.metatool.01");
         final Class aSkookClass = aSkookum.getClass();
-        if (aSkookClass.isInstance(mItem)
+        return aSkookClass.isInstance(mItem)
                 || mItem instanceof GT_MetaGenerated_Tool_01
                 || mItem instanceof MetaGeneratedGregtechTools
                 || mItem instanceof Gregtech_MetaTool
-                || mItem == aSkookum) {
-            return true;
-        }
-        return false;
+                || mItem == aSkookum;
     }
 
     public static boolean isToolWrench(ItemStack aWrench) {
-        if (isItemGregtechTool(aWrench)
+        return isItemGregtechTool(aWrench)
                 && (aWrench.getItemDamage() == 16
-                        || aWrench.getItemDamage() == 120
-                        || aWrench.getItemDamage() == 122
-                        || aWrench.getItemDamage() == 124
-                        || aWrench.getItemDamage() == 7734)) {
-            return true;
-        }
-        return false;
+                || aWrench.getItemDamage() == 120
+                || aWrench.getItemDamage() == 122
+                || aWrench.getItemDamage() == 124
+                || aWrench.getItemDamage() == 7734);
     }
 
     public static boolean isToolMallet(ItemStack aMallet) {
-        if (isItemGregtechTool(aMallet) && (aMallet.getItemDamage() == 14)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aMallet) && (aMallet.getItemDamage() == 14);
     }
 
     public static boolean isToolScrewdriver(ItemStack aScrewdriver) {
-        if (isItemGregtechTool(aScrewdriver)
-                && (aScrewdriver.getItemDamage() == 22 || aScrewdriver.getItemDamage() == 150)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aScrewdriver)
+                && (aScrewdriver.getItemDamage() == 22 || aScrewdriver.getItemDamage() == 150);
     }
 
     public static boolean isToolCrowbar(ItemStack aCrowbar) {
-        if (isItemGregtechTool(aCrowbar) && (aCrowbar.getItemDamage() == 20)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aCrowbar) && (aCrowbar.getItemDamage() == 20);
     }
 
     public static boolean isToolWirecutters(ItemStack aWirecutters) {
-        if (isItemGregtechTool(aWirecutters) && (aWirecutters.getItemDamage() == 26)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aWirecutters) && (aWirecutters.getItemDamage() == 26);
     }
 
     public static boolean isToolHammer(ItemStack aHammer) {
-        if (isItemGregtechTool(aHammer) && (aHammer.getItemDamage() == 12 || aHammer.getItemDamage() == 7734)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aHammer) && (aHammer.getItemDamage() == 12 || aHammer.getItemDamage() == 7734);
     }
 
     public static boolean isToolSolderingIron(ItemStack aSoldering) {
-        if (isItemGregtechTool(aSoldering) && (aSoldering.getItemDamage() == 160)) {
-            return true;
-        }
-        return false;
+        return isItemGregtechTool(aSoldering) && (aSoldering.getItemDamage() == 160);
     }
 
     public static ItemStack[] cleanItemStackArray(ItemStack[] input) {
@@ -1344,11 +1311,9 @@ public class ItemUtils {
     public static boolean isControlCircuit(ItemStack aStack) {
         if (aStack != null) {
             Item aItem = aStack.getItem();
-            if (aItem == CI.getNumberedBioCircuit(0).getItem()
+            return aItem == CI.getNumberedBioCircuit(0).getItem()
                     || aItem == CI.getNumberedCircuit(0).getItem()
-                    || aItem == CI.getNumberedAdvancedCircuit(0).getItem()) {
-                return true;
-            }
+                    || aItem == CI.getNumberedAdvancedCircuit(0).getItem();
         }
         return false;
     }
@@ -1384,20 +1349,14 @@ public class ItemUtils {
         if (GT_Utility.areStacksEqual(aStack, GenericChem.mInfiniteMutationCatalyst, true)) {
             return true;
         }
-        if (GT_Utility.areStacksEqual(aStack, AgriculturalChem.mGreenCatalyst, true)) {
-            return true;
-        }
-        return false;
+        return GT_Utility.areStacksEqual(aStack, AgriculturalChem.mGreenCatalyst, true);
     }
 
     public static boolean isMillingBall(ItemStack aStack) {
         if (GT_Utility.areStacksEqual(aStack, GenericChem.mMillingBallAlumina, true)) {
             return true;
         }
-        if (GT_Utility.areStacksEqual(aStack, GenericChem.mMillingBallSoapstone, true)) {
-            return true;
-        }
-        return false;
+        return GT_Utility.areStacksEqual(aStack, GenericChem.mMillingBallSoapstone, true);
     }
 
     public static String getLocalizedNameOfBlock(Block aBlock, int aMeta) {

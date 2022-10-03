@@ -445,14 +445,11 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
             return true;
         }
         // 3x3
-        if (ItemList.Schematic_3by3.isStackEqual((Object) schematicStack)
+        return ItemList.Schematic_3by3.isStackEqual((Object) schematicStack)
                 && GT_ModHandler.getRecipeOutput(
-                                new ItemStack[] {aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack
-                                })
-                        != null) {
-            return true;
-        }
-        return false;
+                new ItemStack[]{aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack
+                })
+                != null;
     }
 
     @Override

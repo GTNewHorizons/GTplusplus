@@ -52,11 +52,7 @@ public class ClassTransformer_IC2_GetHarvestTool {
         aTempWriter = new ClassWriter(aTempReader, ClassWriter.COMPUTE_FRAMES);
         aTempReader.accept(new localClassVisitor(aTempWriter, className), 0);
 
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
 
         FMLRelaunchLog.log("[GT++ ASM] IC2 getHarvestTool Patch", Level.INFO, "Valid patch? " + isValid + ".");
         reader = aTempReader;

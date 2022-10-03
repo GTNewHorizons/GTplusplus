@@ -169,9 +169,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     public boolean isServerSide() {
         if (this.hasWorldObj()) {
-            if (!this.getWorldObj().isRemote) {
-                return true;
-            }
+            return !this.getWorldObj().isRemote;
         }
         return false;
     }

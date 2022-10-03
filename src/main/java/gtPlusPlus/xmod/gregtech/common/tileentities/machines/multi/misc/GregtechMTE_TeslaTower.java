@@ -160,10 +160,7 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
     }
 
     private boolean isEnergyEnough() {
-        if (this.getEUVar() >= 5000000) {
-            return true;
-        }
-        return false;
+        return this.getEUVar() >= 5000000;
     }
 
     @Override

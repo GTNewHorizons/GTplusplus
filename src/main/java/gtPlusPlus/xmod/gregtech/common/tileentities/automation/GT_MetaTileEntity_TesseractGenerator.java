@@ -725,19 +725,13 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
     private GT_MetaTileEntity_TesseractGenerator getGeneratorEntity() {
         GT_MetaTileEntity_TesseractGenerator thisGenerator =
                 TesseractHelper.getGeneratorByFrequency(PlayerUtils.getPlayerOnServerFromUUID(mOwner), this.mFrequency);
-        if (thisGenerator != null) {
-            return thisGenerator;
-        }
-        return null;
+        return thisGenerator;
     }
 
     private GT_MetaTileEntity_TesseractGenerator getGeneratorEntity(int frequency) {
         GT_MetaTileEntity_TesseractGenerator thisGenerator =
                 TesseractHelper.getGeneratorByFrequency(PlayerUtils.getPlayerOnServerFromUUID(mOwner), frequency);
-        if (thisGenerator != null) {
-            return thisGenerator;
-        }
-        return null;
+        return thisGenerator;
     }
 
     @Override

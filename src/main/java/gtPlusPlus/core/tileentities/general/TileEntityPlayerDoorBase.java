@@ -256,10 +256,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
         y = this.yCoord;
         z = this.zCoord;
         EntityPlayer aPlayer = aWorld.getClosestPlayer(x, y, z, 3.5D);
-        if (aPlayer != null) {
-            return true;
-        }
-        return false;
+        return aPlayer != null;
     }
 
     private short getClosedMeta() {

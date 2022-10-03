@@ -460,11 +460,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.size() / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.size() / 2);
             } else {
                 ItemStack[] Input = {
                     cableStack, motorStack, ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateRubber", 6)
@@ -507,11 +503,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.size() / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.size() / 2);
             } else {
                 ItemStack[] Input = {
                     cableStack,
@@ -562,11 +554,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.length / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.length / 2);
             } else {
                 ItemStack[] Input = {
                     ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 1),
@@ -631,11 +619,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.length / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.length / 2);
             } else {
                 ItemStack[] Input = {
                     ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 4), wireStack, gem
@@ -680,11 +664,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.length / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.length / 2);
             } else {
                 ItemStack[] Input = {
                     ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 2),
@@ -728,11 +708,7 @@ public class GregtechComponentAssembler {
                         added++;
                     }
                 }
-                if (added >= (oreDictList.length / 2)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return added >= (oreDictList.length / 2);
             } else {
                 ItemStack[] Input = {
                     gemStack,

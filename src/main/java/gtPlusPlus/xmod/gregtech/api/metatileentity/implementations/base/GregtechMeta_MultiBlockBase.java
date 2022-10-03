@@ -1225,11 +1225,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         }
         // If the inputs match, we are good.
         else {
-            if (tRecipe.mInputs == mInputVerificationForBoosting) {
-                isRecipeInputTheSame = true;
-            } else {
-                isRecipeInputTheSame = false;
-            }
+            isRecipeInputTheSame = tRecipe.mInputs == mInputVerificationForBoosting;
         }
 
         // Inputs are the same, let's see if there's a boosted version.
@@ -1585,10 +1581,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     public boolean isToolCreative(ItemStack mStack) {
         Materials t1 = GT_MetaGenerated_Tool.getPrimaryMaterial(mStack);
         Materials t2 = GT_MetaGenerated_Tool.getSecondaryMaterial(mStack);
-        if (t1 == Materials._NULL && t2 == Materials._NULL) {
-            return true;
-        }
-        return false;
+        return t1 == Materials._NULL && t2 == Materials._NULL;
     }
 
     /**
@@ -2091,9 +2084,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         mDynamoClass = ReflectionUtils.getClass(
                 "com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_DynamoMulti");
         if (mDynamoClass != null) {
-            if (mDynamoClass.isInstance(aMetaTileEntity)) {
-                return true;
-            }
+            return mDynamoClass.isInstance(aMetaTileEntity);
         }
         return false;
     }
@@ -2144,9 +2135,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         mDynamoClass = ReflectionUtils.getClass(
                 "com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_EnergyMulti");
         if (mDynamoClass != null) {
-            if (mDynamoClass.isInstance(aMetaTileEntity)) {
-                return true;
-            }
+            return mDynamoClass.isInstance(aMetaTileEntity);
         }
         return false;
     }

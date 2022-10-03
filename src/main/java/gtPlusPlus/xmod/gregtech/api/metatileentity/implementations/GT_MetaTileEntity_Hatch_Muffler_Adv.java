@@ -113,15 +113,12 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     }
 
     private boolean airCheck() {
-        if (this.getBaseMetaTileEntity()
-                        .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
+        return this.getBaseMetaTileEntity()
+                .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
                 && this.getBaseMetaTileEntity()
-                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
+                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
                 && this.getBaseMetaTileEntity()
-                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2)) {
-            return true;
-        }
-        return false;
+                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2);
     }
 
     public boolean polluteEnvironment() {
@@ -151,9 +148,7 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         if (aIndex == this.SLOT_FILTER) {
-            if (isAirFilter(aStack)) {
-                return true;
-            }
+            return isAirFilter(aStack);
         }
         return false;
     }
@@ -226,9 +221,7 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
             if (this.mTier < 5) {
                 return true;
             } else {
-                if (filter.getItemDamage() == 1) {
-                    return true;
-                }
+                return filter.getItemDamage() == 1;
             }
         }
         return false;

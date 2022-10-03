@@ -134,11 +134,7 @@ public class ClassTransformer_LWJGL_Keyboard {
             aTempReader.accept(new PatchClientSettings(aTempWriter), 0);
             injectClientSettingPatch(aTempWriter);
         }
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         FMLRelaunchLog.log(
                 "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Valid? " + isValid + ".");
         reader = aTempReader;
@@ -236,11 +232,7 @@ public class ClassTransformer_LWJGL_Keyboard {
 
             for (String s : aMethodsToStrip) {
                 if (name.equals(s)) {
-                    if (name.equals(aMethodsToStrip[0])) {
-                        isClientSettingsObfuscated = true;
-                    } else {
-                        isClientSettingsObfuscated = false;
-                    }
+                    isClientSettingsObfuscated = name.equals(aMethodsToStrip[0]);
                     found = true;
                     break;
                 }

@@ -16,11 +16,7 @@ public class DevHelper {
 
     static {
         mInstance = new DevHelper();
-        if (DevHelperInternals.init()) {
-            mIsValidHelper = true;
-        } else {
-            mIsValidHelper = false;
-        }
+        mIsValidHelper = DevHelperInternals.init();
     }
 
     public DevHelper() {}
@@ -31,11 +27,7 @@ public class DevHelper {
         byte[] bs;
         try {
             bs = Launch.classLoader.getClassBytes("net.minecraft.world.World");
-            if (bs != null) {
-                deobfuscatedEnvironment = true;
-            } else {
-                deobfuscatedEnvironment = false;
-            }
+            deobfuscatedEnvironment = bs != null;
         } catch (IOException ignored) {
         }
         return !deobfuscatedEnvironment;

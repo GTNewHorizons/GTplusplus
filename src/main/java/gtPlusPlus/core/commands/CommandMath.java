@@ -60,12 +60,9 @@ public class CommandMath implements ICommand {
         if (P == null) {
             return false;
         }
-        if (P.getDisplayName().toLowerCase().equals("draknyte1")
+        return P.getDisplayName().toLowerCase().equals("draknyte1")
                 || P.getCommandSenderName().toLowerCase().equals("draknyte1")
-                || CORE.DEVENV) {
-            return true;
-        }
-        return false;
+                || CORE.DEVENV;
     }
 
     @Override

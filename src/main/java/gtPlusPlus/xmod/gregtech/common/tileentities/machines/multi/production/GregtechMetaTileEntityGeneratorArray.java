@@ -131,10 +131,7 @@ public class GregtechMetaTileEntityGeneratorArray
 
     @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
-        if (aStack != null && aStack.getUnlocalizedName().startsWith("gt.blockmachines.")) {
-            return true;
-        }
-        return false;
+        return aStack != null && aStack.getUnlocalizedName().startsWith("gt.blockmachines.");
     }
 
     protected int fuelConsumption = 0;
