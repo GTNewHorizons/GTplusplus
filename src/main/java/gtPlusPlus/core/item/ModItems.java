@@ -354,7 +354,7 @@ public final class ModItems {
         ZZZ_Empty = new ItemEmpty();
     }
 
-    public static final void init() {
+    public static void init() {
 
         itemDebugScanner = new DebugScanner();
         itemMagicFeather = new ItemMagicFeather();

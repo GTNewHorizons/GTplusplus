@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class BaseItemIngotHot extends BaseItemIngot {
 
     private final ItemStack outputIngot;
-    private int tickCounter = 0;
+    private final int tickCounter = 0;
     private final int tickCounterMax = 200;
     private final int mTier;
 
@@ -62,7 +62,7 @@ public class BaseItemIngotHot extends BaseItemIngot {
             final int p_77663_4_,
             final boolean p_77663_5_) {
         if (this.componentMaterial != null) {
-            if (entityHolding != null && entityHolding instanceof EntityPlayer) {
+            if (entityHolding instanceof EntityPlayer) {
                 if (!((EntityPlayer) entityHolding).capabilities.isCreativeMode) {
                     EntityUtils.applyHeatDamageToEntity(1, world, entityHolding);
                 }
@@ -74,11 +74,7 @@ public class BaseItemIngotHot extends BaseItemIngot {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses() {
-        if (CORE.ConfigSwitches.useGregtechTextures) {
-            return true;
-        } else {
-            return false;
-        }
+        return CORE.ConfigSwitches.useGregtechTextures;
     }
 
     @Override

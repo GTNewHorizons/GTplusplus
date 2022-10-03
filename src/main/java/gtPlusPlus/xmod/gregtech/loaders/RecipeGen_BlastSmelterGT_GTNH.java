@@ -17,8 +17,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeGen_BlastSmelterGT_GTNH {
 
-    private static Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<String, FluidStack>();
-    private static Map<String, String> mCachedHotToColdRegistry = new HashMap<String, String>();
+    private static final Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<String, FluidStack>();
+    private static final Map<String, String> mCachedHotToColdRegistry = new HashMap<String, String>();
 
     private static synchronized void setIngotToFluid(final ItemStackData stack, final FluidStack fluid) {
         if (stack != null && fluid != null) {
@@ -48,18 +48,15 @@ public class RecipeGen_BlastSmelterGT_GTNH {
 
     private static boolean isValid(
             final ItemStack[] inputs,
-            final ItemStack outputs[],
+            final ItemStack[] outputs,
             final FluidStack[] fluidIn,
             final FluidStack fluidOut) {
-        if (inputs != null
+        return inputs != null
                 && outputs != null
                 && fluidIn != null
                 && fluidOut != null
                 && inputs.length > 0
-                && outputs.length > 0) {
-            return true;
-        }
-        return false;
+                && outputs.length > 0;
     }
 
     public static synchronized boolean generateGTNHBlastSmelterRecipesFromEBFList() {

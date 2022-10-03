@@ -11,7 +11,7 @@ import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
@@ -58,16 +58,14 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 0,
                 "Recycler.png",
                 "",
-                new ITexture[] {
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB_ACTIVE),
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_MatterFab_Active),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_MatterFab),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Machine_Vent_Fast),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_Machine_Vent),
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_MASSFAB_ACTIVE),
-                    new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_MASSFAB)
-                });
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB_ACTIVE),
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB),
+                TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active),
+                TextureFactory.of(TexturesGtBlock.Overlay_MatterFab),
+                TextureFactory.of(TexturesGtBlock.Overlay_Machine_Vent_Fast),
+                TextureFactory.of(TexturesGtBlock.Overlay_Machine_Vent),
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_BOTTOM_MASSFAB_ACTIVE),
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_BOTTOM_MASSFAB));
         mPollutionEnabled = PollutionUtils.isPollutionEnabled();
     }
 
@@ -389,21 +387,13 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 mCurrentChunkPollution += getPollutionInChunk(r);
             }
         }
-        if (mCurrentChunkPollution > 0) {
-            mHasPollution = true;
-        } else {
-            mHasPollution = false;
-        }
+        mHasPollution = mCurrentChunkPollution > 0;
         return mCurrentChunkPollution;
     }
 
     public int getPollutionInChunk(Chunk aChunk) {
         int mCurrentChunkPollution = PollutionUtils.getPollution(aChunk);
-        if (mCurrentChunkPollution > 0) {
-            mHasPollution = true;
-        } else {
-            mHasPollution = false;
-        }
+        mHasPollution = mCurrentChunkPollution > 0;
         return mCurrentChunkPollution;
     }
 
@@ -663,10 +653,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (filter == null) {
             return false;
         }
-        if (filter.getItem() instanceof ItemAirFilter) {
-            return true;
-        }
-        return false;
+        return filter.getItem() instanceof ItemAirFilter;
     }
 
     public boolean damageAirFilter() {
@@ -738,11 +725,9 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 if (aStack.getItem() instanceof ItemBasicScrubberTurbine) {
                     return true;
                 }
-                if (aStack.getItem() instanceof GT_MetaGenerated_Tool
+                return aStack.getItem() instanceof GT_MetaGenerated_Tool
                         && aStack.getItemDamage() >= 170
-                        && aStack.getItemDamage() <= 179) {
-                    return true;
-                }
+                        && aStack.getItemDamage() <= 179;
             }
         }
         // return super.canInsertItem(aIndex, aStack, aSide);
@@ -769,7 +754,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     public void doSound(byte aIndex, double aX, double aY, double aZ) {
         if (aIndex == -120) {
             GT_Utility.doSoundAtClient(
-                    (String) GregTech_API.sSoundList.get(Integer.valueOf(103)),
+                    GregTech_API.sSoundList.get(Integer.valueOf(103)),
                     MathUtils.randInt(5, 50),
                     0.05F,
                     aX,

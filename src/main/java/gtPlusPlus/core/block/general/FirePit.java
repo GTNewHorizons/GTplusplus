@@ -89,11 +89,8 @@ public class FirePit extends BasicBlock {
 
     @Override
     public Item getItemDropped(final int meta, final Random par2Random, final int par3) {
-        switch (meta) {
-            case 0:
-                return null;
-            default:
-                break;
+        if (meta == 0) {
+            return null;
         }
         return Item.getItemFromBlock(this);
     }

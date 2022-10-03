@@ -799,7 +799,7 @@ CLAY(GTPP_Branch_Definition.ORGANIC, "Clay", true, 0x19d0ec, 0xffdc16) {
 
     private static IAlleleBeeSpecies getSpecies(String name) {
         return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(
-                (new StringBuilder()).append("forestry.species").append(name).toString());
+                "forestry.species" + name);
     }
 
     protected abstract void setSpeciesProperties(IAlleleBeeSpeciesCustom beeSpecies);

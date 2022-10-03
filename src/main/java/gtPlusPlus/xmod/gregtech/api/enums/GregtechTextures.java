@@ -58,9 +58,9 @@ public class GregtechTextures {
 
         public static Interface_Texture[] GT_CASING_BLOCKS = new Interface_Texture[64];
 
-        protected IIcon mIcon;
+        private IIcon mIcon;
 
-        private BlockIcons() {
+        BlockIcons() {
             Meta_GT_Proxy.GT_BlockIconload.add(this);
         }
 
@@ -151,9 +151,9 @@ public class GregtechTextures {
         // public static final Interface_Texture[] ERROR_RENDERING = new Interface_Texture[]{new
         // GregtechRenderedTexture(RENDERING_ERROR)};
 
-        protected IIcon mIcon, mOverlay;
+        private IIcon mIcon, mOverlay;
 
-        private ItemIcons() {
+        ItemIcons() {
             Meta_GT_Proxy.GT_ItemIconload.add(this);
         }
 

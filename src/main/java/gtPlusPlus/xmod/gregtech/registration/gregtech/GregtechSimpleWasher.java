@@ -72,10 +72,7 @@ public class GregtechSimpleWasher {
             }
         }
 
-        if (GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount) {
-            return true;
-        }
-        return false;
+        return GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
     }
 
     private static boolean generateDirtyCrushedRecipes() {
@@ -102,9 +99,6 @@ public class GregtechSimpleWasher {
             }
         }
 
-        if (GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount) {
-            return true;
-        }
-        return false;
+        return GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
     }
 }

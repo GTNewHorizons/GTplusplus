@@ -188,10 +188,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     0);
             GTPP_Recipe_Map.sSpargeTowerRecipes.add(newRecipe);
         }
-        if (GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
-            return false;
-        }
-        return true;
+        return !GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty();
     }
 
     @Override
@@ -231,7 +228,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     this.mOutputItems = new ItemStack[] {};
                     ArrayList<FluidStack> aFluidOutputs =
                             getByproductsOfSparge(tRecipe.mFluidInputs[0], tRecipe.mFluidInputs[1]);
-                    this.mOutputFluids = (FluidStack[]) aFluidOutputs.toArray(new FluidStack[0]);
+                    this.mOutputFluids = aFluidOutputs.toArray(new FluidStack[0]);
                     updateSlots();
                     Logger.INFO("Done!");
                     return true;

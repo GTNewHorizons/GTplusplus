@@ -1,13 +1,15 @@
 package gregtech.api.enums;
 
 import gregtech.api.interfaces.ITexture;
+import gregtech.api.render.TextureFactory;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +21,7 @@ public class TAE {
     public static int gtPPLastUsedIndex = 64;
     public static int secondaryIndex = 0;
 
-    public static HashMap<Integer, GTPP_CopiedBlockTexture> mTAE = new HashMap<Integer, GTPP_CopiedBlockTexture>();
+    public static HashMap<Integer, ITexture> mTAE = new HashMap<Integer, ITexture>();
     private static final HashSet<Integer> mFreeSlots = new HashSet<Integer>(64);
 
     static {
@@ -33,18 +35,18 @@ public class TAE {
      *
      * @param aPage - The Texture page (0-3)
      * @param aID - The ID on the specified page (0-15)
-     * @param GTPP_CopiedBlockTexture - The Texture to register
+     * @param iTexture - The Texture to register
      * @return - Did it register correctly?
      */
-    public static boolean registerTexture(int aPage, int aID, GTPP_CopiedBlockTexture GTPP_CopiedBlockTexture) {
+    public static boolean registerTexture(int aPage, int aID, ITexture iTexture) {
         int aRealID = aID + (aPage * 16);
-        return registerTexture(64 + aRealID, GTPP_CopiedBlockTexture);
+        return registerTexture(64 + aRealID, iTexture);
     }
 
-    public static boolean registerTexture(int aID, GTPP_CopiedBlockTexture GTPP_CopiedBlockTexture) {
+    public static boolean registerTexture(int aID, ITexture iTexture) {
         if (mFreeSlots.contains(aID)) {
             mFreeSlots.remove(aID);
-            mTAE.put(aID, GTPP_CopiedBlockTexture);
+            mTAE.put(aID, iTexture);
             return true;
         } else {
             CORE.crash("Tried to register texture with ID " + aID + " to TAE, but it is already in use.");
@@ -69,7 +71,7 @@ public class TAE {
         Logger.INFO("Free Page slots within TAE: " + aPageAndSlotFree);
         Logger.INFO("Filling them with ERROR textures.");
         for (int aFreeSlot : aTemp.values()) {
-            registerTexture(aFreeSlot, new GTPP_CopiedBlockTexture(ModBlocks.blockCasingsTieredGTPP, 1, 15));
+            registerTexture(aFreeSlot, TextureFactory.of(ModBlocks.blockCasingsTieredGTPP, 15, ForgeDirection.UP));
         }
         Logger.INFO("Finalising TAE.");
         for (int aKeyTae : mTAE.keySet()) {
@@ -78,7 +80,7 @@ public class TAE {
         Logger.INFO("Finalised TAE.");
     }
 
-    private static boolean registerTextures(GTPP_CopiedBlockTexture GTPP_CopiedBlockTexture) {
+    private static boolean registerTextures(ITexture iTexture) {
         try {
             // Handle page 2.
             Logger.INFO("[TAE} Registering Texture, Last used casing ID is " + gtPPLastUsedIndex + ".");
@@ -88,7 +90,7 @@ public class TAE {
                     if (x != null) {
                         ITexture[][] h = (ITexture[][]) x.get(null);
                         if (h != null) {
-                            h[64][secondaryIndex++] = GTPP_CopiedBlockTexture;
+                            h[64][secondaryIndex++] = iTexture;
                             x.set(null, h);
                             Logger.INFO("[TAE} Registered Texture with ID " + (secondaryIndex - 1)
                                     + " in secondary index.");
@@ -100,7 +102,7 @@ public class TAE {
 
             // set to page 1.
             else {
-                Textures.BlockIcons.setCasingTextureForId(gtPPLastUsedIndex, GTPP_CopiedBlockTexture);
+                Textures.BlockIcons.setCasingTextureForId(gtPPLastUsedIndex, iTexture);
                 Logger.INFO("[TAE} Registered Texture with ID " + (gtPPLastUsedIndex) + " in main index.");
                 gtPPLastUsedIndex++;
                 return true;

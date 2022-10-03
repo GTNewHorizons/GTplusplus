@@ -508,7 +508,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             FluidStack aInputFluid,
             FluidStack aOutput,
             ItemStack[] aOutputStack,
-            final int aChance[],
+            final int[] aChance,
             int aDuration,
             final int aEUt) {
         return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700);
@@ -676,8 +676,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if ((aInput1 == null) || (aOutput1 == null) || (aDuration < 1) || (aEUt < 1)) {
             return false;
         }
-        final FluidStack inputs[] = {aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9};
-        final FluidStack outputs[] = {aOutput1, aOutput2};
+        final FluidStack[] inputs = {aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9};
+        final FluidStack[] outputs = {aOutput1, aOutput2};
 
         int aSize = GTPP_Recipe.GTPP_Recipe_Map.sFissionFuelProcessing.mRecipeList.size();
         int aSize2 = aSize;
@@ -1127,7 +1127,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                             if (m != null) {
                                 Logger.INFO("Found " + m.getName() + " | " + m.getModifiers() + " | "
                                         + ArrayUtils.toString(m.getParameters(), "EMPTY") + "");
-                                if (m.getName().toLowerCase().equals("addresearchableassemblylinerecipe")) {
+                                if (m.getName().equalsIgnoreCase("addresearchableassemblylinerecipe")) {
                                     Logger.INFO("Types: " + ArrayUtils.toString(m.getParameterTypes()));
                                 }
                             }
@@ -1240,7 +1240,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 false,
                 new ItemStack[] {aResearchItem},
                 new ItemStack[] {aOutput},
-                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Writes Research result", new Object[0])},
+                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Writes Research result")},
                 null,
                 null,
                 aResearchTime,
@@ -1250,7 +1250,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 false,
                 aInputs,
                 new ItemStack[] {aOutput},
-                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Reads Research result", new Object[0])},
+                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Reads Research result")},
                 aFluidInputs,
                 null,
                 aDuration,
@@ -1297,7 +1297,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 ItemStack[] aStacks = (ItemStack[]) obj;
                 if (aStacks.length > 0) {
                     tInputs[i] = aStacks[0];
-                    tAlts[i] = (ItemStack[]) Arrays.copyOf(aStacks, aStacks.length);
+                    tAlts[i] = Arrays.copyOf(aStacks, aStacks.length);
                     continue;
                 }
             } else if (obj instanceof Object[]) {
@@ -1327,7 +1327,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 false,
                 new ItemStack[] {aResearchItem},
                 new ItemStack[] {aOutput},
-                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Writes Research result", new Object[0])},
+                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Writes Research result")},
                 null,
                 null,
                 aResearchTime,
@@ -1337,7 +1337,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 false,
                 tInputs,
                 new ItemStack[] {aOutput},
-                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Reads Research result", new Object[0])},
+                new ItemStack[] {ItemList.Tool_DataStick.getWithName(1L, "Reads Research result")},
                 aFluidInputs,
                 null,
                 aDuration,
@@ -1914,7 +1914,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                         true,
                         new ItemStack[] {aCircuit},
                         new ItemStack[] {aSolidOutput},
-                        (Object) null,
+                        null,
                         new FluidStack[] {aInput},
                         new FluidStack[] {aOutput},
                         aDuration,
@@ -1972,7 +1972,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
             if (GregTech_API.sRecipeFile.get(ConfigCategories.Machines.maceration, aInput, true)) {
                 GT_Utility.addSimpleIC2MachineRecipe(
-                        aInput, GT_ModHandler.getMaceratorRecipeList(), null, new Object[] {aOutput1});
+                        aInput, GT_ModHandler.getMaceratorRecipeList(), null, aOutput1);
             }
             GT_Values.RA.addPulveriserRecipe(
                     aInput, new ItemStack[] {aOutput1, aOutput2, aOutput3}, new int[] {10000, 10000, 10000}, 400, 2);
@@ -2091,10 +2091,10 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         AutoMap<Boolean> aResults = new AutoMap<Boolean>();
         // Dust 1
         aResults.put(GT_Values.RA.addBoxingRecipe(
-                GT_Utility.copyAmount(4L, new Object[] {aSmallDust}), aRecipeType, aOutputStack1, 100, 4));
+                GT_Utility.copyAmount(4L, aSmallDust), aRecipeType, aOutputStack1, 100, 4));
         // Dust 2
         aResults.put(GT_Values.RA.addBoxingRecipe(
-                GT_Utility.copyAmount(9L, new Object[] {aTinyDust}), aRecipeType, aOutputStack1, 100, 4));
+                GT_Utility.copyAmount(9L, aTinyDust), aRecipeType, aOutputStack1, 100, 4));
         for (boolean b : aResults) {
             if (!b) {
                 return false;

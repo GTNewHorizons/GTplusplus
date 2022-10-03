@@ -11,10 +11,10 @@ import net.minecraft.item.ItemStack;
 
 public class ReliquaryItems {
 
-    private static Class<?> CLASS_MAIN = ReflectionUtils.getClass("xreliquary.Reliquary");
-    private static Field FIELD_CONTENT = ReflectionUtils.getField(CLASS_MAIN, "CONTENT");
-    private static Object OBJECT_CONTENT = ReflectionUtils.getFieldValue(FIELD_CONTENT);
-    private static Method METHOD_GETITEM =
+    private static final Class<?> CLASS_MAIN = ReflectionUtils.getClass("xreliquary.Reliquary");
+    private static final Field FIELD_CONTENT = ReflectionUtils.getField(CLASS_MAIN, "CONTENT");
+    private static final Object OBJECT_CONTENT = ReflectionUtils.getFieldValue(FIELD_CONTENT);
+    private static final Method METHOD_GETITEM =
             ReflectionUtils.getMethod(OBJECT_CONTENT, "getItem", new Class[] {String.class});
 
     public static Item getItem(String name) {

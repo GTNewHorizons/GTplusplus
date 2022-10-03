@@ -26,7 +26,7 @@ public class MaterialUtils {
     public static short firstID = 791;
 
     @SuppressWarnings({"rawtypes", "unused"})
-    private static Class[][] commonTypes = {
+    private static final Class[][] commonTypes = {
         {
             Materials.class,
             int.class,
@@ -66,7 +66,7 @@ public class MaterialUtils {
         return null;
     }
 
-    private static Map<String, Material> mGeneratedMaterialMap = new HashMap();
+    private static final Map<String, Material> mGeneratedMaterialMap = new HashMap();
 
     public static Material generateMaterialFromGtENUM(final Materials material) {
         return generateMaterialFromGtENUM(material, null, null);
@@ -164,7 +164,7 @@ public class MaterialUtils {
             }
 
             if (name.toLowerCase().contains("infused")) {
-                final String tempname = name.substring(7, name.length());
+                final String tempname = name.substring(7);
                 name = "Infused " + tempname;
             }
             if (hasValidRGBA(rgba)
@@ -229,10 +229,7 @@ public class MaterialUtils {
     }
 
     public static boolean hasValidRGBA(final short[] rgba) {
-        if (rgba == null || rgba.length < 3 || rgba.length > 4) {
-            return false;
-        }
-        return true;
+        return rgba != null && rgba.length >= 3 && rgba.length <= 4;
     }
 
     public static int getTierOfMaterial(final double aMeltingPoint) {
@@ -324,7 +321,7 @@ public class MaterialUtils {
             return (Materials) EnumUtils.getValue(gregtech.api.enums.Materials.class, materialName, false);
         } else {
             for (Materials m : Materials.values()) {
-                if (MaterialUtils.getMaterialName(m).toLowerCase().equals(materialName.toLowerCase())) {
+                if (MaterialUtils.getMaterialName(m).equalsIgnoreCase(materialName)) {
                     return m;
                 }
             }
@@ -522,7 +519,7 @@ public class MaterialUtils {
 
     public static boolean doesMaterialExist(String aMatName) {
         for (Materials m : Materials.values()) {
-            if (m.name().toLowerCase().equals(aMatName.toLowerCase())) {
+            if (m.name().equalsIgnoreCase(aMatName)) {
                 return true;
             }
         }
@@ -530,11 +527,8 @@ public class MaterialUtils {
     }
 
     public static boolean isNullGregtechMaterial(Materials aGregtechMaterial) {
-        if (aGregtechMaterial == Materials._NULL
+        return aGregtechMaterial == Materials._NULL
                 || aGregtechMaterial.equals(Materials._NULL)
-                || aGregtechMaterial.name().equals(Materials._NULL.name())) {
-            return true;
-        }
-        return false;
+                || aGregtechMaterial.name().equals(Materials._NULL.name());
     }
 }

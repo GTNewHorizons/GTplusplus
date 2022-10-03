@@ -209,14 +209,12 @@ public class BlockAustraliaPortal extends BlockBreakable implements ITileTooltip
         }
         int i1;
         for (i1 = y; par1World.getBlock(x, i1 - 1, z) == this; --i1) {
-            ;
         }
         if (par1World.getBlock(x, i1 - 1, z) != Dimension_Australia.blockPortalFrame) {
             par1World.setBlockToAir(x, y, z);
         } else {
             int j1;
             for (j1 = 1; j1 < 4 && par1World.getBlock(x, i1 + j1, z) == this; ++j1) {
-                ;
             }
             if (j1 == 3 && par1World.getBlock(x, i1 + j1, z) == Dimension_Australia.blockPortalFrame) {
                 boolean flag = par1World.getBlock(x - 1, y, z) == this || par1World.getBlock(x + 1, y, z) == this;
@@ -269,9 +267,7 @@ public class BlockAustraliaPortal extends BlockBreakable implements ITileTooltip
                     && par1IBlockAccess.getBlock(par2, par3, par4 + 2) != this;
             boolean flag4 = flag || flag1;
             boolean flag5 = flag2 || flag3;
-            return flag4 && par5 == 4
-                    ? true
-                    : (flag4 && par5 == 5 ? true : (flag5 && par5 == 2 ? true : flag5 && par5 == 3));
+            return flag4 && par5 == 4 || (flag4 && par5 == 5 || (flag5 && par5 == 2 || flag5 && par5 == 3));
         }
     }
 

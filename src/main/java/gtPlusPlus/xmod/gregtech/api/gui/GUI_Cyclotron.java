@@ -25,11 +25,11 @@ public class GUI_Cyclotron extends GT_GUIContainerMetaTile_Machine {
     protected void drawGuiContainerForegroundLayer(final int par1, final int par2) {
         this.fontRendererObj.drawString(this.mName, 8, -10, 16448255);
         if (this.mContainer != null) {
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 0x40) != 0x0) {
+            if ((this.mContainer.mDisplayErrorCode & 0x40) != 0x0) {
                 this.fontRendererObj.drawString("Incomplete Structure.", 10, 8, 16448255);
             }
-            if (((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode == 0) {
-                if (((GT_Container_MultiMachine) this.mContainer).mActive == 0) {
+            if (this.mContainer.mDisplayErrorCode == 0) {
+                if (this.mContainer.mActive == 0) {
                     this.fontRendererObj.drawString(
                             "Hit with Soft Hammer to (re-)start the Machine if it doesn't start.", -70, 170, 16448255);
                 } else {

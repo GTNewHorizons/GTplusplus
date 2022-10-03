@@ -674,53 +674,53 @@ public class RECIPES_MachineComponents {
             Logger.INFO("Adding Gregtech machine recipes for the circuits.");
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 1L),
-                    GregtechItemList.Circuit_Parts_Wiring_IV.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_IV.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Wiring_IV.get(4L),
+                    GregtechItemList.Circuit_Board_IV.get(1L),
                     30,
                     240);
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 1L),
-                    GregtechItemList.Circuit_Parts_Wiring_LuV.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_LuV.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Wiring_LuV.get(4L),
+                    GregtechItemList.Circuit_Board_LuV.get(1L),
                     60,
                     480);
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 2L),
-                    GregtechItemList.Circuit_Parts_Wiring_ZPM.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_ZPM.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Wiring_ZPM.get(4L),
+                    GregtechItemList.Circuit_Board_ZPM.get(1L),
                     90,
                     1000);
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_IV.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(3L),
+                    GregtechItemList.Circuit_Parts_IV.get(1L),
                     30,
                     480);
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_LuV.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(3L),
+                    GregtechItemList.Circuit_Parts_LuV.get(1L),
                     60,
                     1000);
             GT_Values.RA.addFormingPressRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_ZPM.get(1L, new Object[0]),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(3L),
+                    GregtechItemList.Circuit_Parts_ZPM.get(1L),
                     90,
                     2000);
             GT_Values.RA.addForgeHammerRecipe(
-                    ItemList.Circuit_Master.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(5L, new Object[0]),
+                    ItemList.Circuit_Master.get(1L),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(5L),
                     30,
                     256);
             GT_Values.RA.addForgeHammerRecipe(
-                    GregtechItemList.Circuit_IV.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(5L, new Object[0]),
+                    GregtechItemList.Circuit_IV.get(1L),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(5L),
                     60,
                     512);
             GT_Values.RA.addForgeHammerRecipe(
-                    GregtechItemList.Circuit_LuV.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(5L, new Object[0]),
+                    GregtechItemList.Circuit_LuV.get(1L),
+                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(5L),
                     120,
                     1024);
             for (final Materials tMat : Materials.values()) {
@@ -729,24 +729,24 @@ public class RECIPES_MachineComponents {
                             ? 1
                             : tMat.contains(SubTag.SOLDERING_MATERIAL_BAD) ? 4 : 2;
                     GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_IV.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_IV.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_Board_IV.get(1L),
+                            GregtechItemList.Circuit_Parts_IV.get(1L),
                             tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_IV.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_IV.get(1L),
                             30,
                             480);
                     GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_LuV.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_LuV.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_Board_LuV.get(1L),
+                            GregtechItemList.Circuit_Parts_LuV.get(1L),
                             tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_LuV.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_LuV.get(1L),
                             60,
                             1000);
                     GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_ZPM.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_ZPM.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_Board_ZPM.get(1L),
+                            GregtechItemList.Circuit_Parts_ZPM.get(1L),
                             tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_ZPM.get(1L, new Object[0]),
+                            GregtechItemList.Circuit_ZPM.get(1L),
                             90,
                             2000);
                 }

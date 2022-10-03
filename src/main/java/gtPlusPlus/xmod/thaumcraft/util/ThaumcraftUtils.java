@@ -36,7 +36,7 @@ import net.minecraft.world.World;
 
 public class ThaumcraftUtils {
 
-    private static Class<?> mClass_Aspect;
+    private static final Class<?> mClass_Aspect;
     private static Field mField_Aspects;
 
     static {
@@ -103,7 +103,7 @@ public class ThaumcraftUtils {
             return null;
         }
         for (Iterator<TC_ResearchItem_Wrapper> i$ = tCategory.research.values().iterator(); i$.hasNext(); ) {
-            TC_ResearchItem_Wrapper tResearch = (TC_ResearchItem_Wrapper) i$.next();
+            TC_ResearchItem_Wrapper tResearch = i$.next();
             if ((tResearch.displayColumn == aX) && (tResearch.displayRow == aY)) {
                 aX += (aX > 0 ? 5 : -5);
                 aY += (aY > 0 ? 5 : -5);
@@ -158,7 +158,7 @@ public class ThaumcraftUtils {
                 }
             }
             if (tParentResearches.size() > 0) {
-                rResearch.setParents((String[]) tParentResearches.toArray(new String[tParentResearches.size()]));
+                rResearch.setParents(tParentResearches.toArray(new String[tParentResearches.size()]));
                 rResearch.setConcealed();
             }
         }
@@ -167,7 +167,7 @@ public class ThaumcraftUtils {
             rResearch.setHidden();
         }
 
-        Object[] aVarArgs = (TC_ResearchPage_Wrapper[]) tPages.toArray(new TC_ResearchPage_Wrapper[tPages.size()]);
+        Object[] aVarArgs = tPages.toArray(new TC_ResearchPage_Wrapper[tPages.size()]);
         rResearch.setPages(aVarArgs);
         return rResearch.registerResearchItem();
     }
@@ -177,7 +177,7 @@ public class ThaumcraftUtils {
             final Object aInput,
             final ItemStack aOutput,
             final List<GTPP_AspectStack> aAspects) {
-        if (GT_Utility.isStringInvalid((Object) aResearch)
+        if (GT_Utility.isStringInvalid(aResearch)
                 || aInput == null
                 || aOutput == null
                 || aAspects == null
@@ -186,7 +186,7 @@ public class ThaumcraftUtils {
         }
         return addCrucibleRecipe(
                 aResearch,
-                GT_Utility.copy(new Object[] {aOutput}),
+                GT_Utility.copy(aOutput),
                 (aInput instanceof ItemStack || aInput instanceof ArrayList) ? aInput : aInput.toString(),
                 getAspectList_Ex(aAspects));
     }
@@ -198,7 +198,7 @@ public class ThaumcraftUtils {
             final ItemStack aOutput,
             final int aInstability,
             final List<GTPP_AspectStack> aAspects) {
-        if (GT_Utility.isStringInvalid((Object) aResearch)
+        if (GT_Utility.isStringInvalid(aResearch)
                 || aMainInput == null
                 || aSideInputs == null
                 || aOutput == null
@@ -208,7 +208,7 @@ public class ThaumcraftUtils {
         }
         return addInfusionCraftingRecipe(
                 aResearch,
-                (Object) GT_Utility.copy(new Object[] {aOutput}),
+                GT_Utility.copy(aOutput),
                 aInstability,
                 getAspectList_Ex(aAspects),
                 aMainInput,
@@ -426,19 +426,13 @@ public class ThaumcraftUtils {
     }
 
     public static boolean isItemResearchNotes(ItemStack aStack) {
-        if (aStack != null
+        return aStack != null
                 && aStack.getItem() == HANDLER_Thaumcraft.mResearchNotes
-                && HANDLER_Thaumcraft.mResearchNotes.getClass().isInstance(aStack.getItem())) {
-            return true;
-        }
-        return false;
+                && HANDLER_Thaumcraft.mResearchNotes.getClass().isInstance(aStack.getItem());
     }
 
     public static boolean isItemStackValidResearchNotes(ItemStack aStack) {
-        if (isItemResearchNotes(aStack) && aStack.getItemDamage() < 64) {
-            return true;
-        }
-        return false;
+        return isItemResearchNotes(aStack) && aStack.getItemDamage() < 64;
     }
 
     public static TC_ResearchNoteData_Wrapper gatherResults(ItemStack note) {

@@ -154,11 +154,9 @@ public class GTPP_Worldgen_GT_Ore_Layer extends GTPP_Worldgen {
         if (!isGenerationAllowed(
                 aWorld,
                 aDimensionType,
-                ((aDimensionType == -1) && (false))
-                                || ((aDimensionType == 0) && (this.mDarkWorld))
-                                || ((aDimensionType == 1) && (false))
-                                || ((aWorld.provider.getDimensionName().equals("Moon")) && (false))
-                                || ((aWorld.provider.getDimensionName().equals("Mars")) && (false))
+                ((aDimensionType == 0) && (this.mDarkWorld))
+                        || (false)
+                        || (false)
                         ? aDimensionType
                         : aDimensionType ^ 0xFFFFFFFF)) {
             return false;

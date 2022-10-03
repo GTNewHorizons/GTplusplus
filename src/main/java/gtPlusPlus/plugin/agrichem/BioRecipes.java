@@ -1058,7 +1058,7 @@ public class BioRecipes {
                     ItemUtils.getSimpleStack(AgriculturalChem.mRawBioResin, 1),
                 },
                 new FluidStack[] {},
-                1 * 20,
+                20,
                 30,
                 1);
     }
@@ -1204,123 +1204,121 @@ public class BioRecipes {
 
         long bits = 0;
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 1L, new Object[0]), bits, new Object[] {
-                    "d  ", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 1L), bits, new Object[] {
+                    "d  ", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 2L, new Object[0]), bits, new Object[] {
-                    " d ", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 2L), bits, new Object[] {
+                    " d ", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 3L, new Object[0]), bits, new Object[] {
-                    "  d", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 3L), bits, new Object[] {
+                    "  d", " P ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 4L, new Object[0]), bits, new Object[] {
-                    "   ", " Pd", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 4L), bits, new Object[] {
+                    "   ", " Pd", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 5L, new Object[0]), bits, new Object[] {
-                    "   ", " P ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 5L), bits, new Object[] {
+                    "   ", " P ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 6L, new Object[0]), bits, new Object[] {
-                    "   ", " P ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 6L), bits, new Object[] {
+                    "   ", " P ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 7L, new Object[0]), bits, new Object[] {
-                    "   ", " P ", "d  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 7L), bits, new Object[] {
+                    "   ", " P ", "d  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 8L, new Object[0]), bits, new Object[] {
-                    "   ", "dP ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 8L), bits, new Object[] {
+                    "   ", "dP ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 9L, new Object[0]), bits, new Object[] {
-                    "P d", "   ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 9L), bits, new Object[] {
+                    "P d", "   ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 10L, new Object[0]), bits, new Object[] {
-                    "P  ", "  d", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 10L), bits, new Object[] {
+                    "P  ", "  d", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 11L, new Object[0]), bits, new Object[] {
-                    "P  ", "   ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 11L), bits, new Object[] {
+                    "P  ", "   ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 12L, new Object[0]), bits, new Object[] {
-                    "P  ", "   ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 12L), bits, new Object[] {
+                    "P  ", "   ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 13L, new Object[0]), bits, new Object[] {
-                    "  P", "   ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 13L), bits, new Object[] {
+                    "  P", "   ", "  d", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 14L, new Object[0]), bits, new Object[] {
-                    "  P", "   ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 14L), bits, new Object[] {
+                    "  P", "   ", " d ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 15L, new Object[0]), bits, new Object[] {
-                    "  P", "   ", "d  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 15L), bits, new Object[] {
+                    "  P", "   ", "d  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 16L, new Object[0]), bits, new Object[] {
-                    "  P", "d  ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 16L), bits, new Object[] {
+                    "  P", "d  ", "   ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 17L, new Object[0]), bits, new Object[] {
-                    "   ", "   ", "d P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 17L), bits, new Object[] {
+                    "   ", "   ", "d P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 18L, new Object[0]), bits, new Object[] {
-                    "   ", "d  ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 18L), bits, new Object[] {
+                    "   ", "d  ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 19L, new Object[0]), bits, new Object[] {
-                    "d  ", "   ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 19L), bits, new Object[] {
+                    "d  ", "   ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 20L, new Object[0]), bits, new Object[] {
-                    " d ", "   ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 20L), bits, new Object[] {
+                    " d ", "   ", "  P", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 21L, new Object[0]), bits, new Object[] {
-                    "d  ", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 21L), bits, new Object[] {
+                    "d  ", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 22L, new Object[0]), bits, new Object[] {
-                    " d ", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 22L), bits, new Object[] {
+                    " d ", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 23L, new Object[0]), bits, new Object[] {
-                    "  d", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 23L), bits, new Object[] {
+                    "  d", "   ", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
         addCraftingRecipe(
-                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 24L, new Object[0]), bits, new Object[] {
-                    "   ", "  d", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L, new Object[0])
+                GregtechItemList.Circuit_BioRecipeSelector.getWithDamage(1L, 24L), bits, new Object[] {
+                    "   ", "  d", "P  ", 'P', GregtechItemList.Circuit_BioRecipeSelector.getWildcard(1L)
                 });
     }
 
     public static boolean addCraftingRecipe(ItemStack aResult, long aBitMask, Object[] aRecipe) {
-        Method mAddRecipe = ReflectionUtils.getMethod(GT_ModHandler.class, "addCraftingRecipe", new Class[] {
-            ItemStack.class,
-            Enchantment[].class,
-            int[].class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            boolean.class,
-            Object[].class
-        });
+        Method mAddRecipe = ReflectionUtils.getMethod(GT_ModHandler.class, "addCraftingRecipe", ItemStack.class,
+                Enchantment[].class,
+                int[].class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                boolean.class,
+                Object[].class);
         boolean didInvoke = false;
         if (mAddRecipe != null) {
             try {

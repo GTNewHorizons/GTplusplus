@@ -119,7 +119,7 @@ public class RecipeGen_Recycling implements Runnable {
                     validCounter++;
                 }
             }
-            Pair<OrePrefixes, ItemStack> temp3[] = new Pair[validCounter];
+            Pair<OrePrefixes, ItemStack>[] temp3 = new Pair[validCounter];
             int temp4 = 0;
             for (Pair<OrePrefixes, ItemStack> r : mValidPairs) {
                 if (r != null) {
@@ -303,7 +303,7 @@ public class RecipeGen_Recycling implements Runnable {
             Logger.WARNING("Unknown Key for Unification, Typo? " + aName);
         }
         return GT_Utility.copyAmount(
-                aAmount, new Object[] {mNameMap.get(aName.toString()), getFirstOre(aName, aAmount), aReplacement});
+                aAmount, mNameMap.get(aName.toString()), getFirstOre(aName, aAmount), aReplacement);
     }
 
     public static ItemStack getFirstOre(final Object aName, final long aAmount) {
@@ -318,7 +318,7 @@ public class RecipeGen_Recycling implements Runnable {
         final ItemStack tStack = mNameMap.get(aName.toString());
         if (GT_Utility.isStackValid(tStack)) {
             Logger.WARNING("Found valid stack.");
-            return GT_Utility.copyAmount(aAmount, new Object[] {tStack});
+            return GT_Utility.copyAmount(aAmount, tStack);
         }
         return GT_Utility.copyAmount(aAmount, getOres(aName).toArray());
     }

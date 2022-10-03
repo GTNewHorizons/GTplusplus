@@ -67,7 +67,6 @@ public class FishTrapHandler {
                 mHandler.addTrapTreasure(lootStack, lootChance);
                 Logger.INFO("Added " + lootStack.getDisplayName() + " as extra Treasure for Growthcraft Fishtraps.");
             } else {
-                return;
             }
         } /*
           else if (LoadedMods.getModVersion("Growthcraft").contains("2.7.2")){

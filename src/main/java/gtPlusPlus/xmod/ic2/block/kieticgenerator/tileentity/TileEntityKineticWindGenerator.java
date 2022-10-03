@@ -47,7 +47,7 @@ public class TileEntityKineticWindGenerator extends TileEntityWindKineticGenerat
         boolean needsInvUpdate = false;
         if (!this.rotorSlot.isEmpty()) {
             if (this.checkSpace(1, true) == 0) {
-                if (this.getActive() != true) {
+                if (!this.getActive()) {
                     this.setActive(true);
                 }
                 needsInvUpdate = true;
@@ -137,12 +137,10 @@ public class TileEntityKineticWindGenerator extends TileEntityWindKineticGenerat
     @Override
     public String getRotorhealth() {
         if (!this.rotorSlot.isEmpty()) {
-            return StatCollector.translateToLocalFormatted("ic2.WindKineticGenerator.gui.rotorhealth", new Object[] {
-                Integer.valueOf((int) (100.0F
-                        - ((this.rotorSlot.get().getItemDamage()
-                                        / this.rotorSlot.get().getMaxDamage())
-                                * 100.0F)))
-            });
+            return StatCollector.translateToLocalFormatted("ic2.WindKineticGenerator.gui.rotorhealth", Integer.valueOf((int) (100.0F
+                    - ((this.rotorSlot.get().getItemDamage()
+                                    / this.rotorSlot.get().getMaxDamage())
+                            * 100.0F))));
         }
         return "";
     }
@@ -320,10 +318,7 @@ public class TileEntityKineticWindGenerator extends TileEntityWindKineticGenerat
 
     @Override
     public boolean guiisoverload() {
-        if (this.windStrength > this.getMaxWindStrength()) {
-            return true;
-        }
-        return false;
+        return this.windStrength > this.getMaxWindStrength();
     }
 
     @Override

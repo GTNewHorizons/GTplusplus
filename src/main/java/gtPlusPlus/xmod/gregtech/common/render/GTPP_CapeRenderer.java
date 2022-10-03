@@ -289,7 +289,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
     private static class CapeUtils {
 
-        private static char SPLIT_CHARACTER = '§';
+        private static final char SPLIT_CHARACTER = '§';
         private static AES sAES;
 
         // UUID - Username
@@ -319,10 +319,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             if (!doesCapeCacheExistLocally()) {
                 return true;
             }
-            if (isCapeCacheWeekOld()) {
-                return true;
-            }
-            return false;
+            return isCapeCacheWeekOld();
         }
 
         private static final boolean isCapeCacheWeekOld() {
@@ -331,12 +328,9 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             } else {
                 File dat = CapeUtils.getCapeCache();
                 Date dateLastMod = new Date(dat.lastModified());
-                Date dateNow = new Date(System.currentTimeMillis() - (7l * 24 * 60 * 60 * 1000));
-                if (dateLastMod.before(dateNow)) {
-                    return true;
-                }
+                Date dateNow = new Date(System.currentTimeMillis() - (7L * 24 * 60 * 60 * 1000));
+                return dateLastMod.before(dateNow);
             }
-            return false;
         }
 
         private static final void downloadCapeList() {
@@ -359,10 +353,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             double aExistingFileSize =
                     (doesCapeCacheExistLocally() ? getCapeCache().length() : 0);
             double aNewFileSize = aFile.length();
-            if (aNewFileSize > aExistingFileSize) {
-                return true;
-            }
-            return false;
+            return aNewFileSize > aExistingFileSize;
         }
 
         private static void handleOldCapeCache() {
@@ -374,10 +365,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
         private static final boolean doesCapeCacheExistLocally() {
             File aCacheFile = FileUtils.getFile("CapeCache", "dat");
-            if (FileUtils.doesFileExist(aCacheFile)) {
-                return true;
-            }
-            return false;
+            return FileUtils.doesFileExist(aCacheFile);
         }
 
         private static final File getCapeCache() {

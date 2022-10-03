@@ -28,7 +28,7 @@ public class GUI_TreeFarmer extends GT_GUIContainerMetaTile_Machine {
         if (this.mContainer != null) {
             this.maxPower = ((CONTAINER_TreeFarmer) this.mContainer).maxEU;
             this.storedPower = ((CONTAINER_TreeFarmer) this.mContainer).storedEU;
-            if (((CONTAINER_TreeFarmer) this.mContainer).mDisplayErrorCode == 0) {
+            if (this.mContainer.mDisplayErrorCode == 0) {
                 this.fontRendererObj.drawString("Current Power: " + this.storedPower + "EU", 8, 52, 16448255);
                 this.fontRendererObj.drawString("Max Power: " + this.maxPower + "EU", 8, 60, 16448255);
                 this.fontRendererObj.drawString("Current operations left: " + (this.storedPower / 32), 8, 68, 16448255);

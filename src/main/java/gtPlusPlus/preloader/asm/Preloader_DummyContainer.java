@@ -13,6 +13,8 @@ import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.Preloader_Logger;
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
+
 import net.minecraftforge.common.config.Configuration;
 
 public class Preloader_DummyContainer extends DummyModContainer {
@@ -24,7 +26,7 @@ public class Preloader_DummyContainer extends DummyModContainer {
         meta.name = CORE_Preloader.NAME;
         meta.version = CORE_Preloader.VERSION;
         meta.credits = "Roll Credits ...";
-        meta.authorList = Arrays.asList("Alkalus");
+        meta.authorList = Collections.singletonList("Alkalus");
         meta.description = "";
         meta.url = "";
         meta.updateUrl = "";

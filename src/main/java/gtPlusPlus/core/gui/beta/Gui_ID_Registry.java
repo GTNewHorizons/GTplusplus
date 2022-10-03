@@ -36,7 +36,7 @@ public class Gui_ID_Registry {
         if (guiId == null) {
             for (final Map.Entry<Class<? extends IGuiManagerMiscUtils>, MU_GuiId> classGuiIdEntry :
                     classMap.entrySet()) {
-                if (((Class<?>) classGuiIdEntry.getKey()).isAssignableFrom(guiHandlerClass)) {
+                if (classGuiIdEntry.getKey().isAssignableFrom(guiHandlerClass)) {
                     guiId = classGuiIdEntry.getValue();
                     break;
                 }

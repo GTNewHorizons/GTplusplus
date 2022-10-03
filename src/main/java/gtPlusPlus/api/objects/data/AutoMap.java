@@ -94,11 +94,7 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
     public synchronized boolean setValue(V object) {
         int mOriginalID = this.mInternalID;
         put(object);
-        if (this.mInternalMap.get(mOriginalID).equals(object) || mOriginalID > this.mInternalID) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.mInternalMap.get(mOriginalID).equals(object) || mOriginalID > this.mInternalID;
     }
 
     public synchronized V put(V object) {
@@ -149,7 +145,6 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
         this.mInternalID = 0;
         this.mInternalMap.clear();
         this.mInternalNameMap.clear();
-        return;
     }
 
     @SuppressWarnings("unchecked")
@@ -195,6 +190,7 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
         for (Object g : c) {
             if (!this.contains(g)) {
                 aTrue = false;
+                break;
             }
         }
         return aTrue;

@@ -22,17 +22,15 @@ import net.minecraft.world.gen.structure.StructureVillagePieces;
 
 public class MapGenExtendedVillage extends MapGenStructure {
     /** A list of all the biomes villages can spawn in. */
-    public static List<BiomeGenBase> villageSpawnBiomes = Arrays.asList(new BiomeGenBase[] {
-        GTplusplus_Australia.Australian_Desert_Biome_3,
-        GTplusplus_Australia.Australian_Plains_Biome,
-        GTplusplus_Australia.Australian_Forest_Biome,
-        GTplusplus_Australia.Australian_Outback_Biome
-    });
+    public static List<BiomeGenBase> villageSpawnBiomes = Arrays.asList(GTplusplus_Australia.Australian_Desert_Biome_3,
+            GTplusplus_Australia.Australian_Plains_Biome,
+            GTplusplus_Australia.Australian_Forest_Biome,
+            GTplusplus_Australia.Australian_Outback_Biome);
     /** World terrain type, 0 for normal, 1 for flat map */
     private int terrainType;
 
     private int field_82665_g;
-    private int field_82666_h;
+    private final int field_82666_h;
 
     public MapGenExtendedVillage() {
         this.field_82665_g = 8;
@@ -48,9 +46,9 @@ public class MapGenExtendedVillage extends MapGenStructure {
         while (iterator.hasNext()) {
             Entry<?, ?> entry = (Entry<?, ?>) iterator.next();
 
-            if (((String) entry.getKey()).equals("size")) {
+            if (entry.getKey().equals("size")) {
                 this.terrainType = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(), this.terrainType, 0);
-            } else if (((String) entry.getKey()).equals("distance")) {
+            } else if (entry.getKey().equals("distance")) {
                 this.field_82665_g = MathHelper.parseIntWithDefaultAndMax(
                         (String) entry.getValue(), this.field_82665_g, this.field_82666_h + 1);
             }

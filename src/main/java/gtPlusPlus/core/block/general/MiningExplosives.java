@@ -97,7 +97,7 @@ public class MiningExplosives extends BlockTNT {
      */
     @Override
     public void onBlockDestroyedByPlayer(final World world, final int x, final int y, final int z, final int meta) {
-        this.func_150114_a(world, x, y, z, meta, (EntityLivingBase) null);
+        this.func_150114_a(world, x, y, z, meta, null);
     }
 
     // TODO Spawns Primed TNT?

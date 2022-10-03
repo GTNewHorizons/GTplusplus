@@ -3,9 +3,7 @@ package gtPlusPlus.xmod.gregtech.common.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.GregTech_API;
 import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.ITexture;
-import gregtech.api.objects.GT_MultiTexture;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
@@ -13,7 +11,6 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
-import java.util.List;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -23,6 +20,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 public class MetaCustomCoverItem extends Item {
 
@@ -65,7 +64,7 @@ public class MetaCustomCoverItem extends Item {
             }
             GregTech_API.registerCover(
                     thisStack,
-                    new GT_MultiTexture(new ITexture[] {new GT_RenderedTexture(mTextures[i])}),
+                    TextureFactory.of(TextureFactory.of(mTextures[i])),
                     new GTPP_Cover_ToggleVisual());
         }
     }
@@ -171,11 +170,7 @@ public class MetaCustomCoverItem extends Item {
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (KeyboardUtils.isShiftKeyDown()) {
             boolean con = getCoverConnections(stack);
-            if (con) {
-                setCoverConnections(stack, false);
-            } else {
-                setCoverConnections(stack, true);
-            }
+            setCoverConnections(stack, !con);
         }
         return stack;
     }

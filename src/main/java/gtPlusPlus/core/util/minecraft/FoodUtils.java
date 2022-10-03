@@ -31,9 +31,7 @@ public class FoodUtils {
         EnumAction action = item.getItemUseAction(food);
 
         if (item instanceof ItemBlock || action == EnumAction.eat || action == EnumAction.drink) {
-            if (getUnmodifiedFoodValues(food) > 0) {
-                return true;
-            }
+            return getUnmodifiedFoodValues(food) > 0;
         }
 
         return false;

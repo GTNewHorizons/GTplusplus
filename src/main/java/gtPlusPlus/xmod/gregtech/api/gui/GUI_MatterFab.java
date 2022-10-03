@@ -37,30 +37,30 @@ public class GUI_MatterFab extends GT_GUIContainerMetaTile_Machine {
         this.fontRendererObj.drawString(this.mName, 10, 8, 16448255);
 
         if (this.mContainer != null) {
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 1) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 1) != 0) {
                 this.fontRendererObj.drawString("Pipe is loose.", 10, 16, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 2) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 2) != 0) {
                 this.fontRendererObj.drawString("Screws are loose.", 10, 24, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 4) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 4) != 0) {
                 this.fontRendererObj.drawString("Something is stuck.", 10, 32, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 8) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 8) != 0) {
                 this.fontRendererObj.drawString("Platings are dented.", 10, 40, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 16) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 16) != 0) {
                 this.fontRendererObj.drawString("Circuitry burned out.", 10, 48, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 32) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 32) != 0) {
                 this.fontRendererObj.drawString("That doesn't belong there.", 10, 56, 16448255);
             }
-            if ((((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode & 64) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 64) != 0) {
                 this.fontRendererObj.drawString("Incomplete Structure.", 10, 64, 16448255);
             }
 
-            if (((CONTAINER_MatterFab) this.mContainer).mDisplayErrorCode == 0) {
-                if (((CONTAINER_MatterFab) this.mContainer).mActive == 0) {
+            if (this.mContainer.mDisplayErrorCode == 0) {
+                if (this.mContainer.mActive == 0) {
                     this.fontRendererObj.drawString("Hit with Soft Mallet", 10, 16, 16448255);
                     this.fontRendererObj.drawString("to (re-)start the Machine", 10, 24, 16448255);
                     this.fontRendererObj.drawString("if it doesn't start.", 10, 32, 16448255);

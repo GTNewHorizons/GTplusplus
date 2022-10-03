@@ -13,7 +13,6 @@ import javax.crypto.spec.SecretKeySpec;
 public class AES {
 
     private final String secret;
-    ;
 
     private final SecretKeySpec secretKey;
 
@@ -88,7 +87,7 @@ public class AES {
 
             try {
 
-                aKeyData = aKey.getBytes("UTF-8");
+                aKeyData = aKey.getBytes(StandardCharsets.UTF_8);
 
                 sha = MessageDigest.getInstance("SHA-1");
 
@@ -102,9 +101,6 @@ public class AES {
 
                 e.printStackTrace();
 
-            } catch (UnsupportedEncodingException e) {
-
-                e.printStackTrace();
             }
         }
 
@@ -124,11 +120,11 @@ public class AES {
 
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
-            return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
+            return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
 
         } catch (Exception e) {
 
-            System.out.println("Error while encrypting: " + e.toString());
+            System.out.println("Error while encrypting: " + e);
         }
 
         return null;

@@ -22,7 +22,7 @@ public class DustDecayable extends BaseItemTickable {
     private final int radLevel;
 
     public DustDecayable(String unlocal, int colour, int maxTicks, String[] desc1, Item turnsInto, int radLevel) {
-        super(true, true, unlocal, colour, (maxTicks / 1), desc1);
+        super(true, true, unlocal, colour, (maxTicks), desc1);
         this.turnsIntoItem = turnsInto;
         this.radLevel = radLevel;
         GT_OreDictUnificator.registerOre(unlocal, ItemUtils.getSimpleStack(this));

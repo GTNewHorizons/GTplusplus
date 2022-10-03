@@ -110,7 +110,7 @@ public class EggBox extends BlockContainer implements ITileTooltip {
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityEggBox)) {
+        if ((te instanceof TileEntityEggBox)) {
             player.openGui(GTplusplus.instance, GuiHandler.GUI17, world, x, y, z);
             return true;
         }

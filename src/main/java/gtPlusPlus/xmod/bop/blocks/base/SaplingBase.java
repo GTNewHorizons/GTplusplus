@@ -118,12 +118,7 @@ public class SaplingBase extends BlockSapling {
         int j1 = 0;
         boolean flag = false;
 
-        switch (l) {
-            case 0:
-            default:
-                Logger.WARNING("Case 0 - Grow Tree");
-                break;
-        }
+        Logger.WARNING("Case 0 - Grow Tree");
 
         Block block = Blocks.air;
 

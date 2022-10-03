@@ -20,10 +20,10 @@ import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 public class PlayerSleepEventHandler {
 
-    private static Field sEffectDuration = ReflectionUtils.getField(
+    private static final Field sEffectDuration = ReflectionUtils.getField(
             PotionEffect.class, DevHelper.isObfuscatedEnvironment() ? "field_76460_b" : "duration");
-    private static ArrayList<Potion> sPositiveEffects = new ArrayList<Potion>();
-    private static ArrayList<Potion> sNegativeEffects = new ArrayList<Potion>();
+    private static final ArrayList<Potion> sPositiveEffects = new ArrayList<Potion>();
+    private static final ArrayList<Potion> sNegativeEffects = new ArrayList<Potion>();
 
     public static void init() {
         Utils.registerEvent(new PlayerSleepEventHandler());
@@ -101,6 +101,6 @@ public class PlayerSleepEventHandler {
     }
 
     private static void messagePlayer(EntityPlayer aPlayer, String aChatKey) {
-        PlayerUtils.messagePlayer(aPlayer, new ChatComponentTranslation(aChatKey, new Object[0]));
+        PlayerUtils.messagePlayer(aPlayer, new ChatComponentTranslation(aChatKey));
     }
 }

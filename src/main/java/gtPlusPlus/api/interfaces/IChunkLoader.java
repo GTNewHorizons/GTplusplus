@@ -5,27 +5,27 @@ import net.minecraft.world.ChunkCoordIntPair;
 
 public interface IChunkLoader {
 
-    public long getTicksRemaining();
+    long getTicksRemaining();
 
-    public void setTicksRemaining(long aTicks);
+    void setTicksRemaining(long aTicks);
 
-    public ChunkCoordIntPair getResidingChunk();
+    ChunkCoordIntPair getResidingChunk();
 
-    public void setResidingChunk(ChunkCoordIntPair aCurrentChunk);
+    void setResidingChunk(ChunkCoordIntPair aCurrentChunk);
 
-    public boolean getChunkLoadingActive();
+    boolean getChunkLoadingActive();
 
-    public void setChunkLoadingActive(boolean aActive);
+    void setChunkLoadingActive(boolean aActive);
 
-    public boolean getDoesWorkChunkNeedReload();
+    boolean getDoesWorkChunkNeedReload();
 
-    public void setDoesWorkChunkNeedReload(boolean aActive);
+    void setDoesWorkChunkNeedReload(boolean aActive);
 
-    public boolean addChunkToLoadedList(ChunkCoordIntPair aActiveChunk);
+    boolean addChunkToLoadedList(ChunkCoordIntPair aActiveChunk);
 
-    public boolean removeChunkFromLoadedList(ChunkCoordIntPair aActiveChunk);
+    boolean removeChunkFromLoadedList(ChunkCoordIntPair aActiveChunk);
 
-    public Set<ChunkCoordIntPair> getManagedChunks();
+    Set<ChunkCoordIntPair> getManagedChunks();
 
-    public int getChunkloaderTier();
+    int getChunkloaderTier();
 }

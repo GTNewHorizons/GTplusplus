@@ -55,7 +55,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     private int mPipeCasingTier = 0;
     private int mCoilTier = 0;
     private HeatingCoilLevel checkCoil;
-    private int[] checkCasing = new int[8];
+    private final int[] checkCasing = new int[8];
     private int checkMachine;
     private int checkPipe;
     private int maxTierOfHatch;

@@ -527,7 +527,7 @@ public class CustomOreBlockRenderer implements ISimpleBlockRenderingHandler {
                     .getAtlasSprite("missingno");
         }
 
-        return (IIcon) iicon;
+        return iicon;
     }
 
     IBlockAccess blockAccess = RenderBlocks.getInstance().blockAccess;

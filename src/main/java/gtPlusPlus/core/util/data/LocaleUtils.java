@@ -14,7 +14,7 @@ public class LocaleUtils {
 
     public static boolean generateFakeLocaleFile() {
         for (ModContainer modcontainer : Loader.instance().getModList()) {
-            if (modcontainer.getModId().toLowerCase().equals("miscutils")) {
+            if (modcontainer.getModId().equalsIgnoreCase("miscutils")) {
                 String S = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
                 writeToFile(S);
                 dumpItemsAndBlocksForModContainer(modcontainer);

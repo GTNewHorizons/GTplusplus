@@ -44,11 +44,7 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
         aTempWriter = new ClassWriter(aTempReader, ClassWriter.COMPUTE_FRAMES);
         aTempReader.accept(new localClassVisitor(aTempWriter), 0);
 
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         reader = aTempReader;
         writer = aTempWriter;
 
@@ -73,7 +69,7 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
 
         boolean isObfuscated;
         try {
-            isObfuscated = Class.forName("net.minecraft.item.ItemStack") != null ? false : true;
+            isObfuscated = Class.forName("net.minecraft.item.ItemStack") == null;
         } catch (ClassNotFoundException e) {
             isObfuscated = true;
         }
@@ -175,17 +171,16 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
                     if (!oreStacks.containsKey(Integer.valueOf(arg1))) {
                         oreStacks.put(Integer.valueOf(arg1), new ArrayList<ItemStack>());
                     }
-                    ((ArrayList<ItemStack>) oreStacks.get(Integer.valueOf(arg1))).add(arg);
+                    oreStacks.get(Integer.valueOf(arg1)).add(arg);
                     ItemWrapper arg2 = ItemWrapper.fromItemStack(arg);
                     if (!stackIDs.containsKey(arg2)) {
                         stackIDs.put(arg2, new ArrayList<Integer>());
                         stackNames.put(arg2, new ArrayList<String>());
                     }
-                    ((ArrayList<Integer>) stackIDs.get(arg2)).add(Integer.valueOf(arg1));
-                    ((ArrayList<String>) stackNames.get(arg2)).add(arg0);
+                    stackIDs.get(arg2).add(Integer.valueOf(arg1));
+                    stackNames.get(arg2).add(arg0);
                 }
             } catch (Throwable t) {
-                return;
             }
         }
     }

@@ -229,10 +229,7 @@ public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_
     public static boolean hasSpaceForEnergy(GT_MetaTileEntity_Hatch_Energy_RTG aTile, long aAmount) {
         long aMax = aTile.maxEUStore();
         long aCurrent = aTile.getEUVar();
-        if ((aMax - aCurrent) >= aAmount) {
-            return true;
-        }
-        return false;
+        return (aMax - aCurrent) >= aAmount;
     }
 
     public void updateSlots() {

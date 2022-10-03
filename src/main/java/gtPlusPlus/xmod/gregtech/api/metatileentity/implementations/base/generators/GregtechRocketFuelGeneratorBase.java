@@ -20,7 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public abstract class GregtechRocketFuelGeneratorBase extends GT_MetaTileEntity_BasicTank {
 
-    private boolean useFuel = false;
+    private final boolean useFuel = false;
     protected int pollMin, pollMax;
 
     public GregtechRocketFuelGeneratorBase(
@@ -290,7 +290,7 @@ public abstract class GregtechRocketFuelGeneratorBase extends GT_MetaTileEntity_
                     if ((tFluidAmountToUse > 0)
                             && aBaseMetaTileEntity.increaseStoredEnergyUnits(tFluidAmountToUse * tFuelValue, true)) {
                         int aSafeFloor = (int) Math.max(((tFluidAmountToUse * tConsumed) / 3), 1);
-                        this.mFluid.amount -= (int) aSafeFloor;
+                        this.mFluid.amount -= aSafeFloor;
                         PollutionUtils.addPollution(getBaseMetaTileEntity(), 10 * getPollution());
                     }
                 }

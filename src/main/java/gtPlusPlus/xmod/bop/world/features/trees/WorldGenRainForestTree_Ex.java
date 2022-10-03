@@ -255,10 +255,7 @@ public class WorldGenRainForestTree_Ex extends WorldGenAbstractTree {
                     return false;
                 } else if (xDir == xDirMax - 1 && zDir == zDirMin + 1) {
                     return false;
-                } else if (xDir == xDirMax - 1 && zDir == zDirMax - 1) {
-                    return false;
-                }
-                return true;
+                } else return xDir != xDirMax - 1 || zDir != zDirMax - 1;
             }
             return false;
         } else {

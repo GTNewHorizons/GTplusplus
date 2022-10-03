@@ -3,7 +3,7 @@ package gtPlusPlus.xmod.gregtech.loaders;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
@@ -59,7 +59,7 @@ public class RecipeGen_Plates extends RecipeGen_Base {
             if (addBenderRecipe(
                     ingotStackOne,
                     plate_Single,
-                    (int) Math.max(material.getMass() * 1L, 1L),
+                    (int) Math.max(material.getMass(), 1L),
                     material.vVoltageMultiplier)) {
                 Logger.WARNING("Bender Recipe: " + material.getLocalizedName() + " - Success");
             } else {
@@ -122,7 +122,7 @@ public class RecipeGen_Plates extends RecipeGen_Base {
                     material.vVoltageMultiplier)) {
                 GregTech_API.registerCover(
                         material.getFoil(1),
-                        new GT_RenderedTexture(material.getTextureSet().mTextures[70], material.getRGBA(), false),
+                        TextureFactory.of(material.getTextureSet().mTextures[70], material.getRGBA(), false),
                         null);
                 Logger.WARNING("Bender Foil Recipe: " + material.getLocalizedName() + " - Success");
             } else {

@@ -296,7 +296,7 @@ public class HANDLER_GT {
         Logger.INFO("Trying to appropriately retier GT Machine Hulls/Casings from LuV+");
         final Object aHardCasingsTest = StaticFields59.getFieldFromGregtechProxy("mHardMachineCasings");
 
-        boolean aHardCasings = aHardCasingsTest != null ? (boolean) aHardCasingsTest : false;
+        boolean aHardCasings = aHardCasingsTest != null && (boolean) aHardCasingsTest;
 
         Logger.INFO("Are Hard casings/hulls enabled within GT? "
                 + (aHardCasingsTest == null ? "Version does not support config option" : aHardCasings));
@@ -626,7 +626,7 @@ public class HANDLER_GT {
                                     aG.mCanBeBuffered = false;
                                     aRemoved++;
                                 } else {
-                                    break outputs;
+                                    break;
                                 }
 
                             } else {

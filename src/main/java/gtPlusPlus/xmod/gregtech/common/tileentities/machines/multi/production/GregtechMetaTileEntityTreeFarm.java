@@ -148,7 +148,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         // is correct part && either not powered tool or have enough power
         if (TreeFarmHelper.isValidForGUI(aStack)
                 && GT_MetaGenerated_Tool.getToolDamage(aStack) < GT_MetaGenerated_Tool.getToolMaxDamage(aStack)) {
-            return GT_ModHandler.isElectricItem(aStack) ? GT_ModHandler.canUseElectricItem(aStack, 32) : true;
+            return !GT_ModHandler.isElectricItem(aStack) || GT_ModHandler.canUseElectricItem(aStack, 32);
         }
         return false;
     }

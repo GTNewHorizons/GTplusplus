@@ -133,7 +133,7 @@ public class ItemGiantEgg extends BaseItemTickable {
             float mSizeMod = (MathUtils.randInt(-5, 5) / 5);
             mSize += mSizeMod;
             mSize = Math.max(mSize, 1);
-            ItemStack eggYolks[] = new ItemStack[mSize];
+            ItemStack[] eggYolks = new ItemStack[mSize];
             for (int u = 0; u < mSize; u++) {
                 eggYolks[u] = ItemUtils.getSimpleStack(aStemCells, MathUtils.randInt(1, 4));
             }
@@ -171,7 +171,7 @@ public class ItemGiantEgg extends BaseItemTickable {
         }
         boolean a1, a2;
         a1 = this.isTicking(world, iStack);
-        a2 = a1 ? tickItemTag(world, iStack) : false;
+        a2 = a1 && tickItemTag(world, iStack);
 
         // Logger.INFO("Is Ticking? "+a1);
         // Logger.INFO("Did Tick? "+a2);
@@ -249,20 +249,20 @@ public class ItemGiantEgg extends BaseItemTickable {
                 float f = 0.1F;
                 float f1;
                 f = 0.3F;
-                entityitem.motionX = (double) (-MathHelper.sin(player.rotationYaw / 180.0F * (float) Math.PI)
+                entityitem.motionX = -MathHelper.sin(player.rotationYaw / 180.0F * (float) Math.PI)
                         * MathHelper.cos(player.rotationPitch / 180.0F * (float) Math.PI)
-                        * f);
-                entityitem.motionZ = (double) (MathHelper.cos(player.rotationYaw / 180.0F * (float) Math.PI)
+                        * f;
+                entityitem.motionZ = MathHelper.cos(player.rotationYaw / 180.0F * (float) Math.PI)
                         * MathHelper.cos(player.rotationPitch / 180.0F * (float) Math.PI)
-                        * f);
+                        * f;
                 entityitem.motionY =
-                        (double) (-MathHelper.sin(player.rotationPitch / 180.0F * (float) Math.PI) * f + 0.1F);
+                        -MathHelper.sin(player.rotationPitch / 180.0F * (float) Math.PI) * f + 0.1F;
                 f = 0.02F;
                 f1 = RANDOM.nextFloat() * (float) Math.PI * 2.0F;
                 f *= RANDOM.nextFloat();
-                entityitem.motionX += Math.cos((double) f1) * (double) f;
-                entityitem.motionY += (double) ((RANDOM.nextFloat() - RANDOM.nextFloat()) * 0.1F);
-                entityitem.motionZ += Math.sin((double) f1) * (double) f;
+                entityitem.motionX += Math.cos(f1) * (double) f;
+                entityitem.motionY += (RANDOM.nextFloat() - RANDOM.nextFloat()) * 0.1F;
+                entityitem.motionZ += Math.sin(f1) * (double) f;
                 return entityitem;
             }
         }

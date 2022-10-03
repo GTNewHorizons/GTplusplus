@@ -74,14 +74,11 @@ public class StringUtils {
             return true;
         } else if (s.contains(StringUtils.subscript("8"))) {
             return true;
-        } else if (s.contains(StringUtils.subscript("9"))) {
-            return true;
-        }
-        return false;
+        } else return s.contains(StringUtils.subscript("9"));
     }
 
     // Can call this Enum for formatting.
-    public static enum TextUtils {
+    public enum TextUtils {
         blue('1'),
         green('2'),
         teal('3'),
@@ -99,9 +96,9 @@ public class StringUtils {
         yellow('e'),
         white('f');
 
-        private char colourValue;
+        private final char colourValue;
 
-        private TextUtils(final char value) {
+        TextUtils(final char value) {
             this.colourValue = value;
         }
 
@@ -127,7 +124,7 @@ public class StringUtils {
             String aData = "";
             for (V y : parameterTypes) {
                 if (y != null) {
-                    aData += ", " + y.toString();
+                    aData += ", " + y;
                 }
             }
             return aData;
@@ -140,7 +137,7 @@ public class StringUtils {
      * @return - Is this a special character?
      */
     public static boolean isSpecialCharacter(char aChar) {
-        if (aChar == '"'
+        return aChar == '"'
                 || aChar == '.'
                 || aChar == '$'
                 || aChar == '|'
@@ -154,14 +151,11 @@ public class StringUtils {
                 || aChar == '?'
                 || aChar == '*'
                 || aChar == '+'
-                || aChar == '\\') {
-            return true;
-        }
-        return false;
+                || aChar == '\\';
     }
 
     public static boolean isEscaped(String aString) {
-        return aString.substring(0, 1).equals("\\");
+        return aString.charAt(0) == '\\';
     }
 
     public static String splitAndUppercase(String aInput, String aDelim) {
@@ -171,6 +165,7 @@ public class StringUtils {
             for (int o = 0; o < aInput.length(); o++) {
                 if (isSpecialCharacter(aInput.charAt(o))) {
                     isSpecial = true;
+                    break;
                 }
             }
             if (isSpecial) {

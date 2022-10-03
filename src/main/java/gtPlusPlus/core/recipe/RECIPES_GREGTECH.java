@@ -439,11 +439,11 @@ public class RECIPES_GREGTECH {
                     ALLOY.NITINOL_60.getFluidStack(144 * 9 * (GTNH ? 4 : 2)),
                     ALLOY.ENERGYCRYSTAL.getFluidStack(144 * 9 * (GTNH ? 8 : 4)),
                     ALLOY.TUMBAGA.getFluidStack(144 * 9 * (GTNH ? 32 : 8)),
-                    ALLOY.NICHROME.getFluidStack(144 * 1 * (GTNH ? 16 : 4)),
+                    ALLOY.NICHROME.getFluidStack(144 * (GTNH ? 16 : 4)),
                 },
                 ItemUtils.getSimpleStack(ModBlocks.blockCasings3Misc, 15, 32),
                 20 * 60 * 10 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         // Slow Fusion Controller
         /*CORE.RA.addAssemblylineRecipe(
@@ -521,7 +521,7 @@ public class RECIPES_GREGTECH {
                 },
                 GregtechItemList.Hatch_Input_TurbineHousing.get(4),
                 20 * 60 * 60 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(8));
+                MaterialUtils.getVoltageForTier(8));
 
         /*
          * Contianment casings
@@ -557,8 +557,8 @@ public class RECIPES_GREGTECH {
                         CI.getAlternativeTieredFluid(j, 144 * (GTNH ? 16 : 12)),
                     },
                     aGemCasings[aCasingSlot++],
-                    20 * 60 * 1 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(j));
+                    20 * 60 * (GTNH ? 2 : 1),
+                    MaterialUtils.getVoltageForTier(j));
         }
 
         /*
@@ -593,14 +593,14 @@ public class RECIPES_GREGTECH {
                         CI.getTieredComponent(OrePrefixes.screw, j - 1, GTNH ? 8 : 4),
                     },
                     new FluidStack[] {
-                        CI.getTieredFluid(j, 144 * 1 * (GTNH ? 16 : 8)),
+                        CI.getTieredFluid(j, 144 * (GTNH ? 16 : 8)),
                         CI.getTertiaryTieredFluid(j - 2, 144 * 2 * (GTNH ? 16 : 8)),
                         CI.getAlternativeTieredFluid(j, 144 * (GTNH ? 16 : 8)),
                         CI.getTertiaryTieredFluid(j - 1, 144 * (GTNH ? 16 : 8)),
                     },
                     aGemBatteries[aCasingSlot++],
-                    20 * 60 * 1 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(j));
+                    20 * 60 * (GTNH ? 2 : 1),
+                    MaterialUtils.getVoltageForTier(j));
         }
 
         if (LoadedMods.Baubles) {
@@ -627,7 +627,7 @@ public class RECIPES_GREGTECH {
                     },
                     ItemUtils.getItemStackFromFQRN("miscutils:personalHealingDevice", 1),
                     20 * 60 * 30 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(7));
+                    MaterialUtils.getVoltageForTier(7));
 
             // Charge Pack LuV-UV
 
@@ -669,7 +669,7 @@ public class RECIPES_GREGTECH {
                         },
                         aChargeOutputs[aCurrSlot],
                         20 * 60 * 30 * (GTNH ? 2 : 1) * (aCurrSlot + 1),
-                        (int) MaterialUtils.getVoltageForTier(h));
+                        MaterialUtils.getVoltageForTier(h));
                 aCurrSlot++;
             }
 
@@ -696,7 +696,7 @@ public class RECIPES_GREGTECH {
                     },
                     ItemUtils.getItemStackFromFQRN("miscutils:personalCloakingDevice", 1),
                     20 * 60 * 30 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(8));
+                    MaterialUtils.getVoltageForTier(8));
         }
     }
 
@@ -753,7 +753,7 @@ public class RECIPES_GREGTECH {
                 ALLOY.NITINOL_60.getBlock(2),
                 GregtechItemList.Laser_Lens_Special.get(0),
                 ELEMENT.STANDALONE.ADVANCED_NITINOL.getBlock(1),
-                20 * 60 * 1,
+                20 * 60,
                 MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.ADVANCED_NITINOL.vTier));
 
         GT_Values.RA.addLaserEngraverRecipe(
@@ -1495,7 +1495,7 @@ public class RECIPES_GREGTECH {
                 new ItemStack[] {ItemUtils.getSimpleStack(ModItems.itemRope, 6)},
                 null,
                 ItemUtils.getSimpleStack(ModBlocks.blockNet, 2),
-                1 * 20,
+                20,
                 8);
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
@@ -1672,25 +1672,25 @@ public class RECIPES_GREGTECH {
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.WroughtIron, 1L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.WroughtIron, 2L),
-                        GregtechItemList.Fluid_Cell_1L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_1L.get(1L),
                         50,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Bronze, 1L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Bronze, 2L),
-                        GregtechItemList.Fluid_Cell_16L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_16L.get(1L),
                         50,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Brass, 1L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Brass, 2L),
-                        GregtechItemList.Fluid_Cell_36L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_36L.get(1L),
                         75,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Invar, 1L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Invar, 2L),
-                        GregtechItemList.Fluid_Cell_144L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_144L.get(1L),
                         75,
                         32);
 
@@ -1698,25 +1698,25 @@ public class RECIPES_GREGTECH {
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, Materials.WroughtIron, 8L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.WroughtIron, 4L),
-                        GregtechItemList.Fluid_Cell_1L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_1L.get(1L),
                         50,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Bronze, 8L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Bronze, 4L),
-                        GregtechItemList.Fluid_Cell_16L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_16L.get(1L),
                         50,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Brass, 8L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Brass, 4L),
-                        GregtechItemList.Fluid_Cell_36L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_36L.get(1L),
                         75,
                         32);
                 GT_Values.RA.addAssemblerRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Invar, 8L),
                         GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Invar, 4L),
-                        GregtechItemList.Fluid_Cell_144L.get(1L, new Object[0]),
+                        GregtechItemList.Fluid_Cell_144L.get(1L),
                         75,
                         32);
             }
@@ -1784,7 +1784,7 @@ public class RECIPES_GREGTECH {
     private static void distilleryRecipes() {
         Logger.INFO("Registering Distillery/Distillation Tower Recipes.");
         GT_Values.RA.addDistilleryRecipe(
-                ItemList.Circuit_Integrated.getWithDamage(0L, 4L, new Object[0]),
+                ItemList.Circuit_Integrated.getWithDamage(0L, 4L),
                 FluidUtils.getFluidStack("air", 1000),
                 FluidUtils.getFluidStack("helium", 1),
                 400,
@@ -1888,14 +1888,14 @@ public class RECIPES_GREGTECH {
     private static void extractorRecipes() {
         Logger.INFO("Registering Extractor Recipes.");
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Sodium.get(1L, new Object[0]),
-                ItemList.Battery_Hull_HV.get(4L, new Object[0]));
+                GregtechItemList.Battery_RE_EV_Sodium.get(1L),
+                ItemList.Battery_Hull_HV.get(4L));
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Cadmium.get(1L, new Object[0]),
-                ItemList.Battery_Hull_HV.get(4L, new Object[0]));
+                GregtechItemList.Battery_RE_EV_Cadmium.get(1L),
+                ItemList.Battery_Hull_HV.get(4L));
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Lithium.get(1L, new Object[0]),
-                ItemList.Battery_Hull_HV.get(4L, new Object[0]));
+                GregtechItemList.Battery_RE_EV_Lithium.get(1L),
+                ItemList.Battery_Hull_HV.get(4L));
     }
 
     private static void fluidExtractorRecipes() {}
@@ -2184,7 +2184,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {50, 50, 50, 50, 50, 50},
                 20 * 300 * 9,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Lepton Smash
@@ -2202,7 +2202,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {600, 40, 20, 15, 10, 5},
                 20 * 300 * 8,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Boson Smash
@@ -2219,7 +2219,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {160, 260, 150, 150, 1},
                 20 * 300 * 6,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Mixed Smash 1
@@ -2239,7 +2239,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {10, 20, 20, 10, 10, 5, 5, 2},
                 17 * 247 * 32,
-                (int) MaterialUtils.getVoltageForTier(8),
+                MaterialUtils.getVoltageForTier(8),
                 750 * 20);
 
         // Graviton Smash
@@ -2251,7 +2251,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {15, 100},
                 20 * (GTNH ? 90 : 30),
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1000 * 20);
 
         FluidStack aPlasma = Materials.Duranium.getMolten(GTNH ? 40 : 10);
@@ -2271,7 +2271,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {100},
                 20 * (GTNH ? 25 : 60),
-                (int) MaterialUtils.getVoltageForTier(8),
+                MaterialUtils.getVoltageForTier(8),
                 500 * 20);
 
         /*
@@ -2309,7 +2309,7 @@ public class RECIPES_GREGTECH {
                         null,
                         new int[] {275, 250, 225, 275, 250, 225, 275, 250, 275},
                         20 * 20 * (IonCount++) * tenCountA,
-                        (int) MaterialUtils.getVoltageForTier(7),
+                        MaterialUtils.getVoltageForTier(7),
                         1500 * 20 * tenCountA);
             } else {
                 Logger.INFO("Plasma for " + y + " does not exist, please report this to Alkalus.");
@@ -2341,7 +2341,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {500, 500, 500, 500, 500, 500, 500, 500, 500},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 2500);
 
         // Generate Hydrogen Plasma Recipe
@@ -2362,7 +2362,7 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getFluidStack("plasma.hydrogen", 100),
                 new int[] {1250, 1250, 1250, 750, 750, 750, 10000},
                 20 * 60 * 2,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 750 * 20);
 
         CORE.RA.addCyclotronRecipe(
@@ -2381,7 +2381,7 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getFluidStack("plasma.hydrogen", 100),
                 new int[] {1250, 1250, 1250, 750, 750, 750},
                 20 * 60 * 2,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 750 * 20);
 
         // Generate Protons Easily
@@ -2402,7 +2402,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {750, 750, 750, 750, 750, 750, 750, 750, 750},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1500);
 
         CORE.RA.addCyclotronRecipe(
@@ -2424,7 +2424,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {375, 375, 375, 375, 375, 375, 375, 375, 375},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1500);
 
         // Create Strange Dust
@@ -2445,7 +2445,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {2500},
                 20 * 60 * 15,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 250);
     }
 

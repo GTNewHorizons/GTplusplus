@@ -75,8 +75,8 @@ public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_O
                         && (this.mInventory[i] == null
                                 || GT_Utility.areStacksEqual(this.mInventory[i], this.mInventory[j]))) {
                     GT_Utility.moveStackFromSlotAToSlotB(
-                            (IInventory) this.getBaseMetaTileEntity(),
-                            (IInventory) this.getBaseMetaTileEntity(),
+                            this.getBaseMetaTileEntity(),
+                            this.getBaseMetaTileEntity(),
                             j,
                             i,
                             (byte) 64,

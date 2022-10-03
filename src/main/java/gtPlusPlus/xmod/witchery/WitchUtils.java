@@ -85,9 +85,7 @@ public class WitchUtils {
         c = ReflectionUtils.getClass(aClassName);
         if (c != null) {
             Field f = ReflectionUtils.getField(c, aFieldName);
-            if (f != null) {
-                return f;
-            }
+            return f;
         }
         return null;
     }

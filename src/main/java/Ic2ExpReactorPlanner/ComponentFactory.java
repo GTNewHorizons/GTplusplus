@@ -42,7 +42,7 @@ public class ComponentFactory {
         // do nothing, this class should not be instantiated.
     }
 
-    private static LinkedHashMap<Integer, ReactorItem> ITEM_LIST = new LinkedHashMap<Integer, ReactorItem>();
+    private static final LinkedHashMap<Integer, ReactorItem> ITEM_LIST = new LinkedHashMap<Integer, ReactorItem>();
 
     static {
         int aID = 0;

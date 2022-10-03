@@ -5,7 +5,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
@@ -289,7 +289,7 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
             NBTTagCompound tNBT = mInventory[30].getTagCompound();
             NBTTagList tNBT_ItemList = tNBT.getTagList("Blueprint", 10);
             for (int i = 0; i < tNBT_ItemList.tagCount() && i < 9; i++) {
-                NBTTagCompound tag = (NBTTagCompound) tNBT_ItemList.getCompoundTagAt(i);
+                NBTTagCompound tag = tNBT_ItemList.getCompoundTagAt(i);
                 byte slot = tag.getByte("Slot");
                 if (slot >= 0 && slot < 9 && mInventory[slot + 21] == null) {
                     mInventory[slot + 21] = GT_Utility.loadItem(tag);
@@ -298,11 +298,9 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
             }
         }
         mInventory[31] =
-                GT_ModHandler.getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), new ItemStack[] {
-                    mInventory[21], mInventory[22], mInventory[23],
-                    mInventory[24], mInventory[25], mInventory[26],
-                    mInventory[27], mInventory[28], mInventory[29]
-                });
+                GT_ModHandler.getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), mInventory[21], mInventory[22], mInventory[23],
+                        mInventory[24], mInventory[25], mInventory[26],
+                        mInventory[27], mInventory[28], mInventory[29]);
         return mInventory[31];
     }
 
@@ -525,37 +523,37 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
     public ITexture[] getFront(final byte aColor) {
         return new ITexture[] {
             isAdvanced()
-                    ? new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Side)
-                    : new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Side)
+                    ? TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Side)
+                    : TextureFactory.of(TexturesGtBlock.Casing_Workbench_Side)
         };
     }
 
     public ITexture[] getBack(final byte aColor) {
         return new ITexture[] {
             isAdvanced()
-                    ? new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Side)
-                    : new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Side)
+                    ? TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Side)
+                    : TextureFactory.of(TexturesGtBlock.Casing_Workbench_Side)
         };
     }
 
     public ITexture[] getBottom(final byte aColor) {
         return new ITexture[] {
             isAdvanced()
-                    ? new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Bottom)
-                    : new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Bottom)
+                    ? TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Bottom)
+                    : TextureFactory.of(TexturesGtBlock.Casing_Workbench_Bottom)
         };
     }
 
     public ITexture[] getTop(final byte aColor) {
         if (isAdvanced()) {
             return new ITexture[] {
-                new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Top),
-                new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Crafting_Overlay)
+                TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Top),
+                TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Crafting_Overlay)
             };
         } else {
             return new ITexture[] {
-                new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Top),
-                new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Crafting_Overlay)
+                TextureFactory.of(TexturesGtBlock.Casing_Workbench_Top),
+                TextureFactory.of(TexturesGtBlock.Casing_Workbench_Crafting_Overlay)
             };
         }
     }
@@ -563,8 +561,8 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
     public ITexture[] getSides(final byte aColor) {
         return new ITexture[] {
             isAdvanced()
-                    ? new GT_RenderedTexture(TexturesGtBlock.Casing_Adv_Workbench_Side)
-                    : new GT_RenderedTexture(TexturesGtBlock.Casing_Workbench_Side)
+                    ? TextureFactory.of(TexturesGtBlock.Casing_Adv_Workbench_Side)
+                    : TextureFactory.of(TexturesGtBlock.Casing_Workbench_Side)
         };
     }
 }

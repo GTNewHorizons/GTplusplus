@@ -117,11 +117,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
             }
         } catch (final Throwable t) {
         }
-        if (mDidTool) {
-            return true;
-        }
-
-        return false;
+        return mDidTool;
     }
 
     @Override
@@ -159,7 +155,6 @@ public abstract class BlockGenericRedstone extends BlockContainer {
         if (!mDidTool && !aPlayer.capabilities.isCreativeMode) {
             super.onBlockClicked(aWorld, aX, aY, aZ, aPlayer);
         } else {
-            return;
         }
     }
 
@@ -355,9 +350,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
         if (aTemp != null) {
             if (aTemp instanceof TileEntityRedstoneHandler) {
                 TileEntityRedstoneHandler g = (TileEntityRedstoneHandler) aTemp;
-                if (g != null) {
-                    return g;
-                }
+                return g;
             }
         }
         return null;

@@ -36,7 +36,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 
     public GT_NEI_LFTR_Sparging() {
         this.transferRects.add(new TemplateRecipeHandler.RecipeTransferRect(
-                new Rectangle(65, 13, 36, 18), this.getOverlayIdentifier(), new Object[0]));
+                new Rectangle(65, 13, 36, 18), this.getOverlayIdentifier()));
         if (!NEI_GT_Config.sIsAdded) {
             FMLInterModComms.sendRuntimeMessage(
                     GT_Values.GT,
@@ -73,7 +73,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 
     public void loadTransferRects() {
         this.transferRects.add(
-                new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getOverlayIdentifier(), new Object[0]));
+                new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getOverlayIdentifier()));
     }
 
     public List<GasSpargingRecipeNEI> getCache() {
@@ -165,7 +165,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
     public void drawExtras(int aRecipeIndex) {
         final long tEUt = ((GasSpargingRecipeNEI) this.arecipes.get(aRecipeIndex)).mRecipe.mEUt;
         final long tDuration = ((GasSpargingRecipeNEI) this.arecipes.get(aRecipeIndex)).mRecipe.mDuration;
-        drawText(10, 73, "Total: " + MathUtils.formatNumbers((long) (tDuration * tEUt)) + " EU", -16777216);
+        drawText(10, 73, "Total: " + MathUtils.formatNumbers(tDuration * tEUt) + " EU", -16777216);
         drawText(10, 83, "Usage: " + MathUtils.formatNumbers(tEUt) + " EU/t", -16777216);
         drawText(
                 10,
@@ -246,7 +246,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
                             ItemStack stack;
                             for (final Iterator<ItemStack> i$ = permutations.iterator();
                                     i$.hasNext();
-                                    tDisplayStacks.add(GT_Utility.copyAmount(tStack.stackSize, new Object[] {stack}))) {
+                                    tDisplayStacks.add(GT_Utility.copyAmount(tStack.stackSize, stack))) {
                                 stack = i$.next();
                             }
                         } else {
@@ -255,7 +255,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
                             tDisplayStacks.add(base);
                         }
                     } else {
-                        tDisplayStacks.add(GT_Utility.copy(new Object[] {tStack}));
+                        tDisplayStacks.add(GT_Utility.copy(tStack));
                     }
                 }
             }
@@ -419,7 +419,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 
         @Override
         public int compareTo(CachedRecipe o) {
-            boolean b = GasSpargingRecipeNEI.class.isInstance(o);
+            boolean b = o instanceof GasSpargingRecipeNEI;
             if (b) {
                 GasSpargingRecipeNEI p = (GasSpargingRecipeNEI) o;
                 if (p.mOutputs.size() > this.mOutputs.size()) {
@@ -436,13 +436,11 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
         @Override
         public boolean equals(Object obj) {
             if (obj != null) {
-                if (GasSpargingRecipeNEI.class.isInstance(obj)) {
+                if (obj instanceof GasSpargingRecipeNEI) {
                     GasSpargingRecipeNEI p = (GasSpargingRecipeNEI) obj;
                     if (p != null) {
                         if (GT_Utility.areStacksEqual(p.mInputs.get(0).item, this.mInputs.get(0).item, true)) {
-                            if (p.mOutputs.size() == this.mOutputs.size()) {
-                                return true;
-                            }
+                            return p.mOutputs.size() == this.mOutputs.size();
                         }
                     }
                 }

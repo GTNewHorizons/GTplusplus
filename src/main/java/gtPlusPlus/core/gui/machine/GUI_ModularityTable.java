@@ -17,8 +17,8 @@ public class GUI_ModularityTable extends GuiContainer {
 
     private static final ResourceLocation craftingTableGuiTextures =
             new ResourceLocation(CORE.MODID, "textures/gui/ModularityTable.png");
-    private Container_ModularityTable mThisContainer;
-    private TileEntityModularityTable mThisTile;
+    private final Container_ModularityTable mThisContainer;
+    private final TileEntityModularityTable mThisTile;
     private int mRecipeTime = -1;
 
     public GUI_ModularityTable(final InventoryPlayer player_inventory, final TileEntityModularityTable tile) {
@@ -36,15 +36,15 @@ public class GUI_ModularityTable extends GuiContainer {
             this.mRecipeTime = this.mThisTile.getRecipeTime();
         }
         // Utils.LOG_INFO("Container: "+this.mRecipeTime);
-        this.fontRendererObj.drawString(I18n.format("Modularity Table", new Object[0]), 8, 6, 4210752);
+        this.fontRendererObj.drawString(I18n.format("Modularity Table"), 8, 6, 4210752);
         if (mRecipeTime > -1) {
-            this.fontRendererObj.drawString(I18n.format("Time", new Object[0]), 84, 42, 4210752);
-            this.fontRendererObj.drawString(I18n.format("Remaining", new Object[0]), 84, 50, 4210752);
+            this.fontRendererObj.drawString(I18n.format("Time"), 84, 42, 4210752);
+            this.fontRendererObj.drawString(I18n.format("Remaining"), 84, 50, 4210752);
             this.fontRendererObj.drawString(
-                    I18n.format("" + this.mRecipeTime + " Ticks", new Object[0]), 84, 58, 4210752);
+                    I18n.format("" + this.mRecipeTime + " Ticks"), 84, 58, 4210752);
         }
         this.fontRendererObj.drawString(
-                I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+                I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
 
     @Override

@@ -39,11 +39,8 @@ public class SlotLockedInput extends Slot {
         if (mLockStack == null) {
             return true;
         } else {
-            if (ItemStack.areItemStacksEqual(itemstack, mLockStack)) {
-                return true;
-            }
+            return ItemStack.areItemStacksEqual(itemstack, mLockStack);
         }
-        return false;
     }
 
     @Override

@@ -50,5 +50,5 @@ public interface IRandomGenerator {
      * @param numBits
      * @return and int with the LSB being random
      */
-    public int next(int numBits);
+    int next(int numBits);
 }

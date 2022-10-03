@@ -9,6 +9,7 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -465,9 +466,7 @@ public class BaseItemMetaFood extends ItemFood {
     private static ArrayList<String> getOreDictNamesAsArrayList(String... aOreDictNames) {
         ArrayList<String> aPackage = new ArrayList<String>();
         if (aOreDictNames != null && aOreDictNames.length > 0) {
-            for (String aEffect : aOreDictNames) {
-                aPackage.add(aEffect);
-            }
+            Collections.addAll(aPackage, aOreDictNames);
         }
         return aPackage;
     }

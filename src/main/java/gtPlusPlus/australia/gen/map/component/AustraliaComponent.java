@@ -98,7 +98,7 @@ public class AustraliaComponent extends StructureComponent {
 
         world.setBlock(i1, j1, k1, Blocks.dispenser, facing, 0);
         TileEntity tileDispenser = world.getTileEntity(i1, j1, k1);
-        if ((tileDispenser != null) && ((tileDispenser instanceof TileEntityDispenser))) {
+        if (((tileDispenser instanceof TileEntityDispenser))) {
             ChestGenHooks info = ChestGenHooks.getInfo("mineshaftCorridor");
             WeightedRandomChestContent.generateChestContents(
                     random, info.getItems(random), (TileEntityDispenser) tileDispenser, info.getCount(random));
@@ -114,7 +114,7 @@ public class AustraliaComponent extends StructureComponent {
 
         world.setBlock(i1, j1, k1, Blocks.mob_spawner, 0, 2);
         TileEntity tileSpawner = world.getTileEntity(i1, j1, k1);
-        if ((tileSpawner != null) && ((tileSpawner instanceof TileEntityMobSpawner))) {
+        if (((tileSpawner instanceof TileEntityMobSpawner))) {
             ((TileEntityMobSpawner) tileSpawner).func_145881_a().setEntityName(mobName);
         } else {
             Logger.WARNING("Failed to fetch mob spawner entity at (" + i1 + ", " + j1 + ", " + k1 + ")");

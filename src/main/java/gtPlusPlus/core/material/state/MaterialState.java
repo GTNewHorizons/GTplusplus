@@ -8,9 +8,9 @@ public enum MaterialState {
     PURE_LIQUID(4),
     ORE(5),
     PURE_GAS(6);
-    private int STATE;
+    private final int STATE;
 
-    private MaterialState(final int State) {
+    MaterialState(final int State) {
         this.STATE = State;
     }
 

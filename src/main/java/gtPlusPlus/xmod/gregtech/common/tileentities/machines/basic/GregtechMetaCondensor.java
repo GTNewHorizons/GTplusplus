@@ -5,7 +5,7 @@ import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
@@ -21,7 +21,7 @@ import net.minecraftforge.fluids.IFluidHandler;
 public class GregtechMetaCondensor extends GregtechMetaBoilerBase {
 
     public GregtechMetaCondensor(final int aID, final String aName, final String aNameRegional) {
-        super(aID, aName, aNameRegional, "A Steam condenser - [IC2->Steam]", new ITexture[0]);
+        super(aID, aName, aNameRegional, "A Steam condenser - [IC2->Steam]");
     }
 
     public GregtechMetaCondensor(
@@ -44,28 +44,28 @@ public class GregtechMetaCondensor extends GregtechMetaBoilerBase {
         final ITexture[][][] rTextures = new ITexture[5][17][];
         for (byte i = -1; i < 16; i++) {
             rTextures[0][(i + 1)] = new ITexture[] {
-                new GT_RenderedTexture(
+                TextureFactory.of(
                         Textures.BlockIcons.MACHINE_CASING_VENT, Dyes.getModulation(i, Dyes.MACHINE_METAL.mRGBa))
             };
             rTextures[1][(i + 1)] = new ITexture[] {
-                new GT_RenderedTexture(
+                TextureFactory.of(
                         Textures.BlockIcons.MACHINE_CASING_VENT, Dyes.getModulation(i, Dyes.MACHINE_METAL.mRGBa)),
-                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE)
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE)
             };
             rTextures[2][(i + 1)] = new ITexture[] {
-                new GT_RenderedTexture(
+                TextureFactory.of(
                         Textures.BlockIcons.MACHINE_CASING_VENT, Dyes.getModulation(i, Dyes.MACHINE_METAL.mRGBa)),
-                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE)
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE)
             };
             rTextures[3][(i + 1)] = new ITexture[] {
-                new GT_RenderedTexture(
+                TextureFactory.of(
                         Textures.BlockIcons.MACHINE_CASING_VENT, Dyes.getModulation(i, Dyes.MACHINE_METAL.mRGBa)),
-                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_POTIONBREWER)
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_FRONT_POTIONBREWER)
             };
             rTextures[4][(i + 1)] = new ITexture[] {
-                new GT_RenderedTexture(
+                TextureFactory.of(
                         Textures.BlockIcons.MACHINE_CASING_VENT, Dyes.getModulation(i, Dyes.MACHINE_METAL.mRGBa)),
-                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_POTIONBREWER_ACTIVE)
+                TextureFactory.of(Textures.BlockIcons.OVERLAY_FRONT_POTIONBREWER_ACTIVE)
             };
         }
         return rTextures;
@@ -127,7 +127,7 @@ public class GregtechMetaCondensor extends GregtechMetaBoilerBase {
             }
             if ((aTick % 10L) == 0L) {
                 if (this.mTemperature > 5) {
-                    if ((this.mFluid == null) || (!GT_ModHandler.isWater(this.mFluid)) || (this.mFluid.amount <= 0)) {
+                    if ((!GT_ModHandler.isWater(this.mFluid)) || (this.mFluid.amount <= 0)) {
                         this.mHadNoWater = true;
                     } else {
                         if (this.mHadNoWater) {

@@ -91,7 +91,7 @@ public class RecipeLoader_AlgaeFarm {
                 false,
                 aInputs,
                 aOutputs,
-                (Object) null,
+                null,
                 new int[] {},
                 new FluidStack[] {GT_Values.NF},
                 new FluidStack[] {GT_Values.NF},

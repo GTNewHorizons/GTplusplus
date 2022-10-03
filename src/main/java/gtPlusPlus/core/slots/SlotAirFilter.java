@@ -16,10 +16,7 @@ public class SlotAirFilter extends Slot {
         if (itemstack == null) {
             return false;
         }
-        if (itemstack.getItem() instanceof ItemAirFilter) {
-            return true;
-        }
-        return false;
+        return itemstack.getItem() instanceof ItemAirFilter;
     }
 
     @Override

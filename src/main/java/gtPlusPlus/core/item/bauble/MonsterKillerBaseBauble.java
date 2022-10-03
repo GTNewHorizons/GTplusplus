@@ -136,7 +136,7 @@ public class MonsterKillerBaseBauble extends ElectricBaseBauble {
                             EntityLiving aClosest = null;
                             double aEntityDistance = Short.MIN_VALUE;
                             for (Object ent : aEnts) {
-                                if (!EntityLiving.class.isInstance(ent)) {
+                                if (!(ent instanceof EntityLiving)) {
                                     continue;
                                 } else {
                                     double aCurEntDis = EntityUtils.getDistance(aPlayerEntity, (Entity) ent);
@@ -163,7 +163,6 @@ public class MonsterKillerBaseBauble extends ElectricBaseBauble {
                     }
                 }
             } else {
-                return;
             }
         }
     }

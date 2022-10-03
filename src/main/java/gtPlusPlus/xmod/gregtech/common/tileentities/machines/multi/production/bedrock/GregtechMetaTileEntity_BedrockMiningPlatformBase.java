@@ -48,8 +48,8 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
     private int yDrill;
     private int zDrill;
 
-    private int[] xCenter = new int[5];
-    private int[] zCenter = new int[5];
+    private final int[] xCenter = new int[5];
+    private final int[] zCenter = new int[5];
 
     public GregtechMetaTileEntity_BedrockMiningPlatformBase(
             final int aID, final String aName, final String aNameRegional) {
@@ -64,7 +64,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
 
     private void initFields() {
         this.casingBlock = this.getCasingBlockItem().getBlock();
-        this.casingMeta = this.getCasingBlockItem().get(0L, new Object[0]).getItemDamage();
+        this.casingMeta = this.getCasingBlockItem().get(0L).getItemDamage();
         this.casingTextureIndex = this.getCasingTextureIndex();
     }
 
@@ -211,7 +211,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
             }
             if (pipes == null) {
                 this.setInventorySlotContents(
-                        1, GT_Utility.copy(new Object[] {GregtechMetaTileEntity_BedrockMiningPlatformBase.miningPipe}));
+                        1, GT_Utility.copy(GregtechMetaTileEntity_BedrockMiningPlatformBase.miningPipe));
                 pipes = this.getStackInSlot(1);
             }
             if (pipes.stackSize == maxPipes) {
@@ -284,7 +284,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         this.yDrill = this.getBaseMetaTileEntity().getYCoord() - 1;
         this.zDrill = this.getBaseMetaTileEntity().getZCoord();
         this.back =
-                ForgeDirection.getOrientation((int) this.getBaseMetaTileEntity().getBackFacing());
+                ForgeDirection.getOrientation(this.getBaseMetaTileEntity().getBackFacing());
 
         // Middle
         this.xCenter[0] = this.xDrill + this.back.offsetX;
@@ -338,7 +338,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
     protected abstract int getBaseProgressTime();
 
     protected String[] getDescriptionInternal(final String tierSuffix) {
-        final String casings = this.getCasingBlockItem().get(0L, new Object[0]).getDisplayName();
+        final String casings = this.getCasingBlockItem().get(0L).getDisplayName();
         return new String[] {
             "Controller Block for the Experimental Deep Earth Drilling Platform - MK "
                     + ((tierSuffix != null) ? tierSuffix : ""),

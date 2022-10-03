@@ -18,7 +18,7 @@ public class GTPP_AspectCompat {
 
     public static volatile Method m = null;
 
-    private static HashMap<String, TC_Aspect_Wrapper> mAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
+    private static final HashMap<String, TC_Aspect_Wrapper> mAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
 
     public static TC_Aspect_Wrapper ASPECT_BALANCE;
     public static TC_Aspect_Wrapper ASPECT_LUST;
@@ -82,7 +82,7 @@ public class GTPP_AspectCompat {
         LinkedHashMap<String, Object> h = TC_Aspect_Wrapper.getVanillaAspectList();
         for (String g : h.keySet()) {
             Object aBaseAspect = h.get(g);
-            if (aBaseAspect != null && TC_Aspect_Wrapper.isObjectAnAspect(aBaseAspect)) {
+            if (TC_Aspect_Wrapper.isObjectAnAspect(aBaseAspect)) {
                 TC_Aspect_Wrapper aS = TC_Aspect_Wrapper.getAspect(g);
                 if (aS != null) {
                     mAspectCache.put(g, aS);

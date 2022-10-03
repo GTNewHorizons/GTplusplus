@@ -144,9 +144,9 @@ public class EntityOctopus extends EntityWaterMob {
             }
 
             if (!this.worldObj.isRemote) {
-                this.motionX = (double) (this.randomMotionVecX * this.randomMotionSpeed);
-                this.motionY = (double) (this.randomMotionVecY * this.randomMotionSpeed);
-                this.motionZ = (double) (this.randomMotionVecZ * this.randomMotionSpeed);
+                this.motionX = this.randomMotionVecX * this.randomMotionSpeed;
+                this.motionY = this.randomMotionVecY * this.randomMotionSpeed;
+                this.motionZ = this.randomMotionVecZ * this.randomMotionSpeed;
             }
 
             f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -156,7 +156,7 @@ public class EntityOctopus extends EntityWaterMob {
             this.rotationYaw = this.renderYawOffset;
             this.octopusYaw += (float) Math.PI * this.field_70871_bB * 1.5F;
             this.octopusPitch +=
-                    (-((float) Math.atan2((double) f, this.motionY)) * 180.0F / (float) Math.PI - this.octopusPitch)
+                    (-((float) Math.atan2(f, this.motionY)) * 180.0F / (float) Math.PI - this.octopusPitch)
                             * 0.1F;
         } else {
             this.tentacleAngle = MathHelper.abs(MathHelper.sin(this.octopusRotation)) * (float) Math.PI * 0.25F;

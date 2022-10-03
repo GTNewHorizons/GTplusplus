@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class TC_Aspect_Wrapper {
 
-    private static Class mClass_Aspect;
+    private static final Class mClass_Aspect;
     private static Field mField_Aspects;
 
     private final String tag;
@@ -230,7 +230,7 @@ public class TC_Aspect_Wrapper {
     /**
      * Internal Map containing all the TC_Aspects.
      */
-    private static Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
+    private static final Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
 
     /**
      * Public getter for all TC_Aspects
@@ -289,9 +289,9 @@ public class TC_Aspect_Wrapper {
     public Object generateTcAspect() {
         try {
             // thaumcraft.api.aspects.Aspect.Aspect()
-            Object aAspectArray = (Object[]) Array.newInstance(mClass_Aspect, 0);
+            Object aAspectArray = Array.newInstance(mClass_Aspect, 0);
             if (components.length > 0) {
-                aAspectArray = (Object[]) Array.newInstance(mClass_Aspect, components.length);
+                aAspectArray = Array.newInstance(mClass_Aspect, components.length);
                 int i = 0;
                 for (TC_Aspect_Wrapper g : components) {
                     if (g != null && g.mAspect != null) ((Object[]) aAspectArray)[i++] = g.mAspect;

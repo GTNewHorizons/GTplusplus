@@ -68,7 +68,6 @@ public class TinkersUtils {
      */
     private static void setTiConDataInstance() {
         if (!LoadedMods.TiCon) {
-            return;
         } else {
             if (mSmelteryInstance == null) {
                 if (mClass_Smeltery != null) {
@@ -106,9 +105,8 @@ public class TinkersUtils {
         if (isTiConFirstInOD()) {
             try {
                 ReflectionUtils.setFinalFieldValue(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst", false);
-                if ((boolean) ReflectionUtils.getField(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst")
-                                .get(null)
-                        == false) {
+                if (!((boolean) ReflectionUtils.getField(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst")
+                        .get(null))) {
                     return true;
                 }
                 // Did not work, let's see where TiCon uses this and prevent it.
@@ -234,7 +232,7 @@ public class TinkersUtils {
     }
 
     public static boolean addBaseBasinRecipes(Material aMaterial) {
-        return addBasinRecipe(aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), (ItemStack) null, true, 100);
+        return addBasinRecipe(aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), null, true, 100);
     }
 
     public static boolean addBasinRecipe(
@@ -310,7 +308,7 @@ public class TinkersUtils {
 
         if (m != null) {
             try {
-                return m.invoke(mTinkersRegistryInstance, new Object[] {});
+                return m.invoke(mTinkersRegistryInstance);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
                 e.printStackTrace();
             }

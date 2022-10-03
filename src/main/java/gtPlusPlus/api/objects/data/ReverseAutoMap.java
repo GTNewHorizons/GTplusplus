@@ -7,7 +7,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
     /**
      * The Internal Map
      */
-    private Map<N, Integer> mInternalMapReverseLookup = new HashMap<N, Integer>();
+    private final Map<N, Integer> mInternalMapReverseLookup = new HashMap<N, Integer>();
 
     /**
      * The Internal ID
@@ -24,11 +24,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
     public synchronized boolean setValue(N object) {
         int mOriginalID = this.mInternalID;
         put(object);
-        if (this.mInternalMap.get(mOriginalID).equals(object) || mOriginalID > this.mInternalID) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.mInternalMap.get(mOriginalID).equals(object) || mOriginalID > this.mInternalID;
     }
 
     @Override
@@ -65,7 +61,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
             a1 = mInternalMap.size();
             mInternalMapReverseLookup.put(object, g);
             a2 = mInternalMapReverseLookup.size();
-            if (a1 > a11 && a2 > a22) return true;
+            return a1 > a11 && a2 > a22;
         }
         return false;
     }
@@ -80,8 +76,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
         a1 = mInternalMap.size();
         mInternalMapReverseLookup.put(object, g);
         a2 = mInternalMapReverseLookup.size();
-        if (a1 > a11 && a2 > a22) return true;
-        return false;
+        return a1 > a11 && a2 > a22;
     }
 
     private boolean raiseInternalID() {
@@ -153,7 +148,6 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
         this.mInternalID = 0;
         this.mInternalMap.clear();
         this.mInternalMapReverseLookup.clear();
-        return;
     }
 
     @Override

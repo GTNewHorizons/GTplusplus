@@ -34,7 +34,7 @@ public class AgriculturalChem extends ItemPackage {
     private static boolean aBOP;
     private static boolean aTiCon;
 
-    private static AutoMap<FluidStack> mBloodFluids = new AutoMap<FluidStack>();
+    private static final AutoMap<FluidStack> mBloodFluids = new AutoMap<FluidStack>();
 
     /**
      * Fluids

@@ -195,13 +195,13 @@ public class CONTAINER_MetaTileMachineLong extends GT_Container {
                 pEnergy = pEnergy & -65536 | par2;
                 break;
             case 1:
-                pEnergy = pEnergy & 65535 | par2 << 16;
+                pEnergy = pEnergy & 65535 | (long) par2 << 16;
                 break;
             case 2:
                 pStorage = pStorage & -65536 | par2;
                 break;
             case 3:
-                pStorage = pStorage & 65535 | par2 << 16;
+                pStorage = pStorage & 65535 | (long) par2 << 16;
                 break;
             case 4:
                 mOutput = par2;

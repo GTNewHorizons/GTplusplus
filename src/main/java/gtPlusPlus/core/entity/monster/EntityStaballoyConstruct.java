@@ -158,7 +158,7 @@ public class EntityStaballoyConstruct extends EntityIronGolem {
      */
     @Override
     public boolean canAttackClass(Class clazz) {
-        return clazz.equals(this.getClass()) ? false : true;
+        return !clazz.equals(this.getClass());
     }
 
     @Override
@@ -399,7 +399,7 @@ public class EntityStaballoyConstruct extends EntityIronGolem {
             if (mFirstUpdateField == null) {
                 mFirstUpdateField = ReflectionUtils.getField(this.getClass(), "firstUpdate");
             }
-            if (mFirstUpdateField != null && mReflectFirstUpdate == true) {
+            if (mFirstUpdateField != null && mReflectFirstUpdate) {
                 try {
                     this.mReflectFirstUpdate = (boolean) mFirstUpdateField.get(this);
                 } catch (IllegalArgumentException | IllegalAccessException e) {

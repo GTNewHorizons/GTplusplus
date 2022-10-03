@@ -116,10 +116,7 @@ public class ItemEntityCatcher extends Item implements IEntityCatcher {
         String mClassName;
         mClassName = NBTUtils.getString(aStack, "mClassName");
         mEntityClass = (Class<? extends Entity>) ReflectionUtils.getClass(mClassName);
-        if (mEntityClass != null) {
-            return mEntityClass;
-        }
-        return null;
+        return mEntityClass;
     }
 
     @Override

@@ -20,10 +20,10 @@ public class GUI_VolumetricFlaskSetter extends GuiContainer {
 
     private static final ResourceLocation mGuiTextures =
             new ResourceLocation(CORE.MODID, "textures/gui/VolumetricFlaskSetter.png");
-    private Container_VolumetricFlaskSetter mContainer;
+    private final Container_VolumetricFlaskSetter mContainer;
     private boolean mIsOpen = false;
     private GuiValueField mText;
-    private TileEntityVolumetricFlaskSetter mTile;
+    private final TileEntityVolumetricFlaskSetter mTile;
 
     public GUI_VolumetricFlaskSetter(Container_VolumetricFlaskSetter aContainer) {
         super(aContainer);
@@ -44,16 +44,16 @@ public class GUI_VolumetricFlaskSetter extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(final int i, final int j) {
         super.drawGuiContainerForegroundLayer(i, j);
         this.mText.drawTextBox();
-        this.fontRendererObj.drawString(I18n.format("container.VolumetricFlaskSetter", new Object[0]), 4, 3, 4210752);
+        this.fontRendererObj.drawString(I18n.format("container.VolumetricFlaskSetter"), 4, 3, 4210752);
         int aYVal = 49;
-        this.fontRendererObj.drawString(I18n.format("0 = 16l", new Object[0]), 8, aYVal, 4210752);
-        this.fontRendererObj.drawString(I18n.format("4 = 576l", new Object[0]), 64, aYVal, 4210752);
-        this.fontRendererObj.drawString(I18n.format("1 = 36l", new Object[0]), 8, aYVal += 8, 4210752);
-        this.fontRendererObj.drawString(I18n.format("5 = 720l", new Object[0]), 64, aYVal, 4210752);
-        this.fontRendererObj.drawString(I18n.format("2 = 144l", new Object[0]), 8, aYVal += 8, 4210752);
-        this.fontRendererObj.drawString(I18n.format("6 = 864l", new Object[0]), 64, aYVal, 4210752);
-        this.fontRendererObj.drawString(I18n.format("3 = 432l", new Object[0]), 8, aYVal += 8, 4210752);
-        this.fontRendererObj.drawString(I18n.format("-> = Custom", new Object[0]), 59, aYVal, 4210752);
+        this.fontRendererObj.drawString(I18n.format("0 = 16l"), 8, aYVal, 4210752);
+        this.fontRendererObj.drawString(I18n.format("4 = 576l"), 64, aYVal, 4210752);
+        this.fontRendererObj.drawString(I18n.format("1 = 36l"), 8, aYVal += 8, 4210752);
+        this.fontRendererObj.drawString(I18n.format("5 = 720l"), 64, aYVal, 4210752);
+        this.fontRendererObj.drawString(I18n.format("2 = 144l"), 8, aYVal += 8, 4210752);
+        this.fontRendererObj.drawString(I18n.format("6 = 864l"), 64, aYVal, 4210752);
+        this.fontRendererObj.drawString(I18n.format("3 = 432l"), 8, aYVal += 8, 4210752);
+        this.fontRendererObj.drawString(I18n.format("-> = Custom"), 59, aYVal, 4210752);
     }
 
     public void drawScreen(int par1, int par2, float par3) {
@@ -222,7 +222,7 @@ public class GUI_VolumetricFlaskSetter extends GuiContainer {
         // Check TextBox Value is correct
         if (getText().length() > 0) {
             int aCustomValue = parse(getText());
-            int aTileValue = ((Container_VolumetricFlaskSetter) mContainer).mCustomValue;
+            int aTileValue = mContainer.mCustomValue;
             if (mContainer != null) {
                 if (aTileValue != aCustomValue) {
                     setText(aTileValue);

@@ -10,7 +10,6 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
-import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.*;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.objects.data.*;
@@ -65,9 +64,9 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
         return new ITexture[] {Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex())};
     }
 
-    protected abstract GT_RenderedTexture getFrontOverlay();
+    protected abstract ITexture getFrontOverlay();
 
-    protected abstract GT_RenderedTexture getFrontOverlayActive();
+    protected abstract ITexture getFrontOverlayActive();
 
     private int getCasingTextureIndex() {
         return 10;
@@ -368,9 +367,9 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
         }
 
         // Do we even need to check for item outputs?
-        boolean aDoesOutputItems = aOutputs != null ? aOutputs.length > 0 : false;
+        boolean aDoesOutputItems = aOutputs != null && aOutputs.length > 0;
         // Do we even need to check for fluid outputs?
-        boolean aDoesOutputFluids = aFluidOutputs != null ? aFluidOutputs.length > 0 : false;
+        boolean aDoesOutputFluids = aFluidOutputs != null && aFluidOutputs.length > 0;
 
         if (!aDoesOutputItems && !aDoesOutputFluids) {
             return 0;
@@ -428,7 +427,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                 } else {
                     int aStackSize = aY.stackSize * aParallelRecipes;
                     if (aStackSize > 64) {
-                        int aSlotsNeedsForThisStack = (int) Math.ceil((double) ((float) aStackSize / 64f));
+                        int aSlotsNeedsForThisStack = (int) Math.ceil((float) aStackSize / 64f);
                         // Should round up and add as many stacks as required nicely.
                         aRecipeSlotsRequired += aSlotsNeedsForThisStack;
                         for (int o = 0; o < aRecipeSlotsRequired; o++) {

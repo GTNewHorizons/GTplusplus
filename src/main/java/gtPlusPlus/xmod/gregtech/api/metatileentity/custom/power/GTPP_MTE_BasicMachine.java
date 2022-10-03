@@ -11,7 +11,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockBase;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
@@ -328,7 +328,7 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
 
     @Override
     public long maxAmperesIn() {
-        return (mEUt * 2) / V[mTier] + 1;
+        return (mEUt * 2L) / V[mTier] + 1;
     }
 
     @Override
@@ -754,7 +754,11 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
 
     protected boolean isOutputEmpty() {
         boolean rIsEmpty = true;
-        for (ItemStack tOutputSlotContent : getAllOutputs()) if (tOutputSlotContent != null) rIsEmpty = false;
+        for (ItemStack tOutputSlotContent : getAllOutputs())
+            if (tOutputSlotContent != null) {
+                rIsEmpty = false;
+                break;
+            }
         return rIsEmpty;
     }
 
@@ -991,42 +995,42 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
     public ITexture[] getBottomFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getBottomFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getTopFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getTopFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getSideFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getSideFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 }

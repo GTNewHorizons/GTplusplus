@@ -423,7 +423,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             Logger.WARNING("Found more than one input fluid and a list of valid recipes.");
             // Find a valid recipe
             GT_Recipe aFuelProcessing =
-                    this.findRecipe(getBaseMetaTileEntity(), mLastRecipe, true, 0, tFluids, new ItemStack[] {});
+                    this.findRecipe(getBaseMetaTileEntity(), mLastRecipe, true, 0, tFluids);
             if (aFuelProcessing == null) {
                 Logger.WARNING("Did not find valid recipe for given inputs.");
                 return false;
@@ -448,7 +448,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 }
             }
             // -- Try not to fail after this point - inputs have already been consumed! --
-            this.mMaxProgresstime = (int) (aFuelProcessing.mDuration);
+            this.mMaxProgresstime = aFuelProcessing.mDuration;
             this.mEUt = aFuelProcessing.mSpecialValue * 4;
             Logger.WARNING("Outputting " + this.mEUt + "eu/t");
             this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
@@ -523,11 +523,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
         if (aBaseMetaTileEntity.getWorld().isRemote) {
             if (aBaseMetaTileEntity.isActive()) {
                 // Set casings active if we're warmed up.
-                if (this.mEfficiency == this.getMaxEfficiency(null)) {
-                    this.turnCasingActive(true);
-                } else {
-                    this.turnCasingActive(false);
-                }
+                this.turnCasingActive(this.mEfficiency == this.getMaxEfficiency(null));
             } else {
                 this.turnCasingActive(false);
             }

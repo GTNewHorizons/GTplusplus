@@ -152,9 +152,6 @@ public class InventoryWorkbenchTools implements IInventory {
         // Don't want to be able to store the inventory item within itself
         // Bad things will happen, like losing your inventory
         // Actually, this needs a custom Slot to work
-        if (itemstack.getItem() instanceof GT_MetaGenerated_Tool) {
-            return true;
-        }
-        return false;
+        return itemstack.getItem() instanceof GT_MetaGenerated_Tool;
     }
 }

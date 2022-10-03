@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 public class RECIPES_Extruder implements IOreRecipeRegistrator {
 
     public RECIPES_Extruder() {
-        OrePrefixes.ingot.add((IOreRecipeRegistrator) this);
-        OrePrefixes.dust.add((IOreRecipeRegistrator) this);
+        OrePrefixes.ingot.add(this);
+        OrePrefixes.dust.add(this);
     }
 
     public void registerOre(
@@ -24,7 +24,7 @@ public class RECIPES_Extruder implements IOreRecipeRegistrator {
         if (!CORE.GTNH
                 && ((aMaterial == Materials.Glass
                                 || aMaterial == Materials.WroughtIron
-                                || GT_OreDictUnificator.get(OrePrefixes.ingot, (Object) aMaterial, 1L) != null)
+                                || GT_OreDictUnificator.get(OrePrefixes.ingot, aMaterial, 1L) != null)
                         && !aMaterial.contains(SubTag.NO_SMELTING))) {
             final long aMaterialMass = aMaterial.getMass();
             final int tAmount = (int) (aPrefix.mMaterialAmount / 3628800L);
@@ -37,17 +37,17 @@ public class RECIPES_Extruder implements IOreRecipeRegistrator {
                 }
 
                 GT_Values.RA.addExtruderRecipe(
-                        GT_Utility.copyAmount(1L, new Object[] {aStack}),
-                        GregtechItemList.Shape_Extruder_SmallGear.get(0L, new Object[0]),
+                        GT_Utility.copyAmount(1L, aStack),
+                        GregtechItemList.Shape_Extruder_SmallGear.get(0L),
                         GT_OreDictUnificator.get(
-                                OrePrefixes.gearGtSmall, (Object) aMaterial.mSmeltInto, (long) tAmount),
+                                OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
                         ((int) Math.max(aMaterialMass * 5L * tAmount, tAmount) / 4),
                         8 * tVoltageMultiplier);
                 GT_Values.RA.addAlloySmelterRecipe(
-                        GT_Utility.copyAmount(2L, new Object[] {aStack}),
-                        ItemList.Shape_Mold_Gear_Small.get(0L, new Object[0]),
+                        GT_Utility.copyAmount(2L, aStack),
+                        ItemList.Shape_Mold_Gear_Small.get(0L),
                         GT_OreDictUnificator.get(
-                                OrePrefixes.gearGtSmall, (Object) aMaterial.mSmeltInto, (long) tAmount),
+                                OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
                         ((int) Math.max(aMaterialMass * 10L * tAmount, tAmount) / 4),
                         2 * tVoltageMultiplier);
             }

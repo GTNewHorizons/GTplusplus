@@ -46,7 +46,7 @@ public class CONTAINER_SteamCondenser extends GT_ContainerMetaTile_Machine {
             return;
         }
         int steamCapacity = ((GregtechMetaBoilerBase) this.mTileEntity.getMetaTileEntity()).getSteamCapacity();
-        int waterCapacity = ((GregtechMetaBoilerBase) this.mTileEntity.getMetaTileEntity()).getCapacity();
+        int waterCapacity = this.mTileEntity.getMetaTileEntity().getCapacity();
         this.mTemperature = ((GregtechMetaBoilerBase) this.mTileEntity.getMetaTileEntity()).mTemperature;
         this.mProcessingEnergy = ((GregtechMetaBoilerBase) this.mTileEntity.getMetaTileEntity()).mProcessingEnergy;
         this.mSteamAmount = (((GregtechMetaBoilerBase) this.mTileEntity.getMetaTileEntity()).mSteam == null

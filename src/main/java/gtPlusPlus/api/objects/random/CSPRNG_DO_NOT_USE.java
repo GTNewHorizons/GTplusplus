@@ -98,7 +98,7 @@ public class CSPRNG_DO_NOT_USE extends Random implements IRandomGenerator {
     /**
      * main parameter
      */
-    private BigInteger n;
+    private final BigInteger n;
 
     private BigInteger state;
 
@@ -210,7 +210,7 @@ public class CSPRNG_DO_NOT_USE extends Random implements IRandomGenerator {
         int result = 0;
         for (int i = numBits; i != 0; --i) {
             state = state.modPow(two, n);
-            result = (result << 1) | (state.testBit(0) == true ? 1 : 0);
+            result = (result << 1) | (state.testBit(0) ? 1 : 0);
         }
         return result;
     }

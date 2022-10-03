@@ -95,11 +95,11 @@ public class GregtechThreadedBuffers {
         // These recipes are all 1 sec @ 32 EU/t
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_ULV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_ULV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_ULV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_LV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_ULV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_LV.get(1L),
                 },
                 null,
                 null,
@@ -109,11 +109,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_LV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_LV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_LV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_LV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_LV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_LV.get(1L),
                 },
                 null,
                 null,
@@ -123,11 +123,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_MV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_MV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_MV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_MV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_MV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_MV.get(1L),
                 },
                 null,
                 null,
@@ -137,11 +137,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_HV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_HV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_HV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_HV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_HV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_HV.get(1L),
                 },
                 null,
                 null,
@@ -151,11 +151,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_EV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_EV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_EV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_EV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_EV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_EV.get(1L),
                 },
                 null,
                 null,
@@ -165,11 +165,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_IV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_IV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_IV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_IV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_IV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_IV.get(1L),
                 },
                 null,
                 null,
@@ -179,11 +179,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_LuV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_LuV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_LuV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_LuV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_LuV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_LuV.get(1L),
                 },
                 null,
                 null,
@@ -193,11 +193,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_ZPM.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_ZPM.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_ZPM.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_ZPM.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_ZPM.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_ZPM.get(1L),
                 },
                 null,
                 null,
@@ -207,11 +207,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_UV.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_UV.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_UV.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    ItemList.Conveyor_Module_UV.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_UV.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    ItemList.Conveyor_Module_UV.get(1L),
                 },
                 null,
                 null,
@@ -221,11 +221,11 @@ public class GregtechThreadedBuffers {
                 -100);
         GT_Recipe.GT_Recipe_Map.sDisassemblerRecipes.addRecipe(
                 true,
-                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_MAX.get(1L, new Object[0])},
+                new ItemStack[] {GregtechItemList.Automation_Threaded_SuperBuffer_MAX.get(1L)},
                 new ItemStack[] {
-                    ItemList.Automation_SuperBuffer_MAX.get(1L, new Object[0]),
-                    ItemList.Tool_DataOrb.get(1L, new Object[0]),
-                    GregtechItemList.Conveyor_Module_MAX.get(1L, new Object[0]),
+                    ItemList.Automation_SuperBuffer_MAX.get(1L),
+                    ItemList.Tool_DataOrb.get(1L),
+                    GregtechItemList.Conveyor_Module_MAX.get(1L),
                 },
                 null,
                 null,

@@ -276,11 +276,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         boolean[] aActiveSides = new boolean[4];
         for (int i = 0; i < 4; i++) {
             char ch = s.charAt(i);
-            if (ch == '1') {
-                aActiveSides[i] = true;
-            } else {
-                aActiveSides[i] = false;
-            }
+            aActiveSides[i] = ch == '1';
         }
         return aActiveSides;
     }
@@ -334,11 +330,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
                 String s = String.valueOf(aData);
                 int aIndex = aSide - 2;
                 char ch = s.charAt(aIndex);
-                if (ch == '1') {
-                    return true;
-                } else {
-                    return false;
-                }
+                return ch == '1';
             }
         } catch (Throwable t) {
             t.printStackTrace();
@@ -557,10 +549,8 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     private static boolean canInsertItemIntoNeighbour(IInventory aNeighbour, ItemStack aStack, int aSlot, int aSide) {
-        return !aNeighbour.isItemValidForSlot(aSlot, aStack)
-                ? false
-                : !(aNeighbour instanceof ISidedInventory)
-                        || ((ISidedInventory) aNeighbour).canInsertItem(aSlot, aStack, aSide);
+        return aNeighbour.isItemValidForSlot(aSlot, aStack) && (!(aNeighbour instanceof ISidedInventory)
+                || ((ISidedInventory) aNeighbour).canInsertItem(aSlot, aStack, aSide));
     }
 
     private static ItemStack tryMoveStack(IInventory aNeighbour, ItemStack aStack, int aSlot, int aSide) {
@@ -598,9 +588,9 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         int i = aSide;
         return tryFindInvetoryAtXYZ(
                 this.getWorldObj(),
-                (double) (this.xCoord + Facing.offsetsXForSide[i]),
-                (double) (this.yCoord + Facing.offsetsYForSide[i]),
-                (double) (this.zCoord + Facing.offsetsZForSide[i]));
+                this.xCoord + Facing.offsetsXForSide[i],
+                this.yCoord + Facing.offsetsYForSide[i],
+                this.zCoord + Facing.offsetsZForSide[i]);
     }
 
     public static IInventory tryFindInvetoryAtXYZ(World aWorld, double aX, double aY, double aZ) {
@@ -610,7 +600,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         int sZ = MathHelper.floor_double(aZ);
         TileEntity tileentity = aWorld.getTileEntity(sX, sY, sZ);
 
-        if (tileentity != null && tileentity instanceof IInventory) {
+        if (tileentity instanceof IInventory) {
             iinventory = (IInventory) tileentity;
 
             if (iinventory instanceof TileEntityChest) {
@@ -624,7 +614,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
 
         if (iinventory == null) {
             List list = aWorld.getEntitiesWithinAABBExcludingEntity(
-                    (Entity) null,
+                    null,
                     AxisAlignedBB.getBoundingBox(aX, aY, aZ, aX + 1.0D, aY + 1.0D, aZ + 1.0D),
                     IEntitySelector.selectInventories);
 
@@ -637,13 +627,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     private static boolean areItemStacksEqual(ItemStack aStack, ItemStack aStack2) {
-        return aStack.getItem() != aStack2.getItem()
-                ? false
-                : (aStack.getItemDamage() != aStack2.getItemDamage()
-                        ? false
-                        : (aStack.stackSize > aStack.getMaxStackSize()
-                                ? false
-                                : ItemStack.areItemStackTagsEqual(aStack, aStack2)));
+        return aStack.getItem() == aStack2.getItem() && (aStack.getItemDamage() == aStack2.getItemDamage() && (aStack.stackSize <= aStack.getMaxStackSize() && ItemStack.areItemStackTagsEqual(aStack, aStack2)));
     }
 
     public void readFromNBT2(NBTTagCompound p_145839_1_) {

@@ -35,7 +35,7 @@ public class FirepitRender extends TileEntitySpecialRenderer {
 
         this.bindTexture(this.texture);
         GL11.glPushMatrix();
-        this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        this.model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glTranslatef(1.0f, 1.0f, 1.0f);
         GL11.glPopMatrix();
         GL11.glPopMatrix();

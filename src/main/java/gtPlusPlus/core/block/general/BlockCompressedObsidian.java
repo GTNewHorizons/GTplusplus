@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 public class BlockCompressedObsidian extends BlockObsidian {
 
-    private final IIcon textureArray[] = new IIcon[11];
+    private final IIcon[] textureArray = new IIcon[11];
 
     public BlockCompressedObsidian() {
         this.setBlockName("blockCompressedObsidian");

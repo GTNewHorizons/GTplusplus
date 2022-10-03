@@ -50,7 +50,7 @@ public class RECIPES_SeleniumProcessing {
                     ELEMENT.getInstance().CARBON.getDust(16),
                 },
                 MISC_MATERIALS.SELENIOUS_ACID.getFluidStack(750),
-                ELEMENT.getInstance().SELENIUM.getFluidStack(144 * 1),
+                ELEMENT.getInstance().SELENIUM.getFluidStack(144),
                 new ItemStack[] {
                     CI.emptyCells(8),
                     ELEMENT.getInstance().SELENIUM.getIngot(1),

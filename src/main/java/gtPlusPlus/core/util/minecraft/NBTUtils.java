@@ -35,7 +35,7 @@ public class NBTUtils {
     public static ItemStack[] readItemsFromNBT(ItemStack itemstack) {
         NBTTagCompound tNBT = getNBT(itemstack);
         final NBTTagList list = tNBT.getTagList("Items", 10);
-        ItemStack inventory[] = new ItemStack[list.tagCount()];
+        ItemStack[] inventory = new ItemStack[list.tagCount()];
         for (int i = 0; i < list.tagCount(); i++) {
             final NBTTagCompound data = list.getCompoundTagAt(i);
             final int slot = data.getInteger("Slot");
@@ -53,7 +53,7 @@ public class NBTUtils {
     public static ItemStack[] readItemsFromNBT(ItemStack itemstack, String customkey) {
         NBTTagCompound tNBT = getNBT(itemstack);
         final NBTTagList list = tNBT.getTagList(customkey, 10);
-        ItemStack inventory[] = new ItemStack[list.tagCount()];
+        ItemStack[] inventory = new ItemStack[list.tagCount()];
         for (int i = 0; i < list.tagCount(); i++) {
             final NBTTagCompound data = list.getCompoundTagAt(i);
             final int slot = data.getInteger("Slot");
@@ -110,7 +110,7 @@ public class NBTUtils {
 
     public static ItemStack writeItemsToGtCraftingComponents(ItemStack rStack, ItemStack[] input, boolean copyTags) {
         try {
-            ItemStack stored[] = new ItemStack[9];
+            ItemStack[] stored = new ItemStack[9];
             if (input.length != 9) {
                 for (int e = 0; e < input.length; e++) {
                     if (input[e] != null) stored[e] = input[e];
@@ -213,18 +213,16 @@ public class NBTUtils {
     public static boolean tryIterateNBTData(ItemStack aStack) {
         try {
             NBTTagCompound aNBT = NBTUtils.getNBT(aStack);
-            if (aNBT != null) {
-                if (!aNBT.hasNoTags()) {
-                    Map<?, ?> mInternalMap = ReflectionUtils.getField(aNBT, "tagMap");
-                    if (mInternalMap != null) {
-                        for (Map.Entry<?, ?> e : mInternalMap.entrySet()) {
-                            Logger.INFO("Key: " + e.getKey().toString() + " | Value: " + e.getValue());
-                        }
-                        return true;
-                    } else {
-                        Logger.INFO("Data map reflected from NBTTagCompound was not valid.");
-                        return false;
+            if (!aNBT.hasNoTags()) {
+                Map<?, ?> mInternalMap = ReflectionUtils.getField(aNBT, "tagMap");
+                if (mInternalMap != null) {
+                    for (Map.Entry<?, ?> e : mInternalMap.entrySet()) {
+                        Logger.INFO("Key: " + e.getKey().toString() + " | Value: " + e.getValue());
                     }
+                    return true;
+                } else {
+                    Logger.INFO("Data map reflected from NBTTagCompound was not valid.");
+                    return false;
                 }
             }
         } catch (Throwable t) {
@@ -238,11 +236,7 @@ public class NBTUtils {
         NBTTagCompound tNBT = getNBT(aStack);
         tNBT.setString(TAG_SOULBIND, aName);
         GT_Utility.ItemNBT.setNBT(aStack, tNBT);
-        if (NBTUtils.doesStringExist(aStack, TAG_SOULBIND)) {
-            return true;
-        } else {
-            return false;
-        }
+        return NBTUtils.doesStringExist(aStack, TAG_SOULBIND);
     }
 
     public static String getBotanicaSoulboundOwner(ItemStack aStack) {
@@ -253,10 +247,7 @@ public class NBTUtils {
 
     public static boolean hasKey(ItemStack stack, String key) {
         final NBTTagCompound itemData = getNBT(stack);
-        if (itemData.hasKey(key)) {
-            return true;
-        }
-        return false;
+        return itemData.hasKey(key);
     }
 
     public static boolean createIntegerTagCompound(ItemStack rStack, String tagName, String keyName, int keyValue) {
@@ -323,77 +314,63 @@ public class NBTUtils {
 
     public static int getIntegerTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getInteger(keyName);
-            }
+            return aNBT.getInteger(keyName);
         }
         return 0;
     }
 
     public static long getLongTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getLong(keyName);
-            }
+            return aNBT.getLong(keyName);
         }
         return 0L;
     }
 
     public static String getStringTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getString(keyName);
-            }
+            return aNBT.getString(keyName);
         }
         return null;
     }
 
     public static float getFloatTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getFloat(keyName);
-            }
+            return aNBT.getFloat(keyName);
         }
         return 0;
     }
 
     public static double getDoubleTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getDouble(keyName);
-            }
+            return aNBT.getDouble(keyName);
         }
         return 0;
     }
 
     public static boolean getBooleanTagCompound(ItemStack aStack, String tagName, String keyName) {
         NBTTagCompound aNBT = getNBT(aStack);
+        aNBT = aNBT.getCompoundTag(tagName);
         if (aNBT != null) {
-            aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT.getBoolean(keyName);
-            }
+            return aNBT.getBoolean(keyName);
         }
         return false;
     }
 
     public static NBTTagCompound getTagCompound(ItemStack aStack, String tagName) {
         NBTTagCompound aNBT = getNBT(aStack);
-        if (aNBT != null && hasKey(aStack, tagName)) {
+        if (hasKey(aStack, tagName)) {
             aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT;
-            }
+            return aNBT;
         }
         return null;
     }
@@ -402,9 +379,7 @@ public class NBTUtils {
         NBTTagCompound aNBT = stack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag(tag);
-            if (aNBT.hasKey(key)) {
-                return true;
-            }
+            return aNBT.hasKey(key);
         }
         return false;
     }
@@ -422,7 +397,7 @@ public class NBTUtils {
 
     public static boolean isTagString(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
@@ -437,11 +412,11 @@ public class NBTUtils {
 
     public static boolean isTagInteger(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
-                    if (int.class.isInstance(aValue) || aValue instanceof Integer) {
+                    if (aValue instanceof Integer) {
                         return true;
                     }
                 }
@@ -452,11 +427,11 @@ public class NBTUtils {
 
     public static boolean isTagLong(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
-                    if (long.class.isInstance(aValue) || aValue instanceof Long) {
+                    if (aValue instanceof Long) {
                         return true;
                     }
                 }
@@ -467,11 +442,11 @@ public class NBTUtils {
 
     public static boolean isTagFloat(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
-                    if (float.class.isInstance(aValue) || aValue instanceof Float) {
+                    if (aValue instanceof Float) {
                         return true;
                     }
                 }
@@ -482,11 +457,11 @@ public class NBTUtils {
 
     public static boolean isTagDouble(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
-                    if (double.class.isInstance(aValue) || aValue instanceof Double) {
+                    if (aValue instanceof Double) {
                         return true;
                     }
                 }
@@ -497,11 +472,11 @@ public class NBTUtils {
 
     public static boolean isTagBoolean(NBTTagCompound aNBT, String aTagName) {
         Map<?, ?> aTagMap = getTagMap(aNBT);
-        if (aTagMap != null && !aTagMap.isEmpty()) {
+        if (!aTagMap.isEmpty()) {
             for (Map.Entry<?, ?> e : aTagMap.entrySet()) {
                 if (e.getKey().equals(aTagName)) {
                     Object aValue = e.getValue();
-                    if (boolean.class.isInstance(aValue) || aValue instanceof Boolean) {
+                    if (aValue instanceof Boolean) {
                         return true;
                     }
                 }
@@ -523,23 +498,18 @@ public class NBTUtils {
                             if (e.getValue().getClass() == String.class) {
                                 createStringTagCompound(
                                         aStack, "mEntityTag", (String) e.getKey(), (String) e.getValue());
-                            } else if (e.getValue().getClass() == Boolean.class
-                                    || e.getValue().getClass() == boolean.class) {
+                            } else if (e.getValue().getClass() == Boolean.class) {
                                 createBooleanTagCompound(
                                         aStack, "mEntityTag", (String) e.getKey(), (Boolean) e.getValue());
-                            } else if (e.getValue().getClass() == Integer.class
-                                    || e.getValue().getClass() == int.class) {
+                            } else if (e.getValue().getClass() == Integer.class) {
                                 createIntegerTagCompound(
                                         aStack, "mEntityTag", (String) e.getKey(), (Integer) e.getValue());
-                            } else if (e.getValue().getClass() == Double.class
-                                    || e.getValue().getClass() == double.class) {
+                            } else if (e.getValue().getClass() == Double.class) {
                                 createDoubleTagCompound(
                                         aStack, "mEntityTag", (String) e.getKey(), (Double) e.getValue());
-                            } else if (e.getValue().getClass() == Long.class
-                                    || e.getValue().getClass() == long.class) {
+                            } else if (e.getValue().getClass() == Long.class) {
                                 createLongTagCompound(aStack, "mEntityTag", (String) e.getKey(), (Long) e.getValue());
-                            } else if (e.getValue().getClass() == Float.class
-                                    || e.getValue().getClass() == float.class) {
+                            } else if (e.getValue().getClass() == Float.class) {
                                 createFloatTagCompound(aStack, "mEntityTag", (String) e.getKey(), (Float) e.getValue());
                             } else {
 

@@ -13,14 +13,14 @@ public interface Interface_OreRecipeRegistrator {
      * @param aMaterial always != null, and can be == _NULL if the Prefix is Self Referencing or not Material based!
      * @param aStack    always != null
      */
-    public void registerOre(
+    void registerOre(
             GregtechOrePrefixes aPrefix,
             GT_Materials aMaterial,
             String aOreDictName,
             String aModName,
             ItemStack aStack);
 
-    public void registerOre(
+    void registerOre(
             GregtechOrePrefixes aPrefix,
             Materials aMaterial,
             String aOreDictName,

@@ -52,7 +52,7 @@ public class GregtechSafeBlock {
 
         // To-Do Change Recipes
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_ULV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_ULV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -70,7 +70,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Basic)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_LV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_LV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -88,7 +88,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Good)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_MV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_MV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -106,7 +106,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Good)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_HV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_HV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -124,7 +124,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Advanced)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_EV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_EV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -142,7 +142,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Elite)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_IV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_IV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -160,7 +160,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_LuV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_LuV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -178,7 +178,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_ZPM.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_ZPM.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -196,7 +196,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_UV.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_UV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -214,7 +214,7 @@ public class GregtechSafeBlock {
                     OrePrefixes.circuit.get(Materials.Superconductor)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Safe_MAX.get(1L, new Object[0]),
+                GregtechItemList.GT_Safe_MAX.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE

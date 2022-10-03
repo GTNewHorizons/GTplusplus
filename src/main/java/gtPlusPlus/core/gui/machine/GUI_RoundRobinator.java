@@ -23,12 +23,12 @@ public class GUI_RoundRobinator extends GuiContainer {
     private static final ResourceLocation craftingTableGuiTextures =
             new ResourceLocation(CORE.MODID, "textures/gui/RoundRobinator.png");
     private TileEntityRoundRobinator mTile;
-    private Container_RoundRobinator mContainer;
+    private final Container_RoundRobinator mContainer;
     private static final Method mDrawItemStack;
 
     static {
         mDrawItemStack = ReflectionUtils.getMethod(
-                GuiContainer.class, "drawItemStack", new Class[] {ItemStack.class, int.class, int.class, String.class});
+                GuiContainer.class, "drawItemStack", ItemStack.class, int.class, int.class, String.class);
     }
 
     public GUI_RoundRobinator(final InventoryPlayer player_inventory, final TileEntityRoundRobinator te) {
@@ -57,10 +57,10 @@ public class GUI_RoundRobinator extends GuiContainer {
         fontRendererObj.drawString("Rate: 1 Item/" + aTickRate + "t", 85, 20, Utils.rgbtoHexValue(50, 150, 50));
 
         boolean[] aStates = new boolean[] {
-            mContainer.mSide_1 == 0 ? false : true,
-            mContainer.mSide_2 == 0 ? false : true,
-            mContainer.mSide_3 == 0 ? false : true,
-            mContainer.mSide_4 == 0 ? false : true
+                mContainer.mSide_1 != 0,
+                mContainer.mSide_2 != 0,
+                mContainer.mSide_3 != 0,
+                mContainer.mSide_4 != 0
         };
 
         fontRendererObj.drawString(
@@ -103,9 +103,9 @@ public class GUI_RoundRobinator extends GuiContainer {
         if (mDrawItemStack != null) {
             try {
                 if (aStateActive) {
-                    mDrawItemStack.invoke(this, new Object[] {aGreenGlass, x, y, ""});
+                    mDrawItemStack.invoke(this, aGreenGlass, x, y, "");
                 } else {
-                    mDrawItemStack.invoke(this, new Object[] {aRedGlass, x, y, ""});
+                    mDrawItemStack.invoke(this, aRedGlass, x, y, "");
                 }
             } catch (Throwable t) {
                 t.printStackTrace();

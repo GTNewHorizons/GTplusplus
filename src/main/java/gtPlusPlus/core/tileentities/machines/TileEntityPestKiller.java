@@ -316,9 +316,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         } else if (GT_Utility.areStacksEqual(aStack, this.getInventory().getInventory()[0])) {
             if (this.getInventory().getInventory()[0].stackSize < 64) {
                 int diff = 64 - this.getInventory().getInventory()[0].stackSize;
-                if (aStack.stackSize <= diff) {
-                    return true;
-                }
+                return aStack.stackSize <= diff;
             }
         }
         return false;
@@ -326,11 +324,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
 
     @Override
     public boolean canExtractItem(final int aSlot, final ItemStack aStack, final int p_102008_3_) {
-        if (this.getInventory().getInventory()[1] == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.getInventory().getInventory()[1] != null;
     }
 
     public String getCustomName() {
@@ -421,10 +415,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
     }
 
     public boolean hasFluidSpace() {
-        if (this.mTank.getFluidAmount() <= 1000) {
-            return true;
-        }
-        return false;
+        return this.mTank.getFluidAmount() <= 1000;
     }
 
     public boolean drainCell() {

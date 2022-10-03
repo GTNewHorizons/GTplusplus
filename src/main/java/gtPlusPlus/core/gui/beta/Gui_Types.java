@@ -5,5 +5,5 @@ public enum Gui_Types {
     Tile,
     Entity;
 
-    private Gui_Types() {}
+    Gui_Types() {}
 }

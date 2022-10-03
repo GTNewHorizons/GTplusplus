@@ -609,7 +609,7 @@ public class Material {
                     } else {
                         valueR = a;
                     }
-                    short fc[] = new short[3];
+                    short[] fc = new short[3];
                     int aIndex = 0;
                     for (char gg : valueR.toCharArray()) {
                         short ui = Short.parseShort("" + gg);
@@ -679,7 +679,7 @@ public class Material {
                         ? aTempDura
                         : (this.getComposites().isEmpty()
                                 ? 51200
-                                : 32000 * this.getComposites().size());
+                                : 32000L * this.getComposites().size());
             }
 
             if ((this.vDurability >= 0) && (this.vDurability < 64000)) {
@@ -718,7 +718,7 @@ public class Material {
                         Logger.MATERIALS(this.getLocalizedName() + " is radioactive due to trace elements. Level: "
                                 + aAverage + ".");
                         this.isRadioactive = true;
-                        this.vRadiationLevel = (byte) aAverage;
+                        this.vRadiationLevel = aAverage;
                     } else {
                         Logger.MATERIALS(this.getLocalizedName() + " is not radioactive.");
                         this.isRadioactive = false;
@@ -979,7 +979,7 @@ public class Material {
             }
             TextureSet mostUsedTypeTextureSet =
                     MaterialUtils.getMostCommonTextureSet(new ArrayList<Material>(sets.values()));
-            if (mostUsedTypeTextureSet != null && mostUsedTypeTextureSet instanceof TextureSet) {
+            if (mostUsedTypeTextureSet instanceof TextureSet) {
                 Logger.MATERIALS(
                         "Set textureset for " + this.localizedName + " to be " + mostUsedTypeTextureSet.mSetName + ".");
                 return mostUsedTypeTextureSet;
@@ -1321,11 +1321,8 @@ public class Material {
     }
 
     public final boolean hasSolidForm() {
-        if (ItemUtils.checkForInvalidItems(
-                new ItemStack[] {getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)})) {
-            return true;
-        }
-        return false;
+        return ItemUtils.checkForInvalidItems(
+                new ItemStack[]{getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)});
     }
 
     public final ItemStack[] getMaterialComposites() {
@@ -1732,14 +1729,12 @@ public class Material {
         if (obj == null) {
             return false;
         }
-        if (!Material.class.isInstance(obj)) {
+        if (!(obj instanceof Material)) {
             return false;
         }
         Material aObj = (Material) obj;
         if (aObj.unlocalizedName.equals(this.unlocalizedName)) {
-            if (aObj.localizedName.equals(this.localizedName)) {
-                return true;
-            }
+            return aObj.localizedName.equals(this.localizedName);
         }
         return false;
     }

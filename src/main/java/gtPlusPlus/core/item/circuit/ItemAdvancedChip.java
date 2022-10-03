@@ -74,16 +74,12 @@ public class ItemAdvancedChip extends Item implements INetworkUpdatableItem {
         try {
             aList.add("Configuration == " + aStack.getItemDamage());
             aList.add(GT_LanguageManager.addStringLocalization(
-                    new StringBuilder()
-                            .append(getUnlocalizedName())
-                            .append(".tooltip.0")
-                            .toString(),
+                    getUnlocalizedName() +
+                            ".tooltip.0",
                     "Right click to reconfigure"));
             aList.add(GT_LanguageManager.addStringLocalization(
-                    new StringBuilder()
-                            .append(getUnlocalizedName())
-                            .append(".tooltip.1")
-                            .toString(),
+                    getUnlocalizedName() +
+                            ".tooltip.1",
                     "Needs a screwdriver or circuit programming tool"));
         } catch (Throwable t) {
             t.printStackTrace();

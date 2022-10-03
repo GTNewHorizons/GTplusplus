@@ -22,7 +22,7 @@ public class Preloader_GT_OreDict {
         try {
             if (CORE_Preloader.enableOldGTcircuits) {
                 if ((bannedItem != null)
-                        && ItemUtils.getModId(bannedItem).toLowerCase().equals("gregtech")) {
+                        && ItemUtils.getModId(bannedItem).equalsIgnoreCase("gregtech")) {
                     final int damageValue = bannedItem.getItemDamage() - 32000;
                     if (bannedItem.getItem() instanceof GT_MetaGenerated_Item_01) { // 700-720
                         if ((damageValue >= 700) && (damageValue <= 720)) {
@@ -61,8 +61,7 @@ public class Preloader_GT_OreDict {
             if ((((bannedItem != null)
                                     && !LoadedMods.RedTech
                                     && (ItemUtils.getModId(bannedItem)
-                                            .toLowerCase()
-                                            .equals("mekanism")))
+                                            .equalsIgnoreCase("mekanism")))
                             || (LoadedMods.Mekanism))
                     && !LoadedMods.RedTech) {
                 // Circuits

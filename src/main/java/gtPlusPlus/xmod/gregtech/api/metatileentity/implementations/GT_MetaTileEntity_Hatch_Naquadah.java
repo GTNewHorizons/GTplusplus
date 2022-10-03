@@ -8,7 +8,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
@@ -58,13 +58,13 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
         return new ITexture[] {
             aBaseTexture,
-            new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)
+            TextureFactory.of((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)
         };
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
         return new ITexture[] {
-            aBaseTexture, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE)
+            aBaseTexture, TextureFactory.of((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE)
         };
     }
 
@@ -98,7 +98,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
     }
 
     public MetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
-        return (MetaTileEntity) new GT_MetaTileEntity_Hatch_Naquadah(this.mName, this.mDescription, this.mTextures);
+        return new GT_MetaTileEntity_Hatch_Naquadah(this.mName, this.mDescription, this.mTextures);
     }
 
     @Override
@@ -126,12 +126,11 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
         return s2;
     }
 
-    private static String[] aDescCache = new String[3];
+    private static final String[] aDescCache = new String[3];
 
     private String formatFluidString(FluidStack f) {
         FluidStack mLockedStack = f;
         Integer mLockedTemp = 0;
-        ;
         String mTempMod = "" + EnumChatFormatting.RESET;
         mLockedTemp = mLockedStack.getFluid().getTemperature();
         if (mLockedTemp != null) {
@@ -202,7 +201,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
                     : BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1];
 
             return new ITexture[] {
-                g, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_TOP_ACTIVE)
+                g, TextureFactory.of((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_TOP_ACTIVE)
             };
         }
 

@@ -38,7 +38,7 @@ public class GT_Computercube_Simulator {
 
     private String currentReactorOldCode = null;
 
-    private ArrayList<String> output = new ArrayList<String>();
+    private final ArrayList<String> output = new ArrayList<String>();
 
     private final GT_TileEntity_ComputerCube mTile;
 
@@ -109,7 +109,7 @@ public class GT_Computercube_Simulator {
 
         SimulationData aData = simulator.getData();
         if (aData != null && aData.totalReactorTicks > 0) {
-            mTile.mEU = aData.avgEUoutput * aData.totalReactorTicks;
+            mTile.mEU = (long) aData.avgEUoutput * aData.totalReactorTicks;
             mTile.mEUOut = aData.avgEUoutput;
             mTile.mHeat = aData.avgHUoutput;
             mTile.mMaxHeat = aData.maxHUoutput;

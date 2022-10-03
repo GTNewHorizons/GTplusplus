@@ -32,7 +32,7 @@ public class ShapedRecipe {
 
     public ShapedRecipe(Object[] aInputs, ItemStack aOutput) {
         String aGridWhole = "";
-        String aGrid[] = new String[3];
+        String[] aGrid = new String[3];
         char[] aChar = new char[9];
         String[] aLoggingInfo = new String[9];
 
@@ -107,7 +107,7 @@ public class ShapedRecipe {
                         aCharSlot++;
                         aLoggingInfo[aInfoSlot++] = mInfo;
                     } else {
-                        aRecipePairs.put(new Pair<Character, Object>(' ', (ItemStack) null));
+                        aRecipePairs.put(new Pair<Character, Object>(' ', null));
                         Logger.RECIPE("Storing ' ' with an object of type null");
                         aChar[aMemSlot++] = ' ';
                         aLoggingInfo[aInfoSlot++] = "Empty";
@@ -122,7 +122,7 @@ public class ShapedRecipe {
                     for (Pair<Character, Object> h : aRecipePairs) {
                         if (h.getKey() != null) {
                             aGridWhole += String.valueOf(h.getKey());
-                            Logger.RECIPE("Adding '" + String.valueOf(h.getKey()) + "' to aGridWhole.");
+                            Logger.RECIPE("Adding '" + h.getKey() + "' to aGridWhole.");
                         }
                     }
 
@@ -192,7 +192,7 @@ public class ShapedRecipe {
                             o = ((ItemStack) o).copy();
                         }
 
-                        mVarags2[counter2] = (char) c;
+                        mVarags2[counter2] = c;
                         mVarags2[counter2 + 1] = o;
                         counter2 += 2;
                     }

@@ -115,7 +115,7 @@ public class Container_DecayablesChest extends Container {
              */
 
             if (var5.stackSize == 0) {
-                var4.putStack((ItemStack) null);
+                var4.putStack(null);
             } else {
                 var4.onSlotChanged();
             }

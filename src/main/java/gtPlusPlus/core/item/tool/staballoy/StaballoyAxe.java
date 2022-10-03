@@ -84,12 +84,9 @@ public class StaballoyAxe extends ItemAxe {
         if (bit instanceof BlockTallGrass) {
             return true;
         }
-        if (bit instanceof BlockDoublePlant) {
-            return true;
-        }
+        return bit instanceof BlockDoublePlant;
 
         // LoonTools.log("Found uncuttable "+bit.getClass().getSimpleName());
-        return false;
     }
 
     private int check(
@@ -129,7 +126,7 @@ public class StaballoyAxe extends ItemAxe {
 
     public int checkTree(final World par1World, final int xo, final int yo, final int zo) {
         boolean f;
-        for (f = true; f == true; ) {
+        for (f = true; f; ) {
             f = false;
             for (int y = 0; y < 80; y++) {
                 for (int z = 0; z < 20; z++) {
@@ -200,7 +197,7 @@ public class StaballoyAxe extends ItemAxe {
 
     public int checkTree2(final World par1World, final int xo, final int yo, final int zo) {
         boolean f;
-        for (f = true; f == true; ) {
+        for (f = true; f; ) {
             f = false;
             for (int y = 0; y < 80; y++) {
                 for (int z = 0; z < 20; z++) {

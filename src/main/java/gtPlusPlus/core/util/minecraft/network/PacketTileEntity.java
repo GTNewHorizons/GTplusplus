@@ -63,7 +63,7 @@ public class PacketTileEntity extends CustomPacket {
                         } catch (IOException var10) {
                             throw var10;
                         } catch (RuntimeException var11) {
-                            Game.logThrowable("Exception in PacketTileEntity.readData:", var11, new Object[0]);
+                            Game.logThrowable("Exception in PacketTileEntity.readData:", var11);
                         }
                     }
                 }

@@ -28,7 +28,7 @@ import net.minecraftforge.event.world.BlockEvent;
 public class TOOL_Gregtech_Choocher extends GT_Tool {
 
     public static final List<String> mEffectiveList =
-            Arrays.asList(new String[] {EntityIronGolem.class.getName(), "EntityTowerGuardian"});
+            Arrays.asList(EntityIronGolem.class.getName(), "EntityTowerGuardian");
 
     @Override
     public float getNormalDamageAgainstEntity(
@@ -169,12 +169,11 @@ public class TOOL_Gregtech_Choocher extends GT_Tool {
             final BlockEvent.HarvestDropsEvent aEvent) {
         int rConversions = 0;
         GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sHammerRecipes.findRecipe(
-                null, true, 2147483647L, null, new ItemStack[] {new ItemStack(aBlock, 1, aMetaData)});
+                null, true, 2147483647L, null, new ItemStack(aBlock, 1, aMetaData));
         if ((tRecipe == null) || (aBlock.hasTileEntity(aMetaData))) {
             for (final ItemStack tDrop : aDrops) {
                 tRecipe = GT_Recipe.GT_Recipe_Map.sHammerRecipes.findRecipe(
-                        null, true, 2147483647L, null, new ItemStack[] {GT_Utility.copyAmount(1L, new Object[] {tDrop})
-                        });
+                        null, true, 2147483647L, null, GT_Utility.copyAmount(1L, tDrop));
                 if (tRecipe != null) {
                     final ItemStack tHammeringOutput = tRecipe.getOutput(0);
                     if (tHammeringOutput != null) {

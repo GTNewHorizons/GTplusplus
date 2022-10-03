@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityHeliumGenerator extends TileEntity {
 
-    private int tickCount = 0;
+    private final int tickCount = 0;
     private final InventoryHeliumGenerator inventoryContents; // TODO
     private int locationX;
     private int locationY;

@@ -17,10 +17,10 @@ import net.minecraft.item.ItemStack;
  */
 public class LoaderOfTheCrops {
 
-    private static List<Boolean> mHasCropObj = new ArrayList<Boolean>();
-    private CropCard mCropObj;
+    private static final List<Boolean> mHasCropObj = new ArrayList<Boolean>();
+    private final CropCard mCropObj;
     private ItemStack mBaseSeed;
-    private static List<LoaderOfTheCrops> mCropList = cropLoader();
+    private static final List<LoaderOfTheCrops> mCropList = cropLoader();
 
     public LoaderOfTheCrops(CropCard cropObj) {
         this.mCropObj = cropObj;
@@ -56,7 +56,7 @@ public class LoaderOfTheCrops {
         List<CropCard> p = new ArrayList<CropCard>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
-            p.add(cropUnpackerCC((LoaderOfTheCrops) mCropList.get(i)));
+            p.add(cropUnpackerCC(mCropList.get(i)));
         }
 
         return p;
@@ -66,7 +66,7 @@ public class LoaderOfTheCrops {
         List<ItemStack> p = new ArrayList<ItemStack>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
-            p.add(cropUnpackerCG((LoaderOfTheCrops) mCropList.get(i)));
+            p.add(cropUnpackerCG(mCropList.get(i)));
         }
 
         return p;
@@ -76,7 +76,7 @@ public class LoaderOfTheCrops {
         List<String> s = new ArrayList<String>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
-            s.add(((CropCard) cropObjs().get(i)).name());
+            s.add(cropObjs().get(i).name());
         }
 
         return s;
@@ -90,8 +90,8 @@ public class LoaderOfTheCrops {
 
     public static void register() {
         for (int i = 0; i < mCropList.size(); ++i) {
-            if ((Boolean) mHasCropObj.get(i) && cropObjs().get(i) != null) {
-                Crops.instance.registerCrop((CropCard) cropObjs().get(i));
+            if (mHasCropObj.get(i) && cropObjs().get(i) != null) {
+                Crops.instance.registerCrop(cropObjs().get(i));
             }
         }
     }
@@ -102,7 +102,7 @@ public class LoaderOfTheCrops {
         for (int i = 0; i < mCropList.size(); ++i) {
             if (baseseed.get(i) != null && cropObjs().get(i) != null) {
                 Crops.instance.registerBaseSeed(
-                        (ItemStack) baseseed.get(i), (CropCard) cropObjs().get(i), 1, 1, 1, 1);
+                        baseseed.get(i), cropObjs().get(i), 1, 1, 1, 1);
             }
         }
     }

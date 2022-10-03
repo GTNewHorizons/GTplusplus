@@ -13,7 +13,7 @@ public class AC_Helper_Container extends Container {
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 
     public IInventory craftResult = new InventoryCraftResult();
-    private World worldObj;
+    private final World worldObj;
 
     public InventoryCrafting getMatrix() {
         return this.craftMatrix;

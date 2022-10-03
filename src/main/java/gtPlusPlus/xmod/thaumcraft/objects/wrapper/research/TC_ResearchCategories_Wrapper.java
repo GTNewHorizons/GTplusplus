@@ -14,7 +14,7 @@ public class TC_ResearchCategories_Wrapper {
             new LinkedHashMap<String, TC_ResearchCategoryList_Wrapper>();
 
     public static TC_ResearchCategoryList_Wrapper getResearchList(String key) {
-        return (TC_ResearchCategoryList_Wrapper) researchCategories.get(key);
+        return researchCategories.get(key);
     }
 
     public static String getCategoryName(String key) {
@@ -60,8 +60,8 @@ public class TC_ResearchCategories_Wrapper {
                         FMLLog.log(
                                 Level.FATAL,
                                 "[Thaumcraft] Research [" + ri.getName()
-                                        + "] not added as it overlaps with existing research [" + rr.getName() + "]",
-                                new Object[0]);
+                                        + "] not added as it overlaps with existing research [" + rr.getName() + "]"
+                        );
                         return;
                     }
                 }

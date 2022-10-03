@@ -143,26 +143,26 @@ public class Mining_Head_Fake extends Block {
                 if (Pos.yPos <= 7) {
                     Pos.world.spawnParticle(
                             "portal",
-                            (double) ((float) i1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) j1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) k1 + CORE.RANDOM.nextFloat()),
+                            (float) i1 + CORE.RANDOM.nextFloat(),
+                            (float) j1 + CORE.RANDOM.nextFloat(),
+                            (float) k1 + CORE.RANDOM.nextFloat(),
                             0.0D,
                             0.0D,
                             0.0D);
                     Pos.world.spawnParticle(
                             "lava",
-                            (double) ((float) i1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) j1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) k1 + CORE.RANDOM.nextFloat()),
+                            (float) i1 + CORE.RANDOM.nextFloat(),
+                            (float) j1 + CORE.RANDOM.nextFloat(),
+                            (float) k1 + CORE.RANDOM.nextFloat(),
                             0.0D,
                             0.0D,
                             0.0D);
                 } else {
                     Pos.world.spawnParticle(
                             "portal",
-                            (double) ((float) i1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) j1 + CORE.RANDOM.nextFloat()),
-                            (double) ((float) k1 + CORE.RANDOM.nextFloat()),
+                            (float) i1 + CORE.RANDOM.nextFloat(),
+                            (float) j1 + CORE.RANDOM.nextFloat(),
+                            (float) k1 + CORE.RANDOM.nextFloat(),
                             0.0D,
                             0.0D,
                             0.0D);

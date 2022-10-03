@@ -11,13 +11,12 @@ import ic2.core.block.invslot.InvSlotConsumable;
 import ic2.core.block.invslot.InvSlotConsumableId;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 
 public class TileEntityRTG extends TileEntityRTGenerator {
     public final InvSlotConsumable fuelSlot;
 
     public TileEntityRTG() {
-        this.fuelSlot = new InvSlotConsumableId(this, "fuelSlot", 0, 12, new Item[] {Ic2Items.RTGPellets.getItem()});
+        this.fuelSlot = new InvSlotConsumableId(this, "fuelSlot", 0, 12, Ic2Items.RTGPellets.getItem());
     }
 
     @Override

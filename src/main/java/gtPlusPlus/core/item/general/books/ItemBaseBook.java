@@ -108,7 +108,7 @@ public class ItemBaseBook extends ItemWritableBook {
             try {
                 Class<?> clazz = ReflectionUtils.getClass("net.minecraft.client.gui.GuiScreenBook");
                 Constructor<?> ctor = clazz.getConstructor(EntityPlayer.class, ItemStack.class, boolean.class);
-                Object object = ctor.newInstance(new Object[] {player, bookstack, false});
+                Object object = ctor.newInstance(player, bookstack, false);
                 Minecraft.getMinecraft().displayGuiScreen((GuiScreen) object);
             } catch (InstantiationException
                     | IllegalAccessException

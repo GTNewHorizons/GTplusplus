@@ -91,8 +91,8 @@ public class GregtechNitroDieselFix {
                             final Collection<GT_Recipe> xSingle = GT_Recipe.GT_Recipe_Map.sChemicalRecipes.mRecipeList;
                             final Collection<GT_Recipe> xMulti = recipeMapMultiblockChemReactor.mRecipeList;
                             final FluidStack mNitroStack = Materials.NitroFuel.getFluid(1000);
-                            GT_Recipe toRemoveSingle[] = new GT_Recipe[99];
-                            GT_Recipe toRemoveMulti[] = new GT_Recipe[99];
+                            GT_Recipe[] toRemoveSingle = new GT_Recipe[99];
+                            GT_Recipe[] toRemoveMulti = new GT_Recipe[99];
                             int mIndexSingle = 0;
                             int mIndexMulti = 0;
 
@@ -141,9 +141,9 @@ public class GregtechNitroDieselFix {
                             Materials mLightFuel = Materials.valueOf("LightFuel");
 
                             // Build a New Recipe set
-                            Materials mFuels[] = {mLightFuel, Materials.Fuel};
+                            Materials[] mFuels = {mLightFuel, Materials.Fuel};
                             for (Materials fuel : mFuels) {
-                                boolean didAdd[] = new boolean[3];
+                                boolean[] didAdd = new boolean[3];
                                 Logger.INFO(
                                         "[Nitro] Getting ready to add back in the old nitro-diesel recipe to the mixer, using "
                                                 + fuel.mDefaultLocalName + " as the fuel input.");
@@ -182,7 +182,7 @@ public class GregtechNitroDieselFix {
                             }
 
                             for (Materials fuel : mFuels) {
-                                boolean didAdd[] = new boolean[3];
+                                boolean[] didAdd = new boolean[3];
                                 Logger.INFO(
                                         "[Nitro] Getting ready to add back in the old nitro-diesel recipe to the chemical reactors, using "
                                                 + fuel.mDefaultLocalName + " as the fuel input.");

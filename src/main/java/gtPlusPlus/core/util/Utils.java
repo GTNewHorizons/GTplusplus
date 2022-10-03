@@ -44,6 +44,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,7 +106,7 @@ public class Utils {
 
         TC_AspectStack returnValue = null;
 
-        if (aspect.toUpperCase().equals("COGNITIO")) {
+        if (aspect.equalsIgnoreCase("COGNITIO")) {
             // Adds in Compat for older GT Versions which Misspell aspects.
             try {
                 if (EnumUtils.isValidEnum(TC_Aspects.class, "COGNITIO")) {
@@ -120,7 +121,7 @@ public class Utils {
             } catch (final NoSuchFieldError r) {
                 Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
             }
-        } else if (aspect.toUpperCase().equals("EXANIMUS")) {
+        } else if (aspect.equalsIgnoreCase("EXANIMUS")) {
             // Adds in Compat for older GT Versions which Misspell aspects.
             try {
                 if (EnumUtils.isValidEnum(TC_Aspects.class, "EXANIMUS")) {
@@ -136,7 +137,7 @@ public class Utils {
                 Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
             }
 
-        } else if (aspect.toUpperCase().equals("PRAECANTATIO")) {
+        } else if (aspect.equalsIgnoreCase("PRAECANTATIO")) {
             // Adds in Compat for older GT Versions which Misspell aspects.
             try {
                 if (EnumUtils.isValidEnum(TC_Aspects.class, "PRAECANTATIO")) {
@@ -252,15 +253,14 @@ public class Utils {
                 Integer.valueOf(hexString.substring(3, 5), 16),
                 Integer.valueOf(hexString.substring(5, 7), 16));
 
-        final StringBuffer sb = new StringBuffer();
-        sb.append("rgb(");
-        sb.append(c.getRed());
-        sb.append(",");
-        sb.append(c.getGreen());
-        sb.append(",");
-        sb.append(c.getBlue());
-        sb.append(")");
-        return sb.toString();
+        String sb = "rgb(" +
+                c.getRed() +
+                "," +
+                c.getGreen() +
+                "," +
+                c.getBlue() +
+                ")";
+        return sb;
     }
 
     /**
@@ -303,7 +303,7 @@ public class Utils {
     public static Timer ShortTimer(final int seconds) {
         Timer timer;
         timer = new Timer();
-        timer.schedule(new ShortTimerTask(), seconds * 1000);
+        timer.schedule(new ShortTimerTask(), seconds * 1000L);
         return timer;
     }
 
@@ -328,7 +328,7 @@ public class Utils {
     }
 
     public static List<Object> convertArrayListToList(final ArrayList<Object> sourceArray) {
-        final List<Object> targetList = new ArrayList<Object>(Arrays.asList(sourceArray));
+        final List<Object> targetList = new ArrayList<Object>(Collections.singletonList(sourceArray));
         return targetList;
     }
 
@@ -372,7 +372,7 @@ public class Utils {
         }
         final Color c = new Color(r, g, b);
         String temp = Integer.toHexString(c.getRGB() & 0xFFFFFF).toUpperCase();
-        temp = Utils.appenedHexNotationToString(String.valueOf(temp));
+        temp = Utils.appenedHexNotationToString(temp);
         // Logger.WARNING("Made " + temp + " - Hopefully it's not a mess.");
         // Logger.WARNING("It will decode into " + Integer.decode(temp) + ".");
         return Integer.decode(temp);
@@ -398,7 +398,7 @@ public class Utils {
             sb.append('0');
         }
         // sb.append(originalString);
-        if (sb.length() > 0) originalString = (originalString + sb.toString());
+        if (sb.length() > 0) originalString = (originalString + sb);
         final String paddedString = sb.toString();
         return originalString;
     }
@@ -463,7 +463,7 @@ public class Utils {
                 final String temp = padWithZerosLefts(aa, 6);
                 result = temp;
             } else {
-                result = hexChar + String.valueOf(hexAsStringOrInt);
+                result = hexChar + hexAsStringOrInt;
             }
             return result;
         } else {
@@ -475,22 +475,16 @@ public class Utils {
         final String hexChar = "0x";
         String result;
         Logger.WARNING(String.valueOf(hexAsStringOrInt));
-        result = hexChar + String.valueOf(hexAsStringOrInt);
+        result = hexChar + hexAsStringOrInt;
         return Integer.getInteger(result);
     }
 
     public static boolean doesEntryExistAlreadyInOreDictionary(final String OreDictName) {
-        if (OreDictionary.getOres(OreDictName).size() != 0) {
-            return true;
-        }
-        return false;
+        return OreDictionary.getOres(OreDictName).size() != 0;
     }
 
     public static boolean invertBoolean(final boolean booleans) {
-        if (booleans == true) {
-            return false;
-        }
-        return true;
+        return !booleans;
     }
 
     public static File getMcDir() {
@@ -711,13 +705,13 @@ public class Utils {
         return temp;
     }
 
-    public static enum Versioning {
+    public enum Versioning {
         EQUAL(0),
         NEWER(1),
         OLDER(-1);
         private final int versioningInfo;
 
-        private Versioning(final int versionStatus) {
+        Versioning(final int versionStatus) {
             this.versioningInfo = versionStatus;
         }
 
@@ -728,11 +722,9 @@ public class Utils {
 
     public static String addBookTitleLocalization(final String aTitle) {
         return GT_LanguageManager.addStringLocalization(
-                new StringBuilder()
-                        .append("Book.")
-                        .append(aTitle)
-                        .append(".Name")
-                        .toString(),
+                "Book." +
+                        aTitle +
+                        ".Name",
                 aTitle,
                 !GregTech_API.sPostloadFinished);
     }
@@ -741,18 +733,13 @@ public class Utils {
         String[] aLocalizationPages = new String[aPages.length];
         for (byte i = 0; i < aPages.length; i = (byte) (i + 1)) {
             aLocalizationPages[i] = GT_LanguageManager.addStringLocalization(
-                    new StringBuilder()
-                            .append("Book.")
-                            .append(aTitle)
-                            .append(".Page")
-                            .append(
-                                    (i < 10)
-                                            ? new StringBuilder()
-                                                    .append("0")
-                                                    .append(i)
-                                                    .toString()
-                                            : Byte.valueOf(i))
-                            .toString(),
+                    "Book." +
+                            aTitle +
+                            ".Page" +
+                            ((i < 10)
+                                    ? "0" +
+                                    i
+                                    : Byte.valueOf(i)),
                     aPages[i],
                     !GregTech_API.sPostloadFinished);
         }
@@ -771,7 +758,7 @@ public class Utils {
         }
         ItemStack rStack = CORE.sBookList.get(aMapping);
         if (rStack != null) {
-            return GT_Utility.copyAmount(1L, new Object[] {rStack});
+            return GT_Utility.copyAmount(1L, rStack);
         }
         if ((GT_Utility.isStringInvalid(aTitle)) || (GT_Utility.isStringInvalid(aAuthor)) || (aPages.length <= 0)) {
             return null;
@@ -791,42 +778,34 @@ public class Utils {
                     tNBTList.appendTag(new NBTTagString(aPages[i]));
                 } else {
                     Logger.INFO("WARNING: String for written Book too long! -> " + aPages[i]);
-                    GT_Log.err.println(new StringBuilder()
-                            .append("WARNING: String for written Book too long! -> ")
-                            .append(aPages[i])
-                            .toString());
+                    GT_Log.err.println("WARNING: String for written Book too long! -> " +
+                            aPages[i]);
                 }
             } else {
                 Logger.INFO("WARNING: Too much Pages for written Book! -> " + aTitle);
-                GT_Log.err.println(new StringBuilder()
-                        .append("WARNING: Too much Pages for written Book! -> ")
-                        .append(aTitle)
-                        .toString());
+                GT_Log.err.println("WARNING: Too much Pages for written Book! -> " +
+                        aTitle);
                 break;
             }
         }
-        tNBTList.appendTag(new NBTTagString(new StringBuilder()
-                .append("Credits to ")
-                .append(aAuthor)
-                .append(" for writing this Book. This was Book Nr. ")
-                .append(aID)
-                .append(" at its creation. Gotta get 'em all!")
-                .toString()));
+        tNBTList.appendTag(new NBTTagString("Credits to " +
+                aAuthor +
+                " for writing this Book. This was Book Nr. " +
+                aID +
+                " at its creation. Gotta get 'em all!"));
         tNBT.setTag("pages", tNBTList);
         rStack.setTagCompound(tNBT);
-        GT_Log.out.println(new StringBuilder()
-                .append("GT++_Mod: Added Book to Book++ List  -  Mapping: '")
-                .append(aMapping)
-                .append("'  -  Name: '")
-                .append(aTitle)
-                .append("'  -  Author: '")
-                .append(aAuthor)
-                .append("'")
-                .toString());
+        GT_Log.out.println("GT++_Mod: Added Book to Book++ List  -  Mapping: '" +
+                aMapping +
+                "'  -  Name: '" +
+                aTitle +
+                "'  -  Author: '" +
+                aAuthor +
+                "'");
         NBTUtils.createIntegerTagCompound(rStack, "stats", "mMeta", vMeta);
         CORE.sBookList.put(aMapping, rStack);
         Logger.INFO("Creating book: " + aTitle + " by " + aAuthor + ". Using Meta " + vMeta + ".");
-        return GT_Utility.copy(new Object[] {rStack});
+        return GT_Utility.copy(rStack);
     }
 
     @SuppressWarnings({"unused", "unchecked"})

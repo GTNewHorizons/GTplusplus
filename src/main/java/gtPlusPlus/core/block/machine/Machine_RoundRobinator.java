@@ -56,7 +56,7 @@ public class Machine_RoundRobinator extends BasicTileBlockWithTooltip {
 
             if (!mDidScrewDriver) {
                 final TileEntity te = world.getTileEntity(x, y, z);
-                if ((te != null) && (te instanceof TileEntityRoundRobinator)) {
+                if ((te instanceof TileEntityRoundRobinator)) {
                     return ((TileEntityRoundRobinator) te).onRightClick((byte) side, player, x, y, z);
                 }
                 return false;

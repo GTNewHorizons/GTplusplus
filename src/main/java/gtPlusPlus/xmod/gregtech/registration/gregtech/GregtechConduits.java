@@ -53,8 +53,8 @@ public class GregtechConduits {
 
     // 30000-30999
 
-    private static int BaseWireID = 30600;
-    private static int BasePipeID = 30700;
+    private static final int BaseWireID = 30600;
+    private static final int BasePipeID = 30700;
     private static int BasePipeHexadecupleID = 30100;
 
     public static void run() {
@@ -309,13 +309,13 @@ public class GregtechConduits {
                 OrePrefixes.wireGt01,
                 aMaterial,
                 new GregtechMetaPipeEntity_Cable(
-                                aStartID + 0,
+                        aStartID,
                                 "wire." + aMaterial.name().toLowerCase() + ".01",
                                 "1x " + aMaterial.mDefaultLocalName + " Wire",
                                 0.125F,
                                 aMaterial,
                                 aLoss,
-                                1L * aAmperage,
+                        aAmperage,
                                 aVoltage,
                                 false,
                                 !aAutoInsulated,
@@ -412,7 +412,7 @@ public class GregtechConduits {
                                     0.25F,
                                     aMaterial,
                                     aLossInsulated,
-                                    1L * aAmperage,
+                            aAmperage,
                                     aVoltage,
                                     true,
                                     false,
@@ -534,12 +534,12 @@ public class GregtechConduits {
                 OrePrefixes.wireGt01,
                 aMaterial,
                 new GregtechMetaPipeEntity_Cable(
-                                aStartID + 0,
+                        aStartID,
                                 "wire." + aMaterial.getLocalizedName().toLowerCase() + ".01",
                                 "1x " + aMaterial.getLocalizedName() + " Wire",
                                 0.125F,
                                 aLoss,
-                                1L * aAmperage,
+                        aAmperage,
                                 aVoltage,
                                 false,
                                 !aAutoInsulated,
@@ -630,7 +630,7 @@ public class GregtechConduits {
                                     "1x " + aMaterial.getLocalizedName() + " Cable",
                                     0.25F,
                                     aLossInsulated,
-                                    1L * aAmperage,
+                            aAmperage,
                                     aVoltage,
                                     true,
                                     false,
@@ -930,15 +930,15 @@ public class GregtechConduits {
 
         // Check all pipes are not null
         Logger.WARNING("Generated pipeTiny from " + materialName + "? "
-                + ((ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Tiny" + output, 1) != null) ? true : false));
+                + (ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Tiny" + output, 1) != null));
         Logger.WARNING("Generated pipeSmall from " + materialName + "? "
-                + ((ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Small" + output, 1) != null) ? true : false));
+                + (ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Small" + output, 1) != null));
         Logger.WARNING("Generated pipeNormal from " + materialName + "? "
-                + ((ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Medium" + output, 1) != null) ? true : false));
+                + (ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Medium" + output, 1) != null));
         Logger.WARNING("Generated pipeLarge from " + materialName + "? "
-                + ((ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Large" + output, 1) != null) ? true : false));
+                + (ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Large" + output, 1) != null));
         Logger.WARNING("Generated pipeHuge from " + materialName + "? "
-                + ((ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Huge" + output, 1) != null) ? true : false));
+                + (ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Huge" + output, 1) != null));
 
         int eut = 120;
         eut = (int) (8 * vMulti);
@@ -984,14 +984,14 @@ public class GregtechConduits {
             // 1 Clay Plate = 1 Clay Dust = 2 Clay Ball
             int inputMultiplier = materialName.equals("Clay") ? 2 : 1;
             GT_Values.RA.addExtruderRecipe(
-                    ItemUtils.getSimpleStack(pipeIngot, 1 * inputMultiplier),
+                    ItemUtils.getSimpleStack(pipeIngot, inputMultiplier),
                     ItemList.Shape_Extruder_Pipe_Tiny.get(0),
                     ItemUtils.getItemStackOfAmountFromOreDictNoBroken("pipe" + "Tiny" + output, 2),
                     5,
                     eut);
 
             GT_Values.RA.addExtruderRecipe(
-                    ItemUtils.getSimpleStack(pipeIngot, 1 * inputMultiplier),
+                    ItemUtils.getSimpleStack(pipeIngot, inputMultiplier),
                     ItemList.Shape_Extruder_Pipe_Small.get(0),
                     ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Small" + output, 1),
                     10,
@@ -1001,7 +1001,7 @@ public class GregtechConduits {
                     ItemUtils.getSimpleStack(pipeIngot, 3 * inputMultiplier),
                     ItemList.Shape_Extruder_Pipe_Medium.get(0),
                     ItemUtils.getItemStackOfAmountFromOreDict("pipe" + "Medium" + output, 1),
-                    1 * 20,
+                    20,
                     eut);
 
             GT_Values.RA.addExtruderRecipe(
@@ -1055,8 +1055,8 @@ public class GregtechConduits {
         if (GT_Utility.isStringInvalid(tName)) return false;
         ArrayList<ItemStack> tList = GT_OreDictUnificator.getOres(tName);
         for (int i = 0; i < tList.size(); ++i)
-            if (GT_Utility.areStacksEqual((ItemStack) tList.get(i), aStack, true)) return false;
-        OreDictionary.registerOre(tName, GT_Utility.copyAmount(1L, new Object[] {aStack}));
+            if (GT_Utility.areStacksEqual(tList.get(i), aStack, true)) return false;
+        OreDictionary.registerOre(tName, GT_Utility.copyAmount(1L, aStack));
         return true;
     }
 

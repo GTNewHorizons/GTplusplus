@@ -43,7 +43,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                 if (this.prepare(aStack) || aPlayer.capabilities.isCreativeMode) {
                     GT_Utility.sendSoundToPlayers(
                             aPlayer.worldObj,
-                            (String) GregTech_API.sSoundList.get(6),
+                            GregTech_API.sSoundList.get(6),
                             1.0F,
                             1.0F,
                             MathHelper.floor_double(aEntity.posX),
@@ -105,7 +105,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                         if (this.prepare(aStack) || aPlayer.capabilities.isCreativeMode) {
                             Logger.WARNING("Preparing Lighter c");
                             GT_Utility.sendSoundToPlayers(
-                                    aWorld, (String) GregTech_API.sSoundList.get(6), 1.0F, 1.0F, aX, aY, aZ);
+                                    aWorld, GregTech_API.sSoundList.get(6), 1.0F, 1.0F, aX, aY, aZ);
                             aWorld.setBlock(aX, aY, aZ, Blocks.fire);
                             rOutput = true;
                             // ItemNBT.setLighterFuel(aStack, tFuelAmount);
@@ -165,7 +165,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                         if (this.prepare(aStack) || aPlayer.capabilities.isCreativeMode) {
                             Logger.WARNING("Preparing Lighter c");
                             GT_Utility.sendSoundToPlayers(
-                                    aWorld, (String) GregTech_API.sSoundList.get(6), 1.0F, 1.0F, aX, aY, aZ);
+                                    aWorld, GregTech_API.sSoundList.get(6), 1.0F, 1.0F, aX, aY, aZ);
                             aWorld.setBlock(aX, aY, aZ, Blocks.fire);
                             rOutput = true;
                             // ItemNBT.setLighterFuel(aStack, tFuelAmount);

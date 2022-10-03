@@ -286,7 +286,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
                 return false;
             }
             ItemStack aGuiCircuit = this.getGUIItemStack();
-            if (aGuiCircuit == null || !ItemUtils.isControlCircuit(aGuiCircuit)) {
+            if (!ItemUtils.isControlCircuit(aGuiCircuit)) {
                 log("BAD RETURN - 0-2");
                 return false;
             }

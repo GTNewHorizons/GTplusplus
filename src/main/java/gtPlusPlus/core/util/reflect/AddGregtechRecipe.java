@@ -210,11 +210,7 @@ public final class AddGregtechRecipe {
                             didAdd[2] = (boolean)
                                     addRecipe.invoke(IGT_RecipeAdder, aInputs, moltenMetal, aOutput, aDuration, aEUt);
 
-                            if (didAdd[0] && didAdd[1] && didAdd[2]) {
-                                return true;
-                            } else {
-                                return false;
-                            }
+                            return didAdd[0] && didAdd[1] && didAdd[2];
                         } else {
                             return (boolean)
                                     addRecipe.invoke(IGT_RecipeAdder, aInputs, aFluidInput, aOutput, aDuration, aEUt);

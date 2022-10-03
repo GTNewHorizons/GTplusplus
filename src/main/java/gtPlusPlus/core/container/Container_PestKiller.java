@@ -78,10 +78,7 @@ public class Container_PestKiller extends Container {
     @Override
     public ItemStack slotClick(
             final int aSlotIndex, final int aMouseclick, final int aShifthold, final EntityPlayer aPlayer) {
-        boolean fluid = false;
-        if (aSlotIndex == 2) {
-            fluid = true;
-        }
+        boolean fluid = aSlotIndex == 2;
         if (!fluid) {
             return super.slotClick(aSlotIndex, aMouseclick, aShifthold, aPlayer);
         } else {
@@ -128,7 +125,7 @@ public class Container_PestKiller extends Container {
              */
 
             if (var5.stackSize == 0) {
-                var4.putStack((ItemStack) null);
+                var4.putStack(null);
             } else {
                 var4.onSlotChanged();
             }

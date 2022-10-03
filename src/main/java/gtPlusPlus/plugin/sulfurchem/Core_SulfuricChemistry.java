@@ -20,8 +20,8 @@ public class Core_SulfuricChemistry implements IPlugin {
     static final Core_SulfuricChemistry mInstance;
     private static boolean shouldLoad = false;
 
-    private static AutoMap<GT_Recipe> mRemovedRecipes1 = new AutoMap<GT_Recipe>();
-    private static AutoMap<GT_Recipe> mRemovedRecipes2 = new AutoMap<GT_Recipe>();
+    private static final AutoMap<GT_Recipe> mRemovedRecipes1 = new AutoMap<GT_Recipe>();
+    private static final AutoMap<GT_Recipe> mRemovedRecipes2 = new AutoMap<GT_Recipe>();
 
     static {
         mInstance = new Core_SulfuricChemistry();
@@ -36,14 +36,12 @@ public class Core_SulfuricChemistry implements IPlugin {
         /*CORE.DEVENV*/ false) {
             shouldLoad = true;
         }
-        if (shouldLoad) return true;
-        return false;
+        return shouldLoad;
     }
 
     @Override
     public boolean init() {
-        if (shouldLoad) return true;
-        return false;
+        return shouldLoad;
     }
 
     @Override

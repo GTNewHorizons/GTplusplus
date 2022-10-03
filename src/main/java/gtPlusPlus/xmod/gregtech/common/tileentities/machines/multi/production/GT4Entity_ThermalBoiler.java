@@ -118,37 +118,37 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(0))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(0)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(0))};
                             }
                             if ((tRecipe.getOutput(1) != null)
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(1))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(1)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(1))};
                             }
                             if ((tRecipe.getOutput(2) != null)
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(2))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(2)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(2))};
                             }
                             if ((tRecipe.getOutput(3) != null)
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(3))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(3)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(3))};
                             }
                             if ((tRecipe.getOutput(4) != null)
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(4))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(4)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(4))};
                             }
                             if ((tRecipe.getOutput(5) != null)
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(5))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(5)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(5))};
                             }
                         }
                         // Give Obsidian without Lava Filter
@@ -157,7 +157,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                                     && (getBaseMetaTileEntity().getRandomNumber(loot_MAXCHANCE)
                                             < tRecipe.getOutputChance(6))) {
                                 this.mOutputItems =
-                                        new ItemStack[] {GT_Utility.copy(new Object[] {tRecipe.getOutput(6)})};
+                                        new ItemStack[] {GT_Utility.copy(tRecipe.getOutput(6))};
                             }
                         }
                         return true;

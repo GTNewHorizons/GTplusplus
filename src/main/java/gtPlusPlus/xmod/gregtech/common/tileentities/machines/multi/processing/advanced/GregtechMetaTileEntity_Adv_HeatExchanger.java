@@ -359,7 +359,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger
             StatCollector.translateToLocal("GT5U.multiblock.usage") + " "
                     + StatCollector.translateToLocal("GT5U.LHE.steam") + ": "
                     + (superheated ? EnumChatFormatting.RED : EnumChatFormatting.YELLOW)
-                    + GT_Utility.formatNumbers(superheated ? -2 * mEUt : -mEUt) + EnumChatFormatting.RESET + " EU/t",
+                    + GT_Utility.formatNumbers(superheated ? -2L * mEUt : -mEUt) + EnumChatFormatting.RESET + " EU/t",
             StatCollector.translateToLocal("GT5U.multiblock.problems") + ": " + EnumChatFormatting.RED
                     + (getIdealStatus() - getRepairStatus()) + EnumChatFormatting.RESET + " "
                     + StatCollector.translateToLocal("GT5U.multiblock.efficiency")

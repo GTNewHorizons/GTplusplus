@@ -7,7 +7,7 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
@@ -49,7 +49,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     public static final int[] SIDES = new int[] {SIDE_Up, SIDE_Down, SIDE_XPos, SIDE_XNeg, SIDE_ZPos, SIDE_ZNeg};
 
     // Neighbour Cache
-    private GT_MetaTileEntity_ConnectableCrate[] mNeighbourCache = new GT_MetaTileEntity_ConnectableCrate[6];
+    private final GT_MetaTileEntity_ConnectableCrate[] mNeighbourCache = new GT_MetaTileEntity_ConnectableCrate[6];
     // Cached Crate Location
     private BlockPos mCurrentPos = null;
     // Master Crate Position
@@ -57,7 +57,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     // Is Master?
     protected boolean mIsMaster = false;
     // Is Connected?
-    protected boolean mIsConnected[] = new boolean[] {false, false, false, false, false, false};
+    protected boolean[] mIsConnected = new boolean[] {false, false, false, false, false, false};
     // How many are connected?
     protected int mConnectedCount = 0;
     // Map of connected locations
@@ -70,8 +70,8 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                 aNameRegional,
                 aTier,
                 3,
-                "This Crate stores " + (int) (Math.pow(6.0D, (double) aTier) * mStorageFactor) + " Items",
-                new ITexture[0]);
+                "This Crate stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items"
+        );
     }
 
     public GT_MetaTileEntity_ConnectableCrate(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
@@ -341,9 +341,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
             if (aType == 0) {
                 return true;
             } else {
-                if (g.mIsMaster) {
-                    return true;
-                }
+                return g.mIsMaster;
             }
         }
         return false;
@@ -454,7 +452,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     }
 
     public int getMaxItemCount() {
-        return (int) (Math.pow(6.0D, (double) this.mTier) * mStorageFactor - 128.0D);
+        return (int) (Math.pow(6.0D, this.mTier) * mStorageFactor - 128.0D);
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
@@ -534,15 +532,15 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
             boolean aRedstone) {
         return aBaseMetaTileEntity.getFrontFacing() == 0 && aSide == 4
                 ? new ITexture[] {
-                    new GT_RenderedTexture(TexturesGtBlock.TEXTURE_CASING_AMAZON),
-                    new GT_RenderedTexture(BlockIcons.OVERLAY_QCHEST)
+                    TextureFactory.of(TexturesGtBlock.TEXTURE_CASING_AMAZON),
+                    TextureFactory.of(BlockIcons.OVERLAY_QCHEST)
                 }
                 : (aSide == aBaseMetaTileEntity.getFrontFacing()
                         ? new ITexture[] {
-                            new GT_RenderedTexture(TexturesGtBlock.TEXTURE_CASING_AMAZON),
-                            new GT_RenderedTexture(BlockIcons.OVERLAY_QCHEST)
+                            TextureFactory.of(TexturesGtBlock.TEXTURE_CASING_AMAZON),
+                            TextureFactory.of(BlockIcons.OVERLAY_QCHEST)
                         }
-                        : new ITexture[] {new GT_RenderedTexture(TexturesGtBlock.TEXTURE_CASING_AMAZON)});
+                        : new ITexture[] {TextureFactory.of(TexturesGtBlock.TEXTURE_CASING_AMAZON)});
     }
 
     public ITexture[][][] getTextureSet(ITexture[] aTextures) {

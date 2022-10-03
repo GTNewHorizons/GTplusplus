@@ -25,7 +25,7 @@ public class GregtechGeneratorsULV {
                         .getStackForm(1L));
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Diesel_ULV.get(1L, new Object[0]), bitsd, new Object[] {
+                GregtechItemList.Generator_Diesel_ULV.get(1L), bitsd, new Object[] {
                     "PCP",
                     "EME",
                     "GWG",
@@ -43,7 +43,7 @@ public class GregtechGeneratorsULV {
                     OrePrefixes.gearGt.get(Materials.Bronze)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Gas_Turbine_ULV.get(1L, new Object[0]), bitsd, new Object[] {
+                GregtechItemList.Generator_Gas_Turbine_ULV.get(1L), bitsd, new Object[] {
                     "CRC",
                     "RMR",
                     "EWE",
@@ -59,7 +59,7 @@ public class GregtechGeneratorsULV {
                     OrePrefixes.cableGt01.get(Materials.RedAlloy)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Steam_Turbine_ULV.get(1L, new Object[0]), bitsd, new Object[] {
+                GregtechItemList.Generator_Steam_Turbine_ULV.get(1L), bitsd, new Object[] {
                     "PCP",
                     "RMR",
                     "EWE",

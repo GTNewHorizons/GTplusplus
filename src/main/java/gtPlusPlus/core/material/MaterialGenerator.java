@@ -92,10 +92,7 @@ public class MaterialGenerator {
         0, 0, 0);*/
         // new RecipeGen_FluidCanning(r, false);
         RecipeGen_FluidCanning g = new RecipeGen_FluidCanning(false, aEmpty, aFullContainer, aFluidIn, null, null, 0);
-        if (g != null && g.valid()) {
-            return true;
-        }
-        return false;
+        return g != null && g.valid();
     }
 
     public static void generate(final Material matInfo) {
@@ -126,7 +123,7 @@ public class MaterialGenerator {
             }
 
             if (matInfo.getState() == MaterialState.SOLID) {
-                if (generateEverything == true) {
+                if (generateEverything) {
                     if (sRadiation >= 1) {
                         tempBlock = new BlockBaseModular(matInfo, BlockTypes.STANDARD);
                         temp = new BaseItemIngot(matInfo);
@@ -165,7 +162,7 @@ public class MaterialGenerator {
                     temp = new BaseItemPlateDouble(matInfo);
                 }
             } else if (matInfo.getState() == MaterialState.LIQUID) {
-                if (generateEverything == true) {
+                if (generateEverything) {
                     tempBlock = new BlockBaseModular(matInfo, BlockTypes.STANDARD);
                 }
                 temp = new BaseItemIngot(matInfo);

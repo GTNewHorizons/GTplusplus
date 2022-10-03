@@ -16,8 +16,8 @@ public class FakeGregtechTool extends CoreItem {
     public final int componentColour;
     public Object extraData;
 
-    protected IIcon base[] = new IIcon[6];
-    protected IIcon overlay[] = new IIcon[6];
+    protected IIcon[] base = new IIcon[6];
+    protected IIcon[] overlay = new IIcon[6];
 
     public FakeGregtechTool() {
         super("GregeriousT's Display Tool", AddToCreativeTab.tabTools, 1);

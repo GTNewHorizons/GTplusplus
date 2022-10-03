@@ -38,36 +38,12 @@ public class GUI_PowerSubStation extends GT_GUIContainerMetaTile_Machine {
 
             // this.fontRendererObj.drawString("Error Code: " + mPowerContainer.mDisplayErrorCode, 10, 142, 16448255);
 
-            if (((this.mContainer).mDisplayErrorCode & 1) != 0) {
-                mRepairStatus[0] = false;
-            } else {
-                mRepairStatus[0] = true;
-            }
-            if ((mPowerContainer.mDisplayErrorCode & 2) != 0) {
-                mRepairStatus[1] = false;
-            } else {
-                mRepairStatus[1] = true;
-            }
-            if ((mPowerContainer.mDisplayErrorCode & 4) != 0) {
-                mRepairStatus[2] = false;
-            } else {
-                mRepairStatus[2] = true;
-            }
-            if ((mPowerContainer.mDisplayErrorCode & 8) != 0) {
-                mRepairStatus[3] = false;
-            } else {
-                mRepairStatus[3] = true;
-            }
-            if ((mPowerContainer.mDisplayErrorCode & 16) != 0) {
-                mRepairStatus[4] = false;
-            } else {
-                mRepairStatus[4] = true;
-            }
-            if ((mPowerContainer.mDisplayErrorCode & 32) != 0) {
-                mRepairStatus[5] = false;
-            } else {
-                mRepairStatus[5] = true;
-            }
+            mRepairStatus[0] = ((this.mContainer).mDisplayErrorCode & 1) == 0;
+            mRepairStatus[1] = (mPowerContainer.mDisplayErrorCode & 2) == 0;
+            mRepairStatus[2] = (mPowerContainer.mDisplayErrorCode & 4) == 0;
+            mRepairStatus[3] = (mPowerContainer.mDisplayErrorCode & 8) == 0;
+            mRepairStatus[4] = (mPowerContainer.mDisplayErrorCode & 16) == 0;
+            mRepairStatus[5] = (mPowerContainer.mDisplayErrorCode & 32) == 0;
             if (mPowerContainer.mDisplayErrorCode == 0) {
                 if (mPowerContainer.mActive == 0) {
                     this.fontRendererObj.drawString("Turn on with Mallet", 10, 8, 16448255);
@@ -97,7 +73,7 @@ public class GUI_PowerSubStation extends GT_GUIContainerMetaTile_Machine {
                     GT_Utility.formatNumbers(this.mPowerContainer.mStoredEU.getValue()) + " EU",
                     10,
                     142,
-                    Utils.rgbtoHexValue((255 - tScale), (0 + tScale), 0));
+                    Utils.rgbtoHexValue((255 - tScale), (tScale), 0));
             this.fontRendererObj.drawString(GT_Utility.formatNumbers(tScale2) + "%", 70, 155, 16448255);
         }
     }

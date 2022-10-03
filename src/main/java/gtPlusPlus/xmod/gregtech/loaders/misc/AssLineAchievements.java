@@ -54,8 +54,7 @@ public class AssLineAchievements {
 
     public static void registerAchievements() {
         if (active && mAchievementMap.size() > 0) {
-            AchievementPage.registerAchievementPage(new AchievementPage("GT Assembly Line", (Achievement[])
-                    mAchievementMap.values().toArray(new Achievement[mAchievementMap.size()])));
+            AchievementPage.registerAchievementPage(new AchievementPage("GT Assembly Line", mAchievementMap.values().toArray(new Achievement[mAchievementMap.size()])));
         } else if (active) {
             Logger.INFO("Unable to register custom achievement page for Assembly Line recipes.");
         }
@@ -127,13 +126,13 @@ public class AssLineAchievements {
             return;
         }
 
-        entityplayer.triggerAchievement((StatBase) getAchievement(textId));
+        entityplayer.triggerAchievement(getAchievement(textId));
     }
 
     public static Achievement getAchievement(String textId) {
         if (mAchievementMap.containsKey(textId)) {
             Logger.INFO("Found Achivement: " + textId);
-            return (Achievement) mAchievementMap.get(textId);
+            return mAchievementMap.get(textId);
         }
         return null;
     }

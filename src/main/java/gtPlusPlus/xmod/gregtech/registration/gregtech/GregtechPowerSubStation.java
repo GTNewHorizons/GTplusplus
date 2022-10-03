@@ -42,19 +42,19 @@ public class GregtechPowerSubStation {
                 .getStackForm(1L));
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Hatch_Input_Battery_MV.get(1L, new Object[0]),
+                GregtechItemList.Hatch_Input_Battery_MV.get(1L),
                 CI.bitsd,
                 new Object[] {"C", "M", 'M', ItemList.Hull_MV, 'C', ItemList.Battery_Buffer_2by2_MV});
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Hatch_Input_Battery_EV.get(1L, new Object[0]),
+                GregtechItemList.Hatch_Input_Battery_EV.get(1L),
                 CI.bitsd,
                 new Object[] {"C", "M", 'M', ItemList.Hull_EV, 'C', ItemList.Battery_Buffer_4by4_EV});
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Hatch_Output_Battery_MV.get(1L, new Object[0]),
+                GregtechItemList.Hatch_Output_Battery_MV.get(1L),
                 CI.bitsd,
                 new Object[] {"M", "C", 'M', ItemList.Hull_MV, 'C', ItemList.Battery_Buffer_2by2_MV});
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Hatch_Output_Battery_EV.get(1L, new Object[0]),
+                GregtechItemList.Hatch_Output_Battery_EV.get(1L),
                 CI.bitsd,
                 new Object[] {"M", "C", 'M', ItemList.Hull_EV, 'C', ItemList.Battery_Buffer_4by4_EV});
     }

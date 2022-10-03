@@ -68,7 +68,7 @@ public class Machine_SuperJukebox extends BlockJukebox {
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntitySuperJukebox)) {
+        if ((te instanceof TileEntitySuperJukebox)) {
             player.openGui(GTplusplus.instance, GuiHandler.GUI14, world, x, y, z);
             return true;
         }
@@ -386,8 +386,8 @@ public class Machine_SuperJukebox extends BlockJukebox {
                     ItemStack aRecordToPlay = tileentityjukebox.func_145856_a();
                     if (aRecordToPlay != null) {
                         aWorld.playAuxSFX(1005, aX, aY, aZ, 0);
-                        aWorld.playRecord((String) null, aX, aY, aZ);
-                        tileentityjukebox.func_145857_a((ItemStack) null);
+                        aWorld.playRecord(null, aX, aY, aZ);
+                        tileentityjukebox.func_145857_a(null);
                         this.markDirty();
                     }
                 }

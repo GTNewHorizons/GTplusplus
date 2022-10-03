@@ -58,7 +58,7 @@ public class HANDLER_FR {
             try {
                 oClass = ReflectionUtils.getClass("forestry.core.proxy.ProxyCommon");
                 Object oProxy = ReflectionUtils.getField(oClass, "common");
-                if (oProxy != null && oClass.isInstance(oProxy)) {
+                if (oClass.isInstance(oProxy)) {
                     Method mParticles = ReflectionUtils.getMethod(
                             oClass,
                             "addBlockDestroyEffects",

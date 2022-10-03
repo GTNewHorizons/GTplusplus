@@ -3,7 +3,7 @@ package gtPlusPlus.xmod.gregtech.api.enums;
 import gregtech.api.GregTech_API;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gtPlusPlus.core.lib.CORE;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
@@ -16,11 +16,11 @@ public class CustomGtTextures {
         PUMP,
         SKOOKUMCHOOCHER;
 
-        public static final ITexture[] ERROR_RENDERING = new ITexture[] {new GT_RenderedTexture(RENDERING_ERROR)};
+        public static final ITexture[] ERROR_RENDERING = new ITexture[] {TextureFactory.of(RENDERING_ERROR)};
 
-        protected IIcon mIcon, mOverlay;
+        private IIcon mIcon, mOverlay;
 
-        private ItemIcons() {
+        ItemIcons() {
             GregTech_API.sGTItemIconload.add(this);
         }
 

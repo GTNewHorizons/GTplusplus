@@ -131,10 +131,7 @@ public class GregtechMetaTileEntityGeneratorArray
 
     @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
-        if (aStack != null && aStack.getUnlocalizedName().startsWith("gt.blockmachines.")) {
-            return true;
-        }
-        return false;
+        return aStack != null && aStack.getUnlocalizedName().startsWith("gt.blockmachines.");
     }
 
     protected int fuelConsumption = 0;
@@ -407,7 +404,7 @@ public class GregtechMetaTileEntityGeneratorArray
             if (tFuelValue > 0) {
                 ItemStack tEmptyContainer1 = this.getEmptyContainer(a);
                 if (this.addOutput(tEmptyContainer1)) {
-                    aBaseMetaTileEntity.increaseStoredEnergyUnits((long) tFuelValue, true);
+                    aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
                     this.depleteInput(a);
                     PollutionUtils.addPollution(this.getBaseMetaTileEntity(), 10 * this.getPollutionPerTick(null));
                 }
@@ -423,7 +420,7 @@ public class GregtechMetaTileEntityGeneratorArray
                 int tEmptyContainer = this.consumedFluidPerOperation(mFluid);
                 if (tFuelValue > 0 && tEmptyContainer > 0 && mFluid.amount > tEmptyContainer) {
                     long tFluidAmountToUse = Math.min(
-                            (long) (mFluid.amount / tEmptyContainer),
+                            mFluid.amount / tEmptyContainer,
                             (this.maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / (long) tFuelValue);
                     if (tFluidAmountToUse > 0L
                             && aBaseMetaTileEntity.increaseStoredEnergyUnits(
@@ -459,7 +456,7 @@ public class GregtechMetaTileEntityGeneratorArray
                 Iterator<GT_Recipe> arg3 = tRecipeList.iterator();
 
                 while (arg3.hasNext()) {
-                    GT_Recipe tFuel = (GT_Recipe) arg3.next();
+                    GT_Recipe tFuel = arg3.next();
                     FluidStack tLiquid;
                     if ((tLiquid = GT_Utility.getFluidForFilledItem(tFuel.getRepresentativeInput(0), true)) != null
                             && aLiquid.isFluidEqual(tLiquid)) {
@@ -481,9 +478,7 @@ public class GregtechMetaTileEntityGeneratorArray
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
-                                aStack
-                            });
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, aStack);
             return tFuel != null ? (int) ((long) tFuel.mSpecialValue * 1000L * (long) this.mEfficiency / 100L) : 0;
         } else {
             return 0;
@@ -494,11 +489,9 @@ public class GregtechMetaTileEntityGeneratorArray
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
-                                aStack
-                            });
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, aStack);
             return tFuel != null
-                    ? GT_Utility.copy(new Object[] {tFuel.getOutput(0)})
+                    ? GT_Utility.copy(tFuel.getOutput(0))
                     : GT_Utility.getContainerItem(aStack, true);
         } else {
             return null;

@@ -647,7 +647,7 @@ public class MilledOreProcessing extends ItemPackage {
 
     public boolean addRecipe(ItemStack aInput, ItemStack aOutput1, int[] aChances, int aTime, int aEU) {
         aOutput1 = GT_OreDictUnificator.get(true, aOutput1);
-        ItemStack aOutputs[] = new ItemStack[4];
+        ItemStack[] aOutputs = new ItemStack[4];
         for (int i = 0; i < aChances.length; i++) {
             aOutputs[i] = aOutput1;
         }
@@ -757,7 +757,7 @@ public class MilledOreProcessing extends ItemPackage {
                     aData) {
         AutoMap<ItemStack> aOutputs = new AutoMap<ItemStack>();
         for (Object aPair : aData.values()) {
-            if (aPair != null && Pair.class.isInstance(aPair)) {
+            if (aPair instanceof Pair) {
                 Pair aObj = (Pair) aPair;
                 Material aMat = (Material) aObj.getKey();
                 int aCount = (int) aObj.getValue();

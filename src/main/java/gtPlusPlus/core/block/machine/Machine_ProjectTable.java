@@ -110,7 +110,7 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityProjectTable)) {
+        if ((te instanceof TileEntityProjectTable)) {
             if (!holdingWrench) {
                 player.openGui(GTplusplus.instance, 0, world, x, y, z);
                 return true;
@@ -143,9 +143,7 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         if (ReflectionUtils.doesClassExist("crazypants.enderio.api.tool.ITool")) {
             Class<?> wrenchClass;
             wrenchClass = ReflectionUtils.getClass("crazypants.enderio.api.tool.ITool");
-            if (wrenchClass.isInstance(item.getItem())) {
-                return true;
-            }
+            return wrenchClass.isInstance(item.getItem());
         }
         return false;
     }
@@ -155,9 +153,7 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         if (ReflectionUtils.doesClassExist("buildcraft.api.tools.IToolWrench")) {
             Class<?> wrenchClass;
             wrenchClass = ReflectionUtils.getClass("buildcraft.api.tools.IToolWrench");
-            if (wrenchClass.isInstance(item.getItem())) {
-                return true;
-            }
+            return wrenchClass.isInstance(item.getItem());
         }
         return false;
     }

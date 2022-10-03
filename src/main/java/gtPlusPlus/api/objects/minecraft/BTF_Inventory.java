@@ -59,18 +59,18 @@ public class BTF_Inventory implements ISidedInventory {
 
     public ItemStack decrStackSize(int aIndex, int aAmount) {
         ItemStack tStack = this.getStackInSlot(aIndex);
-        ItemStack rStack = GT_Utility.copy(new Object[] {tStack});
+        ItemStack rStack = GT_Utility.copy(tStack);
         if (tStack != null) {
             if (tStack.stackSize <= aAmount) {
                 if (this.setStackToZeroInsteadOfNull(aIndex)) {
                     tStack.stackSize = 0;
                 } else {
-                    this.setInventorySlotContents(aIndex, (ItemStack) null);
+                    this.setInventorySlotContents(aIndex, null);
                 }
             } else {
                 rStack = tStack.splitStack(aAmount);
                 if (tStack.stackSize == 0 && !this.setStackToZeroInsteadOfNull(aIndex)) {
-                    this.setInventorySlotContents(aIndex, (ItemStack) null);
+                    this.setInventorySlotContents(aIndex, null);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class BTF_Inventory implements ISidedInventory {
         int[] arg6 = new int[tList.size()];
 
         for (int i = 0; i < arg6.length; ++i) {
-            arg6[i] = ((Integer) tList.get(i)).intValue();
+            arg6[i] = tList.get(i).intValue();
         }
 
         return arg6;
@@ -159,7 +159,7 @@ public class BTF_Inventory implements ISidedInventory {
     }
 
     public final boolean hasCustomInventoryName() {
-        return mTile != null ? mTile.hasCustomInventoryName() : false;
+        return mTile != null && mTile.hasCustomInventoryName();
     }
 
     public void markDirty() {
@@ -210,9 +210,8 @@ public class BTF_Inventory implements ISidedInventory {
                 if (mInventory != null && mInventory[s] != null) {
                     ItemStack slot = mInventory[s];
                     if (slot == null
-                            || (slot != null
-                                    && GT_Utility.areStacksEqual(aInput, slot)
-                                    && slot.stackSize != slot.getItem().getItemStackLimit(slot))) {
+                            || (GT_Utility.areStacksEqual(aInput, slot)
+                            && slot.stackSize != slot.getItem().getItemStackLimit(slot))) {
                         if (slot == null) {
                             slot = aInput.copy();
                         } else {

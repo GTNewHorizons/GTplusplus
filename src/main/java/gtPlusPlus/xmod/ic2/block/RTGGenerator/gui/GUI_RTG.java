@@ -31,7 +31,7 @@ public class GUI_RTG extends GuiRTGenerator {
                 par2 - this.guiTop,
                 StatCollector.translateToLocalFormatted(
                         "ic2.generic.text.bufferEU",
-                        new Object[] {Double.valueOf(((TileEntityRTG) this.container.base).storage)}),
+                        Double.valueOf(this.container.base.storage)),
                 117,
                 38,
                 150,
@@ -46,7 +46,7 @@ public class GUI_RTG extends GuiRTGenerator {
         final int k = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(j, k, 0, 0, this.xSize, this.ySize);
 
-        final int i1 = ((TileEntityRTG) this.container.base).gaugeStorageScaled(31);
+        final int i1 = this.container.base.gaugeStorageScaled(31);
         this.drawTexturedModalRect(j + 119, k + 40, 179, 3, i1, 8);
     }
 

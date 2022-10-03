@@ -617,11 +617,11 @@ public class RECIPES_Machines {
                 new FluidStack[] {
                     ALLOY.NITINOL_60.getFluidStack(144 * 9 * (GTNH ? 4 : 2)),
                     ALLOY.INCOLOY_MA956.getFluidStack(144 * 9 * (GTNH ? 32 : 8)),
-                    ALLOY.KANTHAL.getFluidStack(144 * 1 * (GTNH ? 16 : 4)),
+                    ALLOY.KANTHAL.getFluidStack(144 * (GTNH ? 16 : 4)),
                 },
                 GregtechItemList.Controller_MolecularTransformer.get(1),
                 20 * 60 * 10 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
@@ -894,7 +894,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Controller_ElementalDuplicator.get(1),
                 20 * 60 * 60 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(7));
+                MaterialUtils.getVoltageForTier(7));
 
         CORE.RA.addAssemblylineRecipe(
                 GregtechItemList.Modulator_III.get(1),
@@ -918,7 +918,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Hatch_Input_Elemental_Duplicator.get(1),
                 20 * 60 * 60 * (GTNH ? 4 : 2),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         CORE.RA.addAssemblylineRecipe(
                 GregtechItemList.ResonanceChamber_III.get(1),
@@ -942,7 +942,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Casing_ElementalDuplicator.get(1),
                 20 * 60 * (GTNH ? 20 : 10),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
     }
 
     private static void resonanceChambers() {
@@ -1002,7 +1002,7 @@ public class RECIPES_Machines {
     private static void chemPlant() {
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Casing_Machine_Custom_1.get(2L, new Object[0]), CI.bits, new Object[] {
+                GregtechItemList.Casing_Machine_Custom_1.get(2L), CI.bits, new Object[] {
                     "PhP",
                     "PFP",
                     "PwP",
@@ -1013,7 +1013,7 @@ public class RECIPES_Machines {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Casing_Machine_Custom_2.get(2L, new Object[0]), CI.bits, new Object[] {
+                GregtechItemList.Casing_Machine_Custom_2.get(2L), CI.bits, new Object[] {
                     "PPP",
                     "hFw",
                     "PPP",
@@ -1103,7 +1103,7 @@ public class RECIPES_Machines {
 
     private static void chunkloaders() {
 
-        ItemStack aOutputs[] = new ItemStack[] {
+        ItemStack[] aOutputs = new ItemStack[] {
             GregtechItemList.GT_Chunkloader_HV.get(1L),
             GregtechItemList.GT_Chunkloader_IV.get(1L),
             GregtechItemList.GT_Chunkloader_ZPM.get(1L),
@@ -1132,7 +1132,7 @@ public class RECIPES_Machines {
     }
 
     private static void overflowValveCovers() {
-        ItemStack aOutputs[] = new ItemStack[] {
+        ItemStack[] aOutputs = new ItemStack[] {
             GregtechItemList.Cover_Overflow_ULV.get(1L),
             GregtechItemList.Cover_Overflow_LV.get(1L),
             GregtechItemList.Cover_Overflow_MV.get(1L),
@@ -1279,7 +1279,7 @@ public class RECIPES_Machines {
                     },
                     ELEMENT.getInstance().IRON.getFluidStack(144 * 4),
                     ItemUtils.getSimpleStack(ModBlocks.blockCircuitProgrammer),
-                    60 * 10 * 1,
+                    60 * 10,
                     30);
 
             // Lead Lined Chest
@@ -3339,11 +3339,11 @@ public class RECIPES_Machines {
                         new ItemStack[] {
                             ItemUtils.getItemStackOfAmountFromOreDict("frameGtTriniumNaquadahCarbonite", 4),
                             ItemUtils.getItemStackOfAmountFromOreDict(
-                                    "plateDoubleTriniumTitaniumAlloy", 1 * (GTNH ? 2 : 1)),
+                                    "plateDoubleTriniumTitaniumAlloy", (GTNH ? 2 : 1)),
                             ItemUtils.getItemStackOfAmountFromOreDict("gearGtPikyonium64B", 2 * (GTNH ? 2 : 1)),
                             ALLOY.TRINIUM_REINFORCED_STEEL.getPlateDouble(4 * (GTNH ? 2 : 1)),
                             ItemUtils.getSimpleStack(
-                                    (GTNH ? CI.machineHull_UV : CI.machineHull_LuV), 1 * (GTNH ? 2 : 1)),
+                                    (GTNH ? CI.machineHull_UV : CI.machineHull_LuV), (GTNH ? 2 : 1)),
                         },
                         ALLOY.MARAGING350.getFluidStack(144 * 16 * (GTNH ? 2 : 1)),
                         GregtechItemList.Casing_BedrockMiner.get(1),
@@ -3367,7 +3367,7 @@ public class RECIPES_Machines {
                 },
                 CI.getTieredFluid(6, (144 * 8)), // Input Fluid
                 ItemUtils.getSimpleStack(Dimension_Everglades.blockPortalFrame, 2),
-                45 * 20 * 1 * (6),
+                45 * 20 * (6),
                 MaterialUtils.getVoltageForTier(6));
         GT_MetaTileEntity_Disassembler.addBlacklist(ItemUtils.getSimpleStack(Dimension_Everglades.blockPortalFrame, 1));
 
@@ -3515,7 +3515,7 @@ public class RECIPES_Machines {
                     },
                     CI.getTieredFluid(i, 144 * 4 * (i + 1)), // Input Fluid
                     aOutput[i],
-                    60 * 20 * 1 * (i + 1),
+                    60 * 20 * (i + 1),
                     MaterialUtils.getVoltageForTier(i));
         }
     }
@@ -3672,7 +3672,7 @@ public class RECIPES_Machines {
                     },
                     CI.getTieredFluid(i, (144 * 4 * aTier)), // Input Fluid
                     aOutput[i],
-                    45 * 10 * 1 * (aTier),
+                    45 * 10 * (aTier),
                     MaterialUtils.getVoltageForTier(i));
 
             // Energy Buffer
@@ -3687,7 +3687,7 @@ public class RECIPES_Machines {
                     },
                     CI.getTieredFluid(aTier, (144 * 16 * aTier)), // Input Fluid
                     aBufferOutput[i],
-                    45 * 20 * 1 * (aTier),
+                    45 * 20 * (aTier),
                     MaterialUtils.getVoltageForTier(i));
         }
     }
@@ -3715,9 +3715,9 @@ public class RECIPES_Machines {
             }
             int aTier = (i + 1);
             ItemStack[] aInputs = new ItemStack[] {
-                CI.getTieredMachineHull(i, 1 * aCostMultiplier),
+                CI.getTieredMachineHull(i, aCostMultiplier),
                 CI.getTransmissionComponent(i, 2 * aCostMultiplier),
-                CI.getFieldGenerator(i, 1 * aCostMultiplier),
+                CI.getFieldGenerator(i, aCostMultiplier),
                 CI.getTieredComponent(OrePrefixes.plate, aTier, 4 * aCostMultiplier),
                 CI.getTieredComponent(OrePrefixes.circuit, aTier, 2 * aCostMultiplier),
             };
@@ -3725,7 +3725,7 @@ public class RECIPES_Machines {
                     aInputs,
                     CI.getAlternativeTieredFluid(i, (144 * 2 * aTier)), // Input Fluid
                     aChargers[i],
-                    45 * 10 * 1 * (aTier),
+                    45 * 10 * (aTier),
                     MaterialUtils.getVoltageForTier(i));
         }
     }
@@ -3734,15 +3734,15 @@ public class RECIPES_Machines {
         int aCostMultiplier = GTNH ? 2 : 1;
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getTieredMachineHull(-1, 1 * aCostMultiplier),
+                    CI.getTieredMachineHull(-1, aCostMultiplier),
                     CI.getTransmissionComponent(2, 2 * aCostMultiplier),
                     CI.getElectricPiston(4, 2 * aCostMultiplier),
                     CI.getTieredComponent(OrePrefixes.plate, 5, 4 * aCostMultiplier),
-                    CI.getTieredComponent(OrePrefixes.pipeSmall, 4, 1 * aCostMultiplier),
+                    CI.getTieredComponent(OrePrefixes.pipeSmall, 4, aCostMultiplier),
                 },
                 CI.getAlternativeTieredFluid(5, (144 * 2 * 4)), // Input Fluid
                 GregtechItemList.Casing_Industrial_Arc_Furnace.get(Casing_Amount),
-                20 * 10 * 1 * (6),
+                20 * 10 * (6),
                 MaterialUtils.getVoltageForTier(5));
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
@@ -3764,7 +3764,7 @@ public class RECIPES_Machines {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getTieredMachineHull(-1, 1 * aCostMultiplier),
+                    CI.getTieredMachineHull(-1, aCostMultiplier),
                     CI.getHeatCoil(2),
                     CI.getElectricPiston(3, 2 * aCostMultiplier),
                     CI.getTieredComponent(OrePrefixes.plate, 6, 4 * aCostMultiplier),
@@ -3775,13 +3775,11 @@ public class RECIPES_Machines {
                 20 * 10 * 6,
                 MaterialUtils.getVoltageForTier(6));
 
-        ;
-
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
                     GregtechItemList.Casing_Vacuum_Furnace.get(aCostMultiplier),
                     CI.getTieredComponent(OrePrefixes.wireGt16, 7, 4 * aCostMultiplier),
-                    CI.getEnergyCore(6, 1 * aCostMultiplier),
+                    CI.getEnergyCore(6, aCostMultiplier),
                     CI.getRobotArm(4, 4 * aCostMultiplier),
                     CI.getTieredComponent(OrePrefixes.plate, 7, 8 * aCostMultiplier),
                     CI.getTieredComponent(OrePrefixes.circuit, 6, 8 * aCostMultiplier),
@@ -4078,7 +4076,7 @@ public class RECIPES_Machines {
         if (!GTNH) {
             aMaxTier = 10;
         }
-        ItemStack aTier[] = new ItemStack[aMaxTier];
+        ItemStack[] aTier = new ItemStack[aMaxTier];
         for (int i = 0; i < aMaxTier; i++) {
             aTier[i] = ItemUtils.simpleMetaStack(CoverManager.Cover_Gt_Machine_Casing, i, 7);
         }
@@ -4123,8 +4121,8 @@ public class RECIPES_Machines {
             CoverManager.Cover_Bitt
         };
 
-        ItemStack aInputs[][] = new ItemStack[5][16];
-        ItemStack aOutputs[][] = new ItemStack[5][16];
+        ItemStack[][] aInputs = new ItemStack[5][16];
+        ItemStack[][] aOutputs = new ItemStack[5][16];
         for (int a = 0; a < 5; a++) {
             for (int i = 0; i < 16; i++) {
                 aInputs[a][i] = ItemUtils.simpleMetaStack(aBlocks[a].getItem(), i, 1);
@@ -4309,14 +4307,14 @@ public class RECIPES_Machines {
                         },
                         GT_Values.NF, // Input Fluid
                         aRobinators[i],
-                        45 * 10 * 1,
+                        45 * 10,
                         8);
                 continue;
             }
             int aTier = i + 1;
             ItemStack[] aInputs = new ItemStack[] {
                 aRobinators[i - 1],
-                CI.getTieredMachineHull(aTier, 1 * aCostMultiplier),
+                CI.getTieredMachineHull(aTier, aCostMultiplier),
                 CI.getConveyor(aTier, 2 * aCostMultiplier),
                 CI.getElectricMotor(aTier, 2 * aCostMultiplier),
                 CI.getTieredComponent(OrePrefixes.plate, aTier, 4 * aCostMultiplier),
@@ -4327,7 +4325,7 @@ public class RECIPES_Machines {
                     aInputs,
                     GT_Values.NF, // Input Fluid
                     aRobinators[i],
-                    45 * 10 * 1 * (i + 1),
+                    45 * 10 * (i + 1),
                     MaterialUtils.getVoltageForTier(i));
         }
     }

@@ -199,7 +199,7 @@ public class StaticFields59 {
     }
 
     public static Object getFieldFromGregtechProxy(String fieldName) {
-        return getFieldFromGregtechProxy(Utils.isServer() ? false : true, fieldName);
+        return getFieldFromGregtechProxy(!Utils.isServer(), fieldName);
     }
 
     public static Object getFieldFromGregtechProxy(boolean client, String fieldName) {
@@ -225,7 +225,7 @@ public class StaticFields59 {
             }
         }
 
-        if (proxyGT != null && proxyGT instanceof GT_Proxy) {
+        if (proxyGT instanceof GT_Proxy) {
             try {
                 return ReflectionUtils.getField(proxyGT.getClass(), fieldName).get(proxyGT);
             } catch (IllegalArgumentException | IllegalAccessException e) {

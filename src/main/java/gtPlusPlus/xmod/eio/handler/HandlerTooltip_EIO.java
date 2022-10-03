@@ -32,7 +32,7 @@ public class HandlerTooltip_EIO {
                         Field oAlloyField = ReflectionUtils.getField(oMainClass, "itemAlloy");
                         Object oAlloy = oAlloyField.get(oMainClass);
                         if (oAlloy != null) {
-                            if (oIngotClass.isInstance(oAlloy) || Item.class.isInstance(oAlloy)) {
+                            if (oIngotClass.isInstance(oAlloy) || oAlloy instanceof Item) {
                                 mIngot = (Item) oAlloy;
                             }
                         }

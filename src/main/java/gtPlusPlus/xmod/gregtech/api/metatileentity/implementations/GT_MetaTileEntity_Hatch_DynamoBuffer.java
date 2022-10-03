@@ -45,8 +45,7 @@ public class GT_MetaTileEntity_Hatch_DynamoBuffer extends GT_MetaTileEntity_Hatc
 
     @Override
     public MetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
-        return (MetaTileEntity)
-                new GT_MetaTileEntity_Hatch_DynamoBuffer(this.mName, this.mTier, this.mDescription, this.mTextures);
+        return new GT_MetaTileEntity_Hatch_DynamoBuffer(this.mName, this.mTier, this.mDescription, this.mTextures);
     }
 
     @Override

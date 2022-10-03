@@ -6,7 +6,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.BaseMetaTileEntity;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.core.lib.CORE;
@@ -124,70 +124,70 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
     public ITexture[] getFront(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Screen_2)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Screen_2)
         };
     }
 
     public ITexture[] getBack(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getBottom(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getTop(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getSides(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getFrontActive(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Screen_2)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Screen_2)
         };
     }
 
     public ITexture[] getBackActive(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getBottomActive(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getTopActive(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
     public ITexture[] getSidesActive(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Bottom)
+            TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Bottom)
         };
     }
 
@@ -307,9 +307,9 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
         if (this.mMode == 0) {
             return 2;
         } else if (this.mMode == 1) {
-            return this.mLocalChargingMap.size() * 8;
+            return this.mLocalChargingMap.size() * 8L;
         } else {
-            return ((this.mLocalChargingMap.size() * 4) + this.mWirelessChargingMap.size());
+            return ((this.mLocalChargingMap.size() * 4L) + this.mWirelessChargingMap.size());
         }
     }
 
@@ -481,17 +481,13 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
         super.onFirstTick(aBaseMetaTileEntity);
     }
 
-    private Map<String, UUID> mWirelessChargingMap = new HashMap<String, UUID>();
-    private Map<String, UUID> mLocalChargingMap = new HashMap<String, UUID>();
+    private final Map<String, UUID> mWirelessChargingMap = new HashMap<String, UUID>();
+    private final Map<String, UUID> mLocalChargingMap = new HashMap<String, UUID>();
 
     private boolean isValidPlayer(EntityPlayer aPlayer) {
         BaseMetaTileEntity aTile = (BaseMetaTileEntity) this.getBaseMetaTileEntity();
         if (mLocked || (aTile != null && aTile.privateAccess())) {
-            if (aPlayer.getUniqueID().equals(getBaseMetaTileEntity().getOwnerUuid())) {
-                return true;
-            } else {
-                return false;
-            }
+            return aPlayer.getUniqueID().equals(getBaseMetaTileEntity().getOwnerUuid());
         }
         return true;
     }

@@ -64,7 +64,7 @@ public class TileEntityPooCollector extends TileEntityBaseFluidCollector {
         return false;
     }
 
-    private static AutoMap<Class> aEntityToDrain = new AutoMap<Class>();
+    private static final AutoMap<Class> aEntityToDrain = new AutoMap<Class>();
 
     @Override
     public AutoMap<Class> aThingsToLookFor() {
@@ -91,7 +91,7 @@ public class TileEntityPooCollector extends TileEntityBaseFluidCollector {
             } else if (aPooMaker instanceof EntitySheep) {
                 aPooAmount = MathUtils.randInt(8, 30);
             } else {
-                if (aPooMaker instanceof EntityAnimal || aPooMaker instanceof IAnimals) {
+                if (aPooMaker instanceof IAnimals) {
                     aPooAmount = MathUtils.randInt(5, 35);
                 } else {
                     aPooAmount = MathUtils.randInt(1, 10);

@@ -37,7 +37,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderAustralia extends ChunkProviderGenerate implements IChunkProvider {
-    private Random rand;
+    private final Random rand;
     private NoiseGeneratorOctaves noiseGen1;
     private NoiseGeneratorOctaves noiseGen2;
     private NoiseGeneratorOctaves noiseGen3;
@@ -45,9 +45,9 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
     /**
      * Reference to the World object.
      */
-    private World worldObj;
+    private final World worldObj;
 
-    private WorldType worldType;
+    private final WorldType worldType;
     private final double[] field_147434_q;
     private final float[] parabolicField;
     private double[] stoneNoise = new double[256];
@@ -187,7 +187,7 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
                         double d12 = (d3 - d1) * d9;
                         double d13 = (d4 - d2) * d9;
                         for (int i3 = 0; i3 < 4; i3++) {
-                            int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
+                            int j3 = i3 + k * 4 << 12 | j1 * 4 << 8 | k2 * 8 + l2;
                             short short1 = 256;
                             j3 -= short1;
                             double d14 = 0.25D;
@@ -332,7 +332,7 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
                         double d13 = (d4 - d2) * d9;
 
                         for (int i3 = 0; i3 < 4; ++i3) {
-                            int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
+                            int j3 = i3 + k * 4 << 12 | j1 * 4 << 8 | k2 * 8 + l2;
                             short short1 = 256;
                             j3 -= short1;
                             double d14 = 0.25D;

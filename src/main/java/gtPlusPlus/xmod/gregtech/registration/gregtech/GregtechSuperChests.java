@@ -47,7 +47,7 @@ public class GregtechSuperChests {
             ItemUtils.hideItemFromNEI(GregtechItemList.Super_Chest_IV.get(1L));
         } else {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_LV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Super_Chest_LV.get(1L), bitsd, new Object[] {
                         "DPD",
                         "PMP",
                         "DGD",
@@ -62,7 +62,7 @@ public class GregtechSuperChests {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_MV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Super_Chest_MV.get(1L), bitsd, new Object[] {
                         "DPD",
                         "PMP",
                         "DGD",
@@ -77,7 +77,7 @@ public class GregtechSuperChests {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_HV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Super_Chest_HV.get(1L), bitsd, new Object[] {
                         "DPD",
                         "PMP",
                         "DGD",
@@ -92,7 +92,7 @@ public class GregtechSuperChests {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_EV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Super_Chest_EV.get(1L), bitsd, new Object[] {
                         "DPD",
                         "PMP",
                         "DGD",
@@ -107,7 +107,7 @@ public class GregtechSuperChests {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_IV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Super_Chest_IV.get(1L), bitsd, new Object[] {
                         "DPD",
                         "PMP",
                         "DGD",

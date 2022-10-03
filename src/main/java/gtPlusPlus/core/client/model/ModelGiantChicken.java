@@ -24,7 +24,7 @@ public class ModelGiantChicken extends ModelChicken {
         this.chin.setRotationPoint(0.0F, (float) (-1 + b0), -4.0F);
         this.body = new ModelRenderer(this, 0, 9);
         this.body.addBox(-3.0F, -4.0F, -3.0F, 6, 8, 6, 0.0F);
-        this.body.setRotationPoint(0.0F, (float) b0, 0.0F);
+        this.body.setRotationPoint(0.0F, b0, 0.0F);
         this.rightLeg = new ModelRenderer(this, 26, 0);
         this.rightLeg.addBox(-1.0F, 0.0F, -3.0F, 3, 5, 3);
         this.rightLeg.setRotationPoint(-2.0F, (float) (3 + b0), 1.0F);
@@ -61,7 +61,7 @@ public class ModelGiantChicken extends ModelChicken {
             this.chin.render(p_78088_7_);
             GL11.glPopMatrix();
             GL11.glPushMatrix();
-            GL11.glScalef(1.0F * f6, 1.0F * f6, 1.0F * f6);
+            GL11.glScalef(f6, f6, f6);
             GL11.glTranslatef(0.0F, 0F, 0.0F);
             this.body.render(p_78088_7_);
             this.rightLeg.render(p_78088_7_);
@@ -73,14 +73,14 @@ public class ModelGiantChicken extends ModelChicken {
         } else {
             float f6 = 2.0F;
             GL11.glPushMatrix();
-            GL11.glScalef(1.0F * f6, 1.0F * f6, 1.0F * f6);
+            GL11.glScalef(f6, f6, f6);
             GL11.glTranslatef(0.0F, -0.85F, 0F);
             this.head.render(p_78088_7_);
             this.bill.render(p_78088_7_);
             this.chin.render(p_78088_7_);
             GL11.glPopMatrix();
             GL11.glPushMatrix();
-            GL11.glScalef(1.0F * f6, 1.0F * f6, 1.0F * f6);
+            GL11.glScalef(f6, f6, f6);
             GL11.glTranslatef(0.0F, -0.75F, 0.0F);
             this.body.render(p_78088_7_);
             this.rightLeg.render(p_78088_7_);

@@ -72,7 +72,7 @@ public class GT_MetaTileEntity_Hatch_AirIntake extends GT_MetaTileEntity_Hatch_F
         ran3 = GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat();
 
         final IGregTechTileEntity aMuffler = this.getBaseMetaTileEntity();
-        final ForgeDirection aDir = ForgeDirection.getOrientation((int) aMuffler.getFrontFacing());
+        final ForgeDirection aDir = ForgeDirection.getOrientation(aMuffler.getFrontFacing());
         final float xPos = aDir.offsetX * 0.76f + aMuffler.getXCoord() + 0.25f;
         float yPos = aDir.offsetY * 0.76f + aMuffler.getYCoord() + 0.65f;
         final float zPos = aDir.offsetZ * 0.76f + aMuffler.getZCoord() + 0.25f;
@@ -96,27 +96,27 @@ public class GT_MetaTileEntity_Hatch_AirIntake extends GT_MetaTileEntity_Hatch_F
 
         aWorld.spawnParticle(
                 name,
-                (double) (xPos + ran1 * 0.5f),
-                (double) (yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) (zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) xSpd,
-                (double) -ySpd,
-                (double) zSpd);
+                xPos + ran1 * 0.5f,
+                yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                xSpd,
+                -ySpd,
+                zSpd);
         aWorld.spawnParticle(
                 name,
-                (double) (xPos + ran2 * 0.5f),
-                (double) (yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) (zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) xSpd,
-                (double) -ySpd,
-                (double) zSpd);
+                xPos + ran2 * 0.5f,
+                yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                xSpd,
+                -ySpd,
+                zSpd);
         aWorld.spawnParticle(
                 name,
-                (double) (xPos + ran3 * 0.5f),
-                (double) (yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) (zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f),
-                (double) xSpd,
-                (double) -ySpd,
-                (double) zSpd);
+                xPos + ran3 * 0.5f,
+                yPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                zPos + GT_MetaTileEntity_Hatch_AirIntake.floatGen.nextFloat() * 0.5f,
+                xSpd,
+                -ySpd,
+                zSpd);
     }
 }

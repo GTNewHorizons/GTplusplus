@@ -30,8 +30,8 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
                 if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foilYttriumBariumCuprate", 1) != null) {
                     GT_Values.RA.addLaserEngraverRecipe(
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.YttriumBariumCuprate, 2L),
-                            GT_Utility.copyAmount(0L, new Object[] {aStack}),
-                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L, new Object[0]),
+                            GT_Utility.copyAmount(0L, aStack),
+                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L),
                             64,
                             480);
                 } else {
@@ -43,8 +43,8 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
                 if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foilVanadiumGallium", 1) != null) {
                     GT_Values.RA.addLaserEngraverRecipe(
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.VanadiumGallium, 2L),
-                            GT_Utility.copyAmount(0L, new Object[] {aStack}),
-                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L, new Object[0]),
+                            GT_Utility.copyAmount(0L, aStack),
+                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L),
                             64,
                             480);
                 } else {
@@ -56,8 +56,8 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
                 if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foilNiobiumTitanium", 1) != null) {
                     GT_Values.RA.addLaserEngraverRecipe(
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.NiobiumTitanium, 2L),
-                            GT_Utility.copyAmount(0L, new Object[] {aStack}),
-                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L, new Object[0]),
+                            GT_Utility.copyAmount(0L, aStack),
+                            GregtechItemList.Circuit_Parts_Wiring_IV.get(1L),
                             64,
                             480);
                 } else {
@@ -73,8 +73,8 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
                 if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foilOsmium", 1) != null) {
                     GT_Values.RA.addLaserEngraverRecipe(
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Osmium, 2L),
-                            GT_Utility.copyAmount(0L, new Object[] {aStack}),
-                            GregtechItemList.Circuit_Parts_Wiring_LuV.get(1L, new Object[0]),
+                            GT_Utility.copyAmount(0L, aStack),
+                            GregtechItemList.Circuit_Parts_Wiring_LuV.get(1L),
                             64,
                             1024);
                 } else {
@@ -92,8 +92,8 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
                 if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("foilNaquadah", 1) != null) {
                     GT_Values.RA.addLaserEngraverRecipe(
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Naquadah, 2L),
-                            GT_Utility.copyAmount(0L, new Object[] {aStack}),
-                            GregtechItemList.Circuit_Parts_Wiring_ZPM.get(1L, new Object[0]),
+                            GT_Utility.copyAmount(0L, aStack),
+                            GregtechItemList.Circuit_Parts_Wiring_ZPM.get(1L),
                             64,
                             2000);
                 } else {
@@ -107,7 +107,7 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
             if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateLithium", 1) != null) {
                 GT_Values.RA.addLaserEngraverRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lithium, 2L),
-                        GT_Utility.copyAmount(0L, new Object[] {aStack}),
+                        GT_Utility.copyAmount(0L, aStack),
                         ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleLithium7", 1),
                         4 * 60 * 20,
                         2000);
@@ -120,7 +120,7 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
             if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("dustLithium", 1) != null) {
                 GT_Values.RA.addLaserEngraverRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Lithium, 3L),
-                        GT_Utility.copyAmount(0L, new Object[] {aStack}),
+                        GT_Utility.copyAmount(0L, aStack),
                         ItemUtils.getItemStackOfAmountFromOreDict("dustLithium7", 1),
                         2 * 60 * 20,
                         2000);
@@ -157,29 +157,29 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
 
             // T1
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT1a, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire1, 10 * 20, 500);
+                    wireT1a, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT1b, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire1, 10 * 20, 500);
+                    wireT1b, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
             // T2
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT2a, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire2, 20 * 20, 2000);
+                    wireT2a, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT2b, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire2, 20 * 20, 2000);
+                    wireT2b, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
             // T3
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3a, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire3, 30 * 20, 8000);
+                    wireT3a, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3b, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire3, 30 * 20, 8000);
+                    wireT3b, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3c, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire3, 30 * 20, 8000);
+                    wireT3c, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
             // T4
             GT_Values.RA.addLaserEngraverRecipe(
-                    wireT4a, GT_Utility.copyAmount(0L, new Object[] {aStack}), coilWire4, 40 * 20, 32000);
+                    wireT4a, GT_Utility.copyAmount(0L, aStack), coilWire4, 40 * 20, 32000);
 
         } else if (aOreDictName.equals(OreDictNames.craftingLensOrange.toString())) {
             GT_Values.RA.addLaserEngraverRecipe(
                     ItemUtils.getSimpleStack(ModItems.itemAlkalusDisk),
-                    GT_Utility.copyAmount(0L, new Object[] {aStack}),
+                    GT_Utility.copyAmount(0L, aStack),
                     ItemUtils.getSimpleStack(Dimension_Everglades.portalItem),
                     360 * 60 * 20,
                     4096);
