@@ -367,7 +367,7 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
                 }
             }
         }
-        final ItemStack[] tInputs = tInputList.toArray(new ItemStack[tInputList.size()]);
+        final ItemStack[] tInputs = tInputList.toArray(new ItemStack[0]);
 
         ItemStack inputItem = tInputs[0];
         if (tInputs[0].stackSize <= 0) {

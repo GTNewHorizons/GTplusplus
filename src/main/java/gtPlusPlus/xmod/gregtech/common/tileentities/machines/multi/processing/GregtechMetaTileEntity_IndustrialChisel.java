@@ -254,7 +254,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
             }
 
             // Based on the Processing Array. A bit overkill, but very flexible.
-            ItemStack[] aItemInputs = aItems.toArray(new ItemStack[aItems.size()]);
+            ItemStack[] aItemInputs = aItems.toArray(new ItemStack[0]);
             FluidStack[] aFluidInputs = new FluidStack[] {};
 
             // Reset outputs and progress stats
@@ -395,7 +395,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
             for (ItemStack tS : tOutputItems) {
                 if (tS.stackSize > 0) tSList.add(tS);
             }
-            tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+            tOutputItems = tSList.toArray(new ItemStack[0]);
 
             // Commit outputs
             this.mOutputItems = tOutputItems;

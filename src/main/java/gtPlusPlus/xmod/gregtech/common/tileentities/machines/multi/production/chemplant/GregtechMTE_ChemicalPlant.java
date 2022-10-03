@@ -618,8 +618,8 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             int aMaxParallelRecipes, long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
         ArrayList<ItemStack> tItems = getStoredInputs();
         ArrayList<FluidStack> tFluids = getStoredFluids();
-        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
-        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
+        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
+        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[0]);
         return checkRecipeGeneric(
                 tItemInputs, tFluidInputs, aMaxParallelRecipes, aEUPercent, aSpeedBonusPercent, aOutputChanceRoll);
     }
@@ -820,7 +820,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Damage catalyst once all is said and done.
         if (tCatalystRecipe != null) {

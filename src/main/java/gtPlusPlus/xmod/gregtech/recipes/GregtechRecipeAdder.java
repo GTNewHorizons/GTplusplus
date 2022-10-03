@@ -1314,7 +1314,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                                 if (tInputs[i] == null) tInputs[i] = uStack;
                             }
                         }
-                        tAlts[i] = uList.toArray(new ItemStack[uList.size()]);
+                        tAlts[i] = uList.toArray(new ItemStack[0]);
                         continue;
                     } catch (Exception t) {
                     }

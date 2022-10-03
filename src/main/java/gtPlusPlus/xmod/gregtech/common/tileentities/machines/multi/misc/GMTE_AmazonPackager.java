@@ -156,7 +156,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         if (this.getGUIItemStack() != null) {
             tItems.add(this.getGUIItemStack());
         }
-        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
+        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
         boolean state = checkRecipeGeneric(tItemInputs, sNoFluids, getMaxParallelRecipes(), 75, 500, 10000);
 
         if (state) {
@@ -403,7 +403,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Commit outputs
         this.mOutputItems = tOutputItems;

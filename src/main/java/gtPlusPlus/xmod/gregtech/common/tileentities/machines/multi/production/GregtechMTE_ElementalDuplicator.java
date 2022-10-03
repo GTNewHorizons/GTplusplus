@@ -542,7 +542,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Commit outputs
         this.mOutputItems = tOutputItems;

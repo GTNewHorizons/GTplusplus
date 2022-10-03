@@ -169,8 +169,8 @@ public class GregtechMetaTileEntity_MassFabricator
     public boolean checkRecipe(final ItemStack aStack) {
         ArrayList<ItemStack> tItems = getStoredInputs();
         ArrayList<FluidStack> tFluids = getStoredFluids();
-        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
-        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
+        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
+        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[0]);
         init();
         return checkRecipeGeneric(tItemInputs, tFluidInputs, 4, 80, 00, 10000);
     }
@@ -420,7 +420,7 @@ public class GregtechMetaTileEntity_MassFabricator
             for (ItemStack tS : tOutputItems) {
                 if (tS.stackSize > 0) tSList.add(tS);
             }
-            tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+            tOutputItems = tSList.toArray(new ItemStack[0]);
             // Commit outputs
             this.mOutputItems = tOutputItems;
             updateSlots();
@@ -619,7 +619,7 @@ public class GregtechMetaTileEntity_MassFabricator
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Commit outputs
         this.mOutputItems = tOutputItems;

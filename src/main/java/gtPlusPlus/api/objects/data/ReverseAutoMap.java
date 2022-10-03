@@ -166,7 +166,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
 
     public synchronized Integer[] toArrayInternalMap() {
         Collection<Integer> col = this.mInternalMapReverseLookup.values();
-        Integer[] val = col.toArray(new Integer[col.size()]);
+        Integer[] val = col.toArray(new Integer[0]);
         return val;
     }
 }

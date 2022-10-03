@@ -158,7 +158,7 @@ public class ThaumcraftUtils {
                 }
             }
             if (tParentResearches.size() > 0) {
-                rResearch.setParents((String[]) tParentResearches.toArray(new String[tParentResearches.size()]));
+                rResearch.setParents((String[]) tParentResearches.toArray(new String[0]));
                 rResearch.setConcealed();
             }
         }
@@ -167,7 +167,7 @@ public class ThaumcraftUtils {
             rResearch.setHidden();
         }
 
-        Object[] aVarArgs = (TC_ResearchPage_Wrapper[]) tPages.toArray(new TC_ResearchPage_Wrapper[tPages.size()]);
+        Object[] aVarArgs = (TC_ResearchPage_Wrapper[]) tPages.toArray(new TC_ResearchPage_Wrapper[0]);
         rResearch.setPages(aVarArgs);
         return rResearch.registerResearchItem();
     }

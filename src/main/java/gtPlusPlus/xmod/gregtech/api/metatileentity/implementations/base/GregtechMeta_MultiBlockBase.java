@@ -325,7 +325,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                     + EnumChatFormatting.DARK_GREEN + Long.toString(second) + EnumChatFormatting.RESET + " Seconds.");
             mInfo.add("Total Time in ticks: " + EnumChatFormatting.DARK_GREEN + Long.toString(this.mTotalRunTime));
 
-            String[] mInfo2 = mInfo.toArray(new String[mInfo.size()]);
+            String[] mInfo2 = mInfo.toArray(new String[0]);
             return mInfo2;
         } catch (Throwable t) {
             t.printStackTrace();
@@ -702,8 +702,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             int aMaxParallelRecipes, long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
         ArrayList<ItemStack> tItems = getStoredInputs();
         ArrayList<FluidStack> tFluids = getStoredFluids();
-        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
-        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
+        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
+        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[0]);
         return checkRecipeGeneric(
                 tItemInputs, tFluidInputs, aMaxParallelRecipes, aEUPercent, aSpeedBonusPercent, aOutputChanceRoll);
     }
@@ -719,8 +719,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         }
         ArrayList<ItemStack> tItems = getStoredInputs();
         ArrayList<FluidStack> tFluids = getStoredFluids();
-        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
-        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
+        ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
+        FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[0]);
         return checkRecipeGeneric(
                 tItemInputs,
                 tFluidInputs,
@@ -1102,7 +1102,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Commit outputs
         this.mOutputItems = tOutputItems;
@@ -1408,7 +1408,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
-        tOutputItems = tSList.toArray(new ItemStack[tSList.size()]);
+        tOutputItems = tSList.toArray(new ItemStack[0]);
 
         // Commit outputs
         this.mOutputItems = tOutputItems;

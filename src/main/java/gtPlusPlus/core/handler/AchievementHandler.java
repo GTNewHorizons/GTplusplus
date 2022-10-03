@@ -154,7 +154,7 @@ public class AchievementHandler {
                 "decay.technetium99", 15, 8, ItemUtils.getSimpleStack(ModItems.dustTechnetium99), "multi.cyclo", false);
 
         AchievementPage.registerAchievementPage(new AchievementPage("GT++", (Achievement[])
-                ((Achievement[]) this.achievementList.values().toArray(new Achievement[this.achievementList.size()]))));
+                ((Achievement[]) this.achievementList.values().toArray(new Achievement[0]))));
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
     }

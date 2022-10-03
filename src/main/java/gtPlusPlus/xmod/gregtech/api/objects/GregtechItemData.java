@@ -113,7 +113,7 @@ public class GregtechItemData {
             rList.remove(0);
         }
 
-        this.mByProducts = rList.toArray(new GregtechMaterialStack[rList.size()]);
+        this.mByProducts = rList.toArray(new GregtechMaterialStack[0]);
     }
 
     public boolean hasValidPrefixMaterialData() {

@@ -313,7 +313,7 @@ public class Utils {
     }
 
     public static Object[] convertListToArray(final List<Object> sourceList) {
-        final Object[] targetArray = sourceList.toArray(new Object[sourceList.size()]);
+        final Object[] targetArray = sourceList.toArray(new Object[0]);
         return targetArray;
     }
 

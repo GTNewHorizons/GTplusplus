@@ -44,13 +44,13 @@ public class ArrayUtils {
     public static Object[] removeNulls(final Object[] v) {
         List<Object> list = new ArrayList<Object>(Arrays.asList(v));
         list.removeAll(Collections.singleton((Object) null));
-        return list.toArray(new Object[list.size()]);
+        return list.toArray(new Object[0]);
     }
 
     public static ItemStack[] removeNulls(final ItemStack[] v) {
         List<ItemStack> list = new ArrayList<ItemStack>(Arrays.asList(v));
         list.removeAll(Collections.singleton((ItemStack) null));
-        return list.toArray(new ItemStack[list.size()]);
+        return list.toArray(new ItemStack[0]);
     }
 
     @SuppressWarnings("unchecked")

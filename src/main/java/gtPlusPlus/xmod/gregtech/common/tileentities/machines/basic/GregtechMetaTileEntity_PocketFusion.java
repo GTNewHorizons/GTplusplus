@@ -197,7 +197,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
             }
         }
         if (tFluidList.size() > 1) {
-            FluidStack[] tFluids = tFluidList.toArray(new FluidStack[tFluidList.size()]);
+            FluidStack[] tFluids = tFluidList.toArray(new FluidStack[0]);
             GT_Recipe tRecipe = getRecipeList()
                     .findRecipe(
                             this.getBaseMetaTileEntity(),

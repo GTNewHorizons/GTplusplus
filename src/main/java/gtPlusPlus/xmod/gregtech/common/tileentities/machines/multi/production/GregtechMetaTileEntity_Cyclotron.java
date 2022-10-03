@@ -274,9 +274,9 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
 
         // log("Recipe Check.");
         ArrayList<ItemStack> tItemList = getStoredInputs();
-        ItemStack[] tItemInputs = tItemList.toArray(new ItemStack[tItemList.size()]);
+        ItemStack[] tItemInputs = tItemList.toArray(new ItemStack[0]);
         ArrayList<FluidStack> tInputList = getStoredFluids();
-        FluidStack[] tFluidInputs = tInputList.toArray(new FluidStack[tInputList.size()]);
+        FluidStack[] tFluidInputs = tInputList.toArray(new FluidStack[0]);
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
 

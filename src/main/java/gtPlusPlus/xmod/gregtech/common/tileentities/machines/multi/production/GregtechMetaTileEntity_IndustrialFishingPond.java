@@ -230,8 +230,8 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
             log("Trying to run recipe.");
             ArrayList<ItemStack> tItems = getStoredInputs();
             ArrayList<FluidStack> tFluids = getStoredFluids();
-            ItemStack[] tItemInputs = tItems.toArray(new ItemStack[tItems.size()]);
-            FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[tFluids.size()]);
+            ItemStack[] tItemInputs = tItems.toArray(new ItemStack[0]);
+            FluidStack[] tFluidInputs = tFluids.toArray(new FluidStack[0]);
 
             if (!isUsingControllerCircuit && tItems.size() == 0) {
                 return false;
