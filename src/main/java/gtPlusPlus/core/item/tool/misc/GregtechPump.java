@@ -77,12 +77,8 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
         if (aStack == null || aPlayer == null || aWorld == null || aWorld.isRemote) {
             return false;
         }
-        if (!aWorld.isRemote && tryDrainTile(aStack, aWorld, aPlayer, aX, aY, aZ)) {
-            return true;
-        } else {
-            // return super.onItemUse(aStack, aPlayer, aWorld, aX, aY, aZ, a4, p_77648_8_, p_77648_9_, p_77648_10_);
-            return false;
-        }
+        // return super.onItemUse(aStack, aPlayer, aWorld, aX, aY, aZ, a4, p_77648_8_, p_77648_9_, p_77648_10_);
+        return !aWorld.isRemote && tryDrainTile(aStack, aWorld, aPlayer, aX, aY, aZ);
     }
 
     @Override
@@ -196,7 +192,7 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             final EnumRarity regRarity,
             final EnumChatFormatting colour,
             final boolean Effect) {
-        this.addItem(id, localizedName, EnumChatFormatting.YELLOW + "Electric", new Object[] {});
+        this.addItem(id, localizedName, EnumChatFormatting.YELLOW + "Electric");
         if (euStorage > 0 && tier > 0)
             this.setElectricStats(this.mOffset + id, euStorage, GT_Values.V[tier], tier, -3L, true);
         this.rarity.put(id, regRarity);
@@ -799,7 +795,6 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
 
     public void storeFluid(ItemStack aStack, FluidStack aFluid) {
         if (aFluid == null) {
-            return;
         } else {
             String fluidname = aFluid.getFluid().getName();
             int amount = aFluid.amount;
@@ -1037,11 +1032,7 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
                         if (discharge(aStack, removal, aTier, true, true, false) > 0) {
                             didDrain = true;
                         }
-                    } else if (aTier == 0) {
-                        didDrain = true;
-                    } else {
-                        didDrain = false;
-                    }
+                    } else didDrain = aTier == 0;
 
                     if (didDrain) {
                         if ((tTileEntity instanceof IGregTechTileEntity)) {
@@ -1232,7 +1223,7 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             } else {
 
                 // Rewrite Fluid handling for Vanilla type tanks
-                if (!IFluidHandler.class.isInstance(aTileEntity)) {
+                if (!(aTileEntity instanceof IFluidHandler)) {
                     Logger.INFO("Tile Was not an instance of IFluidHandler.");
                     return false;
                 }
@@ -1287,7 +1278,6 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             return null;
         }
         final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-        ;
         if (aMetaTileEntity == null) {
             return null;
         }

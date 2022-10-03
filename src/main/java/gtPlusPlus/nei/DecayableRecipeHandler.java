@@ -46,13 +46,13 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
 
     public void loadTransferRects() {
         this.transferRects.add(
-                new RecipeTransferRect(new Rectangle(6, 3, 16, 16), getOverlayIdentifier(), new Object[0]));
+                new RecipeTransferRect(new Rectangle(6, 3, 16, 16), getOverlayIdentifier()));
     }
 
     public void loadCraftingRecipes(ItemStack result) {
         if (result == null
-                || (!DustDecayable.class.isInstance(result.getItem())
-                        && !BaseItemDustUnique.class.isInstance(result.getItem()))) {
+                || (!(result.getItem() instanceof DustDecayable)
+                        && !(result.getItem() instanceof BaseItemDustUnique))) {
             return;
         }
         if (result != null) {
@@ -131,16 +131,16 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
         if (cost > 0) {
 
             // NEI Strings
-            String s = I18n.format("GTPP.nei.info", new Object[] {cost});
-            String s0 = I18n.format("GTPP.nei.timetaken", new Object[] {cost});
+            String s = I18n.format("GTPP.nei.info", cost);
+            String s0 = I18n.format("GTPP.nei.timetaken", cost);
 
             // Time Strings
-            String s1 = I18n.format("GTPP.time.ticks", new Object[] {cost});
-            String s2 = I18n.format("GTPP.time.seconds", new Object[] {cost});
-            String s3 = I18n.format("GTPP.time.minutes", new Object[] {cost});
-            String s4 = I18n.format("GTPP.time.hours", new Object[] {cost});
-            String s5 = I18n.format("GTPP.time.days", new Object[] {cost});
-            String s6 = I18n.format("GTPP.time.months", new Object[] {cost});
+            String s1 = I18n.format("GTPP.time.ticks", cost);
+            String s2 = I18n.format("GTPP.time.seconds", cost);
+            String s3 = I18n.format("GTPP.time.minutes", cost);
+            String s4 = I18n.format("GTPP.time.hours", cost);
+            String s5 = I18n.format("GTPP.time.days", cost);
+            String s6 = I18n.format("GTPP.time.months", cost);
             int y = 20;
 
             int secs = cost / 20;
@@ -198,8 +198,8 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
     }
 
     public class DecayableRecipeNEI extends TemplateRecipeHandler.CachedRecipe implements Comparable<CachedRecipe> {
-        private PositionedStack input;
-        private PositionedStack output;
+        private final PositionedStack input;
+        private final PositionedStack output;
         public int time;
 
         @Override
@@ -220,7 +220,7 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
 
         @Override
         public int compareTo(CachedRecipe o) {
-            boolean b = DecayableRecipeNEI.class.isInstance(o);
+            boolean b = o instanceof DecayableRecipeNEI;
             if (b) {
                 DecayableRecipeNEI p = (DecayableRecipeNEI) o;
                 if (p.time > this.time) {
@@ -237,7 +237,7 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
         @Override
         public boolean equals(Object obj) {
             if (obj != null) {
-                if (DecayableRecipeNEI.class.isInstance(obj)) {
+                if (obj instanceof DecayableRecipeNEI) {
                     DecayableRecipeNEI p = (DecayableRecipeNEI) obj;
                     if (p != null) {
                         // Time check first to keep it simple and not unbox the Recipes.
@@ -245,9 +245,7 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
                             ItemStack aInput = p.input.item;
                             ItemStack aOutput = p.output.item;
                             if (GT_Utility.areStacksEqual(aInput, this.input.item, true)) {
-                                if (GT_Utility.areStacksEqual(aOutput, this.output.item, true)) {
-                                    return true;
-                                }
+                                return GT_Utility.areStacksEqual(aOutput, this.output.item, true);
                             }
                         }
                     }

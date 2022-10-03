@@ -73,7 +73,7 @@ public class GuiScreenGrindle extends GuiContainer {
         this.inventory = containerItem.inventory;
         this.editingPlayer = player;
         this.bookObj = this.inventory.getStackInSlot(0);
-        this.bookIsUnsigned = (this.bookObj == null ? true : false);
+        this.bookIsUnsigned = (this.bookObj == null);
 
         if (this.bookObj != null) {
             if (this.bookObj.hasTagCompound()) {
@@ -124,7 +124,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             4 + this.bookImageHeight,
                             98,
                             20,
-                            I18n.format("book.signButton", new Object[0])));
+                            I18n.format("book.signButton")));
             this.buttonList.add(
                     this.buttonDone = new GuiButton(
                             0,
@@ -132,7 +132,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             this.bookImageHeight - 4,
                             98,
                             20,
-                            I18n.format("gui.close", new Object[0])));
+                            I18n.format("gui.close")));
             this.buttonList.add(
                     this.buttonFinalize = new GuiButton(
                             5,
@@ -140,7 +140,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             4 + this.bookImageHeight,
                             98,
                             20,
-                            I18n.format("book.finalizeButton", new Object[0])));
+                            I18n.format("book.finalizeButton")));
             this.buttonList.add(
                     this.buttonCancel = new GuiButton(
                             4,
@@ -148,7 +148,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             4 + this.bookImageHeight,
                             98,
                             20,
-                            I18n.format("gui.cancel", new Object[0])));
+                            I18n.format("gui.cancel")));
         } else {
             this.buttonList.add(
                     this.buttonDone = new GuiButton(
@@ -157,7 +157,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             this.bookImageHeight + 100,
                             200,
                             20,
-                            I18n.format("gui.done", new Object[0])));
+                            I18n.format("gui.done")));
         }
 
         final int i = (this.width - this.bookImageWidth) / 2;
@@ -227,7 +227,7 @@ public class GuiScreenGrindle extends GuiContainer {
                     (new PacketBuffer(bytebuf)).writeItemStackToBuffer(this.bookObj);
                     this.mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload(s, bytebuf));
                 } catch (final Exception exception) {
-                    logger.error("Couldn\'t send book info", exception);
+                    logger.error("Couldn't send book info", exception);
                 } finally {
                     bytebuf.release();
                 }
@@ -239,7 +239,7 @@ public class GuiScreenGrindle extends GuiContainer {
     protected void actionPerformed(final GuiButton button) {
         if (button.enabled) {
             if (button.id == 0) {
-                this.mc.displayGuiScreen((GuiScreen) null);
+                this.mc.displayGuiScreen(null);
                 this.sendBookToServer(false);
             } else if ((button.id == 3) && this.bookIsUnsigned) {
                 this.field_146480_s = true;
@@ -259,7 +259,7 @@ public class GuiScreenGrindle extends GuiContainer {
                 }
             } else if ((button.id == 5) && this.field_146480_s) {
                 this.sendBookToServer(true);
-                this.mc.displayGuiScreen((GuiScreen) null);
+                this.mc.displayGuiScreen(null);
             } else if ((button.id == 4) && this.field_146480_s) {
                 this.field_146480_s = false;
             }
@@ -297,29 +297,28 @@ public class GuiScreenGrindle extends GuiContainer {
      * Processes keystrokes when editing the text of a book
      */
     private void keyTypedInBook(final char p_146463_1_, final int p_146463_2_) {
-        switch (p_146463_1_) {
-            case 22:
-                this.func_146459_b(GuiScreen.getClipboardString());
-                return;
-            default:
-                switch (p_146463_2_) {
-                    case 14:
-                        final String s = this.func_146456_p();
+        if (p_146463_1_ == 22) {
+            this.func_146459_b(GuiScreen.getClipboardString());
+            return;
+        } else {
+            switch (p_146463_2_) {
+                case 14:
+                    final String s = this.func_146456_p();
 
-                        if (s.length() > 0) {
-                            this.func_146457_a(s.substring(0, s.length() - 1));
-                        }
+                    if (s.length() > 0) {
+                        this.func_146457_a(s.substring(0, s.length() - 1));
+                    }
 
-                        return;
-                    case 28:
-                    case 156:
-                        this.func_146459_b("\n");
-                        return;
-                    default:
-                        if (ChatAllowedCharacters.isAllowedCharacter(p_146463_1_)) {
-                            this.func_146459_b(Character.toString(p_146463_1_));
-                        }
-                }
+                    return;
+                case 28:
+                case 156:
+                    this.func_146459_b("\n");
+                    return;
+                default:
+                    if (ChatAllowedCharacters.isAllowedCharacter(p_146463_1_)) {
+                        this.func_146459_b(Character.toString(p_146463_1_));
+                    }
+            }
         }
     }
 
@@ -336,13 +335,13 @@ public class GuiScreenGrindle extends GuiContainer {
             case 156:
                 if (!this.bookTitle.isEmpty()) {
                     this.sendBookToServer(true);
-                    this.mc.displayGuiScreen((GuiScreen) null);
+                    this.mc.displayGuiScreen(null);
                 }
 
                 return;
             default:
                 if ((this.bookTitle.length() < 16) && ChatAllowedCharacters.isAllowedCharacter(p_146460_1_)) {
-                    this.bookTitle = this.bookTitle + Character.toString(p_146460_1_);
+                    this.bookTitle = this.bookTitle + p_146460_1_;
                     this.updateButtons();
                     this.field_146481_r = true;
                 }
@@ -397,7 +396,7 @@ public class GuiScreenGrindle extends GuiContainer {
 
         if (this.inventory.getStackInSlot(0) != null) {
             this.fontRendererObj.drawString(
-                    I18n.format("" + NBTUtils.getBookTitle(this.inventory.getStackInSlot(0)), new Object[0]),
+                    I18n.format("" + NBTUtils.getBookTitle(this.inventory.getStackInSlot(0))),
                     10,
                     8,
                     Utils.rgbtoHexValue(125, 255, 125));
@@ -414,21 +413,21 @@ public class GuiScreenGrindle extends GuiContainer {
                 }
             }
 
-            s1 = I18n.format("book.editTitle", new Object[0]);
+            s1 = I18n.format("book.editTitle");
             l = this.fontRendererObj.getStringWidth(s1);
             this.fontRendererObj.drawString(s1, k + 36 + ((116 - l) / 2), b0 + 16 + 16, 0);
             final int i1 = this.fontRendererObj.getStringWidth(s);
             this.fontRendererObj.drawString(s, k + 36 + ((116 - i1) / 2), b0 + 48, 0);
-            final String s2 = I18n.format("book.byAuthor", new Object[] {this.editingPlayer.getCommandSenderName()});
+            final String s2 = I18n.format("book.byAuthor", this.editingPlayer.getCommandSenderName());
             final int j1 = this.fontRendererObj.getStringWidth(s2);
             this.fontRendererObj.drawString(
                     EnumChatFormatting.DARK_GRAY + s2, k + 36 + ((116 - j1) / 2), b0 + 48 + 10, 0);
-            final String s3 = I18n.format("book.finalizeWarning", new Object[0]);
+            final String s3 = I18n.format("book.finalizeWarning");
             this.fontRendererObj.drawSplitString(s3, k + 36, b0 + 80, 116, 0);
         } else {
             s = I18n.format(
                     "book.pageIndicator",
-                    new Object[] {Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages)});
+                    Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages));
             s1 = "";
 
             if ((this.bookPages != null) && (this.currPage >= 0) && (this.currPage < this.bookPages.tagCount())) {

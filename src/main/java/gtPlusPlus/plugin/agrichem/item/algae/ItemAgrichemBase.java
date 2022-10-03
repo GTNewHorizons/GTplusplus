@@ -24,7 +24,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemAgrichemBase extends Item {
 
-    protected final IIcon base[];
+    protected final IIcon[] base;
 
     /*
      * 0 - Algae Biomass

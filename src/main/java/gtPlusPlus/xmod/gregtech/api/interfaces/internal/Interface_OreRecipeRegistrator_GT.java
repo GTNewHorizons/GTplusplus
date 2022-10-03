@@ -12,6 +12,6 @@ public interface Interface_OreRecipeRegistrator_GT {
      * @param aMaterial always != null, and can be == _NULL if the Prefix is Self Referencing or not Material based!
      * @param aStack    always != null
      */
-    public void registerOre(
+    void registerOre(
             OrePrefixes aPrefix, GT_Materials aMaterial, String aOreDictName, String aModName, ItemStack aStack);
 }

@@ -26,13 +26,10 @@ public class ArrayUtils {
 
     public static <V> V[] insertElementAtIndex(V[] aArray, int aIndex, V aObjectToInsert) {
         V[] newArray = Arrays.copyOf(aArray, aArray.length + 1);
-        for (int i = 0; i < aIndex; i++) {
-            newArray[i] = aArray[i];
-        }
+        if (aIndex >= 0) System.arraycopy(aArray, 0, newArray, 0, aIndex);
         newArray[aIndex] = aObjectToInsert;
-        for (int i = (aIndex + 1); i < newArray.length; i++) {
-            newArray[i] = aArray[i - 1];
-        }
+        if (newArray.length - (aIndex + 1) >= 0)
+            System.arraycopy(aArray, aIndex + 1 - 1, newArray, aIndex + 1, newArray.length - (aIndex + 1));
         return newArray;
     }
 
@@ -43,7 +40,7 @@ public class ArrayUtils {
 
     public static Object[] removeNulls(final Object[] v) {
         List<Object> list = new ArrayList<Object>(Arrays.asList(v));
-        list.removeAll(Collections.singleton((Object) null));
+        list.removeAll(Collections.singleton(null));
         return list.toArray(new Object[list.size()]);
     }
 

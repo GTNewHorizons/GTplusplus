@@ -420,22 +420,22 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
     public boolean turnCasingActive(final boolean status) {
         if (this.mEnergyHatches != null) {
             for (final GT_MetaTileEntity_Hatch_Muffler hatch : this.mMufflerHatches) {
-                hatch.mMachineBlock = status ? (byte) 44 : (byte) 44;
+                hatch.mMachineBlock = (byte) 44;
             }
         }
         if (this.mOutputHatches != null) {
             for (final GT_MetaTileEntity_Hatch_Output hatch : this.mOutputHatches) {
-                hatch.mMachineBlock = status ? (byte) 44 : (byte) 44;
+                hatch.mMachineBlock = (byte) 44;
             }
         }
         if (this.mInputHatches != null) {
             for (final GT_MetaTileEntity_Hatch_Input hatch : this.mInputHatches) {
-                hatch.mMachineBlock = status ? (byte) 44 : (byte) 44;
+                hatch.mMachineBlock = (byte) 44;
             }
         }
         if (this.mMaintenanceHatches != null) {
             for (final GT_MetaTileEntity_Hatch_Maintenance hatch : this.mMaintenanceHatches) {
-                hatch.mMachineBlock = status ? (byte) 44 : (byte) 44;
+                hatch.mMachineBlock = (byte) 44;
             }
         }
         return true;

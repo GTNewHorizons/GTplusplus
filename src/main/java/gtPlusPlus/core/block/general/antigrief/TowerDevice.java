@@ -161,15 +161,12 @@ public class TowerDevice extends Block {
     }
 
     private boolean isReactorReady(final World world, final int x, final int y, final int z) {
-        if ((world.getBlock(x, y + 1, z) != Blocks.redstone_block)
-                || (world.getBlock(x, y - 1, z) != Blocks.redstone_block)
-                || (world.getBlock(x + 1, y, z) != Blocks.redstone_block)
-                || (world.getBlock(x - 1, y, z) != Blocks.redstone_block)
-                || (world.getBlock(x, y, z + 1) != Blocks.redstone_block)
-                || (world.getBlock(x, y, z - 1) != Blocks.redstone_block)) {
-            return false;
-        }
-        return true;
+        return (world.getBlock(x, y + 1, z) == Blocks.redstone_block)
+                && (world.getBlock(x, y - 1, z) == Blocks.redstone_block)
+                && (world.getBlock(x + 1, y, z) == Blocks.redstone_block)
+                && (world.getBlock(x - 1, y, z) == Blocks.redstone_block)
+                && (world.getBlock(x, y, z + 1) == Blocks.redstone_block)
+                && (world.getBlock(x, y, z - 1) == Blocks.redstone_block);
     }
 
     @Override
@@ -194,19 +191,19 @@ public class TowerDevice extends Block {
                 ry = y + 1 + offset;
             }
             if ((side == 1) && (!world.getBlock(x, y - 1, z).isOpaqueCube())) {
-                ry = (y + 0) - offset;
+                ry = (y) - offset;
             }
             if ((side == 2) && (!world.getBlock(x, y, z + 1).isOpaqueCube())) {
                 rz = z + 1 + offset;
             }
             if ((side == 3) && (!world.getBlock(x, y, z - 1).isOpaqueCube())) {
-                rz = (z + 0) - offset;
+                rz = (z) - offset;
             }
             if ((side == 4) && (!world.getBlock(x + 1, y, z).isOpaqueCube())) {
                 rx = x + 1 + offset;
             }
             if ((side == 5) && (!world.getBlock(x - 1, y, z).isOpaqueCube())) {
-                rx = (x + 0) - offset;
+                rx = (x) - offset;
             }
             if ((rx < x) || (rx > (x + 1)) || (ry < 0.0D) || (ry > (y + 1)) || (rz < z) || (rz > (z + 1))) {
                 world.spawnParticle("reddust", rx, ry, rz, 0.0D, 0.0D, 0.0D);
@@ -258,9 +255,8 @@ public class TowerDevice extends Block {
 
     @Override
     public Item getItemDropped(final int meta, final Random par2Random, final int par3) {
-        switch (meta) {
-            case 0:
-                return null;
+        if (meta == 0) {
+            return null;
         }
         return Item.getItemFromBlock(this);
     }

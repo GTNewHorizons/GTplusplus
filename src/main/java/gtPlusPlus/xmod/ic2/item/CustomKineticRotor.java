@@ -89,7 +89,7 @@ public class CustomKineticRotor extends Item implements IKineticRotor {
     public void addInformation(final ItemStack itemStack, final EntityPlayer player, final List info, final boolean b) {
 
         info.add(StatCollector.translateToLocalFormatted(
-                "ic2.itemrotor.wind.info", new Object[] {this.minWindStrength, this.maxWindStrength}));
+                "ic2.itemrotor.wind.info", this.minWindStrength, this.maxWindStrength));
 
         GearboxType type = null;
         if (Minecraft.getMinecraft().currentScreen != null

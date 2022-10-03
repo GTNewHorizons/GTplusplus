@@ -40,10 +40,6 @@ public class CONTAINER_Hatch_Muffler_Advanced extends GT_ContainerMetaTile_Machi
     @Override
     public void updateProgressBar(final int id, final int value) {
         super.updateProgressBar(id, value);
-        switch (id) {
-            default:
-                break;
-        }
     }
 
     @Override

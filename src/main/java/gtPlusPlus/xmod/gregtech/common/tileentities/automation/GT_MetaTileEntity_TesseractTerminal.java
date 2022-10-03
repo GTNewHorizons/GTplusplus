@@ -5,7 +5,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
@@ -93,7 +93,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
 
     @Override
     public long maxEUStore() {
-        return TESSERACT_ENERGY_COST_DIMENSIONAL * 8 * 32;
+        return (long) TESSERACT_ENERGY_COST_DIMENSIONAL * 8 * 32;
     }
 
     @Override
@@ -154,8 +154,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                     && !this.getBaseMetaTileEntity().getOwnerName().equals("")) {
                 if (this.getBaseMetaTileEntity()
                         .getOwnerName()
-                        .toLowerCase()
-                        .equals(aPlayer.getDisplayName().toLowerCase())) {
+                        .equalsIgnoreCase(aPlayer.getDisplayName())) {
                     this.mOwner = PlayerUtils.getPlayersUUIDByName(
                             this.getBaseMetaTileEntity().getOwnerName());
                 }
@@ -193,10 +192,8 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                 if (this.getTesseract(this.mFrequency, false) != null) {
                     PlayerUtils.messagePlayer(
                             aPlayer,
-                            new StringBuilder()
-                                    .append(EnumChatFormatting.GREEN)
-                                    .append(" (Connected)")
-                                    .toString());
+                            EnumChatFormatting.GREEN +
+                                    " (Connected)");
                 }
             }
         } else if (aPlayer.getUniqueID().compareTo(this.mOwner) != 0) {
@@ -245,10 +242,8 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                         "Frequency: " + this.mFrequency
                                 + (this.getTesseract(this.mFrequency, false) == null
                                         ? ""
-                                        : new StringBuilder()
-                                                .append(EnumChatFormatting.GREEN)
-                                                .append(" (Connected)")
-                                                .toString()));
+                                        : EnumChatFormatting.GREEN +
+                                " (Connected)"));
             }
         } else if (aPlayer.getUniqueID().compareTo(this.mOwner) != 0) {
             GT_Utility.sendChatToPlayer(aPlayer, "This is not your Tesseract Terminal to configure.");
@@ -504,7 +499,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                     this.getBaseMetaTileEntity().issueBlockUpdate();
                     this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(128, false);
                 }
-            } else if (this.mDidWork == true) {
+            } else if (this.mDidWork) {
                 this.mDidWork = false;
                 this.getBaseMetaTileEntity().issueBlockUpdate();
             }
@@ -551,12 +546,12 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
             final boolean aRedstone) {
         return aSide == aFacing
                 ? new ITexture[] {
-                    new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Dimensional),
-                    new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Screen_Frequency)
+                    TextureFactory.of(TexturesGtBlock.Casing_Machine_Dimensional),
+                    TextureFactory.of(TexturesGtBlock.Casing_Machine_Screen_Frequency)
                 }
                 : new ITexture[] {
-                    new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Dimensional),
-                    new GT_RenderedTexture(Textures.BlockIcons.VOID)
+                    TextureFactory.of(TexturesGtBlock.Casing_Machine_Dimensional),
+                    TextureFactory.of(Textures.BlockIcons.VOID)
                 };
     }
 

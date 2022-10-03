@@ -7,11 +7,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public abstract interface IGregtechPower
+public interface IGregtechPower
         extends IGearEnergyTileEntity, ITurnable, IGregTechDeviceInformation, IDescribable, IBasicEnergyContainer {
 
     @Override
-    public String[] getDescription();
+    String[] getDescription();
 
     @Override
     default boolean isUniversalEnergyStored(long p0) {
@@ -19,118 +19,118 @@ public abstract interface IGregtechPower
     }
 
     @Override
-    public long getOutputAmperage();
+    long getOutputAmperage();
 
     @Override
-    public long getOutputVoltage();
+    long getOutputVoltage();
 
     @Override
-    public long getInputAmperage();
+    long getInputAmperage();
 
     @Override
-    public long getInputVoltage();
+    long getInputVoltage();
 
     @Override
-    public boolean decreaseStoredEnergyUnits(long p0, boolean p1);
+    boolean decreaseStoredEnergyUnits(long p0, boolean p1);
 
     @Override
-    public boolean increaseStoredEnergyUnits(long p0, boolean p1);
+    boolean increaseStoredEnergyUnits(long p0, boolean p1);
 
     @Override
-    public boolean drainEnergyUnits(byte p0, long p1, long p2);
+    boolean drainEnergyUnits(byte p0, long p1, long p2);
 
     @Override
-    public long getAverageElectricInput();
+    long getAverageElectricInput();
 
     @Override
-    public long getAverageElectricOutput();
+    long getAverageElectricOutput();
 
     @Override
-    public long getStoredEU();
+    long getStoredEU();
 
     @Override
-    public long getEUCapacity();
+    long getEUCapacity();
 
     @Override
-    public long getStoredSteam();
+    long getStoredSteam();
 
     @Override
-    public long getSteamCapacity();
+    long getSteamCapacity();
 
     @Override
-    public boolean increaseStoredSteam(long p0, boolean p1);
+    boolean increaseStoredSteam(long p0, boolean p1);
 
     @Override
-    public Block getBlockAtSide(byte p0);
+    Block getBlockAtSide(byte p0);
 
     @Override
-    public Block getBlockAtSideAndDistance(byte p0, int p1);
+    Block getBlockAtSideAndDistance(byte p0, int p1);
 
     @Override
-    public Block getBlockOffset(int p0, int p1, int p2);
+    Block getBlockOffset(int p0, int p1, int p2);
 
     @Override
-    public TileEntity getTileEntity(int p0, int p1, int p2);
+    TileEntity getTileEntity(int p0, int p1, int p2);
 
     @Override
-    public TileEntity getTileEntityAtSide(byte p0);
+    TileEntity getTileEntityAtSide(byte p0);
 
     @Override
-    public TileEntity getTileEntityAtSideAndDistance(byte p0, int p1);
+    TileEntity getTileEntityAtSideAndDistance(byte p0, int p1);
 
     @Override
-    public TileEntity getTileEntityOffset(int p0, int p1, int p2);
+    TileEntity getTileEntityOffset(int p0, int p1, int p2);
 
     @Override
-    public World getWorld();
+    World getWorld();
 
     @Override
-    public int getXCoord();
+    int getXCoord();
 
     @Override
-    public short getYCoord();
+    short getYCoord();
 
     @Override
-    public int getZCoord();
+    int getZCoord();
 
     @Override
-    public boolean isClientSide();
+    boolean isClientSide();
 
     @Override
-    public boolean isDead();
+    boolean isDead();
 
     @Override
-    public boolean isInvalidTileEntity();
+    boolean isInvalidTileEntity();
 
     @Override
-    public boolean isServerSide();
+    boolean isServerSide();
 
     @Override
-    public void readFromNBT(NBTTagCompound p0);
+    void readFromNBT(NBTTagCompound p0);
 
     @Override
-    public void writeToNBT(NBTTagCompound p0);
+    void writeToNBT(NBTTagCompound p0);
 
     @Override
-    public boolean acceptsRotationalEnergy(byte p0);
+    boolean acceptsRotationalEnergy(byte p0);
 
     @Override
-    public boolean injectRotationalEnergy(byte p0, long p1, long p2);
+    boolean injectRotationalEnergy(byte p0, long p1, long p2);
 
     @Override
-    public long injectEnergyUnits(byte p0, long p1, long p2);
+    long injectEnergyUnits(byte p0, long p1, long p2);
 
     @Override
-    public boolean inputEnergyFrom(byte p0);
+    boolean inputEnergyFrom(byte p0);
 
     @Override
-    public boolean outputsEnergyTo(byte p0);
+    boolean outputsEnergyTo(byte p0);
 
     @Override
-    public String[] getInfoData();
+    String[] getInfoData();
 
     @Override
-    public default boolean isGivingInformation() {
+    default boolean isGivingInformation() {
         return true;
     }
 

@@ -6,7 +6,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.random.XSTR;
 import gtPlusPlus.core.lib.CORE;
@@ -74,9 +74,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
                 String[] aCustomTips = getCustomTooltip();
                 final String[] desc = new String[S.length + aCustomTips.length + 1];
                 System.arraycopy(S, 0, desc, 0, S.length);
-                for (int i = 0; i < aCustomTips.length; i++) {
-                    desc[S.length + i] = aCustomTips[i];
-                }
+                System.arraycopy(aCustomTips, 0, desc, S.length + 0, aCustomTips.length);
                 desc[S.length + aCustomTips.length] = CORE.GT_Tooltip;
                 return desc;
             }
@@ -90,13 +88,13 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
         return new ITexture[] {
-            aBaseTexture, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)
+            aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)
         };
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
         return new ITexture[] {
-            aBaseTexture, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)
+            aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)
         };
     }
 
@@ -198,12 +196,9 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
             // Logger.INFO("To add: "+this.getAmountOfFluidToGenerate());
             // Logger.INFO("Space Free: "+(this.getCapacity()-this.getFluidAmount()));
         }
-        if (this.mFluid == null
+        return this.mFluid == null
                 || (this.mFluid != null
-                        && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()))) {
-            return true;
-        }
-        return false;
+                && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
     }
 
     @Override

@@ -98,7 +98,7 @@ public class GenerateDictionaries {
         private static final Charset utf8 = StandardCharsets.UTF_8;
         private static final Random rand = new XSTR();
 
-        private static final void log(String s) {
+        private static void log(String s) {
             System.out.println("[GTPP-Proguard] " + s);
         }
 
@@ -107,10 +107,7 @@ public class GenerateDictionaries {
         }
 
         public static boolean doesFileExist(File f) {
-            if (f != null && f.exists() && !f.isDirectory()) {
-                return true;
-            }
-            return false;
+            return f != null && f.exists() && !f.isDirectory();
         }
 
         public static File createFile(File aFile) {

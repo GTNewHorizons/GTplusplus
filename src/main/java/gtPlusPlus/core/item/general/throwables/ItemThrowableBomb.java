@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 
 public class ItemThrowableBomb extends CoreItem {
 
-    private static AutoMap<ItemStack> mLighters = new AutoMap<ItemStack>();
+    private static final AutoMap<ItemStack> mLighters = new AutoMap<ItemStack>();
     public static IIcon[] icons = new IIcon[10];
 
     public ItemThrowableBomb() {
@@ -97,7 +97,7 @@ public class ItemThrowableBomb extends CoreItem {
 
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return this.icons[meta];
+        return icons[meta];
     }
 
     @SuppressWarnings({"unchecked"})

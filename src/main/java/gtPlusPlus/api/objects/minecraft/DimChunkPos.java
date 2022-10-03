@@ -34,11 +34,7 @@ public class DimChunkPos {
                 .getIntegratedServer()
                 .worldServerForDimension(dim)
                 .getChunkFromChunkCoords(xPos, zPos);
-        if (h == null) {
-            this.mainChunk = null;
-        } else {
-            this.mainChunk = h;
-        }
+        this.mainChunk = h;
     }
 
     public Chunk getChunk() {

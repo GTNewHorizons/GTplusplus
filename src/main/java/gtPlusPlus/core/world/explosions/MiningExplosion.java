@@ -319,9 +319,9 @@ public class MiningExplosion extends Explosion {
                     d5 *= d7;
                     this.worldObj.spawnParticle(
                             "explode",
-                            (d0 + (this.explosionX * 1.0D)) / 2.0D,
-                            (d1 + (this.explosionY * 1.0D)) / 2.0D,
-                            (d2 + (this.explosionZ * 1.0D)) / 2.0D,
+                            (d0 + (this.explosionX)) / 2.0D,
+                            (d1 + (this.explosionY)) / 2.0D,
+                            (d2 + (this.explosionZ)) / 2.0D,
                             d3,
                             d4,
                             d5);

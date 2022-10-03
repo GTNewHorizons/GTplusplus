@@ -381,8 +381,8 @@ public class RecipeUtils {
 
         int using = 0, recipeSlotCurrent = 0;
         boolean[] hasMultiStack = new boolean[9];
-        boolean inUse[] = {false, false, false};
-        ItemStack array[][] = new ItemStack[3][9];
+        boolean[] inUse = {false, false, false};
+        ItemStack[][] array = new ItemStack[3][9];
 
         Object[] inputs = {
             InputItem1, InputItem2, InputItem3,
@@ -392,7 +392,7 @@ public class RecipeUtils {
 
         for (Object o : inputs) {
             if (o.getClass().isArray()) {
-                if (inUse[using] == false) {
+                if (!inUse[using]) {
                     inUse[using] = true;
                     array[using] = (ItemStack[]) o;
                     hasMultiStack[recipeSlotCurrent] = true;
@@ -528,10 +528,7 @@ public class RecipeUtils {
             return false;
         }
         // let gregtech handle shapeless recipes.
-        if (GT_ModHandler.addShapelessCraftingRecipe(OutputItem, inputItems)) {
-            return true;
-        }
-        return false;
+        return GT_ModHandler.addShapelessCraftingRecipe(OutputItem, inputItems);
     }
 
     public static ItemStack getItemStackFromOreDict(final String oredictName) {
@@ -557,16 +554,8 @@ public class RecipeUtils {
         final int tOutputAmount = GT_ModHandler.getCapsuleCellContainerCountMultipliedWithStackSize(x.mOutputs);
 
         if (tInputAmount < tOutputAmount) {
-            if (!Materials.Tin.contains(x.mInputs)) {
-                return false;
-            } else {
-                return true;
-            }
-        } else if (tInputAmount > tOutputAmount && !Materials.Tin.contains(x.mOutputs)) {
-            return false;
-        } else {
-            return true;
-        }
+            return Materials.Tin.contains(x.mInputs);
+        } else return tInputAmount <= tOutputAmount || Materials.Tin.contains(x.mOutputs);
     }
 
     public static String[] getRecipeInfo(GT_Recipe m) {
@@ -586,7 +575,7 @@ public class RecipeUtils {
         result.put("Is Enabled? " + m.mEnabled);
         result.put("Special Value: " + m.mSpecialValue);
         result.put("=====================================");
-        String s[] = result.toArray();
+        String[] s = result.toArray();
         return s;
     }
 
@@ -635,11 +624,7 @@ public class RecipeUtils {
 
             Logger.RECIPE("Using " + validCounter + " valid inputs and " + invalidCounter + " invalid inputs.");
             ShapedRecipe r = new ShapedRecipe(aFiltered, mOutput);
-            if (r != null && r.mRecipe != null) {
-                isValid = true;
-            } else {
-                isValid = false;
-            }
+            isValid = r != null && r.mRecipe != null;
             mRecipe = r != null ? r.mRecipe : null;
         }
 
@@ -658,7 +643,7 @@ public class RecipeUtils {
         @Override
         public String getInfoData() {
             if (mOutput != null && mOutput instanceof ItemStack) {
-                return ((ItemStack) mOutput).getDisplayName();
+                return mOutput.getDisplayName();
             }
             return "";
         }
@@ -696,7 +681,7 @@ public class RecipeUtils {
             int tList_sS = tList.size();
 
             for (int i = 0; i < tList_sS; ++i) {
-                IRecipe tRecipe = (IRecipe) tList.get(i);
+                IRecipe tRecipe = tList.get(i);
                 if (!aNotRemoveShapelessRecipes
                         || !(tRecipe instanceof ShapelessRecipes) && !(tRecipe instanceof ShapelessOreRecipe)) {
                     if (aOnlyRemoveNativeHandlers) {
@@ -853,11 +838,7 @@ public class RecipeUtils {
         public InternalRecipeObject2(ShapedOreRecipe aRecipe) {
             mRecipe = aRecipe;
             mOutput = aRecipe.getRecipeOutput();
-            if (mOutput != null) {
-                this.isValid = true;
-            } else {
-                this.isValid = false;
-            }
+            this.isValid = mOutput != null;
         }
 
         @Override
@@ -875,7 +856,7 @@ public class RecipeUtils {
         @Override
         public String getInfoData() {
             if (mOutput != null && mOutput instanceof ItemStack) {
-                return ((ItemStack) mOutput).getDisplayName();
+                return mOutput.getDisplayName();
             }
             return "";
         }

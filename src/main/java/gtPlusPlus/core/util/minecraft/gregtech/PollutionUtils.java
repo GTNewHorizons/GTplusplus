@@ -52,7 +52,7 @@ public class PollutionUtils {
 
     public static boolean addPollution(IHasWorldObjectAndCoords aTileOfSomeSort, int pollutionValue) {
         if (mIsPollutionEnabled) {
-            IHasWorldObjectAndCoords j = (IHasWorldObjectAndCoords) aTileOfSomeSort;
+            IHasWorldObjectAndCoords j = aTileOfSomeSort;
             Chunk c = j.getWorld().getChunkFromBlockCoords(j.getXCoord(), j.getZCoord());
             return addPollution(c, pollutionValue);
         }
@@ -90,7 +90,7 @@ public class PollutionUtils {
         if (aTileOfSomeSort == null) {
             return false;
         }
-        IHasWorldObjectAndCoords j = (IHasWorldObjectAndCoords) aTileOfSomeSort;
+        IHasWorldObjectAndCoords j = aTileOfSomeSort;
         Chunk c = j.getWorld().getChunkFromBlockCoords(j.getXCoord(), j.getZCoord());
         return nullifyPollution(c);
     }
@@ -162,10 +162,7 @@ public class PollutionUtils {
                     PollutionUtils.mPollutionFluidStacks.put(SD);
                 }
             }
-            if (PollutionUtils.mPollutionFluidStacks.size() > 0) {
-                return true;
-            }
-            return false;
+            return PollutionUtils.mPollutionFluidStacks.size() > 0;
         } else {
             if (mPollutionFluidStacks.size() != 3) {
                 Logger.INFO("Unable to detect all 3 pollution fluids. Found: ");

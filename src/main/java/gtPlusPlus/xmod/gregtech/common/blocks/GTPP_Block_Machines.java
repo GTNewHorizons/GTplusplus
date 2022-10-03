@@ -105,7 +105,6 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
 
     public String getLocalizedName() {
         String aName = StatCollector.translateToLocal(this.getUnlocalizedName() + ".name");
-        ;
         if (aName.toLowerCase().contains(".name")) {
             aName = StatCollector.translateToLocal(getUnlocalizedName() + ".name");
         }
@@ -192,7 +191,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
     public boolean onBlockEventReceived(World aWorld, int aX, int aY, int aZ, int aData1, int aData2) {
         super.onBlockEventReceived(aWorld, aX, aY, aZ, aData1, aData2);
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        return tTileEntity != null ? tTileEntity.receiveClientEvent(aData1, aData2) : false;
+        return tTileEntity != null && tTileEntity.receiveClientEvent(aData1, aData2);
     }
 
     public void addCollisionBoxesToList(
@@ -289,14 +288,8 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 }
             }
 
-            return tTileEntity instanceof IGregTechTileEntity
-                    ? (((IGregTechTileEntity) tTileEntity).getTimer() < 50L
-                            ? false
-                            : (!aWorld.isRemote && !((IGregTechTileEntity) tTileEntity).isUseableByPlayer(aPlayer)
-                                    ? true
-                                    : ((IGregTechTileEntity) tTileEntity)
-                                            .onRightclick(aPlayer, (byte) aSide, par1, par2, par3)))
-                    : false;
+            return tTileEntity instanceof IGregTechTileEntity && (((IGregTechTileEntity) tTileEntity).getTimer() >= 50L && (!aWorld.isRemote && !((IGregTechTileEntity) tTileEntity).isUseableByPlayer(aPlayer) || ((IGregTechTileEntity) tTileEntity)
+                    .onRightclick(aPlayer, (byte) aSide, par1, par2, par3)));
         }
     }
 
@@ -334,9 +327,9 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 if (tItem != null && tItem.stackSize > 0 && tGregTechTileEntity.isValidSlot(i)) {
                     EntityItem tItemEntity = new EntityItem(
                             aWorld,
-                            (double) ((float) aX + tRandom.nextFloat() * 0.8F + 0.1F),
-                            (double) ((float) aY + tRandom.nextFloat() * 0.8F + 0.1F),
-                            (double) ((float) aZ + tRandom.nextFloat() * 0.8F + 0.1F),
+                            (float) aX + tRandom.nextFloat() * 0.8F + 0.1F,
+                            (float) aY + tRandom.nextFloat() * 0.8F + 0.1F,
+                            (float) aZ + tRandom.nextFloat() * 0.8F + 0.1F,
                             new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
                     if (tItem.hasTagCompound()) {
                         tItemEntity.getEntityItem().setTagCompound((NBTTagCompound)
@@ -348,7 +341,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                     tItemEntity.motionZ = tRandom.nextGaussian() * 0.0500000007450581D;
                     aWorld.spawnEntityInWorld(tItemEntity);
                     tItem.stackSize = 0;
-                    tGregTechTileEntity.setInventorySlotContents(i, (ItemStack) null);
+                    tGregTechTileEntity.setInventorySlotContents(i, null);
                 }
             }
         }
@@ -363,7 +356,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 ? ((IGregTechTileEntity) tTileEntity).getDrops()
                 : (mTemporaryTileEntity.get() == null
                         ? new ArrayList()
-                        : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops());
+                        : mTemporaryTileEntity.get().getDrops());
     }
 
     public int getComparatorInputOverride(World aWorld, int aX, int aY, int aZ, int aSide) {
@@ -424,10 +417,8 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                     return true;
                 }
 
-                if (tTileEntity instanceof ICoverable
-                        && ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0) {
-                    return true;
-                }
+                return tTileEntity instanceof ICoverable
+                        && ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0;
             }
 
             return false;
@@ -449,10 +440,9 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
     }
 
     public TileEntity createTileEntity(World aWorld, int aMeta) {
-        return (TileEntity)
-                (aMeta >= 4
-                        ? Meta_GT_Proxy.constructBaseMetaTileEntity()
-                        : Meta_GT_Proxy.constructBaseMetaTileEntityCustomPower());
+        return aMeta >= 4
+                ? Meta_GT_Proxy.constructBaseMetaTileEntity()
+                : Meta_GT_Proxy.constructBaseMetaTileEntityCustomPower();
     }
 
     public float getExplosionResistance(

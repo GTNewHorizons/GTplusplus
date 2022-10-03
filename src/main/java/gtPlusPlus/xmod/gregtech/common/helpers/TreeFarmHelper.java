@@ -371,10 +371,8 @@ public class TreeFarmHelper {
             return true;
         }
 
-        return (OrePrefixes.log.contains(new ItemStack(log, 1)) && ((tTool != null) && (tTool.equals("axe"))))
-                        || (log.getMaterial() != Material.wood)
-                ? false
-                : (OrePrefixes.fence.contains(new ItemStack(log, 1)) ? false : true);
+        return (!OrePrefixes.log.contains(new ItemStack(log, 1)) || ((tTool == null) || (!tTool.equals("axe"))))
+                && (log.getMaterial() == Material.wood) && (!OrePrefixes.fence.contains(new ItemStack(log, 1)));
     }
 
     public static boolean isLeaves(final Block log) {
@@ -412,19 +410,11 @@ public class TreeFarmHelper {
     }
 
     public static boolean isDirtBlock(final Block dirt) {
-        return (dirt == Blocks.dirt
-                ? true
-                : (dirt == Blocks.grass ? true : (getHumus() == null ? false : (dirt == blockHumus ? true : false))));
+        return (dirt == Blocks.dirt || (dirt == Blocks.grass || (getHumus() != null && (dirt == blockHumus))));
     }
 
     public static boolean isFenceBlock(final Block fence) {
-        return (fence == Blocks.fence
-                ? true
-                : (fence == Blocks.fence_gate
-                        ? true
-                        : (fence == Blocks.nether_brick_fence
-                                ? true
-                                : (OrePrefixes.fence.contains(new ItemStack(fence, 1)) ? true : false))));
+        return (fence == Blocks.fence || (fence == Blocks.fence_gate || (fence == Blocks.nether_brick_fence || (OrePrefixes.fence.contains(new ItemStack(fence, 1))))));
     }
 
     public static boolean isAirBlock(final Block air) {
@@ -435,7 +425,7 @@ public class TreeFarmHelper {
                 || air.getClass().getName().toLowerCase().contains("heat")) {
             return true;
         }
-        return (air == Blocks.air ? true : (air instanceof BlockAir ? true : false));
+        return (air == Blocks.air || (air instanceof BlockAir));
     }
 
     /*public static boolean isSaplingBlock(Block sapling){
@@ -702,8 +692,8 @@ public class TreeFarmHelper {
     public static class TreeCutter {
 
         private final World mWorld;
-        private Map<String, BlockPos> mQueue = new ConcurrentHashMap<String, BlockPos>();
-        private AutoMap<ItemStack[]> mDrops = new AutoMap<ItemStack[]>();
+        private final Map<String, BlockPos> mQueue = new ConcurrentHashMap<String, BlockPos>();
+        private final AutoMap<ItemStack[]> mDrops = new AutoMap<ItemStack[]>();
         private boolean isValid = true;
 
         public TreeCutter(World world) {
@@ -741,9 +731,7 @@ public class TreeFarmHelper {
                             totalRemoved++;
                         }
                     }
-                    if (totalRemoved > 0 && mDrops.size() > 0) {
-                        return true;
-                    }
+                    return totalRemoved > 0 && mDrops.size() > 0;
                 }
             }
             return false;

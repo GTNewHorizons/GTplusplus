@@ -115,10 +115,7 @@ public class CommandDebugChunks implements ICommand {
         if (P == null) {
             return false;
         }
-        if (PlayerUtils.isPlayerOP(P)) {
-            return true;
-        }
-        return false;
+        return PlayerUtils.isPlayerOP(P);
     }
 
     @Override

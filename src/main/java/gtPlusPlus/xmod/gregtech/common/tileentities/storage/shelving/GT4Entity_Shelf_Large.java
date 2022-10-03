@@ -92,7 +92,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
     public void saveNBTData(NBTTagCompound aNBT) {
         aNBT.setInteger("mItemCount", this.mItemCount);
         if (this.mItemStack != null) {
-            aNBT.setTag("mItemStack", (NBTBase) this.mItemStack.writeToNBT(new NBTTagCompound()));
+            aNBT.setTag("mItemStack", this.mItemStack.writeToNBT(new NBTTagCompound()));
         }
         super.saveNBTData(aNBT);
     }
@@ -118,7 +118,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
                 && this.getBaseMetaTileEntity().isAllowedToWork()) {
             try {
                 if (this.mInventory[0] != null) {
-                    this.mType = (byte) this.mIndex;
+                    this.mType = this.mIndex;
                 } else {
                     this.mType = 0;
                 }
@@ -208,14 +208,14 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
     public String[] getInfoData() {
         if (this.mItemStack == null) {
             return new String[] {
-                this.getLocalName(), "No Items Stored", "Free Space: " + Integer.toString(this.getMaxItemCount())
+                this.getLocalName(), "No Items Stored", "Free Space: " + this.getMaxItemCount()
             };
         }
         return new String[] {
             this.getLocalName(),
-            "Storing: " + this.mItemStack.getDisplayName() + " x" + Integer.toString(this.mItemCount),
-            "Space Remaining: " + Integer.toString(this.getMaxItemCount() - this.getItemCount()) + "/"
-                    + Integer.toString(this.getMaxItemCount())
+            "Storing: " + this.mItemStack.getDisplayName() + " x" + this.mItemCount,
+            "Space Remaining: " + (this.getMaxItemCount() - this.getItemCount()) + "/"
+                    + this.getMaxItemCount()
         };
     }
 
@@ -237,10 +237,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
             if (ItemStack.areItemStacksEqual(aStack, mItemStack)) {
                 return true;
             } else {
-                if (mItemStack == null) {
-                    return true;
-                }
-                return false;
+                return mItemStack == null;
             }
         }
         return super.isItemValidForSlot(aIndex, aStack);
@@ -253,10 +250,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
             if (ItemStack.areItemStacksEqual(aStack, mItemStack)) {
                 return true;
             } else {
-                if (mItemStack == null) {
-                    return true;
-                }
-                return false;
+                return mItemStack == null;
             }
         }
         return super.canInsertItem(aIndex, aStack, aSide);

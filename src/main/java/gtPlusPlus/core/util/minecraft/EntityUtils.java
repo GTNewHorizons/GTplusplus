@@ -36,7 +36,7 @@ public class EntityUtils {
     public static boolean isEntityOnFire(final Entity aEntity) {
         Field aIsOnFire = ReflectionUtils.getField(Entity.class, "fire");
         if (aIsOnFire != null) {
-            int aFireTime = (int) ReflectionUtils.getFieldValue(aIsOnFire, aEntity);
+            int aFireTime = ReflectionUtils.getFieldValue(aIsOnFire, aEntity);
             return aFireTime > 0;
         }
         return false;
@@ -281,11 +281,7 @@ public class EntityUtils {
                     o = aRegistry2.get(null);
                     if (o != null) {
                         Map classToNameMap = (Map) o;
-                        if (!classToNameMap.containsKey(aTileClass)) {
-                            return false;
-                        } else {
-                            return true;
-                        }
+                        return classToNameMap.containsKey(aTileClass);
                     }
                 } else {
                     return true;

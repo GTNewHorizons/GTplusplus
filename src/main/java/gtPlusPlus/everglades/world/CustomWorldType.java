@@ -15,7 +15,7 @@ public class CustomWorldType extends WorldType {
         this("test");
         try {
             // System.out.println(Arrays.toString(getClass().getSuperclass().getMethods()));
-            Method m = getClass().getSuperclass().getDeclaredMethod("WorldType", new Class<?>[] {});
+            Method m = getClass().getSuperclass().getDeclaredMethod("WorldType");
             m.setAccessible(true);
             m.invoke(this, p_i1959_1_, p_i1959_2_, 0);
         } catch (Exception e) {
@@ -27,7 +27,7 @@ public class CustomWorldType extends WorldType {
         this("test2");
         try {
             // System.out.println(Arrays.toString(getClass().getSuperclass().getMethods()));
-            Method m = getClass().getSuperclass().getDeclaredMethod("WorldType", new Class<?>[] {});
+            Method m = getClass().getSuperclass().getDeclaredMethod("WorldType");
             m.setAccessible(true);
             m.invoke(this, p_i1960_1_, p_i1960_2_, p_i1960_3_);
         } catch (Exception e) {

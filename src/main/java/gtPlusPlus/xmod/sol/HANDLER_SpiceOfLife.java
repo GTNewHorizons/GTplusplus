@@ -38,7 +38,7 @@ public class HANDLER_SpiceOfLife {
         Class aItemFoodContainer = ReflectionUtils.getClass("squeek.spiceoflife.items.ItemFoodContainer");
         if (aItemFoodContainer != null) {
             Constructor aItemFoodContainerConstructor =
-                    ReflectionUtils.getConstructor(aItemFoodContainer, new Class[] {String.class, int.class});
+                    ReflectionUtils.getConstructor(aItemFoodContainer, String.class, int.class);
             if (aItemFoodContainerConstructor != null) {
                 Object aNewObject = ReflectionUtils.createNewInstanceFromConstructor(
                         aItemFoodContainerConstructor, new Object[] {aItemName, aSlots});

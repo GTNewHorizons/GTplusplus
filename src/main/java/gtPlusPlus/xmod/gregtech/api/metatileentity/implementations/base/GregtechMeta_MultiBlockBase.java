@@ -220,7 +220,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     public String[] getExtraInfoData() {
         return new String[0];
     }
-    ;
 
     @Override
     public final String[] getInfoData() {
@@ -236,16 +235,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 extra = new String[0];
             }
             if (extra.length > 0) {
-                for (String s : extra) {
-                    mInfo.add(s);
-                }
+                Collections.addAll(mInfo, extra);
             }
 
             long seconds = (this.mTotalRunTime / 20);
             int weeks = (int) (TimeUnit.SECONDS.toDays(seconds) / 7);
             int days = (int) (TimeUnit.SECONDS.toDays(seconds) - 7 * weeks);
             long hours =
-                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7 * weeks);
+                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7L * weeks);
             long minutes = TimeUnit.SECONDS.toMinutes(seconds) - (TimeUnit.SECONDS.toHours(seconds) * 60);
             long second = TimeUnit.SECONDS.toSeconds(seconds) - (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
@@ -254,48 +251,47 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             // Lets borrow the GTNH handling
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.progress") + ": " + EnumChatFormatting.GREEN
-                    + Integer.toString(mProgresstime / 20) + EnumChatFormatting.RESET + " s / "
+                    + mProgresstime / 20 + EnumChatFormatting.RESET + " s / "
                     + EnumChatFormatting.YELLOW
-                    + Integer.toString(mMaxProgresstime / 20) + EnumChatFormatting.RESET + " s");
+                    + mMaxProgresstime / 20 + EnumChatFormatting.RESET + " s");
 
             if (!this.mAllEnergyHatches.isEmpty()) {
                 long storedEnergy = getStoredEnergyInAllEnergyHatches();
                 long maxEnergy = getMaxEnergyStorageOfAllEnergyHatches();
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + ":");
-                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(storedEnergy)
-                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(maxEnergy)
+                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + storedEnergy
+                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + maxEnergy
                         + EnumChatFormatting.RESET + " EU"));
 
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.mei") + ":");
                 mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.YELLOW
-                        + Long.toString(getMaxInputVoltage()) + EnumChatFormatting.RESET + " EU/t(*2A) "
+                        + getMaxInputVoltage() + EnumChatFormatting.RESET + " EU/t(*2A) "
                         + StatCollector.translateToLocal("GTPP.machines.tier") + ": " + EnumChatFormatting.YELLOW
                         + GT_Values.VN[GT_Utility.getTier(getMaxInputVoltage())] + EnumChatFormatting.RESET));
-                ;
             }
             if (!this.mAllDynamoHatches.isEmpty()) {
                 long storedEnergy = getStoredEnergyInAllDynamoHatches();
                 long maxEnergy = getMaxEnergyStorageOfAllDynamoHatches();
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + " In Dynamos:");
-                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(storedEnergy)
-                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(maxEnergy)
+                mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + storedEnergy
+                        + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + maxEnergy
                         + EnumChatFormatting.RESET + " EU"));
             }
 
             if (-mEUt > 0) {
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
                 mInfo.add(StatCollector.translateToLocal(
-                        "" + EnumChatFormatting.RED + Integer.toString(-mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                        "" + EnumChatFormatting.RED + -mEUt + EnumChatFormatting.RESET + " EU/t"));
             } else {
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
                 mInfo.add(StatCollector.translateToLocal(
-                        "" + EnumChatFormatting.GREEN + Integer.toString(mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                        "" + EnumChatFormatting.GREEN + mEUt + EnumChatFormatting.RESET + " EU/t"));
             }
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.problems") + ": " + EnumChatFormatting.RED
                     + (getIdealStatus() - getRepairStatus()) + EnumChatFormatting.RESET + " "
                     + StatCollector.translateToLocal("GTPP.multiblock.efficiency") + ": " + EnumChatFormatting.YELLOW
-                    + Float.toString(mEfficiency / 100.0F) + EnumChatFormatting.RESET + " %");
+                    + mEfficiency / 100.0F + EnumChatFormatting.RESET + " %");
 
             if (this.getPollutionPerSecond(null) > 0) {
                 int mPollutionReduction = getPollutionReductionForAllMufflers();
@@ -317,13 +313,13 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             mInfo.add(StatCollector.translateToLocal("GTPP.CC.parallel") + ": " + EnumChatFormatting.GREEN
                     + (getMaxParallelRecipes()) + EnumChatFormatting.RESET);
 
-            mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks)
-                    + EnumChatFormatting.RESET + " Weeks, " + EnumChatFormatting.DARK_GREEN + Integer.toString(days)
+            mInfo.add("Total Time Since Built: " + EnumChatFormatting.DARK_GREEN + weeks
+                    + EnumChatFormatting.RESET + " Weeks, " + EnumChatFormatting.DARK_GREEN + days
                     + EnumChatFormatting.RESET + " Days, ");
             mInfo.add(EnumChatFormatting.DARK_GREEN + Long.toString(hours) + EnumChatFormatting.RESET + " Hours, "
-                    + EnumChatFormatting.DARK_GREEN + Long.toString(minutes) + EnumChatFormatting.RESET + " Minutes, "
-                    + EnumChatFormatting.DARK_GREEN + Long.toString(second) + EnumChatFormatting.RESET + " Seconds.");
-            mInfo.add("Total Time in ticks: " + EnumChatFormatting.DARK_GREEN + Long.toString(this.mTotalRunTime));
+                    + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET + " Minutes, "
+                    + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds.");
+            mInfo.add("Total Time in ticks: " + EnumChatFormatting.DARK_GREEN + this.mTotalRunTime);
 
             String[] mInfo2 = mInfo.toArray(new String[mInfo.size()]);
             return mInfo2;
@@ -1229,11 +1225,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         }
         // If the inputs match, we are good.
         else {
-            if (tRecipe.mInputs == mInputVerificationForBoosting) {
-                isRecipeInputTheSame = true;
-            } else {
-                isRecipeInputTheSame = false;
-            }
+            isRecipeInputTheSame = tRecipe.mInputs == mInputVerificationForBoosting;
         }
 
         // Inputs are the same, let's see if there's a boosted version.
@@ -1589,10 +1581,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     public boolean isToolCreative(ItemStack mStack) {
         Materials t1 = GT_MetaGenerated_Tool.getPrimaryMaterial(mStack);
         Materials t2 = GT_MetaGenerated_Tool.getSecondaryMaterial(mStack);
-        if (t1 == Materials._NULL && t2 == Materials._NULL) {
-            return true;
-        }
-        return false;
+        return t1 == Materials._NULL && t2 == Materials._NULL;
     }
 
     /**
@@ -1647,7 +1636,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
     public boolean checkHatch() {
         return mMaintenanceHatches.size() <= 1
-                && (this.getPollutionPerSecond(null) > 0 ? !mMufflerHatches.isEmpty() : true);
+                && (this.getPollutionPerSecond(null) <= 0 || !mMufflerHatches.isEmpty());
     }
 
     public <E> boolean addToMachineListInternal(
@@ -2024,7 +2013,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             }
             Method mProper = ReflectionUtils.getMethod(GT_MetaTileEntity_Hatch.class, "updateTexture", int.class);
             if (mProper != null) {
-                if (GT_MetaTileEntity_Hatch.class.isInstance(aMetaTileEntity)) {
+                if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch) {
                     mProper.setAccessible(true);
                     mProper.invoke(aMetaTileEntity, aCasingID);
                     // log("Good Method Call for updateTexture.");
@@ -2032,7 +2021,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 }
             } else {
                 log("Bad Method Call for updateTexture.");
-                if (GT_MetaTileEntity_Hatch.class.isInstance(aMetaTileEntity)) {
+                if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch) {
                     if (aCasingID <= Byte.MAX_VALUE) {
                         ((GT_MetaTileEntity_Hatch) aTileEntity).mMachineBlock = (byte) aCasingID;
                         log(
@@ -2095,9 +2084,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         mDynamoClass = ReflectionUtils.getClass(
                 "com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_DynamoMulti");
         if (mDynamoClass != null) {
-            if (mDynamoClass.isInstance(aMetaTileEntity)) {
-                return true;
-            }
+            return mDynamoClass.isInstance(aMetaTileEntity);
         }
         return false;
     }
@@ -2148,9 +2135,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         mDynamoClass = ReflectionUtils.getClass(
                 "com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_EnergyMulti");
         if (mDynamoClass != null) {
-            if (mDynamoClass.isInstance(aMetaTileEntity)) {
-                return true;
-            }
+            return mDynamoClass.isInstance(aMetaTileEntity);
         }
         return false;
     }
@@ -2216,7 +2201,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
         return this.findRecipe(
-                aTileEntity, null, aNotUnificated, aDontCheckStackSizes, aVoltage, aFluids, (ItemStack) null, aInputs);
+                aTileEntity, null, aNotUnificated, aDontCheckStackSizes, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(
@@ -2225,7 +2210,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final long aVoltage,
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
-        return this.findRecipe(aTileEntity, null, aNotUnificated, aVoltage, aFluids, (ItemStack) null, aInputs);
+        return this.findRecipe(aTileEntity, null, aNotUnificated, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(
@@ -2243,7 +2228,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 aDontCheckStackSizes,
                 aVoltage,
                 aFluids,
-                (ItemStack) null,
+                null,
                 aInputs);
     }
 
@@ -2254,7 +2239,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final long aVoltage,
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
-        return this.findRecipe(aTileEntity, aRecipe, aNotUnificated, aVoltage, aFluids, (ItemStack) null, aInputs);
+        return this.findRecipe(aTileEntity, aRecipe, aNotUnificated, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(
@@ -2359,7 +2344,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                         // TODO - Investigate if this requires to be in it's own block
                         tRecipes = this.getRecipeMap()
                                 .mRecipeItemMap
-                                .get(new GT_ItemStack(GT_Utility.copyMetaData(32767L, new Object[] {tStack})));
+                                .get(new GT_ItemStack(GT_Utility.copyMetaData(32767L, tStack)));
                         if (tRecipes != null) {
                             for (final GT_Recipe tRecipe : tRecipes) {
                                 if (!tRecipe.mFakeRecipe

@@ -69,7 +69,7 @@ public class Machine_TradeTable extends BlockBaseNBT implements ITileTooltip {
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityTradeTable)) {
+        if ((te instanceof TileEntityTradeTable)) {
             // Utils.LOG_INFO("Clicked on TE - ok");
             player.openGui(GTplusplus.instance, 6, world, x, y, z);
             return true;

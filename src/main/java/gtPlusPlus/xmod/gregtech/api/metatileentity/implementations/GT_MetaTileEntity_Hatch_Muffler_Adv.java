@@ -5,7 +5,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Config;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.general.ItemAirFilter;
@@ -80,11 +80,11 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     }
 
     public ITexture[] getTexturesActive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(TexturesGtBlock.Overlay_Hatch_Muffler_Adv)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(TexturesGtBlock.Overlay_Hatch_Muffler_Adv)};
     }
 
     public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(TexturesGtBlock.Overlay_Hatch_Muffler_Adv)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(TexturesGtBlock.Overlay_Hatch_Muffler_Adv)};
     }
 
     public boolean isValidSlot(int aIndex) {
@@ -113,15 +113,12 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     }
 
     private boolean airCheck() {
-        if (this.getBaseMetaTileEntity()
-                        .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
+        return this.getBaseMetaTileEntity()
+                .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
                 && this.getBaseMetaTileEntity()
-                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
+                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
                 && this.getBaseMetaTileEntity()
-                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2)) {
-            return true;
-        }
-        return false;
+                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2);
     }
 
     public boolean polluteEnvironment() {
@@ -137,24 +134,21 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     }
 
     public int calculatePollutionReductionForTooltip(int aPollution) {
-        return (int) (aPollution * Math.pow(0.64D, (double) (this.mTier - 1)));
+        return (int) (aPollution * Math.pow(0.64D, this.mTier - 1));
     }
 
     public int calculatePollutionReduction(int aPollution) {
-        double aVal1 = aPollution * Math.pow(0.64D, (double) (this.mTier - 1));
+        double aVal1 = aPollution * Math.pow(0.64D, this.mTier - 1);
         int aVal2 = (int) aVal1;
         if (!hasValidFilter()) {
-            aVal2 = (int) ((double) aPollution * Math.pow(0.7D, (double) (this.mTier - 1)));
-            ;
+            aVal2 = (int) ((double) aPollution * Math.pow(0.7D, this.mTier - 1));
         }
         return aVal2;
     }
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         if (aIndex == this.SLOT_FILTER) {
-            if (isAirFilter(aStack)) {
-                return true;
-            }
+            return isAirFilter(aStack);
         }
         return false;
     }
@@ -227,9 +221,7 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
             if (this.mTier < 5) {
                 return true;
             } else {
-                if (filter.getItemDamage() == 1) {
-                    return true;
-                }
+                return filter.getItemDamage() == 1;
             }
         }
         return false;
@@ -294,8 +286,8 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         float zSpd;
         if (aDir.offsetY == -1) {
             float temp = CORE.RANDOM.nextFloat() * 2.0F * CORE.PI;
-            xSpd = (float) Math.sin((double) temp) * 0.1F;
-            zSpd = (float) Math.cos((double) temp) * 0.1F;
+            xSpd = (float) Math.sin(temp) * 0.1F;
+            zSpd = (float) Math.cos(temp) * 0.1F;
         } else {
             xSpd = (float) aDir.offsetX * (0.1F + 0.2F * CORE.RANDOM.nextFloat());
             zSpd = (float) aDir.offsetZ * (0.1F + 0.2F * CORE.RANDOM.nextFloat());
@@ -304,34 +296,34 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         if (chk1) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran1 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran1 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
 
         if (chk2) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran2 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran2 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
 
         if (chk3) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran3 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran3 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
     }
 }

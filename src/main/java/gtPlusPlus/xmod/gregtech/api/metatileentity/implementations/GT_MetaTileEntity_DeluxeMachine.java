@@ -10,7 +10,7 @@ import gregtech.api.gui.GT_GUIContainer_BasicMachine;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
@@ -277,7 +277,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
 
     @Override
     public long maxAmperesIn() {
-        return (mEUt * 2) / V[mTier] + 1;
+        return (mEUt * 2L) / V[mTier] + 1;
     }
 
     @Override
@@ -396,7 +396,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
     @Override
     public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {
         if (aBaseMetaTileEntity.isClientSide()) return true;
-        if (!false) {
+        if (true) {
             aBaseMetaTileEntity.openGUI(aPlayer);
             return true;
         }
@@ -505,7 +505,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
                     }
                     if (mProgresstime > 5) mStuttering = false;
                     XSTR aXSTR = new XSTR();
-                    if (false && aXSTR.nextInt(5000) == 0)
+                    if (false)
                         GT_Utility.sendSoundToPlayers(
                                 aBaseMetaTileEntity.getWorld(),
                                 GregTech_API.sSoundList.get(5),
@@ -737,7 +737,11 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
 
     protected boolean isOutputEmpty() {
         boolean rIsEmpty = true;
-        for (ItemStack tOutputSlotContent : getAllOutputs()) if (tOutputSlotContent != null) rIsEmpty = false;
+        for (ItemStack tOutputSlotContent : getAllOutputs())
+            if (tOutputSlotContent != null) {
+                rIsEmpty = false;
+                break;
+            }
         return rIsEmpty;
     }
 
@@ -920,9 +924,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
                 getAllInputs());
         if (tRecipe == null) return DID_NOT_FIND_RECIPE;
 
-        if (false
-                && tRecipe.mSpecialValue == -100
-                && !isValidForLowGravity(tRecipe, getBaseMetaTileEntity().getWorld().provider.dimensionId))
+        if (false)
             return FOUND_RECIPE_BUT_DID_NOT_MEET_REQUIREMENTS;
         if (tRecipe.mCanBeBuffered) mLastRecipe = tRecipe;
         if (!canOutput(tRecipe)) {
@@ -974,42 +976,42 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
     public ITexture[] getBottomFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getBottomFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getTopFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getTopFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getSideFacingPipeActive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 
     public ITexture[] getSideFacingPipeInactive(byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1],
-            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)
+            TextureFactory.of(Textures.BlockIcons.OVERLAY_PIPE_OUT)
         };
     }
 }

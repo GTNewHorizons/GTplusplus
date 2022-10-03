@@ -284,7 +284,6 @@ public class CommonProxy {
 
     public void registerItemRenderer(Item aItem, IItemRenderer aRenderer) {
         if (Utils.isServer()) {
-            return;
         } else {
             mItemRenderMappings.add(new Pair<Item, IItemRenderer>(aItem, aRenderer));
         }

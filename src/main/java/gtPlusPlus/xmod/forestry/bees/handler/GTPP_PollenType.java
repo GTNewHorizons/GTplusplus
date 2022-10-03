@@ -14,9 +14,9 @@ public enum GTPP_PollenType {
     public int mChance;
     public int mID;
 
-    private String mName;
-    private String mNameUnlocal;
-    private int[] mColour;
+    private final String mName;
+    private final String mNameUnlocal;
+    private final int[] mColour;
 
     private static void map(int aId, GTPP_PollenType aType) {
         GTPP_Bees.sPollenMappings.put(aId, aType);
@@ -26,7 +26,7 @@ public enum GTPP_PollenType {
         return GTPP_Bees.sPollenMappings.get(aID);
     }
 
-    private GTPP_PollenType(int aID, String aName, boolean aShow, int... aColour) {
+    GTPP_PollenType(int aID, String aName, boolean aShow, int... aColour) {
         this.mID = aID;
         this.mName = aName;
         this.mNameUnlocal = aName.toLowerCase().replaceAll(" ", "");

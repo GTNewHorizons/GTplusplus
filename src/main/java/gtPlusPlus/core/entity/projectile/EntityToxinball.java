@@ -164,7 +164,6 @@ public abstract class EntityToxinball extends EntityFireball {
             for (this.rotationPitch = (float) (Math.atan2(f1, this.motionY) * 180.0D / Math.PI) - 90.0F;
                     this.rotationPitch - this.prevRotationPitch < -180.0F;
                     this.prevRotationPitch -= 360.0F) {
-                ;
             }
 
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
@@ -235,7 +234,7 @@ public abstract class EntityToxinball extends EntityFireball {
         aTag.setShort("zTile", (short) this.entityZ);
         aTag.setByte("inTile", (byte) Block.getIdFromBlock(this.block));
         aTag.setByte("inGround", (byte) (this.inGround ? 1 : 0));
-        aTag.setTag("direction", this.newDoubleNBTList(new double[] {this.motionX, this.motionY, this.motionZ}));
+        aTag.setTag("direction", this.newDoubleNBTList(this.motionX, this.motionY, this.motionZ));
     }
 
     /**

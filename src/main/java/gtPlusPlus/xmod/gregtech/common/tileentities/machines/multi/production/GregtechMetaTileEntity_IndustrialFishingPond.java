@@ -362,10 +362,10 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
                 || (cofhWater != null && cofhWater.isAssignableFrom(block.getClass()) && meta != 0);
     }
 
-    private static AutoMap<AutoMap<WeightedRandomFishable>> categories = new AutoMap<AutoMap<WeightedRandomFishable>>();
-    private static AutoMap<WeightedRandomFishable> categoryFish = new AutoMap<WeightedRandomFishable>();
-    private static AutoMap<WeightedRandomFishable> categoryJunk = new AutoMap<WeightedRandomFishable>();
-    private static AutoMap<WeightedRandomFishable> categoryLoot = new AutoMap<WeightedRandomFishable>();
+    private static final AutoMap<AutoMap<WeightedRandomFishable>> categories = new AutoMap<AutoMap<WeightedRandomFishable>>();
+    private static final AutoMap<WeightedRandomFishable> categoryFish = new AutoMap<WeightedRandomFishable>();
+    private static final AutoMap<WeightedRandomFishable> categoryJunk = new AutoMap<WeightedRandomFishable>();
+    private static final AutoMap<WeightedRandomFishable> categoryLoot = new AutoMap<WeightedRandomFishable>();
     private static boolean hasGenerateRecipes = false;
     private int mMode = 14;
     private int mMax = 8;
@@ -428,7 +428,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
     }
 
     // reflection map
-    private static Map<WeightedRandomFishable, ItemStack> reflectiveFishMap =
+    private static final Map<WeightedRandomFishable, ItemStack> reflectiveFishMap =
             new HashMap<WeightedRandomFishable, ItemStack>();
 
     private ItemStack reflectiveFish(WeightedRandomFishable y) {

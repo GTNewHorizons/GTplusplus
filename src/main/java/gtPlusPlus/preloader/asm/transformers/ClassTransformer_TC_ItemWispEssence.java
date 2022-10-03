@@ -62,11 +62,7 @@ public class ClassTransformer_TC_ItemWispEssence {
         aTempReader.accept(new AddAdapter(aTempWriter, new String[] {"getAspects", aGetColour}), 0);
         injectMethod("getAspects", aTempWriter, obfuscated);
         injectMethod(aGetColour, aTempWriter, obfuscated);
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         FMLRelaunchLog.log("[GT++ ASM] Thaumcraft WispEssence_Patch", Level.INFO, "Valid? " + isValid + ".");
         reader = aTempReader;
         writer = aTempWriter;

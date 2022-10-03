@@ -25,13 +25,13 @@ public class GT_MetaTileEntity_BasicBreaker extends GTPP_MTE_TieredMachineBlock 
     public boolean mDecharge = false;
     public int mBatteryCount = 0;
     public int mChargeableCount = 0;
-    private long count = 0L;
-    private long mStored = 0L;
-    private long mMax = 0L;
+    private final long count = 0L;
+    private final long mStored = 0L;
+    private final long mMax = 0L;
 
     public GT_MetaTileEntity_BasicBreaker(
             int aID, String aName, String aNameRegional, int aTier, String aDescription, int aSlotCount) {
-        super(aID, aName, aNameRegional, aTier, aSlotCount, aDescription, new ITexture[0]);
+        super(aID, aName, aNameRegional, aTier, aSlotCount, aDescription);
     }
 
     public GT_MetaTileEntity_BasicBreaker(

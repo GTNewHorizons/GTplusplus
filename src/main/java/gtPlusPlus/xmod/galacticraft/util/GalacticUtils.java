@@ -106,7 +106,7 @@ public class GalacticUtils {
             if (aLandingPad.isInstance(aEntity)) {
                 Object rocket;
                 try {
-                    rocket = getRocket.invoke(aLandingPad, new Object[] {});
+                    rocket = getRocket.invoke(aLandingPad);
                     if (aIDockable.isInstance(rocket) && rocket != null) {
                         return getRocketTier((Entity) rocket);
                     }
@@ -115,7 +115,7 @@ public class GalacticUtils {
             } else if (aBuggyPad.isInstance(aEntity)) {
                 Object buggy;
                 try {
-                    buggy = getBuggy.invoke(aBuggyPad, new Object[] {});
+                    buggy = getBuggy.invoke(aBuggyPad);
                     if (aIDockable.isInstance(buggy) && buggy != null) {
                         return 0;
                     }
@@ -128,10 +128,7 @@ public class GalacticUtils {
 
     public static boolean isFuelValidForTier(int aTier, FluidStack aFuel) {
         FluidStack aValidForThisTier = getValidFuelForTier(aTier);
-        if (aFuel.isFluidEqual(aValidForThisTier)) {
-            return true;
-        }
-        return false;
+        return aFuel.isFluidEqual(aValidForThisTier);
     }
 
     public static FluidStack getValidFuelForTier(Entity aEntity) {

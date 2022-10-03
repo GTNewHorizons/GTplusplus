@@ -63,9 +63,8 @@ public class BlockRTG extends BlockMultiID {
 
     @Override
     public int damageDropped(final int meta) {
-        switch (meta) {
-            case 2:
-                return 2;
+        if (meta == 2) {
+            return 2;
         }
         return 0;
     }

@@ -2,21 +2,21 @@ package gtPlusPlus.api.interfaces;
 
 public interface IToolable {
 
-    public boolean isScrewdriverable();
+    boolean isScrewdriverable();
 
-    public boolean onScrewdriverLMB();
+    boolean onScrewdriverLMB();
 
-    public boolean onScrewdriverRMB();
+    boolean onScrewdriverRMB();
 
-    public boolean isWrenchable();
+    boolean isWrenchable();
 
-    public boolean onWrenchLMB();
+    boolean onWrenchLMB();
 
-    public boolean onWrenchRMB();
+    boolean onWrenchRMB();
 
-    public boolean isMalletable();
+    boolean isMalletable();
 
-    public boolean onMalletLMB();
+    boolean onMalletLMB();
 
-    public boolean onMalletRMB();
+    boolean onMalletRMB();
 }

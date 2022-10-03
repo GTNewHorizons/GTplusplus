@@ -118,7 +118,6 @@ public class EntityBaseVillager extends EntityVillager {
     public boolean shouldAlwaysSprint() {
         return false;
     }
-    ;
 
     @Override
     public void onLivingUpdate() {
@@ -184,7 +183,7 @@ public class EntityBaseVillager extends EntityVillager {
     protected boolean getNeedsInitilization() {
         Field v82191 = ReflectionUtils.getField(EntityVillager.class, "needsInitilization");
         try {
-            return v82191 != null ? v82191.getBoolean(this) : false;
+            return v82191 != null && v82191.getBoolean(this);
         } catch (IllegalArgumentException | IllegalAccessException e) {
             return false;
         }
@@ -474,7 +473,7 @@ public class EntityBaseVillager extends EntityVillager {
                     Iterator<MerchantRecipe> iterator = this.getBuyingList().iterator();
 
                     while (iterator.hasNext()) {
-                        MerchantRecipe merchantrecipe = (MerchantRecipe) iterator.next();
+                        MerchantRecipe merchantrecipe = iterator.next();
 
                         if (merchantrecipe.isRecipeDisabled()) {
                             merchantrecipe.func_82783_a(this.rand.nextInt(6) + this.rand.nextInt(6) + 2);

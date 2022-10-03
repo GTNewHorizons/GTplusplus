@@ -219,7 +219,7 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
             final boolean simulate) {
         if ((stack.stackTagCompound == null) || (!stack.stackTagCompound.hasKey("Energy"))) {
             final double euCharge = this.getCharge(ItemUtils.getSimpleStack(this));
-            if ((euCharge != 0) && (euCharge >= 1)) {
+            if ((euCharge >= 1)) {
                 return (int) (MathUtils.decimalRoundingToWholes(euCharge * rfPerEU));
             }
             return 0;
@@ -265,7 +265,7 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     public int receiveEnergy(final ItemStack container, final int maxReceive, final boolean simulate) {
         if ((container.stackTagCompound == null) || (!container.stackTagCompound.hasKey("Energy"))) {
             final double euCharge = this.getCharge(ItemUtils.getSimpleStack(this));
-            if ((euCharge != 0) && (euCharge >= 1)) {
+            if ((euCharge >= 1)) {
                 return (int) (MathUtils.decimalRoundingToWholes(euCharge * rfPerEU));
             }
             return 0;
@@ -285,7 +285,7 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     public int extractEnergy(final ItemStack container, final int maxExtract, final boolean simulate) {
         if ((container.stackTagCompound == null) || (!container.stackTagCompound.hasKey("Energy"))) {
             final double euCharge = this.getCharge(ItemUtils.getSimpleStack(this));
-            if ((euCharge != 0) && (euCharge >= 1)) {
+            if ((euCharge >= 1)) {
                 return (int) (MathUtils.decimalRoundingToWholes(euCharge * rfPerEU));
             }
             return 0;
@@ -305,7 +305,7 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     public int getEnergyStored(final ItemStack container) {
         if ((container.stackTagCompound == null) || (!container.stackTagCompound.hasKey("Energy"))) {
             final double euCharge = this.getCharge(ItemUtils.getSimpleStack(this));
-            if ((euCharge != 0) && (euCharge >= 1)) {
+            if ((euCharge >= 1)) {
                 return (int) (MathUtils.decimalRoundingToWholes(euCharge * rfPerEU));
             }
             return 0;

@@ -48,11 +48,11 @@ public enum GregtechOrePrefixes {
             false,
             false,
             B[1],
-            M * 1,
+            M,
             16,
             12), // A hot Ingot, which has to be cooled down by a Vacuum Freezer.
     ingot(
-            "Ingots", "", " Ingot", true, true, false, false, false, false, false, true, false, false, B[1], M * 1, 64,
+            "Ingots", "", " Ingot", true, true, false, false, false, false, false, true, false, false, B[1], M, 64,
             11), // A regular Ingot. Introduced by Eloraam
     dustTiny(
             "Tiny Dusts",
@@ -105,7 +105,7 @@ public enum GregtechOrePrefixes {
             false,
             true,
             B[3],
-            M * 1,
+            M,
             64,
             3), // Dust with impurities. 1 Unit of Main Material and 1/9 - 1/4 Unit of secondary Material
     dustRefined(
@@ -123,7 +123,7 @@ public enum GregtechOrePrefixes {
             false,
             true,
             B[3],
-            M * 1,
+            M,
             64,
             2),
     dustPure(
@@ -141,7 +141,7 @@ public enum GregtechOrePrefixes {
             false,
             true,
             B[3],
-            M * 1,
+            M,
             64,
             4),
     dust(
@@ -159,7 +159,7 @@ public enum GregtechOrePrefixes {
             false,
             false,
             B[0] | B[1] | B[2] | B[3],
-            M * 1,
+            M,
             64,
             2), // Pure Dust worth of one Ingot or Gem. Introduced by Alblaka.
     nugget(
@@ -180,7 +180,7 @@ public enum GregtechOrePrefixes {
             false,
             false,
             B[1] | B[2],
-            M * 1,
+            M,
             64,
             17), // Regular Plate made of one Ingot/Dust. Introduced by Calclavia
     block(
@@ -216,7 +216,7 @@ public enum GregtechOrePrefixes {
             false,
             false,
             B[2],
-            M * 1,
+            M,
             64,
             8), // A regular Gem worth one Dust. Introduced by Eloraam
     gemChipped(
@@ -539,7 +539,7 @@ public enum GregtechOrePrefixes {
      */
     public int mMaterialGenerationBits = 0;
 
-    private GregtechOrePrefixes(
+    GregtechOrePrefixes(
             final String aRegularLocalName,
             final String aLocalizedMaterialPre,
             final String aLocalizedMaterialPost,
@@ -647,7 +647,7 @@ public enum GregtechOrePrefixes {
 
     public static GregtechOrePrefixes getPrefix(final String aPrefixName, final GregtechOrePrefixes aReplacement) {
         final Object tObject = GT_Utility.getFieldContent(GregtechOrePrefixes.class, aPrefixName, false, false);
-        if ((tObject != null) && (tObject instanceof GregtechOrePrefixes)) {
+        if ((tObject instanceof GregtechOrePrefixes)) {
             return (GregtechOrePrefixes) tObject;
         }
         return aReplacement;
@@ -666,7 +666,7 @@ public enum GregtechOrePrefixes {
     }
 
     public static boolean isInstanceOf(final String aName, final GregtechOrePrefixes aPrefix) {
-        return aName == null ? false : aName.startsWith(aPrefix.toString());
+        return aName != null && aName.startsWith(aPrefix.toString());
     }
 
     public boolean add(final ItemStack aStack) {
@@ -810,7 +810,7 @@ public enum GregtechOrePrefixes {
                 1,
                 Dyes._NULL,
                 Element._NULL,
-                Arrays.asList(getTcAspectStack(TC_Aspects.VACUOS.name(), 1))),
+                Collections.singletonList(getTcAspectStack(TC_Aspects.VACUOS.name(), 1))),
 
         // Lapis(526, TextureSet.SET_LAPIS, 1.0F, 0, 1, 1 | 4 | 8, 70, 70, 220, 0, "Lapis", 0, 0, -1, 0, false, false,
         // 3, 1, 1, Dyes.dyeBlue, 2, Arrays.asList(new MaterialStack(Materials.Lazurite, 12), new
@@ -992,7 +992,7 @@ public enum GregtechOrePrefixes {
                 1,
                 1,
                 Dyes.dyeGreen,
-                Arrays.asList(getTcAspectStack(TC_Aspects.ELECTRUM, 8))),
+                Collections.singletonList(getTcAspectStack(TC_Aspects.ELECTRUM, 8))),
 
         Staballoy(
                 30,
@@ -1067,7 +1067,7 @@ public enum GregtechOrePrefixes {
                 1,
                 Dyes.dyeRed,
                 2,
-                Arrays.asList(new MaterialStack(Materials.Steel, 3)),
+                Collections.singletonList(new MaterialStack(Materials.Steel, 3)),
                 Arrays.asList(getTcAspectStack(TC_Aspects.VICTUS, 8), getTcAspectStack(TC_Aspects.IGNIS, 3))),
         Void(
                 33,
@@ -1853,7 +1853,7 @@ public enum GregtechOrePrefixes {
          */
         public Fluid mStandardMoltenFluid = null;
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -1876,7 +1876,7 @@ public enum GregtechOrePrefixes {
             }
         }
 
-        private GT_Materials(final GT_Materials aMaterialInto, final boolean aReRegisterIntoThis) {
+        GT_Materials(final GT_Materials aMaterialInto, final boolean aReRegisterIntoThis) {
             this.mUnificatable = false;
             this.mDefaultLocalName = aMaterialInto.mDefaultLocalName;
             this.mMaterialInto = aMaterialInto.mMaterialInto;
@@ -1911,7 +1911,7 @@ public enum GregtechOrePrefixes {
          * @param aBlastFurnaceRequired If this requires a Blast Furnace.
          * @param aColor                Vanilla MC Wool Color which comes the closest to this.
          */
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -1959,7 +1959,7 @@ public enum GregtechOrePrefixes {
             }
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2010,7 +2010,7 @@ public enum GregtechOrePrefixes {
         /**
          * @param aElement The Element Enum represented by this Material
          */
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2067,7 +2067,7 @@ public enum GregtechOrePrefixes {
             this.mAspects.addAll(aAspects);
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2118,7 +2118,7 @@ public enum GregtechOrePrefixes {
                     null);
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2203,7 +2203,7 @@ public enum GregtechOrePrefixes {
 
         public static GT_Materials get(final String aMaterialName) {
             final Object tObject = GT_Utility.getFieldContent(GT_Materials.class, aMaterialName, false, false);
-            if ((tObject != null) && (tObject instanceof GT_Materials)) {
+            if ((tObject instanceof GT_Materials)) {
                 return (GT_Materials) tObject;
             }
             return _NULL;

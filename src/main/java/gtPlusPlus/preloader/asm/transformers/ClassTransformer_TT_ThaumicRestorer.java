@@ -73,14 +73,14 @@ public class ClassTransformer_TT_ThaumicRestorer {
             mTCProxy = ReflectionUtils.getClass("thaumcraft.common.CommonProxy");
             // Set the methods we need
             mIsTcTool = ReflectionUtils.getMethod(
-                    mTinkersConstructCompat, "isTConstructTool", new Class[] {ItemStack.class});
+                    mTinkersConstructCompat, "isTConstructTool", ItemStack.class);
             mGetTcDamage =
-                    ReflectionUtils.getMethod(mTinkersConstructCompat, "getDamage", new Class[] {ItemStack.class});
+                    ReflectionUtils.getMethod(mTinkersConstructCompat, "getDamage", ItemStack.class);
             mFixTcDamage = ReflectionUtils.getMethod(
-                    mTinkersConstructCompat, "fixDamage", new Class[] {ItemStack.class, int.class});
+                    mTinkersConstructCompat, "fixDamage", ItemStack.class, int.class);
             mSparkle = ReflectionUtils.getMethod(
-                    mTCProxy, "sparkle", new Class[] {float.class, float.class, float.class, int.class});
-            mDrawEssentia = ReflectionUtils.getMethod(mTileRepairerClass, "drawEssentia", new Class[] {});
+                    mTCProxy, "sparkle", float.class, float.class, float.class, int.class);
+            mDrawEssentia = ReflectionUtils.getMethod(mTileRepairerClass, "drawEssentia");
             // Set the fields we need
             mRepairTiconTools = ReflectionUtils.getField(mTTConfigHandler, "repairTConTools");
             mTicksExisted = ReflectionUtils.getField(mTileRepairerClass, "ticksExisted");
@@ -93,10 +93,10 @@ public class ClassTransformer_TT_ThaumicRestorer {
         }
         if (mInit) {
             if (mTileRepairerClass.isInstance(aTile)) {
-                int ticksExisted = (int) ReflectionUtils.getFieldValue(mTicksExisted, aTile);
-                ItemStack[] inventorySlots = (ItemStack[]) ReflectionUtils.getFieldValue(mInventory, aTile);
-                boolean tookLastTick = (boolean) ReflectionUtils.getFieldValue(mTookLastTick, aTile);
-                int dmgLastTick = (int) ReflectionUtils.getFieldValue(mDamageLastTick, aTile);
+                int ticksExisted = ReflectionUtils.getFieldValue(mTicksExisted, aTile);
+                ItemStack[] inventorySlots = ReflectionUtils.getFieldValue(mInventory, aTile);
+                boolean tookLastTick = ReflectionUtils.getFieldValue(mTookLastTick, aTile);
+                int dmgLastTick = ReflectionUtils.getFieldValue(mDamageLastTick, aTile);
                 ticksExisted++;
                 ReflectionUtils.setField(aTile, mTicksExisted, ticksExisted);
                 boolean aDidRun = false;
@@ -174,11 +174,7 @@ public class ClassTransformer_TT_ThaumicRestorer {
                 "Patching: " + aUpdateEntity + ", Are we patching obfuscated methods? " + obfuscated);
         // injectMethod(aUpdateEntity, aTempWriter, obfuscated);
         injectMethodNew(aTempWriter, obfuscated);
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         Preloader_Logger.LOG("Thaumic Tinkerer RepairItem Patch", Level.INFO, "Valid? " + isValid + ".");
         reader = aTempReader;
         writer = aTempWriter;

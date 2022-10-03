@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 
 public class TexturePackage {
 
-    private AutoMap<IIcon> mAnimationArray = new AutoMap<IIcon>();
+    private final AutoMap<IIcon> mAnimationArray = new AutoMap<IIcon>();
 
     public IIcon getFrame(int aFrame) {
         if (aFrame < 0 || aFrame >= mAnimationArray.size()) {

@@ -79,7 +79,7 @@ public class GregtechEnergyBuffer {
         }
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_ULV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_ULV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -95,7 +95,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_LV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_LV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -111,7 +111,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_MV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_MV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -127,7 +127,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_HV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_HV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -143,7 +143,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_EV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_EV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -159,7 +159,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_IV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_IV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -175,7 +175,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_LuV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_LuV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -191,7 +191,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_ZPM.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_ZPM.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -207,7 +207,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_UV.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_UV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -223,7 +223,7 @@ public class GregtechEnergyBuffer {
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Energy_Buffer_1by1_MAX.get(1L, new Object[0]),
+                GregtechItemList.Energy_Buffer_1by1_MAX.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE

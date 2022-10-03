@@ -434,7 +434,7 @@ public class RecipeLoader_Nuclear {
                 null,
                 new ItemStack[] {ItemUtils.getItemStackOfAmountFromOreDict("dustLithiumHydroxide", 1)},
                 new int[] {10000},
-                1 * 20, // Time in ticks
+                20, // Time in ticks
                 64); // EU
 
         // Zirconium Chloride -> TetraFluoride

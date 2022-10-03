@@ -10,13 +10,15 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_MultisUsingFluidInsteadOfCells {
 
     private static ItemStack mEmptyCell;
-    private static AutoMap<ItemStack> mItemsToIgnore = new AutoMap<ItemStack>();
+    private static final AutoMap<ItemStack> mItemsToIgnore = new AutoMap<ItemStack>();
     private static boolean mInit = false;
 
     private static void init() {
@@ -31,9 +33,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
             return false;
         }
         if (a.getItem() == b.getItem()) {
-            if (a.getItemDamage() == b.getItemDamage()) {
-                return true;
-            }
+            return a.getItemDamage() == b.getItemDamage();
         }
         return false;
     }
@@ -48,9 +48,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
         if (mEmptyCell != null) {
             ItemStack aTempStack = mEmptyCell.copy();
             aTempStack.stackSize = aCell.stackSize;
-            if (GT_Utility.areStacksEqual(aTempStack, aCell)) {
-                return true;
-            }
+            return GT_Utility.areStacksEqual(aTempStack, aCell);
         }
         return false;
     }
@@ -60,10 +58,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
             return null;
         }
         FluidStack aFluid = GT_Utility.getFluidForFilledItem(ingot, true);
-        if (aFluid != null) {
-            return aFluid;
-        }
-        return null;
+        return aFluid;
     }
 
     public static synchronized int generateRecipesNotUsingCells(
@@ -88,7 +83,6 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                 AutoMap<FluidStack> aOutputFluidsMap = new AutoMap<FluidStack>();
 
                 // Iterate Inputs, Convert valid items into fluids
-                inputs:
                 for (ItemStack aInputStack : aInputItems) {
                     FluidStack aFoundFluid = getFluidFromItemStack(aInputStack);
                     if (aFoundFluid == null) {
@@ -106,7 +100,6 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                     }
                 }
                 // Iterate Outputs, Convert valid items into fluids
-                outputs:
                 for (ItemStack aOutputStack : aOutputItems) {
                     FluidStack aFoundFluid = getFluidFromItemStack(aOutputStack);
                     if (aFoundFluid == null) {
@@ -124,13 +117,9 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                     }
                 }
                 // Add Input fluids second
-                for (FluidStack aInputFluid : aInputFluids) {
-                    aInputFluidsMap.add(aInputFluid);
-                }
+                Collections.addAll(aInputFluidsMap, aInputFluids);
                 // Add Output fluids second
-                for (FluidStack aOutputFluid : aOutputFluids) {
-                    aOutputFluidsMap.add(aOutputFluid);
-                }
+                Collections.addAll(aOutputFluidsMap, aOutputFluids);
 
                 // Make some new Arrays
                 ItemStack[] aNewItemInputs = new ItemStack[aInputItemsMap.size()];

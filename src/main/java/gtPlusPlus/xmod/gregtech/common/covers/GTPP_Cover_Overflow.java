@@ -169,7 +169,7 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
     private class GUI extends GT_GUICover {
         private final byte side;
         private final int coverID;
-        private GT_GuiIntegerTextBox tBox;
+        private final GT_GuiIntegerTextBox tBox;
         private int coverVariable;
 
         private static final int startX = 10;
@@ -185,7 +185,7 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
             this.coverID = aCoverID;
             this.coverVariable = aCoverVariable;
 
-            tBox = new GT_GuiIntegerTextBox(this, 2, startX + spaceX * 0, startY + spaceY * 0 + 8, spaceX * 4 - 3, 12);
+            tBox = new GT_GuiIntegerTextBox(this, 2, startX, startY + 8, spaceX * 4 - 3, 12);
             tBox.setText(String.valueOf(this.coverVariable));
             tBox.setMaxStringLength(10);
         }
@@ -199,22 +199,22 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
         public void drawExtras(int mouseX, int mouseY, float parTicks) {
             super.drawExtras(mouseX, mouseY, parTicks);
             this.getFontRenderer()
-                    .drawString(trans("323", "L"), startX + spaceX * 4, 4 + startY + spaceY * 0 + 8, 0xFF555555);
+                    .drawString(trans("323", "L"), startX + spaceX * 4, 4 + startY + 8, 0xFF555555);
             if (warn)
                 this.getFontRenderer()
                         .drawString(
                                 trans("325", "Max") + ": " + coverVariable + "/" + mMaxTransferRate + " "
                                         + trans("323", "L"),
-                                startX + spaceX * 0,
-                                4 + startY + spaceY * 1 + 6,
+                                startX,
+                                4 + startY + spaceY + 6,
                                 0xffff0000);
             else
                 this.getFontRenderer()
                         .drawString(
                                 trans("324", "Now") + ": " + coverVariable + "/" + mMaxTransferRate + " "
                                         + trans("323", "L"),
-                                startX + spaceX * 0,
-                                4 + startY + spaceY * 1 + 6,
+                                startX,
+                                4 + startY + spaceY + 6,
                                 0xFF555555);
         }
 

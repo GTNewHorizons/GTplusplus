@@ -80,7 +80,6 @@ public class BaseItemIngot_OLD extends Item {
                 }
             }
         } else if (this.unlocalName.contains("itemHotIngot")) {
-            return;
         }
     }
 

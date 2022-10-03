@@ -70,8 +70,8 @@ public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
 
             // Process Dust
             if (componentMap.size() > 0 && componentMap.size() <= 6) {
-                ItemStack mInternalOutputs[] = new ItemStack[6];
-                int mChances[] = new int[6];
+                ItemStack[] mInternalOutputs = new ItemStack[6];
+                int[] mChances = new int[6];
                 int mCellCount = 0;
 
                 int mTotalCount = 0;
@@ -145,7 +145,7 @@ public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
                             mInternalOutputs[4],
                             mInternalOutputs[5],
                             mChances,
-                            20 * 1 * (tVoltageMultiplier / 10),
+                            20 * (tVoltageMultiplier / 10),
                             tVoltageMultiplier)) {
                         Logger.MATERIALS("[Centrifuge] Generated Centrifuge recipe for "
                                 + material.getDust(1).getDisplayName());
@@ -161,8 +161,8 @@ public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
                         "[Issue][Electrolyzer] " + material.getLocalizedName()
                                 + " is composed of over 6 materials, so an electrolyzer recipe for processing cannot be generated. Trying to create one for the Dehydrator instead.");
 
-                ItemStack mInternalOutputs[] = new ItemStack[9];
-                int mChances[] = new int[9];
+                ItemStack[] mInternalOutputs = new ItemStack[9];
+                int[] mChances = new int[9];
                 int mCellCount = 0;
 
                 int mTotalCount = 0;
@@ -231,7 +231,7 @@ public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
                             null,
                             mInternalOutputs,
                             mChances,
-                            20 * 1 * (tVoltageMultiplier / 10),
+                            20 * (tVoltageMultiplier / 10),
                             tVoltageMultiplier)) {
                         Logger.MATERIALS("[Dehydrator] Generated Dehydrator recipe for "
                                 + material.getDust(1).getDisplayName());

@@ -41,9 +41,7 @@ public class EntityDeathHandler {
         Logger.INFO("[Loot] Registered " + aStack.getDisplayName() + " (1-" + aMaxAmount + ") as a valid drop for "
                 + aMobClass.getCanonicalName());
 
-        if (!mInternalClassKeyCache.contains(aMobClass)) {
-            mInternalClassKeyCache.add(aMobClass);
-        }
+        mInternalClassKeyCache.add(aMobClass);
     }
 
     private static ItemStack processItemDropTriplet(Triplet<ItemStack, Integer, Integer> aData) {

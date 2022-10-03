@@ -80,7 +80,7 @@ public class NoConflictGTRecipeMap implements Collection<GT_Recipe> {
 
     @Override
     public boolean remove(Object arg0) {
-        return mRecipeCache.remove((GT_Recipe) arg0);
+        return mRecipeCache.remove(arg0);
     }
 
     @Override

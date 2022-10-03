@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class AustraliaWorldGenerator implements IWorldGenerator {
-    private LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<ChunkCoordIntPair>();
+    private final LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<ChunkCoordIntPair>();
     // private final WorldHandlerCoven covenGen;
     // private final WorldHandlerWickerMan wickerManGen;
     private final WorldHandlerShack shackGen;
@@ -48,7 +48,7 @@ public class AustraliaWorldGenerator implements IWorldGenerator {
         this.hutGen = new WorldHandlerHut(5);
 
         // IGeneratorWorld goblinHut = new WorldHandlerClonedStructure(ComponentGoblinHut.class, 1.0D, 400, 7, 7, 7);
-        this.generators = Arrays.asList(new IGeneratorWorld[] {this.shackGen, this.hutGen});
+        this.generators = Arrays.asList(this.shackGen, this.hutGen);
 
         this.field_82665_g = (8
                 + Math.max(

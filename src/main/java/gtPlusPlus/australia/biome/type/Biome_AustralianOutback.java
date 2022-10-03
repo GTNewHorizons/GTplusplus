@@ -23,8 +23,8 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
     private NoiseGeneratorPerlin field_150623_aE;
     private NoiseGeneratorPerlin field_150624_aF;
     private NoiseGeneratorPerlin field_150625_aG;
-    private boolean field_150626_aH;
-    private boolean field_150620_aI;
+    private final boolean field_150626_aH;
+    private final boolean field_150620_aI;
 
     public Biome_AustralianOutback(int p_i45380_1_) {
         super(p_i45380_1_, false, false);
@@ -128,7 +128,7 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
                 p_150573_3_[i2] = Blocks.stone;
             }
 
-            if (l1 <= 0 + p_150573_2_.nextInt(5)) {
+            if (l1 <= p_150573_2_.nextInt(5)) {
                 p_150573_3_[i2] = Blocks.bedrock;
             } else {
                 Block block1 = p_150573_3_[i2];
@@ -175,7 +175,7 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
 
                                     if (b0 < 16) {
                                         p_150573_3_[i2] = Blocks.stained_hardened_clay;
-                                        p_150573_4_[i2] = (byte) b0;
+                                        p_150573_4_[i2] = b0;
                                     } else {
                                         p_150573_3_[i2] = Blocks.hardened_clay;
                                     }
@@ -310,7 +310,7 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
 
     public byte func_150618_d(int p_150618_1_, int p_150618_2_, int p_150618_3_) {
         int l = (int) Math.round(this.field_150625_aG.func_151601_a(
-                        (double) p_150618_1_ * 1.0D / 512.0D, (double) p_150618_1_ * 1.0D / 512.0D)
+                        (double) p_150618_1_ / 512.0D, (double) p_150618_1_ / 512.0D)
                 * 2.0D);
         return this.field_150621_aC[(p_150618_2_ + l + 64) % 64];
     }

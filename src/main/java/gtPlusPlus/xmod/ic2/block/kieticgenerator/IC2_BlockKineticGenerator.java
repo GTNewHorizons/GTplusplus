@@ -39,9 +39,8 @@ public class IC2_BlockKineticGenerator extends BlockMultiID {
     public Class<? extends TileEntity> getTeClass(
             final int meta, final MutableObject<Class<?>[]> ctorArgTypes, final MutableObject<Object[]> ctorArgs) {
         try {
-            switch (meta) {
-                case 0:
-                    return TileEntityWindKineticGenerator.class;
+            if (meta == 0) {
+                return TileEntityWindKineticGenerator.class;
             }
         } catch (final Exception e) {
             e.printStackTrace();
@@ -64,7 +63,7 @@ public class IC2_BlockKineticGenerator extends BlockMultiID {
             return false;
         }
         final TileEntity te = this.getOwnTe(world, x, y, z);
-        if ((te != null) && ((te instanceof TileEntityManualKineticGenerator))) {
+        if (((te instanceof TileEntityManualKineticGenerator))) {
             return ((TileEntityManualKineticGenerator) te).playerKlicked(entityPlayer);
         }
         return super.onBlockActivated(world, x, y, z, entityPlayer, side, a, b, c);

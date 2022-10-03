@@ -45,8 +45,8 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
     public int attackCounter;
     private int explosionStrength = 1;
 
-    private EntityAIBatKingAttack aiAttack = new EntityAIBatKingAttack(this, null, 1.0D, 20, 60, 15.0F, true);
-    private EntityAIAttackOnCollide aiAttackOnCollide =
+    private final EntityAIBatKingAttack aiAttack = new EntityAIBatKingAttack(this, null, 1.0D, 20, 60, 15.0F, true);
+    private final EntityAIAttackOnCollide aiAttackOnCollide =
             new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false);
 
     public EntityBatKing(World p_i1680_1_) {
@@ -264,10 +264,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
     }
 
     private boolean isFlying() {
-        if (this.onGround) {
-            return false;
-        }
-        return true;
+        return !this.onGround;
     }
 
     private boolean hasAir() {
@@ -374,7 +371,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
                     Logger.INFO("Trying to do ranged attack 3a1");
 
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                     setIsBatHanging(true);
 
                     EntityThrowableBomb entitylargefireball =
@@ -538,7 +535,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
 
         if (this.courseChangeCooldown-- <= 0) {
             this.courseChangeCooldown += this.rand.nextInt(5) + 2;
-            d3 = (double) MathHelper.sqrt_double(d3);
+            d3 = MathHelper.sqrt_double(d3);
 
             if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
                 this.motionX += d0 / d3 * 0.1D;
@@ -576,14 +573,14 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 10) {
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1007, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1007, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                 }
 
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                     EntityLargeFireball entitylargefireball = new EntityLargeFireball(this.worldObj, this, d5, d6, d7);
                     entitylargefireball.field_92057_e = this.explosionStrength;
                     double d8 = 4.0D;
@@ -691,9 +688,9 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
             }
 
             this.moveEntity(this.motionX, this.motionY, this.motionZ);
-            this.motionX *= (double) f2;
-            this.motionY *= (double) f2;
-            this.motionZ *= (double) f2;
+            this.motionX *= f2;
+            this.motionY *= f2;
+            this.motionZ *= f2;
         }
 
         this.prevLimbSwingAmount = this.limbSwingAmount;

@@ -339,8 +339,8 @@ public class RecipeGen_Ore extends RecipeGen_Base {
             // Process Dust
             if (componentMap.size() > 0 && componentMap.size() <= 6) {
 
-                ItemStack mInternalOutputs[] = new ItemStack[6];
-                int mChances[] = new int[6];
+                ItemStack[] mInternalOutputs = new ItemStack[6];
+                int[] mChances = new int[6];
                 int mCellCount = 0;
 
                 int mTotalCount = 0;
@@ -414,7 +414,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                             mInternalOutputs[4],
                             mInternalOutputs[5],
                             mChances,
-                            (int) Math.max(material.getMass() * 3L * 1, 1),
+                            (int) Math.max(material.getMass() * 3L, 1),
                             tVoltageMultiplier)) {
                         Logger.MATERIALS(
                                 "[Electrolyzer] Generated Electrolyzer recipe for " + matDust.getDisplayName());
@@ -430,8 +430,8 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                         "[Issue][Electrolyzer] " + material.getLocalizedName()
                                 + " is composed of over 6 materials, so an electrolyzer recipe for processing cannot be generated. Trying to create one for the Dehydrator instead.");
 
-                ItemStack mInternalOutputs[] = new ItemStack[9];
-                int mChances[] = new int[9];
+                ItemStack[] mInternalOutputs = new ItemStack[9];
+                int[] mChances = new int[9];
                 int mCellCount = 0;
 
                 int mTotalCount = 0;
@@ -500,7 +500,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                             null,
                             mInternalOutputs,
                             mChances,
-                            (int) Math.max(material.getMass() * 4L * 1, 1),
+                            (int) Math.max(material.getMass() * 4L, 1),
                             tVoltageMultiplier)) {
                         Logger.MATERIALS("[Dehydrator] Generated Dehydrator recipe for " + matDust.getDisplayName());
                         Logger.MATERIALS("Inputs: " + mainDust.getDisplayName() + " x" + mainDust.stackSize + ", "
@@ -508,7 +508,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
                                         ? "No Cells"
                                         : "" + emptyCell.getDisplayName() + " x" + emptyCell.stackSize));
                         Logger.MATERIALS("Outputs " + ItemUtils.getArrayStackNames(mInternalOutputs));
-                        Logger.MATERIALS("Time: " + ((int) Math.max(material.getMass() * 4L * 1, 1)));
+                        Logger.MATERIALS("Time: " + ((int) Math.max(material.getMass() * 4L, 1)));
                         Logger.MATERIALS("EU: " + tVoltageMultiplier);
                     } else {
                         Logger.MATERIALS(

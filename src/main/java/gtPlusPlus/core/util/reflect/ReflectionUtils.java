@@ -226,10 +226,7 @@ public class ReflectionUtils {
     }
 
     public static boolean isStaticMethod(Method aMethod) {
-        if (aMethod != null && Modifier.isStatic(aMethod.getModifiers())) {
-            return true;
-        }
-        return false;
+        return aMethod != null && Modifier.isStatic(aMethod.getModifiers());
     }
 
     /**
@@ -387,10 +384,10 @@ public class ReflectionUtils {
                     return true;
                 }
             } catch (final NoSuchFieldException e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + fieldName + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + fieldName + ") failed.");
                 clazz = clazz.getSuperclass();
             } catch (final Exception e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + fieldName + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + fieldName + ") failed.");
                 throw new IllegalStateException(e);
             }
         }
@@ -413,10 +410,10 @@ public class ReflectionUtils {
                     return true;
                 }
             } catch (final NoSuchFieldException e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + field.getName() + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + field.getName() + ") failed.");
                 clazz = clazz.getSuperclass();
             } catch (final Exception e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + field.getName() + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + field.getName() + ") failed.");
                 throw new IllegalStateException(e);
             }
         }
@@ -989,7 +986,7 @@ public class ReflectionUtils {
                         boolean found = false;
                         for (Class<?> h : y) {
                             Logger.REFLECTION("Found hidden inner class: " + h.getCanonicalName());
-                            if (h.getSimpleName().toLowerCase().equals(aData[aData.length - 1].toLowerCase())) {
+                            if (h.getSimpleName().equalsIgnoreCase(aData[aData.length - 1])) {
                                 Logger.REFLECTION("Found correct class. [" + aData[aData.length - 1]
                                         + "] Caching at correct location: " + string);
                                 Logger.REFLECTION("Found at location: " + h.getCanonicalName());
@@ -1038,9 +1035,7 @@ public class ReflectionUtils {
 
     public static boolean doesFieldExist(Class<?> clazz, String string) {
         if (clazz != null) {
-            if (ReflectionUtils.getField(clazz, string) != null) {
-                return true;
-            }
+            return ReflectionUtils.getField(clazz, string) != null;
         }
         return false;
     }
@@ -1077,7 +1072,7 @@ public class ReflectionUtils {
         if (sgtbees.isEnum()) {
             Object[] aValues = sgtbees.getEnumConstants();
             for (Object o : aValues) {
-                if (o.toString().toLowerCase().equals(name.toLowerCase())) {
+                if (o.toString().equalsIgnoreCase(name)) {
                     return (Enum) o;
                 }
             }

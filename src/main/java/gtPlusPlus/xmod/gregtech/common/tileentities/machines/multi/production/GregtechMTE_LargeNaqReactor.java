@@ -76,7 +76,7 @@ public class GregtechMTE_LargeNaqReactor extends GregtechMeta_MultiBlockBase {
 			boolean aActive, boolean aRedstone) {
 		return aSide == aFacing
 				? new ITexture[]{BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(3, 0)),
-						new GT_RenderedTexture(aActive
+						TextureFactory.of(aActive
 								? TexturesGtBlock.Overlay_Machine_Controller_Default_Active
 										: TexturesGtBlock.Overlay_Machine_Controller_Default)}
 		: new ITexture[]{BlockIcons.getCasingTextureForId(TAE.getIndexFromPage(3, 0))};

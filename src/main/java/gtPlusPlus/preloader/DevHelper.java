@@ -16,11 +16,7 @@ public class DevHelper {
 
     static {
         mInstance = new DevHelper();
-        if (DevHelperInternals.init()) {
-            mIsValidHelper = true;
-        } else {
-            mIsValidHelper = false;
-        }
+        mIsValidHelper = DevHelperInternals.init();
     }
 
     public DevHelper() {}
@@ -31,11 +27,7 @@ public class DevHelper {
         byte[] bs;
         try {
             bs = Launch.classLoader.getClassBytes("net.minecraft.world.World");
-            if (bs != null) {
-                deobfuscatedEnvironment = true;
-            } else {
-                deobfuscatedEnvironment = false;
-            }
+            deobfuscatedEnvironment = bs != null;
         } catch (IOException e) {
         }
         return !deobfuscatedEnvironment;
@@ -104,12 +96,12 @@ public class DevHelper {
     public static class DevHelperInternals {
         public static final Map<String, String> srgToForge = new HashMap<String, String>();
         public static final Map<String, String> forgeToSrg = new HashMap<String, String>();
-        private static WeakAutoMap<Pair<String, String>> mInitMap = new WeakAutoMap<Pair<String, String>>();
+        private static final WeakAutoMap<Pair<String, String>> mInitMap = new WeakAutoMap<Pair<String, String>>();
 
         // Obfuscation
         public static final Map<String, String> obToDeOb = new HashMap<String, String>();
         public static final Map<String, String> deObToOb = new HashMap<String, String>();
-        private static WeakAutoMap<Pair<String, String>> mObInitMap = new WeakAutoMap<Pair<String, String>>();
+        private static final WeakAutoMap<Pair<String, String>> mObInitMap = new WeakAutoMap<Pair<String, String>>();
 
         private static boolean init() {
             init1();

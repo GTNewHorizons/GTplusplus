@@ -68,7 +68,7 @@ public class GuiBaseGrindle extends GuiContainer {
 
             // Title
             this.fontRendererObj.drawStringWithShadow(
-                    I18n.format("Gregtech Information Transponder", new Object[0]),
+                    I18n.format("Gregtech Information Transponder"),
                     0,
                     -12,
                     Utils.rgbtoHexValue(255, 255, 255));
@@ -91,25 +91,25 @@ public class GuiBaseGrindle extends GuiContainer {
                         // Draw the GUI
                         // List prospection
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mTierDim + " | Page: " + this.mCurrentPage, new Object[0]),
+                                I18n.format(aDataCurrent.mTierDim + " | Page: " + this.mCurrentPage),
                                 10,
                                 18,
                                 Utils.rgbtoHexValue(125, 255, 125));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------", new Object[0]),
+                                I18n.format("-------------------"),
                                 10,
                                 23,
                                 Utils.rgbtoHexValue(125, 125, 255));
                         // Pos data
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mPosInfo, new Object[0]),
+                                I18n.format(aDataCurrent.mPosInfo),
                                 10,
                                 29,
                                 Utils.rgbtoHexValue(125, 125, 255));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------", new Object[0]),
+                                I18n.format("-------------------"),
                                 10,
                                 35,
                                 Utils.rgbtoHexValue(125, 125, 255));
@@ -166,25 +166,25 @@ public class GuiBaseGrindle extends GuiContainer {
                         // Draw the GUI
                         // List prospection
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mTierDim, new Object[0]),
+                                I18n.format(aDataCurrent.mTierDim),
                                 10,
                                 18,
                                 Utils.rgbtoHexValue(125, 255, 125));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------", new Object[0]),
+                                I18n.format("-------------------"),
                                 10,
                                 23,
                                 Utils.rgbtoHexValue(125, 125, 255));
                         // Pos data
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mPosInfo, new Object[0]),
+                                I18n.format(aDataCurrent.mPosInfo),
                                 10,
                                 29,
                                 Utils.rgbtoHexValue(125, 125, 255));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------", new Object[0]),
+                                I18n.format("-------------------"),
                                 10,
                                 35,
                                 Utils.rgbtoHexValue(125, 125, 255));
@@ -198,7 +198,7 @@ public class GuiBaseGrindle extends GuiContainer {
                     }
                 } else {
                     this.fontRendererObj.drawStringWithShadow(
-                            I18n.format("Invalid data item stored in slot.", new Object[0]),
+                            I18n.format("Invalid data item stored in slot."),
                             10,
                             8,
                             Utils.rgbtoHexValue(255, 125, 125));
@@ -206,7 +206,7 @@ public class GuiBaseGrindle extends GuiContainer {
             } else {
                 // Valid Datastick?
                 this.fontRendererObj.drawStringWithShadow(
-                        I18n.format("Insert device into port.", new Object[0]),
+                        I18n.format("Insert device into port."),
                         10,
                         8,
                         Utils.rgbtoHexValue(255, 125, 125));
@@ -216,7 +216,7 @@ public class GuiBaseGrindle extends GuiContainer {
 
             // Inventory Label
             this.fontRendererObj.drawStringWithShadow(
-                    I18n.format("container.inventory", new Object[0]), 8, 131, Utils.rgbtoHexValue(255, 255, 255));
+                    I18n.format("container.inventory"), 8, 131, Utils.rgbtoHexValue(255, 255, 255));
 
         } catch (Throwable t) {
             Logger.INFO("GUI CRASH - " + t);
@@ -267,20 +267,12 @@ public class GuiBaseGrindle extends GuiContainer {
     private void updateButtons() {
         if (this.mCurrentPage >= 0) {
             if (this.mPageDataArray != null) {
-                if (this.mCurrentPage < (this.mPageDataArray.length - 1)) {
-                    this.mButtonNextPage.visible = true;
-                } else {
-                    this.mButtonNextPage.visible = false;
-                }
+                this.mButtonNextPage.visible = this.mCurrentPage < (this.mPageDataArray.length - 1);
             } else {
                 this.mButtonNextPage.visible = false;
             }
         }
-        if (this.mCurrentPage > 0) {
-            this.mButtonPreviousPage.visible = true;
-        } else {
-            this.mButtonPreviousPage.visible = false;
-        }
+        this.mButtonPreviousPage.visible = this.mCurrentPage > 0;
     }
 
     /**
@@ -414,12 +406,12 @@ public class GuiBaseGrindle extends GuiContainer {
 
     public static class GrindleData {
 
-        public static enum GrindleMode {
+        public enum GrindleMode {
             PROSPECTING(0),
             ELEMENT(1);
             private final int aModeID;
 
-            private GrindleMode(final int aMode) {
+            GrindleMode(final int aMode) {
                 this.aModeID = aMode;
             }
 

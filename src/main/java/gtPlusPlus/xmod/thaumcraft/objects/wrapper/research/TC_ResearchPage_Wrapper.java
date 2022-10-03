@@ -169,7 +169,7 @@ public class TC_ResearchPage_Wrapper {
         this.type = TC_PageType_Wrapper.INFUSION_CRAFTING;
         this.recipe = recipe;
         if (recipe.getRecipeOutput() instanceof ItemStack) {
-            this.recipeOutput = (ItemStack) recipe.getRecipeOutput();
+            this.recipeOutput = recipe.getRecipeOutput();
         } else {
             this.recipeOutput = recipe.getRecipeInput();
         }

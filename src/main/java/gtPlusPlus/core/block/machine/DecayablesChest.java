@@ -145,7 +145,7 @@ public class DecayablesChest extends BlockContainer implements ITileTooltip {
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityDecayablesChest)) {
+        if ((te instanceof TileEntityDecayablesChest)) {
             player.openGui(GTplusplus.instance, GuiHandler.GUI13, world, x, y, z);
             return true;
         }

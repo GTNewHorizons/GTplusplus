@@ -204,7 +204,7 @@ public class RecipeGen_DustGeneration extends RecipeGen_Base {
                             oxygen,
                             null,
                             outputStacks,
-                            (int) Math.max(material.getMass() * 2L * 1, 1),
+                            (int) Math.max(material.getMass() * 2L, 1),
                             material.vVoltageMultiplier)) // Was 6, but let's try 2. This makes Potin LV, for example.
                     {
                         Logger.WARNING("Dust Mixer Recipe: " + material.getLocalizedName() + " - Success");
@@ -313,7 +313,7 @@ public class RecipeGen_DustGeneration extends RecipeGen_Base {
                                 oxygen,
                                 null,
                                 outputStacks,
-                                (int) Math.max(material.getMass() * 2L * 1, 1),
+                                (int) Math.max(material.getMass() * 2L, 1),
                                 material.vVoltageMultiplier)) // Was 6, but let's try 2. This makes Potin LV, for
                         // example.
                         {
@@ -342,15 +342,15 @@ public class RecipeGen_DustGeneration extends RecipeGen_Base {
         AutoMap<Boolean> aResults = new AutoMap<Boolean>();
         // Small Dust
         aResults.put(GT_Values.RA.addBoxingRecipe(
-                GT_Utility.copyAmount(4L, new Object[] {aMatInfo.getSmallDust(4)}),
-                ItemList.Schematic_Dust.get(0L, new Object[0]),
+                GT_Utility.copyAmount(4L, aMatInfo.getSmallDust(4)),
+                ItemList.Schematic_Dust.get(0L),
                 aMatInfo.getDust(1),
                 100,
                 4));
         // Tiny Dust
         aResults.put(GT_Values.RA.addBoxingRecipe(
-                GT_Utility.copyAmount(9L, new Object[] {aMatInfo.getTinyDust(9)}),
-                ItemList.Schematic_Dust.get(0L, new Object[0]),
+                GT_Utility.copyAmount(9L, aMatInfo.getTinyDust(9)),
+                ItemList.Schematic_Dust.get(0L),
                 aMatInfo.getDust(1),
                 100,
                 4));

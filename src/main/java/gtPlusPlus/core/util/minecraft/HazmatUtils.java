@@ -37,7 +37,6 @@ public class HazmatUtils {
     @SuppressWarnings("rawtypes")
     public static void init() {
         if (mInit) {
-            return;
         }
         // doInit(); Disabled, hazmat moved to gt5u
     }
@@ -292,7 +291,6 @@ public class HazmatUtils {
 
             if (event.itemStack == null || isVanillaHazmatPiece(event.itemStack)) {
                 // Logger.INFO("[Hazmat] Invalid Itemstack or vanilla hazmat");
-                return;
             } else {
                 ItemStack aStackTemp = event.itemStack;
                 GT_ItemStack aStack = new GT_ItemStack(aStackTemp);
@@ -303,7 +301,6 @@ public class HazmatUtils {
                     String[] aTooltips = getTooltips(aStack);
                     if (aTooltips == null || aTooltips.length == 0) {
                         // Logger.INFO("[Hazmat] No Info!");
-                        return;
                     } else {
                         // Logger.INFO("[Hazmat] Found Tooltips!");
                         if (providesProtection(aStackTemp)) {
@@ -369,7 +366,7 @@ public class HazmatUtils {
      * @return
      */
     public static boolean isVanillaHazmatPiece(ItemStack aArmour) {
-        return aArmour != null ? aArmour.getItem() instanceof ItemArmorHazmat : false;
+        return aArmour != null && aArmour.getItem() instanceof ItemArmorHazmat;
     }
 
     /**
@@ -379,7 +376,7 @@ public class HazmatUtils {
      * @return
      */
     public static boolean isNanoArmourPiece(ItemStack aArmour) {
-        return aArmour != null ? aArmour.getItem() instanceof ItemArmorNanoSuit : false;
+        return aArmour != null && aArmour.getItem() instanceof ItemArmorNanoSuit;
     }
 
     /**
@@ -389,7 +386,7 @@ public class HazmatUtils {
      * @return
      */
     public static boolean isQuantumArmourPiece(ItemStack aArmour) {
-        return aArmour != null ? aArmour.getItem() instanceof ItemArmorQuantumSuit : false;
+        return aArmour != null && aArmour.getItem() instanceof ItemArmorQuantumSuit;
     }
 
     /**

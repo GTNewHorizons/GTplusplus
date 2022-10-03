@@ -38,7 +38,7 @@ public class RecipeGen_FluidCanning implements Runnable {
 
     private static boolean mHasRun = false;
 
-    private static HashSet<RecipeGen_FluidCanning> mCache = new HashSet<RecipeGen_FluidCanning>();
+    private static final HashSet<RecipeGen_FluidCanning> mCache = new HashSet<RecipeGen_FluidCanning>();
 
     private static void addRunnableToRecipeCache(RecipeGen_FluidCanning r) {
         if (mHasRun) {

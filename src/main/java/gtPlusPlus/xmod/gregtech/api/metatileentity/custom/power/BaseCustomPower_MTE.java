@@ -53,7 +53,7 @@ public class BaseCustomPower_MTE extends BaseCustomTileEntity {
                 && this.getStoredEU() - aVoltage * aAmperage >= this.mMetaTileEntity.getMinimumStoredEU()) {
             if (this.decreaseStoredEU(aVoltage * aAmperage, false)) {
                 this.mAverageEUOutput[this.mAverageEUOutputIndex] =
-                        (int) ((long) this.mAverageEUOutput[this.mAverageEUOutputIndex] + aVoltage * aAmperage);
+                        (int) (this.mAverageEUOutput[this.mAverageEUOutputIndex] + aVoltage * aAmperage);
                 return true;
             } else {
                 return false;

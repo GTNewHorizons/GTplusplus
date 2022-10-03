@@ -237,12 +237,12 @@ public class GTPP_Item_Machines extends ItemBlock {
 
             if (aWorld.getBlock(aX, aY, aZ) != this.field_150939_a) {
                 throw new GT_ItsNotMyFaultException(
-                        "Failed to place Block even though World.setBlock returned true. It COULD be MCPC/Bukkit causing that. In case you really have that installed, don\'t report this Bug to me, I don\'t know how to fix it.");
+                        "Failed to place Block even though World.setBlock returned true. It COULD be MCPC/Bukkit causing that. In case you really have that installed, don't report this Bug to me, I don't know how to fix it.");
             }
 
             if (aWorld.getBlockMetadata(aX, aY, aZ) != tMetaData) {
                 throw new GT_ItsNotMyFaultException(
-                        "Failed to set the MetaValue of the Block even though World.setBlock returned true. It COULD be MCPC/Bukkit causing that. In case you really have that installed, don\'t report this Bug to me, I don\'t know how to fix it.");
+                        "Failed to set the MetaValue of the Block even though World.setBlock returned true. It COULD be MCPC/Bukkit causing that. In case you really have that installed, don't report this Bug to me, I don't know how to fix it.");
             }
 
             IGregTechTileEntity tTileEntity = (IGregTechTileEntity) aWorld.getTileEntity(aX, aY, aZ);

@@ -65,16 +65,16 @@ public class SystemUtils {
         }
     }
 
-    public static enum OS {
+    public enum OS {
         MAC(1),
         WINDOWS(2),
         UNIX(3),
         SOLARIS(4),
         OTHER(0);
 
-        private int mID;
+        private final int mID;
 
-        private OS(final int ID) {
+        OS(final int ID) {
             this.mID = ID;
         }
 

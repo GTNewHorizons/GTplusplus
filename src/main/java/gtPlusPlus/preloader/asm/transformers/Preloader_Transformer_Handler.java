@@ -59,11 +59,7 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
             byte[] bs;
             try {
                 bs = Launch.classLoader.getClassBytes("net.minecraft.world.World");
-                if (bs != null) {
-                    obfuscated = false;
-                } else {
-                    obfuscated = true;
-                }
+                obfuscated = bs == null;
             } catch (IOException e1) {
                 e1.printStackTrace();
                 obfuscated = false;
@@ -82,10 +78,7 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
                         || transformedName.equals(MINECRAFT_GAMESETTINGS_OBF)
                         || transformedName.equals(MINECRAFT_GAMESETTINGS))
                 && AsmConfig.enabledLwjglKeybindingFix) {
-            boolean isClientSettingsClass = false;
-            if (!transformedName.equals("org.lwjgl.input.Keyboard")) {
-                isClientSettingsClass = true;
-            }
+            boolean isClientSettingsClass = !transformedName.equals("org.lwjgl.input.Keyboard");
             Preloader_Logger.INFO("LWJGL Keybinding index out of bounds fix", "Transforming " + transformedName);
             return new ClassTransformer_LWJGL_Keyboard(basicClass, isClientSettingsClass)
                     .getWriter()

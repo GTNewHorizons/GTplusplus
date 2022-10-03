@@ -121,7 +121,7 @@ public class GregtechHiAmpTransformer {
 
         if (!GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LV_ULV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -133,7 +133,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.Lead)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MV_LV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -145,7 +145,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.Tin)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_HV_MV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -157,7 +157,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.AnnealedCopper)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_EV_HV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -171,7 +171,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Cupronickel
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_IV_EV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -185,7 +185,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Kanthal
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LuV_IV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -199,7 +199,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Nichrome
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -213,7 +213,7 @@ public class GregtechHiAmpTransformer {
                         mItem_1
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -227,7 +227,7 @@ public class GregtechHiAmpTransformer {
                         mItem_2
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MAX_UV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -242,7 +242,7 @@ public class GregtechHiAmpTransformer {
                     });
         } else {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LV_ULV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -254,7 +254,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.Lead)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MV_LV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -266,7 +266,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.Tin)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_HV_MV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
                         " BB",
                         "CM ",
                         " BB",
@@ -278,7 +278,7 @@ public class GregtechHiAmpTransformer {
                         OrePrefixes.wireGt16.get(Materials.AnyCopper)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_EV_HV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -292,7 +292,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Cupronickel
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_IV_EV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -306,7 +306,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Kanthal
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LuV_IV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -320,7 +320,7 @@ public class GregtechHiAmpTransformer {
                         ItemList.Casing_Coil_Nichrome
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -334,7 +334,7 @@ public class GregtechHiAmpTransformer {
                         mItem_1
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",
@@ -348,7 +348,7 @@ public class GregtechHiAmpTransformer {
                         mItem_2
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MAX_UV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
                         "KBB",
                         "CM ",
                         "KBB",

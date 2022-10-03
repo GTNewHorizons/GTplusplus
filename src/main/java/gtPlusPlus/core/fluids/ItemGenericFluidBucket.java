@@ -28,7 +28,7 @@ public class ItemGenericFluidBucket extends ItemBucket {
 
     private static IIcon mBaseBucketTexture;
     private static IIcon mOverlayBucketTexture;
-    private static AutoMap<Block> mInternalFluidCache = new AutoMap<Block>();
+    private static final AutoMap<Block> mInternalFluidCache = new AutoMap<Block>();
 
     public ItemGenericFluidBucket(Block aFluid) {
         super(aFluid);

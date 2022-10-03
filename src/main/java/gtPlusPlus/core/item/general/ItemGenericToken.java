@@ -5,6 +5,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.lib.CORE;
+
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -106,9 +108,7 @@ public class ItemGenericToken extends CoreItem {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer aPlayer, List list, boolean bool) {
         super.addInformation(stack, aPlayer, list, bool);
-        for (String s : mDescriptionArrays.get(stack.getItemDamage())) {
-            list.add(s);
-        }
+        Collections.addAll(list, mDescriptionArrays.get(stack.getItemDamage()));
     }
 
     @Override

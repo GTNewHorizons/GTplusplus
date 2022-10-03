@@ -35,7 +35,7 @@ public class ModularBauble extends BaseBauble {
     @SideOnly(Side.CLIENT)
     private IIcon mTextureBelt;
 
-    private IIcon iconArray[] = new IIcon[3];
+    private final IIcon[] iconArray = new IIcon[3];
 
     @SideOnly(Side.CLIENT)
     private IIcon mfallback;
@@ -304,11 +304,7 @@ public class ModularBauble extends BaseBauble {
             return true;
         } else if ((mOwner = NBTUtils.getBotanicaSoulboundOwner(arg0)) != null) {
             String mPlayerName = arg1.getCommandSenderName();
-            if (mOwner.toLowerCase().equals(mPlayerName.toLowerCase())) {
-                return true;
-            } else {
-                return false;
-            }
+            return mOwner.equalsIgnoreCase(mPlayerName);
         } else {
             return false;
         }

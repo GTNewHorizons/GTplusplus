@@ -113,7 +113,7 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
             final EnumRarity regRarity,
             final EnumChatFormatting colour,
             final boolean Effect) {
-        this.addItem(id, localizedName, EnumChatFormatting.YELLOW + "Electric", new Object[] {});
+        this.addItem(id, localizedName, EnumChatFormatting.YELLOW + "Electric");
         this.setElectricStats(this.mOffset + id, euStorage, GT_Values.V[tier], tier, -3L, true);
         this.rarity.add(new Pair<>(id, regRarity));
         this.itemName.add(new Pair<>(id, localizedName));

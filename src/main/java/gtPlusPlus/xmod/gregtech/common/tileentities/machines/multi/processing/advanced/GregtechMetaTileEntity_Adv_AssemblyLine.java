@@ -137,7 +137,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
         if (tDataStickList.size() == 0) return false;
         if (GT_Values.D1) System.out.println("Stick accepted, " + tDataStickList.size() + " Data Sticks found");
 
-        ItemStack tStack[] = new ItemStack[15];
+        ItemStack[] tStack = new ItemStack[15];
         FluidStack[] tFluids = new FluidStack[4];
         boolean findRecipe = false;
         nextDS:
@@ -417,7 +417,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -458,7 +458,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -499,7 +499,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -531,7 +531,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                         || (x == -1 && z == 1)
                         || (x == 0 && z == 0)) {
                     Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                    int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                    int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                     if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                         aCasingCount++;
                     }
@@ -544,7 +544,6 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                         // 3);
                         return 0;
                     }
-                    ;
                 }
             }
         }
@@ -565,7 +564,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -588,8 +587,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
     private boolean isCorrectDataItem(ItemStack aStack, int state) {
         if ((state & 1) != 0 && ItemList.Circuit_Integrated.isStackEqual(aStack, true, true)) return true;
         if ((state & 2) != 0 && ItemList.Tool_DataStick.isStackEqual(aStack, false, true)) return true;
-        if ((state & 4) != 0 && ItemList.Tool_DataOrb.isStackEqual(aStack, false, true)) return true;
-        return false;
+        return (state & 4) != 0 && ItemList.Tool_DataOrb.isStackEqual(aStack, false, true);
     }
 
     /**

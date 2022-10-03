@@ -16,7 +16,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class ItemDummyResearch extends ItemGenericToken {
 
-    public static enum ASSEMBLY_LINE_RESEARCH {
+    public enum ASSEMBLY_LINE_RESEARCH {
         RESEARCH_1_CONTAINMENT("Containment Fields", "Advanced scientific study"),
         RESEARCH_2_BASIC_CHEM("Basic Chemistry", "Time to start at the beginning"),
         RESEARCH_3_ADV_CHEM("Advanced Chemistry", "Best learn more than chemical equations"),
@@ -29,17 +29,17 @@ public class ItemDummyResearch extends ItemGenericToken {
         RESEARCH_10_SPARGING("Gas Sparging", "Blowing gas for results"),
         RESEARCH_11_MOLECULAR_TRANSFORMER("Molecular Transformation", "Turning things into something better");
 
-        private String mName;
-        private String mDesc;
+        private final String mName;
+        private final String mDesc;
 
-        private ASSEMBLY_LINE_RESEARCH(String aName, String aDesc) {
+        ASSEMBLY_LINE_RESEARCH(String aName, String aDesc) {
             mName = aName;
             mDesc = aDesc;
             ModItems.itemDummyResearch.register(mName, mDesc);
         }
     }
 
-    private static Map<String, Integer> mInternalNameToIdMap = new LinkedHashMap<String, Integer>();
+    private static final Map<String, Integer> mInternalNameToIdMap = new LinkedHashMap<String, Integer>();
 
     public static ItemStack getResearchStack(ASSEMBLY_LINE_RESEARCH aResearchName, int aStacksize) {
         Integer aMeta = mInternalNameToIdMap.get(Utils.sanitizeString(aResearchName.mName));

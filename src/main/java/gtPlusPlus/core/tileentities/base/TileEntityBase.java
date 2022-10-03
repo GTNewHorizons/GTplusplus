@@ -168,9 +168,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     public boolean isServerSide() {
         if (this.hasWorldObj()) {
-            if (!this.getWorldObj().isRemote) {
-                return true;
-            }
+            return !this.getWorldObj().isRemote;
         }
         return false;
     }
@@ -314,7 +312,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public boolean isValidSlot(int aIndex) {
-        return this.canAccessData() ? this.mInventory.isValidSlot(aIndex) : false;
+        return this.canAccessData() && this.mInventory.isValidSlot(aIndex);
     }
 
     private final GT_CoverBehavior[] mCoverBehaviors = new GT_CoverBehavior[] {
@@ -330,47 +328,52 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     protected int mAverageEUInputIndex = 0, mAverageEUOutputIndex = 0;
     protected boolean mReleaseEnergy = false;
     protected int[] mAverageEUInput = new int[11], mAverageEUOutput = new int[11];
-    private boolean[] mActiveEUInputs = new boolean[] {false, false, false, false, false, false},
-            mActiveEUOutputs = new boolean[] {false, false, false, false, false, false};
-    private byte[] mSidedRedstone = new byte[] {15, 15, 15, 15, 15, 15};
-    private int[] mCoverSides = new int[] {0, 0, 0, 0, 0, 0},
-            mCoverData = new int[] {0, 0, 0, 0, 0, 0},
-            mTimeStatistics = new int[GregTech_API.TICKS_FOR_LAG_AVERAGING];
+    private final boolean[] mActiveEUInputs = new boolean[] {false, false, false, false, false, false};
+    private final boolean[] mActiveEUOutputs = new boolean[] {false, false, false, false, false, false};
+    private final byte[] mSidedRedstone = new byte[] {15, 15, 15, 15, 15, 15};
+    private final int[] mCoverSides = new int[] {0, 0, 0, 0, 0, 0};
+    private final int[] mCoverData = new int[] {0, 0, 0, 0, 0, 0};
+    private final int[] mTimeStatistics = new int[GregTech_API.TICKS_FOR_LAG_AVERAGING];
     private boolean mHasEnoughEnergy = true;
     protected boolean mRunningThroughTick = false;
     protected boolean mInputDisabled = false;
     protected boolean mOutputDisabled = false;
-    private boolean mMuffler = false;
-    private boolean mLockUpgrade = false;
-    private boolean mActive = false;
+    private final boolean mMuffler = false;
+    private final boolean mLockUpgrade = false;
+    private final boolean mActive = false;
     private boolean mRedstone = false;
-    private boolean mWorkUpdate = false;
-    private boolean mSteamConverter = false;
+    private final boolean mWorkUpdate = false;
+    private final boolean mSteamConverter = false;
     private boolean mInventoryChanged = false;
-    private boolean mWorks = true;
-    private boolean mNeedsUpdate = true;
-    private boolean mNeedsBlockUpdate = true;
+    private final boolean mWorks = true;
+    private final boolean mNeedsUpdate = true;
+    private final boolean mNeedsBlockUpdate = true;
     private boolean mSendClientData = false;
-    private boolean oRedstone = false;
-    private boolean mEnergyStateReady = false;
-    private byte mColor = 0,
-            oColor = 0,
-            mStrongRedstone = 0,
-            oRedstoneData = 63,
-            oTextureData = 0,
-            oUpdateData = 0,
-            oTexturePage = 0,
-            oLightValueClient = -1,
-            oLightValue = -1,
-            mLightValue = 0,
-            mOtherUpgrades = 0,
-            mFacing = 0,
-            oFacing = 0,
-            mWorkData = 0;
-    private int mDisplayErrorCode = 0, oX = 0, oY = 0, oZ = 0, mTimeStatisticsIndex = 0, mLagWarningCount = 0;
-    private short mID = 0;
+    private final boolean oRedstone = false;
+    private final boolean mEnergyStateReady = false;
+    private final byte mColor = 0;
+    private final byte oColor = 0;
+    private byte mStrongRedstone = 0;
+    private final byte oRedstoneData = 63;
+    private final byte oTextureData = 0;
+    private final byte oUpdateData = 0;
+    private final byte oTexturePage = 0;
+    private final byte oLightValueClient = -1;
+    private final byte oLightValue = -1;
+    private byte mLightValue = 0;
+    private final byte mOtherUpgrades = 0;
+    private final byte mFacing = 0;
+    private final byte oFacing = 0;
+    private final byte mWorkData = 0;
+    private final int mDisplayErrorCode = 0;
+    private final int oX = 0;
+    private final int oY = 0;
+    private final int oZ = 0;
+    private final int mTimeStatisticsIndex = 0;
+    private final int mLagWarningCount = 0;
+    private final short mID = 0;
     protected long mTickTimer = 0;
-    private long oOutput = 0;
+    private final long oOutput = 0;
     private long mAcceptedAmperes = Long.MAX_VALUE;
 
     /**
@@ -427,9 +430,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public boolean decreaseStoredEnergyUnits(long aEnergy, boolean aIgnoreTooLessEnergy) {
-        return !this.canAccessData()
-                ? false
-                : (this.mHasEnoughEnergy = this.decreaseStoredEU(aEnergy, aIgnoreTooLessEnergy));
+        return this.canAccessData() && (this.mHasEnoughEnergy = this.decreaseStoredEU(aEnergy, aIgnoreTooLessEnergy));
     }
 
     @Override
@@ -446,20 +447,16 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public boolean inputEnergyFrom(byte aSide) {
-        return aSide == 6
-                ? true
-                : (!this.isServerSide()
-                        ? this.isEnergyInputSide(aSide)
-                        : aSide >= 0 && aSide < 6 && this.mActiveEUInputs[aSide] && !this.mReleaseEnergy);
+        return aSide == 6 || (!this.isServerSide()
+                ? this.isEnergyInputSide(aSide)
+                : aSide >= 0 && aSide < 6 && this.mActiveEUInputs[aSide] && !this.mReleaseEnergy);
     }
 
     @Override
     public boolean outputsEnergyTo(byte aSide) {
-        return aSide == 6
-                ? true
-                : (!this.isServerSide()
-                        ? this.isEnergyOutputSide(aSide)
-                        : aSide >= 0 && aSide < 6 && this.mActiveEUOutputs[aSide] || this.mReleaseEnergy);
+        return aSide == 6 || (!this.isServerSide()
+                ? this.isEnergyOutputSide(aSide)
+                : aSide >= 0 && aSide < 6 && this.mActiveEUOutputs[aSide] || this.mReleaseEnergy);
     }
 
     private boolean isEnergyInputSide(byte aSide) {
@@ -761,21 +758,15 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     }
 
     public final boolean getSky(int aX, int aY, int aZ) {
-        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ)
-                ? true
-                : this.worldObj.canBlockSeeTheSky(aX, aY, aZ);
+        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ) || this.worldObj.canBlockSeeTheSky(aX, aY, aZ);
     }
 
     public final boolean getOpacity(int aX, int aY, int aZ) {
-        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ)
-                ? false
-                : GT_Utility.isOpaqueBlock(this.worldObj, aX, aY, aZ);
+        return (!this.ignoreUnloadedChunks || !this.crossedChunkBorder(aX, aZ) || this.worldObj.blockExists(aX, aY, aZ)) && GT_Utility.isOpaqueBlock(this.worldObj, aX, aY, aZ);
     }
 
     public final boolean getAir(int aX, int aY, int aZ) {
-        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ)
-                ? true
-                : GT_Utility.isBlockAir(this.worldObj, aX, aY, aZ);
+        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ) || GT_Utility.isBlockAir(this.worldObj, aX, aY, aZ);
     }
 
     public final TileEntity getTileEntity(int aX, int aY, int aZ) {

@@ -4,7 +4,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.objects.Logger;
@@ -43,12 +43,12 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
 
     @Override
     public ITexture[] getTexturesActive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(TexturesGtBlock.Overlay_Hatch_Data_Orb)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(TexturesGtBlock.Overlay_Hatch_Data_Orb)};
     }
 
     @Override
     public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, new GT_RenderedTexture(TexturesGtBlock.Overlay_Hatch_Data_Orb)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(TexturesGtBlock.Overlay_Hatch_Data_Orb)};
     }
 
     @Override
@@ -134,23 +134,17 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         Logger.INFO("Checking if we can pull " + aStack.getDisplayName() + " from slot " + aIndex);
-        if (aIndex == mInventory.length - 1
+        return aIndex == mInventory.length - 1
                 && ItemUtils.isControlCircuit(aStack)
-                && aSide == getBaseMetaTileEntity().getFrontFacing()) {
-            return true;
-        }
-        return false;
+                && aSide == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         Logger.INFO("Checking if we can put " + aStack.getDisplayName() + " into slot " + aIndex);
-        if (aIndex == mInventory.length - 1
+        return aIndex == mInventory.length - 1
                 && ItemUtils.isControlCircuit(aStack)
-                && aSide == getBaseMetaTileEntity().getFrontFacing()) {
-            return true;
-        }
-        return false;
+                && aSide == getBaseMetaTileEntity().getFrontFacing();
     }
 
     public ArrayList<ItemStack> getInventory() {

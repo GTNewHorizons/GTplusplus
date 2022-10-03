@@ -45,14 +45,14 @@ public class RecipeGen_BlastSmelterGT_Ex implements IOreRecipeRegistrator {
                             && (!aMaterial.contains(SubTag.NO_SMELTING))) {
                         if (aMaterial.mBlastFurnaceRequired) {
                             addBlastRecipe(
-                                    GT_Utility.copyAmount(1L, new Object[] {aStack}),
+                                    GT_Utility.copyAmount(1L, aStack),
                                     null,
                                     null,
                                     null,
                                     aMaterial.mBlastFurnaceTemp > 1750
                                             ? GT_OreDictUnificator.get(
                                                     OrePrefixes.ingotHot, aMaterial.mSmeltInto, tDustStack, 1L)
-                                            : GT_Utility.copyAmount(1L, new Object[] {tDustStack}),
+                                            : GT_Utility.copyAmount(1L, tDustStack),
                                     null,
                                     (int) Math.max(aMaterial.getMass() / 40L, 1L) * aMaterial.mBlastFurnaceTemp,
                                     120,
@@ -71,14 +71,14 @@ public class RecipeGen_BlastSmelterGT_Ex implements IOreRecipeRegistrator {
                             && (!aMaterial.contains(SubTag.NO_SMELTING))) {
                         if (aMaterial.mBlastFurnaceRequired) {
                             addBlastRecipe(
-                                    GT_Utility.copyAmount(1L, new Object[] {aStack}),
+                                    GT_Utility.copyAmount(1L, aStack),
                                     null,
                                     null,
                                     null,
                                     aMaterial.mBlastFurnaceTemp > 1750
                                             ? GT_OreDictUnificator.get(
                                                     OrePrefixes.ingotHot, aMaterial.mSmeltInto, tDustStack, 1L)
-                                            : GT_Utility.copyAmount(1L, new Object[] {tDustStack}),
+                                            : GT_Utility.copyAmount(1L, tDustStack),
                                     null,
                                     (int) Math.max(aMaterial.getMass() / 40L, 1L) * aMaterial.mBlastFurnaceTemp,
                                     120,
@@ -91,7 +91,7 @@ public class RecipeGen_BlastSmelterGT_Ex implements IOreRecipeRegistrator {
                 if (keepHighTempRecipes || aMaterial.mBlastFurnaceTemp <= 3600) {
                     if (aMaterial.mBlastFurnaceRequired) {
                         addBlastRecipe(
-                                GT_Utility.copyAmount(4L, new Object[] {aStack}),
+                                GT_Utility.copyAmount(4L, aStack),
                                 null,
                                 null,
                                 null,
@@ -114,7 +114,7 @@ public class RecipeGen_BlastSmelterGT_Ex implements IOreRecipeRegistrator {
                     if (!aMaterial.contains(gregtech.api.enums.SubTag.NO_SMELTING)) {
                         if (aMaterial.mBlastFurnaceRequired) {
                             addBlastRecipe(
-                                    GT_Utility.copyAmount(9L, new Object[] {aStack}),
+                                    GT_Utility.copyAmount(9L, aStack),
                                     null,
                                     null,
                                     null,
@@ -139,7 +139,7 @@ public class RecipeGen_BlastSmelterGT_Ex implements IOreRecipeRegistrator {
                     if (!aMaterial.contains(SubTag.NO_SMELTING)) {
                         if ((aMaterial.mBlastFurnaceRequired) || (aMaterial.mDirectSmelting.mBlastFurnaceRequired)) {
                             addBlastRecipe(
-                                    GT_Utility.copyAmount(1L, new Object[] {aStack}),
+                                    GT_Utility.copyAmount(1L, aStack),
                                     null,
                                     null,
                                     null,

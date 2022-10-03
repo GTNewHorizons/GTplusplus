@@ -55,9 +55,7 @@ public class GuiBaseBackpack extends GuiContainer {
      */
     @Override
     protected void drawGuiContainerForegroundLayer(final int par1, final int par2) {
-        final String s = this.inventory.hasCustomInventoryName()
-                ? this.inventory.getInventoryName()
-                : this.inventory.getInventoryName();
+        final String s = this.inventory.getInventoryName();
         // this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 0, 4210752);
         // this.fontRenderer.drawString(I18n.translate("container.inventory"), 26, this.ySize - 96 + 4, 4210752);
     }

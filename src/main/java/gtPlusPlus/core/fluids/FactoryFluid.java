@@ -32,7 +32,7 @@ public class FactoryFluid extends Fluid implements Runnable {
                 density,
                 temp,
                 viscosity,
-                (density == Short.MIN_VALUE || density >= 0 ? false : true),
+                (density != Short.MIN_VALUE && density < 0),
                 EnumRarity.common,
                 aRGBa);
     }

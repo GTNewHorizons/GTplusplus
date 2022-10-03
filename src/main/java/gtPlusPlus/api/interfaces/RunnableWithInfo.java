@@ -2,9 +2,9 @@ package gtPlusPlus.api.interfaces;
 
 public interface RunnableWithInfo<V> extends Runnable {
 
-    public V getInfoData();
+    V getInfoData();
 
-    public default Class<?> getInfoDataType() {
+    default Class<?> getInfoDataType() {
         return getInfoData().getClass();
     }
 }

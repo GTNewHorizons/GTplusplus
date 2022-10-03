@@ -11,7 +11,7 @@ import org.objectweb.asm.tree.ClassNode;
 
 public class CustomClassLoader extends ClassLoader {
 
-    private HashMap<String, ClassNode> classes = new HashMap<String, ClassNode>();
+    private final HashMap<String, ClassNode> classes = new HashMap<String, ClassNode>();
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {

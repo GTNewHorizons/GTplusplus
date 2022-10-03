@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.Fluid;
 
 public class BaseTinkersMaterial {
 
-    private static HashMap<String, Integer> aInternalMaterialIdMap = new HashMap<String, Integer>();
+    private static final HashMap<String, Integer> aInternalMaterialIdMap = new HashMap<String, Integer>();
     private static int aNextFreeID;
 
     public final String mLocalName;
@@ -220,7 +220,7 @@ public class BaseTinkersMaterial {
         if (aMelt <= 3600) {
             ItemStack ingotcast = TinkersUtils.getPattern(1);
             TinkersUtils.addBasinRecipe(
-                    aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), (ItemStack) null, true, 100);
+                    aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), null, true, 100);
             TinkersUtils.addCastingTableRecipe(
                     aMaterial.getIngot(1), aMaterial.getFluidStack(144), ingotcast, false, 50);
         }

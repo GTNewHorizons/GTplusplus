@@ -71,10 +71,8 @@ public class CONTAINER_PollutionCleaner extends GT_Container_BasicTank {
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int par1, int par2) {
         super.updateProgressBar(par1, par2);
-        switch (par1) {
-            case 105:
-                mReduction = (par2);
-                break;
+        if (par1 == 105) {
+            mReduction = (par2);
         }
     }
 

@@ -26,7 +26,7 @@ public class GUI_SolarGenerator extends GT_GUIContainerMetaTile_Machine {
             if (tScale > 0) {
                 this.drawTexturedModalRect(x + 70, (y + 25 + 54) - tScale, 194, 54 - tScale, 10, tScale);
             }
-            tScale = ((CONTAINER_SolarGenerator) this.mContainer).mEnergy;
+            tScale = this.mContainer.mEnergy;
             if (tScale > 0) {
                 this.drawTexturedModalRect(x + 83, (y + 25 + 54) - tScale, 204, 54 - tScale, 10, tScale);
             }

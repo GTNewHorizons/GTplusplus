@@ -132,11 +132,7 @@ public class EntityAIBatKingAttack extends EntityAIBase {
 
     private final void determineCombatStyle() {
         boolean aisMeleeNow = this.mIsMelee;
-        if (this.mEntityTarget != null && EntityUtils.getDistance(getBatKing(), mEntityTarget) < 4) {
-            this.mIsMelee = true;
-        } else {
-            this.mIsMelee = false;
-        }
+        this.mIsMelee = this.mEntityTarget != null && EntityUtils.getDistance(getBatKing(), mEntityTarget) < 4;
         if (aisMeleeNow != this.mIsMelee) {
             Logger.INFO("Bat King changed combat style from " + (aisMeleeNow ? "Melee" : "Ranged") + " to "
                     + (this.mIsMelee ? "Melee" : "Ranged"));
@@ -153,16 +149,16 @@ public class EntityAIBatKingAttack extends EntityAIBase {
          */
         private int rangedAttackTime;
 
-        private double entityMoveSpeed;
+        private final double entityMoveSpeed;
         private int mCooldownTime;
-        private int field_96561_g;
+        private final int field_96561_g;
         /**
          * The maximum time the AI has to wait before performing another ranged attack.
          */
         private int maxRangedAttackTime;
 
-        private float field_96562_i;
-        private float field_82642_h; // Max range
+        private final float field_96562_i;
+        private final float field_82642_h; // Max range
 
         public Ranged(
                 EntityAIBatKingAttack aParent,
@@ -337,16 +333,12 @@ public class EntityAIBatKingAttack extends EntityAIBase {
          */
         public boolean continueExecuting() {
             EntityLivingBase entitylivingbase = parentAI.mAttackingEntity.getAttackTarget();
-            return entitylivingbase == null
-                    ? false
-                    : (!entitylivingbase.isEntityAlive()
-                            ? false
-                            : (!this.longMemory
-                                    ? !parentAI.mAttackingEntity.getNavigator().noPath()
-                                    : parentAI.mAttackingEntity.isWithinHomeDistance(
-                                            MathHelper.floor_double(entitylivingbase.posX),
-                                            MathHelper.floor_double(entitylivingbase.posY),
-                                            MathHelper.floor_double(entitylivingbase.posZ))));
+            return entitylivingbase != null && (entitylivingbase.isEntityAlive() && (!this.longMemory
+                    ? !parentAI.mAttackingEntity.getNavigator().noPath()
+                    : parentAI.mAttackingEntity.isWithinHomeDistance(
+                    MathHelper.floor_double(entitylivingbase.posX),
+                    MathHelper.floor_double(entitylivingbase.posY),
+                    MathHelper.floor_double(entitylivingbase.posZ))));
         }
 
         /**
@@ -372,8 +364,8 @@ public class EntityAIBatKingAttack extends EntityAIBase {
             parentAI.mAttackingEntity.getLookHelper().setLookPositionWithEntity(entitylivingbase, 30.0F, 30.0F);
             double d0 = parentAI.mAttackingEntity.getDistanceSq(
                     entitylivingbase.posX, entitylivingbase.boundingBox.minY, entitylivingbase.posZ);
-            double d1 = (double) (parentAI.mAttackingEntity.width * 2.0F * parentAI.mAttackingEntity.width * 2.0F
-                    + entitylivingbase.width);
+            double d1 = parentAI.mAttackingEntity.width * 2.0F * parentAI.mAttackingEntity.width * 2.0F
+                    + entitylivingbase.width;
             --this.field_75445_i;
 
             if ((this.longMemory || parentAI.mAttackingEntity.getEntitySenses().canSee(entitylivingbase))

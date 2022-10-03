@@ -129,7 +129,7 @@ public class Container_VolumetricFlaskSetter extends Container {
              */
 
             if (var5.stackSize == 0) {
-                var4.putStack((ItemStack) null);
+                var4.putStack(null);
             } else {
                 var4.onSlotChanged();
             }
@@ -169,10 +169,8 @@ public class Container_VolumetricFlaskSetter extends Container {
     @Override
     public void updateProgressBar(int par1, int par2) {
         super.updateProgressBar(par1, par2);
-        switch (par1) {
-            case 0:
-                mCustomValue = (short) par2;
-                break;
+        if (par1 == 0) {
+            mCustomValue = (short) par2;
         }
     }
 

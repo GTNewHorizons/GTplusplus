@@ -24,7 +24,7 @@ public class Container_Grindle extends Container {
      * Container updates automatically.
      */
     private static final int INV_START = BaseInventoryGrindle.INV_SIZE,
-            INV_END = INV_START + 0,
+            INV_END = INV_START,
             HOTBAR_START = INV_END,
             HOTBAR_END = HOTBAR_START + 8;
 
@@ -133,7 +133,7 @@ public class Container_Grindle extends Container {
                 */ }
 
             if (itemstack1.stackSize == 0) {
-                slot.putStack((ItemStack) null);
+                slot.putStack(null);
             } else {
                 slot.onSlotChanged();
             }

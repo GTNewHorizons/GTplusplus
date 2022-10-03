@@ -205,7 +205,7 @@ public class RECIPES_General {
         // Small Gear Extruder Shape
         if (!CORE.GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Shape_Extruder_SmallGear.get(1L, new Object[0]),
+                    GregtechItemList.Shape_Extruder_SmallGear.get(1L),
                     GT_ModHandler.RecipeBits.BUFFERED
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE,
@@ -619,7 +619,7 @@ public class RECIPES_General {
                 CI.component_Plate[5],
                 ItemList.Hatch_Input_IV.get(1),
                 CI.component_Plate[5],
-                GregtechItemList.Hatch_Input_Cryotheum.get(1L, new Object[0]));
+                GregtechItemList.Hatch_Input_Cryotheum.get(1L));
 
         RecipeUtils.addShapedGregtechRecipe(
                 CI.component_Plate[5],
@@ -631,7 +631,7 @@ public class RECIPES_General {
                 CI.component_Plate[6],
                 ItemList.Hatch_Input_IV.get(1),
                 CI.component_Plate[6],
-                GregtechItemList.Hatch_Input_Pyrotheum.get(1L, new Object[0]));
+                GregtechItemList.Hatch_Input_Pyrotheum.get(1L));
 
         RecipeUtils.addShapedGregtechRecipe(
                 CI.component_Plate[8],
@@ -643,11 +643,11 @@ public class RECIPES_General {
                 CI.component_Plate[9],
                 ItemList.Hatch_Input_ZPM.get(1),
                 CI.component_Plate[8],
-                GregtechItemList.Hatch_Input_Naquadah.get(1L, new Object[0]));
+                GregtechItemList.Hatch_Input_Naquadah.get(1L));
 
         if (PollutionUtils.isPollutionEnabled()) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_LV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_LV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -656,7 +656,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_LV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_MV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_MV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -665,7 +665,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_MV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_HV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_HV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -674,7 +674,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_HV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_EV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_EV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -683,7 +683,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_EV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_IV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_IV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -692,7 +692,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_IV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_LuV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_LuV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -701,7 +701,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_LuV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_ZPM.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_ZPM.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -710,7 +710,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_ZPM.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_UV.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_UV.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),
@@ -719,7 +719,7 @@ public class RECIPES_General {
                         GregtechItemList.Pollution_Cleaner_UV.get(1)
                     });
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Hatch_Muffler_Adv_MAX.get(1L, new Object[0]), bitsd, new Object[] {
+                    GregtechItemList.Hatch_Muffler_Adv_MAX.get(1L), bitsd, new Object[] {
                         "M",
                         "P",
                         Character.valueOf('M'),

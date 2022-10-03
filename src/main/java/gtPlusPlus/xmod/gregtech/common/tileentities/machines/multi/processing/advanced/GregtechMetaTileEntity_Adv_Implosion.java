@@ -156,13 +156,13 @@ public class GregtechMetaTileEntity_Adv_Implosion
     public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
         super.startSoundLoop(aIndex, aX, aY, aZ);
         if (aIndex == 20) {
-            GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(5)), 10, 1.0F, aX, aY, aZ);
+            GT_Utility.doSoundAtClient(GregTech_API.sSoundList.get(Integer.valueOf(5)), 10, 1.0F, aX, aY, aZ);
         }
     }
 
     @Override
     public String getSound() {
-        return (String) GregTech_API.sSoundList.get(Integer.valueOf(5));
+        return GregTech_API.sSoundList.get(Integer.valueOf(5));
     }
 
     public int getMaxEfficiency(ItemStack aStack) {

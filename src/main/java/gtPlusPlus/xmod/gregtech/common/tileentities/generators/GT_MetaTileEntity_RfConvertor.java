@@ -1,7 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
-import static gregtech.api.enums.GT_Values.V;
-
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import cofh.api.energy.IEnergyStorage;
@@ -14,7 +12,7 @@ import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
@@ -29,6 +27,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import static gregtech.api.enums.GT_Values.V;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -70,7 +70,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
     @Override
     public ITexture[][][] getTextureSet(ITexture[] aTextures) {
         ITexture[][][] rTextures = new ITexture[12][17][];
-        GT_RenderedTexture aTex = new GT_RenderedTexture(TexturesGtBlock.Casing_Material_ZirconiumCarbide);
+        ITexture aTex = TextureFactory.of(TexturesGtBlock.Casing_Material_ZirconiumCarbide);
         for (byte i = -1; i < 16; i++) {
             rTextures[0][i + 1] = new ITexture[] {aTex, Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier]};
             rTextures[1][i + 1] = new ITexture[] {aTex, Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier]};
@@ -182,7 +182,6 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                     }
                 }
             }
-            return;
         }
     }
 
@@ -242,10 +241,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
 
     @Override
     public boolean canConnectEnergy(ForgeDirection from) {
-        if (isOutputFacing((byte) from.ordinal())) {
-            return false;
-        }
-        return true;
+        return !isOutputFacing((byte) from.ordinal());
     }
 
     @Override
@@ -292,7 +288,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                                                 1,
                                                 true)
                                 == 1) {
-                    tEU = (long) ((IEnergyProvider) tTileEntity)
+                    tEU = ((IEnergyProvider) tTileEntity)
                             .extractEnergy(
                                     ForgeDirection.getOrientation(GT_Utility.getOppositeSide(aSide)),
                                     (int) maxEUOutput() * 100 / GregTech_API.mRFtoEU,
@@ -301,7 +297,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                     tEU = tEU * GregTech_API.mRFtoEU / 100;
                 } else if (tTileEntity instanceof IEnergyStorage
                         && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
-                    tEU = (long) ((IEnergyStorage) tTileEntity)
+                    tEU = ((IEnergyStorage) tTileEntity)
                             .extractEnergy((int) maxEUOutput() * 100 / GregTech_API.mRFtoEU, false);
                     Logger.WARNING("Drained from IEnergyStorage Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                     tEU = tEU * GregTech_API.mRFtoEU / 100;
@@ -331,7 +327,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                             Logger.WARNING("Drained from EIO Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                         } else {
                             ((IPowerContainer) tTileEntity).setEnergyStored(0);
-                            tEU = storedRF * GregTech_API.mRFtoEU / 100;
+                            tEU = (long) storedRF * GregTech_API.mRFtoEU / 100;
                             Logger.WARNING("Drained from EIO Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                         }
                     }

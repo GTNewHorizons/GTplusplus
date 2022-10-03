@@ -22,7 +22,7 @@ public abstract class CustomPacket {
             data.writeByte(this.getID());
             this.writeData(data);
         } catch (IOException var4) {
-            Game.logThrowable("Error constructing packet: {0}", var4, new Object[] {this.getClass()});
+            Game.logThrowable("Error constructing packet: {0}", var4, this.getClass());
         }
         return new FMLProxyPacket(Unpooled.wrappedBuffer(bytes.toByteArray()), "GTPP");
     }

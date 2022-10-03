@@ -237,7 +237,7 @@ public class EntityDingo extends EntityWolf {
                     this.worldObj.spawnParticle(
                             "splash",
                             this.posX + (double) f1,
-                            (double) (f + 0.8F),
+                            f + 0.8F,
                             this.posZ + (double) f2,
                             this.motionX,
                             this.motionY,
@@ -356,7 +356,7 @@ public class EntityDingo extends EntityWolf {
 
                         if (itemstack.stackSize <= 0) {
                             p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -369,7 +369,7 @@ public class EntityDingo extends EntityWolf {
 
                         if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
                             p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -380,9 +380,9 @@ public class EntityDingo extends EntityWolf {
             if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
-                this.setPathToEntity((PathEntity) null);
-                this.setTarget((Entity) null);
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setPathToEntity(null);
+                this.setTarget(null);
+                this.setAttackTarget(null);
             }
         } else if (itemstack != null && itemstack.getItem() == Items.bone && !this.isAngry()) {
             if (!p_70085_1_.capabilities.isCreativeMode) {
@@ -390,14 +390,14 @@ public class EntityDingo extends EntityWolf {
             }
 
             if (itemstack.stackSize <= 0) {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
             }
 
             if (!this.worldObj.isRemote) {
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
-                    this.setPathToEntity((PathEntity) null);
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setPathToEntity(null);
+                    this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
                     this.func_152115_b(p_70085_1_.getUniqueID().toString());
@@ -440,11 +440,7 @@ public class EntityDingo extends EntityWolf {
      * (wheat, carrots or seeds depending on the animal type)
      */
     public boolean isBreedingItem(ItemStack p_70877_1_) {
-        return p_70877_1_ == null
-                ? false
-                : (!(p_70877_1_.getItem() instanceof ItemFood)
-                        ? false
-                        : ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat());
+        return p_70877_1_ != null && (p_70877_1_.getItem() instanceof ItemFood && ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat());
     }
 
     /**
@@ -520,9 +516,7 @@ public class EntityDingo extends EntityWolf {
             return false;
         } else {
             EntityDingo entitydingo = (EntityDingo) p_70878_1_;
-            return !entitydingo.isTamed()
-                    ? false
-                    : (entitydingo.isSitting() ? false : this.isInLove() && entitydingo.isInLove());
+            return entitydingo.isTamed() && (!entitydingo.isSitting() && this.isInLove() && entitydingo.isInLove());
         }
     }
 
@@ -547,11 +541,9 @@ public class EntityDingo extends EntityWolf {
                 }
             }
 
-            return p_142018_1_ instanceof EntityPlayer
-                            && p_142018_2_ instanceof EntityPlayer
-                            && !((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_)
-                    ? false
-                    : !(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame();
+            return (!(p_142018_1_ instanceof EntityPlayer)
+                    || !(p_142018_2_ instanceof EntityPlayer)
+                    || ((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_)) && (!(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame());
         } else {
             return false;
         }

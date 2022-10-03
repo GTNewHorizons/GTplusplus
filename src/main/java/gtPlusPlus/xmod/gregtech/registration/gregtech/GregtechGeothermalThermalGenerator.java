@@ -36,7 +36,7 @@ public class GregtechGeothermalThermalGenerator {
                 .getStackForm(1L));
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Geothermal_Engine_EV.get(1L, new Object[0]),
+                GregtechItemList.Geothermal_Engine_EV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -60,7 +60,7 @@ public class GregtechGeothermalThermalGenerator {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Geothermal_Engine_IV.get(1L, new Object[0]),
+                GregtechItemList.Geothermal_Engine_IV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -86,7 +86,7 @@ public class GregtechGeothermalThermalGenerator {
         final ItemStack INGREDIENT_1 = CI.electricPiston_LuV;
         final ItemStack INGREDIENT_2 = CI.electricMotor_LuV;
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Geothermal_Engine_LuV.get(1L, new Object[0]),
+                GregtechItemList.Geothermal_Engine_LuV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE

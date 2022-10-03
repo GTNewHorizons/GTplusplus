@@ -183,7 +183,7 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
     public static boolean getConnectionState(String aKey) {
         Integer b = sConnectionStateForEntityMap.get(aKey);
         // Logger.INFO("Get State: "+b+" | "+aKey);
-        return b != null ? b == VALUE_ON : false;
+        return b != null && b == VALUE_ON;
     }
 
     public static final boolean getCoverConnections(final ItemStack aStack) {

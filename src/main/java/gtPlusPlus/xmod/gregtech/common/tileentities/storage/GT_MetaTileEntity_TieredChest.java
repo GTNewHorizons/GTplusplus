@@ -5,7 +5,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.gui.CONTAINER_SuperChest;
@@ -27,8 +27,8 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
                 aNameRegional,
                 aTier,
                 3,
-                "This Chest stores " + (int) (Math.pow(6.0D, (double) aTier) * mStorageFactor) + " Items",
-                new ITexture[0]);
+                "This Chest stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items"
+        );
     }
 
     public GT_MetaTileEntity_TieredChest(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
@@ -146,7 +146,7 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
     }
 
     public int getMaxItemCount() {
-        return (int) (Math.pow(6.0D, (double) this.mTier) * mStorageFactor - 128.0D);
+        return (int) (Math.pow(6.0D, this.mTier) * mStorageFactor - 128.0D);
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
@@ -206,12 +206,12 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
         return aBaseMetaTileEntity.getFrontFacing() == 0 && aSide == 4
                 ? new ITexture[] {
                     BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1],
-                    new GT_RenderedTexture(BlockIcons.OVERLAY_QCHEST)
+                    TextureFactory.of(BlockIcons.OVERLAY_QCHEST)
                 }
                 : (aSide == aBaseMetaTileEntity.getFrontFacing()
                         ? new ITexture[] {
                             BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1],
-                            new GT_RenderedTexture(BlockIcons.OVERLAY_QCHEST)
+                            TextureFactory.of(BlockIcons.OVERLAY_QCHEST)
                         }
                         : new ITexture[] {BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1]});
     }

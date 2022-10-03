@@ -177,8 +177,7 @@ public class InventoryWorkbenchHoloSlots implements IInventory {
                 Logger.INFO("this.stackResult[0] != null");
                 if (this.stackResult[0]
                         .getDisplayName()
-                        .toLowerCase()
-                        .equals(this.getStackInSlot(0).getDisplayName().toLowerCase())) {
+                        .equalsIgnoreCase(this.getStackInSlot(0).getDisplayName())) {
                     Logger.INFO("Items are the same?");
                 } else {
                     Logger.INFO("Items are not the same.");

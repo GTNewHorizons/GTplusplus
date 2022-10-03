@@ -3,7 +3,6 @@ package gregtech.api.util;
 import static gregtech.api.enums.GT_Values.*;
 
 import codechicken.nei.PositionedStack;
-import gregtech.api.interfaces.tileentity.*;
 import gregtech.nei.GT_NEI_DefaultHandler.FixedPositionedStack;
 import gtPlusPlus.api.interfaces.IComparableRecipe;
 import gtPlusPlus.api.objects.Logger;
@@ -193,7 +192,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
     }
 
     private static final boolean checkRecipeOwnership(GT_Recipe aRecipe) {
-        if (aRecipe != null && aRecipe instanceof GTPP_Recipe) {
+        if (aRecipe instanceof GTPP_Recipe) {
             GTPP_Recipe nRecipe = (GTPP_Recipe) aRecipe;
             GTPP_Recipe_Map_Internal.mHashedRecipes.put(nRecipe.hashCode(), nRecipe);
             return true;

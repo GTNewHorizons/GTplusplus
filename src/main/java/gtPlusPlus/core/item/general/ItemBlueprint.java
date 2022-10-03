@@ -279,9 +279,6 @@ public class ItemBlueprint extends Item implements IItemBlueprint {
             // For More Tag Support
             // o = itemStack.stackTagCompound.getInteger(tagNBT);
         }
-        if (o != null) {
-            return o;
-        }
-        return null;
+        return o;
     }
 }

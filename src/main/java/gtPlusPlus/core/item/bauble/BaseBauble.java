@@ -38,7 +38,7 @@ public class BaseBauble extends Item implements IBauble {
     private BaubleType mThisBauble;
 
     private final String mDisplayName;
-    private List<String> damageNegations = new ArrayList<String>();
+    private final List<String> damageNegations = new ArrayList<String>();
     Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 
     public BaseBauble(BaubleType type, String displayName) {
@@ -90,12 +90,12 @@ public class BaseBauble extends Item implements IBauble {
 
     @Override
     public boolean canEquip(ItemStack arg0, EntityLivingBase arg1) {
-        return EntityPlayer.class.isInstance(arg1) ? true : false;
+        return arg1 instanceof EntityPlayer ? true : false;
     }
 
     @Override
     public boolean canUnequip(ItemStack arg0, EntityLivingBase arg1) {
-        return EntityPlayer.class.isInstance(arg1) ? true : false;
+        return arg1 instanceof EntityPlayer ? true : false;
     }
 
     @Override
@@ -110,15 +110,12 @@ public class BaseBauble extends Item implements IBauble {
     public boolean SetBaubleType(BaubleType arg0) {
         BaubleType temp = this.mThisBauble;
         this.mThisBauble = arg0;
-        if (this.mThisBauble != temp) {
-            return true;
-        }
-        return false;
+        return this.mThisBauble != temp;
     }
 
     @Override
     public void onEquipped(ItemStack stack, EntityLivingBase entity) {
-        if (entity != null && EntityPlayer.class.isInstance(entity)) {
+        if (entity instanceof EntityPlayer) {
             onEquippedOrLoadedIntoWorld(stack, entity);
             setPlayerHashcode(stack, entity.hashCode());
         }

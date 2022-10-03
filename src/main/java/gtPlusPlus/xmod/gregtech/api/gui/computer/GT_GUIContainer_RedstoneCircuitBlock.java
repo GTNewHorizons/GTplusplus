@@ -93,12 +93,12 @@ public class GT_GUIContainer_RedstoneCircuitBlock extends GT_GUIContainerMetaTil
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
 
         if (mContainer != null) {
-            if (((GT_Container_RedstoneCircuitBlock) mContainer).mOutput > 0)
+            if (mContainer.mOutput > 0)
                 drawTexturedModalRect(x + 151, y + 5, 176, 0, 18, 18);
-            if ((((GT_Container_RedstoneCircuitBlock) mContainer).mActive & 1) > 0)
+            if ((mContainer.mActive & 1) > 0)
                 drawTexturedModalRect(x + 151, y + 23, 176, 18, 18, 18);
-            if (((GT_Container_RedstoneCircuitBlock) mContainer).mDisplayErrorCode > 0)
-                if ((((GT_Container_RedstoneCircuitBlock) mContainer).mTileEntity.getTimer() / 5) % 2 == 0)
+            if (mContainer.mDisplayErrorCode > 0)
+                if ((mContainer.mTileEntity.getTimer() / 5) % 2 == 0)
                     drawTexturedModalRect(x + 140, y + 9, 194, 0, 7, 7);
                 else
                     ;

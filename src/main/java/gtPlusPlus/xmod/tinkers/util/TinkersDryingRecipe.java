@@ -65,7 +65,7 @@ public class TinkersDryingRecipe {
                 boolean found = false;
                 for (Class h : y) {
                     Logger.INFO("Found hidden inner class: " + h.getCanonicalName());
-                    if (h.getSimpleName().toLowerCase().equals("dryingrecipe")) {
+                    if (h.getSimpleName().equalsIgnoreCase("dryingrecipe")) {
                         Logger.INFO("Found correct recipe. Caching at correct location.");
                         ReflectionUtils.mCachedClasses.put(
                                 "tconstruct.library.crafting.DryingRackRecipes.DryingRecipe", h);
@@ -107,7 +107,7 @@ public class TinkersDryingRecipe {
             input = input.copy();
             input.getTagCompound().removeTag("frypanKill");
             if (input.getTagCompound().hasNoTags()) {
-                input.setTagCompound((NBTTagCompound) null);
+                input.setTagCompound(null);
             }
         }
         return ItemStack.areItemStacksEqual(this.input, input);

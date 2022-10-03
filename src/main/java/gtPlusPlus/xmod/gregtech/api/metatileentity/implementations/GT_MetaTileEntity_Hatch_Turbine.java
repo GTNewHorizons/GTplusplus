@@ -8,7 +8,7 @@ import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
@@ -197,11 +197,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
         super.onPostTick(aBaseMetaTileEntity, aTick);
         if (this.mHasController) {
             if (aTick % 20 == 0) {
-                if (isControllerActive()) {
-                    this.getBaseMetaTileEntity().setActive(true);
-                } else {
-                    this.getBaseMetaTileEntity().setActive(false);
-                }
+                this.getBaseMetaTileEntity().setActive(isControllerActive());
             }
         } else if (!this.mHasController && this.mControllerLocation != null) {
             // Weird Invalid State
@@ -248,10 +244,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
     }
 
     public boolean canSetNewController() {
-        if ((mControllerLocation != null && mControllerLocation.length() > 0) || this.mHasController) {
-            return false;
-        }
-        return true;
+        return (mControllerLocation == null || mControllerLocation.length() <= 0) && !this.mHasController;
     }
 
     public boolean setController(BlockPos aPos) {
@@ -276,8 +269,8 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
     private ITexture getFrontFacingTurbineTexture() {
         if (!mHasController) {
             return this.getBaseMetaTileEntity().isActive()
-                    ? new GT_RenderedTexture(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE_ACTIVE[4])
-                    : new GT_RenderedTexture(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE[4]);
+                    ? TextureFactory.of(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE_ACTIVE[4])
+                    : TextureFactory.of(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE[4]);
         } else {
             if (usingAnimations()) {
                 if (isControllerActive()) {

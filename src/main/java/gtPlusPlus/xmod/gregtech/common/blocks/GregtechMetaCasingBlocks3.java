@@ -3,20 +3,21 @@ package gtPlusPlus.xmod.gregtech.common.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.TAE;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.blocks.GT_Material_Casings;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.CasingTextureHandler3;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.storage.GregtechMetaTileEntity_PowerSubStationController;
-import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+
+import java.util.List;
 
 public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract {
 
@@ -48,7 +49,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
             if (i >= 4 && i <= 8) {
                 continue;
             }
-            TAE.registerTexture(2, i, new GTPP_CopiedBlockTexture(this, 6, i));
+            TAE.registerTexture(2, i, TextureFactory.of(this, i));
         }
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".0.name", "Aquatic Casing");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".1.name", "Inconel Reinforced Casing");
@@ -160,7 +161,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();
                     }
                     if (!tConnectedSides[5] && !tConnectedSides[3]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                 }
                 case 1: {
@@ -201,7 +202,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();
                     }
                     if (!tConnectedSides[3] && !tConnectedSides[5]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                 }
                 case 2: {
@@ -242,7 +243,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();
                     }
                     if (!tConnectedSides[0] && !tConnectedSides[1]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                 }
                 case 3: {
@@ -283,7 +284,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();
                     }
                     if (!tConnectedSides[0] && !tConnectedSides[1]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                 }
                 case 4: {
@@ -321,7 +322,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 7].getIcon();
                     }
                     if (!tConnectedSides[0] && !tConnectedSides[1]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                     if (!tConnectedSides[3] && !tConnectedSides[5]) {
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();
@@ -362,7 +363,7 @@ public class GregtechMetaCasingBlocks3 extends GregtechMetaCasingBlocksAbstract 
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 7].getIcon();
                     }
                     if (!tConnectedSides[0] && !tConnectedSides[1]) {
-                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 0].getIcon();
+                        return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex].getIcon();
                     }
                     if (!tConnectedSides[3] && !tConnectedSides[5]) {
                         return TexturesGtBlock.CONNECTED_FUSION_HULLS[tStartIndex + 1].getIcon();

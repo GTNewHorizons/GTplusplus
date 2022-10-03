@@ -16,9 +16,7 @@ public class MaterialEIO {
             false, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {
-                new MaterialStack(ELEMENT.getInstance().GOLD, 1), new MaterialStack(NONMATERIAL.SOULSAND, 1)
-            });
+            new MaterialStack(ELEMENT.getInstance().GOLD, 1), new MaterialStack(NONMATERIAL.SOULSAND, 1));
 
     public static final Material CONDUCTIVE_IRON = new Material(
             "Conductive Iron", // Material Name
@@ -31,9 +29,7 @@ public class MaterialEIO {
             false, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {
-                new MaterialStack(ELEMENT.getInstance().IRON, 1), new MaterialStack(NONMATERIAL.REDSTONE, 1)
-            });
+            new MaterialStack(ELEMENT.getInstance().IRON, 1), new MaterialStack(NONMATERIAL.REDSTONE, 1));
 
     public static final Material PULSATING_IRON = new Material(
             "Pulsating Iron", // Material Name
@@ -46,9 +42,7 @@ public class MaterialEIO {
             false, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {
-                new MaterialStack(ELEMENT.getInstance().IRON, 1), new MaterialStack(NONMATERIAL.ENDERPEARL, 1)
-            });
+            new MaterialStack(ELEMENT.getInstance().IRON, 1), new MaterialStack(NONMATERIAL.ENDERPEARL, 1));
 
     public static final Material ELECTRICAL_STEEL = new Material(
             "Electrical Steel", // Material Name
@@ -61,8 +55,7 @@ public class MaterialEIO {
             true, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {new MaterialStack(ALLOY.STEEL, 3), new MaterialStack(ELEMENT.getInstance().SILICON, 1)
-            });
+            new MaterialStack(ALLOY.STEEL, 3), new MaterialStack(ELEMENT.getInstance().SILICON, 1));
 
     public static final Material ENERGETIC_ALLOY = new Material(
             "Energetic Alloy", // Material Name
@@ -75,11 +68,9 @@ public class MaterialEIO {
             true, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {
-                new MaterialStack(ELEMENT.getInstance().GOLD, 1),
-                new MaterialStack(NONMATERIAL.REDSTONE, 1),
-                new MaterialStack(NONMATERIAL.GLOWSTONE, 1)
-            });
+            new MaterialStack(ELEMENT.getInstance().GOLD, 1),
+            new MaterialStack(NONMATERIAL.REDSTONE, 1),
+            new MaterialStack(NONMATERIAL.GLOWSTONE, 1));
 
     public static final Material VIBRANT_ALLOY = new Material(
             "Vibrant Alloy", // Material Name
@@ -92,7 +83,7 @@ public class MaterialEIO {
             true, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {new MaterialStack(ENERGETIC_ALLOY, 1), new MaterialStack(NONMATERIAL.ENDERPEARL, 1)});
+            new MaterialStack(ENERGETIC_ALLOY, 1), new MaterialStack(NONMATERIAL.ENDERPEARL, 1));
 
     public static final Material REDSTONE_ALLOY = new Material(
             "Redstone Alloy", // Material Name
@@ -105,7 +96,5 @@ public class MaterialEIO {
             false, // Uses Blast furnace?
             false, // Generates a cell
             // Material Stacks with Percentage of required elements.
-            new MaterialStack[] {
-                new MaterialStack(ELEMENT.getInstance().SILICON, 1), new MaterialStack(NONMATERIAL.REDSTONE, 1)
-            });
+            new MaterialStack(ELEMENT.getInstance().SILICON, 1), new MaterialStack(NONMATERIAL.REDSTONE, 1));
 }

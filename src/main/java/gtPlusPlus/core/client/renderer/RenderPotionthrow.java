@@ -17,8 +17,8 @@ import org.lwjgl.opengl.GL12;
 
 @SideOnly(Side.CLIENT)
 public class RenderPotionthrow extends Render {
-    private Item mRenderItem;
-    private int mDamage;
+    private final Item mRenderItem;
+    private final int mDamage;
 
     public RenderPotionthrow(Item p_i1259_1_, int p_i1259_2_) {
         this.mRenderItem = p_i1259_1_;

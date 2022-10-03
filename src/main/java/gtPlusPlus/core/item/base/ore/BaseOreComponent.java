@@ -171,10 +171,7 @@ public class BaseOreComponent extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses() {
-        if (this.componentType.hasOverlay()) {
-            return true;
-        }
-        return false;
+        return this.componentType.hasOverlay();
     }
 
     @Override
@@ -229,7 +226,7 @@ public class BaseOreComponent extends Item {
         return this.overlay;
     }
 
-    public static enum ComponentTypes {
+    public enum ComponentTypes {
         DUST("dust", "", " Dust", true),
         DUSTIMPURE("dustImpure", "Impure ", " Dust", true),
         DUSTPURE("dustPure", "Purified ", " Dust", true),
@@ -238,12 +235,12 @@ public class BaseOreComponent extends Item {
         CRUSHEDPURIFIED("crushedPurified", "Purified Crushed ", " Ore", true),
         MILLED("milled", "Milled ", " Ore", true);
 
-        private String COMPONENT_NAME;
-        private String PREFIX;
-        private String DISPLAY_NAME;
-        private boolean HAS_OVERLAY;
+        private final String COMPONENT_NAME;
+        private final String PREFIX;
+        private final String DISPLAY_NAME;
+        private final boolean HAS_OVERLAY;
 
-        private ComponentTypes(
+        ComponentTypes(
                 final String LocalName, final String prefix, final String DisplayName, final boolean overlay) {
             this.COMPONENT_NAME = LocalName;
             this.PREFIX = prefix;

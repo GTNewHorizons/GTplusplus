@@ -760,7 +760,7 @@ public final class ELEMENT {
                     false,
                     "Ke",
                     0,
-                    new MaterialStack[] {new MaterialStack(TRINIUM, 1)}); // Not a GT Inherited Material
+                    new MaterialStack(TRINIUM, 1)); // Not a GT Inherited Material
         }
     }
 
@@ -867,11 +867,9 @@ public final class ELEMENT {
                 false,
                 "҈",
                 0,
-                new MaterialStack[] {
-                    new MaterialStack(getInstance().LEAD, 15),
-                    new MaterialStack(getInstance().MANGANESE, 25),
-                    new MaterialStack(getInstance().CARBON, 60)
-                }); // Not a GT Inherited Material
+                new MaterialStack(getInstance().LEAD, 15),
+                new MaterialStack(getInstance().MANGANESE, 25),
+                new MaterialStack(getInstance().CARBON, 60)); // Not a GT Inherited Material
         public static final Material WHITE_METAL = new Material(
                 "White Metal",
                 MaterialState.SOLID,
@@ -884,12 +882,10 @@ public final class ELEMENT {
                 false,
                 "҉",
                 0,
-                new MaterialStack[] {
-                    new MaterialStack(getInstance().COPPER, 5),
-                    new MaterialStack(getInstance().ANTIMONY, 10),
-                    new MaterialStack(getInstance().PLATINUM, 10),
-                    new MaterialStack(getInstance().TIN, 75)
-                }); // Not a GT Inherited Material
+                new MaterialStack(getInstance().COPPER, 5),
+                new MaterialStack(getInstance().ANTIMONY, 10),
+                new MaterialStack(getInstance().PLATINUM, 10),
+                new MaterialStack(getInstance().TIN, 75)); // Not a GT Inherited Material
 
         public static final Material GRANITE = new Material(
                 "Ancient Granite",
@@ -904,16 +900,14 @@ public final class ELEMENT {
                 "«»",
                 0,
                 false,
-                new MaterialStack[] {
-                    new MaterialStack(getInstance().OXYGEN, 16),
-                    new MaterialStack(getInstance().IRON, 10),
-                    new MaterialStack(getInstance().SILICONDIOXIDE, 10),
-                    new MaterialStack(getInstance().ALUMINIUMOXIDE, 6),
-                    new MaterialStack(getInstance().POTASSIUM, 6),
-                    new MaterialStack(getInstance().CALCIUM, 4),
-                    new MaterialStack(getInstance().SODIUM, 4),
-                    new MaterialStack(getInstance().YTTERBIUM, 2)
-                }); // Not a GT Inherited Material
+                new MaterialStack(getInstance().OXYGEN, 16),
+                new MaterialStack(getInstance().IRON, 10),
+                new MaterialStack(getInstance().SILICONDIOXIDE, 10),
+                new MaterialStack(getInstance().ALUMINIUMOXIDE, 6),
+                new MaterialStack(getInstance().POTASSIUM, 6),
+                new MaterialStack(getInstance().CALCIUM, 4),
+                new MaterialStack(getInstance().SODIUM, 4),
+                new MaterialStack(getInstance().YTTERBIUM, 2)); // Not a GT Inherited Material
 
         public static final Material RUNITE = new Material(
                 "Runite",

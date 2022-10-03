@@ -151,6 +151,5 @@ public class ThreadAspectScanner extends Thread {
                     "Completed Aspect Iteration. AspectInfo.txt is now available to process in the GTplusplus configuration folder.");
             CommandDumpAspects.mLastScanTime = System.currentTimeMillis();
         }
-        return;
     }
 }

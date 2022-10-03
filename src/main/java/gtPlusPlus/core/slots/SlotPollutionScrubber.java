@@ -16,7 +16,7 @@ public class SlotPollutionScrubber extends Slot {
     private final int mType;
     private final int mTier;
 
-    private static HashMap<Integer, ItemStack> mConveyorMap = new HashMap<Integer, ItemStack>();
+    private static final HashMap<Integer, ItemStack> mConveyorMap = new HashMap<Integer, ItemStack>();
 
     static {
         for (int i = 0; i < (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK ? 9 : 5); i++) {
@@ -42,20 +42,14 @@ public class SlotPollutionScrubber extends Slot {
             if (itemstack.getItem() instanceof ItemBasicScrubberTurbine) {
                 return true;
             }
-            if (itemstack.getItem() instanceof GT_MetaGenerated_Tool
+            return itemstack.getItem() instanceof GT_MetaGenerated_Tool
                     && itemstack.getItemDamage() >= 170
-                    && itemstack.getItemDamage() <= 179) {
-                return true;
-            }
+                    && itemstack.getItemDamage() <= 179;
         } else if (aSlot.mType == 1) {
-            if (itemstack.getItem() instanceof ItemAirFilter) {
-                return true;
-            }
+            return itemstack.getItem() instanceof ItemAirFilter;
         } else if (aSlot.mType == 2) {
             ItemStack aConveyorStack = mConveyorMap.get(aSlot.mTier);
-            if (GT_Utility.areStacksEqual(itemstack, aConveyorStack, true)) {
-                return true;
-            }
+            return GT_Utility.areStacksEqual(itemstack, aConveyorStack, true);
         }
         return false;
     }

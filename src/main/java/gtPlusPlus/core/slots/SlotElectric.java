@@ -25,12 +25,9 @@ public class SlotElectric extends Slot {
 
     @Override
     public boolean isItemValid(final ItemStack itemstack) {
-        if ((accepts(itemstack))
+        return (accepts(itemstack))
                 || (itemstack.getItem() instanceof GT_MetaGenerated_Tool)
-                || (itemstack.getItem() instanceof IElectricItem)) {
-            return true;
-        }
-        return false;
+                || (itemstack.getItem() instanceof IElectricItem);
     }
 
     public boolean accepts(final ItemStack stack) {

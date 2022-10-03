@@ -11,33 +11,33 @@ import net.minecraft.item.ItemStack;
 
 public class FR_Gregtech_Recipes {
 
-    private static String rod_Electrum = "stickElectrum";
-    private static String rod_LongElectrum = "stickLongElectrum";
-    private static String foil_Electrum = "foilElectrum";
-    private static String rod_Uranium = "stickUranium";
-    private static String rod_LongUranium = "stickLongUranium";
-    private static String foil_Uranium235 = "foilUranium235";
-    private static ItemStack hiveFrameAccelerated = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameAccelerated);
-    private static ItemStack hiveFrameMutagenic = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameMutagenic);
-    private static ItemStack hiveFrameVoid = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameVoid);
-    private static ItemStack hiveFrameBusy = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameBusy);
+    private static final String rod_Electrum = "stickElectrum";
+    private static final String rod_LongElectrum = "stickLongElectrum";
+    private static final String foil_Electrum = "foilElectrum";
+    private static final String rod_Uranium = "stickUranium";
+    private static final String rod_LongUranium = "stickLongUranium";
+    private static final String foil_Uranium235 = "foilUranium235";
+    private static final ItemStack hiveFrameAccelerated = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameAccelerated);
+    private static final ItemStack hiveFrameMutagenic = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameMutagenic);
+    private static final ItemStack hiveFrameVoid = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameVoid);
+    private static final ItemStack hiveFrameBusy = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameBusy);
 
-    private static ItemStack hiveFrameCocoa = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameCocoa);
-    private static ItemStack hiveFrameCaged = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameCaged);
-    private static ItemStack hiveFrameSoul = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameSoul);
-    private static ItemStack hiveFrameClay = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameClay);
-    private static ItemStack hiveFrameNova = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameNova);
+    private static final ItemStack hiveFrameCocoa = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameCocoa);
+    private static final ItemStack hiveFrameCaged = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameCaged);
+    private static final ItemStack hiveFrameSoul = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameSoul);
+    private static final ItemStack hiveFrameClay = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameClay);
+    private static final ItemStack hiveFrameNova = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameNova);
 
-    private static ItemStack hiveFrameImpregnated = ItemUtils.getItemStackFromFQRN("Forestry:frameImpregnated", 1);
-    private static ItemStack blockSoulSand = new ItemStack(Blocks.soul_sand, 1);
-    private static ItemStack blockIronBars = new ItemStack(Blocks.iron_bars, 1);
-    private static ItemStack itemClayDust = new ItemStack(Items.clay_ball, 1);
-    private static ItemStack itemCocoaBeans = new ItemStack(Items.dye, 1, 3);
+    private static final ItemStack hiveFrameImpregnated = ItemUtils.getItemStackFromFQRN("Forestry:frameImpregnated", 1);
+    private static final ItemStack blockSoulSand = new ItemStack(Blocks.soul_sand, 1);
+    private static final ItemStack blockIronBars = new ItemStack(Blocks.iron_bars, 1);
+    private static final ItemStack itemClayDust = new ItemStack(Items.clay_ball, 1);
+    private static final ItemStack itemCocoaBeans = new ItemStack(Items.dye, 1, 3);
 
-    private static ItemStack hiveFrameDecay = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameDecay);
-    private static ItemStack hiveFrameSlow = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameSlow);
-    private static ItemStack hiveFrameStalilize = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameStalilize);
-    private static ItemStack hiveFrameArborist = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameArborist);
+    private static final ItemStack hiveFrameDecay = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameDecay);
+    private static final ItemStack hiveFrameSlow = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameSlow);
+    private static final ItemStack hiveFrameStalilize = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameStalilize);
+    private static final ItemStack hiveFrameArborist = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameArborist);
 
     public static void registerItems() {
         // Magic Bee Like Frames

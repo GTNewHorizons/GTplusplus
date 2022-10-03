@@ -32,7 +32,7 @@ public class GUI_PestKiller extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(final int i, final int j) {
         if (mTileKiller != null) {
-            this.fontRendererObj.drawString(I18n.format(mTileKiller.getInventoryName(), new Object[0]), 4, 6, 4210752);
+            this.fontRendererObj.drawString(I18n.format(mTileKiller.getInventoryName()), 4, 6, 4210752);
             drawFluidTank(mTileKiller.getTank(), 134, 35);
         }
     }

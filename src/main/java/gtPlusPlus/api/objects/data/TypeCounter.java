@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class TypeCounter<V> implements Set<V> {
 
-    private Map<String, InternalTypeCounterObject<V>> mInternalMap =
+    private final Map<String, InternalTypeCounterObject<V>> mInternalMap =
             new LinkedHashMap<String, InternalTypeCounterObject<V>>();
     private String mHighestValueKey;
     private int mHighestValue = 0;
@@ -53,7 +53,7 @@ public class TypeCounter<V> implements Set<V> {
         String aKey = aKeyName != null ? aKeyName : arg0.toString();
         InternalTypeCounterObject<V> aValue = mInternalMap.get(aKey);
         if (aValue == null) {
-            aValue = new InternalTypeCounterObject<V>((V) arg0);
+            aValue = new InternalTypeCounterObject<V>(arg0);
             Logger.WARNING("Adding new key to map: " + aKey);
         }
         aValue.add();
@@ -113,11 +113,7 @@ public class TypeCounter<V> implements Set<V> {
     @Override
     public boolean remove(Object arg0) {
         InternalTypeCounterObject<V> aValue = mInternalMap.remove(arg0.toString());
-        if (aValue != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return aValue != null;
     }
 
     @Override

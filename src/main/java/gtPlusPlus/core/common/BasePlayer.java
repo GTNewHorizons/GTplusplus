@@ -126,7 +126,7 @@ public class BasePlayer extends ClientPlayerBase {
                 if (!this.player.isUsingItem()
                         && !this.player.isPotionActive(Potion.blindness)
                         && !this.customMovementInput.sprintHeldAndReleased) {
-                    if ((canDoubleTap && !this.player.isSprinting()) || !canDoubleTap) {
+                    if (!canDoubleTap || !this.player.isSprinting()) {
                         if (aSneak.Sprinting()) {
                             this.player.setSprinting(state);
                         } else {
@@ -162,7 +162,7 @@ public class BasePlayer extends ClientPlayerBase {
                 this.player.setSprinting(false);
 
                 // Undo toggle if we resumed vanilla operation due to Hold&Release, DoubleTap, Fly, Ride
-                if ((this.customMovementInput.sprintHeldAndReleased == true)
+                if ((this.customMovementInput.sprintHeldAndReleased)
                         || isSprintDisabled
                         || this.customMovementInput.sprintDoubleTapped
                         || this.player.capabilities.isFlying

@@ -34,27 +34,27 @@ public class Workbench_CraftingHandler {
         this.addShapelessRecipe(new ItemStack(Items.cake), new Object[] {Items.stick});
     }
 
-    void addRecipe(final ItemStack par1ItemStack, final Object par2ArrayOfObj[]) {
+    void addRecipe(final ItemStack par1ItemStack, final Object[] par2ArrayOfObj) {
         String s = "";
         int i = 0;
         int j = 0;
         int k = 0;
 
         if (par2ArrayOfObj[i] instanceof String[]) {
-            final String as[] = (String[]) par2ArrayOfObj[i++];
+            final String[] as = (String[]) par2ArrayOfObj[i++];
 
             for (int l = 0; l < as.length; l++) {
                 final String s2 = as[l];
                 k++;
                 j = s2.length();
-                s = (new StringBuilder()).append(s).append(s2).toString();
+                s = s + s2;
             }
         } else {
             while (par2ArrayOfObj[i] instanceof String) {
                 final String s1 = (String) par2ArrayOfObj[i++];
                 k++;
                 j = s1.length();
-                s = (new StringBuilder()).append(s).append(s1).toString();
+                s = s + s1;
             }
         }
 
@@ -75,7 +75,7 @@ public class Workbench_CraftingHandler {
             hashmap.put(character, itemstack);
         }
 
-        final ItemStack aitemstack[] = new ItemStack[j * k];
+        final ItemStack[] aitemstack = new ItemStack[j * k];
 
         for (int i1 = 0; i1 < (j * k); i1++) {
             final char c = s.charAt(i1);
@@ -90,9 +90,9 @@ public class Workbench_CraftingHandler {
         this.recipes.add(new ShapedRecipes(j, k, aitemstack, par1ItemStack));
     }
 
-    public void addShapelessRecipe(final ItemStack par1ItemStack, final Object par2ArrayOfObj[]) {
+    public void addShapelessRecipe(final ItemStack par1ItemStack, final Object[] par2ArrayOfObj) {
         final ArrayList<ItemStack> arraylist = new ArrayList<ItemStack>();
-        final Object aobj[] = par2ArrayOfObj;
+        final Object[] aobj = par2ArrayOfObj;
         final int i = aobj.length;
 
         for (int j = 0; j < i; j++) {

@@ -154,7 +154,7 @@ public class AsmConfig {
                     "Fix bad usage of EntityLivingBase.setHealth Patch - Enabled: " + enabledFixEntitySetHealth);
 
         } catch (Exception var3) {
-            FMLLog.log(Level.ERROR, var3, "GT++ ASM had a problem loading it's config", new Object[0]);
+            FMLLog.log(Level.ERROR, var3, "GT++ ASM had a problem loading it's config");
         }
     }
 }

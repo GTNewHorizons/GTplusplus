@@ -105,7 +105,7 @@ public class CONTAINER_MultiMachine extends GT_ContainerMetaTile_Machine {
             // Logger.INFO("Trying to update clientside GUI data");
             try {
                 // Logger.INFO("0");
-                int aTimer = (int) ReflectionUtils.getFieldValue(timer, this);
+                int aTimer = ReflectionUtils.getFieldValue(timer, this);
 
                 // List crafters1List = (List) crafters1;
                 List<ICrafting> crafters2 = new ArrayList<ICrafting>();
@@ -167,43 +167,43 @@ public class CONTAINER_MultiMachine extends GT_ContainerMetaTile_Machine {
     public void handleCraftingEvent(int aTimer, ICrafting aCrafter) {
         int aID = 750;
         if (aTimer % 500 == 10 || this.oTotalTickTime != this.aTotalTickTime) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aTotalTickTime);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aTotalTickTime);
         }
         if (aTimer % 500 == 10 || this.oMaxParallel != this.aMaxParallel) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aMaxParallel);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aMaxParallel);
         }
         if (aTimer % 500 == 10 || this.oPollutionTick != this.aPollutionTick) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aPollutionTick);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aPollutionTick);
         }
         if (aTimer % 500 == 10 || this.oMaxInputVoltage != this.aMaxInputVoltage) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aMaxInputVoltage);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aMaxInputVoltage);
         }
         if (aTimer % 500 == 10 || this.oInputTier != this.aInputTier) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aInputTier);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aInputTier);
         }
         if (aTimer % 500 == 10 || this.oOutputTier != this.aOutputTier) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aOutputTier);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aOutputTier);
         }
         if (aTimer % 500 == 10 || this.oRecipeDuration != this.aRecipeDuration) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aRecipeDuration);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aRecipeDuration);
         }
         if (aTimer % 500 == 10 || this.oRecipeEU != this.aRecipeEU) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aRecipeEU);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aRecipeEU);
         }
         if (aTimer % 500 == 10 || this.oRecipeSpecial != this.aRecipeSpecial) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aRecipeSpecial);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aRecipeSpecial);
         }
         if (aTimer % 500 == 10 || this.oPollutionReduction != this.aPollutionReduction) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aPollutionReduction);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aPollutionReduction);
         }
         if (aTimer % 500 == 10 || this.oStoredEnergy != this.aStoredEnergy) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aStoredEnergy);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aStoredEnergy);
         }
         if (aTimer % 500 == 10 || this.oMaxEnergy != this.aMaxEnergy) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aMaxEnergy);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aMaxEnergy);
         }
         if (aTimer % 500 == 10 || this.oEfficiency != this.aEfficiency) {
-            aCrafter.sendProgressBarUpdate((Container) this, aID++, this.aEfficiency);
+            aCrafter.sendProgressBarUpdate(this, aID++, this.aEfficiency);
         }
     }
 

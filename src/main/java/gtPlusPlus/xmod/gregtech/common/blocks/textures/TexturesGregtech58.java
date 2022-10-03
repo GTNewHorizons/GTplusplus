@@ -11,52 +11,52 @@ import net.minecraft.world.IBlockAccess;
 
 public class TexturesGregtech58 {
 
-    private static Textures.BlockIcons.CustomIcon GT8_1_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_1_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE1");
-    private static Textures.BlockIcons.CustomIcon GT8_1 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE1");
-    private static Textures.BlockIcons.CustomIcon GT8_2_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_1 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE1");
+    private static final Textures.BlockIcons.CustomIcon GT8_2_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE2");
-    private static Textures.BlockIcons.CustomIcon GT8_2 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE2");
-    private static Textures.BlockIcons.CustomIcon GT8_3_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_2 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE2");
+    private static final Textures.BlockIcons.CustomIcon GT8_3_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE3");
-    private static Textures.BlockIcons.CustomIcon GT8_3 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE3");
-    private static Textures.BlockIcons.CustomIcon GT8_4_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_3 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE3");
+    private static final Textures.BlockIcons.CustomIcon GT8_4_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE4");
-    private static Textures.BlockIcons.CustomIcon GT8_4 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE4");
-    private static Textures.BlockIcons.CustomIcon GT8_5_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_4 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE4");
+    private static final Textures.BlockIcons.CustomIcon GT8_5_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE5");
-    private static Textures.BlockIcons.CustomIcon GT8_5 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE5");
-    private static Textures.BlockIcons.CustomIcon GT8_6_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_5 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE5");
+    private static final Textures.BlockIcons.CustomIcon GT8_6_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE6");
-    private static Textures.BlockIcons.CustomIcon GT8_6 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE6");
-    private static Textures.BlockIcons.CustomIcon GT8_7_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_6 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE6");
+    private static final Textures.BlockIcons.CustomIcon GT8_7_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE7");
-    private static Textures.BlockIcons.CustomIcon GT8_7 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE7");
-    private static Textures.BlockIcons.CustomIcon GT8_8_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_7 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE7");
+    private static final Textures.BlockIcons.CustomIcon GT8_8_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE8");
-    private static Textures.BlockIcons.CustomIcon GT8_8 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE8");
-    private static Textures.BlockIcons.CustomIcon GT8_9_Active =
+    private static final Textures.BlockIcons.CustomIcon GT8_8 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE8");
+    private static final Textures.BlockIcons.CustomIcon GT8_9_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE9");
-    private static Textures.BlockIcons.CustomIcon GT8_9 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE9");
+    private static final Textures.BlockIcons.CustomIcon GT8_9 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE9");
 
-    private static Textures.BlockIcons.CustomIcon frontFace_0 = (GT8_1);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_0 = (GT8_1_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_1 = (GT8_2);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_1 = (GT8_2_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_2 = (GT8_3);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_2 = (GT8_3_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_3 = (GT8_4);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_3 = (GT8_4_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_4 = (GT8_5);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_4 = (GT8_5_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_5 = (GT8_6);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_5 = (GT8_6_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_6 = (GT8_7);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_6 = (GT8_7_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_7 = (GT8_8);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_7 = (GT8_8_Active);
-    private static Textures.BlockIcons.CustomIcon frontFace_8 = (GT8_9);
-    private static Textures.BlockIcons.CustomIcon frontFaceActive_8 = (GT8_9_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_0 = (GT8_1);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_0 = (GT8_1_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_1 = (GT8_2);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_1 = (GT8_2_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_2 = (GT8_3);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_2 = (GT8_3_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_3 = (GT8_4);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_3 = (GT8_4_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_4 = (GT8_5);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_4 = (GT8_5_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_5 = (GT8_6);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_5 = (GT8_6_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_6 = (GT8_7);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_6 = (GT8_7_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_7 = (GT8_8);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_7 = (GT8_8_Active);
+    private static final Textures.BlockIcons.CustomIcon frontFace_8 = (GT8_9);
+    private static final Textures.BlockIcons.CustomIcon frontFaceActive_8 = (GT8_9_Active);
 
     Textures.BlockIcons.CustomIcon[] TURBINE = new Textures.BlockIcons.CustomIcon[] {
         frontFace_0,
@@ -327,7 +327,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();
                 }
                 if ((!tConnectedSides[5]) && (!tConnectedSides[3])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
             case 1:
                 if (tConnectedSides[1]) {
@@ -367,7 +367,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();
                 }
                 if ((!tConnectedSides[3]) && (!tConnectedSides[5])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
             case 2:
                 if (tConnectedSides[5]) {
@@ -407,7 +407,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();
                 }
                 if ((!tConnectedSides[0]) && (!tConnectedSides[1])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
             case 3:
                 if (tConnectedSides[3]) {
@@ -447,7 +447,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();
                 }
                 if ((!tConnectedSides[0]) && (!tConnectedSides[1])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
             case 4:
                 if (tConnectedSides[4]) {
@@ -484,7 +484,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 7)].getIcon();
                 }
                 if ((!tConnectedSides[0]) && (!tConnectedSides[1])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
                 if ((!tConnectedSides[3]) && (!tConnectedSides[5])) {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();
@@ -524,7 +524,7 @@ public class TexturesGregtech58 {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 7)].getIcon();
                 }
                 if ((!tConnectedSides[0]) && (!tConnectedSides[1])) {
-                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 0)].getIcon();
+                    return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex)].getIcon();
                 }
                 if ((!tConnectedSides[3]) && (!tConnectedSides[5])) {
                     return Textures.BlockIcons.CONNECTED_HULLS[(tStartIndex + 1)].getIcon();

@@ -269,7 +269,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
             }
         }
         final ItemStack itemToEnchant = mThisItem;
-        if ((enchant != null) && (enchantmentLevel != 0) && (enchantmentLevel >= 1)) {
+        if ((enchant != null) && (enchantmentLevel >= 1)) {
             itemToEnchant.addEnchantment(enchant, enchantmentLevel);
         }
         super.onCreated(itemToEnchant, mWorld, mPlayer);
@@ -291,7 +291,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
 
         final Item thisItem = mItem;
         final ItemStack itemToEnchant = ItemUtils.getSimpleStack(thisItem);
-        if ((enchant != null) && (enchantmentLevel != 0) && (enchantmentLevel >= 1)) {
+        if ((enchant != null) && (enchantmentLevel >= 1)) {
             itemToEnchant.addEnchantment(enchant, enchantmentLevel);
             mList.add(itemToEnchant);
         } else {
@@ -307,9 +307,7 @@ public class MultiPickaxeBase extends StaballoyPickaxe {
     @Override
     public boolean isDamageable() {
         if (this.getMaxDamage() > 0 && !this.hasSubtypes) {
-            if (this.canBreak) {
-                return true;
-            }
+            return this.canBreak;
         }
         return false;
     }

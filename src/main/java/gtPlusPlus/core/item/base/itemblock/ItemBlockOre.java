@@ -47,7 +47,7 @@ public class ItemBlockOre extends ItemBlock {
         return this.mThisColour;
     }
 
-    private static Map<String, AutoMap<String>> mMapOreBlockItemToDimName =
+    private static final Map<String, AutoMap<String>> mMapOreBlockItemToDimName =
             new LinkedHashMap<String, AutoMap<String>>();
     private static boolean mInitOres_Everglades = false;
     private AutoMap<String> mDimsForThisOre = new AutoMap<String>();

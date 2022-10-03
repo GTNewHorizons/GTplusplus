@@ -44,7 +44,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
 
         // net.minecraft.client.gui.inventory.GuiContainer.drawItemStack(ItemStack, int, int, String)
         mDrawItemStack = ReflectionUtils.getMethod(
-                GuiContainer.class, "drawItemStack", new Class[] {ItemStack.class, int.class, int.class, String.class});
+                GuiContainer.class, "drawItemStack", ItemStack.class, int.class, int.class, String.class);
     }
 
     public GUI_MultiMachine(
@@ -68,7 +68,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
 
     protected void drawGuiInfoTextLayer(final float par1, final int par2) {
 
-        if ((((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 64) != 0) {
+        if ((this.mContainer.mDisplayErrorCode & 64) != 0) {
             this.fontRendererObj.drawString(mName, 6, 7, 16448255); // Move down 8px
             this.fontRendererObj.drawString("Incomplete Structure.", 6, 15, 16448255); // Move down 8px
         } else {
@@ -96,7 +96,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             int weeks = (int) (TimeUnit.SECONDS.toDays(seconds) / 7);
             int days = (int) (TimeUnit.SECONDS.toDays(seconds) - 7 * weeks);
             long hours =
-                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7 * weeks);
+                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7L * weeks);
             long minutes = TimeUnit.SECONDS.toMinutes(seconds) - (TimeUnit.SECONDS.toHours(seconds) * 60);
             long second = TimeUnit.SECONDS.toSeconds(seconds) - (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
@@ -120,31 +120,31 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             }
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.progress") + ": " + EnumChatFormatting.GREEN
-                    + Integer.toString(((CONTAINER_MultiMachine) this.mContainer).mProgressTime / 20)
+                    + this.mContainer.mProgressTime / 20
                     + EnumChatFormatting.RESET + " s / " + EnumChatFormatting.YELLOW
-                    + Integer.toString(((CONTAINER_MultiMachine) this.mContainer).mMaxProgressTime / 20)
+                    + this.mContainer.mMaxProgressTime / 20
                     + EnumChatFormatting.RESET + " s");
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + ":");
-            mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Long.toString(aStoredEnergy)
-                    + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + Long.toString(aMaxEnergy)
+            mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + aStoredEnergy
+                    + EnumChatFormatting.RESET + " EU / " + EnumChatFormatting.YELLOW + aMaxEnergy
                     + EnumChatFormatting.RESET + " EU"));
 
             if (aRecipeEU != 0 && aRecipeDuration > 0) {
                 if (aRecipeEU > 0) {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.RED + Integer.toString(-aRecipeEU)
+                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.RED + -aRecipeEU
                             + EnumChatFormatting.RESET + " EU/t/parallel"));
                 } else {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + Integer.toString(aRecipeEU)
+                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + aRecipeEU
                             + EnumChatFormatting.RESET + " EU/t/parallel"));
                 }
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.duration") + ": " + EnumChatFormatting.RED
-                        + Integer.toString(aRecipeDuration) + EnumChatFormatting.RESET + " ticks");
+                        + aRecipeDuration + EnumChatFormatting.RESET + " ticks");
                 if (aRecipeSpecial > 0) {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.specialvalue") + ": "
-                            + EnumChatFormatting.RED + Integer.toString(aRecipeEU) + EnumChatFormatting.RESET + "");
+                            + EnumChatFormatting.RED + aRecipeEU + EnumChatFormatting.RESET + "");
                 }
             }
 
@@ -155,7 +155,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                     + EnumChatFormatting.RESET));
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.efficiency") + ": " + EnumChatFormatting.YELLOW
-                    + Float.toString(aEfficiency / 100.0F) + EnumChatFormatting.RESET + " %");
+                    + aEfficiency / 100.0F + EnumChatFormatting.RESET + " %");
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.pollution") + ": " + EnumChatFormatting.RED
                     + (aPollutionTick * 20) + EnumChatFormatting.RESET + "/sec");
@@ -166,15 +166,15 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             // "+EnumChatFormatting.GREEN+(aMaxParallel)+EnumChatFormatting.RESET);
 
             mInfo.add("Total Time Since Built: ");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Integer.toString(weeks) + EnumChatFormatting.RESET
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + weeks + EnumChatFormatting.RESET
                     + " Weeks,");
             mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + Integer.toString(days) + EnumChatFormatting.RESET + " Days,");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Long.toString(hours) + EnumChatFormatting.RESET + " Hours,");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + Long.toString(minutes) + EnumChatFormatting.RESET
+                    "" + EnumChatFormatting.DARK_GREEN + days + EnumChatFormatting.RESET + " Days,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + hours + EnumChatFormatting.RESET + " Hours,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET
                     + " Minutes,");
             mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + Long.toString(second) + EnumChatFormatting.RESET + " Seconds");
+                    "" + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds");
 
             // Machine Name
             // fontRendererObj.drawString(this.mName, 6, 7, 16448255);
@@ -187,12 +187,12 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
 
     protected void drawGuiRepairStatusLayer(final float par1, final int par2) {
 
-        boolean aWrench = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 1) != 0;
-        boolean aScrewdriver = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 2) != 0;
-        boolean aMallet = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 4) != 0;
-        boolean aHammer = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 8) != 0;
-        boolean aSoldering = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 16) != 0;
-        boolean aCrowbar = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 32) != 0;
+        boolean aWrench = (this.mContainer.mDisplayErrorCode & 1) != 0;
+        boolean aScrewdriver = (this.mContainer.mDisplayErrorCode & 2) != 0;
+        boolean aMallet = (this.mContainer.mDisplayErrorCode & 4) != 0;
+        boolean aHammer = (this.mContainer.mDisplayErrorCode & 8) != 0;
+        boolean aSoldering = (this.mContainer.mDisplayErrorCode & 16) != 0;
+        boolean aCrowbar = (this.mContainer.mDisplayErrorCode & 32) != 0;
 
         if (mToolStacks.isEmpty()) {
             // Map Stacks of Repair items
@@ -281,12 +281,12 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             mToolStacks.put("trueGLASS", aGlassPane2);
 
             // Reset vars to real state
-            aWrench = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 1) != 0;
-            aScrewdriver = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 2) != 0;
-            aMallet = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 4) != 0;
-            aHammer = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 8) != 0;
-            aSoldering = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 16) != 0;
-            aCrowbar = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 32) != 0;
+            aWrench = (this.mContainer.mDisplayErrorCode & 1) != 0;
+            aScrewdriver = (this.mContainer.mDisplayErrorCode & 2) != 0;
+            aMallet = (this.mContainer.mDisplayErrorCode & 4) != 0;
+            aHammer = (this.mContainer.mDisplayErrorCode & 8) != 0;
+            aSoldering = (this.mContainer.mDisplayErrorCode & 16) != 0;
+            aCrowbar = (this.mContainer.mDisplayErrorCode & 32) != 0;
         }
 
         ItemStack aWrenchStack;
@@ -317,17 +317,16 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                 for (aIndex = 0; aIndex < 6; aIndex++) {
                     int x = 156;
                     int y = 112 - (18 * 3) + (aIndex * 18);
-                    mDrawItemStack.invoke(this, new Object[] {
-                        aToolStacks2[aIndex] != null ? aToolStacks2[aIndex] : ItemUtils.getErrorStack(1, "Bad Times"),
-                        x,
-                        y,
-                        "" + (aIndex == 2 ? "H" : aIndex == 3 ? "M" : "") // Stacksize Overlay
-                    });
+                    mDrawItemStack.invoke(this, aToolStacks2[aIndex] != null ? aToolStacks2[aIndex] : ItemUtils.getErrorStack(1, "Bad Times"),
+                            x,
+                            y,
+                            "" + (aIndex == 2 ? "H" : aIndex == 3 ? "M" : "") // Stacksize Overlay
+                    );
                     // this.fontRendererObj.drawString("", 10, 64, 16448255);
                 }
 
                 // Draw Running status
-                boolean running = ((CONTAINER_MultiMachine) this.mContainer).mActive != 0;
+                boolean running = this.mContainer.mActive != 0;
                 ItemStack aGlassPane = mToolStacks.get(running + "GLASS");
 
                 if (aGlassPane == null) {
@@ -335,12 +334,10 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                     mToolStacks.put(running + "GLASS", aGlassPane);
                 }
 
-                mDrawItemStack.invoke(this, new Object[] {
-                    aGlassPane != null ? aGlassPane : ItemUtils.getErrorStack(1, "Bad Times"),
-                    156,
-                    112 - (18 * 5),
-                    running ? "On" : "Off"
-                }); // Stacksize Overlay
+                mDrawItemStack.invoke(this, aGlassPane != null ? aGlassPane : ItemUtils.getErrorStack(1, "Bad Times"),
+                        156,
+                        112 - (18 * 5),
+                        running ? "On" : "Off"); // Stacksize Overlay
 
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
                 e.printStackTrace();

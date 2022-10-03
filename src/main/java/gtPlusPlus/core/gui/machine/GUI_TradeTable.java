@@ -33,7 +33,7 @@ public class GUI_TradeTable extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(final int i, final int j) {
-        this.fontRendererObj.drawString(I18n.format("Owner - " + this.mOwnerName, new Object[0]), 28, 66, 4210752);
+        this.fontRendererObj.drawString(I18n.format("Owner - " + this.mOwnerName), 28, 66, 4210752);
         // this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2,
         // 4210752);
     }

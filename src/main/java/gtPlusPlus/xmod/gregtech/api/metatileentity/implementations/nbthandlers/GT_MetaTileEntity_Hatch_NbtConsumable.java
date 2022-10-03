@@ -96,11 +96,11 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
     @Override
     public final MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         Constructor<?> aConstructor = ReflectionUtils.getConstructor(
-                getHatchEntityClass(), new Class[] {String.class, String[].class, ITexture[][][].class});
+                getHatchEntityClass(), String.class, String[].class, ITexture[][][].class);
         GT_MetaTileEntity_Hatch_NbtConsumable aInstance = ReflectionUtils.createNewInstanceFromConstructor(
                 aConstructor, new Object[] {mName, StaticFields59.getDescriptionArray(this), mTextures});
         if (aInstance instanceof GT_MetaTileEntity_Hatch_NbtConsumable) {
-            GT_MetaTileEntity_Hatch_NbtConsumable aMetaTile = (GT_MetaTileEntity_Hatch_NbtConsumable) aInstance;
+            GT_MetaTileEntity_Hatch_NbtConsumable aMetaTile = aInstance;
             return aMetaTile;
         }
         return null;
@@ -261,7 +261,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
                 // Then Move stack to Usage slots
                 for (int i = getSlotID_FirstUsage(); i <= getSlotID_LastUsage(); i++) {
                     if (mInventory[i] == null) {
-                        if ((aFoundMatching && aAllowMultiOfSameTypeInUsageSlots) || !aFoundMatching) {
+                        if (!aFoundMatching || aAllowMultiOfSameTypeInUsageSlots) {
                             mInventory[i] = aStackToMove;
                             aDidSet = true;
                             Logger.INFO("Moving new stack to usage slots.");

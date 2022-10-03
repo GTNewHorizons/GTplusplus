@@ -6,7 +6,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.ORES;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 public class RecipesToRemove {
@@ -20,9 +19,7 @@ public class RecipesToRemove {
         // caesium
         // Replaced by advanced sifting recipe.
         GT_Recipe aRareEarthCentrifuging = GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes.findRecipe(
-                null, false, 20, new FluidStack[] {}, new ItemStack[] {
-                    ItemUtils.getItemStackOfAmountFromOreDict("dustRareEarth", 1)
-                });
+                null, false, 20, new FluidStack[] {}, ItemUtils.getItemStackOfAmountFromOreDict("dustRareEarth", 1));
         if (aRareEarthCentrifuging != null && aRareEarthCentrifuging.mEnabled) {
             aRareEarthCentrifuging.mEnabled = false;
             aRareEarthCentrifuging.mHidden = true;

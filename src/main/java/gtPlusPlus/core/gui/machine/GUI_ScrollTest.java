@@ -29,7 +29,7 @@ import org.lwjgl.Sys;
 @SideOnly(Side.CLIENT)
 public class GUI_ScrollTest extends GuiScreen {
     private static final Logger logger = LogManager.getLogger();
-    private GuiScreen aThisGUIScreen;
+    private final GuiScreen aThisGUIScreen;
     private List<?> field_146966_g;
     private List<?> field_146969_h;
     private GuiResourcePackAvailable MapOfFreeResourcePacks;
@@ -46,9 +46,9 @@ public class GUI_ScrollTest extends GuiScreen {
     @SuppressWarnings("unchecked")
     public void initGui() {
         this.buttonList.add(new GuiOptionButton(
-                2, this.width / 2 - 154, this.height - 48, I18n.format("resourcePack.openFolder", new Object[0])));
+                2, this.width / 2 - 154, this.height - 48, I18n.format("resourcePack.openFolder")));
         this.buttonList.add(
-                new GuiOptionButton(1, this.width / 2 + 4, this.height - 48, I18n.format("gui.done", new Object[0])));
+                new GuiOptionButton(1, this.width / 2 + 4, this.height - 48, I18n.format("gui.done")));
         this.field_146966_g = new ArrayList<Object>();
         this.field_146969_h = new ArrayList<Entry>();
         ResourcePackRepository resourcepackrepository = this.mc.getResourcePackRepository();
@@ -107,16 +107,16 @@ public class GUI_ScrollTest extends GuiScreen {
                         Runtime.getRuntime().exec(new String[] {"/usr/bin/open", s});
                         return;
                     } catch (IOException ioexception1) {
-                        logger.error("Couldn\'t open file", ioexception1);
+                        logger.error("Couldn't open file", ioexception1);
                     }
                 } else if (Util.getOSType() == Util.EnumOS.WINDOWS) {
-                    String s1 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new Object[] {s});
+                    String s1 = String.format("cmd.exe /C start \"Open file\" \"%s\"", s);
 
                     try {
                         Runtime.getRuntime().exec(s1);
                         return;
                     } catch (IOException ioexception) {
-                        logger.error("Couldn\'t open file", ioexception);
+                        logger.error("Couldn't open file", ioexception);
                     }
                 }
 
@@ -125,11 +125,11 @@ public class GUI_ScrollTest extends GuiScreen {
                 try {
                     Class<?> oclass = ReflectionUtils.getClass("java.awt.Desktop");
                     Object object = ReflectionUtils.getMethod(oclass, "getDesktop", new Class[0])
-                            .invoke((Object) null, new Object[0]);
+                            .invoke(null);
                     ReflectionUtils.getMethod(oclass, "browse", new Class[] {URI.class})
-                            .invoke(object, new Object[] {file1.toURI()});
+                            .invoke(object, file1.toURI());
                 } catch (Throwable throwable) {
-                    logger.error("Couldn\'t open link", throwable);
+                    logger.error("Couldn't open link", throwable);
                     flag = true;
                 }
 
@@ -191,10 +191,10 @@ public class GUI_ScrollTest extends GuiScreen {
         this.MapOfFreeResourcePacks.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
         this.MapOfActiveResourcePacks.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
         this.drawCenteredString(
-                this.fontRendererObj, I18n.format("resourcePack.title", new Object[0]), this.width / 2, 16, 16777215);
+                this.fontRendererObj, I18n.format("resourcePack.title"), this.width / 2, 16, 16777215);
         this.drawCenteredString(
                 this.fontRendererObj,
-                I18n.format("resourcePack.folderInfo", new Object[0]),
+                I18n.format("resourcePack.folderInfo"),
                 this.width / 2 - 77,
                 this.height - 26,
                 8421504);

@@ -58,7 +58,7 @@ public class FluidFactory {
 
     public static Item mGenericBucket;
     private static FluidPackage mErrorFluid;
-    private static AutoMap<FluidPackage> mGeneratedFluids = new AutoMap<FluidPackage>();
+    private static final AutoMap<FluidPackage> mGeneratedFluids = new AutoMap<FluidPackage>();
 
     public static void preInit() {}
 

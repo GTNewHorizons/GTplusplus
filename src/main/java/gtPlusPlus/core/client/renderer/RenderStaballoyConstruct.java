@@ -84,7 +84,7 @@ public class RenderStaballoyConstruct extends RenderLiving {
             int i = p_77029_1_.getBrightnessForRender(p_77029_2_);
             int j = i % 65536;
             int k = i / 65536;
-            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, j / 1.0F, k / 1.0F);
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, j, k);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             this.bindTexture(TextureMap.locationBlocksTexture);
             this.field_147909_c.renderBlockAsItem(Blocks.red_flower, 0, 1.0F);

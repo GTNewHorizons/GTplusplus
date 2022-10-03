@@ -71,7 +71,7 @@ public class BaseItemBackpack extends Item {
         String temp = this.unlocalName.replace("backpack", "");
         // Lets find the colour.
         if (temp.toLowerCase().contains("dark")) {
-            temp = this.unlocalName.substring(12, this.unlocalName.length());
+            temp = this.unlocalName.substring(12);
             temp = "Dark " + temp;
         }
         return (temp + " Backpack");

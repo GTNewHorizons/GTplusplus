@@ -108,16 +108,16 @@ public class BOP_Block_Registrator {
         if (!CORE.GTNH) {
             GT_Values.RA.addAssemblerRecipe(
                     GT_Utility.copyAmount(1L, aStack),
-                    ItemList.Circuit_Integrated.getWithDamage(0L, 2L, new Object[0]),
+                    ItemList.Circuit_Integrated.getWithDamage(0L, 2L),
                     Materials.SeedOil.getFluid(50L),
-                    ItemList.FR_Stick.get(1L, new Object[0]),
+                    ItemList.FR_Stick.get(1L),
                     16,
                     8);
             GT_Values.RA.addAssemblerRecipe(
                     GT_Utility.copyAmount(8L, aStack),
-                    ItemList.Circuit_Integrated.getWithDamage(0L, 8L, new Object[0]),
+                    ItemList.Circuit_Integrated.getWithDamage(0L, 8L),
                     Materials.SeedOil.getFluid(250L),
-                    ItemList.FR_Casing_Impregnated.get(1L, new Object[0]),
+                    ItemList.FR_Casing_Impregnated.get(1L),
                     64,
                     16);
             GT_Values.RA.addChemicalBathRecipe(
@@ -172,7 +172,7 @@ public class BOP_Block_Registrator {
                             GT_Utility.copyAmount(
                                     GT_Mod.gregtechproxy.mNerfedWoodPlank
                                             ? ((long) tStack.stackSize)
-                                            : ((long) (tStack.stackSize * 5 / 4)),
+                                            : ((long) (tStack.stackSize * 5L / 4)),
                                     tStack),
                             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 2L),
                             200,
@@ -186,7 +186,7 @@ public class BOP_Block_Registrator {
                             GT_Utility.copyAmount(
                                     GT_Mod.gregtechproxy.mNerfedWoodPlank
                                             ? ((long) tStack.stackSize)
-                                            : ((long) (tStack.stackSize * 5 / 4)),
+                                            : ((long) (tStack.stackSize * 5L / 4)),
                                     tStack),
                             new Object[] {"s", "L", 'L', new ItemStack(aStack.getItem(), 1, i)});
                     GT_ModHandler.addShapelessCraftingRecipe(
@@ -221,7 +221,7 @@ public class BOP_Block_Registrator {
                         GT_Utility.copyAmount(
                                 GT_Mod.gregtechproxy.mNerfedWoodPlank
                                         ? ((long) tStack2.stackSize)
-                                        : ((long) (tStack2.stackSize * 5 / 4)),
+                                        : ((long) (tStack2.stackSize * 5L / 4)),
                                 tStack2),
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 2L),
                         200,
@@ -235,7 +235,7 @@ public class BOP_Block_Registrator {
                         GT_Utility.copyAmount(
                                 GT_Mod.gregtechproxy.mNerfedWoodPlank
                                         ? ((long) tStack2.stackSize)
-                                        : ((long) (tStack2.stackSize * 5 / 4)),
+                                        : ((long) (tStack2.stackSize * 5L / 4)),
                                 tStack2),
                         new Object[] {"s", "L", 'L', GT_Utility.copyAmount(1L, aStack)});
                 GT_ModHandler.addShapelessCraftingRecipe(
@@ -262,7 +262,7 @@ public class BOP_Block_Registrator {
                 0,
                 false);
         GT_ModHandler.addCompressionRecipe(
-                GT_Utility.copyAmount(8L, aStack), ItemList.IC2_Plantball.get(1L, new Object[0]));
+                GT_Utility.copyAmount(8L, aStack), ItemList.IC2_Plantball.get(1L));
         GT_Values.RA.addLatheRecipe(
                 GT_Utility.copyAmount(1L, aStack),
                 GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Wood, 1L),

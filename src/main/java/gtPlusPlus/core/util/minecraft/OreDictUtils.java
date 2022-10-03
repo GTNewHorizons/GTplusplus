@@ -13,10 +13,7 @@ public class OreDictUtils {
         if (!a) {
             return false;
         } else {
-            if (b == null || b.isEmpty()) {
-                return false;
-            }
+            return b != null && !b.isEmpty();
         }
-        return true;
     }
 }

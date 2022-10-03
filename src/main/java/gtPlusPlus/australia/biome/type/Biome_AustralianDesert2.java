@@ -119,9 +119,7 @@ public class Biome_AustralianDesert2 {
                 Field mClone = mInternalBiomeList;
                 BiomeGenBase[] mOriginalList = (BiomeGenBase[]) mInternalBiomeList.get(null);
                 BiomeGenBase[] mTempList = new BiomeGenBase[mOriginalList.length];
-                for (int index = 0; index < mTempList.length; index++) {
-                    mTempList[index] = mOriginalList[index];
-                }
+                System.arraycopy(mOriginalList, 0, mTempList, 0, mTempList.length);
                 if (mTempList != null) {
                     mTempList[CORE.AUSTRALIA_BIOME_DESERT_1_ID] = this;
                     mInternalBiomeList.set(null, mTempList);

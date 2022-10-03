@@ -17,8 +17,8 @@ public final class TexturesGtTools {
     public static final CustomIcon ELECTRIC_BUTCHER_KNIFE = new CustomIcon("iconsets/ELECTRIC_BUTCHER_KNIFE");
 
     public static final class CustomIcon implements IIconContainer, Runnable {
-        protected IIcon mIcon, mOverlay;
-        protected final String mIconName;
+        private IIcon mIcon, mOverlay;
+        private final String mIconName;
 
         public CustomIcon(final String aIconName) {
             this.mIconName = aIconName;

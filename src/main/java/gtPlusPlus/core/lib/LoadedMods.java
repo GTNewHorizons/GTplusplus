@@ -4,7 +4,6 @@ import static gtPlusPlus.core.lib.CORE.*;
 
 import cpw.mods.fml.common.Loader;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechTextures;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
@@ -290,7 +289,7 @@ public class LoadedMods {
             Logger.INFO("Components enabled for: ExtraBees");
             totalMods++;
         }
-        if (isModLoaded("ThermalFoundation") == false) {
+        if (!isModLoaded("ThermalFoundation")) {
             ThermalFoundation = false;
             Logger.INFO("Components enabled for: ThermalFoundation - This feature will disable itself if you add TF.");
             totalMods++;

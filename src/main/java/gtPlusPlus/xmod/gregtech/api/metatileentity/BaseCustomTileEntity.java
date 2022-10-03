@@ -56,7 +56,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
             super.writeToNBT(aNBT);
         } catch (Throwable arg7) {
             GT_Log.err.println(
-                    "Encountered CRITICAL ERROR while saving MetaTileEntity, the Chunk whould\'ve been corrupted by now, but I prevented that. Please report immidietly to GregTech Intergalactical!!!");
+                    "Encountered CRITICAL ERROR while saving MetaTileEntity, the Chunk whould've been corrupted by now, but I prevented that. Please report immidietly to GregTech Intergalactical!!!");
             arg7.printStackTrace(GT_Log.err);
         }
 
@@ -64,7 +64,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
             if (!aNBT.hasKey("ModVersion")) aNBT.setString("ModVersion", CORE.VERSION);
         } catch (Throwable arg6) {
             GT_Log.err.println(
-                    "Encountered CRITICAL ERROR while saving MetaTileEntity, the Chunk whould\'ve been corrupted by now, but I prevented that. Please report immidietly to GregTech Intergalactical!!!");
+                    "Encountered CRITICAL ERROR while saving MetaTileEntity, the Chunk whould've been corrupted by now, but I prevented that. Please report immidietly to GregTech Intergalactical!!!");
             arg6.printStackTrace(GT_Log.err);
         }
     }
@@ -102,7 +102,6 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     this.mReleaseEnergy = true;
                     Util.emitEnergyToNetwork(GT_Values.V[5], Math.max(1L, this.getStoredEU() / GT_Values.V[5]), this);
                 } catch (Exception arg4) {
-                    ;
                 }
             }
 
@@ -112,7 +111,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
 
             boolean aExplosionDropItem = false;
             Object aProxyField = StaticFields59.getFieldFromGregtechProxy(false, "mExplosionItemDrop");
-            if (boolean.class.isInstance(aProxyField) || Boolean.class.isInstance(aProxyField)) {
+            if (aProxyField instanceof Boolean) {
                 aExplosionDropItem = (boolean) aProxyField;
             }
 
@@ -121,7 +120,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     ItemStack tItem = this.getStackInSlot(i);
                     if (tItem != null && tItem.stackSize > 0 && this.isValidSlot(i)) {
                         this.dropItems(tItem);
-                        this.setInventorySlotContents(i, (ItemStack) null);
+                        this.setInventorySlotContents(i, null);
                     }
                 }
             }
@@ -142,9 +141,9 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
             Random tRandom = new Random();
             EntityItem tItemEntity = new EntityItem(
                     this.worldObj,
-                    (double) ((float) this.xCoord + tRandom.nextFloat() * 0.8F + 0.1F),
-                    (double) ((float) this.yCoord + tRandom.nextFloat() * 0.8F + 0.1F),
-                    (double) ((float) this.zCoord + tRandom.nextFloat() * 0.8F + 0.1F),
+                    (float) this.xCoord + tRandom.nextFloat() * 0.8F + 0.1F,
+                    (float) this.yCoord + tRandom.nextFloat() * 0.8F + 0.1F,
+                    (float) this.zCoord + tRandom.nextFloat() * 0.8F + 0.1F,
                     new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
             if (tItem.hasTagCompound()) {
                 tItemEntity.getEntityItem().setTagCompound((NBTTagCompound)
@@ -162,7 +161,6 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     ENTITY_ITEM_HEALTH_FIELD_2.setInt(tItemEntity, 99999999);
                 }
             } catch (Exception var5) {
-                ;
             }
 
             this.worldObj.spawnEntityInWorld(tItemEntity);

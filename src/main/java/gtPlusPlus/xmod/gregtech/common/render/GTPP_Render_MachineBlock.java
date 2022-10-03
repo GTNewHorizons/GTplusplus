@@ -51,7 +51,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
                     renderNegativeYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -63,7 +63,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
                     renderPositiveYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -75,7 +75,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
                     renderNegativeZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -87,7 +87,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
                     renderPositiveZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -99,7 +99,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -111,7 +111,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -124,7 +124,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
                     renderNegativeYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -136,7 +136,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
                     renderPositiveYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -148,7 +148,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
                     renderNegativeZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -160,7 +160,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
                     renderPositiveZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -172,7 +172,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -184,7 +184,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -206,16 +206,14 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
             IBlockAccess aWorld, int aX, int aY, int aZ, Block aBlock, RenderBlocks aRenderer) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
 
-        return tTileEntity instanceof ITexturedTileEntity
-                ? renderStandardBlock(aWorld, aX, aY, aZ, aBlock, aRenderer, new ITexture[][] {
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 0),
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 1),
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 2),
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 3),
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 4),
-                    GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 5)
-                })
-                : false;
+        return tTileEntity instanceof ITexturedTileEntity && renderStandardBlock(aWorld, aX, aY, aZ, aBlock, aRenderer, new ITexture[][]{
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 0),
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 1),
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 2),
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 3),
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 4),
+                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 5)
+        });
     }
 
     public static boolean renderStandardBlock(
@@ -758,18 +756,14 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
     public boolean renderWorldBlock(
             IBlockAccess aWorld, int aX, int aY, int aZ, Block aBlock, int aModelID, RenderBlocks aRenderer) {
         TileEntity aTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        return aTileEntity == null
-                ? false
-                : (aTileEntity instanceof IGregTechTileEntity
-                                && ((IGregTechTileEntity) aTileEntity).getMetaTileEntity() != null
-                                && ((IGregTechTileEntity) aTileEntity)
-                                        .getMetaTileEntity()
-                                        .renderInWorld(aWorld, aX, aY, aZ, aBlock, aRenderer)
-                        ? true
-                        : (aTileEntity instanceof IPipeRenderedTileEntity
-                                ? renderPipeBlock(
-                                        aWorld, aX, aY, aZ, aBlock, (IPipeRenderedTileEntity) aTileEntity, aRenderer)
-                                : renderStandardBlock(aWorld, aX, aY, aZ, aBlock, aRenderer)));
+        return aTileEntity != null && (aTileEntity instanceof IGregTechTileEntity
+                && ((IGregTechTileEntity) aTileEntity).getMetaTileEntity() != null
+                && ((IGregTechTileEntity) aTileEntity)
+                .getMetaTileEntity()
+                .renderInWorld(aWorld, aX, aY, aZ, aBlock, aRenderer) || (aTileEntity instanceof IPipeRenderedTileEntity
+                ? renderPipeBlock(
+                aWorld, aX, aY, aZ, aBlock, (IPipeRenderedTileEntity) aTileEntity, aRenderer)
+                : renderStandardBlock(aWorld, aX, aY, aZ, aBlock, aRenderer)));
     }
 
     public boolean shouldRender3DInInventory(int aModel) {

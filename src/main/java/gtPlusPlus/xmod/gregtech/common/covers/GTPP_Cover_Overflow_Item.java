@@ -87,8 +87,8 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
     }
 
     private boolean handleDigitalChest(IMetaTileEntity aTile, int aType) {
-        int aItemAmount = (int) ReflectionUtils.getFieldValue(mItemAmountFields.get(aType), aTile);
-        ItemStack aItemType = (ItemStack) ReflectionUtils.getFieldValue(mItemTypeFields.get(aType), aTile);
+        int aItemAmount = ReflectionUtils.getFieldValue(mItemAmountFields.get(aType), aTile);
+        ItemStack aItemType = ReflectionUtils.getFieldValue(mItemTypeFields.get(aType), aTile);
 
         if (aItemType == null || aItemAmount <= 0) {
             return false;

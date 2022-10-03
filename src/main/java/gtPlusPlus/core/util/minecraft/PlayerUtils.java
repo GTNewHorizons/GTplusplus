@@ -49,7 +49,7 @@ public class PlayerUtils {
                 i.add((iterator.next()));
             }
             for (final EntityPlayer temp : i) {
-                if (temp.getDisplayName().toLowerCase().equals(name.toLowerCase())) {
+                if (temp.getDisplayName().equalsIgnoreCase(name)) {
                     return temp;
                 }
             }
@@ -77,7 +77,7 @@ public class PlayerUtils {
         final Minecraft mc = Minecraft.getMinecraft();
         try {
             for (final EntityPlayer temp : i) {
-                if (temp.getDisplayName().toLowerCase().equals(Name.toLowerCase())) {
+                if (temp.getDisplayName().equalsIgnoreCase(Name)) {
                     return temp;
                 }
             }
@@ -87,10 +87,7 @@ public class PlayerUtils {
     }
 
     public static boolean isPlayerOP(final EntityPlayer player) {
-        if (player.canCommandSenderUseCommand(2, "")) {
-            return true;
-        }
-        return false;
+        return player.canCommandSenderUseCommand(2, "");
     }
 
     // Not Clientside
@@ -102,10 +99,7 @@ public class PlayerUtils {
         } catch (final NullPointerException e) {
             return null;
         }
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     @SideOnly(Side.CLIENT)
@@ -117,10 +111,7 @@ public class PlayerUtils {
         } catch (final NullPointerException e) {
             return null;
         }
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     public static ItemStack getItemStackInPlayersHand(final EntityPlayer player) {
@@ -154,11 +145,7 @@ public class PlayerUtils {
             return null;
         }
 
-        if (heldItem != null) {
-            return heldItem;
-        }
-
-        return null;
+        return heldItem;
     }
 
     public static Item getItemInPlayersHand(final EntityPlayer player) {
@@ -169,18 +156,12 @@ public class PlayerUtils {
             return null;
         }
 
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     public static final EntityPlayer getPlayerEntityByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
-        if (player != null) {
-            return player;
-        }
-        return null;
+        return player;
     }
 
     public static final UUID getPlayersUUIDByName(final String aPlayerName) {
@@ -201,10 +182,8 @@ public class PlayerUtils {
 
     public static final boolean isPlayerAlkalus(EntityPlayer player) {
         if (player != null) {
-            if (player.getDisplayName().toLowerCase().equals("draknyte1")
-                    || player.getDisplayName().toLowerCase().equals("alkalus")) {
-                return true;
-            }
+            return player.getDisplayName().equalsIgnoreCase("draknyte1")
+                    || player.getDisplayName().equalsIgnoreCase("alkalus");
         }
         return false;
     }
@@ -266,9 +245,7 @@ public class PlayerUtils {
                 cacheFakePlayer(p);
                 return false;
             }
-            if (!isCachedFakePlayer(p.getUniqueID().toString())) {
-                return true;
-            }
+            return !isCachedFakePlayer(p.getUniqueID().toString());
         }
         return false;
     }

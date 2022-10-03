@@ -102,7 +102,7 @@ public class ContainerBoxBase extends Container {
                 // you followed my advice at the end of the above step, then you
                 // could get away with using the vanilla Slot class
                 this.addSlotToContainer(generateSlot(
-                        constructor, this.getInventoryObject(), i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
+                        constructor, this.getInventoryObject(), i, 80 + (18 * (i / 4)), 8 + (18 * (i % 4))));
             }
 
             // If you want, you can add ARMOR SLOTS here as well, but you need to
@@ -211,7 +211,7 @@ public class ContainerBoxBase extends Container {
             }
 
             if (itemstack1.stackSize == 0) {
-                slot.putStack((ItemStack) null);
+                slot.putStack(null);
             } else {
                 slot.onSlotChanged();
             }

@@ -23,7 +23,7 @@ public class VolumetricFlaskHelper {
             sClassVolumetricFlask = ReflectionUtils.getClass("gregtech.common.items.GT_VolumetricFlask");
             Method aMaxCapacity = null;
             try {
-                aMaxCapacity = sClassVolumetricFlask.getDeclaredMethod("getMaxCapacity", new Class[] {});
+                aMaxCapacity = sClassVolumetricFlask.getDeclaredMethod("getMaxCapacity");
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
                 CORE.crash(
@@ -52,10 +52,7 @@ public class VolumetricFlaskHelper {
     }
 
     public static boolean isVolumetricFlask(ItemStack aStack) {
-        if (isNormalVolumetricFlask(aStack) || isLargeVolumetricFlask(aStack) || isGiganticVolumetricFlask(aStack)) {
-            return true;
-        }
-        return false;
+        return isNormalVolumetricFlask(aStack) || isLargeVolumetricFlask(aStack) || isGiganticVolumetricFlask(aStack);
     }
 
     public static boolean isNormalVolumetricFlask(ItemStack aStack) {
@@ -65,24 +62,15 @@ public class VolumetricFlaskHelper {
                 mFlask = aFlask.getItem();
             }
         }
-        if (aStack.getItem() == mFlask) {
-            return true;
-        }
-        return false;
+        return aStack.getItem() == mFlask;
     }
 
     public static boolean isLargeVolumetricFlask(ItemStack aStack) {
-        if (GregtechItemList.VOLUMETRIC_FLASK_8k.getItem() == aStack.getItem()) {
-            return true;
-        }
-        return false;
+        return GregtechItemList.VOLUMETRIC_FLASK_8k.getItem() == aStack.getItem();
     }
 
     public static boolean isGiganticVolumetricFlask(ItemStack aStack) {
-        if (GregtechItemList.VOLUMETRIC_FLASK_32k.getItem() == aStack.getItem()) {
-            return true;
-        }
-        return false;
+        return GregtechItemList.VOLUMETRIC_FLASK_32k.getItem() == aStack.getItem();
     }
 
     public static int getMaxFlaskCapacity(ItemStack aStack) {
@@ -169,11 +157,11 @@ public class VolumetricFlaskHelper {
 
     public static Item generateNewFlask(String unlocalized, String english, int maxCapacity) {
         Constructor aFlask = ReflectionUtils.getConstructor(
-                sClassVolumetricFlask, new Class[] {String.class, String.class, int.class});
+                sClassVolumetricFlask, String.class, String.class, int.class);
         if (aFlask != null) {
             Object aInstance = ReflectionUtils.createNewInstanceFromConstructor(
                     aFlask, new Object[] {unlocalized, english, maxCapacity});
-            if (aInstance != null && aInstance instanceof Item) {
+            if (aInstance instanceof Item) {
                 Item aNewFlaskItem = (Item) aInstance;
                 return aNewFlaskItem;
             }

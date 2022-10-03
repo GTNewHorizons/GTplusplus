@@ -65,8 +65,8 @@ public class RECIPEHANDLER_CokeOven {
                 + aFluidInput.toString() + " aFluidOutput:" + aFluidOutput.toString() + " aOutput:" + aOutput.toString()
                 + " aDuration:" + aDuration + " aEU/t:" + aEUt);
         Logger.WARNING("Passed.");
-        Logger.WARNING("aInput1:" + aInput1.toString() + " aInput2:" + aInput2.toString() + " aFluidInput:"
-                + aFluidInput.toString() + " aFluidOutput:" + aFluidOutput.toString() + " aOutput:" + aOutput.toString()
+        Logger.WARNING("aInput1:" + aInput1 + " aInput2:" + aInput2 + " aFluidInput:"
+                + aFluidInput + " aFluidOutput:" + aFluidOutput + " aOutput:" + aOutput
                 + " aDuration:" + aDuration + " aEU/t:" + aEUt);
     }
 

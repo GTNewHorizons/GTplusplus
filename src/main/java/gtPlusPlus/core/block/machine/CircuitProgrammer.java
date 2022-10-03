@@ -74,7 +74,7 @@ public class CircuitProgrammer extends BasicTileBlockWithTooltip {
 
             if (!mDidScrewDriver) {
                 final TileEntity te = world.getTileEntity(x, y, z);
-                if ((te != null) && (te instanceof TileEntityCircuitProgrammer)) {
+                if ((te instanceof TileEntityCircuitProgrammer)) {
                     player.openGui(GTplusplus.instance, GuiHandler.GUI8, world, x, y, z);
                     return true;
                 }

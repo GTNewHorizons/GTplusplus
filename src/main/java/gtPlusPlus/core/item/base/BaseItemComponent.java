@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TextureSet;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
@@ -127,13 +127,13 @@ public class BaseItemComponent extends Item {
             if (componentType == ComponentTypes.PLATE) {
                 GregTech_API.registerCover(
                         componentMaterial.getPlate(1),
-                        new GT_RenderedTexture(
+                        TextureFactory.of(
                                 componentMaterial.getTextureSet().mTextures[71], componentMaterial.getRGBA(), false),
                         null);
             } else if (componentType == ComponentTypes.PLATEDOUBLE) {
                 GregTech_API.registerCover(
                         componentMaterial.getPlateDouble(1),
-                        new GT_RenderedTexture(
+                        TextureFactory.of(
                                 componentMaterial.getTextureSet().mTextures[72], componentMaterial.getRGBA(), false),
                         null);
             }
@@ -305,8 +305,8 @@ public class BaseItemComponent extends Item {
                 }
                 Short aCurrentFrame = ((Map<Integer, Short[]>) extraData).get(9999)[0];
                 short fC = (short) (aCurrentFrame >= Short.MAX_VALUE ? 0 : aCurrentFrame + 1);
-                ((Map<Integer, Short[]>) extraData).put((int) 9999, new Short[] {(short) (fC), 0});
-                ((Map<Integer, Short[]>) extraData).put((int) 9998, new Short[] {aCurrentFrame, 0});
+                ((Map<Integer, Short[]>) extraData).put(9999, new Short[] {fC, 0});
+                ((Map<Integer, Short[]>) extraData).put(9998, new Short[] {aCurrentFrame, 0});
             }
         }
     }
@@ -319,7 +319,7 @@ public class BaseItemComponent extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses() {
-        return (CORE.ConfigSwitches.useGregtechTextures ? true : false);
+        return (CORE.ConfigSwitches.useGregtechTextures);
     }
 
     @SuppressWarnings("unchecked")
@@ -339,7 +339,7 @@ public class BaseItemComponent extends Item {
         try {
             if (this.componentMaterial == null) {
                 if (extraData != null) {
-                    if (short.class.isInstance(extraData)) {
+                    if (extraData instanceof Short) {
                         short[] abc = (short[]) extraData;
                         return Utils.rgbtoHexValue(abc[0], abc[1], abc[2]);
                     }
@@ -996,7 +996,7 @@ public class BaseItemComponent extends Item {
         }
     }
 
-    public static enum ComponentTypes {
+    public enum ComponentTypes {
         DUST("Dust", " Dust", "dust", OrePrefixes.dust),
         DUSTSMALL("DustSmall", "Small Pile of@Dust", "dustSmall", OrePrefixes.dustSmall),
         DUSTTINY("DustTiny", "Tiny Pile of@Dust", "dustTiny", OrePrefixes.dustTiny),
@@ -1022,12 +1022,12 @@ public class BaseItemComponent extends Item {
         FINEWIRE("FineWire", "Fine@Wire", "wireFine", OrePrefixes.wireFine),
         ;
 
-        private String COMPONENT_NAME;
-        private String DISPLAY_NAME;
-        private String OREDICT_NAME;
-        private OrePrefixes a_GT_EQUAL;
+        private final String COMPONENT_NAME;
+        private final String DISPLAY_NAME;
+        private final String OREDICT_NAME;
+        private final OrePrefixes a_GT_EQUAL;
 
-        private ComponentTypes(
+        ComponentTypes(
                 final String LocalName, final String DisplayName, final String OreDictName, final OrePrefixes aPrefix) {
             this.COMPONENT_NAME = LocalName;
             this.DISPLAY_NAME = DisplayName;

@@ -76,7 +76,7 @@ public class HeliumGenerator extends BlockContainer {
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityHeliumGenerator)) { // TODO
+        if ((te instanceof TileEntityHeliumGenerator)) { // TODO
             player.openGui(GTplusplus.instance, 1, world, x, y, z); // TODO
             return true;
         }

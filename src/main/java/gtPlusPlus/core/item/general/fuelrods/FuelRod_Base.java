@@ -142,19 +142,13 @@ public class FuelRod_Base extends Item {
     public boolean setFuelRemainingExplicitly(final int i) {
         final int tempFuel = this.fuelRemaining;
         this.fuelRemaining = i;
-        if (i != tempFuel) {
-            return true;
-        }
-        return false;
+        return i != tempFuel;
     }
 
     public boolean addFuel(final int i) {
         final int tempFuel = this.fuelRemaining;
         this.fuelRemaining = tempFuel + i;
-        if (this.fuelRemaining != tempFuel) {
-            return true;
-        }
-        return false;
+        return this.fuelRemaining != tempFuel;
     }
 
     public float getHeat(final ItemStack value) {
@@ -167,10 +161,7 @@ public class FuelRod_Base extends Item {
     public boolean addHeat(final float i) {
         final float tempFuel = this.heat;
         this.heat = tempFuel + i;
-        if (this.heat != tempFuel) {
-            return true;
-        }
-        return false;
+        return this.heat != tempFuel;
     }
 
     // Ticking and NBT Handling

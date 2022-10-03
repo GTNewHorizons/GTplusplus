@@ -39,9 +39,7 @@ public class Container_RoundRobinator extends Container {
         this.inventoryChest = te.getInventory();
         boolean[] aTemp = te.getActiveSides();
         if (aTemp != null && aTemp.length == 4) {
-            for (int i = 0; i < 4; i++) {
-                mActiveData[i] = aTemp[i];
-            }
+            System.arraycopy(aTemp, 0, mActiveData, 0, 4);
         }
 
         int var6;
@@ -162,9 +160,7 @@ public class Container_RoundRobinator extends Container {
         super.detectAndSendChanges();
         if (!this.tile_entity.getWorldObj().isRemote) {
             boolean[] aTemp = tile_entity.getActiveSides();
-            for (int i = 0; i < 4; i++) {
-                mActiveData[i] = aTemp[i];
-            }
+            System.arraycopy(aTemp, 0, mActiveData, 0, 4);
             this.mSide_1 = aTemp[0] ? 1 : 0;
             this.mSide_2 = aTemp[1] ? 1 : 0;
             this.mSide_3 = aTemp[2] ? 1 : 0;

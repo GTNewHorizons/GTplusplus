@@ -26,7 +26,7 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 
 public class FluidUtils {
 
-    private static HashMap<String, Fluid> sFluidCache = new HashMap<String, Fluid>();
+    private static final HashMap<String, Fluid> sFluidCache = new HashMap<String, Fluid>();
 
     public static FluidStack getWater(final int amount) {
         return FluidUtils.getFluidStack("water", amount);
@@ -484,15 +484,13 @@ public class FluidUtils {
     }
 
     public static boolean valid(final Object aStack) {
-        return (aStack != null)
-                && (aStack instanceof ItemStack)
+        return (aStack instanceof ItemStack)
                 && (((ItemStack) aStack).getItem() != null)
                 && (((ItemStack) aStack).stackSize >= 0);
     }
 
     public static boolean invalid(final Object aStack) {
-        return (aStack == null)
-                || !(aStack instanceof ItemStack)
+        return !(aStack instanceof ItemStack)
                 || (((ItemStack) aStack).getItem() == null)
                 || (((ItemStack) aStack).stackSize < 0);
     }
@@ -676,7 +674,7 @@ public class FluidUtils {
                 CORE.RA.addFluidExtractionRecipe(
                         dustStack, // Input 2
                         FluidUtils.getFluidStack(gtFluid, amountPerItem), // Fluid Output
-                        1 * 20, // Duration
+                        20, // Duration
                         16 // Eu Tick
                         );
             }
@@ -684,7 +682,7 @@ public class FluidUtils {
                 CORE.RA.addFluidExtractionRecipe(
                         dustStack2, // Input 2
                         FluidUtils.getFluidStack(gtFluid, amountPerItem), // Fluid Output
-                        1 * 20, // Duration
+                        20, // Duration
                         16 // Eu Tick
                         );
             }
@@ -804,10 +802,7 @@ public class FluidUtils {
         if (aFStack5 != null) {
             return aFStack5;
         }
-        if (aFStack6 != null) {
-            return aFStack6;
-        }
-        return null;
+        return aFStack6;
     }
 
     public static FluidStack getWildcardFluidStack(Materials aMaterial, int amount) {
@@ -821,11 +816,7 @@ public class FluidUtils {
             return aFStack2;
         } else if (aFStack3 != null) {
             return aFStack3;
-        } else if (aFStack4 != null) {
-            return aFStack4;
-        } else {
-            return null;
-        }
+        } else return aFStack4;
     }
 
     public static FluidStack getAir(int aAmount) {

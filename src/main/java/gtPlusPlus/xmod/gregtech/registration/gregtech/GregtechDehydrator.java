@@ -129,7 +129,7 @@ public class GregtechDehydrator {
 
         // Basic
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_MV.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_MV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -152,7 +152,7 @@ public class GregtechDehydrator {
                     OrePrefixes.gearGt.get(Materials.Steel)
                 });
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_HV.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_HV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -177,7 +177,7 @@ public class GregtechDehydrator {
 
         // Chemical
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_EV.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_EV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -201,7 +201,7 @@ public class GregtechDehydrator {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_IV.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_IV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -225,7 +225,7 @@ public class GregtechDehydrator {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_LuV.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_LuV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -249,7 +249,7 @@ public class GregtechDehydrator {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.GT_Dehydrator_ZPM.get(1L, new Object[0]),
+                GregtechItemList.GT_Dehydrator_ZPM.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE

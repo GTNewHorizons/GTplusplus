@@ -4,7 +4,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -45,14 +45,14 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                 "ChemicalReactor.png",
                 "",
                 new ITexture[] {
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Side_Active),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Side),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Front_Active),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Front),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Top_Active),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Top),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Top_Active),
-                    new GT_RenderedTexture(TexturesGtBlock.Overlay_FluidReactor_Top)
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Side_Active),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Side),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Front_Active),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Front),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Top_Active),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Top),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Top_Active),
+                    TextureFactory.of(TexturesGtBlock.Overlay_FluidReactor_Top)
                 });
     }
 
@@ -239,7 +239,7 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
             int i;
             if (this.mMaxProgresstime > 0 && (this.mProgresstime >= 0 || aBaseMetaTileEntity.isAllowedToWork())) {
                 aBaseMetaTileEntity.setActive(true);
-                if (this.mProgresstime >= 0 && !this.drainEnergyForProcess((long) this.mEUt)) {
+                if (this.mProgresstime >= 0 && !this.drainEnergyForProcess(this.mEUt)) {
                     if (!this.mStuttering) {
                         this.stutterProcess();
                         if (this.canHaveInsufficientEnergy()) {
@@ -257,7 +257,6 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                                                     this.getOutputSlot() + (i + i) % this.mOutputItems.length,
                                                     this.mOutputItems[i]);
                                     ++i) {
-                                ;
                             }
                         }
 
@@ -335,14 +334,14 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                             tTileEntity2,
                             aBaseMetaTileEntity.getFrontFacing(),
                             aBaseMetaTileEntity.getBackFacing(),
-                            (List) null,
+                            null,
                             false,
                             (byte) 64,
                             (byte) 1,
                             (byte) 64,
                             (byte) 1);
                     if (tCosts > 0) {
-                        aBaseMetaTileEntity.decreaseStoredEnergyUnits((long) tCosts, true);
+                        aBaseMetaTileEntity.decreaseStoredEnergyUnits(tCosts, true);
                     }
                 }
             }
@@ -378,7 +377,7 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                         }
 
                         for (i = 0; i < this.mOutputItems.length; ++i) {
-                            this.mOutputItems[i] = GT_Utility.copy(new Object[] {this.mOutputItems[i]});
+                            this.mOutputItems[i] = GT_Utility.copy(this.mOutputItems[i]);
                             if (this.mOutputItems[i] != null && this.mOutputItems[i].stackSize > 64) {
                                 this.mOutputItems[i].stackSize = 64;
                             }

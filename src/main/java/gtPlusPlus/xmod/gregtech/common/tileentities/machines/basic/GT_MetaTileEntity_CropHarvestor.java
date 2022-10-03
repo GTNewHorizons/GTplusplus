@@ -6,6 +6,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
 import gregtech.api.objects.*;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
@@ -172,7 +173,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         }
     }
 
-    private HashSet<ICropTile> mCropCache = new HashSet<ICropTile>();
+    private final HashSet<ICropTile> mCropCache = new HashSet<ICropTile>();
     private boolean mInvalidCache = false;
 
     public boolean doesInventoryHaveSpace() {
@@ -246,7 +247,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
                         for (int x = (-aSide); x <= aSide; x++) {
                             for (int z = (-aSide); z <= aSide; z++) {
                                 TileEntity tTileEntity = getBaseMetaTileEntity().getTileEntityOffset(x, y, z);
-                                if (tTileEntity != null && tTileEntity instanceof ICropTile) {
+                                if (tTileEntity instanceof ICropTile) {
                                     ICropTile tCrop = (ICropTile) tTileEntity;
                                     this.mCropCache.add(tCrop);
                                 }
@@ -656,35 +657,35 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
     public ITexture[] getFront(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_CropHarvester_Cutter)
+            TextureFactory.of(TexturesGtBlock.Casing_CropHarvester_Cutter)
         };
     }
 
     public ITexture[] getBack(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_CropHarvester_Cutter)
+            TextureFactory.of(TexturesGtBlock.Casing_CropHarvester_Cutter)
         };
     }
 
     public ITexture[] getBottom(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_CropHarvester_Boxes)
+            TextureFactory.of(TexturesGtBlock.Casing_CropHarvester_Boxes)
         };
     }
 
     public ITexture[] getTop(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_CropHarvester_Boxes)
+            TextureFactory.of(TexturesGtBlock.Casing_CropHarvester_Boxes)
         };
     }
 
     public ITexture[] getSides(final byte aColor) {
         return new ITexture[] {
             Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColor + 1],
-            new GT_RenderedTexture(TexturesGtBlock.Casing_CropHarvester_Cutter)
+            TextureFactory.of(TexturesGtBlock.Casing_CropHarvester_Cutter)
         };
     }
 

@@ -31,5 +31,5 @@ public enum ParticleNames {
     slime,
     heart,
     iconcrack_,
-    tilecrack_;
+    tilecrack_
 }

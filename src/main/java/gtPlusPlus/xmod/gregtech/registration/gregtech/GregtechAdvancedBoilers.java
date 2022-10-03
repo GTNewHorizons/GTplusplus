@@ -115,7 +115,7 @@ public class GregtechAdvancedBoilers {
 
         // Boiler Recipes
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Boiler_Advanced_LV.get(1L, new Object[0]),
+                GregtechItemList.Boiler_Advanced_LV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -137,7 +137,7 @@ public class GregtechAdvancedBoilers {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Boiler_Advanced_MV.get(1L, new Object[0]),
+                GregtechItemList.Boiler_Advanced_MV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -159,7 +159,7 @@ public class GregtechAdvancedBoilers {
                 });
 
         GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Boiler_Advanced_HV.get(1L, new Object[0]),
+                GregtechItemList.Boiler_Advanced_HV.get(1L),
                 GT_ModHandler.RecipeBits.DISMANTLEABLE
                         | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                         | GT_ModHandler.RecipeBits.REVERSIBLE

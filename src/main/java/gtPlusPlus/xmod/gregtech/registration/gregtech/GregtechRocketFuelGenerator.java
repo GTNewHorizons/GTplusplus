@@ -77,7 +77,7 @@ public class GregtechRocketFuelGenerator {
                 .getStackForm(1L));
         if (!CORE.GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_EV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_EV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -101,7 +101,7 @@ public class GregtechRocketFuelGenerator {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_IV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_IV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -126,7 +126,7 @@ public class GregtechRocketFuelGenerator {
         }
         if (CORE.GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_EV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_EV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -150,7 +150,7 @@ public class GregtechRocketFuelGenerator {
                     });
 
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_IV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_IV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -177,7 +177,7 @@ public class GregtechRocketFuelGenerator {
         final ItemStack INGREDIENT_2 = CI.electricMotor_LuV;
         if (!CORE.GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_LuV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_LuV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE
@@ -202,7 +202,7 @@ public class GregtechRocketFuelGenerator {
         }
         if (CORE.GTNH) {
             GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Rocket_Engine_LuV.get(1L, new Object[0]),
+                    GregtechItemList.Rocket_Engine_LuV.get(1L),
                     GT_ModHandler.RecipeBits.DISMANTLEABLE
                             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
                             | GT_ModHandler.RecipeBits.REVERSIBLE

@@ -147,9 +147,6 @@ public class FakeWorld implements IBlockAccess {
 
     @Override
     public boolean isSideSolid(int x, int y, int z, ForgeDirection side, boolean _default) {
-        if (!isAirBlock(x, y, z)) {
-            return true;
-        }
-        return false;
+        return !isAirBlock(x, y, z);
     }
 }

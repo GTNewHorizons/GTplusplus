@@ -264,10 +264,7 @@ public class TileEntityReverter extends TileEntity {
         if ((thereBlockID == Blocks.flowing_water) || (replaceBlockID == Blocks.water)) {
         	return true;
         }*/
-        if (replaceBlockID == Blocks.tnt) {
-            return true;
-        }
-        return false;
+        return replaceBlockID == Blocks.tnt;
     }
 
     private void captureBlockData() {

@@ -8,7 +8,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
@@ -25,10 +25,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
-    private static final ITexture[] FACING_SIDE = {new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Simple_Top)};
-    private static final ITexture[] FACING_FRONT = {new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Redstone_Off)
+    private static final ITexture[] FACING_SIDE = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Top)};
+    private static final ITexture[] FACING_FRONT = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_Off)
     };
-    private static final ITexture[] FACING_ACTIVE = {new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Redstone_On)
+    private static final ITexture[] FACING_ACTIVE = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_On)
     };
     public int mMaxProgresstime = 0;
     public int mUpdate = 30;
@@ -225,7 +225,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                             }
                         } else if ((!GT_Utility.arrayContains(
                                         this.getBaseMetaTileEntity().getBlockOffset(xDir + i, j, zDir + k),
-                                        new Object[] {Blocks.lava, Blocks.flowing_lava, null}))
+                                Blocks.lava, Blocks.flowing_lava, null))
                                 && (!this.getBaseMetaTileEntity().getAirOffset(xDir + i, j, zDir + k))) {
                             return false;
                         }
@@ -268,7 +268,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                         this.mProgresstime = 0;
                         this.mMaxProgresstime = 0;
                         try {
-                            GT_Mod.instance.achievements.issueAchievement(
+                            GT_Mod.achievements.issueAchievement(
                                     aBaseMetaTileEntity
                                             .getWorld()
                                             .getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()),
@@ -352,7 +352,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
     private void addOutputProducts() {
         if (this.mOutputItem1 != null) {
             if (this.mInventory[2] == null) {
-                this.mInventory[2] = GT_Utility.copy(new Object[] {this.mOutputItem1});
+                this.mInventory[2] = GT_Utility.copy(this.mOutputItem1);
             } else if (GT_Utility.areStacksEqual(this.mInventory[2], this.mOutputItem1)) {
                 this.mInventory[2].stackSize = Math.min(
                         this.mOutputItem1.getMaxStackSize(),
@@ -361,7 +361,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
         }
         if (this.mOutputItem2 != null) {
             if (this.mInventory[3] == null) {
-                this.mInventory[3] = GT_Utility.copy(new Object[] {this.mOutputItem2});
+                this.mInventory[3] = GT_Utility.copy(this.mOutputItem2);
             } else if (GT_Utility.areStacksEqual(this.mInventory[3], this.mOutputItem2)) {
                 this.mInventory[3].stackSize = Math.min(
                         this.mOutputItem2.getMaxStackSize(),
@@ -371,22 +371,19 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
     }
 
     private boolean spaceForOutput(final ItemStack aStack1, final ItemStack aStack2) {
-        if (((this.mInventory[2] == null)
-                        || (aStack1 == null)
-                        || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
-                                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
+        return ((this.mInventory[2] == null)
+                || (aStack1 == null)
+                || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
+                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
                 && ((this.mInventory[3] == null)
-                        || (aStack2 == null)
-                        || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
-                                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))))) {
-            return true;
-        }
-        return false;
+                || (aStack2 == null)
+                || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
+                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))));
     }
 
     private int getProperTime(int time) {
         if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            return (int) (time / 3);
+            return time / 3;
         } else {
             return time;
         }
@@ -454,7 +451,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                                 this.mOutputItem2 =
                                         GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Ash, 2L)))) {
                     this.getBaseMetaTileEntity().decrStackSize(0, 1);
-                    this.getBaseMetaTileEntity().decrStackSize(1, 1 * 3);
+                    this.getBaseMetaTileEntity().decrStackSize(1, 3);
                     this.mMaxProgresstime = getProperTime(2400);
                     return true;
                 }

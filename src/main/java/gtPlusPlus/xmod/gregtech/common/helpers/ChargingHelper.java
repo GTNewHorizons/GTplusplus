@@ -31,7 +31,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
 public class ChargingHelper {
 
-    private static Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
+    private static final Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
             new HashMap<String, Pair<GregtechMetaWirelessCharger, Byte>>();
     protected static Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap =
             new HashMap<BlockPos, GregtechMetaWirelessCharger>();
@@ -120,7 +120,7 @@ public class ChargingHelper {
                                                         if (mEntityTemp.getMode() == 0) {
                                                             mMaxDistance = (4 * GT_Values.V[mEntityTemp.getTier()]);
                                                         } else if (mEntityTemp.getMode() == 1) {
-                                                            mMaxDistance = (mEntityTemp.getTier() * 10);
+                                                            mMaxDistance = (mEntityTemp.getTier() * 10L);
                                                         } else {
                                                             mMaxDistance = (4 * GT_Values.V[mEntityTemp.getTier()] / 2);
                                                         }
@@ -167,11 +167,7 @@ public class ChargingHelper {
             return false;
         }
         if (!mChargerMap.containsKey(mPos)) {
-            if (mChargerMap.put(mPos, mEntity) == null) {
-                return true;
-            } else {
-                return false;
-            }
+            return mChargerMap.put(mPos, mEntity) == null;
         } else {
             return true;
         }
@@ -182,11 +178,7 @@ public class ChargingHelper {
             return false;
         }
         if (mChargerMap.containsKey(mPos)) {
-            if (mChargerMap.remove(mPos, mEntity)) {
-                return true;
-            } else {
-                return false;
-            }
+            return mChargerMap.remove(mPos, mEntity);
         } else {
             return false;
         }
@@ -308,8 +300,7 @@ public class ChargingHelper {
                             || mTemp.getItem()
                                     .getClass()
                                     .getName()
-                                    .toLowerCase()
-                                    .equals(("gregtech.common.items.GT_MetaGenerated_Tool_01").toLowerCase())) {
+                                    .equalsIgnoreCase(("gregtech.common.items.GT_MetaGenerated_Tool_01"))) {
                         if (!NBTUtils.hasKey(mTemp, "GT.ItemCharge")) {
                             if (!mTemp.getDisplayName().toLowerCase().contains("battery")) {
                                 if (!GT_ModHandler.isElectricItem(mTemp)) {
@@ -438,10 +429,7 @@ public class ChargingHelper {
         if (GT_ModHandler.isElectricItem(itemstack)) {
             return true;
         }
-        if ((accepts(itemstack)) || (itemstack.getItem() instanceof IElectricItem)) {
-            return true;
-        }
-        return false;
+        return (accepts(itemstack)) || (itemstack.getItem() instanceof IElectricItem);
     }
 
     public static boolean isItemValidRF(final ItemStack itemStack) {
