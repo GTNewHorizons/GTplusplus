@@ -17,6 +17,8 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.BTF_Inventory;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import ic2.api.Direction;
+
+import java.util.Arrays;
 import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
@@ -521,9 +523,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     }
 
     protected final void clearTileEntityBuffer() {
-        for (int i = 0; i < this.mBufferedTileEntities.length; ++i) {
-            this.mBufferedTileEntities[i] = null;
-        }
+        Arrays.fill(this.mBufferedTileEntities, null);
     }
 
     public final World getWorld() {

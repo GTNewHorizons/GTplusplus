@@ -214,7 +214,7 @@ public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_Re
 
     private void switchGate() {
         resetRedstone();
-        for (int i = 0; i < mGateData.length; i++) mGateData[i] = 0;
+        Arrays.fill(mGateData, 0);
         GT_CircuitryBehavior tBehaviour = GregTech_API.sCircuitryBehaviors.get(mGate);
         if (tBehaviour != null)
             try {

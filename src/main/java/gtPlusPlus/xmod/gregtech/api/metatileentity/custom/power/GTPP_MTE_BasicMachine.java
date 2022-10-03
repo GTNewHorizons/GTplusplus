@@ -533,7 +533,7 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
                             if (getDrainableStack() == null) setDrainableStack(mOutputFluid.copy());
                             else if (mOutputFluid.isFluidEqual(getDrainableStack()))
                                 getDrainableStack().amount += mOutputFluid.amount;
-                        for (int i = 0; i < mOutputItems.length; i++) mOutputItems[i] = null;
+                        Arrays.fill(mOutputItems, null);
                         mOutputFluid = null;
                         mEUt = 0;
                         mProgresstime = 0;
@@ -639,7 +639,7 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
                         startProcess();
                     } else {
                         mMaxProgresstime = 0;
-                        for (int i = 0; i < mOutputItems.length; i++) mOutputItems[i] = null;
+                        Arrays.fill(mOutputItems, null);
                         mOutputFluid = null;
                     }
                 }
