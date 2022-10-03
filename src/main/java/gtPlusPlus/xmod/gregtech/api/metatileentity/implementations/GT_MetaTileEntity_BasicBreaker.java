@@ -251,8 +251,7 @@ public class GT_MetaTileEntity_BasicBreaker extends GTPP_MTE_TieredMachineBlock 
             ItemStack[] arg8 = this.mInventory;
             int arg9 = arg8.length;
 
-            for (int arg10 = 0; arg10 < arg9; ++arg10) {
-                ItemStack aStack = arg8[arg10];
+            for (ItemStack aStack : arg8) {
                 if (GT_ModHandler.isElectricItem(aStack)) {
                     if (aStack.getItem() instanceof GT_MetaBase_Item) {
                         Long[] stats = ((GT_MetaBase_Item) aStack.getItem()).getElectricStats(aStack);

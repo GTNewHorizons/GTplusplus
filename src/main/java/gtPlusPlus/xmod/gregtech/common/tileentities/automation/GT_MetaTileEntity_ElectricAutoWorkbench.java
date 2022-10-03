@@ -727,9 +727,9 @@ public class GT_MetaTileEntity_ElectricAutoWorkbench extends GT_MetaTileEntity_B
         for (byte i = 0; i < 9; i++) {
             if (tRecipe[i] != null) {
                 boolean temp = false;
-                for (byte j = 0; j < tList.size(); j++) {
-                    if (GT_Utility.areStacksEqual(tRecipe[i], tList.get(j))) {
-                        tList.get(j).stackSize++;
+                for (ItemStack itemStack : tList) {
+                    if (GT_Utility.areStacksEqual(tRecipe[i], itemStack)) {
+                        itemStack.stackSize++;
                         temp = true;
                         break;
                     }

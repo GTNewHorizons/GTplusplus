@@ -907,10 +907,10 @@ public class ItemUtils {
         final ArrayList<ItemStack> oreDictList = OreDictionary.getOres(oredictName);
         if (!oreDictList.isEmpty()) {
             ItemStack returnvalue;
-            for (int xrc = 0; xrc < oreDictList.size(); xrc++) {
-                final String modid = getModId(oreDictList.get(xrc).getItem());
+            for (ItemStack itemStack : oreDictList) {
+                final String modid = getModId(itemStack.getItem());
                 if (modid != null && (modid.equals("gregtech") || modid.equals(CORE.MODID))) {
-                    returnvalue = oreDictList.get(xrc).copy();
+                    returnvalue = itemStack.copy();
                     returnvalue.stackSize = amount;
                     return returnvalue;
                 }
@@ -924,10 +924,10 @@ public class ItemUtils {
         final ArrayList<ItemStack> oreDictList = OreDictionary.getOres(oredictName);
         if (!oreDictList.isEmpty()) {
             ItemStack returnvalue;
-            for (int xrc = 0; xrc < oreDictList.size(); xrc++) {
-                final String modid = getModId(oreDictList.get(xrc).getItem());
+            for (ItemStack itemStack : oreDictList) {
+                final String modid = getModId(itemStack.getItem());
                 if (modid != null && !modid.equals("tconstruct")) {
-                    returnvalue = oreDictList.get(xrc).copy();
+                    returnvalue = itemStack.copy();
                     returnvalue.stackSize = amount;
                     return returnvalue;
                 }

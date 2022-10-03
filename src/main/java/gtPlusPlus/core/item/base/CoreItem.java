@@ -257,8 +257,8 @@ public class CoreItem extends Item {
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         if (this.itemDescription.length > 0) {
-            for (int u = 0; u < this.itemDescription.length; u++) {
-                list.add(this.descColour + this.itemDescription[u]);
+            for (String s : this.itemDescription) {
+                list.add(this.descColour + s);
             }
         }
         // list.add(this.descColour+this.itemDescription);

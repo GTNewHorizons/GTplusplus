@@ -368,8 +368,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         try {
             log("Checking " + aItemInputs.length + " Data Orbs");
 
-            for (int i = 0; i < aItemInputs.length; i++) {
-                ItemStack aItem = aItemInputs[i];
+            for (ItemStack aItem : aItemInputs) {
                 log("Found: " + aItem.getDisplayName());
             }
             ItemStack aDataOrbStack = null;

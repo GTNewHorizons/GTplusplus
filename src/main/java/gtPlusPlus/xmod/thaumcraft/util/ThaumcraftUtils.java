@@ -102,8 +102,7 @@ public class ThaumcraftUtils {
         if (tCategory == null) {
             return null;
         }
-        for (Iterator<TC_ResearchItem_Wrapper> i$ = tCategory.research.values().iterator(); i$.hasNext(); ) {
-            TC_ResearchItem_Wrapper tResearch = (TC_ResearchItem_Wrapper) i$.next();
+        for (TC_ResearchItem_Wrapper tResearch : tCategory.research.values()) {
             if ((tResearch.displayColumn == aX) && (tResearch.displayRow == aY)) {
                 aX += (aX > 0 ? 5 : -5);
                 aY += (aY > 0 ? 5 : -5);

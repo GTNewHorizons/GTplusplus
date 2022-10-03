@@ -451,9 +451,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         ItemStack[] aitemstack = this.aHopperInventory;
         int i = aitemstack.length;
 
-        for (int j = 0; j < i; ++j) {
-            ItemStack itemstack = aitemstack[j];
-
+        for (ItemStack itemstack : aitemstack) {
             if (itemstack != null) {
                 return false;
             }
@@ -512,8 +510,8 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
             ISidedInventory isidedinventory = (ISidedInventory) aInv;
             int[] aint = isidedinventory.getAccessibleSlotsFromSide(aSide);
 
-            for (int l = 0; l < aint.length; ++l) {
-                ItemStack itemstack1 = isidedinventory.getStackInSlot(aint[l]);
+            for (int i : aint) {
+                ItemStack itemstack1 = isidedinventory.getStackInSlot(i);
 
                 if (itemstack1 == null || itemstack1.stackSize != itemstack1.getMaxStackSize()) {
                     return false;

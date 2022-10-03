@@ -58,7 +58,7 @@ public class BaseItemBrain extends Item {
         // This creates a loop with a counter. It will go through once for
         // every listing in brainTypes,  and gives us a number associated
         // with each listing.
-        for (int pos = 0; pos < this.brainTypes.length; pos++) {
+        for (String brainType : this.brainTypes) {
             // This creates a new ItemStack instance. The item parameter
             // supplied is this item.
             final ItemStack brainStack = new ItemStack(item);
@@ -68,7 +68,7 @@ public class BaseItemBrain extends Item {
             // Now we set the type of the item, brainType is the key, and
             // brainTypes[pos] is grabbing a
             // entry from the brainTypes array.
-            brainStack.getTagCompound().setString("brainType", this.brainTypes[pos]);
+            brainStack.getTagCompound().setString("brainType", brainType);
             // And this adds it to the itemList, which is a list of all items
             // in the creative tab.
             itemList.add(brainStack);

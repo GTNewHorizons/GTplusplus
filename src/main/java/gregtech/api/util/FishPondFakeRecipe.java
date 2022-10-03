@@ -39,14 +39,14 @@ public class FishPondFakeRecipe {
 
         int mType = 14;
         for (ArrayList<WeightedRandomFishable> f : mega.values()) {
-            for (int e = 0; e < f.size(); e++) {
-                if (f.get(e) != null) {
-                    WeightedRandomFishable u = f.get(e);
+            for (WeightedRandomFishable weightedRandomFishable : f) {
+                if (weightedRandomFishable != null) {
+                    WeightedRandomFishable u = weightedRandomFishable;
                     try {
                         ItemStack t =
                                 (ItemStack) ReflectionUtils.getField(WeightedRandomFishable.class, "field_150711_b")
                                         .get(u);
-                        addNewFishPondLoot(mType, new ItemStack[] {t}, new int[] {10000});
+                        addNewFishPondLoot(mType, new ItemStack[]{t}, new int[]{10000});
                     } catch (IllegalArgumentException | IllegalAccessException e1) {
                         Logger.INFO("Error generating Fish Pond Recipes. [2]");
                         e1.printStackTrace();

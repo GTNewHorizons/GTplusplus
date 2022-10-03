@@ -771,8 +771,8 @@ public class Material {
             int tempSmallestSize = 0;
 
             if (this.vSmallestRatio != null) {
-                for (int v = 0; v < this.vSmallestRatio.length; v++) {
-                    tempSmallestSize = (int) (tempSmallestSize + this.vSmallestRatio[v]);
+                for (long l : this.vSmallestRatio) {
+                    tempSmallestSize = (int) (tempSmallestSize + l);
                 }
                 this.smallestStackSizeWhenProcessing = tempSmallestSize; // Valid stacksizes
             } else {
@@ -824,11 +824,11 @@ public class Material {
             }
             StringBuilder ratio = new StringBuilder();
             if (this.vSmallestRatio != null) {
-                for (int hu = 0; hu < this.vSmallestRatio.length; hu++) {
+                for (long l : this.vSmallestRatio) {
                     if (ratio.toString().equals("")) {
-                        ratio = new StringBuilder(String.valueOf(this.vSmallestRatio[hu]));
+                        ratio = new StringBuilder(String.valueOf(l));
                     } else {
-                        ratio.append(":").append(this.vSmallestRatio[hu]);
+                        ratio.append(":").append(l);
                     }
                 }
             }
@@ -1410,16 +1410,16 @@ public class Material {
 
                 if (smallestRatio.length > 0) {
                     StringBuilder tempRatioStringThing1 = new StringBuilder();
-                    for (int r = 0; r < tempRatio.length; r++) {
-                        tempRatioStringThing1.append(tempRatio[r]).append(" : ");
+                    for (long value : tempRatio) {
+                        tempRatioStringThing1.append(value).append(" : ");
                     }
                     Logger.MATERIALS("Default Ratio: " + tempRatioStringThing1);
 
                     StringBuilder tempRatioStringThing = new StringBuilder();
                     int tempSmallestCraftingUseSize = 0;
-                    for (int r = 0; r < smallestRatio.length; r++) {
-                        tempRatioStringThing.append(smallestRatio[r]).append(" : ");
-                        tempSmallestCraftingUseSize = (int) (tempSmallestCraftingUseSize + smallestRatio[r]);
+                    for (long l : smallestRatio) {
+                        tempRatioStringThing.append(l).append(" : ");
+                        tempSmallestCraftingUseSize = (int) (tempSmallestCraftingUseSize + l);
                     }
                     // this.smallestStackSizeWhenProcessing = tempSmallestCraftingUseSize;
                     Logger.MATERIALS("Smallest Ratio: " + tempRatioStringThing);

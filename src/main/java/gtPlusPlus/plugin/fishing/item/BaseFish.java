@@ -48,8 +48,7 @@ public class BaseFish extends ItemFood {
         BaseFishTypes[] afishtype = BaseFishTypes.values();
         int i = afishtype.length;
 
-        for (int j = 0; j < i; ++j) {
-            BaseFishTypes fishtype = afishtype[j];
+        for (BaseFishTypes fishtype : afishtype) {
             fishtype.func_150968_a(p_94581_1_);
         }
     }
@@ -83,9 +82,7 @@ public class BaseFish extends ItemFood {
         BaseFishTypes[] afishtype = BaseFishTypes.values();
         int i = afishtype.length;
 
-        for (int j = 0; j < i; ++j) {
-            BaseFishTypes fishtype = afishtype[j];
-
+        for (BaseFishTypes fishtype : afishtype) {
             if (!this.isCooked || fishtype.isCooked()) {
                 p_150895_3_.add(new ItemStack(this, 1, fishtype.getFishID()));
             }

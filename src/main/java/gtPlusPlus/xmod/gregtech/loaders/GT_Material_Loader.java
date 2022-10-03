@@ -55,9 +55,9 @@ public class GT_Material_Loader {
 
                     Logger.REFLECTION("Examining Proxy to ensure it implements the correct Interface.");
                     Class[] i = mProxyObject.getClass().getInterfaces();
-                    for (int r = 0; r < i.length; r++) {
-                        Logger.REFLECTION("Contains " + i[r].getCanonicalName() + ".");
-                        if (i[r] == mInterface) {
+                    for (Class aClass : i) {
+                        Logger.REFLECTION("Contains " + aClass.getCanonicalName() + ".");
+                        if (aClass == mInterface) {
                             Logger.REFLECTION("Found gregtech.api.interfaces.IMaterialHandler. This Proxy is valid.");
                         }
                     }

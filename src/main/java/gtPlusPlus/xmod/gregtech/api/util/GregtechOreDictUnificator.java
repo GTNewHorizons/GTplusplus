@@ -299,7 +299,7 @@ public class GregtechOreDictUnificator {
         String tName = aName.toString();
         if (GT_Utility.isStringInvalid(tName)) return false;
         ArrayList<ItemStack> tList = getOres(tName);
-        for (int i = 0; i < tList.size(); i++) if (GT_Utility.areStacksEqual(tList.get(i), aStack, true)) return false;
+        for (ItemStack itemStack : tList) if (GT_Utility.areStacksEqual(itemStack, aStack, true)) return false;
         isRegisteringOre++;
         OreDictionary.registerOre(tName, GT_Utility.copyAmount(1, aStack));
         isRegisteringOre--;

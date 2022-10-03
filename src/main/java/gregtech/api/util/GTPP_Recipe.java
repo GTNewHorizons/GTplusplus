@@ -1130,11 +1130,11 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 // Up to 9 Fluid Inputs Slots
                 aSlotToCheck = aInputSlotsUsed;
                 if (aInputFluidsCount > 0) {
-                    for (int i = 0; i < aInputFluidsCount; i++) {
+                    for (FluidStack mFluidInput : mFluidInputs) {
                         int x = mInputSlotMap.get(aSlotToCheck).getKey();
                         int y = mInputSlotMap.get(aSlotToCheck).getValue();
                         inputStacks.add(
-                                new FixedPositionedStack(GT_Utility.getFluidDisplayStack(mFluidInputs[i], true), x, y));
+                                new FixedPositionedStack(GT_Utility.getFluidDisplayStack(mFluidInput, true), x, y));
                         aSlotToCheck++;
                         aInputSlotsUsed++;
                     }
@@ -1171,11 +1171,11 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 // Up to 9 Fluid Outputs Slots
                 aSlotToCheck = aOutputSlotsUsed;
                 if (aOutputFluidsCount > 0) {
-                    for (int i = 0; i < aOutputFluidsCount; i++) {
+                    for (FluidStack mFluidOutput : mFluidOutputs) {
                         int x = mOutputSlotMap.get(aSlotToCheck).getKey();
                         int y = mOutputSlotMap.get(aSlotToCheck).getValue();
                         outputStacks.add(new FixedPositionedStack(
-                                GT_Utility.getFluidDisplayStack(mFluidOutputs[i], true), x, y));
+                                GT_Utility.getFluidDisplayStack(mFluidOutput, true), x, y));
                         aSlotToCheck++;
                         aOutputSlotsUsed++;
                     }

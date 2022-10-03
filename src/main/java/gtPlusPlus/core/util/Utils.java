@@ -671,13 +671,14 @@ public class Utils {
             }
         }
 
-        for (int r = 0; r < e.length; r++) {
+        for (Versioning versioning : e) {
             if (e[0] == Versioning.NEWER) {
                 return Versioning.NEWER;
             } else if (e[0] == Versioning.OLDER) {
                 return Versioning.OLDER;
             } else {
-                if (e[r] == Versioning.OLDER) {}
+                if (versioning == Versioning.OLDER) {
+                }
 
                 return Versioning.NEWER;
             }

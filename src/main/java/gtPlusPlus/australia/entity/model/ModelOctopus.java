@@ -51,8 +51,7 @@ public class ModelOctopus extends ModelBase {
         ModelRenderer[] amodelrenderer = this.octoTentacles;
         int i = amodelrenderer.length;
 
-        for (int j = 0; j < i; ++j) {
-            ModelRenderer modelrenderer = amodelrenderer[j];
+        for (ModelRenderer modelrenderer : amodelrenderer) {
             modelrenderer.rotateAngleX = p_78087_3_;
         }
     }
@@ -71,8 +70,8 @@ public class ModelOctopus extends ModelBase {
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);
         this.octopusBody.render(p_78088_7_);
 
-        for (int i = 0; i < this.octoTentacles.length; ++i) {
-            this.octoTentacles[i].render(p_78088_7_);
+        for (ModelRenderer octoTentacle : this.octoTentacles) {
+            octoTentacle.render(p_78088_7_);
         }
     }
 }

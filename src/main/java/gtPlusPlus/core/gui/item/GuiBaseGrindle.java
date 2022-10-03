@@ -139,9 +139,9 @@ public class GuiBaseGrindle extends GuiContainer {
                         if (aCurrentPage != null) {
                             // Logger.INFO("valid Current page " + this.mCurrentPage);
                             if (aCurrentPage.length > 0) {
-                                for (int i = 0; i < aCurrentPage.length; i++) {
+                                for (String s : aCurrentPage) {
                                     if ((aLastYUsed + 9) <= (68 + 56)) {
-                                        String aCP = aCurrentPage[i];
+                                        String aCP = s;
                                         // Logger.INFO("Printing "+aCP);
                                         if (aCP != null && aCP.length() > 0) {
                                             if (!aCP.toLowerCase().contains("empty")

@@ -55,8 +55,8 @@ public class ProcessingToolHeadChoocher implements Interface_OreRecipeRegistrato
         Logger.WARNING("Materials to attempt tool gen. with: " + size);
         int used = 0;
         Materials aMaterial = null;
-        for (int r = 0; r < size; r++) {
-            aMaterial = i[r];
+        for (Materials materials : i) {
+            aMaterial = materials;
             if ((aMaterial != Materials.Stone)
                     && (aMaterial != Materials.Flint)
                     && (aMaterial != Materials.Rubber)

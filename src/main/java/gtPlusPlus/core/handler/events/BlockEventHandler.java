@@ -97,29 +97,29 @@ public class BlockEventHandler {
 
                                 ArrayList<Block> mBlockTypes = new ArrayList<Block>();
                                 if (!oreLimestone.isEmpty()) {
-                                    for (int i = 0; i < oreLimestone.size(); i++) {
-                                        if (ItemUtils.getModId(oreLimestone.get(i)) != null
-                                                && !ItemUtils.getModId(oreLimestone.get(i))
-                                                        .toLowerCase()
-                                                        .contains("biomesoplenty")) {
+                                    for (ItemStack itemStack : oreLimestone) {
+                                        if (ItemUtils.getModId(itemStack) != null
+                                                && !ItemUtils.getModId(itemStack)
+                                                .toLowerCase()
+                                                .contains("biomesoplenty")) {
                                             if (!mBlockTypes.contains(Block.getBlockFromItem(
-                                                    oreLimestone.get(i).getItem()))) {
+                                                    itemStack.getItem()))) {
                                                 mBlockTypes.add(Block.getBlockFromItem(
-                                                        oreLimestone.get(i).getItem()));
+                                                        itemStack.getItem()));
                                             }
                                         }
                                     }
                                 }
                                 if (!blockLimestone.isEmpty()) {
-                                    for (int i = 0; i < blockLimestone.size(); i++) {
-                                        if (ItemUtils.getModId(blockLimestone.get(i)) != null
-                                                && !ItemUtils.getModId(blockLimestone.get(i))
-                                                        .toLowerCase()
-                                                        .contains("biomesoplenty")) {
+                                    for (ItemStack itemStack : blockLimestone) {
+                                        if (ItemUtils.getModId(itemStack) != null
+                                                && !ItemUtils.getModId(itemStack)
+                                                .toLowerCase()
+                                                .contains("biomesoplenty")) {
                                             if (!mBlockTypes.contains(Block.getBlockFromItem(
-                                                    blockLimestone.get(i).getItem()))) {
+                                                    itemStack.getItem()))) {
                                                 mBlockTypes.add(Block.getBlockFromItem(
-                                                        blockLimestone.get(i).getItem()));
+                                                        itemStack.getItem()));
                                             }
                                         }
                                     }

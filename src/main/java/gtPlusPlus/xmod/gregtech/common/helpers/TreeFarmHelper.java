@@ -758,10 +758,10 @@ public class TreeFarmHelper {
                     // Array is not null.
                     if (i != null) {
                         // Iterate this array.
-                        for (int d = 0; d < i.length; d++) {
+                        for (ItemStack itemStack : i) {
                             // Put Output into collective if valid
-                            if (i[d] != null && i[d].stackSize > 0) {
-                                mCollective.put(i[d]);
+                            if (itemStack != null && itemStack.stackSize > 0) {
+                                mCollective.put(itemStack);
                             }
                         }
                     }

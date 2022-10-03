@@ -41,9 +41,9 @@ public class GregtechItemData {
                     ? EMPTY_GT_MaterialStack_ARRAY
                     : new GregtechMaterialStack[aByProducts.length];
             int j = 0;
-            for (int i = 0; i < aByProducts.length; i++) {
-                if ((aByProducts[i] != null) && (aByProducts[i].mMaterial != null)) {
-                    tByProducts[j++] = aByProducts[i].clone();
+            for (GregtechMaterialStack aByProduct : aByProducts) {
+                if ((aByProduct != null) && (aByProduct.mMaterial != null)) {
+                    tByProducts[j++] = aByProduct.clone();
                 }
             }
             this.mByProducts = j > 0 ? new GregtechMaterialStack[j] : EMPTY_GT_MaterialStack_ARRAY;

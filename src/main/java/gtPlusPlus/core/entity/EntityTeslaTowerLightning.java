@@ -113,8 +113,7 @@ public class EntityTeslaTowerLightning extends EntityWeatherEffect {
                                 this.posY + 6.0D + d0,
                                 this.posZ + d0));
 
-                for (int l = 0; l < list.size(); ++l) {
-                    Entity entity = list.get(l);
+                for (Entity entity : list) {
                     if (this.boltValidDamageTarget.getUniqueID().equals(entity.getUniqueID())) {
                         if (!entity.getUniqueID().equals(boltOwnerID)) {
                             Logger.INFO("Plasma Bolt - Hurting Entity.");

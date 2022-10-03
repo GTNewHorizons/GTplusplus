@@ -62,15 +62,15 @@ public class Core_SulfuricChemistry implements IPlugin {
                         for (GT_Recipe m : mRemovedRecipes1) {
                             String[] mInfo = RecipeUtils.getRecipeInfo(m);
                             log("Removed Recipe");
-                            for (int r = 0; r < mInfo.length; r++) {
-                                log(mInfo[r]);
+                            for (String s : mInfo) {
+                                log(s);
                             }
                         }
                         for (GT_Recipe m : mRemovedRecipes2) {
                             String[] mInfo = RecipeUtils.getRecipeInfo(m);
                             log("Removed Recipe");
-                            for (int r = 0; r < mInfo.length; r++) {
-                                log(mInfo[r]);
+                            for (String s : mInfo) {
+                                log(s);
                             }
                         }
                     }

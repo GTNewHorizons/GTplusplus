@@ -98,8 +98,8 @@ public class BaseItemMisc extends Item {
             final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         if (this.description != null) { // Incase I don't add one
             if (this.description.length > 0) { // Incase I somehow add a blank one
-                for (int x = 0; x < this.description.length; x++) {
-                    list.add(EnumChatFormatting.GRAY + description[x]);
+                for (String s : this.description) {
+                    list.add(EnumChatFormatting.GRAY + s);
                 }
             }
         }

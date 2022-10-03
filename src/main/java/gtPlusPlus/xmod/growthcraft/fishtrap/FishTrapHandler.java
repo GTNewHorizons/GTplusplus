@@ -104,9 +104,9 @@ public class FishTrapHandler {
     };
 
     public static void pamsHarvestCraftCompat() {
-        for (int i = 0; i < harvestcraftFish.length; i++) {
-            final String itemName = prefix + harvestcraftFish[i] + suffix;
-            final int lootChance = getLootChance(harvestcraftFish[i]);
+        for (String fish : harvestcraftFish) {
+            final String itemName = prefix + fish + suffix;
+            final int lootChance = getLootChance(fish);
             if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken(itemName, 1) != null) {
                 // addFish("fish", ItemUtils.getItemStackOfAmountFromOreDict(itemName, 1), lootChance);
                 addGregtechMaceratorRecipe(ItemUtils.getItemStackOfAmountFromOreDict(itemName, 1));
