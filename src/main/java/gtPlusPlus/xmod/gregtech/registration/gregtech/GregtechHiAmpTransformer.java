@@ -125,11 +125,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_ULV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Tin),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Lead)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -137,11 +137,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_LV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Copper),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Tin)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -149,11 +149,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_MV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.AnnealedCopper)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -161,13 +161,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_HV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Cupronickel
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -175,13 +175,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_EV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Kanthal
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -189,13 +189,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_IV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Nichrome
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -203,13 +203,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_LuV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_1
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -217,13 +217,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_ZPM,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_2
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -231,13 +231,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Hull_UV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt01.get(Materials.Bedrockium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_3
                     });
         } else {
@@ -246,11 +246,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_LV_ULV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Tin),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Lead)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -258,11 +258,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_MV_LV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.AnyCopper),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Tin)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -270,11 +270,11 @@ public class GregtechHiAmpTransformer {
                         " BB",
                         "CM ",
                         " BB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_HV_MV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.AnyCopper)
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -282,13 +282,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_EV_HV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Cupronickel
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -296,13 +296,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_IV_EV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Kanthal
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -310,13 +310,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_LuV_IV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('K'),
+                            'K',
                         ItemList.Casing_Coil_Nichrome
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -324,13 +324,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_ZPM_LuV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_1
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -338,13 +338,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_UV_ZPM,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_2
                     });
             GT_ModHandler.addCraftingRecipe(
@@ -352,13 +352,13 @@ public class GregtechHiAmpTransformer {
                         "KBB",
                         "CM ",
                         "KBB",
-                        Character.valueOf('M'),
+                            'M',
                         ItemList.Transformer_MAX_UV,
-                        Character.valueOf('C'),
+                            'C',
                         OrePrefixes.wireGt01.get(Materials.Bedrockium),
-                        Character.valueOf('B'),
+                            'B',
                         OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('K'),
+                            'K',
                         mItem_3
                     });
         }

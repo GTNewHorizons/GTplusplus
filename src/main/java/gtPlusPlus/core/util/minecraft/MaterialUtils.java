@@ -105,7 +105,7 @@ public class MaterialUtils {
                     radioactivity = (int) Math.min(Math.max((aProtons / 30), 1), 9);
                 }
             }
-            Logger.MATERIALS("[Debug] Calculated Radiation level to be " + radioactivity.intValue() + ".");
+            Logger.MATERIALS("[Debug] Calculated Radiation level to be " + radioactivity + ".");
             TextureSet iconSet = null;
             if (aCustomTextures == null) {
                 if (material.isRadioactive()) {

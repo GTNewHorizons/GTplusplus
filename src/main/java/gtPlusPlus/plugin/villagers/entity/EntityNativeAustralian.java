@@ -516,11 +516,11 @@ public class EntityNativeAustralian extends EntityVillager {
         Tuple tuple = (Tuple) blacksmithSellingList.get(aItem);
         return tuple == null
                 ? 1
-                : (((Integer) tuple.getFirst()).intValue() >= ((Integer) tuple.getSecond()).intValue()
-                        ? ((Integer) tuple.getFirst()).intValue()
-                        : ((Integer) tuple.getFirst()).intValue()
-                                + aRand.nextInt(((Integer) tuple.getSecond()).intValue()
-                                        - ((Integer) tuple.getFirst()).intValue()));
+                : ((Integer) tuple.getFirst() >= (Integer) tuple.getSecond()
+                        ? (Integer) tuple.getFirst()
+                        : (Integer) tuple.getFirst()
+                                + aRand.nextInt((Integer) tuple.getSecond()
+                                        - (Integer) tuple.getFirst()));
     }
 
     public static void addPurchaseRecipe(MerchantRecipeList aTradeList, Item aItem, Random aRand, float aChance) {
@@ -548,10 +548,10 @@ public class EntityNativeAustralian extends EntityVillager {
         Tuple tuple = (Tuple) villagersSellingList.get(aItem);
         return tuple == null
                 ? 1
-                : (((Integer) tuple.getFirst()).intValue() >= ((Integer) tuple.getSecond()).intValue()
-                        ? ((Integer) tuple.getFirst()).intValue()
-                        : ((Integer) tuple.getFirst()).intValue()
-                                + aRand.nextInt(((Integer) tuple.getSecond()).intValue()
-                                        - ((Integer) tuple.getFirst()).intValue()));
+                : ((Integer) tuple.getFirst() >= (Integer) tuple.getSecond()
+                        ? (Integer) tuple.getFirst()
+                        : (Integer) tuple.getFirst()
+                                + aRand.nextInt((Integer) tuple.getSecond()
+                                        - (Integer) tuple.getFirst()));
     }
 }

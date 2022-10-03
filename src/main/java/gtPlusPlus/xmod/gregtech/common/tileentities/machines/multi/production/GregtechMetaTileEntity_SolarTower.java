@@ -508,7 +508,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(212));
+        return GregTech_API.sSoundList.get(212);
     }
 
     @Override

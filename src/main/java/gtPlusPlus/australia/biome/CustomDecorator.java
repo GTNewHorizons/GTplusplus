@@ -264,7 +264,7 @@ public class CustomDecorator extends BiomeDecorator {
             int midX = Math.max(0, 7 / 2);
             int midZ = Math.max(0, 7 / 2);
             int mCurrentBiomeID =
-                    Integer.valueOf(currentWorld.getBiomeGenForCoords(chunk_X + midX, chunk_Z + midZ).biomeID);
+                    currentWorld.getBiomeGenForCoords(chunk_X + midX, chunk_Z + midZ).biomeID;
 
             if (mCurrentBiomeID == GTplusplus_Australia.Australian_Outback_Biome.biomeID) {
                 this.generateLakes = false;

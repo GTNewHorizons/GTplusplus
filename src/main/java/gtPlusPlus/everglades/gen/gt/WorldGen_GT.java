@@ -54,7 +54,7 @@ public abstract class WorldGen_GT {
             this.mDimensionMap.put(aDimName, tValue);
             return tValue;
         } else {
-            return tAllowed.booleanValue();
+            return tAllowed;
         }
     }
 }

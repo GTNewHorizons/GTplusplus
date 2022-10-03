@@ -256,11 +256,11 @@ public class GT_MetaTileEntity_BasicBreaker extends GTPP_MTE_TieredMachineBlock 
                     if (aStack.getItem() instanceof GT_MetaBase_Item) {
                         Long[] stats = ((GT_MetaBase_Item) aStack.getItem()).getElectricStats(aStack);
                         if (stats != null) {
-                            if (stats[0].longValue() > 4611686018427387903L) {
+                            if (stats[0] > 4611686018427387903L) {
                                 scaleOverflow = true;
                             }
 
-                            tScale += stats[0].longValue();
+                            tScale += stats[0];
                             tStep = ((GT_MetaBase_Item) aStack.getItem()).getRealCharge(aStack);
                             if (tStep > 4611686018427387903L) {
                                 storedOverflow = true;

@@ -238,7 +238,7 @@ public class ClassTransformer_TC_ItemWispEssence {
             mv.visitLineNumber(203, l3);
             mv.visitFrame(F_SAME, 0, null, 0, null);
             mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "currentTimeMillis", "()J", false);
-            mv.visitLdcInsn(new Long(500L));
+            mv.visitLdcInsn(500L);
             mv.visitInsn(LDIV);
             mv.visitFieldInsn(
                     GETSTATIC,

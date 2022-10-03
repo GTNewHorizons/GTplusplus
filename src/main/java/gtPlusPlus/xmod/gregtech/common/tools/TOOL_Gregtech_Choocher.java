@@ -80,17 +80,17 @@ public class TOOL_Gregtech_Choocher extends GT_Tool {
 
     @Override
     public String getCraftingSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(1));
+        return GregTech_API.sSoundList.get(1);
     }
 
     @Override
     public String getEntityHitSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(2));
+        return GregTech_API.sSoundList.get(2);
     }
 
     @Override
     public String getBreakingSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(0));
+        return GregTech_API.sSoundList.get(0);
     }
 
     @Override

@@ -355,7 +355,7 @@ public class MaterialGenerator {
             }
 
             if (generateOre) {
-                tempBlock = new BlockBaseOre(matInfo, BlockTypes.ORE, Colour.intValue());
+                tempBlock = new BlockBaseOre(matInfo, BlockTypes.ORE, Colour);
             }
 
             DustState aState = new DustState(generateDust, generateSmallTinyDusts, generateSmallTinyDusts);
@@ -402,7 +402,7 @@ public class MaterialGenerator {
             final short[] C = matInfo.getRGBA();
             final Integer Colour = Utils.rgbtoHexValue(C[0], C[1], C[2]);
 
-            tempBlock = new BlockBaseOre(matInfo, BlockTypes.ORE, Colour.intValue());
+            tempBlock = new BlockBaseOre(matInfo, BlockTypes.ORE, Colour);
             tempBlock = new BlockBaseModular(matInfo, BlockTypes.STANDARD);
             temp = new BaseItemIngot(matInfo);
             temp = new BaseItemDust(matInfo);

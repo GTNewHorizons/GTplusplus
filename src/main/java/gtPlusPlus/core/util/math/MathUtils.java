@@ -597,32 +597,32 @@ public class MathUtils {
 
     public static byte getSafeByte(Byte b) {
         Byte a = safeCast(b);
-        return a.byteValue();
+        return a;
     }
 
     public static short getSafeShort(Short b) {
         Short a = safeCast(b);
-        return a.shortValue();
+        return a;
     }
 
     public static int getSafeInt(Integer b) {
         Integer a = safeCast(b);
-        return a.intValue();
+        return a;
     }
 
     public static long getSafeLong(Long b) {
         Long a = safeCast(b);
-        return a.longValue();
+        return a;
     }
 
     public static float getSafeFloat(Float b) {
         Float a = safeCast(b);
-        return a.floatValue();
+        return a;
     }
 
     public static double getSafeDouble(Double b) {
         Double a = safeCast(b);
-        return a.doubleValue();
+        return a;
     }
 
     public static long safeCast_IntToLong(int o) {

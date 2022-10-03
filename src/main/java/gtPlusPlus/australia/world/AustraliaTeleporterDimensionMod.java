@@ -127,7 +127,7 @@ public class AustraliaTeleporterDimensionMod extends Teleporter {
             if (flag) {
                 this.destinationCoordinateCache.add(
                         j1, new Teleporter.PortalPosition(i, j, k, this.worldServerInstance.getTotalWorldTime()));
-                this.destinationCoordinateKeys.add(Long.valueOf(j1));
+                this.destinationCoordinateKeys.add(j1);
             }
 
             double d11 = i + 0.5D;
@@ -447,11 +447,11 @@ public class AustraliaTeleporterDimensionMod extends Teleporter {
             while (iterator.hasNext()) {
                 Long olong = (Long) iterator.next();
                 Teleporter.PortalPosition portalposition =
-                        (Teleporter.PortalPosition) this.destinationCoordinateCache.getValueByKey(olong.longValue());
+                        (Teleporter.PortalPosition) this.destinationCoordinateCache.getValueByKey(olong);
 
                 if (portalposition == null || portalposition.lastUpdateTime < j) {
                     iterator.remove();
-                    this.destinationCoordinateCache.remove(olong.longValue());
+                    this.destinationCoordinateCache.remove(olong);
                 }
             }
         }

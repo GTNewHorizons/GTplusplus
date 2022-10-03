@@ -39,7 +39,7 @@ public class CapeHandler extends RenderPlayer {
             return;
         }
         if (GT_Utility.getPotion(
-                aPlayer, Integer.valueOf(Potion.invisibility.id).intValue())) {
+                aPlayer, Integer.valueOf(Potion.invisibility.id))) {
             return;
         }
         try {

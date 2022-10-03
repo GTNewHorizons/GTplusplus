@@ -312,7 +312,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
                 } else {
                     aDataString.setCharAt(aIndex, '2');
                 }
-                aData = Integer.valueOf(aDataString.toString());
+                aData = Integer.parseInt(aDataString.toString());
                 this.markDirty();
             }
         } catch (Throwable t) {

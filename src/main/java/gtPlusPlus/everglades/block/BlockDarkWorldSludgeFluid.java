@@ -23,7 +23,7 @@ public class BlockDarkWorldSludgeFluid extends Fluid {
         super(fluidName);
         setColor(rgbColour);
         if (overlayAlpha != null) {
-            setAlpha(overlayAlpha.floatValue());
+            setAlpha(overlayAlpha);
         } else {
             setAlpha(0);
         }

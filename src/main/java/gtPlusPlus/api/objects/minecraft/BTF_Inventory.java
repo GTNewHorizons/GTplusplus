@@ -124,7 +124,7 @@ public class BTF_Inventory implements ISidedInventory {
         int[] arg6 = new int[tList.size()];
 
         for (int i = 0; i < arg6.length; ++i) {
-            arg6[i] = ((Integer) tList.get(i)).intValue();
+            arg6[i] = (Integer) tList.get(i);
         }
 
         return arg6;

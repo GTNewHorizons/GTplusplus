@@ -105,7 +105,7 @@ public enum BaseFishTypes {
     }
 
     public static BaseFishTypes getFishTypeFromDamageValue(int dmg) {
-        BaseFishTypes fishtype = (BaseFishTypes) mFishMap.get(Integer.valueOf(dmg));
+        BaseFishTypes fishtype = (BaseFishTypes) mFishMap.get(dmg);
         return fishtype == null ? COD : fishtype;
     }
 
@@ -118,7 +118,7 @@ public enum BaseFishTypes {
         int var1 = var0.length;
 
         for (BaseFishTypes var3 : var0) {
-            mFishMap.put(Integer.valueOf(var3.getFishID()), var3);
+            mFishMap.put(var3.getFishID(), var3);
         }
     }
 }

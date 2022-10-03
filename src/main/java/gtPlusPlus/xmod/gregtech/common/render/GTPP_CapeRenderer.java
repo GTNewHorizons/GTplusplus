@@ -176,7 +176,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             if (GT_Utility.getFullInvisibility(aPlayer)
                     || aPlayer.isInvisible()
                     || GT_Utility.getPotion(
-                            aPlayer, Integer.valueOf(Potion.invisibility.id).intValue())) {
+                            aPlayer, Integer.valueOf(Potion.invisibility.id))) {
                 aEvent.setCanceled(true);
                 return false;
             }

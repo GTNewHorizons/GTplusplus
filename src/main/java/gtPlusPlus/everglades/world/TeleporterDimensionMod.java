@@ -447,11 +447,11 @@ public class TeleporterDimensionMod extends Teleporter {
             while (iterator.hasNext()) {
                 Long olong = (Long) iterator.next();
                 Teleporter.PortalPosition portalposition =
-                        (Teleporter.PortalPosition) this.destinationCoordinateCache.getValueByKey(olong.longValue());
+                        (Teleporter.PortalPosition) this.destinationCoordinateCache.getValueByKey(olong);
 
                 if (portalposition == null || portalposition.lastUpdateTime < j) {
                     iterator.remove();
-                    this.destinationCoordinateCache.remove(olong.longValue());
+                    this.destinationCoordinateCache.remove(olong);
                 }
             }
         }
