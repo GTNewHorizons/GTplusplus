@@ -68,7 +68,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
 
     protected void drawGuiInfoTextLayer(final float par1, final int par2) {
 
-        if ((((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 64) != 0) {
+        if ((this.mContainer.mDisplayErrorCode & 64) != 0) {
             this.fontRendererObj.drawString(mName, 6, 7, 16448255); // Move down 8px
             this.fontRendererObj.drawString("Incomplete Structure.", 6, 15, 16448255); // Move down 8px
         } else {
@@ -120,9 +120,9 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             }
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.progress") + ": " + EnumChatFormatting.GREEN
-                    + ((CONTAINER_MultiMachine) this.mContainer).mProgressTime / 20
+                    + this.mContainer.mProgressTime / 20
                     + EnumChatFormatting.RESET + " s / " + EnumChatFormatting.YELLOW
-                    + ((CONTAINER_MultiMachine) this.mContainer).mMaxProgressTime / 20
+                    + this.mContainer.mMaxProgressTime / 20
                     + EnumChatFormatting.RESET + " s");
 
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.energy") + ":");
@@ -183,12 +183,12 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
 
     protected void drawGuiRepairStatusLayer(final float par1, final int par2) {
 
-        boolean aWrench = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 1) != 0;
-        boolean aScrewdriver = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 2) != 0;
-        boolean aMallet = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 4) != 0;
-        boolean aHammer = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 8) != 0;
-        boolean aSoldering = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 16) != 0;
-        boolean aCrowbar = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 32) != 0;
+        boolean aWrench = (this.mContainer.mDisplayErrorCode & 1) != 0;
+        boolean aScrewdriver = (this.mContainer.mDisplayErrorCode & 2) != 0;
+        boolean aMallet = (this.mContainer.mDisplayErrorCode & 4) != 0;
+        boolean aHammer = (this.mContainer.mDisplayErrorCode & 8) != 0;
+        boolean aSoldering = (this.mContainer.mDisplayErrorCode & 16) != 0;
+        boolean aCrowbar = (this.mContainer.mDisplayErrorCode & 32) != 0;
 
         if (mToolStacks.isEmpty()) {
             // Map Stacks of Repair items
@@ -277,12 +277,12 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             mToolStacks.put("trueGLASS", aGlassPane2);
 
             // Reset vars to real state
-            aWrench = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 1) != 0;
-            aScrewdriver = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 2) != 0;
-            aMallet = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 4) != 0;
-            aHammer = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 8) != 0;
-            aSoldering = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 16) != 0;
-            aCrowbar = (((CONTAINER_MultiMachine) this.mContainer).mDisplayErrorCode & 32) != 0;
+            aWrench = (this.mContainer.mDisplayErrorCode & 1) != 0;
+            aScrewdriver = (this.mContainer.mDisplayErrorCode & 2) != 0;
+            aMallet = (this.mContainer.mDisplayErrorCode & 4) != 0;
+            aHammer = (this.mContainer.mDisplayErrorCode & 8) != 0;
+            aSoldering = (this.mContainer.mDisplayErrorCode & 16) != 0;
+            aCrowbar = (this.mContainer.mDisplayErrorCode & 32) != 0;
         }
 
         ItemStack aWrenchStack;
@@ -323,7 +323,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                 }
 
                 // Draw Running status
-                boolean running = ((CONTAINER_MultiMachine) this.mContainer).mActive != 0;
+                boolean running = this.mContainer.mActive != 0;
                 ItemStack aGlassPane = mToolStacks.get(running + "GLASS");
 
                 if (aGlassPane == null) {

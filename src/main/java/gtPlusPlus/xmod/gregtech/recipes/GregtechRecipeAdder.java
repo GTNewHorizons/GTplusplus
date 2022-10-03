@@ -1297,7 +1297,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 ItemStack[] aStacks = (ItemStack[]) obj;
                 if (aStacks.length > 0) {
                     tInputs[i] = aStacks[0];
-                    tAlts[i] = (ItemStack[]) Arrays.copyOf(aStacks, aStacks.length);
+                    tAlts[i] = Arrays.copyOf(aStacks, aStacks.length);
                     continue;
                 }
             } else if (obj instanceof Object[]) {
@@ -1914,7 +1914,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                         true,
                         new ItemStack[] {aCircuit},
                         new ItemStack[] {aSolidOutput},
-                        (Object) null,
+                        null,
                         new FluidStack[] {aInput},
                         new FluidStack[] {aOutput},
                         aDuration,

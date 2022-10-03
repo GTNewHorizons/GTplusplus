@@ -94,10 +94,10 @@ public class GT_Container_CropHarvestor extends GT_ContainerMetaTile_Machine {
         }
 
         // GT_MetaTileEntity_Boiler.getCapacity() is used for both water and steam capacity.
-        int capacity = ((GT_MetaTileEntity_CropHarvestor) this.mTileEntity.getMetaTileEntity()).getCapacity();
+        int capacity = this.mTileEntity.getMetaTileEntity().getCapacity();
 
         mModeAlternative = ((GT_MetaTileEntity_CropHarvestor) mTileEntity.getMetaTileEntity()).mModeAlternative;
-        mWaterRealAmount = ((GT_MetaTileEntity_CropHarvestor) mTileEntity.getMetaTileEntity()).getFluidAmount();
+        mWaterRealAmount = mTileEntity.getMetaTileEntity().getFluidAmount();
         this.mWaterAmount = Math.min(54, Math.max(0, this.mWaterRealAmount * 54 / (capacity - 100)));
         for (Object crafter : this.crafters) {
             ICrafting var1 = (ICrafting) crafter;

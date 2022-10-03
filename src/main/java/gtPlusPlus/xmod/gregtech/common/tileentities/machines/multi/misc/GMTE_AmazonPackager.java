@@ -167,9 +167,9 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
             AutoMap<ItemStackData> mSchematics = new AutoMap<>();
             for (ItemStack tInputItem : tItems) {
                 if (tInputItem != null) {
-                    if (ItemList.Schematic_1by1.isStackEqual((Object) tInputItem)
-                            || ItemList.Schematic_2by2.isStackEqual((Object) tInputItem)
-                            || ItemList.Schematic_3by3.isStackEqual((Object) tInputItem)) {
+                    if (ItemList.Schematic_1by1.isStackEqual(tInputItem)
+                            || ItemList.Schematic_2by2.isStackEqual(tInputItem)
+                            || ItemList.Schematic_3by3.isStackEqual(tInputItem)) {
                         mSchematics.put(new ItemStackData(tInputItem));
                     }
                 }
@@ -190,11 +190,11 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
     }
 
     public boolean checkRecipe(ItemStack inputStack, ItemStack schematicStack) {
-        if (GT_Utility.isStackValid((Object) inputStack)
-                && GT_Utility.isStackValid((Object) schematicStack)
+        if (GT_Utility.isStackValid(inputStack)
+                && GT_Utility.isStackValid(schematicStack)
                 && GT_Utility.getContainerItem(inputStack, true) == null) {
             ItemStack tOutputStack;
-            if (ItemList.Schematic_1by1.isStackEqual((Object) schematicStack) && inputStack.stackSize >= 1) {
+            if (ItemList.Schematic_1by1.isStackEqual(schematicStack) && inputStack.stackSize >= 1) {
                 tOutputStack = GT_ModHandler.getRecipeOutput(new ItemStack[] {inputStack});
                 if (tOutputStack != null && this.allowPutStack(tOutputStack, schematicStack)) {
                     final ItemStack input = inputStack;
@@ -207,7 +207,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
                     return true;
                 }
                 return false;
-            } else if (ItemList.Schematic_2by2.isStackEqual((Object) schematicStack) && inputStack.stackSize >= 4) {
+            } else if (ItemList.Schematic_2by2.isStackEqual(schematicStack) && inputStack.stackSize >= 4) {
                 tOutputStack = GT_ModHandler.getRecipeOutput(
                         new ItemStack[] {inputStack, inputStack, null, inputStack, inputStack});
                 if (tOutputStack != null && this.allowPutStack(tOutputStack, schematicStack)) {
@@ -221,7 +221,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
                     return true;
                 }
                 return false;
-            } else if (ItemList.Schematic_3by3.isStackEqual((Object) schematicStack) && inputStack.stackSize >= 9) {
+            } else if (ItemList.Schematic_3by3.isStackEqual(schematicStack) && inputStack.stackSize >= 9) {
                 tOutputStack = GT_ModHandler.getRecipeOutput(new ItemStack[] {
                     inputStack,
                     inputStack,
@@ -419,33 +419,33 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
 
     public boolean allowPutStack(final ItemStack aStack, ItemStack schematicStack) {
         // If Schematic Static is not 1x1, 2x2, 3x3
-        if (!ItemList.Schematic_1by1.isStackEqual((Object) schematicStack)
-                && !ItemList.Schematic_2by2.isStackEqual((Object) schematicStack)
-                && !ItemList.Schematic_3by3.isStackEqual((Object) schematicStack)) {
+        if (!ItemList.Schematic_1by1.isStackEqual(schematicStack)
+                && !ItemList.Schematic_2by2.isStackEqual(schematicStack)
+                && !ItemList.Schematic_3by3.isStackEqual(schematicStack)) {
             return GT_Recipe.GT_Recipe_Map.sBoxinatorRecipes.containsInput(aStack);
         }
         // Something
         if (GT_Recipe.GT_Recipe_Map.sBoxinatorRecipes.findRecipe(
-                        (IHasWorldObjectAndCoords) this.getBaseMetaTileEntity(),
+                this.getBaseMetaTileEntity(),
                         true,
                         GT_Values.V[this.mTier],
-                        (FluidStack[]) null,
+                null,
                         new ItemStack[] {GT_Utility.copyAmount(64L, new Object[] {aStack}), schematicStack})
                 != null) {
             return true;
         }
         // 1x1
-        if (ItemList.Schematic_1by1.isStackEqual((Object) schematicStack)
+        if (ItemList.Schematic_1by1.isStackEqual(schematicStack)
                 && GT_ModHandler.getRecipeOutput(new ItemStack[] {aStack}) != null) {
             return true;
         }
         // 2x2
-        if (ItemList.Schematic_2by2.isStackEqual((Object) schematicStack)
+        if (ItemList.Schematic_2by2.isStackEqual(schematicStack)
                 && GT_ModHandler.getRecipeOutput(new ItemStack[] {aStack, aStack, null, aStack, aStack}) != null) {
             return true;
         }
         // 3x3
-        return ItemList.Schematic_3by3.isStackEqual((Object) schematicStack)
+        return ItemList.Schematic_3by3.isStackEqual(schematicStack)
                 && GT_ModHandler.getRecipeOutput(
                 new ItemStack[]{aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack
                 })

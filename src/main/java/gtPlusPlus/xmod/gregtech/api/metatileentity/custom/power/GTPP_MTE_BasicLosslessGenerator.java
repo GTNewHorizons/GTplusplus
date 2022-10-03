@@ -208,7 +208,7 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
                 int tConsumed = this.consumedFluidPerOperation(this.mFluid);
                 if (tFuelValue > 0 && tConsumed > 0 && this.mFluid.amount > tConsumed) {
                     long tFluidAmountToUse = Math.min(
-                            (long) (this.mFluid.amount / tConsumed),
+                            this.mFluid.amount / tConsumed,
                             (this.maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / (long) tFuelValue);
                     if (tFluidAmountToUse > 0L
                             && aBaseMetaTileEntity.increaseStoredEnergyUnits(
@@ -227,7 +227,7 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
                 if (tFuelValue > 0) {
                     ItemStack tEmptyContainer = this.getEmptyContainer(this.mInventory[this.getInputSlot()]);
                     if (aBaseMetaTileEntity.addStackToSlot(this.getOutputSlot(), tEmptyContainer)) {
-                        aBaseMetaTileEntity.increaseStoredEnergyUnits((long) tFuelValue, true);
+                        aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
                         aBaseMetaTileEntity.decrStackSize(this.getInputSlot(), 1);
                         PollutionUtils.addPollution(this.getBaseMetaTileEntity(), 10 * this.getPollution());
                     }
@@ -290,7 +290,7 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
             Logger.WARNING("Fuel Item OK");
             GT_Recipe tFuel = this.getRecipes()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
                                 aStack
                             });
             return tFuel != null ? (int) ((long) tFuel.mSpecialValue * 1000L * (long) this.getEfficiency() / 100L) : 0;
@@ -303,7 +303,7 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipes() != null) {
             GT_Recipe tFuel = this.getRecipes()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
                                 aStack
                             });
             return tFuel != null

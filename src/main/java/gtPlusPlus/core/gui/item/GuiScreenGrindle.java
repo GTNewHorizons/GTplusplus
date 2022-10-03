@@ -239,7 +239,7 @@ public class GuiScreenGrindle extends GuiContainer {
     protected void actionPerformed(final GuiButton button) {
         if (button.enabled) {
             if (button.id == 0) {
-                this.mc.displayGuiScreen((GuiScreen) null);
+                this.mc.displayGuiScreen(null);
                 this.sendBookToServer(false);
             } else if ((button.id == 3) && this.bookIsUnsigned) {
                 this.field_146480_s = true;
@@ -259,7 +259,7 @@ public class GuiScreenGrindle extends GuiContainer {
                 }
             } else if ((button.id == 5) && this.field_146480_s) {
                 this.sendBookToServer(true);
-                this.mc.displayGuiScreen((GuiScreen) null);
+                this.mc.displayGuiScreen(null);
             } else if ((button.id == 4) && this.field_146480_s) {
                 this.field_146480_s = false;
             }
@@ -336,7 +336,7 @@ public class GuiScreenGrindle extends GuiContainer {
             case 156:
                 if (!this.bookTitle.isEmpty()) {
                     this.sendBookToServer(true);
-                    this.mc.displayGuiScreen((GuiScreen) null);
+                    this.mc.displayGuiScreen(null);
                 }
 
                 return;

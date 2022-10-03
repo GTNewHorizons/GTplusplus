@@ -100,7 +100,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
         GT_MetaTileEntity_Hatch_NbtConsumable aInstance = ReflectionUtils.createNewInstanceFromConstructor(
                 aConstructor, new Object[] {mName, StaticFields59.getDescriptionArray(this), mTextures});
         if (aInstance instanceof GT_MetaTileEntity_Hatch_NbtConsumable) {
-            GT_MetaTileEntity_Hatch_NbtConsumable aMetaTile = (GT_MetaTileEntity_Hatch_NbtConsumable) aInstance;
+            GT_MetaTileEntity_Hatch_NbtConsumable aMetaTile = aInstance;
             return aMetaTile;
         }
         return null;

@@ -70,7 +70,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                 aNameRegional,
                 aTier,
                 3,
-                "This Crate stores " + (int) (Math.pow(6.0D, (double) aTier) * mStorageFactor) + " Items",
+                "This Crate stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items",
                 new ITexture[0]);
     }
 
@@ -449,7 +449,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     }
 
     public int getMaxItemCount() {
-        return (int) (Math.pow(6.0D, (double) this.mTier) * mStorageFactor - 128.0D);
+        return (int) (Math.pow(6.0D, this.mTier) * mStorageFactor - 128.0D);
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {

@@ -134,14 +134,14 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     }
 
     public int calculatePollutionReductionForTooltip(int aPollution) {
-        return (int) (aPollution * Math.pow(0.64D, (double) (this.mTier - 1)));
+        return (int) (aPollution * Math.pow(0.64D, this.mTier - 1));
     }
 
     public int calculatePollutionReduction(int aPollution) {
-        double aVal1 = aPollution * Math.pow(0.64D, (double) (this.mTier - 1));
+        double aVal1 = aPollution * Math.pow(0.64D, this.mTier - 1);
         int aVal2 = (int) aVal1;
         if (!hasValidFilter()) {
-            aVal2 = (int) ((double) aPollution * Math.pow(0.7D, (double) (this.mTier - 1)));
+            aVal2 = (int) ((double) aPollution * Math.pow(0.7D, this.mTier - 1));
         }
         return aVal2;
     }
@@ -286,8 +286,8 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         float zSpd;
         if (aDir.offsetY == -1) {
             float temp = CORE.RANDOM.nextFloat() * 2.0F * CORE.PI;
-            xSpd = (float) Math.sin((double) temp) * 0.1F;
-            zSpd = (float) Math.cos((double) temp) * 0.1F;
+            xSpd = (float) Math.sin(temp) * 0.1F;
+            zSpd = (float) Math.cos(temp) * 0.1F;
         } else {
             xSpd = (float) aDir.offsetX * (0.1F + 0.2F * CORE.RANDOM.nextFloat());
             zSpd = (float) aDir.offsetZ * (0.1F + 0.2F * CORE.RANDOM.nextFloat());
@@ -296,34 +296,34 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         if (chk1) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran1 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran1 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
 
         if (chk2) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran2 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran2 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
 
         if (chk3) {
             aWorld.spawnParticle(
                     name,
-                    (double) (xPos + ran3 * 0.5F),
-                    (double) (yPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) (zPos + CORE.RANDOM.nextFloat() * 0.5F),
-                    (double) xSpd,
-                    (double) ySpd,
-                    (double) zSpd);
+                    xPos + ran3 * 0.5F,
+                    yPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    zPos + CORE.RANDOM.nextFloat() * 0.5F,
+                    xSpd,
+                    ySpd,
+                    zSpd);
         }
     }
 }

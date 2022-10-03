@@ -248,7 +248,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
         for (i = 54; i < 58; i++) {
             if (this.mInventory[i] != null) {
                 if (!this.getWorld().isRemote)
-                    this.getWorld().spawnEntityInWorld((Entity) new EntityItem(
+                    this.getWorld().spawnEntityInWorld(new EntityItem(
                             this.getWorld(),
                             this.getXCoord() + 0.5D,
                             this.getYCoord() + 0.5D,
@@ -331,96 +331,96 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
             return;
         }
         if (aIndex >= GT_Computercube_Description.sDescriptions.size() || aIndex < 0) aIndex = 0;
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[0] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[0] == null) {
             this.mInventory[59] = null;
         } else {
-            this.mInventory[59] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[59] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[0].copy();
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[1] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[1] == null) {
             this.mInventory[60] = null;
         } else {
-            this.mInventory[60] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[60] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[1].copy();
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[2] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[2] == null) {
             this.mInventory[61] = null;
         } else {
-            this.mInventory[61] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[61] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[2].copy();
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[3] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[3] == null) {
             this.mInventory[62] = null;
         } else {
-            this.mInventory[62] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[62] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[3].copy();
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[4] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[4] == null) {
             this.mInventory[63] = null;
         } else {
-            this.mInventory[63] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[63] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[4].copy();
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[5] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[5] == null) {
             this.mInventory[64] = null;
         } else {
-            this.mInventory[64] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[64] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[5].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[6] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[6] == null) {
             this.mInventory[65] = null;
         } else {
-            this.mInventory[65] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[65] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[6].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[7] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[7] == null) {
             this.mInventory[66] = null;
         } else {
-            this.mInventory[66] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[66] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[7].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[8] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[8] == null) {
             this.mInventory[67] = null;
         } else {
-            this.mInventory[67] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[67] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[8].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[9] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[9] == null) {
             this.mInventory[68] = null;
         } else {
-            this.mInventory[68] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[68] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[9].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[10] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[10] == null) {
             this.mInventory[69] = null;
         } else {
-            this.mInventory[69] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[69] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[10].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[11] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[11] == null) {
             this.mInventory[70] = null;
         } else {
-            this.mInventory[70] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[70] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[11].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[12] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[12] == null) {
             this.mInventory[71] = null;
         } else {
-            this.mInventory[71] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[71] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[12].copy();
             this.mExplosionStrength = 100.0F;
         }
-        if (((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex)).mStacks[13] == null) {
+        if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[13] == null) {
             this.mInventory[72] = null;
         } else {
-            this.mInventory[72] = ((GT_Computercube_Description) GT_Computercube_Description.sDescriptions.get(aIndex))
+            this.mInventory[72] = GT_Computercube_Description.sDescriptions.get(aIndex)
                     .mStacks[13].copy();
             this.mExplosionStrength = 100.0F;
         }
@@ -930,7 +930,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
 
             mMaxProgress = aDuration;
 
-            while (tempEUt <= V[mTier - 1] * (long) this.maxAmperesIn()) {
+            while (tempEUt <= V[mTier - 1] * this.maxAmperesIn()) {
                 tempEUt <<= 2; // this actually controls overclocking
                 // xEUt *= 4;//this is effect of everclocking
                 mMaxProgress >>= 1; // this is effect of overclocking

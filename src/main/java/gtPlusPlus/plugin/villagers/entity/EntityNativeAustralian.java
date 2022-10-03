@@ -54,7 +54,7 @@ public class EntityNativeAustralian extends EntityVillager {
 
     public EntityVillager createChild(EntityAgeable p_90011_1_) {
         EntityNativeAustralian entityvillager = new EntityNativeAustralian(this.worldObj);
-        entityvillager.onSpawnWithEgg((IEntityLivingData) null);
+        entityvillager.onSpawnWithEgg(null);
         return entityvillager;
     }
 
@@ -459,7 +459,7 @@ public class EntityNativeAustralian extends EntityVillager {
                 if (this.getBuyingList().size() > 1) {
 
                     for (MerchantRecipe merchantRecipe : (Iterable<MerchantRecipe>) this.getBuyingList()) {
-                        MerchantRecipe merchantrecipe = (MerchantRecipe) merchantRecipe;
+                        MerchantRecipe merchantrecipe = merchantRecipe;
 
                         if (merchantrecipe.isRecipeDisabled()) {
                             merchantrecipe.func_82783_a(this.rand.nextInt(6) + this.rand.nextInt(6) + 2);

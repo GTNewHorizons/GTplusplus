@@ -371,7 +371,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
                     Logger.INFO("Trying to do ranged attack 3a1");
 
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                     setIsBatHanging(true);
 
                     EntityThrowableBomb entitylargefireball =
@@ -535,7 +535,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
 
         if (this.courseChangeCooldown-- <= 0) {
             this.courseChangeCooldown += this.rand.nextInt(5) + 2;
-            d3 = (double) MathHelper.sqrt_double(d3);
+            d3 = MathHelper.sqrt_double(d3);
 
             if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
                 this.motionX += d0 / d3 * 0.1D;
@@ -573,14 +573,14 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 10) {
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1007, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1007, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                 }
 
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1008, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
                     EntityLargeFireball entitylargefireball = new EntityLargeFireball(this.worldObj, this, d5, d6, d7);
                     entitylargefireball.field_92057_e = this.explosionStrength;
                     double d8 = 4.0D;
@@ -688,9 +688,9 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
             }
 
             this.moveEntity(this.motionX, this.motionY, this.motionZ);
-            this.motionX *= (double) f2;
-            this.motionY *= (double) f2;
-            this.motionZ *= (double) f2;
+            this.motionX *= f2;
+            this.motionY *= f2;
+            this.motionZ *= f2;
         }
 
         this.prevLimbSwingAmount = this.limbSwingAmount;

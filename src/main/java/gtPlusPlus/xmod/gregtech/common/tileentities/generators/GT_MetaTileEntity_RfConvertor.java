@@ -289,7 +289,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                                                 1,
                                                 true)
                                 == 1) {
-                    tEU = (long) ((IEnergyProvider) tTileEntity)
+                    tEU = ((IEnergyProvider) tTileEntity)
                             .extractEnergy(
                                     ForgeDirection.getOrientation(GT_Utility.getOppositeSide(aSide)),
                                     (int) maxEUOutput() * 100 / GregTech_API.mRFtoEU,
@@ -298,7 +298,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                     tEU = tEU * GregTech_API.mRFtoEU / 100;
                 } else if (tTileEntity instanceof IEnergyStorage
                         && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
-                    tEU = (long) ((IEnergyStorage) tTileEntity)
+                    tEU = ((IEnergyStorage) tTileEntity)
                             .extractEnergy((int) maxEUOutput() * 100 / GregTech_API.mRFtoEU, false);
                     Logger.WARNING("Drained from IEnergyStorage Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                     tEU = tEU * GregTech_API.mRFtoEU / 100;

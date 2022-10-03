@@ -52,7 +52,7 @@ public class PollutionUtils {
 
     public static boolean addPollution(IHasWorldObjectAndCoords aTileOfSomeSort, int pollutionValue) {
         if (mIsPollutionEnabled) {
-            IHasWorldObjectAndCoords j = (IHasWorldObjectAndCoords) aTileOfSomeSort;
+            IHasWorldObjectAndCoords j = aTileOfSomeSort;
             Chunk c = j.getWorld().getChunkFromBlockCoords(j.getXCoord(), j.getZCoord());
             return addPollution(c, pollutionValue);
         }
@@ -90,7 +90,7 @@ public class PollutionUtils {
         if (aTileOfSomeSort == null) {
             return false;
         }
-        IHasWorldObjectAndCoords j = (IHasWorldObjectAndCoords) aTileOfSomeSort;
+        IHasWorldObjectAndCoords j = aTileOfSomeSort;
         Chunk c = j.getWorld().getChunkFromBlockCoords(j.getXCoord(), j.getZCoord());
         return nullifyPollution(c);
     }

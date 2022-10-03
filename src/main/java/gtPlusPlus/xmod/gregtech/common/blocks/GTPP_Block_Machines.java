@@ -331,9 +331,9 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 if (tItem != null && tItem.stackSize > 0 && tGregTechTileEntity.isValidSlot(i)) {
                     EntityItem tItemEntity = new EntityItem(
                             aWorld,
-                            (double) ((float) aX + tRandom.nextFloat() * 0.8F + 0.1F),
-                            (double) ((float) aY + tRandom.nextFloat() * 0.8F + 0.1F),
-                            (double) ((float) aZ + tRandom.nextFloat() * 0.8F + 0.1F),
+                            (float) aX + tRandom.nextFloat() * 0.8F + 0.1F,
+                            (float) aY + tRandom.nextFloat() * 0.8F + 0.1F,
+                            (float) aZ + tRandom.nextFloat() * 0.8F + 0.1F,
                             new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
                     if (tItem.hasTagCompound()) {
                         tItemEntity.getEntityItem().setTagCompound((NBTTagCompound)
@@ -345,7 +345,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                     tItemEntity.motionZ = tRandom.nextGaussian() * 0.0500000007450581D;
                     aWorld.spawnEntityInWorld(tItemEntity);
                     tItem.stackSize = 0;
-                    tGregTechTileEntity.setInventorySlotContents(i, (ItemStack) null);
+                    tGregTechTileEntity.setInventorySlotContents(i, null);
                 }
             }
         }
@@ -360,7 +360,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 ? ((IGregTechTileEntity) tTileEntity).getDrops()
                 : (mTemporaryTileEntity.get() == null
                         ? new ArrayList()
-                        : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops());
+                        : mTemporaryTileEntity.get().getDrops());
     }
 
     public int getComparatorInputOverride(World aWorld, int aX, int aY, int aZ, int aSide) {
@@ -444,10 +444,9 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
     }
 
     public TileEntity createTileEntity(World aWorld, int aMeta) {
-        return (TileEntity)
-                (aMeta >= 4
-                        ? Meta_GT_Proxy.constructBaseMetaTileEntity()
-                        : Meta_GT_Proxy.constructBaseMetaTileEntityCustomPower());
+        return aMeta >= 4
+                ? Meta_GT_Proxy.constructBaseMetaTileEntity()
+                : Meta_GT_Proxy.constructBaseMetaTileEntityCustomPower();
     }
 
     public float getExplosionResistance(

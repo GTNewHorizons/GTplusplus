@@ -717,7 +717,7 @@ public class Material {
                         Logger.MATERIALS(this.getLocalizedName() + " is radioactive due to trace elements. Level: "
                                 + aAverage + ".");
                         this.isRadioactive = true;
-                        this.vRadiationLevel = (byte) aAverage;
+                        this.vRadiationLevel = aAverage;
                     } else {
                         Logger.MATERIALS(this.getLocalizedName() + " is not radioactive.");
                         this.isRadioactive = false;

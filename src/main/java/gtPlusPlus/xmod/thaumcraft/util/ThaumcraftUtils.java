@@ -156,7 +156,7 @@ public class ThaumcraftUtils {
                 }
             }
             if (tParentResearches.size() > 0) {
-                rResearch.setParents((String[]) tParentResearches.toArray(new String[0]));
+                rResearch.setParents(tParentResearches.toArray(new String[0]));
                 rResearch.setConcealed();
             }
         }
@@ -165,7 +165,7 @@ public class ThaumcraftUtils {
             rResearch.setHidden();
         }
 
-        Object[] aVarArgs = (TC_ResearchPage_Wrapper[]) tPages.toArray(new TC_ResearchPage_Wrapper[0]);
+        Object[] aVarArgs = tPages.toArray(new TC_ResearchPage_Wrapper[0]);
         rResearch.setPages(aVarArgs);
         return rResearch.registerResearchItem();
     }
@@ -175,7 +175,7 @@ public class ThaumcraftUtils {
             final Object aInput,
             final ItemStack aOutput,
             final List<GTPP_AspectStack> aAspects) {
-        if (GT_Utility.isStringInvalid((Object) aResearch)
+        if (GT_Utility.isStringInvalid(aResearch)
                 || aInput == null
                 || aOutput == null
                 || aAspects == null
@@ -196,7 +196,7 @@ public class ThaumcraftUtils {
             final ItemStack aOutput,
             final int aInstability,
             final List<GTPP_AspectStack> aAspects) {
-        if (GT_Utility.isStringInvalid((Object) aResearch)
+        if (GT_Utility.isStringInvalid(aResearch)
                 || aMainInput == null
                 || aSideInputs == null
                 || aOutput == null
@@ -206,7 +206,7 @@ public class ThaumcraftUtils {
         }
         return addInfusionCraftingRecipe(
                 aResearch,
-                (Object) GT_Utility.copy(new Object[] {aOutput}),
+                GT_Utility.copy(new Object[] {aOutput}),
                 aInstability,
                 getAspectList_Ex(aAspects),
                 aMainInput,

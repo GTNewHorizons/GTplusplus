@@ -180,7 +180,7 @@ public abstract class CustomBoxInventory implements IInventory {
 
         for (int i = 0; i < items.tagCount(); ++i) {
             // 1.7.2+ change to items.getCompoundTagAt(i)
-            NBTTagCompound item = (NBTTagCompound) items.getCompoundTagAt(i);
+            NBTTagCompound item = items.getCompoundTagAt(i);
             int slot = item.getInteger("Slot");
 
             // Just double-checking that the saved slot index is within our inventory array bounds

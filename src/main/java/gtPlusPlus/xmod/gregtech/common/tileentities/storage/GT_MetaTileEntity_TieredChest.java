@@ -27,7 +27,7 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
                 aNameRegional,
                 aTier,
                 3,
-                "This Chest stores " + (int) (Math.pow(6.0D, (double) aTier) * mStorageFactor) + " Items",
+                "This Chest stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items",
                 new ITexture[0]);
     }
 
@@ -146,7 +146,7 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
     }
 
     public int getMaxItemCount() {
-        return (int) (Math.pow(6.0D, (double) this.mTier) * mStorageFactor - 128.0D);
+        return (int) (Math.pow(6.0D, this.mTier) * mStorageFactor - 128.0D);
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {

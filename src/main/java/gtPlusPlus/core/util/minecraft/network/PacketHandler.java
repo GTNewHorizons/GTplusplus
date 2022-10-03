@@ -37,7 +37,7 @@ public class PacketHandler {
     public void onPacket(ClientCustomPacketEvent event) {
         byte[] data = new byte[event.packet.payload().readableBytes()];
         event.packet.payload().readBytes(data);
-        this.onPacketData(data, (EntityPlayerMP) null);
+        this.onPacketData(data, null);
     }
 
     public void onPacketData(byte[] bData, EntityPlayerMP player) {

@@ -50,7 +50,7 @@ public class PickaxeBlockBreakEventHandler {
             @SuppressWarnings("unchecked")
             List<ChunkPosition> pos = event.explosion.affectedBlockPositions;
             for (int i = 0; i < pos.size(); i++) {
-                ChunkPosition blockpos = (ChunkPosition) pos.get(i);
+                ChunkPosition blockpos = pos.get(i);
                 TileEntity entity =
                         event.world.getTileEntity(blockpos.chunkPosX, blockpos.chunkPosY, blockpos.chunkPosZ);
                 if (entity != null) {

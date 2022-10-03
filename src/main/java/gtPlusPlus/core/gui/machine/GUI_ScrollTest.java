@@ -125,7 +125,7 @@ public class GUI_ScrollTest extends GuiScreen {
                 try {
                     Class<?> oclass = ReflectionUtils.getClass("java.awt.Desktop");
                     Object object = ReflectionUtils.getMethod(oclass, "getDesktop", new Class[0])
-                            .invoke((Object) null, new Object[0]);
+                            .invoke(null, new Object[0]);
                     ReflectionUtils.getMethod(oclass, "browse", new Class[] {URI.class})
                             .invoke(object, new Object[] {file1.toURI()});
                 } catch (Throwable throwable) {

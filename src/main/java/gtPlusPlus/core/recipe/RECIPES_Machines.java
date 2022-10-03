@@ -621,7 +621,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Controller_MolecularTransformer.get(1),
                 20 * 60 * 10 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
@@ -894,7 +894,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Controller_ElementalDuplicator.get(1),
                 20 * 60 * 60 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(7));
+                MaterialUtils.getVoltageForTier(7));
 
         CORE.RA.addAssemblylineRecipe(
                 GregtechItemList.Modulator_III.get(1),
@@ -918,7 +918,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Hatch_Input_Elemental_Duplicator.get(1),
                 20 * 60 * 60 * (GTNH ? 4 : 2),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         CORE.RA.addAssemblylineRecipe(
                 GregtechItemList.ResonanceChamber_III.get(1),
@@ -942,7 +942,7 @@ public class RECIPES_Machines {
                 },
                 GregtechItemList.Casing_ElementalDuplicator.get(1),
                 20 * 60 * (GTNH ? 20 : 10),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
     }
 
     private static void resonanceChambers() {

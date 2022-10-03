@@ -64,12 +64,12 @@ public final class NeiTextureHandler {
 
     public NeiTextureHandler(int x, int y, int width, int height) {
         this(
-                (double) width,
-                (double) height,
-                (double) ((float) (0.00390625D * (double) x)),
-                (double) ((float) (0.00390625D * (double) (x + width))),
-                (double) ((float) (0.00390625D * (double) y)),
-                (double) ((float) (0.00390625D * (double) (y + height))));
+                width,
+                height,
+                (float) (0.00390625D * (double) x),
+                (float) (0.00390625D * (double) (x + width)),
+                (float) (0.00390625D * (double) y),
+                (float) (0.00390625D * (double) (y + height)));
     }
 
     public NeiTextureHandler(double width, double height, double minU, double maxU, double minV, double maxV) {

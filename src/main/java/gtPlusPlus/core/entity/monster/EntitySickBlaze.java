@@ -161,7 +161,7 @@ public class EntitySickBlaze extends EntityMob {
                 if (this.field_70846_g > 1) {
                     float f1 = MathHelper.sqrt_float(p_70785_2_) * 0.5F;
                     this.worldObj.playAuxSFXAtEntity(
-                            (EntityPlayer) null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                            null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
 
                     for (int i = 0; i < 1; ++i) {
                         EntityToxinballSmall entitysmalltoxinball = new EntityToxinballSmall(

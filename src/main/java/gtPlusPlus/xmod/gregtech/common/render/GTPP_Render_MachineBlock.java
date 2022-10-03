@@ -51,7 +51,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
                     renderNegativeYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -63,7 +63,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
                     renderPositiveYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -75,7 +75,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
                     renderNegativeZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -87,7 +87,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
                     renderPositiveZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -99,7 +99,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -111,7 +111,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -124,7 +124,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
                     renderNegativeYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -136,7 +136,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
                     renderPositiveYFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -148,7 +148,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
                     renderNegativeZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -160,7 +160,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
                     renderPositiveZFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -172,7 +172,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,
@@ -184,7 +184,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            (IBlockAccess) null,
+                            null,
                             aRenderer,
                             aBlock,
                             0,

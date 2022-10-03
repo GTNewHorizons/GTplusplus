@@ -49,8 +49,8 @@ public class RenderPlasmaBolt extends Render {
         for (int i = 7; i >= 0; --i) {
             adouble[i] = d3;
             adouble1[i] = d4;
-            d3 += (double) (random.nextInt(11) - 5);
-            d4 += (double) (random.nextInt(11) - 5);
+            d3 += random.nextInt(11) - 5;
+            d4 += random.nextInt(11) - 5;
         }
 
         for (int k1 = 0; k1 < 4; ++k1) {
@@ -76,11 +76,11 @@ public class RenderPlasmaBolt extends Render {
                     double d8 = d6;
 
                     if (j == 0) {
-                        d5 += (double) (random1.nextInt(11) - 5);
-                        d6 += (double) (random1.nextInt(11) - 5);
+                        d5 += random1.nextInt(11) - 5;
+                        d6 += random1.nextInt(11) - 5;
                     } else {
-                        d5 += (double) (random1.nextInt(31) - 15);
-                        d6 += (double) (random1.nextInt(31) - 15);
+                        d5 += random1.nextInt(31) - 15;
+                        d6 += random1.nextInt(31) - 15;
                     }
 
                     tessellator.startDrawing(5);

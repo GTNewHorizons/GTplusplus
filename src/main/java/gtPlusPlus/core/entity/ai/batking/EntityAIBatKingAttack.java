@@ -365,8 +365,8 @@ public class EntityAIBatKingAttack extends EntityAIBase {
             parentAI.mAttackingEntity.getLookHelper().setLookPositionWithEntity(entitylivingbase, 30.0F, 30.0F);
             double d0 = parentAI.mAttackingEntity.getDistanceSq(
                     entitylivingbase.posX, entitylivingbase.boundingBox.minY, entitylivingbase.posZ);
-            double d1 = (double) (parentAI.mAttackingEntity.width * 2.0F * parentAI.mAttackingEntity.width * 2.0F
-                    + entitylivingbase.width);
+            double d1 = parentAI.mAttackingEntity.width * 2.0F * parentAI.mAttackingEntity.width * 2.0F
+                    + entitylivingbase.width;
             --this.field_75445_i;
 
             if ((this.longMemory || parentAI.mAttackingEntity.getEntitySenses().canSee(entitylivingbase))

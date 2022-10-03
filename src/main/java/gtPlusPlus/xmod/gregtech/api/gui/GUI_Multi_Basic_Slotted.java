@@ -24,36 +24,36 @@ public class GUI_Multi_Basic_Slotted extends GT_GUIContainerMetaTile_Machine {
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         this.fontRendererObj.drawString(this.mName, 10, 8, 16448255);
         if (this.mContainer != null) {
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 1) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 1) != 0) {
                 this.fontRendererObj.drawString(this.trans("132", "Pipe is loose."), 10, 16, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 2) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 2) != 0) {
                 this.fontRendererObj.drawString(this.trans("133", "Screws are loose."), 10, 24, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 4) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 4) != 0) {
                 this.fontRendererObj.drawString(this.trans("134", "Something is stuck."), 10, 32, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 8) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 8) != 0) {
                 this.fontRendererObj.drawString(this.trans("135", "Platings are dented."), 10, 40, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 16) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 16) != 0) {
                 this.fontRendererObj.drawString(this.trans("136", "Circuitry burned out."), 10, 48, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 32) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 32) != 0) {
                 this.fontRendererObj.drawString(this.trans("137", "That doesn't belong there."), 10, 56, 16448255);
             }
 
-            if ((((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode & 64) != 0) {
+            if ((this.mContainer.mDisplayErrorCode & 64) != 0) {
                 this.fontRendererObj.drawString(this.trans("138", "Incomplete Structure."), 10, 64, 16448255);
             }
 
-            if (((GT_Container_MultiMachine) this.mContainer).mDisplayErrorCode == 0) {
-                if (((GT_Container_MultiMachine) this.mContainer).mActive == 0) {
+            if (this.mContainer.mDisplayErrorCode == 0) {
+                if (this.mContainer.mActive == 0) {
                     this.fontRendererObj.drawString(this.trans("139", "Hit with Soft Mallet"), 10, 16, 16448255);
                     this.fontRendererObj.drawString(this.trans("140", "to (re-)start the Machine"), 10, 24, 16448255);
                     this.fontRendererObj.drawString(this.trans("141", "if it doesn't start."), 10, 32, 16448255);
@@ -71,7 +71,7 @@ public class GUI_Multi_Basic_Slotted extends GT_GUIContainerMetaTile_Machine {
                         this.fontRendererObj.drawString(
                                 this.trans("144", "Missing Turbine Rotor"),
                                 10,
-                                ((GT_Container_MultiMachine) this.mContainer).mActive == 0 ? 40 : 24,
+                                this.mContainer.mActive == 0 ? 40 : 24,
                                 16448255);
                     }
                 }

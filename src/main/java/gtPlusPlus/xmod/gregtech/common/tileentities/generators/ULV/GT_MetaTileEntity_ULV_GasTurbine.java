@@ -56,7 +56,7 @@ public class GT_MetaTileEntity_ULV_GasTurbine extends GT_MetaTileEntity_GasTurbi
     public ITexture[] getSidesActive(final byte aColor) {
         return new ITexture[] {
             super.getSidesActive(aColor)[0],
-            TextureFactory.of((IIconContainer) TexturesGtBlock.Overlay_Machine_Turbine_Active)
+            TextureFactory.of(TexturesGtBlock.Overlay_Machine_Turbine_Active)
         };
     }
 }

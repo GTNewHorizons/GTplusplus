@@ -79,7 +79,7 @@ public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbin
                 // wastes the extra fuel and generate aOptFlow directly
                 depleteInput(new FluidStack(firstFuelType, 1));
                 this.storedFluid += 1;
-                return GT_Utility.safeInt((long) aOptFlow * (long) aBaseEff / 10000L);
+                return GT_Utility.safeInt(aOptFlow * (long) aBaseEff / 10000L);
             }
 
             actualOptimalFlow = GT_Utility.safeInt((long) (aOptFlow * (double) flowMultipliers[1] / fuelValue));

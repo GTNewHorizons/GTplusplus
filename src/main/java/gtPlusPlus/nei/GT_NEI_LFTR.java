@@ -33,7 +33,7 @@ public class GT_NEI_LFTR extends GT_NEI_MultiNoCell {
                                         * this.mRecipeMap.mNEISpecialValueMultiplier))
                         + this.mRecipeMap.mNEISpecialValuePost,
                 -16777216);
-        drawText(10, 103, "Dynamo: " + MathUtils.formatNumbers((long) (tDuration * tEUt)) + " EU", -16777216);
-        drawText(10, 113, "Total: " + MathUtils.formatNumbers((long) (tDuration * tEUt * 4)) + " EU", -16777216);
+        drawText(10, 103, "Dynamo: " + MathUtils.formatNumbers(tDuration * tEUt) + " EU", -16777216);
+        drawText(10, 113, "Total: " + MathUtils.formatNumbers(tDuration * tEUt * 4) + " EU", -16777216);
     }
 }

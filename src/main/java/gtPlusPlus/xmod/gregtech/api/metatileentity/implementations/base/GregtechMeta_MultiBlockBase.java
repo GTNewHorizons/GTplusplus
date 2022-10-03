@@ -2201,7 +2201,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
         return this.findRecipe(
-                aTileEntity, null, aNotUnificated, aDontCheckStackSizes, aVoltage, aFluids, (ItemStack) null, aInputs);
+                aTileEntity, null, aNotUnificated, aDontCheckStackSizes, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(
@@ -2210,7 +2210,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final long aVoltage,
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
-        return this.findRecipe(aTileEntity, null, aNotUnificated, aVoltage, aFluids, (ItemStack) null, aInputs);
+        return this.findRecipe(aTileEntity, null, aNotUnificated, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(
@@ -2228,7 +2228,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 aDontCheckStackSizes,
                 aVoltage,
                 aFluids,
-                (ItemStack) null,
+                null,
                 aInputs);
     }
 
@@ -2239,7 +2239,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final long aVoltage,
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
-        return this.findRecipe(aTileEntity, aRecipe, aNotUnificated, aVoltage, aFluids, (ItemStack) null, aInputs);
+        return this.findRecipe(aTileEntity, aRecipe, aNotUnificated, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(

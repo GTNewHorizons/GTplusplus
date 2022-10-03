@@ -31,8 +31,8 @@ public class MapGenLargeRavine extends MapGenRavine {
         Random random = CORE.RANDOM;
         // gtPlusPlus.api.objects.Logger.WORLD("Generating Large Ravine. 1");
         this.range *= 2;
-        double d4 = (double) (var1 * 24 + 16);
-        double d5 = (double) (var2 * 24 + 16);
+        double d4 = var1 * 24 + 16;
+        double d5 = var2 * 24 + 16;
         float f3 = 0.0F;
         float f4 = 0.0F;
 
@@ -68,9 +68,9 @@ public class MapGenLargeRavine extends MapGenRavine {
             d6 *= (double) random.nextFloat() * 0.55D + 0.75D;
             float f6 = MathHelper.cos(p_151540_14_);
             float f7 = MathHelper.sin(p_151540_14_);
-            p_151540_6_ += (double) (MathHelper.cos(p_151540_13_) * f6);
-            p_151540_8_ += (double) f7;
-            p_151540_10_ += (double) (MathHelper.sin(p_151540_13_) * f6);
+            p_151540_6_ += MathHelper.cos(p_151540_13_) * f6;
+            p_151540_8_ += f7;
+            p_151540_10_ += MathHelper.sin(p_151540_13_) * f6;
             p_151540_14_ *= 1.7F;
             p_151540_14_ += f4 * 0.25F;
             p_151540_13_ += f3 * 0.25F;
@@ -82,8 +82,8 @@ public class MapGenLargeRavine extends MapGenRavine {
             if (possibleIsUnderGroundFlag || random.nextInt(4) != 0) {
                 double d7 = p_151540_6_ - d4;
                 double d8 = p_151540_10_ - d5;
-                double d9 = (double) (possibleMaxY - possibleCurrentY);
-                double d10 = (double) (p_151540_12_ + 2.0F + 16.0F);
+                double d9 = possibleMaxY - possibleCurrentY;
+                double d10 = p_151540_12_ + 2.0F + 16.0F;
 
                 if (d7 * d7 + d8 * d8 - d9 * d9 > d10 * d10) {
                     return;
@@ -193,9 +193,9 @@ public class MapGenLargeRavine extends MapGenRavine {
     protected void func_151538_a(
             World p_151538_1_, int p_151538_2_, int p_151538_3_, int chunkX, int chunkZ, Block[] blocks) {
         if (this.rand.nextInt(50) == 0) {
-            double d0 = (double) (p_151538_2_ * 16 + this.rand.nextInt(16));
-            double d1 = (double) (this.rand.nextInt(this.rand.nextInt(40) + 8) + 20);
-            double d2 = (double) (p_151538_3_ * 16 + this.rand.nextInt(16));
+            double d0 = p_151538_2_ * 16 + this.rand.nextInt(16);
+            double d1 = this.rand.nextInt(this.rand.nextInt(40) + 8) + 20;
+            double d2 = p_151538_3_ * 16 + this.rand.nextInt(16);
             byte b0 = 1;
 
             for (int i1 = 0; i1 < b0; ++i1) {

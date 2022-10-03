@@ -63,7 +63,7 @@ public class PacketDispatcher {
             } catch (Throwable t) {
                 a = ReflectionHelper.findMethod(
                         playerInstanceClass,
-                        (Object) null,
+                        null,
                         new String[] {"func_72690_a", "getOrCreateChunkWatcher"},
                         new Class[] {Integer.TYPE, Integer.TYPE, Boolean.TYPE});
             }
@@ -72,7 +72,7 @@ public class PacketDispatcher {
             } catch (Throwable t) {
                 b = ReflectionHelper.findMethod(
                         playerInstanceClass,
-                        (Object) null,
+                        null,
                         new String[] {"func_151251_a", "sendToAllPlayersWatchingChunk"},
                         new Class[] {Packet.class});
             }

@@ -120,7 +120,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     ItemStack tItem = this.getStackInSlot(i);
                     if (tItem != null && tItem.stackSize > 0 && this.isValidSlot(i)) {
                         this.dropItems(tItem);
-                        this.setInventorySlotContents(i, (ItemStack) null);
+                        this.setInventorySlotContents(i, null);
                     }
                 }
             }
@@ -141,9 +141,9 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
             Random tRandom = new Random();
             EntityItem tItemEntity = new EntityItem(
                     this.worldObj,
-                    (double) ((float) this.xCoord + tRandom.nextFloat() * 0.8F + 0.1F),
-                    (double) ((float) this.yCoord + tRandom.nextFloat() * 0.8F + 0.1F),
-                    (double) ((float) this.zCoord + tRandom.nextFloat() * 0.8F + 0.1F),
+                    (float) this.xCoord + tRandom.nextFloat() * 0.8F + 0.1F,
+                    (float) this.yCoord + tRandom.nextFloat() * 0.8F + 0.1F,
+                    (float) this.zCoord + tRandom.nextFloat() * 0.8F + 0.1F,
                     new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
             if (tItem.hasTagCompound()) {
                 tItemEntity.getEntityItem().setTagCompound((NBTTagCompound)

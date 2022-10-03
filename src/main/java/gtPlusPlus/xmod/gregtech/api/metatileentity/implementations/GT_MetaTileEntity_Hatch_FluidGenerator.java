@@ -87,11 +87,11 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
     }
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, TextureFactory.of((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)};
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
-        return new ITexture[] {aBaseTexture, TextureFactory.of((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)};
+        return new ITexture[] {aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)};
     }
 
     public boolean isSimpleMachine() {

@@ -24,7 +24,7 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
             if (mTank.isFluidChangingAllowed()
                     && mTank.getFillableStack() != null
                     && mTank.getFillableStack().amount <= 0) {
-                mTank.setFillableStack((FluidStack) null);
+                mTank.setFillableStack(null);
             }
         }
 

@@ -423,7 +423,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                 } else {
                     int aStackSize = aY.stackSize * aParallelRecipes;
                     if (aStackSize > 64) {
-                        int aSlotsNeedsForThisStack = (int) Math.ceil((double) ((float) aStackSize / 64f));
+                        int aSlotsNeedsForThisStack = (int) Math.ceil((float) aStackSize / 64f);
                         // Should round up and add as many stacks as required nicely.
                         aRecipeSlotsRequired += aSlotsNeedsForThisStack;
                         for (int o = 0; o < aRecipeSlotsRequired; o++) {

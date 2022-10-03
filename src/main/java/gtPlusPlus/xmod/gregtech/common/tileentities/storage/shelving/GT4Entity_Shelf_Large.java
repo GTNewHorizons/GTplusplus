@@ -92,7 +92,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
     public void saveNBTData(NBTTagCompound aNBT) {
         aNBT.setInteger("mItemCount", this.mItemCount);
         if (this.mItemStack != null) {
-            aNBT.setTag("mItemStack", (NBTBase) this.mItemStack.writeToNBT(new NBTTagCompound()));
+            aNBT.setTag("mItemStack", this.mItemStack.writeToNBT(new NBTTagCompound()));
         }
         super.saveNBTData(aNBT);
     }
@@ -118,7 +118,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
                 && this.getBaseMetaTileEntity().isAllowedToWork()) {
             try {
                 if (this.mInventory[0] != null) {
-                    this.mType = (byte) this.mIndex;
+                    this.mType = this.mIndex;
                 } else {
                     this.mType = 0;
                 }

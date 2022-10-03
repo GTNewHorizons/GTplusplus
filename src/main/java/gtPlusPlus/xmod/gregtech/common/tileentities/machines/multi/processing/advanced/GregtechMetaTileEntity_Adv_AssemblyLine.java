@@ -416,7 +416,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -457,7 +457,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -498,7 +498,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }
@@ -530,7 +530,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                         || (x == -1 && z == 1)
                         || (x == 0 && z == 0)) {
                     Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                    int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                    int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                     if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                         aCasingCount++;
                     }
@@ -563,7 +563,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                 }
 
                 Block aCurrentBlock = aBaseMetaTileEntity.getBlockOffset(xDir + x, aY, zDir + z);
-                int aCurrentMeta = (int) aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
+                int aCurrentMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + x, aY, zDir + z);
                 if (aCurrentBlock == aBlock && aCurrentMeta == aMeta) {
                     aCasingCount++;
                 }

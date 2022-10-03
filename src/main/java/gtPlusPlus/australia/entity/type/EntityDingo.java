@@ -237,7 +237,7 @@ public class EntityDingo extends EntityWolf {
                     this.worldObj.spawnParticle(
                             "splash",
                             this.posX + (double) f1,
-                            (double) (f + 0.8F),
+                            f + 0.8F,
                             this.posZ + (double) f2,
                             this.motionX,
                             this.motionY,
@@ -356,7 +356,7 @@ public class EntityDingo extends EntityWolf {
 
                         if (itemstack.stackSize <= 0) {
                             p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -369,7 +369,7 @@ public class EntityDingo extends EntityWolf {
 
                         if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
                             p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -380,9 +380,9 @@ public class EntityDingo extends EntityWolf {
             if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
-                this.setPathToEntity((PathEntity) null);
-                this.setTarget((Entity) null);
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setPathToEntity(null);
+                this.setTarget(null);
+                this.setAttackTarget(null);
             }
         } else if (itemstack != null && itemstack.getItem() == Items.bone && !this.isAngry()) {
             if (!p_70085_1_.capabilities.isCreativeMode) {
@@ -390,14 +390,14 @@ public class EntityDingo extends EntityWolf {
             }
 
             if (itemstack.stackSize <= 0) {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
             }
 
             if (!this.worldObj.isRemote) {
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
-                    this.setPathToEntity((PathEntity) null);
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setPathToEntity(null);
+                    this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
                     this.func_152115_b(p_70085_1_.getUniqueID().toString());

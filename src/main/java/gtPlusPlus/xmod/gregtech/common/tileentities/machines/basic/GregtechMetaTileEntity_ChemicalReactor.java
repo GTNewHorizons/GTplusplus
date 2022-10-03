@@ -239,7 +239,7 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
             int i;
             if (this.mMaxProgresstime > 0 && (this.mProgresstime >= 0 || aBaseMetaTileEntity.isAllowedToWork())) {
                 aBaseMetaTileEntity.setActive(true);
-                if (this.mProgresstime >= 0 && !this.drainEnergyForProcess((long) this.mEUt)) {
+                if (this.mProgresstime >= 0 && !this.drainEnergyForProcess(this.mEUt)) {
                     if (!this.mStuttering) {
                         this.stutterProcess();
                         if (this.canHaveInsufficientEnergy()) {
@@ -333,14 +333,14 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                             tTileEntity2,
                             aBaseMetaTileEntity.getFrontFacing(),
                             aBaseMetaTileEntity.getBackFacing(),
-                            (List) null,
+                            null,
                             false,
                             (byte) 64,
                             (byte) 1,
                             (byte) 64,
                             (byte) 1);
                     if (tCosts > 0) {
-                        aBaseMetaTileEntity.decreaseStoredEnergyUnits((long) tCosts, true);
+                        aBaseMetaTileEntity.decreaseStoredEnergyUnits(tCosts, true);
                     }
                 }
             }

@@ -298,7 +298,7 @@ public class PlayerDoors extends BlockDoor implements ITileEntityProvider {
                 aWorld.markBlockRangeForRenderUpdate(aX, aY - 1, aZ, aX, aY, aZ);
             }
 
-            aWorld.playAuxSFXAtEntity((EntityPlayer) null, 1003, aX, aY, aZ, 0);
+            aWorld.playAuxSFXAtEntity(null, 1003, aX, aY, aZ, 0);
         }
     }
 
