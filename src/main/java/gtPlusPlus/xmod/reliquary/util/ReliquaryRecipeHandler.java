@@ -21,9 +21,6 @@ public class ReliquaryRecipeHandler {
     }
 
     public static boolean addAlkahestRecipe(ItemStack[] aInputs, ItemStack aOutput) {
-        if (aInputs == null || aInputs.length <= 0 || aInputs.length > 9) {
-            return false;
-        }
         return false;
     }
 

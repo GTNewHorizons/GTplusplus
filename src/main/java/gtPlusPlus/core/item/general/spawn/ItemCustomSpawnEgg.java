@@ -109,9 +109,7 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
             float par8,
             float par9,
             float par10) {
-        if (par3World.isRemote) {
-            return true;
-        } else {
+        if (!par3World.isRemote) {
             Block block = par3World.getBlock(par4, par5, par6);
             par4 += Facing.offsetsXForSide[par7];
             par5 += Facing.offsetsYForSide[par7];
@@ -134,8 +132,8 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
                 }
             }
 
-            return true;
         }
+        return true;
     }
 
     /**
@@ -152,9 +150,7 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
             MovingObjectPosition movingobjectposition =
                     getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, true);
 
-            if (movingobjectposition == null) {
-                return par1ItemStack;
-            } else {
+            if (movingobjectposition != null) {
                 if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
                     int i = movingobjectposition.blockX;
                     int j = movingobjectposition.blockY;
@@ -185,8 +181,8 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
                     }
                 }
 
-                return par1ItemStack;
             }
+            return par1ItemStack;
         }
     }
 

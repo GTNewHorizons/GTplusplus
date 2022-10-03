@@ -99,7 +99,7 @@ public class Particle {
         BOSON,
         BARYON,
         MESON,
-        UNKNOWN;
+        UNKNOWN
     }
 
     public final ElementaryGroup mParticleType;

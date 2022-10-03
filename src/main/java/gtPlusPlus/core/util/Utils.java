@@ -949,11 +949,10 @@ public class Utils {
             EntityRegistration x = EntityRegistry.instance().lookupModSpawn((Class<? extends Entity>) aEntity, true);
             if (x != null) {
                 Logger.INFO("[Spawn] Registration for " + x.getEntityName() + " successful");
-                return true;
             } else {
                 Logger.INFO("[Spawn] Registration for " + aEntity.getSimpleName() + " successful");
-                return true;
             }
+            return true;
         }
         Logger.INFO("[Spawn] Mob Spawner creation for " + aEntity.getName() + " failed");
         return false;

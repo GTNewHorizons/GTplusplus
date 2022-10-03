@@ -161,7 +161,6 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                                     this.mIsConnected[e4] = true;
                                 }
                                 this.mConnectedCache = ArrayUtils.mergeTwoMaps(this.mConnectedCache, e.mConnectedCache);
-                                continue;
                             }
                             // Other crate held more connected, it is now master.
                             else {
@@ -176,8 +175,8 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                                 e.mConnectedCache = ArrayUtils.mergeTwoMaps(e.mConnectedCache, this.mConnectedCache);
                                 // Best wipe our cache of connected blocks then, since they no longer hold value.
                                 mConnectedCache.clear();
-                                continue;
                             }
+                            continue;
                         }
                         // Other Crate was not a Master, but we are, time to inherit it into our connection hivemind.
                         else {
@@ -204,7 +203,6 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                                         }
                                         this.mConnectedCache =
                                                 ArrayUtils.mergeTwoMaps(this.mConnectedCache, gM.mConnectedCache);
-                                        continue;
                                     }
                                     // We lost, time to submit to a new master crate
                                     else {
@@ -221,8 +219,8 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                                         // Best wipe our cache of connected blocks then, since they no longer hold
                                         // value.
                                         mConnectedCache.clear();
-                                        continue;
                                     }
+                                    continue;
                                 } else {
                                     // Could not get the Tile Entity for the Other Master Crate.. Guess I can just
                                     // ignore this case for now~ TODO
@@ -285,12 +283,11 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                                         e.mIsConnected[getOppositeSide(e4)] = true;
                                     }
                                     gM.mConnectedCache.put(this.mCurrentPos.getUniqueIdentifier());
-                                    continue;
                                 } else {
                                     // Could not get the Tile Entity for the Other Master Crate.. Guess I can just
                                     // ignore this case for now~ TODO
-                                    continue;
                                 }
+                                continue;
                             }
                             // This crate has no master, not going to check if it's connected.
                             else {

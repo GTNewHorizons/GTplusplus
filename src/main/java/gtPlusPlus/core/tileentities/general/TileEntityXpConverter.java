@@ -27,11 +27,10 @@ public class TileEntityXpConverter extends TileBasicTank {
     private void changeMode() {
         if (this.mConvertToEssence) {
             this.mConvertToEssence = false;
-            return;
         } else {
             this.mConvertToEssence = true;
-            return;
         }
+        return;
     }
 
     public float getAdjustedVolume() {

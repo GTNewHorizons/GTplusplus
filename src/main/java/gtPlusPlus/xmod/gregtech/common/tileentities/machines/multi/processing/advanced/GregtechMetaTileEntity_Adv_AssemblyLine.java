@@ -544,7 +544,6 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
                         // 3);
                         return 0;
                     }
-                    ;
                 }
             }
         }

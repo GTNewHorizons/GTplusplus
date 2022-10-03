@@ -472,7 +472,6 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                                     y.setValue(aOutputBusStack.stackSize + aOutputStack.stackSize);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
                                     aInputMap.remove(u);
-                                    continue outputItems;
                                 }
                                 // Stack merging is too much, so we fill this stack, leave the remainder.
                                 else {
@@ -486,8 +485,8 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                                     aInputMap.remove(u);
                                     // Add the remainder stack.
                                     aInputMap.add(t);
-                                    continue outputItems;
                                 }
+                                continue outputItems;
                             }
                         } else {
                             continue outputItems;

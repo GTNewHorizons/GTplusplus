@@ -41,7 +41,6 @@ public class GT_GUIContainer_CropHarvestor extends GT_GUIContainerMetaTile_Machi
         if (tScale > 0) {
             drawTexturedModalRect(x + 47, y + 61 - tScale, 204, 54 - tScale, 10, tScale);
         }
-        ;
     }
 
     private void drawTooltip(int x2, int y2) {

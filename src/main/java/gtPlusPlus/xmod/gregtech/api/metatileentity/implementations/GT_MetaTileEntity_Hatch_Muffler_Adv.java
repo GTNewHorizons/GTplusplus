@@ -145,7 +145,6 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         int aVal2 = (int) aVal1;
         if (!hasValidFilter()) {
             aVal2 = (int) ((double) aPollution * Math.pow(0.7D, (double) (this.mTier - 1)));
-            ;
         }
         return aVal2;
     }

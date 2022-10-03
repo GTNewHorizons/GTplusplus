@@ -276,11 +276,10 @@ public class HANDLER_GT {
         if (aDidChange) {
             aRecipe.mInputs = aInputItemsCopy;
             Logger.INFO("Modifed Recipe for " + aOutputName);
-            return aRecipe;
         } else {
             Logger.INFO("Failed to Modify Recipe for " + aOutputName);
-            return aRecipe;
         }
+        return aRecipe;
     }
 
     private static void updateRecipeMap(GT_Recipe aOld, GT_Recipe aNew, GT_Recipe_Map aMap) {
@@ -692,9 +691,6 @@ public class HANDLER_GT {
                             } else {
                                 Logger.INFO("Recipe had no valid inputs.");
                             }
-                            Logger.INFO("Time: " + i.mDuration);
-                            Logger.INFO("EU/T: " + i.mEUt);
-                            Logger.INFO("Special: " + i.mSpecialValue);
                         } else {
                             Logger.INFO("Found bad recipe, Attempting to determine other info.");
                             if (i.mInputs != null && i.mInputs.length > 0) {
@@ -707,10 +703,10 @@ public class HANDLER_GT {
                             } else {
                                 Logger.INFO("Recipe had no valid outputs.");
                             }
-                            Logger.INFO("Time: " + i.mDuration);
-                            Logger.INFO("EU/T: " + i.mEUt);
-                            Logger.INFO("Special: " + i.mSpecialValue);
                         }
+                        Logger.INFO("Time: " + i.mDuration);
+                        Logger.INFO("EU/T: " + i.mEUt);
+                        Logger.INFO("Special: " + i.mSpecialValue);
                     }
                 }
             } else {

@@ -392,13 +392,12 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
                 } else {
                     this.mOverheat += 100;
                 }
-                return aAmperage;
             }
             // GT 5.08
             else {
                 this.getBaseMetaTileEntity().setToFire();
-                return aAmperage;
             }
+            return aAmperage;
         }
 
         return rUsedAmperes;

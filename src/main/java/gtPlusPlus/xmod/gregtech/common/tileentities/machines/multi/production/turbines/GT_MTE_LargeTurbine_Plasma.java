@@ -227,14 +227,12 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             if (totalFlow <= 0) return 0;
             tEU = GT_Utility.safeInt((long) ((fuelValue / 20D) * (double) totalFlow));
 
-            if (totalFlow == actualOptimalFlow) {
-                tEU = GT_Utility.safeInt((long) (aBaseEff / 10000D * tEU));
-            } else {
+            if (totalFlow != actualOptimalFlow) {
                 double efficiency = 1.0D - Math.abs((totalFlow - actualOptimalFlow) / (float) actualOptimalFlow);
 
                 tEU = (int) (tEU * efficiency);
-                tEU = GT_Utility.safeInt((long) (aBaseEff / 10000D * tEU));
             }
+            tEU = GT_Utility.safeInt((long) (aBaseEff / 10000D * tEU));
 
             return tEU;
         }

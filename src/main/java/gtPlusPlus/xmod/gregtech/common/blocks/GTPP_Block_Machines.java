@@ -103,7 +103,6 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
 
     public String getLocalizedName() {
         String aName = StatCollector.translateToLocal(this.getUnlocalizedName() + ".name");
-        ;
         if (aName.toLowerCase().contains(".name")) {
             aName = StatCollector.translateToLocal(getUnlocalizedName() + ".name");
         }

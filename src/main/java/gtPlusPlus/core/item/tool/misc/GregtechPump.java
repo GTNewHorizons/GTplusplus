@@ -1278,7 +1278,6 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             return null;
         }
         final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-        ;
         if (aMetaTileEntity == null) {
             return null;
         }

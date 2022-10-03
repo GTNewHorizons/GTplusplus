@@ -209,7 +209,6 @@ public class BaseOreComponent extends Item {
             if (renderPass == 1) {
                 return Utils.rgbtoHexValue(230, 230, 230);
             }
-            return this.componentColour;
         } else {
             if (renderPass == 0 && !CORE.ConfigSwitches.useGregtechTextures) {
                 return this.componentColour;
@@ -217,8 +216,8 @@ public class BaseOreComponent extends Item {
             if (renderPass == 1 && CORE.ConfigSwitches.useGregtechTextures) {
                 return Utils.rgbtoHexValue(230, 230, 230);
             }
-            return this.componentColour;
         }
+        return this.componentColour;
     }
 
     @Override

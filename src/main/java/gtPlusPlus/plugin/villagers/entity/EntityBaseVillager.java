@@ -118,7 +118,6 @@ public class EntityBaseVillager extends EntityVillager {
     public boolean shouldAlwaysSprint() {
         return false;
     }
-    ;
 
     @Override
     public void onLivingUpdate() {

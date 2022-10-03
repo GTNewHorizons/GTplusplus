@@ -6,5 +6,5 @@ public enum GregtechToolDictNames {
     craftingToolAngleGrinder,
     craftingToolElectricSnips,
     craftingToolElectricLighter,
-    craftingToolElectricButcherKnife;
+    craftingToolElectricButcherKnife
 }

@@ -142,18 +142,14 @@ public class TileEntityGenericSpawner extends TileEntityMobSpawner {
                 s = mSpawners.containsKey(this.mID) ? mSpawners.get(this.mID).getSimpleName() : "bad.class.name";
                 p_145841_1_.setString("id", s);
                 Logger.WARNING(this.getClass() + " is missing a mapping! This is a bug! Used key: " + s);
-                p_145841_1_.setInteger("x", this.xCoord);
-                p_145841_1_.setInteger("y", this.yCoord);
-                p_145841_1_.setInteger("z", this.zCoord);
-                p_145841_1_.setInteger("mID", this.mID);
             } else {
                 Logger.INFO(this.getClass() + " is not missing a mapping! Used key: " + s);
                 p_145841_1_.setString("id", s);
-                p_145841_1_.setInteger("x", this.xCoord);
-                p_145841_1_.setInteger("y", this.yCoord);
-                p_145841_1_.setInteger("z", this.zCoord);
-                p_145841_1_.setInteger("mID", this.mID);
             }
+            p_145841_1_.setInteger("x", this.xCoord);
+            p_145841_1_.setInteger("y", this.yCoord);
+            p_145841_1_.setInteger("z", this.zCoord);
+            p_145841_1_.setInteger("mID", this.mID);
             this.getLogic().writeToNBT(p_145841_1_);
         }
     }

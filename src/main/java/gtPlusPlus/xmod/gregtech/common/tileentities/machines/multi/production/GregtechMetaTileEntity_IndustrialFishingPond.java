@@ -385,10 +385,8 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
                 categoryLoot.put(h);
             }
             hasGenerateRecipes = true;
-            return true;
-        } else {
-            return true;
         }
+        return true;
     }
 
     private int getCircuit(ItemStack[] t) {

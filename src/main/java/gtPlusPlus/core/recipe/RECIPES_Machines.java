@@ -3775,8 +3775,6 @@ public class RECIPES_Machines {
                 20 * 10 * 6,
                 MaterialUtils.getVoltageForTier(6));
 
-        ;
-
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
                     GregtechItemList.Casing_Vacuum_Furnace.get(aCostMultiplier),

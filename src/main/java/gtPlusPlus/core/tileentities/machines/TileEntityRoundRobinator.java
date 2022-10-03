@@ -388,7 +388,6 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
             if (this.aHopperInventory[aSlot].stackSize <= aMinimumSizeOfExistingStack) {
                 itemstack = this.aHopperInventory[aSlot];
                 this.aHopperInventory[aSlot] = null;
-                return itemstack;
             } else {
                 itemstack = this.aHopperInventory[aSlot].splitStack(aMinimumSizeOfExistingStack);
 
@@ -396,8 +395,8 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
                     this.aHopperInventory[aSlot] = null;
                 }
 
-                return itemstack;
             }
+            return itemstack;
         } else {
             return null;
         }

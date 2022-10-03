@@ -30,7 +30,6 @@ public class GG_Utils {
         rodCompressedPlutoniumDepleted,
         rodCompressedPlutoniumDepleted_2,
         rodCompressedPlutoniumDepleted_4,
-        ;
     }
 
     public static ItemStack getGG_Fuel_Rod(GG_Fuel_Rod aItem, int aAmount) {

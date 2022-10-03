@@ -214,9 +214,7 @@ public class GregtechMetaTileEntityThaumcraftResearcher extends GregtechMetaTile
 
     @Override
     public boolean onRightclick(final IGregTechTileEntity aBaseMetaTileEntity, final EntityPlayer aPlayer) {
-        if (aBaseMetaTileEntity.isClientSide()) {
-            return true;
-        }
+        aBaseMetaTileEntity.isClientSide();
         return true;
     }
 

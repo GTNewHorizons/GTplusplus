@@ -5,12 +5,10 @@ public class SystemUtils {
     private static OS SystemType;
 
     public static OS getOS() {
-        if (SystemType != null) {
-            return SystemType;
-        } else {
+        if (SystemType == null) {
             SystemType = getOperatingSystem();
-            return SystemType;
         }
+        return SystemType;
     }
 
     /**
