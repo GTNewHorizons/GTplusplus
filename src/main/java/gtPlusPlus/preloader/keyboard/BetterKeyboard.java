@@ -72,9 +72,7 @@ public class BetterKeyboard {
             String[] aOldKeyNameArray = ReflectionUtils.getFieldValue(aKeyNameSize);
             if (aOldKeyNameArray != null && aOldKeyNameArray.length < Short.MAX_VALUE) {
                 String[] aNewKeyNameArray = new String[Short.MAX_VALUE];
-                for (int i = 0; i < aOldKeyNameArray.length; i++) {
-                    aNewKeyNameArray[i] = aOldKeyNameArray[i];
-                }
+                System.arraycopy(aOldKeyNameArray, 0, aNewKeyNameArray, 0, aOldKeyNameArray.length);
                 try {
                     ReflectionUtils.setFinalFieldValue(Keyboard.class, aKeyNameSize.getName(), aNewKeyNameArray);
                     FMLRelaunchLog.log(

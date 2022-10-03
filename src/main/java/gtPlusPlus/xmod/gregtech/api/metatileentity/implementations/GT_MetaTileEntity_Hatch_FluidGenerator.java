@@ -74,9 +74,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
                 String[] aCustomTips = getCustomTooltip();
                 final String[] desc = new String[S.length + aCustomTips.length + 1];
                 System.arraycopy(S, 0, desc, 0, S.length);
-                for (int i = 0; i < aCustomTips.length; i++) {
-                    desc[S.length + i] = aCustomTips[i];
-                }
+                System.arraycopy(aCustomTips, 0, desc, S.length + 0, aCustomTips.length);
                 desc[S.length + aCustomTips.length] = CORE.GT_Tooltip;
                 return desc;
             }

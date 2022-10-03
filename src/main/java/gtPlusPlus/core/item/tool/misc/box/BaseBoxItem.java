@@ -35,9 +35,7 @@ public class BaseBoxItem extends CoreItem {
 
     private static String[] modifyDescriptionStringArray(String[] array) {
         String[] a = new String[array.length + 1];
-        for (int b = 0; b < array.length; b++) {
-            a[b] = array[b];
-        }
+        System.arraycopy(array, 0, a, 0, array.length);
         a[a.length - 1] = "Right Click to open";
         return a;
     }
