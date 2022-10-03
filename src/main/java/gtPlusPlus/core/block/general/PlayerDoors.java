@@ -49,9 +49,7 @@ public class PlayerDoors extends BlockDoor implements ITileEntityProvider {
         super(aMaterial);
         this.disableStats();
         this.isBlockContainer = true;
-        if (mDoorMap.get(aMaterial) == null) {
-            mDoorMap.put(aMaterial, this);
-        }
+        mDoorMap.putIfAbsent(aMaterial, this);
         float f = 0.5F;
         float f1 = 1.0F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f1, 0.5F + f);

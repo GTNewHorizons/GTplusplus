@@ -184,8 +184,7 @@ public class GregtechOreDictUnificator {
                     ItemStack tStack1 = get(false, tStack0, true);
                     if (tStack0 != null && tStack1 != null && !GT_Utility.areStacksEqual(tStack0, tStack1)) {
                         GT_ItemStack tGTStack1 = new GT_ItemStack(tStack1);
-                        List<ItemStack> list = sUnificationTable.get(tGTStack1);
-                        if (list == null) sUnificationTable.put(tGTStack1, list = new ArrayList<>());
+                        List<ItemStack> list = sUnificationTable.computeIfAbsent(tGTStack1, k -> new ArrayList<>());
                         if (!list.contains(tStack0)) list.add(tStack0);
                     }
                 }
