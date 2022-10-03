@@ -909,19 +909,13 @@ public class Utils {
 
     public static String calculateChecksumMD5(Object bytes) {
         byte[] result = new byte[] {};
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutput out = null;
-        try {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            ObjectOutput out = null;
             out = new ObjectOutputStream(bos);
             out.writeObject(bytes);
             out.flush();
             result = bos.toByteArray();
         } catch (IOException e) {
-        } finally {
-            try {
-                bos.close();
-            } catch (IOException e) {
-            }
         }
         return calculateChecksumMD5(result);
     }
