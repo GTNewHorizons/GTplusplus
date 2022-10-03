@@ -49,7 +49,7 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
     /** The crafting matrix inventory (3x3). */
     public CraftingHelper mInventoryCrafter;
 
-    public static enum MODE {
+    public enum MODE {
         CRAFTING("CIRCUIT", "ASSEMBLY"),
         ASSEMBLY("CRAFTING", "DISASSEMBLY"),
         DISASSEMBLY("ASSEMBLY", "CIRCUIT"),

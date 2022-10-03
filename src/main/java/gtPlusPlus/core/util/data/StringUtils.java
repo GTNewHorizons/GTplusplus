@@ -81,7 +81,7 @@ public class StringUtils {
     }
 
     // Can call this Enum for formatting.
-    public static enum TextUtils {
+    public enum TextUtils {
         blue('1'),
         green('2'),
         teal('3'),
@@ -101,7 +101,7 @@ public class StringUtils {
 
         private char colourValue;
 
-        private TextUtils(final char value) {
+        TextUtils(final char value) {
             this.colourValue = value;
         }
 

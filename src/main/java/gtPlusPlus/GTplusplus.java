@@ -67,7 +67,7 @@ import net.minecraft.util.IIcon;
                 "required-after:Forge; after:TConstruct; after:PlayerAPI; after:dreamcraft; after:IC2; after:ihl; after:psychedelicraft; required-after:gregtech; after:Forestry; after:MagicBees; after:CoFHCore; after:Growthcraft; after:Railcraft; after:CompactWindmills; after:ForbiddenMagic; after:MorePlanet; after:PneumaticCraft; after:ExtraUtilities; after:Thaumcraft; after:rftools; after:simplyjetpacks; after:BigReactors; after:EnderIO; after:tectech; after:GTRedtech; after:beyondrealitycore; after:OpenBlocks; after:IC2NuclearControl; after:TGregworks; after:StevesCarts; after:xreliquary;")
 public class GTplusplus implements ActionListener {
 
-    public static enum INIT_PHASE {
+    public enum INIT_PHASE {
         SUPER(null),
         PRE_INIT(SUPER),
         INIT(PRE_INIT),
@@ -77,7 +77,7 @@ public class GTplusplus implements ActionListener {
         protected boolean mIsPhaseActive = false;
         private final INIT_PHASE mPrev;
 
-        private INIT_PHASE(INIT_PHASE aPreviousPhase) {
+        INIT_PHASE(INIT_PHASE aPreviousPhase) {
             mPrev = aPreviousPhase;
         }
 

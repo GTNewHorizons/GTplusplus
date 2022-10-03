@@ -60,7 +60,7 @@ public class GregtechTextures {
 
         protected IIcon mIcon;
 
-        private BlockIcons() {
+        BlockIcons() {
             Meta_GT_Proxy.GT_BlockIconload.add(this);
         }
 
@@ -153,7 +153,7 @@ public class GregtechTextures {
 
         protected IIcon mIcon, mOverlay;
 
-        private ItemIcons() {
+        ItemIcons() {
             Meta_GT_Proxy.GT_ItemIconload.add(this);
         }
 

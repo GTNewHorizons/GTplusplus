@@ -17,7 +17,7 @@ public class ModularArmourUtils {
         return null;
     }
 
-    public static enum Modifiers {
+    public enum Modifiers {
         BOOST_HP("skill.hpboost"),
         BOOST_DEF("skill.defenceboost"),
         BOOST_SPEED("skill.speedboost"),
@@ -26,7 +26,7 @@ public class ModularArmourUtils {
         BOOST_HOLY("skill.holyboost");
         private String MODIFIER_NAME;
 
-        private Modifiers(final String mModifier) {
+        Modifiers(final String mModifier) {
             this.MODIFIER_NAME = mModifier;
         }
 
@@ -42,7 +42,7 @@ public class ModularArmourUtils {
         }
     }
 
-    public static enum BT {
+    public enum BT {
         TYPE_AMULET(BaubleType.AMULET, 0),
         TYPE_RING(BaubleType.RING, 1),
         TYPE_BELT(BaubleType.BELT, 2);
@@ -50,7 +50,7 @@ public class ModularArmourUtils {
         private final int mID;
         private final String mBaubleType;
 
-        private BT(final BaubleType tType, int tID) {
+        BT(final BaubleType tType, int tID) {
             this.mType = tType;
             this.mID = tID;
             this.mBaubleType = tType.name().toLowerCase();

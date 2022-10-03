@@ -45,7 +45,7 @@ public enum CustomOrePrefix {
 
     private OrePrefixes mSelfReference;
 
-    private CustomOrePrefix(
+    CustomOrePrefix(
             String aRegularLocalName,
             String aLocalizedMaterialPre,
             String aLocalizedMaterialPost,
