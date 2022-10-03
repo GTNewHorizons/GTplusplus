@@ -43,7 +43,7 @@ public class LoaderOfTheCrops {
         return new LoaderOfTheCrops(cropObj, ItemUtils.getItemStackOfAmountFromOreDict("crop" + cropObj.name(), 0));
     }
 
-    public static final List<LoaderOfTheCrops> cropLoader() {
+    public static List<LoaderOfTheCrops> cropLoader() {
         List<LoaderOfTheCrops> p = new ArrayList<>();
 
         p.add(new LoaderOfTheCrops(new Crop_Hemp(), new ItemStack(Item.getItemById(111), 3)));
@@ -52,7 +52,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<CropCard> cropObjs() {
+    private static List<CropCard> cropObjs() {
         List<CropCard> p = new ArrayList<>();
 
         for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
@@ -62,7 +62,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<ItemStack> setBaseSeed() {
+    private static List<ItemStack> setBaseSeed() {
         List<ItemStack> p = new ArrayList<>();
 
         for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
@@ -72,7 +72,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<String> setnames() {
+    private static List<String> setnames() {
         List<String> s = new ArrayList<>();
 
         for (int i = 0; i < mCropList.size(); ++i) {

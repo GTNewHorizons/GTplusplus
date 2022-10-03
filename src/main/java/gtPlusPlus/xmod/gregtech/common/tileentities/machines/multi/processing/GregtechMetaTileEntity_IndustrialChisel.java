@@ -424,7 +424,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
 
     private static String sChiselSound = null;
 
-    private static final String getChiselSound() {
+    private static String getChiselSound() {
         if (sChiselSound == null) {
             sChiselSound = Carving.chisel.getVariationSound(Blocks.stone, 0);
         }

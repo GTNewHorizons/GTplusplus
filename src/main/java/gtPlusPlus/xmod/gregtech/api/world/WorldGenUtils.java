@@ -8,7 +8,7 @@ public class WorldGenUtils {
 
     static final List<GT_OreVein_Object> mOresToRegister = new ArrayList<>();
 
-    public static final void addNewOreMixForWorldgen(GT_OreVein_Object newVein) {
+    public static void addNewOreMixForWorldgen(GT_OreVein_Object newVein) {
         mOresToRegister.add(newVein);
     }
 

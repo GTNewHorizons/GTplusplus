@@ -218,7 +218,7 @@ public class RECIPES_Machines {
     // Output Determiner
     public static int Casing_Amount;
 
-    public static final void loadRecipes() {
+    public static void loadRecipes() {
         run();
         Logger.INFO("Loading Recipes for the Various machine blocks.");
     }

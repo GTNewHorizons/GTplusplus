@@ -98,7 +98,7 @@ public class GenerateDictionaries {
         private static final Charset utf8 = StandardCharsets.UTF_8;
         private static final Random rand = new XSTR();
 
-        private static final void log(String s) {
+        private static void log(String s) {
             System.out.println("[GTPP-Proguard] " + s);
         }
 

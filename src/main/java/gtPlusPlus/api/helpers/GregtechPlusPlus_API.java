@@ -45,7 +45,7 @@ public class GregtechPlusPlus_API {
             return true;
         }
 
-        public static final HashMap<String, SpecialMultiBehaviour> getSpecialBehaviourItemMap() {
+        public static HashMap<String, SpecialMultiBehaviour> getSpecialBehaviourItemMap() {
             return mSpecialBehaviourItemMap;
         }
 
@@ -174,7 +174,7 @@ public class GregtechPlusPlus_API {
             return mMinerLootCache.get(aDim).get("stone");
         }
 
-        public static final HashMap<Integer, HashMap<String, WeightedCollection<Block>>> getVoidMinerLootCache() {
+        public static HashMap<Integer, HashMap<String, WeightedCollection<Block>>> getVoidMinerLootCache() {
             return mMinerLootCache;
         }
     }

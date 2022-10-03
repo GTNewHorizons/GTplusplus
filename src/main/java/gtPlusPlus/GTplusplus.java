@@ -427,7 +427,7 @@ public class GTplusplus implements ActionListener {
         }
     }
 
-    private static final boolean setupMaterialBlacklist() {
+    private static boolean setupMaterialBlacklist() {
         Material.invalidMaterials.put(Materials._NULL);
         Material.invalidMaterials.put(Materials.Clay);
         Material.invalidMaterials.put(Materials.Phosphorus);

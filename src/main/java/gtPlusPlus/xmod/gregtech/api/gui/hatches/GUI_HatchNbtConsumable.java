@@ -17,7 +17,7 @@ public class GUI_HatchNbtConsumable extends GT_GUIContainer {
         mTotalSlotCount = aContainer.mInputslotCount * 2;
     }
 
-    private static final String getTextureForGUI(int aTotalSlotCOunt) {
+    private static String getTextureForGUI(int aTotalSlotCOunt) {
         if (aTotalSlotCOunt == 18) {
             return "HatchNbtConsumable_3By3";
         } else if (aTotalSlotCOunt == 32) {

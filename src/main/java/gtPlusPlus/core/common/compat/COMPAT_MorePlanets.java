@@ -8,7 +8,7 @@ public class COMPAT_MorePlanets {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
         // Metals
         ItemUtils.getItemForOreDict("MorePlanet:kapteyn-b_item", "ingotFrozenIron", "Frozen Iron Ingot", 0);
         ItemUtils.getItemForOreDict("MorePlanet:kapteyn-b_item", "ingotAnyIron", "Frozen Iron Ingot", 0);

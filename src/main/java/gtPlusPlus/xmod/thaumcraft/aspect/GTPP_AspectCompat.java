@@ -147,7 +147,7 @@ public class GTPP_AspectCompat {
         }
     }
 
-    public static final synchronized TC_AspectList_Wrapper getTC_AspectList_Wrapper(
+    public static synchronized TC_AspectList_Wrapper getTC_AspectList_Wrapper(
             final List<GTPP_AspectStack> aAspects) {
         TC_AspectList_Wrapper o = null;
         try {

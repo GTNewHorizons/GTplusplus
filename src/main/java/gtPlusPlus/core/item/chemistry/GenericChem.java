@@ -1125,19 +1125,19 @@ public class GenericChem extends ItemPackage {
 
     }
 
-    private static final ItemStack getTierOneChip() {
+    private static ItemStack getTierOneChip() {
         return CI.getNumberedAdvancedCircuit(4);
     }
 
-    private static final ItemStack getTierTwoChip() {
+    private static ItemStack getTierTwoChip() {
         return CI.getNumberedAdvancedCircuit(8);
     }
 
-    private static final ItemStack getTierThreeChip() {
+    private static ItemStack getTierThreeChip() {
         return CI.getNumberedAdvancedCircuit(12);
     }
 
-    private static final ItemStack getTierFourChip() {
+    private static ItemStack getTierFourChip() {
         return CI.getNumberedAdvancedCircuit(16);
     }
 

@@ -218,7 +218,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
     private static GT_Recipe sRecipe_SmoothStone;
     private static GT_Recipe sRecipe_Redstone;
 
-    private static final void generateRecipes() {
+    private static void generateRecipes() {
         sRecipe_Cobblestone = new GTPP_Recipe(
                 false,
                 new ItemStack[] {CI.getNumberedCircuit(1)},

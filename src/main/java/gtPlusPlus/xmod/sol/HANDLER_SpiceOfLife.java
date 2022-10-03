@@ -9,18 +9,18 @@ import net.minecraft.item.Item;
 
 public class HANDLER_SpiceOfLife {
 
-    public static final void preInit() {
+    public static void preInit() {
         if (LoadedMods.SpiceOfLife) {
             // Add a new Lunch Box with a reasonable amount of slots
             tryRegisterNewLunchBox("foodcrate", 12);
         }
     }
 
-    public static final void init() {
+    public static void init() {
         if (LoadedMods.SpiceOfLife) {}
     }
 
-    public static final void postInit() {
+    public static void postInit() {
         if (LoadedMods.SpiceOfLife) {}
     }
 

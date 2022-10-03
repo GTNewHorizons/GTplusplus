@@ -43,23 +43,23 @@ public class ClassTransformer_TT_ThaumicRestorer {
 
     // thaumic.tinkerer.common.block.tile.TileRepairer
 
-    private static final boolean isTConstructTool(ItemStack aStack) {
+    private static boolean isTConstructTool(ItemStack aStack) {
         return ReflectionUtils.invoke(null, mIsTcTool, new Object[] {aStack});
     }
 
-    private static final int getDamage(ItemStack aStack) {
+    private static int getDamage(ItemStack aStack) {
         return (int) ReflectionUtils.invokeNonBool(null, mGetTcDamage, new Object[] {aStack});
     }
 
-    private static final boolean fixDamage(ItemStack aStack, int aAmount) {
+    private static boolean fixDamage(ItemStack aStack, int aAmount) {
         return ReflectionUtils.invoke(null, mFixTcDamage, new Object[] {aStack, aAmount});
     }
 
-    private static final int drawEssentia(TileEntity aTile) {
+    private static int drawEssentia(TileEntity aTile) {
         return (int) ReflectionUtils.invokeNonBool(aTile, mDrawEssentia, new Object[] {});
     }
 
-    private static final void sparkle(float a, float b, float c, int d) {
+    private static void sparkle(float a, float b, float c, int d) {
         ReflectionUtils.invokeVoid(ReflectionUtils.getFieldValue(mProxyTC), mSparkle, new Object[] {a, b, c, d});
     }
 

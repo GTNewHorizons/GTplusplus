@@ -91,7 +91,7 @@ public class TinkersUtils {
         }
     }
 
-    public static final boolean isTiConFirstInOD() {
+    public static boolean isTiConFirstInOD() {
         if (LoadedMods.TiCon) {
             try {
                 return (boolean) ReflectionUtils.getField(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst")
@@ -102,7 +102,7 @@ public class TinkersUtils {
         return false;
     }
 
-    public static final boolean stopTiconLoadingFirst() {
+    public static boolean stopTiconLoadingFirst() {
         if (isTiConFirstInOD()) {
             try {
                 ReflectionUtils.setFinalFieldValue(ReflectionUtils.getClass("PHConstruct"), "tconComesFirst", false);

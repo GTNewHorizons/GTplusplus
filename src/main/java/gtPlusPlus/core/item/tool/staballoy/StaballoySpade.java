@@ -55,7 +55,7 @@ public class StaballoySpade extends ItemSpade {
      * Is the player facing horizontally?
      */
 
-    public static final boolean isFacingHorizontal(final ItemStack aStack) {
+    public static boolean isFacingHorizontal(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -68,7 +68,7 @@ public class StaballoySpade extends ItemSpade {
         return true;
     }
 
-    public static final boolean setFacingHorizontal(final ItemStack aStack, final boolean aFacingHorizontal) {
+    public static boolean setFacingHorizontal(final ItemStack aStack, final boolean aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -84,7 +84,7 @@ public class StaballoySpade extends ItemSpade {
      * Handles the Direction the player is facing
      */
 
-    public static final String getFacingDirection(final ItemStack aStack) {
+    public static String getFacingDirection(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -97,7 +97,7 @@ public class StaballoySpade extends ItemSpade {
         return "north";
     }
 
-    public static final boolean setFacingDirection(final ItemStack aStack, final String aFacingHorizontal) {
+    public static boolean setFacingDirection(final ItemStack aStack, final String aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -113,7 +113,7 @@ public class StaballoySpade extends ItemSpade {
      * The Looking Direction handlers
      */
 
-    public static final String getLookingDirection(final ItemStack aStack) {
+    public static String getLookingDirection(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -126,7 +126,7 @@ public class StaballoySpade extends ItemSpade {
         return "";
     }
 
-    public static final boolean setLookingDirection(final ItemStack aStack, final String aFacingHorizontal) {
+    public static boolean setLookingDirection(final ItemStack aStack, final String aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");

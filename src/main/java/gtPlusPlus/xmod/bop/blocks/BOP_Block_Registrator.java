@@ -38,12 +38,12 @@ public class BOP_Block_Registrator {
     public static Block sapling_Pine;
 
     // Runs Each tree Type separately
-    public static final void run() {
+    public static void run() {
         registerTree_Rainforest();
         registerTree_Pine();
     }
 
-    private static final boolean registerTree_Rainforest() {
+    private static boolean registerTree_Rainforest() {
         log_Rainforest = new LogRainforestTree();
         leaves_Rainforest = new LeavesRainforestTree();
         sapling_Rainforest = new SaplingRainforestTree();
@@ -53,7 +53,7 @@ public class BOP_Block_Registrator {
         return true;
     }
 
-    private static final boolean registerTree_Pine() {
+    private static boolean registerTree_Pine() {
         log_Pine = new LogPineTree();
         leaves_Pine = new LeavesPineTree();
         sapling_Pine = new SaplingPineTree();
@@ -63,7 +63,7 @@ public class BOP_Block_Registrator {
         return true;
     }
 
-    public static final void recipes() {
+    public static void recipes() {
         // Rainforest Oak
         addLogRecipes(ItemUtils.getSimpleStack(log_Rainforest));
         addSaplingRecipes(ItemUtils.getSimpleStack(sapling_Rainforest));
@@ -72,7 +72,7 @@ public class BOP_Block_Registrator {
         addSaplingRecipes(ItemUtils.getSimpleStack(sapling_Pine));
     }
 
-    public static final void addLogRecipes(final ItemStack aStack) {
+    public static void addLogRecipes(final ItemStack aStack) {
         RecipeUtils.addShapelessGregtechRecipe(
                 new ItemStack[] {aStack},
                 ItemUtils.getSimpleStack(

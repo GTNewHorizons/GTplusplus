@@ -22,7 +22,7 @@ public class Logger {
 
     private static final boolean enabled = !AsmConfig.disableAllLogging;
 
-    public static final org.apache.logging.log4j.Logger getLogger() {
+    public static org.apache.logging.log4j.Logger getLogger() {
         return modLogger;
     }
 
