@@ -508,7 +508,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             FluidStack aInputFluid,
             FluidStack aOutput,
             ItemStack[] aOutputStack,
-            final int aChance[],
+            final int[] aChance,
             int aDuration,
             final int aEUt) {
         return addBlastSmelterRecipe(aInput, aInputFluid, aOutput, aOutputStack, aChance, aDuration, aEUt, 3700);
@@ -676,8 +676,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if ((aInput1 == null) || (aOutput1 == null) || (aDuration < 1) || (aEUt < 1)) {
             return false;
         }
-        final FluidStack inputs[] = {aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9};
-        final FluidStack outputs[] = {aOutput1, aOutput2};
+        final FluidStack[] inputs = {aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9};
+        final FluidStack[] outputs = {aOutput1, aOutput2};
 
         int aSize = GTPP_Recipe.GTPP_Recipe_Map.sFissionFuelProcessing.mRecipeList.size();
         int aSize2 = aSize;

@@ -24,7 +24,8 @@ import net.minecraft.tileentity.TileEntity;
 public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_RedstoneBase
         implements IRedstoneCircuitBlock {
 
-    public int mGate = 0, mGateData[] = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
+    public int mGate = 0;
+    public int[] mGateData = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
     public boolean bOutput = true;
 
     public GT_MetaTileEntity_RedstoneCircuitBlock(int aID) {

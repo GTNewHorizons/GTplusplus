@@ -137,7 +137,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
         if (tDataStickList.size() == 0) return false;
         if (GT_Values.D1) System.out.println("Stick accepted, " + tDataStickList.size() + " Data Sticks found");
 
-        ItemStack tStack[] = new ItemStack[15];
+        ItemStack[] tStack = new ItemStack[15];
         FluidStack[] tFluids = new FluidStack[4];
         boolean findRecipe = false;
         nextDS:

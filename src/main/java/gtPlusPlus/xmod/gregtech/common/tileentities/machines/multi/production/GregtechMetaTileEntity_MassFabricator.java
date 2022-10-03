@@ -61,7 +61,7 @@ public class GregtechMetaTileEntity_MassFabricator
 
     public static boolean sRequiresUUA = false;
     private static FluidStack[] mUU = new FluidStack[2];
-    private static ItemStack mScrap[] = new ItemStack[2];
+    private static ItemStack[] mScrap = new ItemStack[2];
 
     private int mCasing;
     private IStructureDefinition<GregtechMetaTileEntity_MassFabricator> STRUCTURE_DEFINITION = null;

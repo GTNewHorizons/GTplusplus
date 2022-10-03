@@ -75,7 +75,8 @@ public class GT_Container_RedstoneCircuitBlock extends GT_ContainerMetaTile_Mach
         return super.slotClick(aSlotIndex, aMouseclick, aShifthold, aPlayer);
     }
 
-    public int mData[] = new int[] {0, 0, 0, 0, 0, 0, 0, 0}, mGate = 0;
+    public int[] mData = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
+    public int mGate = 0;
 
     @SuppressWarnings("rawtypes")
     public void detectAndSendChanges() {

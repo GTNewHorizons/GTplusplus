@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemNuclearChemBase extends Item {
 
-    protected final IIcon base[];
+    protected final IIcon[] base;
 
     private final int aMetaSize = 4;
 

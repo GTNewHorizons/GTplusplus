@@ -48,7 +48,7 @@ public class RecipeGen_BlastSmelterGT_GTNH {
 
     private static boolean isValid(
             final ItemStack[] inputs,
-            final ItemStack outputs[],
+            final ItemStack[] outputs,
             final FluidStack[] fluidIn,
             final FluidStack fluidOut) {
         if (inputs != null

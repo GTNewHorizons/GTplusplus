@@ -205,7 +205,7 @@ public class Container_TradeTable extends Container {
     }
 
     public ItemStack[] getInputComponents() {
-        ItemStack inputs[] = new ItemStack[9];
+        ItemStack[] inputs = new ItemStack[9];
         for (int r = 0; r < this.inventoryChest.getSizeInventory(); r++) {
             ItemStack temp = this.inventoryChest.getStackInSlot(r);
             inputs[r] = temp;

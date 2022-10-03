@@ -470,7 +470,7 @@ public class Meta_GT_Proxy {
                                 String[] tString = tDescription.split("%%%");
                                 if (tString.length >= 2) {
                                     StringBuilder tBuffer = new StringBuilder();
-                                    Object tRep[] = new String[tString.length / 2];
+                                    Object[] tRep = new String[tString.length / 2];
                                     for (int j = 0; j < tString.length; j++)
                                         if (j % 2 == 0) tBuffer.append(tString[j]);
                                         else {

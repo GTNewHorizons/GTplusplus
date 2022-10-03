@@ -24,7 +24,7 @@ import net.minecraftforge.fluids.Fluid;
 public class BlockBaseFluid extends BlockFluidClassic {
 
     private final String name;
-    private final IIcon textureArray[] = new IIcon[6];
+    private final IIcon[] textureArray = new IIcon[6];
 
     protected float particleRed = 1.0F;
     protected float particleGreen = 1.0F;

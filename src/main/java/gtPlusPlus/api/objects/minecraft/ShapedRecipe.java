@@ -32,7 +32,7 @@ public class ShapedRecipe {
 
     public ShapedRecipe(Object[] aInputs, ItemStack aOutput) {
         StringBuilder aGridWhole = new StringBuilder();
-        String aGrid[] = new String[3];
+        String[] aGrid = new String[3];
         char[] aChar = new char[9];
         String[] aLoggingInfo = new String[9];
 

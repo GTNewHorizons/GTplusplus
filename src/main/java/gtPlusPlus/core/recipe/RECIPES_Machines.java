@@ -1103,7 +1103,7 @@ public class RECIPES_Machines {
 
     private static void chunkloaders() {
 
-        ItemStack aOutputs[] = new ItemStack[] {
+        ItemStack[] aOutputs = new ItemStack[] {
             GregtechItemList.GT_Chunkloader_HV.get(1L),
             GregtechItemList.GT_Chunkloader_IV.get(1L),
             GregtechItemList.GT_Chunkloader_ZPM.get(1L),
@@ -1132,7 +1132,7 @@ public class RECIPES_Machines {
     }
 
     private static void overflowValveCovers() {
-        ItemStack aOutputs[] = new ItemStack[] {
+        ItemStack[] aOutputs = new ItemStack[] {
             GregtechItemList.Cover_Overflow_ULV.get(1L),
             GregtechItemList.Cover_Overflow_LV.get(1L),
             GregtechItemList.Cover_Overflow_MV.get(1L),
@@ -4078,7 +4078,7 @@ public class RECIPES_Machines {
         if (!GTNH) {
             aMaxTier = 10;
         }
-        ItemStack aTier[] = new ItemStack[aMaxTier];
+        ItemStack[] aTier = new ItemStack[aMaxTier];
         for (int i = 0; i < aMaxTier; i++) {
             aTier[i] = ItemUtils.simpleMetaStack(CoverManager.Cover_Gt_Machine_Casing, i, 7);
         }
@@ -4123,8 +4123,8 @@ public class RECIPES_Machines {
             CoverManager.Cover_Bitt
         };
 
-        ItemStack aInputs[][] = new ItemStack[5][16];
-        ItemStack aOutputs[][] = new ItemStack[5][16];
+        ItemStack[][] aInputs = new ItemStack[5][16];
+        ItemStack[][] aOutputs = new ItemStack[5][16];
         for (int a = 0; a < 5; a++) {
             for (int i = 0; i < 16; i++) {
                 aInputs[a][i] = ItemUtils.simpleMetaStack(aBlocks[a].getItem(), i, 1);

@@ -380,8 +380,8 @@ public class RecipeUtils {
 
         int using = 0, recipeSlotCurrent = 0;
         boolean[] hasMultiStack = new boolean[9];
-        boolean inUse[] = {false, false, false};
-        ItemStack array[][] = new ItemStack[3][9];
+        boolean[] inUse = {false, false, false};
+        ItemStack[][] array = new ItemStack[3][9];
 
         Object[] inputs = {
             InputItem1, InputItem2, InputItem3,
@@ -585,7 +585,7 @@ public class RecipeUtils {
         result.put("Is Enabled? " + m.mEnabled);
         result.put("Special Value: " + m.mSpecialValue);
         result.put("=====================================");
-        String s[] = result.toArray();
+        String[] s = result.toArray();
         return s;
     }
 

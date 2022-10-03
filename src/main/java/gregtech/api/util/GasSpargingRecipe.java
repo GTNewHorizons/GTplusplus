@@ -94,7 +94,7 @@ public class GasSpargingRecipe implements Comparable<GasSpargingRecipe> {
         result.put("Output " + ItemUtils.getArrayStackNames(mFluidOutputs));
         result.put("Duration: " + mDuration);
         result.put("EU/t: " + mEUt);
-        String s[] = result.toArray();
+        String[] s = result.toArray();
         return s;
     }
 }

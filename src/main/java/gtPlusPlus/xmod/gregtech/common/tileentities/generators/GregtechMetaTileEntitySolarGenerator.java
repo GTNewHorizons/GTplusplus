@@ -141,7 +141,7 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
         return Math.max(this.getEUVar(), (V[this.mTier] * 16000) + this.getMinimumStoredEU());
     }
 
-    ITexture SolarArray[] = {
+    ITexture[] SolarArray = {
         TextureFactory.of(Textures.BlockIcons.SOLARPANEL_8V),
         TextureFactory.of(Textures.BlockIcons.SOLARPANEL_LV),
         TextureFactory.of(Textures.BlockIcons.SOLARPANEL_MV),
