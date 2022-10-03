@@ -160,7 +160,7 @@ public class GTPP_Worldgen_GT_Ore_Layer extends GTPP_Worldgen {
                                 || ((aWorld.provider.getDimensionName().equals("Moon")) && (false))
                                 || ((aWorld.provider.getDimensionName().equals("Mars")) && (false))
                         ? aDimensionType
-                        : aDimensionType ^ 0xFFFFFFFF)) {
+                        : ~aDimensionType)) {
             return false;
         }
         int tMinY = this.mMinY + aRandom.nextInt(this.mMaxY - this.mMinY - 5);

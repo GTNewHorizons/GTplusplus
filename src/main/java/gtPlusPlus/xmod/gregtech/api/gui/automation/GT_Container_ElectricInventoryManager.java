@@ -174,7 +174,7 @@ public class GT_Container_ElectricInventoryManager extends GT_ContainerMetaTile_
 
         mTargetInOut = 0;
         mTargetInOut |= ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot1InOut(0)
-                ? 1 << 0
+                ? 1
                 : 0;
         mTargetInOut |= ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot2InOut(0)
                 ? 1 << 1
@@ -213,7 +213,7 @@ public class GT_Container_ElectricInventoryManager extends GT_ContainerMetaTile_
         mTargetEnergy = 0;
         mTargetEnergy |=
                 ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getRangeEnergy(0)
-                        ? 1 << 0
+                        ? 1
                         : 0;
         mTargetEnergy |=
                 ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getRangeEnergy(1)
