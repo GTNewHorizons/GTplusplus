@@ -328,7 +328,7 @@ public class Utils {
     }
 
     public static List<Object> convertArrayListToList(final ArrayList<Object> sourceArray) {
-        final List<Object> targetList = new ArrayList<Object>(Arrays.asList(sourceArray));
+        final List<Object> targetList = new ArrayList<>(Arrays.asList(sourceArray));
         return targetList;
     }
 
@@ -559,7 +559,7 @@ public class Utils {
     public static String sanitizeString(final String input, final char[] aDontRemove) {
 
         String output;
-        AutoMap<String> aToRemoveMap = new AutoMap<String>();
+        AutoMap<String> aToRemoveMap = new AutoMap<>();
 
         aToRemoveMap.put(" ");
         aToRemoveMap.put("-");
@@ -839,7 +839,7 @@ public class Utils {
 
                 if (LoadedMods.BeyondRealityCore) {
                     // Safely assume it's Beyond Reality running .28-pre (If it's not, tough shit really?)
-                    return new Pair<Integer, Integer>(9, 28);
+                    return new Pair<>(9, 28);
                 }
 
                 clazz = (Class<GT_Mod>) ReflectionUtils.getClass("gregtech.GT_Mod");
@@ -848,7 +848,7 @@ public class Utils {
                     int mSub = 0;
                     mSub = mSubversion.getInt(clazz);
                     if (mSub != 0) {
-                        version = new Pair<Integer, Integer>(9, mSub);
+                        version = new Pair<>(9, mSub);
                         return version;
                     }
                 }
@@ -858,17 +858,17 @@ public class Utils {
         }
         // 5.08.33
         else if (GT_Mod.VERSION == 508) {
-            version = new Pair<Integer, Integer>(8, 33);
+            version = new Pair<>(8, 33);
             return version;
 
         }
         // 5.07.07
         else if (GT_Mod.VERSION == 507) {
-            version = new Pair<Integer, Integer>(7, 7);
+            version = new Pair<>(7, 7);
             return version;
         }
         // Returb Bad Value
-        version = new Pair<Integer, Integer>(0, 0);
+        version = new Pair<>(0, 0);
         return version;
     }
 

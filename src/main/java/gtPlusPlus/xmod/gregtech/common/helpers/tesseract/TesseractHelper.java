@@ -56,7 +56,7 @@ public class TesseractHelper {
                     sTesseractGeneratorOwnershipMap.get(playerIdentifier);
             if (playerOwned == null || playerOwned.isEmpty()) {
                 Map<Integer, GT_MetaTileEntity_TesseractGenerator> newOwnershipMap =
-                        new HashMap<Integer, GT_MetaTileEntity_TesseractGenerator>();
+                        new HashMap<>();
                 newOwnershipMap.put(freq, generator);
                 sTesseractGeneratorOwnershipMap.put(playerIdentifier, newOwnershipMap);
                 Logger.WARNING("Success! [Empty Map]");
@@ -154,7 +154,7 @@ public class TesseractHelper {
                     sTesseractTerminalOwnershipMap.get(playerIdentifier);
             if (playerOwned == null || playerOwned.isEmpty()) {
                 Map<Integer, GT_MetaTileEntity_TesseractTerminal> newOwnershipMap =
-                        new HashMap<Integer, GT_MetaTileEntity_TesseractTerminal>();
+                        new HashMap<>();
                 newOwnershipMap.put(freq, generator);
                 sTesseractTerminalOwnershipMap.put(playerIdentifier, newOwnershipMap);
                 Logger.WARNING("Success! [Empty Map]");

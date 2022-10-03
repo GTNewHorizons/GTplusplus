@@ -25,9 +25,9 @@ public class Core_VillagerAdditions implements IPlugin {
     public static final Core_VillagerAdditions mInstance;
     private static boolean shouldLoad = false;
 
-    public static final HashMap<Integer, ResourceLocation> mVillagerSkins = new HashMap<Integer, ResourceLocation>();
+    public static final HashMap<Integer, ResourceLocation> mVillagerSkins = new HashMap<>();
     public static final AutoMap<Pair<Integer, IVillageTradeHandler>> mVillagerTrades =
-            new AutoMap<Pair<Integer, IVillageTradeHandler>>();
+            new AutoMap<>();
 
     static {
         mInstance = new Core_VillagerAdditions();

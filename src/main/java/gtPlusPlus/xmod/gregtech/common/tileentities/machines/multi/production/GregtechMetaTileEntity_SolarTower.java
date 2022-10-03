@@ -49,7 +49,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     private int mCasing3;
     private int mCasing4;
 
-    public ArrayList<TileEntitySolarHeater> mSolarHeaters = new ArrayList<TileEntitySolarHeater>();
+    public ArrayList<TileEntitySolarHeater> mSolarHeaters = new ArrayList<>();
 
     public GregtechMetaTileEntity_SolarTower(final int aID, final String aName, final String aNameRegional) {
         super(aID, aName, aNameRegional);

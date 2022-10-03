@@ -16,7 +16,7 @@ public class SlotPollutionScrubber extends Slot {
     private final int mType;
     private final int mTier;
 
-    private static HashMap<Integer, ItemStack> mConveyorMap = new HashMap<Integer, ItemStack>();
+    private static HashMap<Integer, ItemStack> mConveyorMap = new HashMap<>();
 
     static {
         for (int i = 0; i < (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK ? 9 : 5); i++) {

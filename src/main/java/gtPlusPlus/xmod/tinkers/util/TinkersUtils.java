@@ -42,7 +42,7 @@ public class TinkersUtils {
     private static Object mSmelteryInstance;
     private static Object mTinkersRegistryInstance;
 
-    private static final HashMap<String, Method> mMethodCache = new LinkedHashMap<String, Method>();
+    private static final HashMap<String, Method> mMethodCache = new LinkedHashMap<>();
 
     static {
         mClass_Smeltery = ReflectionUtils.getClass("tconstruct.library.crafting.Smeltery");
@@ -343,7 +343,7 @@ public class TinkersUtils {
         if (mDryingRackRecipes != null) {
             return mDryingRackRecipes;
         }
-        AutoMap<Object> aData = new AutoMap<Object>();
+        AutoMap<Object> aData = new AutoMap<>();
         int aCount = 0;
         try {
             ArrayList<?> recipes = (ArrayList<?>) ReflectionUtils.getField(
@@ -481,12 +481,12 @@ public class TinkersUtils {
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        return new ArrayList<Object>();
+        return new ArrayList<>();
     }
 
     public static boolean generateCastingRecipes(Material aMaterial, int aID) {
 
-        List<CastingRecipeHandler> newRecipies = new LinkedList<CastingRecipeHandler>();
+        List<CastingRecipeHandler> newRecipies = new LinkedList<>();
 
         Iterator<?> iterator1 = getTableCastingRecipes().iterator();
         Fluid aMoltenIron = null;

@@ -867,7 +867,7 @@ public class ItemUtils {
         return outputs;
     }
 
-    private static Map<Item, String> mModidCache = new HashMap<Item, String>();
+    private static Map<Item, String> mModidCache = new HashMap<>();
 
     private static String getModId(final Item item) {
         if (mModidCache.containsKey(item)) {
@@ -1014,7 +1014,7 @@ public class ItemUtils {
     }
 
     public static boolean registerFuel(ItemStack aBurnable, int burn) {
-        return CORE.burnables.add(new Pair<Integer, ItemStack>(burn, aBurnable));
+        return CORE.burnables.add(new Pair<>(burn, aBurnable));
     }
 
     public static String getLocalizedNameOfBlock(BlockPos pos) {
@@ -1289,7 +1289,7 @@ public class ItemUtils {
     public static ItemStack[] cleanItemStackArray(ItemStack[] input) {
         int aArraySize = input.length;
         ItemStack[] aOutput = new ItemStack[aArraySize];
-        AutoMap<ItemStack> aCleanedItems = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aCleanedItems = new AutoMap<>();
         for (ItemStack checkStack : input) {
             if (ItemUtils.checkForInvalidItems(checkStack)) {
                 aCleanedItems.put(checkStack);

@@ -18,14 +18,14 @@ public class TileEntityGenericSpawner extends TileEntityMobSpawner {
      */
 
     /** A HashMap storing string names of classes mapping to the actual java.lang.Class type. */
-    private static Map<?, ?> nameToClassMap_Ex = new HashMap<Object, Object>();
+    private static Map<?, ?> nameToClassMap_Ex = new HashMap<>();
     /** A HashMap storing the classes and mapping to the string names (reverse of nameToClassMap). */
-    private static Map<?, ?> classToNameMap_Ex = new HashMap<Object, Object>();
+    private static Map<?, ?> classToNameMap_Ex = new HashMap<>();
 
     /**
      * The Mob Spawner Map
      */
-    public static HashMap<Integer, Class<Entity>> mSpawners = new HashMap<Integer, Class<Entity>>();
+    public static HashMap<Integer, Class<Entity>> mSpawners = new HashMap<>();
 
     /**
      * Registers a New Mob Spawner Type

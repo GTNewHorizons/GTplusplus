@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class Workbench_CraftingHandler {
 
     private static final Workbench_CraftingHandler instance = new Workbench_CraftingHandler();
-    private final List<IRecipe> recipes = new ArrayList<IRecipe>();
+    private final List<IRecipe> recipes = new ArrayList<>();
 
     public static final Workbench_CraftingHandler getInstance() {
         return instance;
@@ -57,7 +57,7 @@ public class Workbench_CraftingHandler {
             }
         }
 
-        final HashMap<Character, ItemStack> hashmap = new HashMap<Character, ItemStack>();
+        final HashMap<Character, ItemStack> hashmap = new HashMap<>();
 
         for (; i < par2ArrayOfObj.length; i += 2) {
             final Character character = (Character) par2ArrayOfObj[i];
@@ -90,7 +90,7 @@ public class Workbench_CraftingHandler {
     }
 
     public void addShapelessRecipe(final ItemStack par1ItemStack, final Object par2ArrayOfObj[]) {
-        final ArrayList<ItemStack> arraylist = new ArrayList<ItemStack>();
+        final ArrayList<ItemStack> arraylist = new ArrayList<>();
         final Object aobj[] = par2ArrayOfObj;
         final int i = aobj.length;
 

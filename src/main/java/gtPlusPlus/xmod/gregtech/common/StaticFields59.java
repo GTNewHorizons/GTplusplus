@@ -45,7 +45,7 @@ public class StaticFields59 {
     public static final Method mCalculatePollutionReduction;
     public static final Method mAddFurnaceRecipe;
 
-    private static final Map<String, Materials> mMaterialCache = new LinkedHashMap<String, Materials>();
+    private static final Map<String, Materials> mMaterialCache = new LinkedHashMap<>();
 
     // OrePrefixes
 
@@ -136,7 +136,7 @@ public class StaticFields59 {
         try {
             return (Collection<Materials>) mDisabledItems.get(OrePrefixes.class);
         } catch (IllegalArgumentException | IllegalAccessException e) {
-            return new ArrayList<Materials>();
+            return new ArrayList<>();
         }
     }
 
@@ -144,7 +144,7 @@ public class StaticFields59 {
         try {
             return (List<OrePrefixes>) mPreventableComponents.get(OrePrefixes.class);
         } catch (IllegalArgumentException | IllegalAccessException e) {
-            return new ArrayList<OrePrefixes>();
+            return new ArrayList<>();
         }
     }
 

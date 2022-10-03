@@ -19,7 +19,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
 
-    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<RunnableWithInfo<Material>>();
+    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<>();
 
     static {
         MaterialGenerator.mRecipeMapsToGenerate.put(mRecipeGenMap);
@@ -55,11 +55,11 @@ public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
                     partSizes[hu] = (int) material.vSmallestRatio[hu];
                 }
             }
-            AutoMap<Pair<Integer, Material>> componentMap = new AutoMap<Pair<Integer, Material>>();
+            AutoMap<Pair<Integer, Material>> componentMap = new AutoMap<>();
             int alnsnfds = 0;
             for (MaterialStack r : material.getComposites()) {
                 if (r != null) {
-                    componentMap.put(new Pair<Integer, Material>(partSizes[alnsnfds], r.getStackMaterial()));
+                    componentMap.put(new Pair<>(partSizes[alnsnfds], r.getStackMaterial()));
                 }
                 alnsnfds++;
             }

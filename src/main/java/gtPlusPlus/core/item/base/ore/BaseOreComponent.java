@@ -72,7 +72,7 @@ public class BaseOreComponent extends Item {
         // Register Component
         Map<String, ItemStack> aMap = Material.mComponentMap.get(componentMaterial.getUnlocalizedName());
         if (aMap == null) {
-            aMap = new HashMap<String, ItemStack>();
+            aMap = new HashMap<>();
         }
         String aKey = "Invalid";
         if (componentType == ComponentTypes.CRUSHED) {

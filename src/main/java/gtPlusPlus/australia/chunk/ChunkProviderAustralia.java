@@ -84,7 +84,7 @@ public class ChunkProviderAustralia extends ChunkProviderGenerate implements ICh
     // Some Init Field?
     {
         try {
-            List<BiomeGenBase> y = new ArrayList<BiomeGenBase>();
+            List<BiomeGenBase> y = new ArrayList<>();
             if (!villageSpawnBiomes.isEmpty()) {
                 y.addAll(villageSpawnBiomes);
             }

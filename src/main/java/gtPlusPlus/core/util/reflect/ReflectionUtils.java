@@ -22,10 +22,10 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class ReflectionUtils {
 
-    public static Map<String, Class<?>> mCachedClasses = new LinkedHashMap<String, Class<?>>();
-    public static Map<String, CachedMethod> mCachedMethods = new LinkedHashMap<String, CachedMethod>();
-    public static Map<String, CachedField> mCachedFields = new LinkedHashMap<String, CachedField>();
-    public static Map<String, CachedConstructor> mCachedConstructors = new LinkedHashMap<String, CachedConstructor>();
+    public static Map<String, Class<?>> mCachedClasses = new LinkedHashMap<>();
+    public static Map<String, CachedMethod> mCachedMethods = new LinkedHashMap<>();
+    public static Map<String, CachedField> mCachedFields = new LinkedHashMap<>();
+    public static Map<String, CachedConstructor> mCachedConstructors = new LinkedHashMap<>();
 
     private static class CachedConstructor {
 
@@ -657,7 +657,7 @@ public class ReflectionUtils {
     }
 
     public static Class<?> findSubClassParameterType(Object instance, Class<?> classOfInterest, int parameterIndex) {
-        Map<Type, Type> typeMap = new HashMap<Type, Type>();
+        Map<Type, Type> typeMap = new HashMap<>();
         Class<?> instanceClass = instance.getClass();
         while (classOfInterest != instanceClass.getSuperclass()) {
             extractTypeArguments(typeMap, instanceClass);
@@ -700,7 +700,7 @@ public class ReflectionUtils {
 
     private static Class<?> browseNestedTypes(Object instance, TypeVariable<?> actualType) {
         Class<?> instanceClass = instance.getClass();
-        List<Class<?>> nestedOuterTypes = new LinkedList<Class<?>>();
+        List<Class<?>> nestedOuterTypes = new LinkedList<>();
         for (Class<?> enclosingClass = instanceClass.getEnclosingClass();
                 enclosingClass != null;
                 enclosingClass = enclosingClass.getEnclosingClass()) {
@@ -709,7 +709,7 @@ public class ReflectionUtils {
                 Object outerInstance = this$0.get(instance);
                 Class<?> outerClass = outerInstance.getClass();
                 nestedOuterTypes.add(outerClass);
-                Map<Type, Type> outerTypeMap = new HashMap<Type, Type>();
+                Map<Type, Type> outerTypeMap = new HashMap<>();
                 extractTypeArguments(outerTypeMap, outerClass);
                 for (Map.Entry<Type, Type> entry : outerTypeMap.entrySet()) {
                     if (!(entry.getKey() instanceof TypeVariable)) {

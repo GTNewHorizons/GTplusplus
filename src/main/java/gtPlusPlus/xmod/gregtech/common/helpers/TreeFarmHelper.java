@@ -478,10 +478,10 @@ public class TreeFarmHelper {
         int mCount = 0;
         Logger.INFO("Finding Rest of Tree.");
         BlockPos mFirstSpot = h;
-        Set<BlockPos> mSearchedSpaces = new HashSet<BlockPos>();
+        Set<BlockPos> mSearchedSpaces = new HashSet<>();
         Set<BlockPos> mTreeSet = getConnectedBlocks(world, mFirstSpot, mSearchedSpaces);
-        Set<Set<BlockPos>> mTreeSet2 = new HashSet<Set<BlockPos>>();
-        Set<BlockPos> mFinalTree = new HashSet<BlockPos>();
+        Set<Set<BlockPos>> mTreeSet2 = new HashSet<>();
+        Set<BlockPos> mFinalTree = new HashSet<>();
         Iterator<BlockPos> it = mTreeSet.iterator();
 
         Logger.INFO("Running first iteration.");
@@ -548,8 +548,8 @@ public class TreeFarmHelper {
         Logger.INFO("Finding blocks connected to " + P.getLocationString() + ".");
         Set<BlockPos> mCheckedSpaces = checkedSpaces;
         Set<BlockPos> mStartSearch = searchSixFaces(W, P, mCheckedSpaces, false);
-        Set<BlockPos> mSecondSearch = new HashSet<BlockPos>();
-        Set<BlockPos> mThirdSearch = new HashSet<BlockPos>();
+        Set<BlockPos> mSecondSearch = new HashSet<>();
+        Set<BlockPos> mThirdSearch = new HashSet<>();
         for (BlockPos startSearch : mStartSearch) {
             Logger.INFO("Running first iteration. [II]");
             BlockPos G = startSearch;
@@ -589,7 +589,7 @@ public class TreeFarmHelper {
     }
 
     public static Set<BlockPos> searchSixFaces(World W, BlockPos P, Set<BlockPos> checkedSpaces, boolean checkLeaves) {
-        Set<BlockPos> mConnected = new HashSet<BlockPos>();
+        Set<BlockPos> mConnected = new HashSet<>();
         int x = P.xPos;
         int y = P.yPos;
         int z = P.zPos;
@@ -694,8 +694,8 @@ public class TreeFarmHelper {
     public static class TreeCutter {
 
         private final World mWorld;
-        private Map<String, BlockPos> mQueue = new ConcurrentHashMap<String, BlockPos>();
-        private AutoMap<ItemStack[]> mDrops = new AutoMap<ItemStack[]>();
+        private Map<String, BlockPos> mQueue = new ConcurrentHashMap<>();
+        private AutoMap<ItemStack[]> mDrops = new AutoMap<>();
         private boolean isValid = true;
 
         public TreeCutter(World world) {
@@ -744,7 +744,7 @@ public class TreeFarmHelper {
         public ItemStack[] getDrops() {
             // If Queue is successfully cleared and drops are created, let us continue.
             if (isValid && emptyQueue()) {
-                AutoMap<ItemStack> mCollective = new AutoMap<ItemStack>();
+                AutoMap<ItemStack> mCollective = new AutoMap<>();
                 // Iterate ALL of the arrays, add output to a collective.
                 for (ItemStack[] i : this.mDrops) {
                     // Array is not null.

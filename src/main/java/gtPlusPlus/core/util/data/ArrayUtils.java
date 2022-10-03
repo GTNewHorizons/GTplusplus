@@ -39,20 +39,20 @@ public class ArrayUtils {
     }*/
 
     public static Object[] removeNulls(final Object[] v) {
-        List<Object> list = new ArrayList<Object>(Arrays.asList(v));
+        List<Object> list = new ArrayList<>(Arrays.asList(v));
         list.removeAll(Collections.singleton((Object) null));
         return list.toArray(new Object[0]);
     }
 
     public static ItemStack[] removeNulls(final ItemStack[] v) {
-        List<ItemStack> list = new ArrayList<ItemStack>(Arrays.asList(v));
+        List<ItemStack> list = new ArrayList<>(Arrays.asList(v));
         list.removeAll(Collections.singleton((ItemStack) null));
         return list.toArray(new ItemStack[0]);
     }
 
     @SuppressWarnings("unchecked")
     public static <T> Set<T> combineSetData(Set<T> S, Set<T> J) {
-        Set<T> mData = new HashSet<T>();
+        Set<T> mData = new HashSet<>();
         T[] array1 = (T[]) S.toArray();
         Collections.addAll(mData, array1);
         T[] array2 = (T[]) J.toArray();
@@ -61,7 +61,7 @@ public class ArrayUtils {
     }
 
     public static <A> AutoMap<A> mergeTwoMaps(AutoMap<A> a, AutoMap<A> b) {
-        AutoMap<A> c = new AutoMap<A>();
+        AutoMap<A> c = new AutoMap<>();
         for (A g : a.values()) {
             c.put(g);
         }

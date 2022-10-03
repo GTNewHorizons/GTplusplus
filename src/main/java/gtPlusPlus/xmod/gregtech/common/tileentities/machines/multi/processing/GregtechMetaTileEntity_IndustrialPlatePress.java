@@ -156,7 +156,7 @@ public class GregtechMetaTileEntity_IndustrialPlatePress
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
         for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-            ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
+            ArrayList<ItemStack> tBusItems = new ArrayList<>();
             tBus.mRecipeMap = getRecipeMap();
             if (isValidMetaTileEntity(tBus)) {
                 for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {

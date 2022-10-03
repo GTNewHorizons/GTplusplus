@@ -12,7 +12,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class MobMentality {
 
-    public static HashSet<Class<EntityLivingBase>> sIgnoredTypes = new HashSet<Class<EntityLivingBase>>();
+    public static HashSet<Class<EntityLivingBase>> sIgnoredTypes = new HashSet<>();
 
     @SubscribeEvent
     public void onEntityDamaged(LivingHurtEvent event) {
@@ -40,7 +40,7 @@ public class MobMentality {
             }
             if (attacker instanceof EntityLivingBase) {
                 List<Entity> aEntityList = target.worldObj.loadedEntityList;
-                List<EntityLivingBase> aRangedEntity = new ArrayList<EntityLivingBase>();
+                List<EntityLivingBase> aRangedEntity = new ArrayList<>();
                 for (Entity aEntity : aEntityList) {
                     if (target.getClass().isInstance(aEntity)) {
                         if (EntityUtils.getDistance(target, aEntity) <= 32) {

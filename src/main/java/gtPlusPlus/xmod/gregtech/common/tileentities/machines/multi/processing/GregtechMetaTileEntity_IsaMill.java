@@ -58,7 +58,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     private static final IIconContainer frontFace = new CustomIcon("iconsets/Grinder/GRINDER5");
 
     private final ArrayList<GT_MetaTileEntity_Hatch_MillingBalls> mMillingBallBuses =
-            new ArrayList<GT_MetaTileEntity_Hatch_MillingBalls>();
+            new ArrayList<>();
     private static final DamageSource mIsaMillDamageSource = new DamageSource("gtpp.grinder").setDamageBypassesArmor();
 
     public GregtechMetaTileEntity_IsaMill(int aID, String aName, String aNameRegional) {
@@ -219,7 +219,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         super.onPostTick(aBaseMetaTileEntity, aTick);
     }
 
-    private final AutoMap<BlockPos> mFrontBlockPosCache = new AutoMap<BlockPos>();
+    private final AutoMap<BlockPos> mFrontBlockPosCache = new AutoMap<>();
 
     public void checkForEntities(IGregTechTileEntity aBaseMetaTileEntity, long aTime) {
 
@@ -275,8 +275,8 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     }
 
     private static final AutoMap<EntityLivingBase> getEntities(AutoMap<BlockPos> aPositionsToCheck, World aWorld) {
-        AutoMap<EntityLivingBase> aEntities = new AutoMap<EntityLivingBase>();
-        HashSet<Chunk> aChunksToCheck = new HashSet<Chunk>();
+        AutoMap<EntityLivingBase> aEntities = new AutoMap<>();
+        HashSet<Chunk> aChunksToCheck = new HashSet<>();
         if (!aPositionsToCheck.isEmpty()) {
             Chunk aLocalChunk;
             for (BlockPos aPos : aPositionsToCheck) {
@@ -285,7 +285,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
             }
         }
         if (!aChunksToCheck.isEmpty()) {
-            AutoMap<EntityLivingBase> aEntitiesFound = new AutoMap<EntityLivingBase>();
+            AutoMap<EntityLivingBase> aEntitiesFound = new AutoMap<>();
             for (Chunk aChunk : aChunksToCheck) {
                 if (aChunk.isChunkLoaded) {
                     List[] aEntityLists = aChunk.entityLists;
@@ -316,7 +316,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     private static void generateParticles(EntityLivingBase aEntity) {
         BlockPos aPlayerPosBottom = EntityUtils.findBlockPosOfEntity(aEntity);
         BlockPos aPlayerPosTop = aPlayerPosBottom.getUp();
-        AutoMap<BlockPos> aEntityPositions = new AutoMap<BlockPos>();
+        AutoMap<BlockPos> aEntityPositions = new AutoMap<>();
         aEntityPositions.add(aPlayerPosBottom);
         aEntityPositions.add(aPlayerPosTop);
         for (int i = 0; i < 64; i++) {
@@ -651,7 +651,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         tOutputItems = removeNulls(tOutputItems);
 
         // Sanitize item stack size, splitting any stacks greater than max stack size
-        List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+        List<ItemStack> splitStacks = new ArrayList<>();
         for (ItemStack tItem : tOutputItems) {
             while (tItem.getMaxStackSize() < tItem.stackSize) {
                 ItemStack tmp = tItem.copy();
@@ -668,7 +668,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         }
 
         // Strip empty stacks
-        List<ItemStack> tSList = new ArrayList<ItemStack>();
+        List<ItemStack> tSList = new ArrayList<>();
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }

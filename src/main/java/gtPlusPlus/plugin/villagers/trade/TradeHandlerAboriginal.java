@@ -16,8 +16,8 @@ import net.minecraft.village.MerchantRecipeList;
 
 public class TradeHandlerAboriginal extends TradeHandlerBase {
 
-    private static final AutoMap<ItemStack> mInputs = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mOutputs = new AutoMap<ItemStack>();
+    private static final AutoMap<ItemStack> mInputs = new AutoMap<>();
+    private static final AutoMap<ItemStack> mOutputs = new AutoMap<>();
     private static boolean initialised = false;
 
     public static void init() {

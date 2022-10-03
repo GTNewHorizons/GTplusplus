@@ -245,7 +245,7 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
         }
     }
 
-    private static List<String> _mBlacklistedTileEntities = new ArrayList<String>();
+    private static List<String> _mBlacklistedTileEntities = new ArrayList<>();
 
     // Inspired by ChromatiCraft's TileAccelerator
     private boolean isTEBlackListed(TileEntity pTile) {

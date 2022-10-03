@@ -95,7 +95,7 @@ public class GasSpargingRecipe implements Comparable<GasSpargingRecipe> {
     }
 
     public String[] getRecipeInfo() {
-        AutoMap<String> result = new AutoMap<String>();
+        AutoMap<String> result = new AutoMap<>();
         result.put("Input " + ItemUtils.getArrayStackNames(mFluidInputs));
         result.put("Output " + ItemUtils.getArrayStackNames(mFluidOutputs));
         result.put("Duration: " + mDuration);

@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class GliderHandler {
 
-    private static final AutoMap<Integer> mDimensionalBlacklist = new AutoMap<Integer>();
+    private static final AutoMap<Integer> mDimensionalBlacklist = new AutoMap<>();
 
     @SubscribeEvent
     public void onItemUsageEx(final PlayerInteractEvent event) {
@@ -83,7 +83,7 @@ public class GliderHandler {
             return;
         }
         File aBlacklist = gtPlusPlus.core.util.data.FileUtils.getFile("config/GTplusplus/", "GliderBlacklist", "cfg");
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
         try {
             lines = org.apache.commons.io.FileUtils.readLines(aBlacklist, "utf-8");
         } catch (IOException e) {

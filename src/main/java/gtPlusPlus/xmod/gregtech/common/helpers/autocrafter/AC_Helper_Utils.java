@@ -9,7 +9,7 @@ public class AC_Helper_Utils {
 
     // AC maps
     public static final Map<Integer, GT4Entity_AutoCrafter> sAutocrafterMap =
-            new HashMap<Integer, GT4Entity_AutoCrafter>();
+            new HashMap<>();
 
     // Add Crafter
     public static final int addCrafter(GT4Entity_AutoCrafter AC) {

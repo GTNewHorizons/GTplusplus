@@ -115,7 +115,7 @@ public class BaseItemComponent extends Item {
         // Register Component
         Map<String, ItemStack> aMap = Material.mComponentMap.get(componentMaterial.getUnlocalizedName());
         if (aMap == null) {
-            aMap = new HashMap<String, ItemStack>();
+            aMap = new HashMap<>();
         }
         String aKey = componentType.getGtOrePrefix().name();
         ItemStack x = aMap.get(aKey);

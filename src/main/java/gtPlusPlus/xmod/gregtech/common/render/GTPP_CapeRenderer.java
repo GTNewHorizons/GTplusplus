@@ -293,11 +293,11 @@ public class GTPP_CapeRenderer extends RenderPlayer {
         private static AES sAES;
 
         // UUID - Username
-        private static final AutoMap<Pair<String, String>> mOrangeCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mMiscCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mBetaTestCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mPatreonCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mDevCapes = new AutoMap<Pair<String, String>>();
+        private static final AutoMap<Pair<String, String>> mOrangeCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mMiscCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mBetaTestCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mPatreonCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mDevCapes = new AutoMap<>();
 
         private static final boolean init() {
             CapeUtils.handleOldCapeCache();
@@ -394,7 +394,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             if (aCache != null && !aCache.isEmpty()) {
                 return aCache;
             }
-            return new AutoMap<String>();
+            return new AutoMap<>();
         }
 
         private static final File allocateTempFile() {
@@ -418,16 +418,16 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                 if (sAES == null) {
                     sAES = new AES();
                 }
-                AutoMap<String> aDecodedData = new AutoMap<String>();
+                AutoMap<String> aDecodedData = new AutoMap<>();
                 for (String aToDecode : aCacheData) {
                     aDecodedData.put(sAES.decode(aToDecode));
                 }
                 if (!aDecodedData.isEmpty()) {
-                    AutoMap<Pair<String, String>> aCapeType1 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType2 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType3 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType4 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType5 = new AutoMap<Pair<String, String>>();
+                    AutoMap<Pair<String, String>> aCapeType1 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType2 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType3 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType4 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType5 = new AutoMap<>();
                     boolean didProcessStringData = false;
                     Logger.INFO("Decoded String Count: " + aDecodedData.size());
                     for (String aToSplit : aDecodedData) {
@@ -437,12 +437,12 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                                 Integer aCapeTypeID2 = Integer.parseInt(aSplitData[0]);
                                 if (aCapeTypeID2 != null) {
                                     int aCapeTypeID = aCapeTypeID2;
-                                    Pair<String, String> aFinalString = new Pair<String, String>(
+                                    Pair<String, String> aFinalString = new Pair<>(
                                             "UUID: " + aSplitData[1],
                                             "Username: "
                                                     + (aSplitData[2] != null && aSplitData[0].length() > 0
-                                                            ? aSplitData[2]
-                                                            : "Not Specified"));
+                                                    ? aSplitData[2]
+                                                    : "Not Specified"));
                                     Logger.INFO("Cape Type: " + aCapeTypeID);
                                     switch (aCapeTypeID) {
                                         case 0:

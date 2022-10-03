@@ -8,7 +8,7 @@ import net.minecraftforge.event.world.BlockEvent;
 
 public class MachineUpdateHandler {
 
-    private static final HashMap<String, Block> mBlockCache = new HashMap<String, Block>();
+    private static final HashMap<String, Block> mBlockCache = new HashMap<>();
 
     public static void registerBlockToCauseMachineUpdate(String aUnlocalName, Block aBlock) {
         mBlockCache.put(aUnlocalName, aBlock);

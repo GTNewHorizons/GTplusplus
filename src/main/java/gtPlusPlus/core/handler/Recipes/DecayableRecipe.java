@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class DecayableRecipe {
 
-    public static final AutoMap<DecayableRecipe> mRecipes = new AutoMap<DecayableRecipe>();
+    public static final AutoMap<DecayableRecipe> mRecipes = new AutoMap<>();
 
     public final int mTime;
     public final ItemStack mInput;

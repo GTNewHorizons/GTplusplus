@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 public class RecipeGen_Extruder extends RecipeGen_Base {
 
-    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<RunnableWithInfo<Material>>();
+    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<>();
     private static boolean mRotorShapeEnabled = false;
 
     static {

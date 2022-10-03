@@ -33,7 +33,7 @@ public class PlayerDoors extends BlockDoor implements ITileEntityProvider {
     @SideOnly(Side.CLIENT)
     private IIcon[] aTextureLower;
 
-    private static final HashMap<Material, BlockDoor> mDoorMap = new HashMap<Material, BlockDoor>();
+    private static final HashMap<Material, BlockDoor> mDoorMap = new HashMap<>();
 
     public PlayerDoors(Material aMaterial, String aTextureName, boolean vanillaType) {
         this(aMaterial, aTextureName, vanillaType, 0f, null, null);

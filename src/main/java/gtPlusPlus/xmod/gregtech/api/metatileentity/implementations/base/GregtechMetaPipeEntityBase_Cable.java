@@ -261,7 +261,7 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
      * Adds support for the newer function added by https://github.com/Blood-Asp/GT5-Unofficial/commit/73ee102b63efd92c0f164a7ed7a79ebcd2619617#diff-3051838621d8ae87aa5ccd1345e1f07d
      */
     public long transferElectricity(byte arg0, long arg1, long arg2, HashSet<TileEntity> arg3) {
-        ArrayList<TileEntity> aTiles = new ArrayList<TileEntity>();
+        ArrayList<TileEntity> aTiles = new ArrayList<>();
         for (TileEntity y : arg3) {
             aTiles.add(y);
         }

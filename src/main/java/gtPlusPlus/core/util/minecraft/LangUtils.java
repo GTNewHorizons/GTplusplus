@@ -25,7 +25,7 @@ public class LangUtils {
         LanguageRegistry aInstance = LanguageRegistry.instance();
         Field aModLanguageData = ReflectionUtils.getField(LanguageRegistry.class, "modLanguageData");
         if (aModLanguageData != null) {
-            Map<String, Properties> aProps = new HashMap<String, Properties>();
+            Map<String, Properties> aProps = new HashMap<>();
             Object aInstanceProps;
             try {
                 aInstanceProps = aModLanguageData.get(aInstance);
@@ -58,7 +58,7 @@ public class LangUtils {
     /**
      * Quick Block Name Lookup that is friendly to servers and locale.
      */
-    private static final Map<String, String> mLocaleCache = new HashMap<String, String>();
+    private static final Map<String, String> mLocaleCache = new HashMap<>();
 
     public static String getLocalizedNameOfBlock(Block aBlock, int aMeta) {
         if (aBlock != null) {

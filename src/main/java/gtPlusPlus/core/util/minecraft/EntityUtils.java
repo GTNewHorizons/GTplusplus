@@ -304,20 +304,20 @@ public class EntityUtils {
 
     public static AutoMap<Entity> getEntitiesWithinBoundingBoxExcluding(Entity aExclusion, AABB aBoundingBox) {
         if (aExclusion == null) {
-            return new AutoMap<Entity>();
+            return new AutoMap<>();
         } else {
             List<Entity> aEntities =
                     aBoundingBox.world().getEntitiesWithinAABBExcludingEntity(aExclusion, aBoundingBox.get());
-            return new AutoMap<Entity>(aEntities);
+            return new AutoMap<>(aEntities);
         }
     }
 
     public static AutoMap<Entity> getEntitiesWithinBoundingBox(Class aEntityType, AABB aBoundingBox) {
         if (aEntityType == null) {
-            return new AutoMap<Entity>();
+            return new AutoMap<>();
         } else {
             List<Entity> aEntities = aBoundingBox.world().getEntitiesWithinAABB(aEntityType, aBoundingBox.get());
-            return new AutoMap<Entity>(aEntities);
+            return new AutoMap<>(aEntities);
         }
     }
 

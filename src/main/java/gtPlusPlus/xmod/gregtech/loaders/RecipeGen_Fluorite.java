@@ -20,7 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_Fluorite extends RecipeGen_Base {
 
-    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<RunnableWithInfo<Material>>();
+    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<>();
 
     static {
         MaterialGenerator.mRecipeMapsToGenerate.put(mRecipeGenMap);

@@ -16,7 +16,7 @@ public class AustraliaContentLoader {
     private static Block blockAustralianSand;
     private static Block blockAustralianTopSoil;
 
-    public static AutoMap<Block> mValidGenerationBlocks = new AutoMap<Block>();
+    public static AutoMap<Block> mValidGenerationBlocks = new AutoMap<>();
 
     public static synchronized void run() {
         initMisc();

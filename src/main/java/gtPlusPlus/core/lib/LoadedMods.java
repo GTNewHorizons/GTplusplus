@@ -369,7 +369,7 @@ public class LoadedMods {
         return ver;
     }
 
-    private static final HashMap<String, Boolean> mLoadedModCache = new HashMap<String, Boolean>();
+    private static final HashMap<String, Boolean> mLoadedModCache = new HashMap<>();
 
     public static boolean isModLoaded(String aModName) {
         Boolean aResult = mLoadedModCache.get(aModName);

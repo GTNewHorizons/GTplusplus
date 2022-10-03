@@ -304,7 +304,7 @@ public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_Re
     }
 
     /** The Item List for Covers */
-    public static final Map<Integer, ItemStack> sCoversItems = new HashMap<Integer, ItemStack>();
+    public static final Map<Integer, ItemStack> sCoversItems = new HashMap<>();
 
     private static void initCovers() {
         for (GT_ItemStack aKey : GregTech_API.sCovers.keySet()) {

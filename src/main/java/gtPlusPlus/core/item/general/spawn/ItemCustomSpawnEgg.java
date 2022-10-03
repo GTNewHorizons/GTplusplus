@@ -21,19 +21,19 @@ import net.minecraft.world.World;
 
 public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
 
-    private static final HashMap<Integer, IIcon> mIconMap = new HashMap<Integer, IIcon>();
+    private static final HashMap<Integer, IIcon> mIconMap = new HashMap<>();
     private static int mTotalMetaItems = 0;
 
-    private static final HashMap<Integer, Integer> mMaxStackSizeMap = new HashMap<Integer, Integer>();
-    private static final HashMap<Integer, EnumRarity> mRarityMap = new HashMap<Integer, EnumRarity>();
-    private static final HashMap<Integer, ArrayList<String>> mOreDictNames = new HashMap<Integer, ArrayList<String>>();
+    private static final HashMap<Integer, Integer> mMaxStackSizeMap = new HashMap<>();
+    private static final HashMap<Integer, EnumRarity> mRarityMap = new HashMap<>();
+    private static final HashMap<Integer, ArrayList<String>> mOreDictNames = new HashMap<>();
 
-    private static final HashMap<Integer, Integer> mColourBaseMap = new HashMap<Integer, Integer>();
-    private static final HashMap<Integer, Integer> mColourSpotsMap = new HashMap<Integer, Integer>();
-    private static final HashMap<Integer, String> mEntityNameMap = new HashMap<Integer, String>();
-    private static final HashMap<Integer, String> mEntityFullNameMap = new HashMap<Integer, String>();
+    private static final HashMap<Integer, Integer> mColourBaseMap = new HashMap<>();
+    private static final HashMap<Integer, Integer> mColourSpotsMap = new HashMap<>();
+    private static final HashMap<Integer, String> mEntityNameMap = new HashMap<>();
+    private static final HashMap<Integer, String> mEntityFullNameMap = new HashMap<>();
 
-    private static final HashMap<String, Integer> mReverseEntityMap = new HashMap<String, Integer>();
+    private static final HashMap<String, Integer> mReverseEntityMap = new HashMap<>();
 
     protected EntityLiving entityToSpawn = null;
 
@@ -49,7 +49,7 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
                 aPrimaryColor,
                 aSecondaryColor,
                 EnumRarity.common,
-                new ArrayList<String>());
+                new ArrayList<>());
     }
 
     public static void registerEntityForSpawnEgg(

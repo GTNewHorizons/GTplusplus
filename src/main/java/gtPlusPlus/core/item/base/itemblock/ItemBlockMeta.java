@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemBlockMeta extends ItemBlockWithMetadata {
     private final Block mBlock;
-    private HashMap<Integer, AutoMap<String>> aTooltips = new LinkedHashMap<Integer, AutoMap<String>>();
+    private HashMap<Integer, AutoMap<String>> aTooltips = new LinkedHashMap<>();
 
     public ItemBlockMeta(final Block aBlock) {
         super(aBlock, aBlock);

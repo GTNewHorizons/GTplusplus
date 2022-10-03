@@ -171,7 +171,7 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
     }
 
     public ArrayList<ItemStack> getDrops() {
-        ArrayList<ItemStack> aDrops = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> aDrops = new ArrayList<>();
         ItemStack rStack = new ItemStack(GregTech_API.sBlockMachines, 1, this.getMetaTileID());
         // Currently not using my custom block.
         // ItemStack rStack = new ItemStack(Meta_GT_Proxy.sBlockMachines, 1,

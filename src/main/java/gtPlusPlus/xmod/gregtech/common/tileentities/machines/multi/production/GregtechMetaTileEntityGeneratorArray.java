@@ -309,7 +309,7 @@ public class GregtechMetaTileEntityGeneratorArray
     }
 
     public static ItemStack[] clean(final ItemStack[] v) {
-        List<ItemStack> list = new ArrayList<ItemStack>(Arrays.asList(v));
+        List<ItemStack> list = new ArrayList<>(Arrays.asList(v));
         list.removeAll(Collections.singleton(null));
         return list.toArray(new ItemStack[0]);
     }

@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.FluidStack;
 public class RecipeGen_MultisUsingFluidInsteadOfCells {
 
     private static ItemStack mEmptyCell;
-    private static AutoMap<ItemStack> mItemsToIgnore = new AutoMap<ItemStack>();
+    private static AutoMap<ItemStack> mItemsToIgnore = new AutoMap<>();
     private static boolean mInit = false;
 
     private static void init() {
@@ -84,10 +84,10 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                 FluidStack[] aInputFluids = x.mFluidInputs.clone();
                 FluidStack[] aOutputFluids = x.mFluidOutputs.clone();
 
-                AutoMap<ItemStack> aInputItemsMap = new AutoMap<ItemStack>();
-                AutoMap<ItemStack> aOutputItemsMap = new AutoMap<ItemStack>();
-                AutoMap<FluidStack> aInputFluidsMap = new AutoMap<FluidStack>();
-                AutoMap<FluidStack> aOutputFluidsMap = new AutoMap<FluidStack>();
+                AutoMap<ItemStack> aInputItemsMap = new AutoMap<>();
+                AutoMap<ItemStack> aOutputItemsMap = new AutoMap<>();
+                AutoMap<FluidStack> aInputFluidsMap = new AutoMap<>();
+                AutoMap<FluidStack> aOutputFluidsMap = new AutoMap<>();
 
                 // Iterate Inputs, Convert valid items into fluids
                 inputs:

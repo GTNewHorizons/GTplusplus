@@ -49,7 +49,7 @@ public class GUI_ScrollTest extends GuiScreen {
                 2, this.width / 2 - 154, this.height - 48, I18n.format("resourcePack.openFolder", new Object[0])));
         this.buttonList.add(
                 new GuiOptionButton(1, this.width / 2 + 4, this.height - 48, I18n.format("gui.done", new Object[0])));
-        this.field_146966_g = new ArrayList<Object>();
+        this.field_146966_g = new ArrayList<>();
         this.field_146969_h = new ArrayList<Entry>();
         ResourcePackRepository resourcepackrepository = this.mc.getResourcePackRepository();
         resourcepackrepository.updateRepositoryEntriesAll();

@@ -62,7 +62,7 @@ public class BW_Utils {
     }
 
     public static ArrayList<ItemStack> getAll(int aStackSize) {
-        ArrayList<ItemStack> aItems = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> aItems = new ArrayList<>();
         aItems.add(getBW_NonMeta_MaterialItems(NonMeta_MaterialItem.TiberiumCell_1, aStackSize));
         aItems.add(getBW_NonMeta_MaterialItems(NonMeta_MaterialItem.TiberiumCell_2, aStackSize));
         aItems.add(getBW_NonMeta_MaterialItems(NonMeta_MaterialItem.TiberiumCell_4, aStackSize));

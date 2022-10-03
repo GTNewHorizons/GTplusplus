@@ -27,9 +27,9 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
 public class HazmatUtils {
 
-    public static final GT_HashSet<GT_ItemStack> sHazmatList = new GT_HashSet<GT_ItemStack>();
+    public static final GT_HashSet<GT_ItemStack> sHazmatList = new GT_HashSet<>();
 
-    private static final HashMap<String, AutoMap<String>> mToolTips = new HashMap<String, AutoMap<String>>();
+    private static final HashMap<String, AutoMap<String>> mToolTips = new HashMap<>();
 
     private static boolean mInit = false;
     private static HazmatUtils mInstance;
@@ -55,7 +55,7 @@ public class HazmatUtils {
         // Make Quantum a hazmat suit
 
         if (LoadedMods.IndustrialCraft2 || LoadedMods.IndustrialCraft2Classic) {
-            AutoMap<ItemStack> aVanillaIC2Armour = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aVanillaIC2Armour = new AutoMap<>();
             aVanillaIC2Armour.add(ItemUtils.getSimpleStack(Ic2Items.nanoHelmet, 1));
             aVanillaIC2Armour.add(ItemUtils.getSimpleStack(Ic2Items.nanoBodyarmor, 1));
             aVanillaIC2Armour.add(ItemUtils.getSimpleStack(Ic2Items.nanoLeggings, 1));
@@ -71,7 +71,7 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("EMT")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsEMT = ReflectionUtils.getClass("emt.init.EMTItems");
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "nanoThaumicHelmet"));
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "nanoWing"));
@@ -80,7 +80,7 @@ public class HazmatUtils {
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "quantumWing"));
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "quantumArmor"));
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "quantumBootsTraveller"));
-            AutoMap<ItemStack> aEMT = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aEMT = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = null;
                 if (aItemField != null) {
@@ -104,7 +104,7 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("DraconicEvolution")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsDE = ReflectionUtils.getClass("com.brandon3055.draconicevolution.ModItems");
 
             aItemFields.add(ReflectionUtils.getField(aItemsDE, "draconicHelm"));
@@ -115,7 +115,7 @@ public class HazmatUtils {
             aItemFields.add(ReflectionUtils.getField(aItemsDE, "wyvernChest"));
             aItemFields.add(ReflectionUtils.getField(aItemsDE, "wyvernLeggs"));
             aItemFields.add(ReflectionUtils.getField(aItemsDE, "wyvernBoots"));
-            AutoMap<ItemStack> aItemMap = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aItemMap = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = null;
                 if (aItemField != null) {
@@ -139,14 +139,14 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("TaintedMagic")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsTaintedMagic = ReflectionUtils.getClass("taintedmagic.common.registry.ItemRegistry");
 
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemShadowFortressHelmet"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemShadowFortressChestplate"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemShadowFortressLeggings"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemVoidwalkerBoots"));
-            AutoMap<ItemStack> aItemMap = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aItemMap = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = null;
                 if (aItemField != null) {
@@ -171,14 +171,14 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("WitchingGadgets")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsTaintedMagic = ReflectionUtils.getClass("witchinggadgets.common.WGContent");
 
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemPrimordialHelm"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemPrimordialChest"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemPrimordialLegs"));
             aItemFields.add(ReflectionUtils.getField(aItemsTaintedMagic, "ItemPrimordialBoots"));
-            AutoMap<ItemStack> aItemMap = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aItemMap = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = null;
                 if (aItemField != null) {
@@ -240,11 +240,11 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("GraviSuite")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsGravisuite = ReflectionUtils.getClass("gravisuite.GraviSuite");
             aItemFields.add(ReflectionUtils.getField(aItemsGravisuite, "advNanoChestPlate"));
             aItemFields.add(ReflectionUtils.getField(aItemsGravisuite, "graviChestPlate"));
-            AutoMap<ItemStack> aGravisuite = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aGravisuite = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = ReflectionUtils.getFieldValue(aItemField);
                 if (aItemObject != null) {
@@ -259,12 +259,12 @@ public class HazmatUtils {
         }
 
         if (LoadedMods.isModLoaded("AdvancedSolarPanel")) {
-            AutoMap<Field> aItemFields = new AutoMap<Field>();
+            AutoMap<Field> aItemFields = new AutoMap<>();
             Class aItemsEMT = ReflectionUtils.getClass("advsolar.common.AdvancedSolarPanel");
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "advancedSolarHelmet"));
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "hybridSolarHelmet"));
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "ultimateSolarHelmet"));
-            AutoMap<ItemStack> aASP = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aASP = new AutoMap<>();
             for (Field aItemField : aItemFields) {
                 Item aItemObject = ReflectionUtils.getFieldValue(aItemField);
                 if (aItemObject != null) {
@@ -336,7 +336,7 @@ public class HazmatUtils {
         } else {
 
             // Map All Player Armour slots
-            AutoMap<ItemStack> aEquipment = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aEquipment = new AutoMap<>();
             for (int i = 1; i < 5; ++i) {
                 ItemStack stack = living.getEquipmentInSlot(i);
 
@@ -424,7 +424,7 @@ public class HazmatUtils {
         }
         Logger.INFO("[Hazmat] Registering " + ItemUtils.getItemName(aVanStack) + " for full Hazmat protection.");
         GT_ItemStack aStack = getGtStackFromVanilla(aVanStack);
-        AutoMap<Boolean> aAdded = new AutoMap<Boolean>();
+        AutoMap<Boolean> aAdded = new AutoMap<>();
         aAdded.put(addProtection_Frost(aStack));
         aAdded.put(addProtection_Fire(aStack));
         aAdded.put(addProtection_Biohazard(aStack));
@@ -561,7 +561,7 @@ public class HazmatUtils {
         AutoMap<String> aTempTooltipData = mToolTips.get(aKey);
         if (aTempTooltipData == null) {
             Logger.INFO("No data mapped yet, creating.");
-            aTempTooltipData = new AutoMap<String>();
+            aTempTooltipData = new AutoMap<>();
             mToolTips.put(aKey, aTempTooltipData);
         }
         aTempTooltipData.add(aTooltip);

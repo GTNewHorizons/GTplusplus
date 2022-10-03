@@ -37,8 +37,8 @@ public class AsmConfig {
     }
 
     public static void syncConfig(boolean load) {
-        ArrayList<String> propOrder = new ArrayList<String>();
-        ArrayList<String> propOrderDebug = new ArrayList<String>();
+        ArrayList<String> propOrder = new ArrayList<>();
+        ArrayList<String> propOrderDebug = new ArrayList<>();
 
         try {
             if (!config.isChild && load) {

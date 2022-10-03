@@ -23,7 +23,7 @@ public class GregtechPlusPlus_API {
     public static class Multiblock_API {
 
         private static final HashMap<String, SpecialMultiBehaviour> mSpecialBehaviourItemMap =
-                new HashMap<String, SpecialMultiBehaviour>();
+                new HashMap<>();
 
         /**
          * Register a special behaviour for GT++ Multis to listen use.
@@ -65,7 +65,7 @@ public class GregtechPlusPlus_API {
         private static final HashMap<Integer, HashMap<String, WeightedCollection<Block>>> mMinerLootCache;
 
         static {
-            mMinerLootCache = new HashMap<Integer, HashMap<String, WeightedCollection<Block>>>();
+            mMinerLootCache = new HashMap<>();
         }
 
         /**
@@ -184,7 +184,7 @@ public class GregtechPlusPlus_API {
         private static void writeBlockToDimensionInCache(int aDim, int aType, Block aBlock, int aWeight) {
             HashMap<String, WeightedCollection<Block>> aDimMap = VoidMiner_API.mMinerLootCache.get(aDim);
             if (aDimMap == null) {
-                aDimMap = new HashMap<String, WeightedCollection<Block>>();
+                aDimMap = new HashMap<>();
             }
             WeightedCollection<Block> aMappedBlocks = getBlockMap(aType, aDimMap);
             aMappedBlocks.put(aWeight, aBlock);
@@ -196,7 +196,7 @@ public class GregtechPlusPlus_API {
             String aTypeName = ((aType == 0) ? "ore" : (aType == 1) ? "dirt" : (aType == 2) ? "stone" : "error");
             aMappedBlocks = aDimMap.get(aTypeName);
             if (aMappedBlocks == null) {
-                aMappedBlocks = new WeightedCollection<Block>();
+                aMappedBlocks = new WeightedCollection<>();
             }
             return aMappedBlocks;
         }

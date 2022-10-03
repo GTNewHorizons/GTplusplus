@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockGtBlock extends ItemBlock {
 
-    public static HashMap<String, String> sNameCache = new HashMap<String, String>();
+    public static HashMap<String, String> sNameCache = new HashMap<>();
 
     protected final int blockColour;
     private int sRadiation;

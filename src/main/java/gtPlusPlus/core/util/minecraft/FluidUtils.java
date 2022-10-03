@@ -26,7 +26,7 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 
 public class FluidUtils {
 
-    private static HashMap<String, Fluid> sFluidCache = new HashMap<String, Fluid>();
+    private static HashMap<String, Fluid> sFluidCache = new HashMap<>();
 
     public static FluidStack getWater(final int amount) {
         return FluidUtils.getFluidStack("water", amount);

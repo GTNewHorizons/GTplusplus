@@ -31,7 +31,7 @@ public class ItemGiantEgg extends BaseItemTickable {
     private static ItemStack mCorrectStemCells;
 
     public void registerFuel(int burn) {
-        CORE.burnables.add(new Pair<Integer, ItemStack>(burn, ItemUtils.getSimpleStack(this, 1)));
+        CORE.burnables.add(new Pair<>(burn, ItemUtils.getSimpleStack(this, 1)));
     }
 
     public final void registerOrdictionary(String name) {

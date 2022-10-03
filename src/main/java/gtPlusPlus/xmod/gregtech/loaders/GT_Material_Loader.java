@@ -16,7 +16,7 @@ public class GT_Material_Loader {
 
     private static volatile GT_Material_Loader instance = new GT_Material_Loader();
     private volatile Object mProxyObject;
-    private static AutoMap<Materials> mMaterials = new AutoMap<Materials>();
+    private static AutoMap<Materials> mMaterials = new AutoMap<>();
     private static volatile boolean mHasRun = false;
 
     public synchronized GT_Material_Loader getInstance() {
@@ -180,7 +180,7 @@ public class GT_Material_Loader {
      */
     public class MaterialHandler implements InvocationHandler {
 
-        private final Map<String, Method> methods = new HashMap<String, Method>();
+        private final Map<String, Method> methods = new HashMap<>();
         private Object target;
 
         public MaterialHandler(Object target) {

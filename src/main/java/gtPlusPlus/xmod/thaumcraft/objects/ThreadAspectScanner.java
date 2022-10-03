@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 public class ThreadAspectScanner extends Thread {
 
     public static boolean mDoWeScan = false;
-    private static final Map<String, AutoMap<ItemStack>> mAllGameContent = new HashMap<String, AutoMap<ItemStack>>();
+    private static final Map<String, AutoMap<ItemStack>> mAllGameContent = new HashMap<>();
     public final File mAspectCacheFile;
 
     public ThreadAspectScanner() {
@@ -47,7 +47,7 @@ public class ThreadAspectScanner extends Thread {
                 }
             }
         }
-        AutoMap<ItemStack> m = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> m = new AutoMap<>();
         if (mAllGameContent.containsKey(nameKey)) {
             m = mAllGameContent.get(nameKey);
         }
@@ -121,14 +121,14 @@ public class ThreadAspectScanner extends Thread {
                         if (a == null) {
                             continue;
                         } else {
-                            AutoMap<Pair<String, Integer>> aspectPairs = new AutoMap<Pair<String, Integer>>();
+                            AutoMap<Pair<String, Integer>> aspectPairs = new AutoMap<>();
                             for (thaumcraft.api.aspects.Aspect c : a.getAspectsSortedAmount()) {
                                 if (c != null) {
-                                    aspectPairs.put(new Pair<String, Integer>(c.getName(), a.getAmount(c)));
+                                    aspectPairs.put(new Pair<>(c.getName(), a.getAmount(c)));
                                 }
                             }
                             try {
-                                List<String> mList = new ArrayList<String>();
+                                List<String> mList = new ArrayList<>();
                                 mList.add(stack.getDisplayName() + " | Meta: " + stack.getItemDamage() + " | Unlocal: "
                                         + stack.getUnlocalizedName());
                                 for (Pair<String, Integer> r : aspectPairs) {

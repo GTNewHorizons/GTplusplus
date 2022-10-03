@@ -64,7 +64,7 @@ public class TileEntityCircuitProgrammer extends TileEntity implements ISidedInv
         if (aInputs[25] != null) {
             hasOutput = true;
         }
-        AutoMap<Integer> aValidSlots = new AutoMap<Integer>();
+        AutoMap<Integer> aValidSlots = new AutoMap<>();
         int aSlotCount = 0;
         for (ItemStack i : aInputs) {
             if (i != null) {

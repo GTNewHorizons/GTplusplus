@@ -96,7 +96,7 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer
     @Override
     public IStructureDefinition<GregtechMetaTileEntity_IndustrialForgeHammer> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
-            Map<Block, Integer> aBlockMap = new HashMap<Block, Integer>();
+            Map<Block, Integer> aBlockMap = new HashMap<>();
             aBlockMap.put(sAnvil, 0);
             if (LoadedMods.Railcraft) {
                 aBlockMap.put(sSteelAnvil, 0);
@@ -190,7 +190,7 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer
             int aAnvilTier = getAnvilTier(aAnvil);
             if (aAnvilTier > 0) {
                 for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-                    ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
+                    ArrayList<ItemStack> tBusItems = new ArrayList<>();
                     tBus.mRecipeMap = getRecipeMap();
                     if (isValidMetaTileEntity(tBus)) {
                         for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {

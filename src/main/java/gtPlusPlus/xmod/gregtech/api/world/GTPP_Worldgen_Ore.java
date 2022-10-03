@@ -36,7 +36,7 @@ public abstract class GTPP_Worldgen_Ore extends GTPP_Worldgen {
         mSize = sCustomWorldgenFile.get(aTextWorldgen + mWorldGenName, "Size", aSize);
         mMinY = sCustomWorldgenFile.get(aTextWorldgen + mWorldGenName, "MinHeight", aMinY);
         mMaxY = sCustomWorldgenFile.get(aTextWorldgen + mWorldGenName, "MaxHeight", aMaxY);
-        if (aBiomeList == null) mBiomeList = new ArrayList<String>();
+        if (aBiomeList == null) mBiomeList = new ArrayList<>();
         else mBiomeList = aBiomeList;
         mAllowToGenerateinVoid = aAllowToGenerateinVoid;
     }

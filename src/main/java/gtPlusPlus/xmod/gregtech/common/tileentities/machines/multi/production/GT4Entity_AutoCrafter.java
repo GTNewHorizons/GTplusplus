@@ -317,7 +317,7 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
             ArrayList<FluidStack> tFluids = getStoredFluids();
             // Logger.MACHINE_INFO("1");
             for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-                ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
+                ArrayList<ItemStack> tBusItems = new ArrayList<>();
                 // Logger.MACHINE_INFO("2");
                 if (isValidMetaTileEntity(tBus)) {
                     // Logger.MACHINE_INFO("3");

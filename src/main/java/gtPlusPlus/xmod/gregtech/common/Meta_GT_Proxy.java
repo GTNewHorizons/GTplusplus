@@ -53,7 +53,7 @@ public class Meta_GT_Proxy {
     public static List<Runnable> GT_BlockIconload = new ArrayList<>();
     public static List<Runnable> GT_ItemIconload = new ArrayList<>();
 
-    public static AutoMap<Integer> GT_ValidHeatingCoilMetas = new AutoMap<Integer>();
+    public static AutoMap<Integer> GT_ValidHeatingCoilMetas = new AutoMap<>();
 
     private static Class<BaseCustomTileEntity> sBaseMetaTileEntityClass;
     private static Class<BaseCustomPower_MTE> sBaseMetaTileEntityClass2;
@@ -61,7 +61,7 @@ public class Meta_GT_Proxy {
     public static AchievementHandler mAssemblyAchievements;
 
     public static final Map<String, FormattedTooltipString> mCustomGregtechMetaTooltips =
-            new LinkedHashMap<String, FormattedTooltipString>();
+            new LinkedHashMap<>();
 
     /**
      * Does this feature exist within GT? Saves loading useless content if not.
@@ -191,8 +191,8 @@ public class Meta_GT_Proxy {
 
     public static boolean generatePlasmaRecipesForAdvVacFreezer() {
 
-        AutoMap<GT_Recipe> aFreezerMapRebaked = new AutoMap<GT_Recipe>();
-        AutoMap<GT_Recipe> aRemovedRecipes = new AutoMap<GT_Recipe>();
+        AutoMap<GT_Recipe> aFreezerMapRebaked = new AutoMap<>();
+        AutoMap<GT_Recipe> aRemovedRecipes = new AutoMap<>();
 
         // Find recipes containing Plasma and map them
         for (GT_Recipe y : GTPP_Recipe.GTPP_Recipe_Map.sAdvFreezerRecipes_GT.mRecipeList) {
@@ -207,7 +207,7 @@ public class Meta_GT_Proxy {
             }
         }
 
-        AutoMap<GTPP_Recipe> aNewRecipes = new AutoMap<GTPP_Recipe>();
+        AutoMap<GTPP_Recipe> aNewRecipes = new AutoMap<>();
         int aAtomicMass = 0;
         int aAtomicTier = 0;
 

@@ -26,12 +26,12 @@ public class GenerateDictionaries {
             Utils.log("Found Main Dictionary");
             List<String> aLines = Utils.readLines(aMainDictionary);
 
-            ArrayList<String> aLinesToWriteMethods = new ArrayList<String>();
-            ArrayList<String> aLinesToWriteClasses = new ArrayList<String>();
+            ArrayList<String> aLinesToWriteMethods = new ArrayList<>();
+            ArrayList<String> aLinesToWriteClasses = new ArrayList<>();
 
             if (aLines != null && aLines.size() > 0) {
                 Utils.log("Main Dictionary has > 0 keywords (" + aLines.size() + ")");
-                HashSet<Integer> aUsedIndicies = new HashSet<Integer>();
+                HashSet<Integer> aUsedIndicies = new HashSet<>();
                 int aCount = aLines.size() / 5;
 
                 Utils.log("Mapping " + aCount + " to each dict.");
@@ -162,7 +162,7 @@ public class GenerateDictionaries {
             try {
                 return org.apache.commons.io.FileUtils.readLines(file, utf8);
             } catch (IOException e) {
-                return new ArrayList<String>();
+                return new ArrayList<>();
             }
         }
     }

@@ -25,7 +25,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_Ore extends RecipeGen_Base {
 
-    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<RunnableWithInfo<Material>>();
+    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<>();
 
     static {
         MaterialGenerator.mRecipeMapsToGenerate.put(mRecipeGenMap);
@@ -71,7 +71,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
         boolean allFailed = false;
 
         // Setup Bonuses
-        ArrayList<Material> aMatComp = new ArrayList<Material>();
+        ArrayList<Material> aMatComp = new ArrayList<>();
         for (Material j : MaterialUtils.getCompoundMaterialsRecursively(material)) {
             aMatComp.add(j);
         }
@@ -82,7 +82,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
             }
         }
 
-        AutoMap<Material> amJ = new AutoMap<Material>();
+        AutoMap<Material> amJ = new AutoMap<>();
         int aIndexCounter = 0;
         for (Material g : aMatComp) {
             if (g.hasSolidForm()) {
@@ -135,10 +135,10 @@ public class RecipeGen_Ore extends RecipeGen_Base {
             bonusB = tVoltageMultiplier > 100 ? material : mStone;
         }
 
-        AutoMap<Pair<Integer, Material>> componentMap = new AutoMap<Pair<Integer, Material>>();
+        AutoMap<Pair<Integer, Material>> componentMap = new AutoMap<>();
         for (MaterialStack r : material.getComposites()) {
             if (r != null) {
-                componentMap.put(new Pair<Integer, Material>(r.getPartsPerOneHundred(), r.getStackMaterial()));
+                componentMap.put(new Pair<>(r.getPartsPerOneHundred(), r.getStackMaterial()));
             }
         }
 

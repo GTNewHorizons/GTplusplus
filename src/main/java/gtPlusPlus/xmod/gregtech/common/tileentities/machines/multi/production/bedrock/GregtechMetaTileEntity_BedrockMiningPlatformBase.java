@@ -402,7 +402,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         AutoMap<GT_Worldgen_GT_Ore_Layer> aNetherOres = MiningUtils.getOresForDim(-1);
         AutoMap<GT_Worldgen_GT_Ore_Layer> aEndOres = MiningUtils.getOresForDim(1);
 
-        AutoMap<ItemStack> aTempMap = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aTempMap = new AutoMap<>();
         Block tOreBlock = GregTech_API.sBlockOres1;
         Logger.INFO("Ore Map contains " + aTempMap.size() + " values. [Initial]");
 
@@ -470,51 +470,51 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         addOreTypeToMap(ELEMENT.getInstance().THORIUM, 20, aTempMap);
         Logger.INFO("Ore Map contains " + aTempMap.size() + " values. [Extra Common Ores]");
 
-        AutoMap<Pair<String, Integer>> mMixedOreData = new AutoMap<Pair<String, Integer>>();
-        mMixedOreData.put(new Pair<String, Integer>("oreRuby", 30));
-        mMixedOreData.put(new Pair<String, Integer>("oreSapphire", 25));
-        mMixedOreData.put(new Pair<String, Integer>("oreEmerald", 25));
-        mMixedOreData.put(new Pair<String, Integer>("oreLapis", 40));
-        mMixedOreData.put(new Pair<String, Integer>("oreRedstone", 40));
+        AutoMap<Pair<String, Integer>> mMixedOreData = new AutoMap<>();
+        mMixedOreData.put(new Pair<>("oreRuby", 30));
+        mMixedOreData.put(new Pair<>("oreSapphire", 25));
+        mMixedOreData.put(new Pair<>("oreEmerald", 25));
+        mMixedOreData.put(new Pair<>("oreLapis", 40));
+        mMixedOreData.put(new Pair<>("oreRedstone", 40));
 
         if (LoadedMods.Thaumcraft
                 || (OreDictUtils.containsValidEntries("oreAmber")
                         && OreDictUtils.containsValidEntries("oreCinnabar"))) {
-            mMixedOreData.put(new Pair<String, Integer>("oreAmber", 20));
-            mMixedOreData.put(new Pair<String, Integer>("oreCinnabar", 20));
+            mMixedOreData.put(new Pair<>("oreAmber", 20));
+            mMixedOreData.put(new Pair<>("oreCinnabar", 20));
         }
         if (LoadedMods.Railcraft || OreDictUtils.containsValidEntries("oreSaltpeter")) {
-            mMixedOreData.put(new Pair<String, Integer>("oreSaltpeter", 10));
+            mMixedOreData.put(new Pair<>("oreSaltpeter", 10));
         }
         if (LoadedMods.IndustrialCraft2 || OreDictUtils.containsValidEntries("oreUranium")) {
-            mMixedOreData.put(new Pair<String, Integer>("oreUranium", 10));
+            mMixedOreData.put(new Pair<>("oreUranium", 10));
         }
         if (OreDictUtils.containsValidEntries("oreSulfur")) {
-            mMixedOreData.put(new Pair<String, Integer>("oreSulfur", 15));
+            mMixedOreData.put(new Pair<>("oreSulfur", 15));
         }
         if (OreDictUtils.containsValidEntries("oreSilicon")) {
-            mMixedOreData.put(new Pair<String, Integer>("oreSilicon", 15));
+            mMixedOreData.put(new Pair<>("oreSilicon", 15));
         }
         if (OreDictUtils.containsValidEntries("oreApatite")) {
-            mMixedOreData.put(new Pair<String, Integer>("oreApatite", 25));
+            mMixedOreData.put(new Pair<>("oreApatite", 25));
         }
 
-        mMixedOreData.put(new Pair<String, Integer>("oreFirestone", 2));
-        mMixedOreData.put(new Pair<String, Integer>("oreBismuth", 20));
-        mMixedOreData.put(new Pair<String, Integer>("oreLithium", 20));
-        mMixedOreData.put(new Pair<String, Integer>("oreManganese", 20));
-        mMixedOreData.put(new Pair<String, Integer>("oreBeryllium", 20));
-        mMixedOreData.put(new Pair<String, Integer>("oreCoal", 75));
-        mMixedOreData.put(new Pair<String, Integer>("oreLignite", 75));
-        mMixedOreData.put(new Pair<String, Integer>("oreSalt", 15));
-        mMixedOreData.put(new Pair<String, Integer>("oreCalcite", 15));
-        mMixedOreData.put(new Pair<String, Integer>("oreBauxite", 20));
-        mMixedOreData.put(new Pair<String, Integer>("oreAlmandine", 15));
-        mMixedOreData.put(new Pair<String, Integer>("oreGraphite", 25));
-        mMixedOreData.put(new Pair<String, Integer>("oreGlauconite", 15));
-        mMixedOreData.put(new Pair<String, Integer>("orePyrolusite", 15));
-        mMixedOreData.put(new Pair<String, Integer>("oreGrossular", 15));
-        mMixedOreData.put(new Pair<String, Integer>("oreTantalite", 15));
+        mMixedOreData.put(new Pair<>("oreFirestone", 2));
+        mMixedOreData.put(new Pair<>("oreBismuth", 20));
+        mMixedOreData.put(new Pair<>("oreLithium", 20));
+        mMixedOreData.put(new Pair<>("oreManganese", 20));
+        mMixedOreData.put(new Pair<>("oreBeryllium", 20));
+        mMixedOreData.put(new Pair<>("oreCoal", 75));
+        mMixedOreData.put(new Pair<>("oreLignite", 75));
+        mMixedOreData.put(new Pair<>("oreSalt", 15));
+        mMixedOreData.put(new Pair<>("oreCalcite", 15));
+        mMixedOreData.put(new Pair<>("oreBauxite", 20));
+        mMixedOreData.put(new Pair<>("oreAlmandine", 15));
+        mMixedOreData.put(new Pair<>("oreGraphite", 25));
+        mMixedOreData.put(new Pair<>("oreGlauconite", 15));
+        mMixedOreData.put(new Pair<>("orePyrolusite", 15));
+        mMixedOreData.put(new Pair<>("oreGrossular", 15));
+        mMixedOreData.put(new Pair<>("oreTantalite", 15));
 
         for (Pair<String, Integer> g : mMixedOreData) {
             for (int i = 0; i < g.getValue(); i++) {
@@ -527,7 +527,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         addOreTypeToMap(ELEMENT.STANDALONE.GRANITE, 8, aTempMap);
         Logger.INFO("Ore Map contains " + aTempMap.size() + " values. [OSRS Ores]");
 
-        AutoMap<Material> aMyOreMaterials = new AutoMap<Material>();
+        AutoMap<Material> aMyOreMaterials = new AutoMap<>();
         aMyOreMaterials.add(ORES.CROCROITE);
         aMyOreMaterials.add(ORES.GEIKIELITE);
         aMyOreMaterials.add(ORES.NICHROMITE);
@@ -582,7 +582,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
 
         // Cleanup Map
         Logger.INFO("Ore Map contains " + aTempMap.size() + " values. [GT++]");
-        AutoMap<ItemStack> aCleanUp = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aCleanUp = new AutoMap<>();
         for (ItemStack verify : aTempMap) {
             if (!ItemUtils.checkForInvalidItems(verify)) {
                 aCleanUp.put(verify);
@@ -594,7 +594,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         }
 
         // Generate Massive Map
-        AutoMap<ItemStack> aFinalMap = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aFinalMap = new AutoMap<>();
         for (ItemStack aTempItem : aTempMap) {
             int aTempMulti = MathUtils.randInt(20, 50);
             for (int i = 0; i < aTempMulti; i++) {

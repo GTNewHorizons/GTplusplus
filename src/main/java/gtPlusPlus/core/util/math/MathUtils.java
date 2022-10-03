@@ -720,7 +720,7 @@ public class MathUtils {
     public static Pair<Integer, Integer> splitLongIntoIntegers(long aLong) {
         int aIntMaxInLong = (int) Math.min(Integer.MAX_VALUE, Math.floor(aLong / Integer.MAX_VALUE));
         int aRemainder = (int) (aLong - (aIntMaxInLong * Integer.MAX_VALUE));
-        return new Pair<Integer, Integer>(aIntMaxInLong, aRemainder);
+        return new Pair<>(aIntMaxInLong, aRemainder);
     }
 
     /**

@@ -141,8 +141,8 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
     }
 
     public static Map<ItemStack, Pair<Modifiers, Integer>> mValidUpgradeList =
-            new HashMap<ItemStack, Pair<Modifiers, Integer>>();
-    public static Map<ItemStack, BT> mValidUpgradeListFormChange = new HashMap<ItemStack, BT>();
+            new HashMap<>();
+    public static Map<ItemStack, BT> mValidUpgradeListFormChange = new HashMap<>();
 
     private static boolean generateAllValidUpgrades() {
 
@@ -183,7 +183,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
     }
 
     public static boolean generateUpgradeData(ItemStack tStack, Modifiers tMod, int tLevel) {
-        Pair<Modifiers, Integer> tTemp = new Pair<Modifiers, Integer>(tMod, tLevel);
+        Pair<Modifiers, Integer> tTemp = new Pair<>(tMod, tLevel);
         if (mValidUpgradeList.put(tStack, tTemp) != null) {
             return true;
         }

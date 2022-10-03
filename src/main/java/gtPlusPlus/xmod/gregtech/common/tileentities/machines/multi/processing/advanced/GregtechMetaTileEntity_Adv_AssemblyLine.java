@@ -33,7 +33,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_AssemblyLine> {
 
     public ArrayList<GT_MetaTileEntity_Hatch_DataAccess> mDataAccessHatches =
-            new ArrayList<GT_MetaTileEntity_Hatch_DataAccess>();
+            new ArrayList<>();
 
     public static String[] mCasingName = new String[5];
     private final int CASING_TEXTURE_ID = TAE.getIndexFromPage(0, 13);
@@ -596,7 +596,7 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
      * @param state using bitmask, 1 for IntegratedCircuit, 2 for DataStick, 4 for DataOrb
      */
     public ArrayList<ItemStack> getDataItems(int state) {
-        ArrayList<ItemStack> rList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> rList = new ArrayList<>();
         if (GT_Utility.isStackValid(mInventory[1]) && isCorrectDataItem(mInventory[1], state)) {
             rList.add(mInventory[1]);
         }

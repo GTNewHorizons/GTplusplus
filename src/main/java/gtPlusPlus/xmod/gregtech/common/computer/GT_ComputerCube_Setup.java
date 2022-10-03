@@ -21,7 +21,7 @@ public class GT_ComputerCube_Setup {
         Logger.INFO("[Reactor Simulator] Added " + ComponentFactory.getComponentCount()
                 + " components to ComponentFactory.");
         if (sReactorList == null) {
-            sReactorList = new ArrayList<GT_ItemStack>();
+            sReactorList = new ArrayList<>();
 
             String[] aIc2Items = new String[] {
                 "reactorUraniumSimple",

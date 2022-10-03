@@ -19,7 +19,7 @@ import net.minecraftforge.common.util.FakePlayer;
 
 public class PlayerUtils {
 
-    public static final Map<String, EntityPlayer> mCachedFakePlayers = new WeakHashMap<String, EntityPlayer>();
+    public static final Map<String, EntityPlayer> mCachedFakePlayers = new WeakHashMap<>();
     private static final Class mThaumcraftFakePlayer;
 
     static {

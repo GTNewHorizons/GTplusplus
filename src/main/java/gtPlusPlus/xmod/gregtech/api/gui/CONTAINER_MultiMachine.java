@@ -108,7 +108,7 @@ public class CONTAINER_MultiMachine extends GT_ContainerMetaTile_Machine {
                 int aTimer = (int) ReflectionUtils.getFieldValue(timer, this);
 
                 // List crafters1List = (List) crafters1;
-                List<ICrafting> crafters2 = new ArrayList<ICrafting>();
+                List<ICrafting> crafters2 = new ArrayList<>();
                 // Logger.INFO("1");
                 for (Object o : crafters) {
                     if (o instanceof ICrafting) {

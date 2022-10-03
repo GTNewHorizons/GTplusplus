@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class BaseItemDustEx extends BaseItemComponent {
 
-    public static Map<String, String> mCachedPileLinkages = new HashMap<String, String>();
+    public static Map<String, String> mCachedPileLinkages = new HashMap<>();
 
     protected IIcon[] baseAr = new IIcon[3];
     protected IIcon[] overlayAr = new IIcon[3];

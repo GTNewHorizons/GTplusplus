@@ -7,7 +7,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class GasSpargingRecipeMap extends AutoMap<GasSpargingRecipe> {
 
-    public static final AutoMap<GasSpargingRecipe> mRecipes = new AutoMap<GasSpargingRecipe>();
+    public static final AutoMap<GasSpargingRecipe> mRecipes = new AutoMap<>();
     public static final String mUnlocalizedName = "gtpp.recipe.lftr.sparging";
     public static final String mNEIName = mUnlocalizedName;
     public static final String mNEIDisplayName = "LFTR Gas Sparging";

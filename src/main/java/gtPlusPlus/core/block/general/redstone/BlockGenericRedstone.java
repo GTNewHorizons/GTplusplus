@@ -46,7 +46,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
     }
 
     private final HashMap<Integer, HashMap<ForgeDirection, IIcon>> mTextures =
-            new HashMap<Integer, HashMap<ForgeDirection, IIcon>>();
+            new HashMap<>();
 
     /**
      * A map of the textures used for this blocks. The key is the meta, then each internal map holds textures tied to each forge direction. Do not use unknown direction.

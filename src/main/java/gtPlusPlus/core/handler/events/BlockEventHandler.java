@@ -95,7 +95,7 @@ public class BlockEventHandler {
                         if (chanceToDropFluoriteOre != 0) {
                             if (!oreLimestone.isEmpty() || !blockLimestone.isEmpty()) {
 
-                                ArrayList<Block> mBlockTypes = new ArrayList<Block>();
+                                ArrayList<Block> mBlockTypes = new ArrayList<>();
                                 if (!oreLimestone.isEmpty()) {
                                     for (ItemStack itemStack : oreLimestone) {
                                         if (ItemUtils.getModId(itemStack) != null

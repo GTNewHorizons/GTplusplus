@@ -217,7 +217,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
     }
 
     public final AutoMap<ItemStack> getContentUsageSlots() {
-        AutoMap<ItemStack> aItems = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aItems = new AutoMap<>();
         for (int i = mInputslotCount; i < mTotalSlotCount; i++) {
             if (mInventory[i] != null) {
                 aItems.add(mInventory[i]);

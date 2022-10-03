@@ -213,7 +213,7 @@ public class ItemAlgaeBase extends Item implements IAlgalItem {
                         aSpeed,
                         aLifespan,
                         0,
-                        new AutoMap<AlgaeGrowthRequirement>());
+                        new AutoMap<>());
                 aTag = aGenes.writeToNBT();
             }
         } else {

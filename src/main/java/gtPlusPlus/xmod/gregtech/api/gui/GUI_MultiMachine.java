@@ -33,7 +33,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
     private static final Materials BAD;
     private final String mName;
 
-    private static final ConcurrentHashMap<String, ItemStack> mToolStacks = new ConcurrentHashMap<String, ItemStack>();
+    private static final ConcurrentHashMap<String, ItemStack> mToolStacks = new ConcurrentHashMap<>();
 
     // net.minecraft.client.gui.inventory.GuiContainer.drawItemStack(ItemStack, int, int, String)
     private static final Method mDrawItemStack;
@@ -100,7 +100,7 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             long minutes = TimeUnit.SECONDS.toMinutes(seconds) - (TimeUnit.SECONDS.toHours(seconds) * 60);
             long second = TimeUnit.SECONDS.toSeconds(seconds) - (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
-            ArrayList<String> mInfo = new ArrayList<String>();
+            ArrayList<String> mInfo = new ArrayList<>();
 
             String EU = StatCollector.translateToLocal("GTPP.info.eu");
 

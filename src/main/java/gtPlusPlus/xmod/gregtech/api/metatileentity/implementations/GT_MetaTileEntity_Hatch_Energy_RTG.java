@@ -165,10 +165,10 @@ public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_
         }
     }
 
-    private static final HashMap<String, ItemStack> mFuelInstanceMap = new HashMap<String, ItemStack>();
-    private static final HashMap<String, Long> mFuelValueMap = new HashMap<String, Long>();
-    private static final HashMap<String, Integer> mFuelTypeMap = new HashMap<String, Integer>();
-    private static final HashMap<Integer, String> mFuelTypeMapReverse = new HashMap<Integer, String>();
+    private static final HashMap<String, ItemStack> mFuelInstanceMap = new HashMap<>();
+    private static final HashMap<String, Long> mFuelValueMap = new HashMap<>();
+    private static final HashMap<String, Integer> mFuelTypeMap = new HashMap<>();
+    private static final HashMap<Integer, String> mFuelTypeMapReverse = new HashMap<>();
 
     public static boolean registerPelletForHatch(ItemStack aStack, long aFuelValue) {
         if (!ItemUtils.checkForInvalidItems(aStack)) {

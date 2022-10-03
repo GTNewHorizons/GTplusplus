@@ -723,7 +723,7 @@ public class GT_MetaTileEntity_ElectricAutoWorkbench extends GT_MetaTileEntity_B
     }
 
     private ArrayList<ItemStack> recipeContent(ItemStack[] tRecipe) {
-        ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> tList = new ArrayList<>();
         for (byte i = 0; i < 9; i++) {
             if (tRecipe[i] != null) {
                 boolean temp = false;
@@ -741,7 +741,7 @@ public class GT_MetaTileEntity_ElectricAutoWorkbench extends GT_MetaTileEntity_B
     }
 
     private ArrayList<ItemStack> benchContent() {
-        ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> tList = new ArrayList<>();
         for (byte i = 0; i < 18; i++) {
             if (mInventory[i] != null) {
                 boolean temp = false;

@@ -564,7 +564,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
         showElectrolyzerRecipe(this.mMaxHeat);
     }
 
-    public static ArrayList<GT_Recipe> sFusionReactorRecipes = new ArrayList<GT_Recipe>();
+    public static ArrayList<GT_Recipe> sFusionReactorRecipes = new ArrayList<>();
 
     public void showFusionRecipe(int aIndex) {
 

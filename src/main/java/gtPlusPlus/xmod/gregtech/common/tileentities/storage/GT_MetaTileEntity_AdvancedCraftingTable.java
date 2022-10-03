@@ -327,7 +327,7 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
     }
 
     private ArrayList<ItemStack> recipeContent() {
-        ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> tList = new ArrayList<>();
         for (byte i = 21; i < 30; i++) {
             if (mInventory[i] != null) {
                 boolean temp = false;

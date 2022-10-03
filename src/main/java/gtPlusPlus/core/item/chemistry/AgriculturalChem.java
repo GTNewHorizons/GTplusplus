@@ -34,7 +34,7 @@ public class AgriculturalChem extends ItemPackage {
     private static boolean aBOP;
     private static boolean aTiCon;
 
-    private static AutoMap<FluidStack> mBloodFluids = new AutoMap<FluidStack>();
+    private static AutoMap<FluidStack> mBloodFluids = new AutoMap<>();
 
     /**
      * Fluids
@@ -320,20 +320,20 @@ public class AgriculturalChem extends ItemPackage {
         }
     }
 
-    private static final AutoMap<ItemStack> mMeats = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mFish = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mFruits = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mVege = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mNuts = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mSeeds = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mPeat = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mBones = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mBoneMeal = new AutoMap<ItemStack>();
+    private static final AutoMap<ItemStack> mMeats = new AutoMap<>();
+    private static final AutoMap<ItemStack> mFish = new AutoMap<>();
+    private static final AutoMap<ItemStack> mFruits = new AutoMap<>();
+    private static final AutoMap<ItemStack> mVege = new AutoMap<>();
+    private static final AutoMap<ItemStack> mNuts = new AutoMap<>();
+    private static final AutoMap<ItemStack> mSeeds = new AutoMap<>();
+    private static final AutoMap<ItemStack> mPeat = new AutoMap<>();
+    private static final AutoMap<ItemStack> mBones = new AutoMap<>();
+    private static final AutoMap<ItemStack> mBoneMeal = new AutoMap<>();
 
-    private static final AutoMap<ItemStack> mList_Master_Meats = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mList_Master_FruitVege = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mList_Master_Seeds = new AutoMap<ItemStack>();
-    private static final AutoMap<ItemStack> mList_Master_Bones = new AutoMap<ItemStack>();
+    private static final AutoMap<ItemStack> mList_Master_Meats = new AutoMap<>();
+    private static final AutoMap<ItemStack> mList_Master_FruitVege = new AutoMap<>();
+    private static final AutoMap<ItemStack> mList_Master_Seeds = new AutoMap<>();
+    private static final AutoMap<ItemStack> mList_Master_Bones = new AutoMap<>();
 
     private static void processAllOreDict() {
         processOreDict("listAllmeatraw", mMeats);

@@ -28,7 +28,7 @@ public class ItemGenericFluidBucket extends ItemBucket {
 
     private static IIcon mBaseBucketTexture;
     private static IIcon mOverlayBucketTexture;
-    private static AutoMap<Block> mInternalFluidCache = new AutoMap<Block>();
+    private static AutoMap<Block> mInternalFluidCache = new AutoMap<>();
 
     public ItemGenericFluidBucket(Block aFluid) {
         super(aFluid);
@@ -53,7 +53,7 @@ public class ItemGenericFluidBucket extends ItemBucket {
         return ItemUtils.simpleMetaStack(FluidFactory.mGenericBucket, aID, 1);
     }
 
-    Map<Integer, IIcon> mIconCache = new LinkedHashMap<Integer, IIcon>();
+    Map<Integer, IIcon> mIconCache = new LinkedHashMap<>();
 
     /**
      * Called whenever this item is equipped and the right mouse button is pressed.

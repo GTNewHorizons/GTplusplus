@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.Fluid;
 
 public class BaseTinkersMaterial {
 
-    private static HashMap<String, Integer> aInternalMaterialIdMap = new HashMap<String, Integer>();
+    private static HashMap<String, Integer> aInternalMaterialIdMap = new HashMap<>();
     private static int aNextFreeID;
 
     public final String mLocalName;

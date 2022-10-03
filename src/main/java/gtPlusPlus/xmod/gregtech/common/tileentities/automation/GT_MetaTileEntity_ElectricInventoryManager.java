@@ -266,7 +266,7 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
 
             for (int i = 0; i < 4; i++) {
                 if (tTileEntities[getRangeDirection(i)] != null) {
-                    ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
+                    ArrayList<ItemStack> tList = new ArrayList<>();
                     ItemStack tStack;
                     tList.add(null);
 

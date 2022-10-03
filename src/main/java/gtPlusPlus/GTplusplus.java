@@ -469,8 +469,8 @@ public class GTplusplus implements ActionListener {
         mGregMatLoader.enableMaterial(Materials.Force);
     }
 
-    private static final HashMap<String, Item> sMissingItemMappings = new HashMap<String, Item>();
-    private static final HashMap<String, Block> sMissingBlockMappings = new HashMap<String, Block>();
+    private static final HashMap<String, Item> sMissingItemMappings = new HashMap<>();
+    private static final HashMap<String, Block> sMissingBlockMappings = new HashMap<>();
 
     private static void processMissingMappings() {
         sMissingItemMappings.put("miscutils:Ammonium", GameRegistry.findItem(CORE.MODID, "itemCellAmmonium"));

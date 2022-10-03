@@ -60,7 +60,7 @@ public class ThaumcraftUtils {
                 // aspects[g] = new GTPP_AspectStack(aspect[g], amounts[g]);
             }
         }
-        Pair<ItemStack, GTPP_AspectStack[]> k = new Pair<ItemStack, GTPP_AspectStack[]>(item, aspects);
+        Pair<ItemStack, GTPP_AspectStack[]> k = new Pair<>(item, aspects);
         int mSizeA = sItemsToGetAspects.size();
         sItemsToGetAspects.put(k);
         if (sItemsToGetAspects.size() > mSizeA) {
@@ -110,7 +110,7 @@ public class ThaumcraftUtils {
         }
         TC_ResearchItem_Wrapper rResearch = new TC_ResearchItem_Wrapper(
                 aResearch, aCategory, getAspectList_Ex(aAspects), aX, aY, aComplexity, aIcon);
-        ArrayList<Object> tPages = new ArrayList<Object>(aPages.length);
+        ArrayList<Object> tPages = new ArrayList<>(aPages.length);
         GT_LanguageManager.addStringLocalization("tc.research_name." + aResearch, aName);
         GT_LanguageManager.addStringLocalization("tc.research_text." + aResearch, "[GT++] " + aText);
         for (Object tPage : aPages) {
@@ -150,7 +150,7 @@ public class ThaumcraftUtils {
             rResearch.setStub();
         }
         if (aParentResearches != null) {
-            ArrayList<String> tParentResearches = new ArrayList<String>();
+            ArrayList<String> tParentResearches = new ArrayList<>();
             for (String tParent : aParentResearches) {
                 if (GregTech_API.sRecipeFile.get(ConfigCategories.Recipes.researches, aResearch, true)) {
                     tParentResearches.add(tParent);

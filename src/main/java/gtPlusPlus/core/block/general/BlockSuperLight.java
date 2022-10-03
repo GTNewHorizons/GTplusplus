@@ -150,7 +150,7 @@ public class BlockSuperLight extends BlockContainer {
 
             aLitBlocks = new int[50][10][50][1];
             int aLitCounter = 0;
-            AutoMap<BlockPos> aBlocksToUpdate = new AutoMap<BlockPos>();
+            AutoMap<BlockPos> aBlocksToUpdate = new AutoMap<>();
             Logger.INFO("Trying to relight area.");
 
             BlockPos aStartIterationPoint =

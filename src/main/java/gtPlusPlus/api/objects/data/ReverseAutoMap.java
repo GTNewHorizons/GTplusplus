@@ -7,7 +7,7 @@ public class ReverseAutoMap<N> extends AutoMap<N> {
     /**
      * The Internal Map
      */
-    private Map<N, Integer> mInternalMapReverseLookup = new HashMap<N, Integer>();
+    private Map<N, Integer> mInternalMapReverseLookup = new HashMap<>();
 
     /**
      * The Internal ID

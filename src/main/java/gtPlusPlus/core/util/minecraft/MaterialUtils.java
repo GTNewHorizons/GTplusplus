@@ -354,7 +354,7 @@ public class MaterialUtils {
     }
 
     public static TextureSet getMostCommonTextureSet(List<Material> list) {
-        TypeCounter<TextureSet> aCounter = new TypeCounter<TextureSet>(TextureSet.class);
+        TypeCounter<TextureSet> aCounter = new TypeCounter<>(TextureSet.class);
         for (Material m : list) {
             TextureSet t = m.getTextureSet();
             if (t == null) {
@@ -445,7 +445,7 @@ public class MaterialUtils {
          */ }
 
     public static AutoMap<Material> getCompoundMaterialsRecursively_Speiger(Material toSearch) {
-        AutoMap<Material> resultList = new AutoMap<Material>();
+        AutoMap<Material> resultList = new AutoMap<>();
         if (toSearch.getComposites().isEmpty()) {
             resultList.put(toSearch);
             return resultList;
@@ -454,7 +454,7 @@ public class MaterialUtils {
 
         // Could be a Deque but i dont use the interface
         // enough to use it as default.
-        LinkedList<Material> toCheck = new LinkedList<Material>();
+        LinkedList<Material> toCheck = new LinkedList<>();
 
         toCheck.add(toSearch);
         int processed = 0;

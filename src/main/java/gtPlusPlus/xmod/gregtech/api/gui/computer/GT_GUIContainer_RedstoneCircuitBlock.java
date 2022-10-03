@@ -111,7 +111,7 @@ public class GT_GUIContainer_RedstoneCircuitBlock extends GT_GUIContainerMetaTil
         final int yStart = (this.height - this.ySize) / 2;
         final int x3 = x2 - xStart;
         final int y3 = y2 - yStart + 5;
-        final List<String> list = new ArrayList<String>();
+        final List<String> list = new ArrayList<>();
 
         int y = 10;
         if (x3 >= 151 && x3 <= 168) {

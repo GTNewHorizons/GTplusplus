@@ -20,7 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Output {
 
-    public final AutoMap<Fluid> mFluidsToUse = new AutoMap<Fluid>();
+    public final AutoMap<Fluid> mFluidsToUse = new AutoMap<>();
     public final int mFluidCapacity;
     private int mTotalPlasmaSupported = -1;
 
@@ -52,7 +52,7 @@ public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Outp
 
         fluidNameCache = ReflectionUtils.getField(FluidRegistry.class, "fluidNames");
 
-        AutoMap<String> mValidPlasmaNameCache = new AutoMap<String>();
+        AutoMap<String> mValidPlasmaNameCache = new AutoMap<>();
         if (fluidNameCache != null) {
             try {
                 Object fluidNames = fluidNameCache.get(null);
@@ -74,7 +74,7 @@ public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Outp
             }
         }
 
-        AutoMap<Fluid> mPlasmaCache = new AutoMap<Fluid>();
+        AutoMap<Fluid> mPlasmaCache = new AutoMap<>();
         if (!mValidPlasmaNameCache.isEmpty()) {
             for (String y : mValidPlasmaNameCache) {
                 Fluid t = FluidRegistry.getFluid(y);

@@ -23,7 +23,7 @@ public class ThreadPooCollector extends Thread {
 
     private static final ThreadPooCollector mThread;
     private static final HashMap<String, Pair<BlockPos, TileEntityPooCollector>> mPooCollectors =
-            new LinkedHashMap<String, Pair<BlockPos, TileEntityPooCollector>>();
+            new LinkedHashMap<>();
 
     static {
         mThread = new ThreadPooCollector();
@@ -41,7 +41,7 @@ public class ThreadPooCollector extends Thread {
 
     public static void addTask(TileEntityPooCollector aTile) {
         BlockPos aTempPos = new BlockPos(aTile);
-        mPooCollectors.put(aTempPos.getUniqueIdentifier(), new Pair<BlockPos, TileEntityPooCollector>(aTempPos, aTile));
+        mPooCollectors.put(aTempPos.getUniqueIdentifier(), new Pair<>(aTempPos, aTile));
     }
 
     public static void stopThread() {

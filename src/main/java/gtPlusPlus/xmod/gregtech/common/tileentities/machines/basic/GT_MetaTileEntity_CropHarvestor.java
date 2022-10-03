@@ -173,7 +173,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         }
     }
 
-    private HashSet<ICropTile> mCropCache = new HashSet<ICropTile>();
+    private HashSet<ICropTile> mCropCache = new HashSet<>();
     private boolean mInvalidCache = false;
 
     public boolean doesInventoryHaveSpace() {
@@ -198,7 +198,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
     }
 
     public static AutoMap<ItemStack> splitOutputStacks(ItemStack[] aOutputs) {
-        AutoMap<ItemStack> aOutputMap = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aOutputMap = new AutoMap<>();
         for (ItemStack aStack : aOutputs) {
             if (aStack != null) {
                 if (aStack.stackSize <= 64) {
@@ -236,7 +236,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
 
                 int aRadius = 10 + getRange(this.mTier);
                 int aSide = (aRadius - 1) / 2;
-                ArrayList<ItemStack> aAllDrops = new ArrayList<ItemStack>();
+                ArrayList<ItemStack> aAllDrops = new ArrayList<>();
 
                 if (this.mCropCache.isEmpty() || aTick % 1200 == 0 || this.mInvalidCache) {
                     if (!this.mCropCache.isEmpty()) {

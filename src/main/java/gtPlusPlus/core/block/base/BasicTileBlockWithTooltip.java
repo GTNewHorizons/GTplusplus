@@ -162,8 +162,8 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
         Logger.INFO("[TeTexture] Building Texture Maps for " + getTileEntityName() + ".");
 
         // Init on the Client side only, to prevent Field initialisers existing in the Server side bytecode.
-        mSidedTextureArray = new AutoMap<CubicObject<SafeTexture>>();
-        mSidedTexturePathArray = new AutoMap<CubicObject<String>>();
+        mSidedTextureArray = new AutoMap<>();
+        mSidedTexturePathArray = new AutoMap<>();
 
         // Store them in forge order
         // DOWN, UP, NORTH, SOUTH, WEST, EAST
@@ -222,7 +222,7 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
                 aStringLeft = aTexPathBuilt + aStringLeft;
                 aStringRight = aTexPathBuilt + aStringRight;
                 // Convenience Blob
-                CubicObject<String> aMetaBlob = new CubicObject<String>(
+                CubicObject<String> aMetaBlob = new CubicObject<>(
                         aStringBot, aStringTop, aStringBack, aStringFront, aStringLeft, aStringRight);
                 mSidedTexturePathArray.put(aMetaBlob);
                 Logger.INFO("[TeTexture] Added Texture Path data to map for meta " + i);
@@ -245,7 +245,7 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
             // Store them in an Array
             SafeTexture[] aInjectBlob = new SafeTexture[] {aBottom, aTop, aBack, aFont, aWest, aEast};
             // Convenience Blob
-            CubicObject<SafeTexture> aMetaBlob2 = new CubicObject<SafeTexture>(aInjectBlob);
+            CubicObject<SafeTexture> aMetaBlob2 = new CubicObject<>(aInjectBlob);
             // Store this Blob into
             mSidedTextureArray.put(aMetaBlob2);
             Logger.INFO("[TeTexture] Added SafeTexture data to map for meta " + (aIndex++));
@@ -307,7 +307,7 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
     }
 
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> drops = new ArrayList<>();
         drops.add(ItemUtils.simpleMetaStack(this, metadata, 1));
         return drops;
     }

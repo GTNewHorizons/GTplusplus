@@ -19,7 +19,7 @@ import org.objectweb.asm.ClassWriter;
 public class Preloader_Transformer_Handler implements IClassTransformer {
 
     public static final AsmConfig mConfig;
-    public static final AutoMap<String> IC2_WRENCH_PATCH_CLASS_NAMES = new AutoMap<String>();
+    public static final AutoMap<String> IC2_WRENCH_PATCH_CLASS_NAMES = new AutoMap<>();
 
     static {
         mConfig = new AsmConfig(new File("config/GTplusplus/asm.cfg"));

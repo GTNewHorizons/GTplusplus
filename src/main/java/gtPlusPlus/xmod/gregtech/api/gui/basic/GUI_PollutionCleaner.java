@@ -51,7 +51,7 @@ public class GUI_PollutionCleaner extends GT_GUIContainerMetaTile_Machine {
         final int yStart = (this.height - this.ySize) / 2;
         final int x3 = x2 - xStart;
         final int y3 = y2 - yStart + 5;
-        final List<String> list = new ArrayList<String>();
+        final List<String> list = new ArrayList<>();
         if (y3 >= 67 && y3 <= 84) {
             if (x3 >= 77 && x3 <= 95) {
                 // Do Dumb shit

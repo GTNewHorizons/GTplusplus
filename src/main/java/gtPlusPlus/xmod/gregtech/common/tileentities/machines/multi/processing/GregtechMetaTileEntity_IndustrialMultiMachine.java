@@ -188,7 +188,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         ArrayList<FluidStack> tFluids = getStoredFluids();
         // Logger.MACHINE_INFO("1");
         for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-            ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
+            ArrayList<ItemStack> tBusItems = new ArrayList<>();
             tBus.mRecipeMap = getRecipeMap();
             // Logger.MACHINE_INFO("2");
             if (isValidMetaTileEntity(tBus)) {
@@ -465,7 +465,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         tOutputItems = removeNulls(tOutputItems);
 
         // Sanitize item stack size, splitting any stacks greater than max stack size
-        List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+        List<ItemStack> splitStacks = new ArrayList<>();
         for (ItemStack tItem : tOutputItems) {
             while (tItem.getMaxStackSize() < tItem.stackSize) {
                 ItemStack tmp = tItem.copy();
@@ -482,7 +482,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         }
 
         // Strip empty stacks
-        List<ItemStack> tSList = new ArrayList<ItemStack>();
+        List<ItemStack> tSList = new ArrayList<>();
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }

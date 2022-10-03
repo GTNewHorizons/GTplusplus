@@ -44,7 +44,7 @@ public class WitchUtils {
                     && (isEqual(harvester.getGameProfile(), KOBOLDITE_MINER_PROFILE)
                             || isEqual(harvester.getGameProfile(), NORMAL_MINER_PROFILE))) {
                 final boolean hasKobolditePick = isEqual(harvester.getGameProfile(), KOBOLDITE_MINER_PROFILE);
-                final ArrayList<ItemStack> newDrops = new ArrayList<ItemStack>();
+                final ArrayList<ItemStack> newDrops = new ArrayList<>();
                 double kobolditeChance = hasKobolditePick ? 0.02 : 0.01;
                 for (final ItemStack drop : event.drops) {
                     final int[] oreIDs = OreDictionary.getOreIDs(drop);

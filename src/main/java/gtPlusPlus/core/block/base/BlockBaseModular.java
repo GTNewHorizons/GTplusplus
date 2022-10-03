@@ -30,7 +30,7 @@ public class BlockBaseModular extends BasicBlock {
     protected String thisBlockMaterial;
     protected final String thisBlockType;
 
-    private static HashMap<String, Block> sBlockCache = new HashMap<String, Block>();
+    private static HashMap<String, Block> sBlockCache = new HashMap<>();
 
     public static Block getMaterialBlock(Material aMaterial, BlockTypes aType) {
         return sBlockCache.get(aMaterial.getUnlocalizedName() + "." + aType.name());
@@ -100,7 +100,7 @@ public class BlockBaseModular extends BasicBlock {
         // Register Component
         Map<String, ItemStack> aMap = Material.mComponentMap.get(aName);
         if (aMap == null) {
-            aMap = new HashMap<String, ItemStack>();
+            aMap = new HashMap<>();
         }
         int fx = getBlockTypeMeta();
         String aKey =

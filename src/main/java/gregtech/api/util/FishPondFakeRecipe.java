@@ -13,9 +13,9 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class FishPondFakeRecipe {
 
-    public static ArrayList<WeightedRandomFishable> fish = new ArrayList<WeightedRandomFishable>();
-    public static ArrayList<WeightedRandomFishable> junk = new ArrayList<WeightedRandomFishable>();
-    public static ArrayList<WeightedRandomFishable> treasure = new ArrayList<WeightedRandomFishable>();
+    public static ArrayList<WeightedRandomFishable> fish = new ArrayList<>();
+    public static ArrayList<WeightedRandomFishable> junk = new ArrayList<>();
+    public static ArrayList<WeightedRandomFishable> treasure = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     public static boolean generateFishPondRecipes() {
@@ -32,7 +32,7 @@ public class FishPondFakeRecipe {
             e.printStackTrace();
         }
 
-        AutoMap<ArrayList<WeightedRandomFishable>> mega = new AutoMap<ArrayList<WeightedRandomFishable>>();
+        AutoMap<ArrayList<WeightedRandomFishable>> mega = new AutoMap<>();
         mega.put(fish);
         mega.put(junk);
         mega.put(treasure);

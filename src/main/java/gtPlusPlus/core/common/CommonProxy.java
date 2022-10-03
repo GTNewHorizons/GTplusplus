@@ -276,7 +276,7 @@ public class CommonProxy {
         }
     }
 
-    protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<Pair<Item, IItemRenderer>>();
+    protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<>();
 
     public static void registerItemRendererGlobal(Item aItem, IItemRenderer aRenderer) {
         GTplusplus.proxy.registerItemRenderer(aItem, aRenderer);
@@ -286,7 +286,7 @@ public class CommonProxy {
         if (Utils.isServer()) {
             return;
         } else {
-            mItemRenderMappings.add(new Pair<Item, IItemRenderer>(aItem, aRenderer));
+            mItemRenderMappings.add(new Pair<>(aItem, aRenderer));
         }
     }
 

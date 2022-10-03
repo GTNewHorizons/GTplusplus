@@ -47,7 +47,7 @@ public class OldCircuitHandler {
                 ReflectionUtils.setFinalStatic(
                         GT_Recipe_Map.class.getDeclaredField("sCircuitAssemblerRecipes"),
                         new EmptyRecipeMap(
-                                new HashSet<GT_Recipe>(0),
+                                new HashSet<>(0),
                                 "gt.recipe.removed",
                                 "Removed",
                                 null,
@@ -67,7 +67,7 @@ public class OldCircuitHandler {
                 jaffar.set(
                         null,
                         new EmptyRecipeMap(
-                                new HashSet<GT_Recipe>(0),
+                                new HashSet<>(0),
                                 "gt.recipe.removed",
                                 "Removed",
                                 null,

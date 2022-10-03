@@ -39,7 +39,7 @@ public class GT_GUIContainer_AdvancedWorkbench extends GT_GUIContainerMetaTile_M
         final int yStart = (this.height - this.ySize) / 2;
         final int x3 = x2 - xStart;
         final int y3 = y2 - yStart + 5;
-        final List<String> list = new ArrayList<String>();
+        final List<String> list = new ArrayList<>();
         // 154 - 172
 
         if (KeyboardUtils.isShiftKeyDown()) {

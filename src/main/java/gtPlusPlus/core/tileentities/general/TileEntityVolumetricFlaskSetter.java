@@ -125,7 +125,7 @@ public class TileEntityVolumetricFlaskSetter extends TileEntity implements ISide
                 return false;
             }
         }
-        AutoMap<Integer> aValidSlots = new AutoMap<Integer>();
+        AutoMap<Integer> aValidSlots = new AutoMap<>();
         int aSlotCount = 0;
         for (ItemStack i : aInputs) {
             if (i != null) {

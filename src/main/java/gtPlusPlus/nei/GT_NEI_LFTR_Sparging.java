@@ -237,7 +237,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
             if (this.permutated) {
                 return;
             }
-            final ArrayList<ItemStack> tDisplayStacks = new ArrayList<ItemStack>();
+            final ArrayList<ItemStack> tDisplayStacks = new ArrayList<>();
             for (final ItemStack tStack : this.items) {
                 if (GT_Utility.isStackValid(tStack)) {
                     if (tStack.getItemDamage() == 32767) {
@@ -271,8 +271,8 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
     public class GasSpargingRecipeNEI extends CachedRecipe implements Comparable<CachedRecipe> {
 
         public final GasSpargingRecipe mRecipe;
-        public final List<PositionedStack> mOutputs = new ArrayList<PositionedStack>();
-        public final List<PositionedStack> mInputs = new ArrayList<PositionedStack>();
+        public final List<PositionedStack> mOutputs = new ArrayList<>();
+        public final List<PositionedStack> mInputs = new ArrayList<>();
 
         public GasSpargingRecipeNEI(GasSpargingRecipe tRecipe) {
             super();

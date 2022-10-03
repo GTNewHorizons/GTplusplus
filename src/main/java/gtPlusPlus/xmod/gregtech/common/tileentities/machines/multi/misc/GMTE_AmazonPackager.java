@@ -163,8 +163,8 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
             return true;
         } else {
             tItems = getStoredInputs();
-            AutoMap<ItemStackData> mCompleted = new AutoMap<ItemStackData>();
-            AutoMap<ItemStackData> mSchematics = new AutoMap<ItemStackData>();
+            AutoMap<ItemStackData> mCompleted = new AutoMap<>();
+            AutoMap<ItemStackData> mSchematics = new AutoMap<>();
             for (ItemStack tInputItem : tItems) {
                 if (tInputItem != null) {
                     if (ItemList.Schematic_1by1.isStackEqual((Object) tInputItem)
@@ -382,7 +382,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         tOutputItems = removeNulls(tOutputItems);
 
         // Sanitize item stack size, splitting any stacks greater than max stack size
-        List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+        List<ItemStack> splitStacks = new ArrayList<>();
         for (ItemStack tItem : tOutputItems) {
             while (tItem.getMaxStackSize() < tItem.stackSize) {
                 ItemStack tmp = tItem.copy();
@@ -399,7 +399,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         }
 
         // Strip empty stacks
-        List<ItemStack> tSList = new ArrayList<ItemStack>();
+        List<ItemStack> tSList = new ArrayList<>();
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }

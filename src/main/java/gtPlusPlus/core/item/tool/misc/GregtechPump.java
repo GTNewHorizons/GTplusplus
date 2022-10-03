@@ -103,15 +103,15 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
     /** The unlocalized name of this item. */
     private String unlocalizedName;
 
-    private final HashMap<Integer, IIcon> mIconMap = new LinkedHashMap<Integer, IIcon>();
-    private final HashMap<Integer, EnumRarity> rarity = new LinkedHashMap<Integer, EnumRarity>();
-    private final HashMap<Integer, EnumChatFormatting> descColour = new LinkedHashMap<Integer, EnumChatFormatting>();
-    private final HashMap<Integer, String> itemName = new LinkedHashMap<Integer, String>();
-    private final HashMap<Integer, String> itemDescription = new LinkedHashMap<Integer, String>();
-    private final HashMap<Integer, Boolean> hasEffect = new LinkedHashMap<Integer, Boolean>();
+    private final HashMap<Integer, IIcon> mIconMap = new LinkedHashMap<>();
+    private final HashMap<Integer, EnumRarity> rarity = new LinkedHashMap<>();
+    private final HashMap<Integer, EnumChatFormatting> descColour = new LinkedHashMap<>();
+    private final HashMap<Integer, String> itemName = new LinkedHashMap<>();
+    private final HashMap<Integer, String> itemDescription = new LinkedHashMap<>();
+    private final HashMap<Integer, Boolean> hasEffect = new LinkedHashMap<>();
 
-    public final HashMap<Short, Long[]> mElectricStats = new LinkedHashMap<Short, Long[]>();
-    public final HashMap<Short, Short> mBurnValues = new LinkedHashMap<Short, Short>();
+    public final HashMap<Short, Long[]> mElectricStats = new LinkedHashMap<>();
+    public final HashMap<Short, Short> mBurnValues = new LinkedHashMap<>();
 
     public void registerPumpType(final int aID, final String aPumpName, final int aEuMax, final int aTier) {
         ModItems.toolGregtechPump.registerItem(
@@ -1185,7 +1185,7 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             return getStoredFluidOfVanillaTank((IFluidTank) aTileEntity);
         }
         FluidStack f;
-        AutoMap<FluidTankInfo[]> m = new AutoMap<FluidTankInfo[]>();
+        AutoMap<FluidTankInfo[]> m = new AutoMap<>();
         for (int i = 0; i < 6; i++) {
             m.put(aTileEntity.getTankInfo(ForgeDirection.getOrientation(i)));
         }

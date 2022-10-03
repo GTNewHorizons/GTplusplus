@@ -28,37 +28,37 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class FluidFactory {
 
-    public static final Map<String, Fluid> mNameToFluidMap = new LinkedHashMap<String, Fluid>();
-    public static final Map<String, ItemStack> mNameToBucketMap = new LinkedHashMap<String, ItemStack>();
-    public static final Map<String, Block> mNameToBlockMap = new LinkedHashMap<String, Block>();
-    public static final Map<String, Integer> mNameToMetaMap = new LinkedHashMap<String, Integer>();
+    public static final Map<String, Fluid> mNameToFluidMap = new LinkedHashMap<>();
+    public static final Map<String, ItemStack> mNameToBucketMap = new LinkedHashMap<>();
+    public static final Map<String, Block> mNameToBlockMap = new LinkedHashMap<>();
+    public static final Map<String, Integer> mNameToMetaMap = new LinkedHashMap<>();
 
-    public static final Map<Fluid, String> mFluidToNameMap = new LinkedHashMap<Fluid, String>();
-    public static final Map<Fluid, ItemStack> mFluidToBucketMap = new LinkedHashMap<Fluid, ItemStack>();
-    public static final Map<Fluid, Block> mFluidToBlockMap = new LinkedHashMap<Fluid, Block>();
-    public static final Map<Fluid, Integer> mFluidToMetaMap = new LinkedHashMap<Fluid, Integer>();
+    public static final Map<Fluid, String> mFluidToNameMap = new LinkedHashMap<>();
+    public static final Map<Fluid, ItemStack> mFluidToBucketMap = new LinkedHashMap<>();
+    public static final Map<Fluid, Block> mFluidToBlockMap = new LinkedHashMap<>();
+    public static final Map<Fluid, Integer> mFluidToMetaMap = new LinkedHashMap<>();
 
-    public static final Map<ItemStack, Fluid> mBucketToFluidMap = new LinkedHashMap<ItemStack, Fluid>();
-    public static final Map<ItemStack, String> mBucketToNameMap = new LinkedHashMap<ItemStack, String>();
-    public static final Map<ItemStack, Block> mBucketToBlockMap = new LinkedHashMap<ItemStack, Block>();
-    public static final Map<ItemStack, Integer> mBucketToMetaMap = new LinkedHashMap<ItemStack, Integer>();
+    public static final Map<ItemStack, Fluid> mBucketToFluidMap = new LinkedHashMap<>();
+    public static final Map<ItemStack, String> mBucketToNameMap = new LinkedHashMap<>();
+    public static final Map<ItemStack, Block> mBucketToBlockMap = new LinkedHashMap<>();
+    public static final Map<ItemStack, Integer> mBucketToMetaMap = new LinkedHashMap<>();
 
-    public static final Map<Block, String> mBlockToNameMap = new LinkedHashMap<Block, String>();
-    public static final Map<Block, Fluid> mBlockToFluidMap = new LinkedHashMap<Block, Fluid>();
-    public static final Map<Block, ItemStack> mBlockToBucketMap = new LinkedHashMap<Block, ItemStack>();
-    public static final Map<Block, Integer> mBlockToMetaMap = new LinkedHashMap<Block, Integer>();
+    public static final Map<Block, String> mBlockToNameMap = new LinkedHashMap<>();
+    public static final Map<Block, Fluid> mBlockToFluidMap = new LinkedHashMap<>();
+    public static final Map<Block, ItemStack> mBlockToBucketMap = new LinkedHashMap<>();
+    public static final Map<Block, Integer> mBlockToMetaMap = new LinkedHashMap<>();
 
-    public static final Map<Integer, String> mMetaToNameMap = new LinkedHashMap<Integer, String>();
-    public static final Map<Integer, Fluid> mMetaToFluidMap = new LinkedHashMap<Integer, Fluid>();
-    public static final Map<Integer, ItemStack> mMetaToBucketMap = new LinkedHashMap<Integer, ItemStack>();
-    public static final Map<Integer, Block> mMetaToBlockMap = new LinkedHashMap<Integer, Block>();
+    public static final Map<Integer, String> mMetaToNameMap = new LinkedHashMap<>();
+    public static final Map<Integer, Fluid> mMetaToFluidMap = new LinkedHashMap<>();
+    public static final Map<Integer, ItemStack> mMetaToBucketMap = new LinkedHashMap<>();
+    public static final Map<Integer, Block> mMetaToBlockMap = new LinkedHashMap<>();
 
     // Special Colour Handling
-    public static final Map<Integer, Integer> mMetaToColourMap = new LinkedHashMap<Integer, Integer>();
+    public static final Map<Integer, Integer> mMetaToColourMap = new LinkedHashMap<>();
 
     public static Item mGenericBucket;
     private static FluidPackage mErrorFluid;
-    private static AutoMap<FluidPackage> mGeneratedFluids = new AutoMap<FluidPackage>();
+    private static AutoMap<FluidPackage> mGeneratedFluids = new AutoMap<>();
 
     public static void preInit() {}
 

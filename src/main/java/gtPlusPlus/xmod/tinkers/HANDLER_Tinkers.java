@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class HANDLER_Tinkers {
 
-    public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<BaseTinkersMaterial>();
+    public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<>();
 
     public static final void preInit() {
         if (LoadedMods.TiCon) {}
@@ -41,7 +41,7 @@ public class HANDLER_Tinkers {
             }
 
             Class aTinkersSmeltery = ReflectionUtils.getClass("tconstruct.smeltery.TinkerSmeltery");
-            AutoMap<Fluid> aTweakedFluids = new AutoMap<Fluid>();
+            AutoMap<Fluid> aTweakedFluids = new AutoMap<>();
             if (aTinkersSmeltery != null) {
                 try {
                     Logger.INFO(

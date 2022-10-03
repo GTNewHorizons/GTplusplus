@@ -132,7 +132,7 @@ public class MiningUtils {
     }
 
     public static void iterateAllOreTypes() {
-        HashMap<String, Integer> M = new HashMap<String, Integer>();
+        HashMap<String, Integer> M = new HashMap<>();
         String aTextWorldGen = null;
         if (MiningUtils.findAndMapOreTypesFromGT()) {
             int mapKey = 0;
@@ -158,13 +158,13 @@ public class MiningUtils {
     }
 
     public static AutoMap<GT_Worldgen_GT_Ore_Layer>[] mOreMaps = new AutoMap[7];
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Overworld = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Nether = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_End = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Moon = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Mars = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Comets = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
-    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Misc = new AutoMap<GT_Worldgen_GT_Ore_Layer>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Overworld = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Nether = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_End = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Moon = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Mars = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Comets = new AutoMap<>();
+    private static AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Misc = new AutoMap<>();
 
     public static boolean findAndMapOreTypesFromGT() {
         // Gets Moon ID

@@ -39,7 +39,7 @@ public class TreeGenerator {
             return aOutputMap;
         }
         Logger.WARNING("Invalid tree data output");
-        return new AutoMap<ItemStack>();
+        return new AutoMap<>();
     }
 
     public static class FakeTreeInFakeWorldGenerator extends WorldGenAbstractTree {
@@ -58,7 +58,7 @@ public class TreeGenerator {
         private int mCurrentGeneratorIteration = 0;
 
         private boolean hasGenerated = false;
-        private AutoMap<ItemStack> aOutputsFromGenerator = new AutoMap<ItemStack>();
+        private AutoMap<ItemStack> aOutputsFromGenerator = new AutoMap<>();
 
         public FakeTreeInFakeWorldGenerator() {
             this(4, 0, 0, false, 5000);
@@ -71,7 +71,7 @@ public class TreeGenerator {
             this.metaWood = aWoodMeta;
             this.metaLeaves = aLeafMeta;
             this.vinesGrow = aVines;
-            this.mFakeWorld = new AutoMap<FakeWorld>();
+            this.mFakeWorld = new AutoMap<>();
             this.mTreesToGenerate = aTreeCount;
             Logger.WARNING("Created Fake Tree In Fake World Instance.");
         }
@@ -81,7 +81,7 @@ public class TreeGenerator {
                 Logger.WARNING("Generating Tree sample data");
                 generate(null, CORE.RANDOM, 0, 0, 0);
             }
-            AutoMap<ItemStack> aOutputMap = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> aOutputMap = new AutoMap<>();
             int aRandomTreeID = MathUtils.randInt(0, this.mFakeWorld.size() - 1);
             FakeWorld aWorld = this.mFakeWorld.get(aRandomTreeID);
             if (aWorld != null) {

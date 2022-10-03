@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class VillagerUtils {
 
-    public static final HashMap<Integer, VillagerObject> mVillagerMap = new HashMap<Integer, VillagerObject>();
+    public static final HashMap<Integer, VillagerObject> mVillagerMap = new HashMap<>();
 
     public static void registerNewVillager(
             int aID,

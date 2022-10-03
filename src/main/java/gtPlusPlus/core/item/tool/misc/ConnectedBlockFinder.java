@@ -89,14 +89,14 @@ public class ConnectedBlockFinder extends BaseItemWithDamageValue {
         }
 
         int breaker = 0;
-        Set<BlockPos> mTotalIndex = new HashSet<BlockPos>();
+        Set<BlockPos> mTotalIndex = new HashSet<>();
 
-        Set<BlockPos> mFirstSearch = new HashSet<BlockPos>();
-        Set<BlockPos> mSearch_A = new HashSet<BlockPos>();
+        Set<BlockPos> mFirstSearch = new HashSet<>();
+        Set<BlockPos> mSearch_A = new HashSet<>();
 
-        Set<BlockPos> mSearch_B = new HashSet<BlockPos>();
-        Set<BlockPos> mSearch_C = new HashSet<BlockPos>();
-        Set<BlockPos> mSearch_D = new HashSet<BlockPos>();
+        Set<BlockPos> mSearch_B = new HashSet<>();
+        Set<BlockPos> mSearch_C = new HashSet<>();
+        Set<BlockPos> mSearch_D = new HashSet<>();
 
         mFirstSearch.add(mStartPoint);
         mTotalIndex.add(mStartPoint);

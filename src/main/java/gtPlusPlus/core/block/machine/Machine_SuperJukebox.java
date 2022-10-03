@@ -311,7 +311,7 @@ public class Machine_SuperJukebox extends BlockJukebox {
 
         // Determine which record to play
         public boolean selectRecordToPlayFromInventoryAndSetViaVanillaHandler() {
-            AutoMap<ItemStack> mValidRecords = new AutoMap<ItemStack>();
+            AutoMap<ItemStack> mValidRecords = new AutoMap<>();
             for (ItemStack g : this.getInventory().getInventory()) {
                 if (g != null) {
                     if (g.getItem() instanceof ItemRecord) {

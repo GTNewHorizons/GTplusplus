@@ -41,7 +41,7 @@ public class Particle {
 
     public static final Particle UNKNOWN;
 
-    public static final AutoMap<Particle> aMap = new AutoMap<Particle>();
+    public static final AutoMap<Particle> aMap = new AutoMap<>();
 
     static {
 

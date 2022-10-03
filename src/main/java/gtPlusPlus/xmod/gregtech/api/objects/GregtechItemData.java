@@ -127,7 +127,7 @@ public class GregtechItemData {
     }
 
     public ArrayList<GregtechMaterialStack> getAllGT_MaterialStacks() {
-        final ArrayList<GregtechMaterialStack> rList = new ArrayList<GregtechMaterialStack>();
+        final ArrayList<GregtechMaterialStack> rList = new ArrayList<>();
         if (this.hasValidMaterialData()) {
             rList.add(this.mMaterial);
         }

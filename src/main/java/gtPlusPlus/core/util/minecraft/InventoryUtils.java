@@ -75,7 +75,7 @@ public class InventoryUtils {
     public static void sortInventoryItems(IGregTechTileEntity aBaseMetaTileEntity) {
         IInventory mInv = aBaseMetaTileEntity.getIInventory(
                 aBaseMetaTileEntity.getXCoord(), aBaseMetaTileEntity.getYCoord(), aBaseMetaTileEntity.getZCoord());
-        AutoMap<ItemStack> aInvContents = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aInvContents = new AutoMap<>();
         int aSize = mInv.getSizeInventory();
         for (int slot = 0; slot < aSize; slot++) {
             aInvContents.put(mInv.getStackInSlot(slot));

@@ -73,12 +73,12 @@ public class BlockGenericRedstoneDetector extends BlockGenericRedstone {
 
     public void generateTextureArray(final IIconRegister iicon) {
         HashMap<Integer, HashMap<ForgeDirection, IIcon>> aTextures =
-                new HashMap<Integer, HashMap<ForgeDirection, IIcon>>();
+                new HashMap<>();
 
         // New Block for Each Meta
         int aMeta = 0;
         {
-            HashMap<ForgeDirection, IIcon> aTempMap = new HashMap<ForgeDirection, IIcon>();
+            HashMap<ForgeDirection, IIcon> aTempMap = new HashMap<>();
             aTempMap.put(ForgeDirection.UP, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
                     ForgeDirection.DOWN, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
@@ -124,7 +124,7 @@ public class BlockGenericRedstoneDetector extends BlockGenericRedstone {
 
     @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> aDrops = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> aDrops = new ArrayList<>();
         aDrops.add(ItemUtils.getSimpleStack(this));
         return aDrops;
     }

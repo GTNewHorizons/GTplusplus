@@ -7,7 +7,7 @@ import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class Core_Manager {
 
-    public static AutoMap<IPlugin> mPlugins = new AutoMap<IPlugin>();
+    public static AutoMap<IPlugin> mPlugins = new AutoMap<>();
 
     /**
      * @param plugin - Dynamically registers the plugin for loading.

@@ -29,7 +29,7 @@ public class ClassTransformer_LWJGL_Keyboard {
     private final ClassReader reader;
     private final ClassWriter writer;
 
-    private static final HashMap<String, String> mBadKeyCache = new HashMap<String, String>();
+    private static final HashMap<String, String> mBadKeyCache = new HashMap<>();
 
     /**
      * Gets a key's name

@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class AustraliaWorldGenerator implements IWorldGenerator {
-    private LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<ChunkCoordIntPair>();
+    private LinkedList<ChunkCoordIntPair> structuresList = new LinkedList<>();
     // private final WorldHandlerCoven covenGen;
     // private final WorldHandlerWickerMan wickerManGen;
     private final WorldHandlerShack shackGen;
@@ -28,9 +28,9 @@ public class AustraliaWorldGenerator implements IWorldGenerator {
     int field_82665_g;
     int field_82666_h = 8;
 
-    public static final AutoMap<Integer> SHACK_ALLOWED_BIOMES = new AutoMap<Integer>();
-    public static final AutoMap<Integer> HUT_ALLOWED_BIOMES = new AutoMap<Integer>();
-    public static final AutoMap<Integer> ALLOWED_BIOMES = new AutoMap<Integer>();
+    public static final AutoMap<Integer> SHACK_ALLOWED_BIOMES = new AutoMap<>();
+    public static final AutoMap<Integer> HUT_ALLOWED_BIOMES = new AutoMap<>();
+    public static final AutoMap<Integer> ALLOWED_BIOMES = new AutoMap<>();
 
     public AustraliaWorldGenerator() {
 

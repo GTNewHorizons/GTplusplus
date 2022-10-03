@@ -17,8 +17,8 @@ import net.minecraft.util.IIcon;
 
 public class IonParticles extends BaseItemParticle {
 
-    public static HashMap<String, Integer> NameToMetaMap = new HashMap<String, Integer>();
-    public static HashMap<Integer, String> MetaToNameMap = new HashMap<Integer, String>();
+    public static HashMap<String, Integer> NameToMetaMap = new HashMap<>();
+    public static HashMap<Integer, String> MetaToNameMap = new HashMap<>();
 
     public IonParticles() {
         super("Ion", ELEMENT.NAMES.length, EnumRarity.rare);

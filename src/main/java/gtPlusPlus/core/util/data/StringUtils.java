@@ -184,7 +184,7 @@ public class StringUtils {
         if (aSplit == null || aSplit.length == 0) {
             return aInput;
         } else {
-            AutoMap<String> aTemp = new AutoMap<String>();
+            AutoMap<String> aTemp = new AutoMap<>();
             for (String s : aSplit) {
                 Logger.INFO("Found: " + s);
                 s = s.replace(".", "");

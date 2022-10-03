@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
  */
 public class LoaderOfTheCrops {
 
-    private static List<Boolean> mHasCropObj = new ArrayList<Boolean>();
+    private static List<Boolean> mHasCropObj = new ArrayList<>();
     private CropCard mCropObj;
     private ItemStack mBaseSeed;
     private static List<LoaderOfTheCrops> mCropList = cropLoader();
@@ -44,7 +44,7 @@ public class LoaderOfTheCrops {
     }
 
     public static final List<LoaderOfTheCrops> cropLoader() {
-        List<LoaderOfTheCrops> p = new ArrayList<LoaderOfTheCrops>();
+        List<LoaderOfTheCrops> p = new ArrayList<>();
 
         p.add(new LoaderOfTheCrops(new Crop_Hemp(), new ItemStack(Item.getItemById(111), 3)));
         p.add(new LoaderOfTheCrops(new Crop_Force(), new ItemStack(Item.getItemById(111), 3)));
@@ -53,7 +53,7 @@ public class LoaderOfTheCrops {
     }
 
     private static final List<CropCard> cropObjs() {
-        List<CropCard> p = new ArrayList<CropCard>();
+        List<CropCard> p = new ArrayList<>();
 
         for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
             p.add(cropUnpackerCC((LoaderOfTheCrops) loaderOfTheCrops));
@@ -63,7 +63,7 @@ public class LoaderOfTheCrops {
     }
 
     private static final List<ItemStack> setBaseSeed() {
-        List<ItemStack> p = new ArrayList<ItemStack>();
+        List<ItemStack> p = new ArrayList<>();
 
         for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
             p.add(cropUnpackerCG((LoaderOfTheCrops) loaderOfTheCrops));
@@ -73,7 +73,7 @@ public class LoaderOfTheCrops {
     }
 
     private static final List<String> setnames() {
-        List<String> s = new ArrayList<String>();
+        List<String> s = new ArrayList<>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
             s.add(((CropCard) cropObjs().get(i)).name());
@@ -97,7 +97,7 @@ public class LoaderOfTheCrops {
     }
 
     public static void registerBaseSeed() {
-        List<ItemStack> baseseed = new ArrayList<ItemStack>(setBaseSeed());
+        List<ItemStack> baseseed = new ArrayList<>(setBaseSeed());
 
         for (int i = 0; i < mCropList.size(); ++i) {
             if (baseseed.get(i) != null && cropObjs().get(i) != null) {

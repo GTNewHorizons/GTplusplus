@@ -18,7 +18,7 @@ public class FakeWorld implements IBlockAccess {
 
     public static HashMap<String, FakeBlockPos> mStaticFakeWorldData;
 
-    public HashMap<String, FakeBlockPos> mFakeWorldData = new HashMap<String, FakeBlockPos>();
+    public HashMap<String, FakeBlockPos> mFakeWorldData = new HashMap<>();
 
     /**
      * Must be an odd number
@@ -62,7 +62,7 @@ public class FakeWorld implements IBlockAccess {
         }*/
         // if (mStaticFakeWorldData != null) {
         // Logger.WARNING(" Instancing static air world.");
-        mFakeWorldData = new HashMap<String, FakeBlockPos>();
+        mFakeWorldData = new HashMap<>();
         // mFakeWorldData = (HashMap<String, FakeBlockPos>) mStaticFakeWorldData.clone();
         // }
 
@@ -85,7 +85,7 @@ public class FakeWorld implements IBlockAccess {
     }
 
     public AutoMap<ItemStack> getAllBlocksStoredInFakeWorld() {
-        AutoMap<ItemStack> aOutput = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aOutput = new AutoMap<>();
         for (FakeBlockPos aPos : mFakeWorldData.values()) {
             if (aPos == null || aPos.getBlockAtPos() == Blocks.air) {
                 continue;

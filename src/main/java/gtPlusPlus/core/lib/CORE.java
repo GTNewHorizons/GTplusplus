@@ -72,7 +72,7 @@ public class CORE {
     // GT++ Fake Player Profile
     public static final GameProfile gameProfile =
             new GameProfile(UUID.nameUUIDFromBytes("gtplusplus.core".getBytes()), "[GT++]");
-    public static final WeakHashMap<World, EntityPlayerMP> fakePlayerCache = new WeakHashMap<World, EntityPlayerMP>();
+    public static final WeakHashMap<World, EntityPlayerMP> fakePlayerCache = new WeakHashMap<>();
     // Tooltips;
     public static final String GT_Tooltip = "Added by: " + EnumChatFormatting.DARK_GREEN + "Alkalus "
             + EnumChatFormatting.GRAY + "- " + EnumChatFormatting.RED + "[GT++]";
@@ -94,16 +94,16 @@ public class CORE {
      */
 
     // Burnables List
-    public static List<Pair<Integer, ItemStack>> burnables = new ArrayList<Pair<Integer, ItemStack>>();
+    public static List<Pair<Integer, ItemStack>> burnables = new ArrayList<>();
 
     // TesseractMaps
     public static final Map<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>> sTesseractGeneratorOwnershipMap =
-            new HashMap<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>>();
+            new HashMap<>();
     public static final Map<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>> sTesseractTerminalOwnershipMap =
-            new HashMap<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>>();
+            new HashMap<>();
 
     // BookMap
-    public static final Map<String, ItemStack> sBookList = new ConcurrentHashMap<String, ItemStack>();
+    public static final Map<String, ItemStack> sBookList = new ConcurrentHashMap<>();
 
     /**
      * Some Gregtech Material and Recipe Variables

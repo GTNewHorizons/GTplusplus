@@ -11,7 +11,7 @@ public class TC_ResearchCategoryList_Wrapper {
     public int maxDisplayRow;
     public ResourceLocation icon;
     public ResourceLocation background;
-    public Map<String, TC_ResearchItem_Wrapper> research = new HashMap<String, TC_ResearchItem_Wrapper>();
+    public Map<String, TC_ResearchItem_Wrapper> research = new HashMap<>();
 
     public TC_ResearchCategoryList_Wrapper(ResourceLocation icon, ResourceLocation background) {
         this.icon = icon;

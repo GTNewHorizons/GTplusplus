@@ -171,7 +171,7 @@ public class GregtechMetaTileEntity_CompactFusionReactor extends GT_MetaTileEnti
     }
 
     public ArrayList<FluidStack> getStoredFluids() {
-        ArrayList<FluidStack> mList = new ArrayList<FluidStack>();
+        ArrayList<FluidStack> mList = new ArrayList<>();
         mList.add(this.mFluid);
         mList.add(this.mFluid2);
         return mList;

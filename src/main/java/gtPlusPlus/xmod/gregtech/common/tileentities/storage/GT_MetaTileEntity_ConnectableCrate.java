@@ -61,7 +61,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     // How many are connected?
     protected int mConnectedCount = 0;
     // Map of connected locations
-    protected AutoMap<String> mConnectedCache = new AutoMap<String>();
+    protected AutoMap<String> mConnectedCache = new AutoMap<>();
 
     public GT_MetaTileEntity_ConnectableCrate(int aID, String aName, String aNameRegional, int aTier) {
         super(

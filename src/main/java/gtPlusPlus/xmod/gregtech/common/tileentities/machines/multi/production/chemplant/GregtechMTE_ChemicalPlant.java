@@ -63,7 +63,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     private IStructureDefinition<GregtechMTE_ChemicalPlant> STRUCTURE_DEFINITION = null;
 
     private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
-            new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
+            new ArrayList<>();
 
     private static final HashMap<Integer, Triplet<Block, Integer, Integer>> mTieredBlockRegistry = new HashMap<>();
 
@@ -77,7 +77,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
     public static boolean registerMachineCasingForTier(int aTier, Block aBlock, int aMeta, int aCasingTextureID) {
         Triplet<Block, Integer, Integer> aCasingData =
-                new Triplet<Block, Integer, Integer>(aBlock, aMeta, aCasingTextureID);
+                new Triplet<>(aBlock, aMeta, aCasingTextureID);
         if (mTieredBlockRegistry.containsKey(aTier)) {
             CORE.crash("Tried to register a Machine casing for tier " + aTier
                     + " to the Chemical Plant, however this tier already contains one.");
@@ -698,7 +698,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         ArrayList<ItemStack> tCatalysts = null;
         int tMaxParallelCatalyst = aMaxParallelRecipes;
         if (tCatalystRecipe != null) {
-            tCatalysts = new ArrayList<ItemStack>();
+            tCatalysts = new ArrayList<>();
             tMaxParallelCatalyst = getCatalysts(aItemInputs, tCatalystRecipe, aMaxParallelRecipes, tCatalysts);
             log("Can process " + tMaxParallelCatalyst + " recipes. If less than " + aMaxParallelRecipes
                     + ", catalyst does not have enough durability.");
@@ -799,7 +799,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         tOutputItems = removeNulls(tOutputItems);
 
         // Sanitize item stack size, splitting any stacks greater than max stack size
-        List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+        List<ItemStack> splitStacks = new ArrayList<>();
         for (ItemStack tItem : tOutputItems) {
             while (tItem.getMaxStackSize() < tItem.stackSize) {
                 ItemStack tmp = tItem.copy();
@@ -816,7 +816,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
 
         // Strip empty stacks
-        List<ItemStack> tSList = new ArrayList<ItemStack>();
+        List<ItemStack> tSList = new ArrayList<>();
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }
@@ -844,15 +844,15 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         return true;
     }
 
-    private static final HashMap<Long, AutoMap<GT_Recipe>> mTieredRecipeMap = new HashMap<Long, AutoMap<GT_Recipe>>();
-    private static final AutoMap<GT_Recipe> aTier0Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier1Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier2Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier3Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier4Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier5Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier6Recipes = new AutoMap<GT_Recipe>();
-    private static final AutoMap<GT_Recipe> aTier7Recipes = new AutoMap<GT_Recipe>();
+    private static final HashMap<Long, AutoMap<GT_Recipe>> mTieredRecipeMap = new HashMap<>();
+    private static final AutoMap<GT_Recipe> aTier0Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier1Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier2Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier3Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier4Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier5Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier6Recipes = new AutoMap<>();
+    private static final AutoMap<GT_Recipe> aTier7Recipes = new AutoMap<>();
     private static boolean mInitRecipeCache = false;
 
     private static void initRecipeCaches() {
@@ -925,7 +925,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             }
 
             // Get all recipes for the tier
-            AutoMap<AutoMap<GT_Recipe>> aMasterMap = new AutoMap<AutoMap<GT_Recipe>>();
+            AutoMap<AutoMap<GT_Recipe>> aMasterMap = new AutoMap<>();
             for (long i = 0; i <= aSpecialValue; i++) {
                 aMasterMap.add(mTieredRecipeMap.get(i));
             }

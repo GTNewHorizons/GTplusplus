@@ -88,7 +88,7 @@ public class BetterKeyboard {
             }
             Map<String, Integer> aOldKeyMapArray = ReflectionUtils.getFieldValue(aKeyMapSize);
             if (aOldKeyNameArray != null && aOldKeyMapArray.size() < Short.MAX_VALUE) {
-                Map<String, Integer> aNewKeyMapArray = new HashMap<String, Integer>(Short.MAX_VALUE);
+                Map<String, Integer> aNewKeyMapArray = new HashMap<>(Short.MAX_VALUE);
                 aNewKeyMapArray.putAll(aOldKeyMapArray);
                 try {
                     ReflectionUtils.setFinalFieldValue(Keyboard.class, aKeyMapSize.getName(), aNewKeyMapArray);

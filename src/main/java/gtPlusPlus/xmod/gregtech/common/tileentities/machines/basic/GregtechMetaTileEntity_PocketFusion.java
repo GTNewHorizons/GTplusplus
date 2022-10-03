@@ -173,7 +173,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     }
 
     public ArrayList<FluidStack> getStoredFluids() {
-        ArrayList<FluidStack> mList = new ArrayList<FluidStack>();
+        ArrayList<FluidStack> mList = new ArrayList<>();
         mList.add(this.mFluid);
         mList.add(this.mFluid2);
         return mList;

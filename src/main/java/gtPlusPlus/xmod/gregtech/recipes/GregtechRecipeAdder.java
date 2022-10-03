@@ -2088,7 +2088,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addpackagerRecipe(
             ItemStack aRecipeType, ItemStack aSmallDust, ItemStack aTinyDust, ItemStack aOutputStack1) {
-        AutoMap<Boolean> aResults = new AutoMap<Boolean>();
+        AutoMap<Boolean> aResults = new AutoMap<>();
         // Dust 1
         aResults.put(GT_Values.RA.addBoxingRecipe(
                 GT_Utility.copyAmount(4L, new Object[] {aSmallDust}), aRecipeType, aOutputStack1, 100, 4));

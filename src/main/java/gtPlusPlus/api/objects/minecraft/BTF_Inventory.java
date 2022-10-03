@@ -79,7 +79,7 @@ public class BTF_Inventory implements ISidedInventory {
     }
 
     public int[] getAccessibleSlotsFromSide(int aSide) {
-        ArrayList<Integer> tList = new ArrayList<Integer>();
+        ArrayList<Integer> tList = new ArrayList<>();
         TileEntityBase tTileEntity = this.mTile;
         boolean tSkip = tTileEntity
                         .getCoverBehaviorAtSide((byte) aSide)

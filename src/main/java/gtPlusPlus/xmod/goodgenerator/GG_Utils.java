@@ -43,7 +43,7 @@ public class GG_Utils {
     }
 
     public static ArrayList<ItemStack> getAll(int aStackSize) {
-        ArrayList<ItemStack> aItems = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> aItems = new ArrayList<>();
         aItems.add(getGG_Fuel_Rod(GG_Fuel_Rod.rodCompressedUranium, aStackSize));
         aItems.add(getGG_Fuel_Rod(GG_Fuel_Rod.rodCompressedUranium_2, aStackSize));
         aItems.add(getGG_Fuel_Rod(GG_Fuel_Rod.rodCompressedUranium_4, aStackSize));

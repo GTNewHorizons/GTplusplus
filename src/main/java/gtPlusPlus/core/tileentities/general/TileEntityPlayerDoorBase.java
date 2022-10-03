@@ -74,7 +74,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
         return 0;
     }
 
-    AutoMap<Entity> mNearbyEntityCache = new AutoMap<Entity>();
+    AutoMap<Entity> mNearbyEntityCache = new AutoMap<>();
 
     @Override
     public void updateEntity() {
@@ -139,7 +139,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
             y = this.yCoord;
             z = this.zCoord;
             // List aEntityList = aWorld.loadedEntityList;
-            List<Entity> aEntityList = new ArrayList<Entity>();
+            List<Entity> aEntityList = new ArrayList<>();
             Chunk aThisChunk = aWorld.getChunkFromBlockCoords(x, z);
             for (List l : aThisChunk.entityLists) {
                 aEntityList.addAll(l);

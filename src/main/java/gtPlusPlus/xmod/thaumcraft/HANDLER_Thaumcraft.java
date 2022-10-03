@@ -15,7 +15,7 @@ public class HANDLER_Thaumcraft {
     public static GTPP_AspectCompat sThaumcraftCompat;
     public static Item mResearchNotes;
     public static final AutoMap<Pair<ItemStack, GTPP_AspectStack[]>> sItemsToGetAspects =
-            new AutoMap<Pair<ItemStack, GTPP_AspectStack[]>>();
+            new AutoMap<>();
 
     public static void preInit() {
         if (LoadedMods.Thaumcraft) {}

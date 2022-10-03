@@ -45,9 +45,9 @@ public class WorldGen_GT_Australia_Base implements IWorldGenerator {
      * Try re-implement Richard Hendrick's Chunk by Chunk Ore Generation from
      * his GT5u fork.
      */
-    public static List<Runnable> mList = new ArrayList<Runnable>();
+    public static List<Runnable> mList = new ArrayList<>();
 
-    public static HashSet<Long> ProcChunks = new HashSet<Long>();
+    public static HashSet<Long> ProcChunks = new HashSet<>();
     // This is probably not going to work. Trying to create a fake orevein to
     // put into hashtable when there will be no ores in a vein.
     public static WorldGen_GT_Australia_Ore_Layer noOresInVein = new WorldGen_GT_Australia_Ore_Layer(
@@ -63,7 +63,7 @@ public class WorldGen_GT_Australia_Base implements IWorldGenerator {
             ELEMENT.getInstance().TIN);
 
     public static Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins =
-            new Hashtable<Long, WorldGen_GT_Australia_Ore_Layer>(1024);
+            new Hashtable<>(1024);
 
     public boolean mIsGenerating = false;
     public static final Object listLock = new Object();
@@ -216,7 +216,7 @@ public class WorldGen_GT_Australia_Base implements IWorldGenerator {
         }
         ;
 
-        public static ArrayList<NearbySeeds> seedList = new ArrayList<NearbySeeds>();
+        public static ArrayList<NearbySeeds> seedList = new ArrayList<>();
 
         // aX and aZ are now the by-chunk X and Z for the chunk of interest
         public WorldGenContainer(

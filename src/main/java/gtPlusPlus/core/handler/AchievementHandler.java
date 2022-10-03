@@ -28,8 +28,8 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
 public class AchievementHandler {
 
-    public ConcurrentHashMap<String, Achievement> achievementList = new ConcurrentHashMap<String, Achievement>();
-    public ConcurrentHashMap<String, Boolean> issuedAchievements = new ConcurrentHashMap<String, Boolean>();
+    public ConcurrentHashMap<String, Achievement> achievementList = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Boolean> issuedAchievements = new ConcurrentHashMap<>();
 
     public int adjX = 5;
     public int adjY = 9;

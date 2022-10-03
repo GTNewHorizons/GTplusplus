@@ -20,8 +20,8 @@ public class Core_SulfuricChemistry implements IPlugin {
     static final Core_SulfuricChemistry mInstance;
     private static boolean shouldLoad = false;
 
-    private static AutoMap<GT_Recipe> mRemovedRecipes1 = new AutoMap<GT_Recipe>();
-    private static AutoMap<GT_Recipe> mRemovedRecipes2 = new AutoMap<GT_Recipe>();
+    private static AutoMap<GT_Recipe> mRemovedRecipes1 = new AutoMap<>();
+    private static AutoMap<GT_Recipe> mRemovedRecipes2 = new AutoMap<>();
 
     static {
         mInstance = new Core_SulfuricChemistry();

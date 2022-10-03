@@ -401,7 +401,7 @@ public class GregtechMetaTileEntity_MassFabricator
             }
             // Sanitize item stack size, splitting any stacks greater than max
             // stack size
-            List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+            List<ItemStack> splitStacks = new ArrayList<>();
             for (ItemStack tItem : tOutputItems) {
                 while (tItem.getMaxStackSize() < tItem.stackSize) {
                     ItemStack tmp = tItem.copy();
@@ -416,7 +416,7 @@ public class GregtechMetaTileEntity_MassFabricator
                 tOutputItems = ArrayUtils.addAll(tOutputItems, tmp);
             }
             // Strip empty stacks
-            List<ItemStack> tSList = new ArrayList<ItemStack>();
+            List<ItemStack> tSList = new ArrayList<>();
             for (ItemStack tS : tOutputItems) {
                 if (tS.stackSize > 0) tSList.add(tS);
             }
@@ -598,7 +598,7 @@ public class GregtechMetaTileEntity_MassFabricator
         this.mAmplifierUsed += aAmplifierUsed;
 
         // Sanitize item stack size, splitting any stacks greater than max stack size
-        List<ItemStack> splitStacks = new ArrayList<ItemStack>();
+        List<ItemStack> splitStacks = new ArrayList<>();
         for (ItemStack tItem : tOutputItems) {
             while (tItem.getMaxStackSize() < tItem.stackSize) {
                 ItemStack tmp = tItem.copy();
@@ -615,7 +615,7 @@ public class GregtechMetaTileEntity_MassFabricator
         }
 
         // Strip empty stacks
-        List<ItemStack> tSList = new ArrayList<ItemStack>();
+        List<ItemStack> tSList = new ArrayList<>();
         for (ItemStack tS : tOutputItems) {
             if (tS.stackSize > 0) tSList.add(tS);
         }

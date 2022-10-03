@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
  */
 public class SprinklerHandler {
 
-    private static final HashMap<Integer, ItemStack> mValidFerts = new HashMap<Integer, ItemStack>();
+    private static final HashMap<Integer, ItemStack> mValidFerts = new HashMap<>();
 
     /**
      * @return - A valid {@link Map} of all Fertilizers for the OB Sprinkler.

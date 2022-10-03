@@ -58,7 +58,7 @@ public class TC_Aspect_Wrapper {
             return (LinkedHashMap<String, Object>) mField_Aspects.get(null);
         } catch (IllegalArgumentException | IllegalAccessException e) {
             Logger.REFLECTION("Failed configuring TC Aspect compatibility.");
-            return new LinkedHashMap<String, Object>();
+            return new LinkedHashMap<>();
         }
     }
 
@@ -230,7 +230,7 @@ public class TC_Aspect_Wrapper {
     /**
      * Internal Map containing all the TC_Aspects.
      */
-    private static Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
+    private static Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<>();
 
     /**
      * Public getter for all TC_Aspects

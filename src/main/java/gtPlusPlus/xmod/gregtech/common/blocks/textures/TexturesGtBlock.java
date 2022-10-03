@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class TexturesGtBlock {
 
-    private static AutoMap<Runnable> mCustomiconMap = new AutoMap<Runnable>();
+    private static AutoMap<Runnable> mCustomiconMap = new AutoMap<>();
 
     static {
     }

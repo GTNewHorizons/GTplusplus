@@ -71,12 +71,12 @@ public class CONTAINER_MetaTileMachineLong extends GT_Container {
         long mMaxInts = (mStoredPower / Integer.MAX_VALUE);
         long mLeftOver = (mStoredPower % Integer.MAX_VALUE);
         if (mMaxInts < 0 || mMaxInts >= /*4294967298L*/ Integer.MAX_VALUE) {
-            return new Pair<Integer, Integer>(-1, 0);
+            return new Pair<>(-1, 0);
         }
         if (mLeftOver < 0 || mLeftOver > Integer.MAX_VALUE) {
             mLeftOver = 0;
         }
-        Pair<Integer, Integer> power = new Pair<Integer, Integer>((int) mMaxInts, (int) mLeftOver);
+        Pair<Integer, Integer> power = new Pair<>((int) mMaxInts, (int) mLeftOver);
         return power;
     }
 
@@ -85,12 +85,12 @@ public class CONTAINER_MetaTileMachineLong extends GT_Container {
         long mMaxInts = (mMaxStoredPower / Integer.MAX_VALUE);
         long mLeftOver = (mMaxStoredPower % Integer.MAX_VALUE);
         if (mMaxInts < 0 || mMaxInts >= /*4294967298L*/ Integer.MAX_VALUE) {
-            return new Pair<Integer, Integer>(-1, 0);
+            return new Pair<>(-1, 0);
         }
         if (mLeftOver < 0 || mLeftOver > Integer.MAX_VALUE) {
             mLeftOver = 0;
         }
-        Pair<Integer, Integer> power = new Pair<Integer, Integer>((int) mMaxInts, (int) mLeftOver);
+        Pair<Integer, Integer> power = new Pair<>((int) mMaxInts, (int) mLeftOver);
         return power;
     }
 

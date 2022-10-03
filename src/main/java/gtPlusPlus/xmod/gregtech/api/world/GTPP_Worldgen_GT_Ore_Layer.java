@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class GTPP_Worldgen_GT_Ore_Layer extends GTPP_Worldgen {
-    public static ArrayList<GTPP_Worldgen_GT_Ore_Layer> sList = new ArrayList<GTPP_Worldgen_GT_Ore_Layer>();
+    public static ArrayList<GTPP_Worldgen_GT_Ore_Layer> sList = new ArrayList<>();
     public static int sWeight = 0;
     public final short mMinY;
     public final short mMaxY;

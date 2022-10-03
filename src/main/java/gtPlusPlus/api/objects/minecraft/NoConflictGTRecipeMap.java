@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 public class NoConflictGTRecipeMap implements Collection<GT_Recipe> {
 
-    private AutoMap<GT_Recipe> mRecipeCache = new AutoMap<GT_Recipe>();
+    private AutoMap<GT_Recipe> mRecipeCache = new AutoMap<>();
     private final IGregTechTileEntity mMachineType;
 
     public NoConflictGTRecipeMap() {

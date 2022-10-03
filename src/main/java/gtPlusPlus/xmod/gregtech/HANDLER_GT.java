@@ -78,9 +78,9 @@ public class HANDLER_GT {
     public static GT_Config mMaterialProperties = null;
 
     public static GTPP_Config sCustomWorldgenFile = null;
-    public static final List<WorldGen_GT> sWorldgenListEverglades = new ArrayList<WorldGen_GT>();
-    public static final List<WorldGen_GT_Australia> sWorldgenListAustralia = new ArrayList<WorldGen_GT_Australia>();
-    public static final List<GTPP_Worldgen> sCustomWorldgenList = new ArrayList<GTPP_Worldgen>();
+    public static final List<WorldGen_GT> sWorldgenListEverglades = new ArrayList<>();
+    public static final List<WorldGen_GT_Australia> sWorldgenListAustralia = new ArrayList<>();
+    public static final List<GTPP_Worldgen> sCustomWorldgenList = new ArrayList<>();
     public static GT_MetaGenerated_Tool sMetaGeneratedToolInstance;
 
     public static void preInit() {
@@ -341,7 +341,7 @@ public class HANDLER_GT {
                 "Attempting to modify existing Assembly recipes for Casings & Hulls, this should provide best compatibility.");
         int aUpdateCount = 0;
 
-        AutoMap<Pair<GT_Recipe, GT_Recipe>> aDataToModify = new AutoMap<Pair<GT_Recipe, GT_Recipe>>();
+        AutoMap<Pair<GT_Recipe, GT_Recipe>> aDataToModify = new AutoMap<>();
 
         Outer:
         for (final GT_Recipe r : GT_Recipe.GT_Recipe_Map.sAssemblerRecipes.mRecipeList) {
@@ -363,7 +363,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateChrome", 1),
                                     ELEMENT.getInstance().SELENIUM.getPlate(1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -373,7 +373,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateIridium", 1),
                                     CI.getPlate(aTier_ZPM, 1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -383,7 +383,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateOsmium", 1),
                                     CI.getPlate(aTier_UV, 1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -410,7 +410,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateChrome", 1),
                                     ELEMENT.getInstance().SELENIUM.getPlate(1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -420,7 +420,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateIridium", 1),
                                     CI.getPlate(aTier_ZPM, 1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -430,7 +430,7 @@ public class HANDLER_GT {
                                     aOldRecipeCopy,
                                     ItemUtils.getItemStackOfAmountFromOreDict("plateOsmium", 1),
                                     CI.getPlate(aTier_UV, 1));
-                            aDataToModify.put(new Pair<GT_Recipe, GT_Recipe>(r, aNewRecipe));
+                            aDataToModify.put(new Pair<>(r, aNewRecipe));
                             aUpdateCount++;
                             continue Outer;
                         }
@@ -657,8 +657,8 @@ public class HANDLER_GT {
         if (g == null) {
             return 0;
         } else {
-            AutoMap<GT_Recipe> aNewMap = new AutoMap<GT_Recipe>();
-            AutoMap<GT_Recipe> aBadRecipeTempMap = new AutoMap<GT_Recipe>();
+            AutoMap<GT_Recipe> aNewMap = new AutoMap<>();
+            AutoMap<GT_Recipe> aBadRecipeTempMap = new AutoMap<>();
             for (GT_Recipe r : g.mRecipeList) {
                 if (r != null) {
                     if (r.mOutputs == null || r.mOutputs.length == 0 || r.mOutputs[0] == null) {

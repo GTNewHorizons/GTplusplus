@@ -14,7 +14,7 @@ public class NEI_GT_Config implements IConfigureNEI {
 
     public static boolean sIsAdded = true;
 
-    private static final AutoMap<String> mUniqueRecipeMapHandling = new AutoMap<String>();
+    private static final AutoMap<String> mUniqueRecipeMapHandling = new AutoMap<>();
 
     @Override
     public synchronized void loadConfig() {

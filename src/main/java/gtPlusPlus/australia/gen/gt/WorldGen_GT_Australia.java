@@ -11,7 +11,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 public abstract class WorldGen_GT_Australia {
     public final String mWorldGenName;
     public final boolean mEnabled;
-    private final Map<String, Boolean> mDimensionMap = new ConcurrentHashMap<String, Boolean>();
+    private final Map<String, Boolean> mDimensionMap = new ConcurrentHashMap<>();
 
     public WorldGen_GT_Australia(String aName, List aList, boolean aDefault) {
         this.mWorldGenName = aName;

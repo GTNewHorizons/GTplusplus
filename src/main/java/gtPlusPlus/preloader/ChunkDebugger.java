@@ -11,20 +11,20 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 public class ChunkDebugger {
 
     public static final Map<Integer, Pair<String, String>> mChunkTicketsMap =
-            new LinkedHashMap<Integer, Pair<String, String>>();
+            new LinkedHashMap<>();
     public static final Map<String, Pair<String, String>> mChunksLoadedByModsMap =
-            new LinkedHashMap<String, Pair<String, String>>();
+            new LinkedHashMap<>();
 
     public static void storeTicketToCache(Ticket aTicket, World aWorld) {
         mChunkTicketsMap.put(
                 aTicket.hashCode(),
-                new Pair<String, String>(aTicket.getModId(), "" + aTicket.world.provider.dimensionId));
+                new Pair<>(aTicket.getModId(), "" + aTicket.world.provider.dimensionId));
         Logger.REFLECTION(
                 "Ticket created by " + aTicket.getModId() + " for dimension " + aTicket.world.provider.dimensionId);
     }
 
     public static void storeLoadChunkToCache(Ticket aTicket, ChunkCoordIntPair aChunk) {
-        mChunksLoadedByModsMap.put(aChunk.toString(), new Pair<String, String>(aTicket.getModId(), aChunk.toString()));
+        mChunksLoadedByModsMap.put(aChunk.toString(), new Pair<>(aTicket.getModId(), aChunk.toString()));
         Logger.REFLECTION("Chunk Loaded by " + aTicket.getModId() + " at position " + aChunk.toString()
                 + " for dimension " + aTicket.world.provider.dimensionId);
     }

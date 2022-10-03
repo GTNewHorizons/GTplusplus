@@ -572,7 +572,7 @@ public class RecipeUtils {
         if (m == null) {
             return new String[] {};
         }
-        AutoMap<String> result = new AutoMap<String>();
+        AutoMap<String> result = new AutoMap<>();
         result.put(m.toString());
         result.put("Input " + ItemUtils.getArrayStackNames(m.mInputs));
         result.put("Output " + ItemUtils.getArrayStackNames(m.mOutputs));

@@ -65,7 +65,7 @@ public class MetaGeneratedGregtechTools extends GT_MetaGenerated_Tool {
                     new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L)
                 });
 
-        GT_HashSet<GT_ItemStack> aWireCutterList = new GT_HashSet<GT_ItemStack>();
+        GT_HashSet<GT_ItemStack> aWireCutterList = new GT_HashSet<>();
         // Does not exist prior to 5.09.32, use an empty field if we can't find the existing one.
         if (ReflectionUtils.doesFieldExist(GregTech_API.class, "sWireCutterList")) {
             Field sWireCutterList = ReflectionUtils.getField(GregTech_API.class, "sWireCutterList");

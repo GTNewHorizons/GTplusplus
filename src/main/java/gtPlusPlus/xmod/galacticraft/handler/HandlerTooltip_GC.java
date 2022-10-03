@@ -22,7 +22,7 @@ public class HandlerTooltip_GC {
     private static HashMap<Integer, String> mFuelNames;
 
     static {
-        mFuelNames = new LinkedHashMap<Integer, String>();
+        mFuelNames = new LinkedHashMap<>();
     }
 
     @SubscribeEvent
@@ -55,7 +55,7 @@ public class HandlerTooltip_GC {
                 }
             }
             if (mFuelNames == null) {
-                mFuelNames = new LinkedHashMap<Integer, String>();
+                mFuelNames = new LinkedHashMap<>();
             }
 
             if (mFuelNames.isEmpty()) {

@@ -94,7 +94,7 @@ public abstract class GTPP_MTE_TieredMachineBlock extends MetaTileEntityCustomPo
 
     @Override
     public String[] getDescription() {
-        AutoMap<String> aTooltip = new AutoMap<String>();
+        AutoMap<String> aTooltip = new AutoMap<>();
         String[] s1 = null;
         s1 = new String[aTooltip.size()];
         int u = 0;

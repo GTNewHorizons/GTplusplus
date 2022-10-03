@@ -23,7 +23,7 @@ import net.minecraftforge.fluids.*;
 public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
     private final String mRecipeHash;
-    private final AutoMap<Integer> mHashMap = new AutoMap<Integer>();
+    private final AutoMap<Integer> mHashMap = new AutoMap<>();
 
     public GTPP_Recipe(
             final boolean aOptimize,
@@ -58,7 +58,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
     }
 
     private static AutoMap<Integer> convertStringDataToInts(AutoMap<String> aData) {
-        AutoMap<Integer> aMap = new AutoMap<Integer>();
+        AutoMap<Integer> aMap = new AutoMap<>();
         for (String string : aData) {
             aMap.add(string.hashCode());
         }
@@ -66,7 +66,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
     }
 
     private static AutoMap<String> getEncodedRecipeData(GTPP_Recipe aRecipe) {
-        AutoMap<String> aData = new AutoMap<String>();
+        AutoMap<String> aData = new AutoMap<>();
         aData.add(aRecipe.mRecipeHash);
         aData.add("" + aRecipe.mCanBeBuffered);
         aData.add("" + aRecipe.mHidden);
@@ -107,7 +107,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
             Logger.INFO("Expected Hash Code: " + this.mRecipeHash);
             return true;
         }
-        AutoMap<Integer> aData = new AutoMap<Integer>();
+        AutoMap<Integer> aData = new AutoMap<>();
         aData.addAll(convertStringDataToInts(getEncodedRecipeData(this)));
         long aHashTotal = 0;
         long aExpectedHashTotal = 0;
@@ -211,7 +211,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
     public static class GTPP_Recipe_Map_Internal extends GT_Recipe_Map {
 
         public static final Collection<GTPP_Recipe_Map_Internal> sMappingsEx = new ArrayList<>();
-        private static final HashMap<Integer, GTPP_Recipe> mHashedRecipes = new HashMap<Integer, GTPP_Recipe>();
+        private static final HashMap<Integer, GTPP_Recipe> mHashedRecipes = new HashMap<>();
 
         public GTPP_Recipe_Map_Internal(
                 Collection<GT_Recipe> aRecipeList,
@@ -255,7 +255,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         // "gtpp.recipe.chemicalbath", "Chemical Bath", null, RES_PATH_GUI + "basicmachines/ChemicalBath", 1, 3, 1, 1,
         // 1, E, 1, E, true, true);
         public static final GTPP_Recipe_Map_Internal sCokeOvenRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(200),
+                new HashSet<>(200),
                 "gtpp.recipe.cokeoven",
                 "Coke Oven",
                 null,
@@ -271,7 +271,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true,
                 true);
         public static final GTPP_Recipe_Map_Internal sMatterFab2Recipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(200),
+                new HashSet<>(200),
                 "gtpp.recipe.matterfab2",
                 "Matter Fabricator",
                 null,
@@ -291,7 +291,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         // "basicmachines/Massfabricator", 1, 3, 1, 1, 1, E, 1, E, true, true);
 
         public static final GT_Recipe_Map_Fuel sRocketFuels = new GT_Recipe_Map_Fuel(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.rocketenginefuel",
                 "Rocket Engine Fuel",
                 null,
@@ -308,7 +308,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true);
 
         public static final GTPP_Recipe_Map_Internal sGeoThermalFuels = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.geothermalfuel",
                 "GeoThermal Fuel",
                 null,
@@ -324,7 +324,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true,
                 true);
         public static final GTPP_Recipe_Map_Internal sChemicalDehydratorRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(200),
+                new HashSet<>(200),
                 "gtpp.recipe.chemicaldehydrator",
                 "Dehydrator",
                 null,
@@ -340,7 +340,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true,
                 true);
         public static final GTPP_Recipe_Map_Internal sVacuumFurnaceRecipes = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(500),
+                new HashSet<>(500),
                 "gtpp.recipe.vacfurnace",
                 "Vacuum Furnace",
                 null,
@@ -356,7 +356,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 false,
                 true);
         public static final GTPP_Recipe_Map_Internal sAlloyBlastSmelterRecipes = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(200),
+                new HashSet<>(200),
                 "gtpp.recipe.alloyblastsmelter",
                 "Alloy Blast Smelter",
                 null,
@@ -372,7 +372,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true,
                 true);
         public static final GTPP_Recipe_Map_Internal sSteamTurbineFuels = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.steamturbinefuel",
                 "GeoThermal Fuel",
                 null,
@@ -391,7 +391,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         // LFTR recipes
         public static final GTPP_Recipe_Map_Internal sLiquidFluorineThoriumReactorRecipes =
                 new GTPP_Recipe_Map_MultiNoCell(
-                        new HashSet<GT_Recipe>(50),
+                        new HashSet<>(50),
                         "gtpp.recipe.lftr",
                         "Liquid Fluoride Thorium Reactor",
                         null,
@@ -409,7 +409,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Ore Milling Map
         public static final GTPP_Recipe_Map_Internal sOreMillRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10000),
+                new HashSet<>(10000),
                 "gtpp.recipe.oremill",
                 "Milling",
                 null,
@@ -427,7 +427,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Fission Fuel Plant Recipes
         public static final GTPP_Recipe_Map_Internal sFissionFuelProcessing = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(50),
+                new HashSet<>(50),
                 "gtpp.recipe.fissionfuel",
                 "Nuclear Fuel Processing",
                 null,
@@ -445,7 +445,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Cold Trap
         public static final GTPP_Recipe_Map_Internal sColdTrapRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10000),
+                new HashSet<>(10000),
                 "gtpp.recipe.coldtrap",
                 "Cold Trap",
                 null,
@@ -463,7 +463,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Reactor Processing Unit
         public static final GTPP_Recipe_Map_Internal sReactorProcessingUnitRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10000),
+                new HashSet<>(10000),
                 "gtpp.recipe.reactorprocessingunit",
                 "Reactor Processing Unit",
                 null,
@@ -481,7 +481,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Basic Washer Map
         public static final GTPP_Recipe_Map_Internal sSimpleWasherRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(3),
+                new HashSet<>(3),
                 "gtpp.recipe.simplewasher",
                 "Simple Dust Washer",
                 null,
@@ -499,7 +499,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Molecular Transformer Map
         public static final GTPP_Recipe_Map_Internal sMolecularTransformerRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(3),
+                new HashSet<>(3),
                 "gtpp.recipe.moleculartransformer",
                 "Molecular Transformer",
                 null,
@@ -517,7 +517,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Elemental Duplicator Map
         public static final GTPP_Recipe_Map_Internal sElementalDuplicatorRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(3),
+                new HashSet<>(3),
                 "gtpp.recipe.elementaldupe",
                 "Elemental Duplicator",
                 null,
@@ -538,7 +538,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         // "basicmachines/PotionBrewer", 1, 1, 0, 0, 1, E, 1, E, true, false);
 
         public static final GTPP_Recipe_Map_Internal sChemicalPlantRecipes = new GTPP_Recipe_Map_ChemicalPlant(
-                new HashSet<GT_Recipe>(100),
+                new HashSet<>(100),
                 "gtpp.recipe.fluidchemicaleactor",
                 "Chemical Plant",
                 null,
@@ -556,7 +556,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // RTG Fuel Map
         public static final GT_Recipe.GT_Recipe_Map_Fuel sRTGFuels = new GTPP_Recipe.GT_Recipe_Map_Fuel(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.RTGgenerators",
                 "RTG",
                 null,
@@ -574,7 +574,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Thermal Boiler map
         public static final GTPP_Recipe_Map_Internal sThermalFuels = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.thermalgeneratorfuel",
                 "Thermal Generator Fuel",
                 null,
@@ -592,7 +592,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Solar Tower map
         public static final GTPP_Recipe_Map_Internal sSolarTowerRecipes = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.solartower",
                 "Solar Tower",
                 null,
@@ -610,7 +610,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Cyclotron recipe map
         public static final GTPP_Recipe_Map_Internal sCyclotronRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(200),
+                new HashSet<>(200),
                 "gtpp.recipe.cyclotron",
                 "COMET - Compact Cyclotron",
                 null,
@@ -628,7 +628,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Advanced Mixer
         public static final GTPP_Recipe_Map_Internal sAdvancedMixerRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(1000),
+                new HashSet<>(1000),
                 "gtpp.recipe.advanced.mixer",
                 "Advanced Material Combiner",
                 null,
@@ -646,7 +646,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Mini Fusion
         public static final GTPP_Recipe_Map_Internal sSlowFusionRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(50),
+                new HashSet<>(50),
                 "gtpp.recipe.slowfusionreactor",
                 "Mimir - Slow Fusion",
                 null,
@@ -664,7 +664,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Component Assembler
         public static final GT_Recipe_Map sComponentAssemblerRecipes = new GT_Recipe_Map_Assembler(
-                new HashSet<GT_Recipe>(300),
+                new HashSet<>(300),
                 "gtpp.recipe.componentassembler",
                 "Component Assembler",
                 null,
@@ -682,7 +682,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Special Maps for Multis
         public static final GTPP_Recipe_Map_Internal sFishPondRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(3),
+                new HashSet<>(3),
                 "gtpp.recipe.fishpond",
                 "Zhuhai - Fishing Port",
                 null,
@@ -698,7 +698,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true,
                 true);
         public static final GTPP_Recipe_Map_Internal sSpargeTowerRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10000),
+                new HashSet<>(10000),
                 "gtpp.recipe.spargetower",
                 "Sparging",
                 null,
@@ -719,7 +719,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         // public static final GTPP_Recipe_Map sAdvFreezerRecipes = new GT_Recipe_Map_AdvancedVacuumFreezer();
 
         public static final GTPP_Recipe_Map_Internal sAdvFreezerRecipes_GT = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(2000),
+                new HashSet<>(2000),
                 "gtpp.recipe.cryogenicfreezer",
                 "Cryogenic Freezer",
                 null,
@@ -735,7 +735,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 false,
                 true);
         public static final GTPP_Recipe_Map_Internal sMultiblockCentrifugeRecipes_GT = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(2000),
+                new HashSet<>(2000),
                 "gtpp.recipe.multicentrifuge",
                 "Multiblock Centrifuge",
                 null,
@@ -752,7 +752,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 true);
         public static final GTPP_Recipe_Map_Internal sMultiblockElectrolyzerRecipes_GT =
                 new GTPP_Recipe_Map_MultiNoCell(
-                        new HashSet<GT_Recipe>(2000),
+                        new HashSet<>(2000),
                         "gtpp.recipe.multielectro",
                         "Multiblock Electrolyzer",
                         null,
@@ -769,7 +769,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                         true);
         // internal copy of sChemicalPlantRecipes
         public static final GTPP_Recipe_Map_Internal sChemicalPlant_GT = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(2000),
+                new HashSet<>(2000),
                 "gtpp.recipe.temp4",
                 "temp4",
                 null,
@@ -785,7 +785,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 false,
                 false);
         public static final GTPP_Recipe_Map_Internal sMultiblockMixerRecipes_GT = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(2000),
+                new HashSet<>(2000),
                 "gtpp.recipe.multimixer",
                 "Multiblock Mixer",
                 null,
@@ -803,7 +803,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Semi-Fluid Fuel Map
         public static final GT_Recipe_Map_Fuel sSemiFluidLiquidFuels = new GT_Recipe_Map_Fuel(
-                new HashSet<GT_Recipe>(10),
+                new HashSet<>(10),
                 "gtpp.recipe.semifluidgeneratorfuels",
                 "Semifluid Generator Fuels",
                 null,
@@ -821,7 +821,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Flotation Cell
         public static final GTPP_Recipe_Map_Internal sFlotationCellRecipes = new GTPP_Recipe_Map_Internal(
-                new HashSet<GT_Recipe>(10000),
+                new HashSet<>(10000),
                 "gtpp.recipe.flotationcell",
                 "Flotation Cell",
                 null,
@@ -839,7 +839,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
 
         // Tree Growth Simulator
         public static final GTPP_Recipe_Map_Internal sTreeSimFakeRecipes = new GTPP_Recipe_Map_MultiNoCell(
-                new HashSet<GT_Recipe>(100),
+                new HashSet<>(100),
                 "gtpp.recipe.treefarm",
                 "Tree Growth Simulator",
                 null,

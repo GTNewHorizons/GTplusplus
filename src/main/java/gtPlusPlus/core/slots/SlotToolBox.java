@@ -10,7 +10,7 @@ import net.minecraft.item.ItemTool;
 
 public class SlotToolBox extends SlotGtTool {
 
-    private static final AutoMap<Class> mSupportedCustomTools = new AutoMap<Class>();
+    private static final AutoMap<Class> mSupportedCustomTools = new AutoMap<>();
 
     static {
         // Look for Supported custom tool types

@@ -14,7 +14,7 @@ import net.minecraft.entity.Entity;
  */
 public class ModelEggBox extends ModelTabulaBase {
 
-    private final AutoMap<Pair<ModelRenderer, Float>> mParts = new AutoMap<Pair<ModelRenderer, Float>>();
+    private final AutoMap<Pair<ModelRenderer, Float>> mParts = new AutoMap<>();
 
     private static RenderTabulaBase mRendererInstance;
 
@@ -29,7 +29,7 @@ public class ModelEggBox extends ModelTabulaBase {
         this.bottom = new ModelRenderer(this, 0, 19);
         this.bottom.setRotationPoint(1.0F, 6.0F, 1.0F);
         this.bottom.addBox(0.0F, 0.0F, 0.0F, 14, 10, 14, 0.0F);
-        mParts.add(new Pair<ModelRenderer, Float>(bottom, 0f));
+        mParts.add(new Pair<>(bottom, 0f));
     }
 
     @Override
@@ -49,8 +49,8 @@ public class ModelEggBox extends ModelTabulaBase {
 
     @Override
     protected AutoMap<Pair<ModelRenderer, Float>> getModelParts() {
-        AutoMap<Pair<ModelRenderer, Float>> aParts = new AutoMap<Pair<ModelRenderer, Float>>();
-        aParts.add(new Pair<ModelRenderer, Float>(bottom, 0.0625F));
+        AutoMap<Pair<ModelRenderer, Float>> aParts = new AutoMap<>();
+        aParts.add(new Pair<>(bottom, 0.0625F));
         return aParts;
         // return mParts;
     }

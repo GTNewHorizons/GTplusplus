@@ -18,8 +18,8 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 public class EntityDeathHandler {
 
     private static final HashMap<Class, AutoMap<Triplet<ItemStack, Integer, Integer>>> mMobDropMap =
-            new HashMap<Class, AutoMap<Triplet<ItemStack, Integer, Integer>>>();
-    private static final HashSet<Class> mInternalClassKeyCache = new HashSet<Class>();
+            new HashMap<>();
+    private static final HashSet<Class> mInternalClassKeyCache = new HashSet<>();
 
     /**
      * Provides the ability to provide custom drops upon the death of EntityLivingBase objects.
@@ -30,10 +30,10 @@ public class EntityDeathHandler {
      */
     public static void registerDropsForMob(Class aMobClass, ItemStack aStack, int aMaxAmount, int aChance) {
         Triplet<ItemStack, Integer, Integer> aData =
-                new Triplet<ItemStack, Integer, Integer>(aStack, aMaxAmount, aChance);
+                new Triplet<>(aStack, aMaxAmount, aChance);
         AutoMap<Triplet<ItemStack, Integer, Integer>> aDataMap = mMobDropMap.get(aMobClass);
         if (aDataMap == null) {
-            aDataMap = new AutoMap<Triplet<ItemStack, Integer, Integer>>();
+            aDataMap = new AutoMap<>();
         }
         aDataMap.put(aData);
         mMobDropMap.put(aMobClass, aDataMap);

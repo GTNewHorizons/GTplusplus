@@ -17,7 +17,7 @@ import java.util.HashMap;
  */
 public class ReactorItem {
 
-    public static HashMap<String, ReactorItem> sComponentMap = new HashMap<String, ReactorItem>();
+    public static HashMap<String, ReactorItem> sComponentMap = new HashMap<>();
     // Fundamental values, set at object instantiation, should never need to be
     // changed.
     public final int id;

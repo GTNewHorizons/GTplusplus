@@ -152,7 +152,7 @@ public class BlockPos implements Serializable {
     }
 
     public AutoMap<BlockPos> getSurroundingBlocks() {
-        AutoMap<BlockPos> sides = new AutoMap<BlockPos>();
+        AutoMap<BlockPos> sides = new AutoMap<>();
         sides.put(getUp());
         sides.put(getDown());
         sides.put(getXPos());
@@ -218,7 +218,7 @@ public class BlockPos implements Serializable {
      * @return - Does this block have a neighbour that is the same?
      */
     public AutoMap<BlockPos> getSimilarNeighbour(boolean strict) {
-        AutoMap<BlockPos> sides = new AutoMap<BlockPos>();
+        AutoMap<BlockPos> sides = new AutoMap<>();
         for (BlockPos g : getSurroundingBlocks().values()) {
             if (getBlockAtPos(g) == getBlockAtPos()) {
                 if (!strict) {
@@ -236,7 +236,7 @@ public class BlockPos implements Serializable {
     public Set<BlockPos> getValidNeighboursAndSelf() {
         AutoMap<BlockPos> h = getSimilarNeighbour(true);
         h.put(this);
-        Set<BlockPos> result = new HashSet<BlockPos>();
+        Set<BlockPos> result = new HashSet<>();
         for (BlockPos f : h.values()) {
             result.add(f);
         }

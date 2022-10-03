@@ -46,8 +46,8 @@ public class AssLineAchievements {
             } catch (IllegalArgumentException | IllegalAccessException e) {
                 recipeTotal = 0;
             }
-            mAchievementMap = new ConcurrentHashMap<String, Achievement>();
-            mIssuedAchievementMap = new ConcurrentHashMap<String, Boolean>();
+            mAchievementMap = new ConcurrentHashMap<>();
+            mIssuedAchievementMap = new ConcurrentHashMap<>();
             ready = true;
         }
     }

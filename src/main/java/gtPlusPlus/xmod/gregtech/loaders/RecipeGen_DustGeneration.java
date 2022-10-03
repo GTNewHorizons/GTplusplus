@@ -23,7 +23,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_DustGeneration extends RecipeGen_Base {
 
-    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<RunnableWithInfo<Material>>();
+    public static final Set<RunnableWithInfo<Material>> mRecipeGenMap = new HashSet<>();
 
     static {
         MaterialGenerator.mRecipeMapsToGenerate.put(mRecipeGenMap);
@@ -339,7 +339,7 @@ public class RecipeGen_DustGeneration extends RecipeGen_Base {
     }
 
     public static boolean generatePackagerRecipes(Material aMatInfo) {
-        AutoMap<Boolean> aResults = new AutoMap<Boolean>();
+        AutoMap<Boolean> aResults = new AutoMap<>();
         // Small Dust
         aResults.put(GT_Values.RA.addBoxingRecipe(
                 GT_Utility.copyAmount(4L, new Object[] {aMatInfo.getSmallDust(4)}),

@@ -29,8 +29,8 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RocketFuels extends ItemPackage {
 
-    public static HashSet<String> mValidRocketFuelNames = new HashSet<String>();
-    public static HashMap<Integer, Fluid> mValidRocketFuels = new HashMap<Integer, Fluid>();
+    public static HashSet<String> mValidRocketFuelNames = new HashSet<>();
+    public static HashMap<Integer, Fluid> mValidRocketFuels = new HashMap<>();
 
     public static Fluid Oil_Heavy;
     public static Fluid Diesel;
@@ -355,7 +355,7 @@ public class RocketFuels extends ItemPackage {
     }
 
     private static void addRocketFuelsToMap() {
-        HashMap<Integer, GTPP_Recipe> mRocketFuels = new LinkedHashMap<Integer, GTPP_Recipe>();
+        HashMap<Integer, GTPP_Recipe> mRocketFuels = new LinkedHashMap<>();
         mRocketFuels.put(
                 0,
                 new GTPP_Recipe(
@@ -952,7 +952,7 @@ public class RocketFuels extends ItemPackage {
         // 1,1Dimethylhydrazine
         if (FluidRegistry.isFluidRegistered("1,1dimethylhydrazine")) {
             Logger.INFO("Making sure all Chemical Reactor recipes for 1,1dimethylhydrazine have been removed.");
-            AutoMap<GT_Recipe> aToRemoveSingle = new AutoMap<GT_Recipe>();
+            AutoMap<GT_Recipe> aToRemoveSingle = new AutoMap<>();
             ItemStack aUnsymCell = ItemUtils.getItemStackOfAmountFromOreDict("cell1,1Dimethylhydrazine", 1);
             FluidStack aUnsymFluid = FluidUtils.getFluidStack("1,1dimethylhydrazine", 1);
             recipe:
@@ -979,7 +979,7 @@ public class RocketFuels extends ItemPackage {
                 }
             }
             // Handle Multi Also
-            AutoMap<GT_Recipe> aToRemoveMulti = new AutoMap<GT_Recipe>();
+            AutoMap<GT_Recipe> aToRemoveMulti = new AutoMap<>();
             recipe:
             for (GT_Recipe aRecipeSingleBlock : StaticFields59.getLargeChemicalReactorRecipeMap().mRecipeList) {
                 if (aRecipeSingleBlock != null && aRecipeSingleBlock.mEnabled) {
@@ -1021,7 +1021,7 @@ public class RocketFuels extends ItemPackage {
 
         if (FluidRegistry.isFluidRegistered("rocket_fuel")) {
             Logger.INFO("Making sure all Mixer recipes for rocket_fuel have been removed.");
-            AutoMap<GT_Recipe> aToRemoveSingle = new AutoMap<GT_Recipe>();
+            AutoMap<GT_Recipe> aToRemoveSingle = new AutoMap<>();
             FluidStack aRocketFluid = FluidUtils.getFluidStack("rocket_fuel", 1);
             recipe:
             for (GT_Recipe aRecipeSingleBlock : GT_Recipe_Map.sMixerRecipes.mRecipeList) {
@@ -1059,7 +1059,7 @@ public class RocketFuels extends ItemPackage {
                 }
             }
             // Handle Multi Also
-            AutoMap<GT_Recipe> aToRemoveMulti = new AutoMap<GT_Recipe>();
+            AutoMap<GT_Recipe> aToRemoveMulti = new AutoMap<>();
             recipe:
             for (GT_Recipe aRecipeSingleBlock : StaticFields59.getLargeChemicalReactorRecipeMap().mRecipeList) {
                 if (aRecipeSingleBlock != null && aRecipeSingleBlock.mEnabled) {

@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class Gui_ID_Registry {
     private static final Map<Class<? extends IGuiManagerMiscUtils>, MU_GuiId> classMap =
-            new HashMap<Class<? extends IGuiManagerMiscUtils>, MU_GuiId>();
-    private static final Map<Integer, MU_GuiId> idMap = new HashMap<Integer, MU_GuiId>();
+            new HashMap<>();
+    private static final Map<Integer, MU_GuiId> idMap = new HashMap<>();
     private static int nextId = 0;
 
     static {

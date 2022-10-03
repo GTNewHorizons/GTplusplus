@@ -15,13 +15,13 @@ import java.util.HashMap;
 public class GT_Computercube_Simulator {
 
     private static final HashMap<Integer, Pair<Integer, Integer>> sSlotPositions =
-            new HashMap<Integer, Pair<Integer, Integer>>();
+            new HashMap<>();
 
     static {
         int aSlot = 4;
         for (int column = 0; column < 6; column++) {
             for (int row = 0; row < 9; row++) {
-                sSlotPositions.put(aSlot++, new Pair<Integer, Integer>(row, column));
+                sSlotPositions.put(aSlot++, new Pair<>(row, column));
             }
         }
     }
@@ -38,7 +38,7 @@ public class GT_Computercube_Simulator {
 
     private String currentReactorOldCode = null;
 
-    private ArrayList<String> output = new ArrayList<String>();
+    private ArrayList<String> output = new ArrayList<>();
 
     private final GT_TileEntity_ComputerCube mTile;
 

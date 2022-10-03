@@ -293,7 +293,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter
                     }
                     this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
                     this.mOutputFluids = new FluidStack[] {tRecipe.getFluidOutput(0)};
-                    List<ItemStack> tOutPutItems = new ArrayList<ItemStack>();
+                    List<ItemStack> tOutPutItems = new ArrayList<>();
                     for (ItemStack tOut : tRecipe.mOutputs) {
                         if (ItemUtils.checkForInvalidItems(tOut)) {
                             tOutPutItems.add(tOut);

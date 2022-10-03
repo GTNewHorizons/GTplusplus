@@ -155,7 +155,7 @@ public class Reactor {
     }
 
     public ArrayList<ReactorItem> getComponentList() {
-        ArrayList<ReactorItem> result = new ArrayList<ReactorItem>();
+        ArrayList<ReactorItem> result = new ArrayList<>();
         for (int col = 0; col < grid[0].length; col++) {
             for (int row = 0; row < grid.length; row++) {
                 if (getComponentAt(row, col) != null) {

@@ -62,7 +62,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
     public ITexture frontFaceActive;
 
     public ArrayList<GT_MetaTileEntity_Hatch_Turbine> mTurbineRotorHatches =
-            new ArrayList<GT_MetaTileEntity_Hatch_Turbine>();
+            new ArrayList<>();
 
     public GregtechMetaTileEntity_LargerTurbineBase(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -371,7 +371,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
 
     protected ArrayList<GT_MetaTileEntity_Hatch_Turbine> getEmptyTurbineAssemblies() {
         ArrayList<GT_MetaTileEntity_Hatch_Turbine> aEmptyTurbineRotorHatches =
-                new ArrayList<GT_MetaTileEntity_Hatch_Turbine>();
+                new ArrayList<>();
         // log("Checking "+mTurbineRotorHatches.size()+" Assemblies for empties.");
         for (GT_MetaTileEntity_Hatch_Turbine aTurbineHatch : this.mTurbineRotorHatches) {
             if (!aTurbineHatch.hasTurbine()) {
@@ -384,7 +384,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
 
     protected ArrayList<GT_MetaTileEntity_Hatch_Turbine> getFullTurbineAssemblies() {
         ArrayList<GT_MetaTileEntity_Hatch_Turbine> aTurbineRotorHatches =
-                new ArrayList<GT_MetaTileEntity_Hatch_Turbine>();
+                new ArrayList<>();
         // log("Checking "+mTurbineRotorHatches.size()+" Assemblies for Turbines.");
         for (GT_MetaTileEntity_Hatch_Turbine aTurbineHatch : this.mTurbineRotorHatches) {
             if (aTurbineHatch.hasTurbine()) {

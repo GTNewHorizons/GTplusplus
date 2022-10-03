@@ -17,8 +17,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeGen_BlastSmelterGT_GTNH {
 
-    private static Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<String, FluidStack>();
-    private static Map<String, String> mCachedHotToColdRegistry = new HashMap<String, String>();
+    private static Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<>();
+    private static Map<String, String> mCachedHotToColdRegistry = new HashMap<>();
 
     private static synchronized void setIngotToFluid(final ItemStackData stack, final FluidStack fluid) {
         if (stack != null && fluid != null) {
@@ -176,7 +176,7 @@ public class RecipeGen_BlastSmelterGT_GTNH {
                         boolean circuitFound = false;
 
                         // Build correct input stack
-                        ArrayList<ItemStack> aTempList = new ArrayList<ItemStack>();
+                        ArrayList<ItemStack> aTempList = new ArrayList<>();
                         for (ItemStack recipeItem : inputs) {
                             if (ItemUtils.isControlCircuit(recipeItem)) {
                                 circuitFound = true;

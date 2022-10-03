@@ -25,11 +25,11 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class GregtechOreDictUnificator {
 
-    private static final Map<String, ItemStack> sName2StackMap = new HashMap<String, ItemStack>();
-    private static final Map<GT_ItemStack, ItemData> sItemStack2DataMap = new HashMap<GT_ItemStack, ItemData>();
+    private static final Map<String, ItemStack> sName2StackMap = new HashMap<>();
+    private static final Map<GT_ItemStack, ItemData> sItemStack2DataMap = new HashMap<>();
     private static final Map<GT_ItemStack, List<ItemStack>> sUnificationTable =
-            new HashMap<GT_ItemStack, List<ItemStack>>();
-    private static final GT_HashSet<GT_ItemStack> sNoUnificationList = new GT_HashSet<GT_ItemStack>();
+            new HashMap<>();
+    private static final GT_HashSet<GT_ItemStack> sNoUnificationList = new GT_HashSet<>();
 
     private static int isRegisteringOre = 0, isAddingOre = 0;
     private static boolean mRunThroughTheList = true;
@@ -185,7 +185,7 @@ public class GregtechOreDictUnificator {
                     if (tStack0 != null && tStack1 != null && !GT_Utility.areStacksEqual(tStack0, tStack1)) {
                         GT_ItemStack tGTStack1 = new GT_ItemStack(tStack1);
                         List<ItemStack> list = sUnificationTable.get(tGTStack1);
-                        if (list == null) sUnificationTable.put(tGTStack1, list = new ArrayList<ItemStack>());
+                        if (list == null) sUnificationTable.put(tGTStack1, list = new ArrayList<>());
                         if (!list.contains(tStack0)) list.add(tStack0);
                     }
                 }
@@ -195,7 +195,7 @@ public class GregtechOreDictUnificator {
         if (obj instanceof ItemStack) aStacks = new ItemStack[] {(ItemStack) obj};
         else if (obj instanceof ItemStack[]) aStacks = (ItemStack[]) obj;
         else if (obj instanceof List) aStacks = (ItemStack[]) ((List) obj).toArray(new ItemStack[0]);
-        List<ItemStack> rList = new ArrayList<ItemStack>();
+        List<ItemStack> rList = new ArrayList<>();
         for (ItemStack aStack : aStacks) {
             rList.add(aStack);
             List<ItemStack> tList = sUnificationTable.get(new GT_ItemStack(aStack));
@@ -421,7 +421,7 @@ public class GregtechOreDictUnificator {
      */
     public static ArrayList<ItemStack> getOres(Object aOreName) {
         String aName = aOreName == null ? E : aOreName.toString();
-        ArrayList<ItemStack> rList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> rList = new ArrayList<>();
         if (GT_Utility.isStringValid(aName)) rList.addAll(OreDictionary.getOres(aName));
         return rList;
     }

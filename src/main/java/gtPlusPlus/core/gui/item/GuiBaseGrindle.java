@@ -486,8 +486,8 @@ public class GuiBaseGrindle extends GuiContainer {
                 if (tTier >= 0) {
                     String xPos, yPos, zPos, aDim;
                     String aPositionString, aInfoString;
-                    Set<String> aOreTypes = new LinkedHashSet<String>();
-                    Set<String> aOilTypes = new LinkedHashSet<String>();
+                    Set<String> aOreTypes = new LinkedHashSet<>();
+                    Set<String> aOilTypes = new LinkedHashSet<>();
 
                     // Set variables that are shared between prospection types.
                     if (tTier == 0) {
@@ -559,7 +559,7 @@ public class GuiBaseGrindle extends GuiContainer {
                         }
                     }
 
-                    mListData = new AutoMap<String>();
+                    mListData = new AutoMap<>();
                     if (aOilTypes.size() > 0) {
                         for (String aOils : aOilTypes) {
                             if (aOils != null && aOils.length() > 0) {
