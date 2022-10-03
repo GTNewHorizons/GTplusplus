@@ -72,7 +72,7 @@ public class MetaGeneratedGregtechTools extends GT_MetaGenerated_Tool {
             try {
                 if (sWireCutterList != null) {
                     Object val = sWireCutterList.get(null);
-                    if (val != null && val instanceof GT_HashSet) {
+                    if (val instanceof GT_HashSet) {
                         aWireCutterList = (GT_HashSet<GT_ItemStack>) val;
                     }
                 }

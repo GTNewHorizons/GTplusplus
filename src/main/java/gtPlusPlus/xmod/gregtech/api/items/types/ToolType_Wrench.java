@@ -50,7 +50,7 @@ public class ToolType_Wrench extends ToolType_Base {
         final byte aTargetSide = GT_Utility.determineWrenchingSide((byte) aSide, hitX, hitY, hitZ);
         final TileEntity aTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         try {
-            if ((aTileEntity != null) && ((aTileEntity instanceof IWrenchable))) {
+            if (((aTileEntity instanceof IWrenchable))) {
                 if (((IWrenchable) aTileEntity).wrenchCanSetFacing(aPlayer, aTargetSide)) {
                     if ((aPlayer.capabilities.isCreativeMode)
                             || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {

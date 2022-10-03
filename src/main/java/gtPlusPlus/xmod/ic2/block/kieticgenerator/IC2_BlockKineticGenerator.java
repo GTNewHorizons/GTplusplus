@@ -64,7 +64,7 @@ public class IC2_BlockKineticGenerator extends BlockMultiID {
             return false;
         }
         final TileEntity te = this.getOwnTe(world, x, y, z);
-        if ((te != null) && ((te instanceof TileEntityManualKineticGenerator))) {
+        if (((te instanceof TileEntityManualKineticGenerator))) {
             return ((TileEntityManualKineticGenerator) te).playerKlicked(entityPlayer);
         }
         return super.onBlockActivated(world, x, y, z, entityPlayer, side, a, b, c);

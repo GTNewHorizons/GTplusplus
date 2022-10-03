@@ -484,15 +484,13 @@ public class FluidUtils {
     }
 
     public static boolean valid(final Object aStack) {
-        return (aStack != null)
-                && (aStack instanceof ItemStack)
+        return (aStack instanceof ItemStack)
                 && (((ItemStack) aStack).getItem() != null)
                 && (((ItemStack) aStack).stackSize >= 0);
     }
 
     public static boolean invalid(final Object aStack) {
-        return (aStack == null)
-                || !(aStack instanceof ItemStack)
+        return !(aStack instanceof ItemStack)
                 || (((ItemStack) aStack).getItem() == null)
                 || (((ItemStack) aStack).stackSize < 0);
     }

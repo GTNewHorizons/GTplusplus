@@ -610,7 +610,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         int sZ = MathHelper.floor_double(aZ);
         TileEntity tileentity = aWorld.getTileEntity(sX, sY, sZ);
 
-        if (tileentity != null && tileentity instanceof IInventory) {
+        if (tileentity instanceof IInventory) {
             iinventory = (IInventory) tileentity;
 
             if (iinventory instanceof TileEntityChest) {

@@ -173,7 +173,7 @@ public class VolumetricFlaskHelper {
         if (aFlask != null) {
             Object aInstance = ReflectionUtils.createNewInstanceFromConstructor(
                     aFlask, new Object[] {unlocalized, english, maxCapacity});
-            if (aInstance != null && aInstance instanceof Item) {
+            if (aInstance instanceof Item) {
                 Item aNewFlaskItem = (Item) aInstance;
                 return aNewFlaskItem;
             }

@@ -225,7 +225,7 @@ public class StaticFields59 {
             }
         }
 
-        if (proxyGT != null && proxyGT instanceof GT_Proxy) {
+        if (proxyGT instanceof GT_Proxy) {
             try {
                 return ReflectionUtils.getField(proxyGT.getClass(), fieldName).get(proxyGT);
             } catch (IllegalArgumentException | IllegalAccessException e) {

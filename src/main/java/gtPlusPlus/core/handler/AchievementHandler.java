@@ -224,7 +224,7 @@ public class AchievementHandler {
             // Check if valid name // mod
             String aModID = ItemUtils.getModId(aStack);
 
-            if (aModID == null || aModID.length() <= 0 || aModID.isEmpty()) {
+            if (aModID == null || aModID.isEmpty()) {
                 return;
             }
 

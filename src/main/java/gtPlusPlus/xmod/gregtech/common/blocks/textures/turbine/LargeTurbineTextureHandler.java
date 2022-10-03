@@ -408,7 +408,7 @@ public class LargeTurbineTextureHandler {
             aTile = (IGregTechTileEntity) tTileEntity;
             if (aTile != null) {
                 final IMetaTileEntity aMetaTileEntity = aTile.getMetaTileEntity();
-                if (aMetaTileEntity != null && aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Turbine) {
+                if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Turbine) {
                     aVal = ((GT_MetaTileEntity_Hatch_Turbine) aMetaTileEntity)
                             .getBaseMetaTileEntity()
                             .isActive();
@@ -422,7 +422,7 @@ public class LargeTurbineTextureHandler {
     public static GT_MetaTileEntity_Hatch_Turbine isTurbineHatch(final IGregTechTileEntity aTileEntity) {
         if (aTileEntity != null) {
             final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity != null && aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Turbine) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Turbine) {
                 return (GT_MetaTileEntity_Hatch_Turbine) aMetaTileEntity;
             }
         }

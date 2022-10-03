@@ -90,7 +90,7 @@ public class Machine_ModularityTable extends BlockContainer implements ITileTool
             return true;
         }
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityModularityTable)) {
+        if ((te instanceof TileEntityModularityTable)) {
             player.openGui(GTplusplus.instance, 1, world, x, y, z);
             Logger.INFO("Player opened GUI");
             return true;

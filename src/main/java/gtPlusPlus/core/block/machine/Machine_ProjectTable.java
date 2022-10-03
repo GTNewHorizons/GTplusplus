@@ -110,7 +110,7 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         }
 
         final TileEntity te = world.getTileEntity(x, y, z);
-        if ((te != null) && (te instanceof TileEntityProjectTable)) {
+        if ((te instanceof TileEntityProjectTable)) {
             if (!holdingWrench) {
                 player.openGui(GTplusplus.instance, 0, world, x, y, z);
                 return true;

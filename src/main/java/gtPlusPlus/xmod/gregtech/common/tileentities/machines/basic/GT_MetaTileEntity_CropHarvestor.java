@@ -247,7 +247,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
                         for (int x = (-aSide); x <= aSide; x++) {
                             for (int z = (-aSide); z <= aSide; z++) {
                                 TileEntity tTileEntity = getBaseMetaTileEntity().getTileEntityOffset(x, y, z);
-                                if (tTileEntity != null && tTileEntity instanceof ICropTile) {
+                                if (tTileEntity instanceof ICropTile) {
                                     ICropTile tCrop = (ICropTile) tTileEntity;
                                     this.mCropCache.add(tCrop);
                                 }
