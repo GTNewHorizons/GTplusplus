@@ -124,13 +124,13 @@ public class StringUtils {
         if (parameterTypes == null || parameterTypes.length == 0) {
             return "empty/null";
         } else {
-            String aData = "";
+            StringBuilder aData = new StringBuilder();
             for (V y : parameterTypes) {
                 if (y != null) {
-                    aData += ", " + y.toString();
+                    aData.append(", ").append(y.toString());
                 }
             }
-            return aData;
+            return aData.toString();
         }
     }
 
@@ -194,12 +194,12 @@ public class StringUtils {
                 aTemp.put(s);
             }
             Logger.INFO("Rebuilding");
-            String aReturn = "";
+            StringBuilder aReturn = new StringBuilder();
             for (String s : aTemp) {
-                aReturn += s;
+                aReturn.append(s);
                 Logger.INFO("Step: " + aReturn);
             }
-            return aReturn;
+            return aReturn.toString();
         }
     }
 

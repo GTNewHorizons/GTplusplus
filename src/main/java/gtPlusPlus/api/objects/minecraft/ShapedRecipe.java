@@ -31,7 +31,7 @@ public class ShapedRecipe {
     }
 
     public ShapedRecipe(Object[] aInputs, ItemStack aOutput) {
-        String aGridWhole = "";
+        StringBuilder aGridWhole = new StringBuilder();
         String aGrid[] = new String[3];
         char[] aChar = new char[9];
         String[] aLoggingInfo = new String[9];
@@ -121,7 +121,7 @@ public class ShapedRecipe {
 
                     for (Pair<Character, Object> h : aRecipePairs) {
                         if (h.getKey() != null) {
-                            aGridWhole += String.valueOf(h.getKey());
+                            aGridWhole.append(String.valueOf(h.getKey()));
                             Logger.RECIPE("Adding '" + String.valueOf(h.getKey()) + "' to aGridWhole.");
                         }
                     }

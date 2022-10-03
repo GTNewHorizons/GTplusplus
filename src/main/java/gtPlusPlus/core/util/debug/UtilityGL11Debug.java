@@ -1126,12 +1126,12 @@ public class UtilityGL11Debug {
             final ByteBuffer params = BufferUtils.createByteBuffer(16);
 
             GL11.glGetBoolean(gLconstant, params);
-            String out = "";
+            StringBuilder out = new StringBuilder();
             for (int i = 0; i < params.capacity(); ++i) {
 
-                out += (i == 0 ? "" : ", ") + params.get(i);
+                out.append(i == 0 ? "" : ", ").append(params.get(i));
             }
-            return out;
+            return out.toString();
         }
 
         return "";

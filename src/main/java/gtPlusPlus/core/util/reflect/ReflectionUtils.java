@@ -969,17 +969,17 @@ public class ReflectionUtils {
         }
 
         if (aClass == null) {
-            String aClassName = "";
+            StringBuilder aClassName = new StringBuilder();
             Logger.REFLECTION("Splitting " + string + " to try look for hidden classes.");
             String[] aData = string.split("\\.");
             Logger.REFLECTION("Obtained " + aData.length + " pieces.");
             for (int i = 0; i < (aData.length - 1); i++) {
-                aClassName += (i > 0) ? "." + aData[i] : "" + aData[i];
+                aClassName.append((i > 0) ? "." + aData[i] : "" + aData[i]);
                 Logger.REFLECTION("Building: " + aClassName);
             }
             if (aClassName != null && aClassName.length() > 0) {
                 Logger.REFLECTION("Trying to search '" + aClassName + "' for inner classes.");
-                Class<?> clazz = ReflectionUtils.getClass(aClassName);
+                Class<?> clazz = ReflectionUtils.getClass(aClassName.toString());
                 if (clazz != null) {
                     Class[] y = clazz.getDeclaredClasses();
                     if (y == null || y.length <= 0) {

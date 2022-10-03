@@ -54,16 +54,16 @@ public class TAE {
     }
 
     public static void finalizeTAE() {
-        String aFreeSpaces = "";
-        String aPageAndSlotFree = "";
+        StringBuilder aFreeSpaces = new StringBuilder();
+        StringBuilder aPageAndSlotFree = new StringBuilder();
         AutoMap<Integer> aTemp = new AutoMap<Integer>(mFreeSlots);
         for (int i = 0; i < mFreeSlots.size(); i++) {
             int j = aTemp.get(i);
-            aFreeSpaces += j;
-            aPageAndSlotFree += getPageFromIndex(j);
+            aFreeSpaces.append(j);
+            aPageAndSlotFree.append(getPageFromIndex(j));
             if (i != (mFreeSlots.size() - 1)) {
-                aFreeSpaces += ", ";
-                aPageAndSlotFree += ", ";
+                aFreeSpaces.append(", ");
+                aPageAndSlotFree.append(", ");
             }
         }
         Logger.INFO("Free Indexes within TAE: " + aFreeSpaces);

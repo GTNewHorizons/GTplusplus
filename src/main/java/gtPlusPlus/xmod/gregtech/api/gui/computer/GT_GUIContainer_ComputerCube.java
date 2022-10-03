@@ -198,7 +198,7 @@ public class GT_GUIContainer_ComputerCube extends GT_GUIContainerMetaTile_Machin
     }
 
     public String toNumber(long mEU) {
-        String tString = "";
+        StringBuilder tString = new StringBuilder();
         boolean temp = true, negative = false;
         if (mEU < 0) {
             mEU *= -1;
@@ -209,17 +209,17 @@ public class GT_GUIContainer_ComputerCube extends GT_GUIContainerMetaTile_Machin
             long tDigit = mEU / i % 10;
             if (temp && tDigit != 0) temp = false;
             if (!temp) {
-                tString = tString + tDigit;
+                tString.append(tDigit);
                 if (i != 1) {
                     int j;
                     for (j = i; j > 0; ) {
-                        if (j == 1) tString = tString + ",";
+                        if (j == 1) tString.append(",");
                         j /= 1000;
                     }
                 }
             }
         }
-        if (tString.equals("")) tString = "0";
-        return negative ? ("-" + tString) : tString;
+        if (tString.toString().equals("")) tString = new StringBuilder("0");
+        return negative ? ("-" + tString) : tString.toString();
     }
 }

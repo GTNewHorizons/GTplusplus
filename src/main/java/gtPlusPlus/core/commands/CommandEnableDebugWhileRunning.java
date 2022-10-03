@@ -135,13 +135,13 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                         }
                     }
 
-                    String aOreDictData = "";
+                    StringBuilder aOreDictData = new StringBuilder();
                     if (!aOreDictNames.isEmpty()) {
                         for (String tag : aOreDictNames) {
-                            aOreDictData += (tag + ", ");
+                            aOreDictData.append(tag).append(", ");
                         }
-                        if (aOreDictData.endsWith(", ")) {
-                            aOreDictData = aOreDictData.substring(0, aOreDictData.length() - 2);
+                        if (aOreDictData.toString().endsWith(", ")) {
+                            aOreDictData = new StringBuilder(aOreDictData.substring(0, aOreDictData.length() - 2));
                         }
                     }
 
@@ -241,14 +241,14 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                             aItemDataTags.add(e.getKey().toString() + ":" + e.getValue());
                         }
                         int a = 0;
-                        String data = "";
+                        StringBuilder data = new StringBuilder();
                         for (String tag : aItemDataTags) {
-                            data += (tag + ", ");
+                            data.append(tag).append(", ");
                         }
-                        if (data.endsWith(", ")) {
-                            data = data.substring(0, data.length() - 2);
+                        if (data.toString().endsWith(", ")) {
+                            data = new StringBuilder(data.substring(0, data.length() - 2));
                         }
-                        return data;
+                        return data.toString();
                     } else {
                         Logger.INFO("Data map reflected from NBTTagCompound was not valid.");
                         return "Bad NBT";
