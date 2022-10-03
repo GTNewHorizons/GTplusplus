@@ -547,9 +547,8 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
             }
             // Create a map of all the fluids we would like to output, we can iterate over this and see how many we can
             // merge into existing hatch stacks.
-            ArrayList<FluidStack> aOutputFluids = new ArrayList<FluidStack>();
             // Ugly ass boxing
-            aOutputFluids.addAll(new AutoMap<FluidStack>(aFluidOutputs));
+            ArrayList<FluidStack> aOutputFluids = new ArrayList<FluidStack>(new AutoMap<FluidStack>(aFluidOutputs));
             // Iterate the Hatches, updating their 'stored' data.
             // for (Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aHatchData : aOutputHatches) {
             for (int i = 0; i < aOutputHatches.size(); i++) {

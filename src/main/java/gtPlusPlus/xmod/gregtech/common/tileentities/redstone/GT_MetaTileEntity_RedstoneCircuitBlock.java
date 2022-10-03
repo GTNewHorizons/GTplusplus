@@ -157,8 +157,7 @@ public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_Re
     public void switchGateForward(boolean aShift) {
         try {
             Set<Integer> tKeys = GregTech_API.sCircuitryBehaviors.keySet();
-            ArrayList<Integer> tList = new ArrayList<Integer>();
-            tList.addAll(tKeys);
+            ArrayList<Integer> tList = new ArrayList<Integer>(tKeys);
             if (tList.size() <= 0) return;
             Collections.sort(tList);
             if (!GregTech_API.sCircuitryBehaviors.containsKey(mGate)) mGate = tList.get(0);
@@ -175,8 +174,7 @@ public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_Re
     public void switchGateBackward(boolean aShift) {
         try {
             Set<Integer> tKeys = GregTech_API.sCircuitryBehaviors.keySet();
-            ArrayList<Integer> tList = new ArrayList<Integer>();
-            tList.addAll(tKeys);
+            ArrayList<Integer> tList = new ArrayList<Integer>(tKeys);
             if (tList.size() <= 0) return;
             Collections.sort(tList);
             if (!GregTech_API.sCircuitryBehaviors.containsKey(mGate)) mGate = tList.get(0);
