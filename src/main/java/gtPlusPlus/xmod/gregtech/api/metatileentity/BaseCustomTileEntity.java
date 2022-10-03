@@ -102,7 +102,6 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     this.mReleaseEnergy = true;
                     Util.emitEnergyToNetwork(GT_Values.V[5], Math.max(1L, this.getStoredEU() / GT_Values.V[5]), this);
                 } catch (Exception ignored) {
-                    ;
                 }
             }
 
@@ -162,7 +161,6 @@ public class BaseCustomTileEntity extends BaseMetaTileEntity implements IBaseCus
                     ENTITY_ITEM_HEALTH_FIELD_2.setInt(tItemEntity, 99999999);
                 }
             } catch (Exception ignored) {
-                ;
             }
 
             this.worldObj.spawnEntityInWorld(tItemEntity);

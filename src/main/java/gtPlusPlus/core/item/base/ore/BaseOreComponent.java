@@ -229,7 +229,7 @@ public class BaseOreComponent extends Item {
         return this.overlay;
     }
 
-    public static enum ComponentTypes {
+    public enum ComponentTypes {
         DUST("dust", "", " Dust", true),
         DUSTIMPURE("dustImpure", "Impure ", " Dust", true),
         DUSTPURE("dustPure", "Purified ", " Dust", true),
@@ -243,7 +243,7 @@ public class BaseOreComponent extends Item {
         private String DISPLAY_NAME;
         private boolean HAS_OVERLAY;
 
-        private ComponentTypes(
+        ComponentTypes(
                 final String LocalName, final String prefix, final String DisplayName, final boolean overlay) {
             this.COMPONENT_NAME = LocalName;
             this.PREFIX = prefix;

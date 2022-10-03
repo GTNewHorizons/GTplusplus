@@ -25,7 +25,7 @@ public enum Quality {
     private String LOOT;
     private EnumChatFormatting COLOUR;
 
-    private Quality(final String lootTier, final EnumChatFormatting tooltipColour) {
+    Quality(final String lootTier, final EnumChatFormatting tooltipColour) {
         this.LOOT = lootTier;
         this.COLOUR = tooltipColour;
     }

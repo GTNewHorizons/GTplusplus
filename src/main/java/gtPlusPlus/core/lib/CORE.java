@@ -43,7 +43,6 @@ public class CORE {
     public static boolean DEVENV = false;
     // Only can be set in Dev, no config or setting elsewhere.
     public static final boolean LOAD_ALL_CONTENT = false;
-    ;
 
     // Mod Variables
 

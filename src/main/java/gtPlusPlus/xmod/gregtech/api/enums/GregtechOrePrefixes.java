@@ -539,7 +539,7 @@ public enum GregtechOrePrefixes {
      */
     public int mMaterialGenerationBits = 0;
 
-    private GregtechOrePrefixes(
+    GregtechOrePrefixes(
             final String aRegularLocalName,
             final String aLocalizedMaterialPre,
             final String aLocalizedMaterialPost,
@@ -1853,7 +1853,7 @@ public enum GregtechOrePrefixes {
          */
         public Fluid mStandardMoltenFluid = null;
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -1876,7 +1876,7 @@ public enum GregtechOrePrefixes {
             }
         }
 
-        private GT_Materials(final GT_Materials aMaterialInto, final boolean aReRegisterIntoThis) {
+        GT_Materials(final GT_Materials aMaterialInto, final boolean aReRegisterIntoThis) {
             this.mUnificatable = false;
             this.mDefaultLocalName = aMaterialInto.mDefaultLocalName;
             this.mMaterialInto = aMaterialInto.mMaterialInto;
@@ -1911,7 +1911,7 @@ public enum GregtechOrePrefixes {
          * @param aBlastFurnaceRequired If this requires a Blast Furnace.
          * @param aColor                Vanilla MC Wool Color which comes the closest to this.
          */
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -1959,7 +1959,7 @@ public enum GregtechOrePrefixes {
             }
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2010,7 +2010,7 @@ public enum GregtechOrePrefixes {
         /**
          * @param aElement The Element Enum represented by this Material
          */
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2067,7 +2067,7 @@ public enum GregtechOrePrefixes {
             this.mAspects.addAll(aAspects);
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,
@@ -2118,7 +2118,7 @@ public enum GregtechOrePrefixes {
                     null);
         }
 
-        private GT_Materials(
+        GT_Materials(
                 final int aMetaItemSubID,
                 final TextureSet aIconSet,
                 final float aToolSpeed,

@@ -214,7 +214,6 @@ public class WorldGen_GT_Australia_Base implements IWorldGenerator {
                 this.mZ = z;
             }
         }
-        ;
 
         public static ArrayList<NearbySeeds> seedList = new ArrayList<>();
 

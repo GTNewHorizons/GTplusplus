@@ -72,7 +72,7 @@ public class BaseItemLoot extends Item {
         // EntityUtils.applyRadiationDamageToEntity(lootQuality.vRadioationLevel, world, entityHolding);
     }
 
-    public static enum LootTypes {
+    public enum LootTypes {
         Sword("Sword", " Longsword", "sword"),
         Shortsword("Sword", " Short Blade", "blade"),
         Helmet("Helmet", " Medium Helm", "helmet"),
@@ -83,7 +83,7 @@ public class BaseItemLoot extends Item {
         private String DISPLAY_SUFFIX;
         private String OREDICT_NAME;
 
-        private LootTypes(final String LocalName, final String DisplayName, final String OreDictName) {
+        LootTypes(final String LocalName, final String DisplayName, final String OreDictName) {
             this.LOOT_TYPE = LocalName;
             this.DISPLAY_SUFFIX = DisplayName;
             this.OREDICT_NAME = OreDictName;

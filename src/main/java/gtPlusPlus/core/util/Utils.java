@@ -717,13 +717,13 @@ public class Utils {
         return temp;
     }
 
-    public static enum Versioning {
+    public enum Versioning {
         EQUAL(0),
         NEWER(1),
         OLDER(-1);
         private final int versioningInfo;
 
-        private Versioning(final int versionStatus) {
+        Versioning(final int versionStatus) {
             this.versioningInfo = versionStatus;
         }
 

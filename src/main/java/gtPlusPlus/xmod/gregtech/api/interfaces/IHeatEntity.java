@@ -5,21 +5,21 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public interface IHeatEntity extends IHeatSource, IHeatSink {
 
-    public int getHeatBuffer();
+    int getHeatBuffer();
 
-    public void setHeatBuffer(int HeatBuffer);
+    void setHeatBuffer(int HeatBuffer);
 
-    public void addtoHeatBuffer(int heat);
+    void addtoHeatBuffer(int heat);
 
-    public int getTransmitHeat();
+    int getTransmitHeat();
 
-    public int fillHeatBuffer(int maxAmount);
+    int fillHeatBuffer(int maxAmount);
 
-    public int getMaxHeatEmittedPerTick();
+    int getMaxHeatEmittedPerTick();
 
-    public void updateHeatEntity();
+    void updateHeatEntity();
 
-    public int maxrequestHeatTick(ForgeDirection directionFrom);
+    int maxrequestHeatTick(ForgeDirection directionFrom);
 
-    public int requestHeat(ForgeDirection directionFrom, int requestheat);
+    int requestHeat(ForgeDirection directionFrom, int requestheat);
 }

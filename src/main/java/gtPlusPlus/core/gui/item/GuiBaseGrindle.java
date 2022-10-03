@@ -414,12 +414,12 @@ public class GuiBaseGrindle extends GuiContainer {
 
     public static class GrindleData {
 
-        public static enum GrindleMode {
+        public enum GrindleMode {
             PROSPECTING(0),
             ELEMENT(1);
             private final int aModeID;
 
-            private GrindleMode(final int aMode) {
+            GrindleMode(final int aMode) {
                 this.aModeID = aMode;
             }
 

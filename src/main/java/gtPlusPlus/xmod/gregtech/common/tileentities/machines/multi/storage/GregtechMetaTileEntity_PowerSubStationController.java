@@ -54,7 +54,7 @@ public class GregtechMetaTileEntity_PowerSubStationController
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_PowerSubStationController>
         implements ISurvivalConstructable {
 
-    private static enum TopState {
+    private enum TopState {
         MayBeTop,
         Top,
         NotTop

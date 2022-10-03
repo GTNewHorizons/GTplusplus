@@ -27,7 +27,7 @@ public enum GTPP_PropolisType {
         return GTPP_Bees.sPropolisMappings.get(aID);
     }
 
-    private GTPP_PropolisType(int aID, String aName, boolean aShow, int aColour) {
+    GTPP_PropolisType(int aID, String aName, boolean aShow, int aColour) {
         this.mID = aID;
         this.mName = aName;
         this.mNameUnlocal = aName.toLowerCase().replaceAll(" ", "");

@@ -13,7 +13,6 @@ import javax.crypto.spec.SecretKeySpec;
 public class AES {
 
     private final String secret;
-    ;
 
     private final SecretKeySpec secretKey;
 

@@ -25,7 +25,7 @@ public enum VanillaColours {
     DYE_DARK_GRAY(71, 79, 82);
     private final int r, g, b;
 
-    private VanillaColours(int aR, int aG, int aB) {
+    VanillaColours(int aR, int aG, int aB) {
         r = aR;
         g = aG;
         b = aB;

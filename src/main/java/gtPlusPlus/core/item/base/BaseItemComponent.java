@@ -994,7 +994,7 @@ public class BaseItemComponent extends Item {
         }
     }
 
-    public static enum ComponentTypes {
+    public enum ComponentTypes {
         DUST("Dust", " Dust", "dust", OrePrefixes.dust),
         DUSTSMALL("DustSmall", "Small Pile of@Dust", "dustSmall", OrePrefixes.dustSmall),
         DUSTTINY("DustTiny", "Tiny Pile of@Dust", "dustTiny", OrePrefixes.dustTiny),
@@ -1025,7 +1025,7 @@ public class BaseItemComponent extends Item {
         private String OREDICT_NAME;
         private OrePrefixes a_GT_EQUAL;
 
-        private ComponentTypes(
+        ComponentTypes(
                 final String LocalName, final String DisplayName, final String OreDictName, final OrePrefixes aPrefix) {
             this.COMPONENT_NAME = LocalName;
             this.DISPLAY_NAME = DisplayName;

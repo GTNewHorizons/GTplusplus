@@ -53,7 +53,6 @@ public class GT_MethodHelper {
                         boolean aActiveObj = aActive.getBoolean(aTile);
                         byte aFacingObj = aFacing.getByte(aTile);
                         byte aColorObj = aColor.getByte(aTile);
-                        ;
                         MetaTileEntity aMetaTileObj = (MetaTileEntity) aMetaTile.get(aTile);
 
                         if (rIcon != null) {

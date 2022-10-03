@@ -124,7 +124,6 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
     private String formatFluidString(FluidStack f) {
         FluidStack mLockedStack = f;
         Integer mLockedTemp = 0;
-        ;
         String mTempMod = "" + EnumChatFormatting.RESET;
         mLockedTemp = mLockedStack.getFluid().getTemperature();
         if (mLockedTemp != null) {

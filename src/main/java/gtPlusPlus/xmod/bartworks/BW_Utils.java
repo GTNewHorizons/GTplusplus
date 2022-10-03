@@ -41,7 +41,7 @@ public class BW_Utils {
         TiberiumCell_2,
         TiberiumCell_4,
         TheCoreCell,
-        Depleted_TheCoreCell;
+        Depleted_TheCoreCell
     }
 
     public static ItemStack getBW_NonMeta_MaterialItems(NonMeta_MaterialItem aItem, long aAmount) {

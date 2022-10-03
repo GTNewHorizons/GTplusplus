@@ -220,7 +220,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     public String[] getExtraInfoData() {
         return new String[0];
     }
-    ;
 
     @Override
     public final String[] getInfoData() {
@@ -269,7 +268,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                         + getMaxInputVoltage() + EnumChatFormatting.RESET + " EU/t(*2A) "
                         + StatCollector.translateToLocal("GTPP.machines.tier") + ": " + EnumChatFormatting.YELLOW
                         + GT_Values.VN[GT_Utility.getTier(getMaxInputVoltage())] + EnumChatFormatting.RESET));
-                ;
             }
             if (!this.mAllDynamoHatches.isEmpty()) {
                 long storedEnergy = getStoredEnergyInAllDynamoHatches();

@@ -31,7 +31,7 @@ public enum BaseFishTypes {
     private final float field_150990_m;
     private boolean isCooked = false;
 
-    private BaseFishTypes(
+    BaseFishTypes(
             int p_i45336_3_,
             String p_i45336_4_,
             int p_i45336_5_,
@@ -47,7 +47,7 @@ public enum BaseFishTypes {
         this.isCooked = true;
     }
 
-    private BaseFishTypes(int p_i45337_3_, String p_i45337_4_, int p_i45337_5_, float p_i45337_6_) {
+    BaseFishTypes(int p_i45337_3_, String p_i45337_4_, int p_i45337_5_, float p_i45337_6_) {
         this.mID = p_i45337_3_;
         this.mFishName = p_i45337_4_;
         this.field_150991_j = p_i45337_5_;

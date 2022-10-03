@@ -20,7 +20,7 @@ public class CustomGtTextures {
 
         protected IIcon mIcon, mOverlay;
 
-        private ItemIcons() {
+        ItemIcons() {
             GregTech_API.sGTItemIconload.add(this);
         }
 
