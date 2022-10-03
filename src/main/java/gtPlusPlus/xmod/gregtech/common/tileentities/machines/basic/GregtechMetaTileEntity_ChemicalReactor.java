@@ -13,7 +13,6 @@ import gtPlusPlus.core.slots.SlotChemicalPlantInput;
 import gtPlusPlus.xmod.gregtech.api.gui.fluidreactor.Container_FluidReactor;
 import gtPlusPlus.xmod.gregtech.api.gui.fluidreactor.GUI_FluidReactor;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import java.util.List;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

@@ -475,10 +475,7 @@ public class GregtechMetaTileEntityGeneratorArray
     public int getFuelValue(ItemStack aStack) {
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
-                    .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
-                                aStack
-                            });
+                    .findRecipe(this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {aStack});
             return tFuel != null ? (int) ((long) tFuel.mSpecialValue * 1000L * (long) this.mEfficiency / 100L) : 0;
         } else {
             return 0;
@@ -488,10 +485,7 @@ public class GregtechMetaTileEntityGeneratorArray
     public ItemStack getEmptyContainer(ItemStack aStack) {
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
-                    .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
-                                aStack
-                            });
+                    .findRecipe(this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {aStack});
             return tFuel != null
                     ? GT_Utility.copy(new Object[] {tFuel.getOutput(0)})
                     : GT_Utility.getContainerItem(aStack, true);

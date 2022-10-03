@@ -2222,14 +2222,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             final FluidStack[] aFluids,
             final ItemStack... aInputs) {
         return this.findRecipe(
-                aTileEntity,
-                aRecipe,
-                aNotUnificated,
-                aDontCheckStackSizes,
-                aVoltage,
-                aFluids,
-                null,
-                aInputs);
+                aTileEntity, aRecipe, aNotUnificated, aDontCheckStackSizes, aVoltage, aFluids, null, aInputs);
     }
 
     public GT_Recipe findRecipe(

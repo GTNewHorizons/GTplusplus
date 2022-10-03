@@ -68,9 +68,7 @@ public class ToolType_HardHammer extends ToolType_Base {
                 int tY = aY;
                 int tZ = aZ;
                 int tMetaID = 0;
-                final int tQuality = (aItem instanceof GT_MetaGenerated_Tool)
-                        ? aItem.getHarvestLevel(aStack, "")
-                        : 0;
+                final int tQuality = (aItem instanceof GT_MetaGenerated_Tool) ? aItem.getHarvestLevel(aStack, "") : 0;
 
                 int i = 0;
                 for (final int j = 6 + tQuality; i < j; i++) {

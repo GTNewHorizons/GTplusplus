@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
 import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -194,7 +193,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
         }
         return this.mFluid == null
                 || (this.mFluid != null
-                && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
+                        && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
     }
 
     @Override

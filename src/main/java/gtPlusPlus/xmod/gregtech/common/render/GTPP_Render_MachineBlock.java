@@ -99,99 +99,43 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 4, 9, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 4, 9, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 5, 9, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 5, 9, -1, true, false), true);
                     Tessellator.instance.draw();
                 } else {
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
                     renderNegativeYFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 0, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 0, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
                     renderPositiveYFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 1, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 1, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
                     renderNegativeZFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 2, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 2, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
                     renderPositiveZFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 3, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 3, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
                     renderNegativeXFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 4, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 4, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
                     Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
                     renderPositiveXFacing(
-                            null,
-                            aRenderer,
-                            aBlock,
-                            0,
-                            0,
-                            0,
-                            getTexture(tMetaTileEntity, 5, 4, -1, true, false),
-                            true);
+                            null, aRenderer, aBlock, 0, 0, 0, getTexture(tMetaTileEntity, 5, 4, -1, true, false), true);
                     Tessellator.instance.draw();
                 }
 

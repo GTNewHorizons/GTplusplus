@@ -1222,10 +1222,10 @@ public class ItemUtils {
     public static boolean isToolWrench(ItemStack aWrench) {
         return isItemGregtechTool(aWrench)
                 && (aWrench.getItemDamage() == 16
-                || aWrench.getItemDamage() == 120
-                || aWrench.getItemDamage() == 122
-                || aWrench.getItemDamage() == 124
-                || aWrench.getItemDamage() == 7734);
+                        || aWrench.getItemDamage() == 120
+                        || aWrench.getItemDamage() == 122
+                        || aWrench.getItemDamage() == 124
+                        || aWrench.getItemDamage() == 7734);
     }
 
     public static boolean isToolMallet(ItemStack aMallet) {

@@ -27,7 +27,6 @@ import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Description;
 import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Simulator;
 import java.util.ArrayList;
 import java.util.Collections;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -248,12 +247,13 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
         for (i = 54; i < 58; i++) {
             if (this.mInventory[i] != null) {
                 if (!this.getWorld().isRemote)
-                    this.getWorld().spawnEntityInWorld(new EntityItem(
-                            this.getWorld(),
-                            this.getXCoord() + 0.5D,
-                            this.getYCoord() + 0.5D,
-                            this.getZCoord() + 0.5D,
-                            this.mInventory[i]));
+                    this.getWorld()
+                            .spawnEntityInWorld(new EntityItem(
+                                    this.getWorld(),
+                                    this.getXCoord() + 0.5D,
+                                    this.getYCoord() + 0.5D,
+                                    this.getZCoord() + 0.5D,
+                                    this.mInventory[i]));
                 this.mInventory[i] = null;
             }
         }
@@ -334,94 +334,122 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[0] == null) {
             this.mInventory[59] = null;
         } else {
-            this.mInventory[59] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[0].copy();
+            this.mInventory[59] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[0]
+                    .copy();
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[1] == null) {
             this.mInventory[60] = null;
         } else {
-            this.mInventory[60] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[1].copy();
+            this.mInventory[60] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[1]
+                    .copy();
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[2] == null) {
             this.mInventory[61] = null;
         } else {
-            this.mInventory[61] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[2].copy();
+            this.mInventory[61] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[2]
+                    .copy();
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[3] == null) {
             this.mInventory[62] = null;
         } else {
-            this.mInventory[62] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[3].copy();
+            this.mInventory[62] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[3]
+                    .copy();
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[4] == null) {
             this.mInventory[63] = null;
         } else {
-            this.mInventory[63] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[4].copy();
+            this.mInventory[63] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[4]
+                    .copy();
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[5] == null) {
             this.mInventory[64] = null;
         } else {
-            this.mInventory[64] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[5].copy();
+            this.mInventory[64] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[5]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[6] == null) {
             this.mInventory[65] = null;
         } else {
-            this.mInventory[65] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[6].copy();
+            this.mInventory[65] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[6]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[7] == null) {
             this.mInventory[66] = null;
         } else {
-            this.mInventory[66] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[7].copy();
+            this.mInventory[66] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[7]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[8] == null) {
             this.mInventory[67] = null;
         } else {
-            this.mInventory[67] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[8].copy();
+            this.mInventory[67] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[8]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[9] == null) {
             this.mInventory[68] = null;
         } else {
-            this.mInventory[68] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[9].copy();
+            this.mInventory[68] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[9]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[10] == null) {
             this.mInventory[69] = null;
         } else {
-            this.mInventory[69] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[10].copy();
+            this.mInventory[69] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[10]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[11] == null) {
             this.mInventory[70] = null;
         } else {
-            this.mInventory[70] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[11].copy();
+            this.mInventory[70] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[11]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[12] == null) {
             this.mInventory[71] = null;
         } else {
-            this.mInventory[71] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[12].copy();
+            this.mInventory[71] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[12]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         if (GT_Computercube_Description.sDescriptions.get(aIndex).mStacks[13] == null) {
             this.mInventory[72] = null;
         } else {
-            this.mInventory[72] = GT_Computercube_Description.sDescriptions.get(aIndex)
-                    .mStacks[13].copy();
+            this.mInventory[72] = GT_Computercube_Description.sDescriptions
+                    .get(aIndex)
+                    .mStacks[13]
+                    .copy();
             this.mExplosionStrength = 100.0F;
         }
         this.mMaxHeat = aIndex;

@@ -17,7 +17,6 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -426,11 +425,9 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         }
         // Something
         if (GT_Recipe.GT_Recipe_Map.sBoxinatorRecipes.findRecipe(
-                this.getBaseMetaTileEntity(),
-                        true,
-                        GT_Values.V[this.mTier],
-                null,
-                        new ItemStack[] {GT_Utility.copyAmount(64L, new Object[] {aStack}), schematicStack})
+                        this.getBaseMetaTileEntity(), true, GT_Values.V[this.mTier], null, new ItemStack[] {
+                            GT_Utility.copyAmount(64L, new Object[] {aStack}), schematicStack
+                        })
                 != null) {
             return true;
         }
@@ -447,9 +444,9 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         // 3x3
         return ItemList.Schematic_3by3.isStackEqual(schematicStack)
                 && GT_ModHandler.getRecipeOutput(
-                new ItemStack[]{aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack
-                })
-                != null;
+                                new ItemStack[] {aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack
+                                })
+                        != null;
     }
 
     @Override

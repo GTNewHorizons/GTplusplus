@@ -254,8 +254,7 @@ public class EntityGiantChickenBase extends EntityChicken {
         this.motionY = 0.68999998688697815D;
         this.motionY += 0.068999998688697815D;
         if (this.isPotionActive(Potion.jump)) {
-            this.motionY +=
-                    (float) (this.getActivePotionEffect(Potion.jump).getAmplifier() + 1) * 0.5F;
+            this.motionY += (float) (this.getActivePotionEffect(Potion.jump).getAmplifier() + 1) * 0.5F;
         }
 
         if (this.isSprinting()) {

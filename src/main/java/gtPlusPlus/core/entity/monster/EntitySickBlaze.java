@@ -6,7 +6,6 @@ import gtPlusPlus.core.entity.projectile.EntityToxinballSmall;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
@@ -160,8 +159,7 @@ public class EntitySickBlaze extends EntityMob {
 
                 if (this.field_70846_g > 1) {
                     float f1 = MathHelper.sqrt_float(p_70785_2_) * 0.5F;
-                    this.worldObj.playAuxSFXAtEntity(
-                            null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
+                    this.worldObj.playAuxSFXAtEntity(null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
 
                     for (int i = 0; i < 1; ++i) {
                         EntityToxinballSmall entitysmalltoxinball = new EntityToxinballSmall(

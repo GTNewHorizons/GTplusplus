@@ -14,7 +14,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
-import net.minecraft.stats.StatBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 

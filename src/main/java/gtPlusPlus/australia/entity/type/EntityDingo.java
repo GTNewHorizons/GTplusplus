@@ -34,7 +34,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -355,8 +354,7 @@ public class EntityDingo extends EntityWolf {
                         this.heal((float) itemfood.func_150905_g(itemstack));
 
                         if (itemstack.stackSize <= 0) {
-                            p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, null);
+                            p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -368,8 +366,7 @@ public class EntityDingo extends EntityWolf {
                         this.setCollarColor(i);
 
                         if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
-                            p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, null);
+                            p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;

@@ -39,15 +39,13 @@ public class RECIPES_Extruder implements IOreRecipeRegistrator {
                 GT_Values.RA.addExtruderRecipe(
                         GT_Utility.copyAmount(1L, new Object[] {aStack}),
                         GregtechItemList.Shape_Extruder_SmallGear.get(0L, new Object[0]),
-                        GT_OreDictUnificator.get(
-                                OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
+                        GT_OreDictUnificator.get(OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
                         ((int) Math.max(aMaterialMass * 5L * tAmount, tAmount) / 4),
                         8 * tVoltageMultiplier);
                 GT_Values.RA.addAlloySmelterRecipe(
                         GT_Utility.copyAmount(2L, new Object[] {aStack}),
                         ItemList.Shape_Mold_Gear_Small.get(0L, new Object[0]),
-                        GT_OreDictUnificator.get(
-                                OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
+                        GT_OreDictUnificator.get(OrePrefixes.gearGtSmall, aMaterial.mSmeltInto, tAmount),
                         ((int) Math.max(aMaterialMass * 10L * tAmount, tAmount) / 4),
                         2 * tVoltageMultiplier);
             }

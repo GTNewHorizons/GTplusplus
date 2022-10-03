@@ -101,8 +101,7 @@ public class LoaderOfTheCrops {
 
         for (int i = 0; i < mCropList.size(); ++i) {
             if (baseseed.get(i) != null && cropObjs().get(i) != null) {
-                Crops.instance.registerBaseSeed(
-                        baseseed.get(i), cropObjs().get(i), 1, 1, 1, 1);
+                Crops.instance.registerBaseSeed(baseseed.get(i), cropObjs().get(i), 1, 1, 1, 1);
             }
         }
     }

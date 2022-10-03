@@ -132,23 +132,20 @@ public class GT_GUIContainer_ComputerCube extends GT_GUIContainerMetaTile_Machin
                             && tContainer.mMaxHeat < GT_Computercube_Description.sDescriptions.size())
                         for (int i = 0;
                                 i
-                                        < GT_Computercube_Description.sDescriptions.get(
-                                                        tContainer.mMaxHeat)
+                                        < GT_Computercube_Description.sDescriptions.get(tContainer.mMaxHeat)
                                                 .mDescription
                                                 .length;
                                 i++) {
                             if (i == 0) {
                                 this.fontRendererObj.drawString(
-                                        GT_Computercube_Description.sDescriptions.get(
-                                                        tContainer.mMaxHeat)
+                                        GT_Computercube_Description.sDescriptions.get(tContainer.mMaxHeat)
                                                 .mDescription[i],
                                         7,
                                         7,
                                         16448255);
                             } else {
                                 this.fontRendererObj.drawString(
-                                        GT_Computercube_Description.sDescriptions.get(
-                                                        tContainer.mMaxHeat)
+                                        GT_Computercube_Description.sDescriptions.get(tContainer.mMaxHeat)
                                                 .mDescription[i],
                                         7,
                                         7 + 8 * i,

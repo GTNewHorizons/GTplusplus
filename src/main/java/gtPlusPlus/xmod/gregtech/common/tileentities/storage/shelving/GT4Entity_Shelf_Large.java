@@ -12,7 +12,6 @@ import gtPlusPlus.xmod.gregtech.api.gui.GUI_SuperChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {

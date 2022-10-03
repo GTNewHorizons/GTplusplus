@@ -1320,7 +1320,7 @@ public class Material {
 
     public final boolean hasSolidForm() {
         return ItemUtils.checkForInvalidItems(
-                new ItemStack[]{getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)});
+                new ItemStack[] {getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)});
     }
 
     public final ItemStack[] getMaterialComposites() {

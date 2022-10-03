@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.ic2.block.RTGGenerator.gui;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.xmod.ic2.block.RTGGenerator.TileEntityRTG;
 import ic2.core.IC2;
 import ic2.core.block.generator.gui.GuiRTGenerator;
 import ic2.core.util.GuiTooltipHelper;

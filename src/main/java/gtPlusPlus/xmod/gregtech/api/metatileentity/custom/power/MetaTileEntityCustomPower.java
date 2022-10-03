@@ -6,7 +6,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.CustomMetaTileBase;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
-import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -63,8 +62,7 @@ public abstract class MetaTileEntityCustomPower extends CustomMetaTileBase {
         GT_Utility.sendSoundToPlayers(tWorld, GregTech_API.sSoundList.get(209), 1.0F, -1.0F, tX, tY, tZ);
         tWorld.setBlock(tX, tY, tZ, Blocks.air);
         if (GregTech_API.sMachineExplosions) {
-            tWorld.createExplosion(
-                    null, (double) tX + 0.5D, (double) tY + 0.5D, (double) tZ + 0.5D, tStrength, true);
+            tWorld.createExplosion(null, (double) tX + 0.5D, (double) tY + 0.5D, (double) tZ + 0.5D, tStrength, true);
         }
     }
 
