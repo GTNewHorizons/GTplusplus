@@ -421,10 +421,8 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                     return true;
                 }
 
-                if (tTileEntity instanceof ICoverable
-                        && ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0) {
-                    return true;
-                }
+                return tTileEntity instanceof ICoverable
+                        && ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0;
             }
 
             return false;

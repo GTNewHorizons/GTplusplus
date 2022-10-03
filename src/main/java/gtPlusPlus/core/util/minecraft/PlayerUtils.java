@@ -84,10 +84,7 @@ public class PlayerUtils {
     }
 
     public static boolean isPlayerOP(final EntityPlayer player) {
-        if (player.canCommandSenderUseCommand(2, "")) {
-            return true;
-        }
-        return false;
+        return player.canCommandSenderUseCommand(2, "");
     }
 
     // Not Clientside
@@ -99,10 +96,7 @@ public class PlayerUtils {
         } catch (final NullPointerException e) {
             return null;
         }
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     @SideOnly(Side.CLIENT)
@@ -114,10 +108,7 @@ public class PlayerUtils {
         } catch (final NullPointerException e) {
             return null;
         }
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     public static ItemStack getItemStackInPlayersHand(final EntityPlayer player) {
@@ -151,11 +142,7 @@ public class PlayerUtils {
             return null;
         }
 
-        if (heldItem != null) {
-            return heldItem;
-        }
-
-        return null;
+        return heldItem;
     }
 
     public static Item getItemInPlayersHand(final EntityPlayer player) {
@@ -166,18 +153,12 @@ public class PlayerUtils {
             return null;
         }
 
-        if (heldItem != null) {
-            return heldItem;
-        }
-        return null;
+        return heldItem;
     }
 
     public static EntityPlayer getPlayerEntityByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
-        if (player != null) {
-            return player;
-        }
-        return null;
+        return player;
     }
 
     public static UUID getPlayersUUIDByName(final String aPlayerName) {
@@ -198,10 +179,8 @@ public class PlayerUtils {
 
     public static boolean isPlayerAlkalus(EntityPlayer player) {
         if (player != null) {
-            if (player.getDisplayName().toLowerCase().equals("draknyte1")
-                    || player.getDisplayName().toLowerCase().equals("alkalus")) {
-                return true;
-            }
+            return player.getDisplayName().toLowerCase().equals("draknyte1")
+                    || player.getDisplayName().toLowerCase().equals("alkalus");
         }
         return false;
     }
@@ -263,9 +242,7 @@ public class PlayerUtils {
                 cacheFakePlayer(p);
                 return false;
             }
-            if (!isCachedFakePlayer(p.getUniqueID().toString())) {
-                return true;
-            }
+            return !isCachedFakePlayer(p.getUniqueID().toString());
         }
         return false;
     }

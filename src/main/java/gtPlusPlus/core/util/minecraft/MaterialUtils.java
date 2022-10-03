@@ -229,10 +229,7 @@ public class MaterialUtils {
     }
 
     public static boolean hasValidRGBA(final short[] rgba) {
-        if (rgba == null || rgba.length < 3 || rgba.length > 4) {
-            return false;
-        }
-        return true;
+        return rgba != null && rgba.length >= 3 && rgba.length <= 4;
     }
 
     public static int getTierOfMaterial(final double aMeltingPoint) {
@@ -530,11 +527,8 @@ public class MaterialUtils {
     }
 
     public static boolean isNullGregtechMaterial(Materials aGregtechMaterial) {
-        if (aGregtechMaterial == Materials._NULL
+        return aGregtechMaterial == Materials._NULL
                 || aGregtechMaterial.equals(Materials._NULL)
-                || aGregtechMaterial.name().equals(Materials._NULL.name())) {
-            return true;
-        }
-        return false;
+                || aGregtechMaterial.name().equals(Materials._NULL.name());
     }
 }

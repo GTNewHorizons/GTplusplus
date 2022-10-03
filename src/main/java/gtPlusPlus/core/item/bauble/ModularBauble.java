@@ -304,11 +304,7 @@ public class ModularBauble extends BaseBauble {
             return true;
         } else if ((mOwner = NBTUtils.getBotanicaSoulboundOwner(arg0)) != null) {
             String mPlayerName = arg1.getCommandSenderName();
-            if (mOwner.toLowerCase().equals(mPlayerName.toLowerCase())) {
-                return true;
-            } else {
-                return false;
-            }
+            return mOwner.toLowerCase().equals(mPlayerName.toLowerCase());
         } else {
             return false;
         }

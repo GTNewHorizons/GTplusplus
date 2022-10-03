@@ -733,9 +733,7 @@ public class TreeFarmHelper {
                             totalRemoved++;
                         }
                     }
-                    if (totalRemoved > 0 && mDrops.size() > 0) {
-                        return true;
-                    }
+                    return totalRemoved > 0 && mDrops.size() > 0;
                 }
             }
             return false;

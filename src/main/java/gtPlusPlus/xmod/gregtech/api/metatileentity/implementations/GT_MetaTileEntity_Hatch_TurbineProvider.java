@@ -125,18 +125,14 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
 
     public boolean isItemStackTurbine(ItemStack aStack) {
         if (aStack.getItem() instanceof GT_MetaGenerated_Tool) {
-            if (aStack.getItemDamage() >= 170 && aStack.getItemDamage() <= 176) {
-                return true;
-            }
+            return aStack.getItemDamage() >= 170 && aStack.getItemDamage() <= 176;
         }
         return false;
     }
 
     public boolean isItemStackScrewdriver(ItemStack aStack) {
         if (aStack.getItem() instanceof GT_MetaGenerated_Tool) {
-            if (aStack.getItemDamage() == 22 || aStack.getItemDamage() == 150) {
-                return true;
-            }
+            return aStack.getItemDamage() == 22 || aStack.getItemDamage() == 150;
         }
         return false;
     }

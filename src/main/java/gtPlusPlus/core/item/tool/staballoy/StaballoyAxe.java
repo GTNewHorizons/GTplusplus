@@ -84,12 +84,9 @@ public class StaballoyAxe extends ItemAxe {
         if (bit instanceof BlockTallGrass) {
             return true;
         }
-        if (bit instanceof BlockDoublePlant) {
-            return true;
-        }
+        return bit instanceof BlockDoublePlant;
 
         // LoonTools.log("Found uncuttable "+bit.getClass().getSimpleName());
-        return false;
     }
 
     private int check(

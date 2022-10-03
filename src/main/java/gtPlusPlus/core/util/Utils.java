@@ -485,17 +485,11 @@ public class Utils {
     }
 
     public static boolean doesEntryExistAlreadyInOreDictionary(final String OreDictName) {
-        if (OreDictionary.getOres(OreDictName).size() != 0) {
-            return true;
-        }
-        return false;
+        return OreDictionary.getOres(OreDictName).size() != 0;
     }
 
     public static boolean invertBoolean(final boolean booleans) {
-        if (booleans == true) {
-            return false;
-        }
-        return true;
+        return booleans != true;
     }
 
     public static File getMcDir() {

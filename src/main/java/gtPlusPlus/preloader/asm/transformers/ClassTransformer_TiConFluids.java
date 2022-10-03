@@ -37,11 +37,7 @@ public class ClassTransformer_TiConFluids {
         aTempWriter = new ClassWriter(aTempReader, ClassWriter.COMPUTE_FRAMES);
         aTempReader.accept(new localClassVisitir(aTempWriter, isObfuscated), 0);
 
-        if (aTempReader != null && aTempWriter != null) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
+        isValid = aTempReader != null && aTempWriter != null;
         reader = aTempReader;
         writer = aTempWriter;
 

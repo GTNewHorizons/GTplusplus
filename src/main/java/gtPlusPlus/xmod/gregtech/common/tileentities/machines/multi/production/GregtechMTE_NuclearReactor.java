@@ -523,11 +523,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
         if (aBaseMetaTileEntity.getWorld().isRemote) {
             if (aBaseMetaTileEntity.isActive()) {
                 // Set casings active if we're warmed up.
-                if (this.mEfficiency == this.getMaxEfficiency(null)) {
-                    this.turnCasingActive(true);
-                } else {
-                    this.turnCasingActive(false);
-                }
+                this.turnCasingActive(this.mEfficiency == this.getMaxEfficiency(null));
             } else {
                 this.turnCasingActive(false);
             }

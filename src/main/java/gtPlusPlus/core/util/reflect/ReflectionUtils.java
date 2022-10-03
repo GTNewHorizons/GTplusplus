@@ -226,10 +226,7 @@ public class ReflectionUtils {
     }
 
     public static boolean isStaticMethod(Method aMethod) {
-        if (aMethod != null && Modifier.isStatic(aMethod.getModifiers())) {
-            return true;
-        }
-        return false;
+        return aMethod != null && Modifier.isStatic(aMethod.getModifiers());
     }
 
     /**
@@ -1038,9 +1035,7 @@ public class ReflectionUtils {
 
     public static boolean doesFieldExist(Class<?> clazz, String string) {
         if (clazz != null) {
-            if (ReflectionUtils.getField(clazz, string) != null) {
-                return true;
-            }
+            return ReflectionUtils.getField(clazz, string) != null;
         }
         return false;
     }

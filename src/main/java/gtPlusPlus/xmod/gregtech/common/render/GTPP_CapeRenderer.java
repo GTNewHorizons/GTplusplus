@@ -318,10 +318,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             if (!doesCapeCacheExistLocally()) {
                 return true;
             }
-            if (isCapeCacheWeekOld()) {
-                return true;
-            }
-            return false;
+            return isCapeCacheWeekOld();
         }
 
         private static boolean isCapeCacheWeekOld() {
@@ -331,11 +328,8 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                 File dat = CapeUtils.getCapeCache();
                 Date dateLastMod = new Date(dat.lastModified());
                 Date dateNow = new Date(System.currentTimeMillis() - (7l * 24 * 60 * 60 * 1000));
-                if (dateLastMod.before(dateNow)) {
-                    return true;
-                }
+                return dateLastMod.before(dateNow);
             }
-            return false;
         }
 
         private static void downloadCapeList() {
@@ -358,10 +352,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             double aExistingFileSize =
                     (doesCapeCacheExistLocally() ? getCapeCache().length() : 0);
             double aNewFileSize = aFile.length();
-            if (aNewFileSize > aExistingFileSize) {
-                return true;
-            }
-            return false;
+            return aNewFileSize > aExistingFileSize;
         }
 
         private static void handleOldCapeCache() {
@@ -373,10 +364,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
         private static boolean doesCapeCacheExistLocally() {
             File aCacheFile = FileUtils.getFile("CapeCache", "dat");
-            if (FileUtils.doesFileExist(aCacheFile)) {
-                return true;
-            }
-            return false;
+            return FileUtils.doesFileExist(aCacheFile);
         }
 
         private static File getCapeCache() {

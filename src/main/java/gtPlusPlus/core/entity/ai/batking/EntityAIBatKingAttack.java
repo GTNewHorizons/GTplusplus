@@ -132,11 +132,7 @@ public class EntityAIBatKingAttack extends EntityAIBase {
 
     private final void determineCombatStyle() {
         boolean aisMeleeNow = this.mIsMelee;
-        if (this.mEntityTarget != null && EntityUtils.getDistance(getBatKing(), mEntityTarget) < 4) {
-            this.mIsMelee = true;
-        } else {
-            this.mIsMelee = false;
-        }
+        this.mIsMelee = this.mEntityTarget != null && EntityUtils.getDistance(getBatKing(), mEntityTarget) < 4;
         if (aisMeleeNow != this.mIsMelee) {
             Logger.INFO("Bat King changed combat style from " + (aisMeleeNow ? "Melee" : "Ranged") + " to "
                     + (this.mIsMelee ? "Melee" : "Ranged"));

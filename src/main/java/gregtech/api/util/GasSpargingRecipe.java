@@ -39,9 +39,7 @@ public class GasSpargingRecipe implements Comparable<GasSpargingRecipe> {
     public boolean equals(Object o) {
         if (o instanceof GasSpargingRecipe) {
             GasSpargingRecipe i = (GasSpargingRecipe) o;
-            if (this.mInputGas.equals(i.mInputGas) && this.mInputSpentFuel.equals(i.mInputSpentFuel)) {
-                return true;
-            }
+            return this.mInputGas.equals(i.mInputGas) && this.mInputSpentFuel.equals(i.mInputSpentFuel);
         }
         return false;
     }
@@ -60,25 +58,20 @@ public class GasSpargingRecipe implements Comparable<GasSpargingRecipe> {
     }
 
     public boolean isValid() {
-        if (mInputGas == null
-                || mInputGas.amount <= 0
-                || mInputSpentFuel == null
-                || mInputSpentFuel.amount <= 0
-                || mFluidOutputs == null
-                || mFluidOutputs.length < 1
-                || mMaxOutputQuantity == null
-                || mMaxOutputQuantity.length < 1
-                || mFluidOutputs.length != mMaxOutputQuantity.length) {
-            return false;
-        }
-        return true;
+        return mInputGas != null
+                && mInputGas.amount > 0
+                && mInputSpentFuel != null
+                && mInputSpentFuel.amount > 0
+                && mFluidOutputs != null
+                && mFluidOutputs.length >= 1
+                && mMaxOutputQuantity != null
+                && mMaxOutputQuantity.length >= 1
+                && mFluidOutputs.length == mMaxOutputQuantity.length;
     }
 
     public boolean containsInputs(FluidStack aSpargeGas, FluidStack aSpentFuel) {
         if (aSpargeGas != null && aSpargeGas.getFluid().equals(this.mInputGas.getFluid())) {
-            if (aSpentFuel != null && aSpentFuel.getFluid().equals(this.mInputSpentFuel.getFluid())) {
-                return true;
-            }
+            return aSpentFuel != null && aSpentFuel.getFluid().equals(this.mInputSpentFuel.getFluid());
         }
         return false;
     }

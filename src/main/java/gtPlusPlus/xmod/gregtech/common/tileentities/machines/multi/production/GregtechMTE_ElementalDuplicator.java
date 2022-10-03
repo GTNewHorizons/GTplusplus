@@ -758,9 +758,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
             Materials tMaterial2 = Element.get(Behaviour_DataOrb.getDataName(aOrb2))
                     .mLinkedMaterials
                     .get(0);
-            if (tMaterial1.equals(tMaterial2)) {
-                return true;
-            }
+            return tMaterial1.equals(tMaterial2);
         }
 
         return false;

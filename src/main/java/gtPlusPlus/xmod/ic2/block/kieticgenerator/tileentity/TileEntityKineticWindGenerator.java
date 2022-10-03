@@ -320,10 +320,7 @@ public class TileEntityKineticWindGenerator extends TileEntityWindKineticGenerat
 
     @Override
     public boolean guiisoverload() {
-        if (this.windStrength > this.getMaxWindStrength()) {
-            return true;
-        }
-        return false;
+        return this.windStrength > this.getMaxWindStrength();
     }
 
     @Override

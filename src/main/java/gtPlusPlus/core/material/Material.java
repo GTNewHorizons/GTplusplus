@@ -1319,11 +1319,8 @@ public class Material {
     }
 
     public final boolean hasSolidForm() {
-        if (ItemUtils.checkForInvalidItems(
-                new ItemStack[] {getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)})) {
-            return true;
-        }
-        return false;
+        return ItemUtils.checkForInvalidItems(
+                new ItemStack[]{getDust(1), getBlock(1), getTinyDust(1), getSmallDust(1)});
     }
 
     public final ItemStack[] getMaterialComposites() {
@@ -1743,9 +1740,7 @@ public class Material {
         }
         Material aObj = (Material) obj;
         if (aObj.unlocalizedName.equals(this.unlocalizedName)) {
-            if (aObj.localizedName.equals(this.localizedName)) {
-                return true;
-            }
+            return aObj.localizedName.equals(this.localizedName);
         }
         return false;
     }

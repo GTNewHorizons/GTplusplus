@@ -385,21 +385,13 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 mCurrentChunkPollution += getPollutionInChunk(r);
             }
         }
-        if (mCurrentChunkPollution > 0) {
-            mHasPollution = true;
-        } else {
-            mHasPollution = false;
-        }
+        mHasPollution = mCurrentChunkPollution > 0;
         return mCurrentChunkPollution;
     }
 
     public int getPollutionInChunk(Chunk aChunk) {
         int mCurrentChunkPollution = PollutionUtils.getPollution(aChunk);
-        if (mCurrentChunkPollution > 0) {
-            mHasPollution = true;
-        } else {
-            mHasPollution = false;
-        }
+        mHasPollution = mCurrentChunkPollution > 0;
         return mCurrentChunkPollution;
     }
 
@@ -659,10 +651,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (filter == null) {
             return false;
         }
-        if (filter.getItem() instanceof ItemAirFilter) {
-            return true;
-        }
-        return false;
+        return filter.getItem() instanceof ItemAirFilter;
     }
 
     public boolean damageAirFilter() {
@@ -734,11 +723,9 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 if (aStack.getItem() instanceof ItemBasicScrubberTurbine) {
                     return true;
                 }
-                if (aStack.getItem() instanceof GT_MetaGenerated_Tool
+                return aStack.getItem() instanceof GT_MetaGenerated_Tool
                         && aStack.getItemDamage() >= 170
-                        && aStack.getItemDamage() <= 179) {
-                    return true;
-                }
+                        && aStack.getItemDamage() <= 179;
             }
         }
         // return super.canInsertItem(aIndex, aStack, aSide);

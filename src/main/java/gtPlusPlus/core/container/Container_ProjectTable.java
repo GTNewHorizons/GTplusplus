@@ -216,10 +216,7 @@ public class Container_ProjectTable extends Container {
 
     public ItemStack getOutputContent() {
         ItemStack output = this.craftResult.getStackInSlot(0);
-        if (output != null) {
-            return output;
-        }
-        return null;
+        return output;
     }
 
     public ItemStack[] getInputComponents() {

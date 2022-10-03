@@ -52,10 +52,7 @@ public class VolumetricFlaskHelper {
     }
 
     public static boolean isVolumetricFlask(ItemStack aStack) {
-        if (isNormalVolumetricFlask(aStack) || isLargeVolumetricFlask(aStack) || isGiganticVolumetricFlask(aStack)) {
-            return true;
-        }
-        return false;
+        return isNormalVolumetricFlask(aStack) || isLargeVolumetricFlask(aStack) || isGiganticVolumetricFlask(aStack);
     }
 
     public static boolean isNormalVolumetricFlask(ItemStack aStack) {
@@ -65,24 +62,15 @@ public class VolumetricFlaskHelper {
                 mFlask = aFlask.getItem();
             }
         }
-        if (aStack.getItem() == mFlask) {
-            return true;
-        }
-        return false;
+        return aStack.getItem() == mFlask;
     }
 
     public static boolean isLargeVolumetricFlask(ItemStack aStack) {
-        if (GregtechItemList.VOLUMETRIC_FLASK_8k.getItem() == aStack.getItem()) {
-            return true;
-        }
-        return false;
+        return GregtechItemList.VOLUMETRIC_FLASK_8k.getItem() == aStack.getItem();
     }
 
     public static boolean isGiganticVolumetricFlask(ItemStack aStack) {
-        if (GregtechItemList.VOLUMETRIC_FLASK_32k.getItem() == aStack.getItem()) {
-            return true;
-        }
-        return false;
+        return GregtechItemList.VOLUMETRIC_FLASK_32k.getItem() == aStack.getItem();
     }
 
     public static int getMaxFlaskCapacity(ItemStack aStack) {

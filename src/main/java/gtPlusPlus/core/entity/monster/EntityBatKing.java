@@ -264,10 +264,7 @@ public class EntityBatKing extends EntityMob implements IRangedAttackMob {
     }
 
     private boolean isFlying() {
-        if (this.onGround) {
-            return false;
-        }
-        return true;
+        return !this.onGround;
     }
 
     private boolean hasAir() {

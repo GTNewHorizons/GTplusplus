@@ -147,9 +147,7 @@ public class GT_Container_CropHarvestor extends GT_ContainerMetaTile_Machine {
 
         private static boolean isWeedEx(ItemStack aStack) {
             if (aStack != null && aStack.getItem() instanceof ItemIC2) {
-                if (aStack.getItem().getUnlocalizedName().equals("ic2.itemWeedEx")) {
-                    return true;
-                }
+                return aStack.getItem().getUnlocalizedName().equals("ic2.itemWeedEx");
             }
             return false;
         }
@@ -164,9 +162,7 @@ public class GT_Container_CropHarvestor extends GT_ContainerMetaTile_Machine {
         @Override
         public synchronized boolean isItemValid(final ItemStack aStack) {
             if (aStack != null && aStack.getItem() instanceof ItemIC2) {
-                if (aStack.getItem().getUnlocalizedName().equals("ic2.itemFertilizer")) {
-                    return true;
-                }
+                return aStack.getItem().getUnlocalizedName().equals("ic2.itemFertilizer");
             }
             return false;
         }

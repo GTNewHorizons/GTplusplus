@@ -32,9 +32,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
             return false;
         }
         if (a.getItem() == b.getItem()) {
-            if (a.getItemDamage() == b.getItemDamage()) {
-                return true;
-            }
+            return a.getItemDamage() == b.getItemDamage();
         }
         return false;
     }
@@ -49,9 +47,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
         if (mEmptyCell != null) {
             ItemStack aTempStack = mEmptyCell.copy();
             aTempStack.stackSize = aCell.stackSize;
-            if (GT_Utility.areStacksEqual(aTempStack, aCell)) {
-                return true;
-            }
+            return GT_Utility.areStacksEqual(aTempStack, aCell);
         }
         return false;
     }
@@ -61,10 +57,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
             return null;
         }
         FluidStack aFluid = GT_Utility.getFluidForFilledItem(ingot, true);
-        if (aFluid != null) {
-            return aFluid;
-        }
-        return null;
+        return aFluid;
     }
 
     public static synchronized int generateRecipesNotUsingCells(

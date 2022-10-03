@@ -276,11 +276,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         boolean[] aActiveSides = new boolean[4];
         for (int i = 0; i < 4; i++) {
             char ch = s.charAt(i);
-            if (ch == '1') {
-                aActiveSides[i] = true;
-            } else {
-                aActiveSides[i] = false;
-            }
+            aActiveSides[i] = ch == '1';
         }
         return aActiveSides;
     }
@@ -334,11 +330,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
                 String s = String.valueOf(aData);
                 int aIndex = aSide - 2;
                 char ch = s.charAt(aIndex);
-                if (ch == '1') {
-                    return true;
-                } else {
-                    return false;
-                }
+                return ch == '1';
             }
         } catch (Throwable t) {
             t.printStackTrace();

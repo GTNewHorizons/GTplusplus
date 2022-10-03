@@ -242,10 +242,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
 
     @Override
     public boolean canConnectEnergy(ForgeDirection from) {
-        if (isOutputFacing((byte) from.ordinal())) {
-            return false;
-        }
-        return true;
+        return !isOutputFacing((byte) from.ordinal());
     }
 
     @Override

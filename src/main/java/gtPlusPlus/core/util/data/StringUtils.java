@@ -74,10 +74,7 @@ public class StringUtils {
             return true;
         } else if (s.contains(StringUtils.subscript("8"))) {
             return true;
-        } else if (s.contains(StringUtils.subscript("9"))) {
-            return true;
-        }
-        return false;
+        } else return s.contains(StringUtils.subscript("9"));
     }
 
     // Can call this Enum for formatting.
@@ -140,7 +137,7 @@ public class StringUtils {
      * @return - Is this a special character?
      */
     public static boolean isSpecialCharacter(char aChar) {
-        if (aChar == '"'
+        return aChar == '"'
                 || aChar == '.'
                 || aChar == '$'
                 || aChar == '|'
@@ -154,10 +151,7 @@ public class StringUtils {
                 || aChar == '?'
                 || aChar == '*'
                 || aChar == '+'
-                || aChar == '\\') {
-            return true;
-        }
-        return false;
+                || aChar == '\\';
     }
 
     public static boolean isEscaped(String aString) {

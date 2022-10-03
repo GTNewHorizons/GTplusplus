@@ -107,10 +107,7 @@ public class GenerateDictionaries {
         }
 
         public static boolean doesFileExist(File f) {
-            if (f != null && f.exists() && !f.isDirectory()) {
-                return true;
-            }
-            return false;
+            return f != null && f.exists() && !f.isDirectory();
         }
 
         public static File createFile(File aFile) {

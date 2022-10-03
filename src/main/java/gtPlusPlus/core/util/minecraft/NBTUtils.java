@@ -238,11 +238,7 @@ public class NBTUtils {
         NBTTagCompound tNBT = getNBT(aStack);
         tNBT.setString(TAG_SOULBIND, aName);
         GT_Utility.ItemNBT.setNBT(aStack, tNBT);
-        if (NBTUtils.doesStringExist(aStack, TAG_SOULBIND)) {
-            return true;
-        } else {
-            return false;
-        }
+        return NBTUtils.doesStringExist(aStack, TAG_SOULBIND);
     }
 
     public static String getBotanicaSoulboundOwner(ItemStack aStack) {
@@ -253,10 +249,7 @@ public class NBTUtils {
 
     public static boolean hasKey(ItemStack stack, String key) {
         final NBTTagCompound itemData = getNBT(stack);
-        if (itemData.hasKey(key)) {
-            return true;
-        }
-        return false;
+        return itemData.hasKey(key);
     }
 
     public static boolean createIntegerTagCompound(ItemStack rStack, String tagName, String keyName, int keyValue) {
@@ -391,9 +384,7 @@ public class NBTUtils {
         NBTTagCompound aNBT = getNBT(aStack);
         if (aNBT != null && hasKey(aStack, tagName)) {
             aNBT = aNBT.getCompoundTag(tagName);
-            if (aNBT != null) {
-                return aNBT;
-            }
+            return aNBT;
         }
         return null;
     }
@@ -402,9 +393,7 @@ public class NBTUtils {
         NBTTagCompound aNBT = stack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag(tag);
-            if (aNBT.hasKey(key)) {
-                return true;
-            }
+            return aNBT.hasKey(key);
         }
         return false;
     }

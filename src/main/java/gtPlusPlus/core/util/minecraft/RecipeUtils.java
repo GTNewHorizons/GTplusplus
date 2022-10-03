@@ -527,10 +527,7 @@ public class RecipeUtils {
             return false;
         }
         // let gregtech handle shapeless recipes.
-        if (GT_ModHandler.addShapelessCraftingRecipe(OutputItem, inputItems)) {
-            return true;
-        }
-        return false;
+        return GT_ModHandler.addShapelessCraftingRecipe(OutputItem, inputItems);
     }
 
     public static ItemStack getItemStackFromOreDict(final String oredictName) {
@@ -556,16 +553,8 @@ public class RecipeUtils {
         final int tOutputAmount = GT_ModHandler.getCapsuleCellContainerCountMultipliedWithStackSize(x.mOutputs);
 
         if (tInputAmount < tOutputAmount) {
-            if (!Materials.Tin.contains(x.mInputs)) {
-                return false;
-            } else {
-                return true;
-            }
-        } else if (tInputAmount > tOutputAmount && !Materials.Tin.contains(x.mOutputs)) {
-            return false;
-        } else {
-            return true;
-        }
+            return Materials.Tin.contains(x.mInputs);
+        } else return tInputAmount <= tOutputAmount || Materials.Tin.contains(x.mOutputs);
     }
 
     public static String[] getRecipeInfo(GT_Recipe m) {
@@ -634,11 +623,7 @@ public class RecipeUtils {
 
             Logger.RECIPE("Using " + validCounter + " valid inputs and " + invalidCounter + " invalid inputs.");
             ShapedRecipe r = new ShapedRecipe(aFiltered, mOutput);
-            if (r != null && r.mRecipe != null) {
-                isValid = true;
-            } else {
-                isValid = false;
-            }
+            isValid = r != null && r.mRecipe != null;
             mRecipe = r != null ? r.mRecipe : null;
         }
 
@@ -852,11 +837,7 @@ public class RecipeUtils {
         public InternalRecipeObject2(ShapedOreRecipe aRecipe) {
             mRecipe = aRecipe;
             mOutput = aRecipe.getRecipeOutput();
-            if (mOutput != null) {
-                this.isValid = true;
-            } else {
-                this.isValid = false;
-            }
+            this.isValid = mOutput != null;
         }
 
         @Override

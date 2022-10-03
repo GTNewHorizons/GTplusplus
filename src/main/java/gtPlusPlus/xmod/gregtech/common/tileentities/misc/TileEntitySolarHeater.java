@@ -298,15 +298,12 @@ public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock 
     }
 
     public boolean canSeeSky() {
-        if (this.getBaseMetaTileEntity()
+        return this.getBaseMetaTileEntity()
                 .getWorld()
                 .canBlockSeeTheSky(
                         this.getBaseMetaTileEntity().getXCoord(),
                         this.getBaseMetaTileEntity().getYCoord() + 1,
-                        this.getBaseMetaTileEntity().getZCoord())) {
-            return true;
-        }
-        return false;
+                        this.getBaseMetaTileEntity().getZCoord());
     }
 
     public boolean setSolarTower(GregtechMetaTileEntity_SolarTower aTowerTile) {

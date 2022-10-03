@@ -51,15 +51,12 @@ public class RecipeGen_BlastSmelterGT_GTNH {
             final ItemStack[] outputs,
             final FluidStack[] fluidIn,
             final FluidStack fluidOut) {
-        if (inputs != null
+        return inputs != null
                 && outputs != null
                 && fluidIn != null
                 && fluidOut != null
                 && inputs.length > 0
-                && outputs.length > 0) {
-            return true;
-        }
-        return false;
+                && outputs.length > 0;
     }
 
     public static synchronized boolean generateGTNHBlastSmelterRecipesFromEBFList() {

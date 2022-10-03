@@ -116,11 +116,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
             }
         } catch (final Throwable ignored) {
         }
-        if (mDidTool) {
-            return true;
-        }
-
-        return false;
+        return mDidTool;
     }
 
     @Override
@@ -354,9 +350,7 @@ public abstract class BlockGenericRedstone extends BlockContainer {
         if (aTemp != null) {
             if (aTemp instanceof TileEntityRedstoneHandler) {
                 TileEntityRedstoneHandler g = (TileEntityRedstoneHandler) aTemp;
-                if (g != null) {
-                    return g;
-                }
+                return g;
             }
         }
         return null;

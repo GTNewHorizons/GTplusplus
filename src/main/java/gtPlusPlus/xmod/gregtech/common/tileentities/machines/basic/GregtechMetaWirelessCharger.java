@@ -485,11 +485,7 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
     private boolean isValidPlayer(EntityPlayer aPlayer) {
         BaseMetaTileEntity aTile = (BaseMetaTileEntity) this.getBaseMetaTileEntity();
         if (mLocked || (aTile != null && aTile.privateAccess())) {
-            if (aPlayer.getUniqueID().equals(getBaseMetaTileEntity().getOwnerUuid())) {
-                return true;
-            } else {
-                return false;
-            }
+            return aPlayer.getUniqueID().equals(getBaseMetaTileEntity().getOwnerUuid());
         }
         return true;
     }

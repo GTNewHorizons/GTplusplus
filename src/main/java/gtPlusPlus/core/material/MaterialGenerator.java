@@ -91,10 +91,7 @@ public class MaterialGenerator {
         0, 0, 0);*/
         // new RecipeGen_FluidCanning(r, false);
         RecipeGen_FluidCanning g = new RecipeGen_FluidCanning(false, aEmpty, aFullContainer, aFluidIn, null, null, 0);
-        if (g != null && g.valid()) {
-            return true;
-        }
-        return false;
+        return g != null && g.valid();
     }
 
     public static void generate(final Material matInfo) {

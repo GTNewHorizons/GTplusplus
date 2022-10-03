@@ -165,11 +165,7 @@ public class ChargingHelper {
             return false;
         }
         if (!mChargerMap.containsKey(mPos)) {
-            if (mChargerMap.put(mPos, mEntity) == null) {
-                return true;
-            } else {
-                return false;
-            }
+            return mChargerMap.put(mPos, mEntity) == null;
         } else {
             return true;
         }
@@ -180,11 +176,7 @@ public class ChargingHelper {
             return false;
         }
         if (mChargerMap.containsKey(mPos)) {
-            if (mChargerMap.remove(mPos, mEntity)) {
-                return true;
-            } else {
-                return false;
-            }
+            return mChargerMap.remove(mPos, mEntity);
         } else {
             return false;
         }
@@ -434,10 +426,7 @@ public class ChargingHelper {
         if (GT_ModHandler.isElectricItem(itemstack)) {
             return true;
         }
-        if ((accepts(itemstack)) || (itemstack.getItem() instanceof IElectricItem)) {
-            return true;
-        }
-        return false;
+        return (accepts(itemstack)) || (itemstack.getItem() instanceof IElectricItem);
     }
 
     public static boolean isItemValidRF(final ItemStack itemStack) {

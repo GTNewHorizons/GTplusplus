@@ -202,10 +202,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
 
     @Override
     public boolean canCommandSenderUseCommand(final ICommandSender var1) {
-        if (var1 == null || CommandUtils.getPlayer(var1) == null) {
-            return false;
-        }
-        return true;
+        return var1 != null && CommandUtils.getPlayer(var1) != null;
     }
 
     @Override

@@ -267,20 +267,12 @@ public class GuiBaseGrindle extends GuiContainer {
     private void updateButtons() {
         if (this.mCurrentPage >= 0) {
             if (this.mPageDataArray != null) {
-                if (this.mCurrentPage < (this.mPageDataArray.length - 1)) {
-                    this.mButtonNextPage.visible = true;
-                } else {
-                    this.mButtonNextPage.visible = false;
-                }
+                this.mButtonNextPage.visible = this.mCurrentPage < (this.mPageDataArray.length - 1);
             } else {
                 this.mButtonNextPage.visible = false;
             }
         }
-        if (this.mCurrentPage > 0) {
-            this.mButtonPreviousPage.visible = true;
-        } else {
-            this.mButtonPreviousPage.visible = false;
-        }
+        this.mButtonPreviousPage.visible = this.mCurrentPage > 0;
     }
 
     /**

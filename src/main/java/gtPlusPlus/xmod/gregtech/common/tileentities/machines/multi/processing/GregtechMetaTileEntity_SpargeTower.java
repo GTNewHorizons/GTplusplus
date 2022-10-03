@@ -188,10 +188,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     0);
             GTPP_Recipe_Map.sSpargeTowerRecipes.add(newRecipe);
         }
-        if (GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
-            return false;
-        }
-        return true;
+        return !GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty();
     }
 
     @Override

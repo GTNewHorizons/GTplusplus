@@ -136,10 +136,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
     @Override
     public boolean isAccessAllowed(EntityPlayer aPlayer) {
         ItemStack tStack = aPlayer.getCurrentEquippedItem();
-        if (tStack != null && ItemList.Tool_DataOrb.isStackEqual(tStack)) {
-            return false;
-        }
-        return true;
+        return tStack == null || !ItemList.Tool_DataOrb.isStackEqual(tStack);
     }
 
     public final GT_Computercube_Simulator getSimulator() {

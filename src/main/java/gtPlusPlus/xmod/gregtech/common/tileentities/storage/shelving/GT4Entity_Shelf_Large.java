@@ -234,10 +234,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
             if (ItemStack.areItemStacksEqual(aStack, mItemStack)) {
                 return true;
             } else {
-                if (mItemStack == null) {
-                    return true;
-                }
-                return false;
+                return mItemStack == null;
             }
         }
         return super.isItemValidForSlot(aIndex, aStack);
@@ -250,10 +247,7 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
             if (ItemStack.areItemStacksEqual(aStack, mItemStack)) {
                 return true;
             } else {
-                if (mItemStack == null) {
-                    return true;
-                }
-                return false;
+                return mItemStack == null;
             }
         }
         return super.canInsertItem(aIndex, aStack, aSide);

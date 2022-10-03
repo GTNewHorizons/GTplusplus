@@ -384,12 +384,8 @@ public class GregtechMetaTileEntity_LargeRocketEngine
     }
 
     public boolean consumeCO2() {
-        if (this.depleteInput(MISC_MATERIALS.CARBON_DIOXIDE.getFluidStack(this.boostEu ? 3 : 1))
-                || this.depleteInput(FluidUtils.getFluidStack("carbondioxide", (this.boostEu ? 3 : 1)))) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.depleteInput(MISC_MATERIALS.CARBON_DIOXIDE.getFluidStack(this.boostEu ? 3 : 1))
+                || this.depleteInput(FluidUtils.getFluidStack("carbondioxide", (this.boostEu ? 3 : 1)));
     }
 
     public boolean consumeLOH() {

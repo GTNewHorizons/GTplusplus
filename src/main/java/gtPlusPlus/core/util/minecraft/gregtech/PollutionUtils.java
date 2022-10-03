@@ -162,10 +162,7 @@ public class PollutionUtils {
                     PollutionUtils.mPollutionFluidStacks.put(SD);
                 }
             }
-            if (PollutionUtils.mPollutionFluidStacks.size() > 0) {
-                return true;
-            }
-            return false;
+            return PollutionUtils.mPollutionFluidStacks.size() > 0;
         } else {
             if (mPollutionFluidStacks.size() != 3) {
                 Logger.INFO("Unable to detect all 3 pollution fluids. Found: ");

@@ -161,15 +161,12 @@ public class TowerDevice extends Block {
     }
 
     private boolean isReactorReady(final World world, final int x, final int y, final int z) {
-        if ((world.getBlock(x, y + 1, z) != Blocks.redstone_block)
-                || (world.getBlock(x, y - 1, z) != Blocks.redstone_block)
-                || (world.getBlock(x + 1, y, z) != Blocks.redstone_block)
-                || (world.getBlock(x - 1, y, z) != Blocks.redstone_block)
-                || (world.getBlock(x, y, z + 1) != Blocks.redstone_block)
-                || (world.getBlock(x, y, z - 1) != Blocks.redstone_block)) {
-            return false;
-        }
-        return true;
+        return (world.getBlock(x, y + 1, z) == Blocks.redstone_block)
+                && (world.getBlock(x, y - 1, z) == Blocks.redstone_block)
+                && (world.getBlock(x + 1, y, z) == Blocks.redstone_block)
+                && (world.getBlock(x - 1, y, z) == Blocks.redstone_block)
+                && (world.getBlock(x, y, z + 1) == Blocks.redstone_block)
+                && (world.getBlock(x, y, z - 1) == Blocks.redstone_block);
     }
 
     @Override

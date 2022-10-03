@@ -448,10 +448,7 @@ public class GTplusplus implements ActionListener {
         Material.invalidMaterials.put(Materials.Soularium);
         Material.invalidMaterials.put(Materials.PhasedIron);
 
-        if (Material.invalidMaterials.size() > 0) {
-            return true;
-        }
-        return false;
+        return Material.invalidMaterials.size() > 0;
     }
 
     @SuppressWarnings("unused")
