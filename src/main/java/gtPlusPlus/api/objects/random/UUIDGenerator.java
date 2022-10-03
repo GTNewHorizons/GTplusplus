@@ -2,6 +2,7 @@ package gtPlusPlus.api.objects.random;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.UUID;
 
@@ -191,7 +192,7 @@ public class UUIDGenerator {
     public String nextString(int type) {
         byte[] bytes = next(type);
         try {
-            return new String(bytes, "ISO-8859-1");
+            return new String(bytes, StandardCharsets.ISO_8859_1);
         } catch (Exception e) {
             return new String(bytes);
         }

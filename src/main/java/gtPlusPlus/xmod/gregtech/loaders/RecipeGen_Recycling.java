@@ -119,7 +119,7 @@ public class RecipeGen_Recycling implements Runnable {
                     validCounter++;
                 }
             }
-            Pair<OrePrefixes, ItemStack> temp3[] = new Pair[validCounter];
+            Pair<OrePrefixes, ItemStack>[] temp3 = new Pair[validCounter];
             int temp4 = 0;
             for (Pair<OrePrefixes, ItemStack> r : mValidPairs) {
                 if (r != null) {

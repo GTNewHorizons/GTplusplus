@@ -133,7 +133,7 @@ public class ItemGiantEgg extends BaseItemTickable {
             float mSizeMod = (MathUtils.randInt(-5, 5) / 5);
             mSize += mSizeMod;
             mSize = Math.max(mSize, 1);
-            ItemStack eggYolks[] = new ItemStack[mSize];
+            ItemStack[] eggYolks = new ItemStack[mSize];
             for (int u = 0; u < mSize; u++) {
                 eggYolks[u] = ItemUtils.getSimpleStack(aStemCells, MathUtils.randInt(1, 4));
             }
