@@ -97,12 +97,7 @@ public class GregtechItemData {
             }
         }
 
-        rList.sort(new Comparator<GregtechMaterialStack>() {
-            @Override
-            public int compare(final GregtechMaterialStack a, final GregtechMaterialStack b) {
-                return Long.compare(b.mAmount, a.mAmount);
-            }
-        });
+        rList.sort((a, b) -> Long.compare(b.mAmount, a.mAmount));
 
         if (rList.isEmpty()) {
             this.mMaterial = null;
