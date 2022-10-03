@@ -459,12 +459,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         } else {
             int apply = 200 - aCrop.getHydrationStorage();
             if (this.getFluidAmount() >= 0) {
-                int drain = 0;
-                if (this.getFluidAmount() >= apply) {
-                    drain = apply;
-                } else {
-                    drain = this.getFluidAmount();
-                }
+                int drain = Math.min(this.getFluidAmount(), apply);
                 this.mFluid.amount -= drain;
                 if (this.mFluid.amount <= 0) {
                     this.mFluid = null;

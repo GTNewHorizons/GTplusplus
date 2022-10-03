@@ -250,11 +250,8 @@ public class EntityAIBatKingAttack extends EntityAIBase {
                 }
 
                 f = MathHelper.sqrt_double(d0) / this.field_96562_i;
-                float f1 = f;
 
-                if (f < 0.1F) {
-                    f1 = 0.1F;
-                }
+                float f1 = Math.max(f, 0.1F);
 
                 if (f1 > 1.0F) {
                     f1 = 1.0F;

@@ -38,7 +38,7 @@ public class FakeWorld implements IBlockAccess {
         }
         aWorldSize = aSize;
         aDistanceFromOrigin = ((aWorldSize - 1) / 2);
-        aWorldHeight = aDistanceFromOrigin >= 255 ? 255 : aDistanceFromOrigin;
+        aWorldHeight = Math.min(aDistanceFromOrigin, 255);
         Logger.WARNING("Created a Fake World with data:");
         Logger.WARNING("World Size: " + aWorldSize);
         Logger.WARNING("Distance from Origin in each dir: " + aDistanceFromOrigin);

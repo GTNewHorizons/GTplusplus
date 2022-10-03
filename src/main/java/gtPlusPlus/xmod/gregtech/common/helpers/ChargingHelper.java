@@ -253,7 +253,7 @@ public class ChargingHelper {
         }
         long mInitialValue = mEntity.getEUVar();
         long mReturnValue = chargeItemsEx(mEntity, mItems, mPlayer);
-        return ((mReturnValue < mInitialValue) ? mReturnValue : mInitialValue);
+        return (Math.min(mReturnValue, mInitialValue));
     }
 
     public long chargeItemsEx(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems, EntityPlayer mPlayer) {

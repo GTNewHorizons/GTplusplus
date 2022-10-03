@@ -218,7 +218,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
                 break;
             }
             final int needPipes = maxPipes - pipes.stackSize;
-            final int transferPipes = (storedItem.stackSize < needPipes) ? storedItem.stackSize : needPipes;
+            final int transferPipes = Math.min(storedItem.stackSize, needPipes);
             final ItemStack itemStack = pipes;
             itemStack.stackSize += transferPipes;
             final ItemStack itemStack2 = storedItem;

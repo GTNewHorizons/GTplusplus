@@ -35,9 +35,7 @@ public class GUI_IronBlastFurnace extends GT_GUIContainerMetaTile_Machine {
                                     20,
                                     1
                                             + ((this.mContainer.mProgressTime * 20)
-                                                    / (this.mContainer.mMaxProgressTime < 1
-                                                            ? 1
-                                                            : this.mContainer.mMaxProgressTime)))),
+                                                    / (Math.max(this.mContainer.mMaxProgressTime, 1))))),
                     11);
         }
     }

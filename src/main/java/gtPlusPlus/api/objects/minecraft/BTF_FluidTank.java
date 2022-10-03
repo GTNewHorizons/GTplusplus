@@ -136,10 +136,7 @@ public class BTF_FluidTank extends FluidTank {
                 this.setDrainableStack((FluidStack) null);
                 return null;
             } else {
-                int used = maxDrain;
-                if (this.getDrainableStack().amount < maxDrain) {
-                    used = this.getDrainableStack().amount;
-                }
+                int used = Math.min(this.getDrainableStack().amount, maxDrain);
 
                 if (doDrain) {
                     FluidStack arg9999 = this.getDrainableStack();

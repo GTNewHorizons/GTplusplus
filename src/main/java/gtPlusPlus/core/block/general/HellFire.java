@@ -566,7 +566,7 @@ public class HellFire extends BlockFire {
             final int oldChance,
             final ForgeDirection face) {
         final int newChance = world.getBlock(x, y, z).getFireSpreadSpeed(world, x, y, z, face);
-        return (newChance > oldChance ? newChance : oldChance);
+        return (Math.max(newChance, oldChance));
     }
     /*
      * ================================= Forge Start

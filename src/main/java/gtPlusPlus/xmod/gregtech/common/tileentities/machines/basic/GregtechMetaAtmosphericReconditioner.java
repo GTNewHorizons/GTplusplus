@@ -295,13 +295,9 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
 
                                         Logger.INFO("mCurrentPollution[4]:" + mCurrentPollution);
                                         Logger.INFO("mCurrentPollution[5]:" + reduction);
-                                        if (reduction <= mCurrentPollution) {
-                                            // Clean some Air.
-                                            toRemove = reduction;
-                                        } else {
-                                            // Makes sure we don't get negative pollution.
-                                            toRemove = mCurrentPollution;
-                                        }
+                                        // Clean some Air.
+                                        // Makes sure we don't get negative pollution.
+                                        toRemove = Math.min(reduction, mCurrentPollution);
 
                                         toRemove = toRemove / 2;
                                         Logger.INFO("mCurrentPollution[6]:" + toRemove);
