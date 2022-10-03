@@ -519,9 +519,8 @@ public class TinkersUtils {
         Object ft;
         try {
             ft = mMethod_getFluidType.invoke(null, aMaterial.getLocalizedName());
-            Iterator<CastingRecipeHandler> iterator2 = newRecipies.iterator();
-            while (iterator2.hasNext()) {
-                CastingRecipeHandler recipe = new CastingRecipeHandler(iterator2.next());
+            for (CastingRecipeHandler newRecipy : newRecipies) {
+                CastingRecipeHandler recipe = new CastingRecipeHandler(newRecipy);
                 if (!recipe.valid) {
                     continue;
                 }

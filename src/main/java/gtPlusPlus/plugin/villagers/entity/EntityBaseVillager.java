@@ -471,10 +471,9 @@ public class EntityBaseVillager extends EntityVillager {
         if (!this.isTrading()) {
             if (this.getNeedsInitilization()) {
                 if (this.getBuyingList().size() > 1) {
-                    Iterator<MerchantRecipe> iterator = this.getBuyingList().iterator();
 
-                    while (iterator.hasNext()) {
-                        MerchantRecipe merchantrecipe = (MerchantRecipe) iterator.next();
+                    for (MerchantRecipe merchantRecipe : (Iterable<MerchantRecipe>) this.getBuyingList()) {
+                        MerchantRecipe merchantrecipe = (MerchantRecipe) merchantRecipe;
 
                         if (merchantrecipe.isRecipeDisabled()) {
                             merchantrecipe.func_82783_a(this.rand.nextInt(6) + this.rand.nextInt(6) + 2);

@@ -142,11 +142,10 @@ public class MapGenExtendedVillage extends MapGenStructure {
 
             this.updateBoundingBox();
             l = 0;
-            Iterator iterator = this.components.iterator();
 
-            while (iterator.hasNext()) {
+            for (Object component : this.components) {
                 Logger.INFO("Iterating Components.");
-                StructureComponent structurecomponent1 = (StructureComponent) iterator.next();
+                StructureComponent structurecomponent1 = (StructureComponent) component;
 
                 if (!(structurecomponent1 instanceof StructureVillagePieces.Road)) {
                     ++l;
@@ -186,16 +185,15 @@ public class MapGenExtendedVillage extends MapGenStructure {
         int k = (p_75051_3_ << 4) + 8;
         int l = (p_75051_4_ << 4) + 8;
         boolean flag = false;
-        Iterator iterator = this.structureMap.values().iterator();
 
         // Logger.INFO("Iteration Size: "+this.structureMap.values().size());
-        while (iterator.hasNext()) {
+        for (Object o : this.structureMap.values()) {
             // Logger.INFO("Iterating.");
-            StructureStart structurestart = (StructureStart) iterator.next();
+            StructureStart structurestart = (StructureStart) o;
 
             if (structurestart.isSizeableStructure()
                     && (structurestart.getBoundingBox().intersectsWith(k, l, k + 15, l + 15)
-                            || structurestart.getBoundingBox().intersectsWith(k, l, k - 15, l - 15))) {
+                    || structurestart.getBoundingBox().intersectsWith(k, l, k - 15, l - 15))) {
                 Logger.INFO("Iterating. 2");
                 structurestart.generateStructure(
                         p_75051_1_, p_75051_2_, new StructureBoundingBox(k, l, k + 15, l + 15));

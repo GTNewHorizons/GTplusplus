@@ -63,9 +63,8 @@ public class CONTAINER_MatterFab extends GT_ContainerMetaTile_Machine {
         mScrapProduced = aTile.mScrapProduced;
         mScrapUsed = aTile.mScrapUsed;
 
-        Iterator var2 = this.crafters.iterator();
-        while (var2.hasNext()) {
-            ICrafting var1 = (ICrafting) var2.next();
+        for (Object crafter : this.crafters) {
+            ICrafting var1 = (ICrafting) crafter;
             var1.sendProgressBarUpdate(this, 201, mAmplifierProduced);
             var1.sendProgressBarUpdate(this, 202, mAmplifierUsed);
             var1.sendProgressBarUpdate(this, 203, mMatterProduced);

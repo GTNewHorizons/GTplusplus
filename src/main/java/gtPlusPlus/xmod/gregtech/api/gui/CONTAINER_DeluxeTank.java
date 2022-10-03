@@ -42,9 +42,8 @@ public class CONTAINER_DeluxeTank extends GT_Container_BasicTank {
         } else {
             this.mContent = 0;
         }
-        final Iterator var2 = this.crafters.iterator();
-        while (var2.hasNext()) {
-            final ICrafting var1 = (ICrafting) var2.next();
+        for (Object crafter : this.crafters) {
+            final ICrafting var1 = (ICrafting) crafter;
             var1.sendProgressBarUpdate(this, 100, this.mContent & 65535);
             var1.sendProgressBarUpdate(this, 101, this.mContent >>> 16);
         }

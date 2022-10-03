@@ -522,9 +522,7 @@ public class TreeFarmHelper {
             Logger.INFO("Queuing " + mFinalTree.size() + " to Harvest Manager.");
             TreeCutter harvestManager = new TreeCutter(world);
 
-            Iterator<BlockPos> ith = mFinalTree.iterator();
-            while (ith.hasNext()) {
-                BlockPos G = ith.next();
+            for (BlockPos G : mFinalTree) {
                 harvestManager.queue(G);
                 mCount++;
                 Logger.INFO("Queued: " + G.getLocationString());
@@ -552,16 +550,14 @@ public class TreeFarmHelper {
         Set<BlockPos> mStartSearch = searchSixFaces(W, P, mCheckedSpaces, false);
         Set<BlockPos> mSecondSearch = new HashSet<BlockPos>();
         Set<BlockPos> mThirdSearch = new HashSet<BlockPos>();
-        Iterator<BlockPos> it = mStartSearch.iterator();
-        while (it.hasNext()) {
+        for (BlockPos startSearch : mStartSearch) {
             Logger.INFO("Running first iteration. [II]");
-            BlockPos G = it.next();
+            BlockPos G = startSearch;
             mCheckedSpaces.add(G);
             Set<BlockPos> mBranchSearch = searchSixFaces(W, G, mCheckedSpaces, true);
-            Iterator<BlockPos> it2 = mBranchSearch.iterator();
-            while (it2.hasNext()) {
+            for (BlockPos branchSearch : mBranchSearch) {
                 Logger.INFO("Running second iteration. [II]");
-                BlockPos G2 = it2.next();
+                BlockPos G2 = branchSearch;
                 mCheckedSpaces.add(G2);
                 mSecondSearch.add(G2);
                 mCount++;
@@ -574,14 +570,10 @@ public class TreeFarmHelper {
             }
         }
         mCount = 0;
-        Iterator<BlockPos> itx = mSecondSearch.iterator();
-        while (itx.hasNext()) {
-            BlockPos G = itx.next();
+        for (BlockPos G : mSecondSearch) {
             mCheckedSpaces.add(G);
             Set<BlockPos> mBranchSearch = searchSixFaces(W, G, mCheckedSpaces, true);
-            Iterator<BlockPos> it2 = mBranchSearch.iterator();
-            while (it2.hasNext()) {
-                BlockPos G2 = it2.next();
+            for (BlockPos G2 : mBranchSearch) {
                 mCheckedSpaces.add(G2);
                 mThirdSearch.add(G2);
                 mCount++;

@@ -31,10 +31,8 @@ public class TesseractHelper {
             // Utils.LOG_WARNING("Success. [isGeneratorOwnedByPlayer] 2");
             Map<Integer, GT_MetaTileEntity_TesseractGenerator> generators = getGeneratorOwnershipByPlayer(player);
             Set<Entry<Integer, GT_MetaTileEntity_TesseractGenerator>> players = generators.entrySet();
-            Iterator<Entry<Integer, GT_MetaTileEntity_TesseractGenerator>> i = players.iterator();
-            while (i.hasNext()) {
+            for (Entry<Integer, GT_MetaTileEntity_TesseractGenerator> current : players) {
                 // Utils.LOG_WARNING("Success. [isGeneratorOwnedByPlayer] 3");
-                Entry<Integer, GT_MetaTileEntity_TesseractGenerator> current = i.next();
                 if (current.getValue().equals(generator)) {
                     // Utils.LOG_WARNING("Success. [isGeneratorOwnedByPlayer] 4");
                     return true;
@@ -90,10 +88,8 @@ public class TesseractHelper {
             // Utils.LOG_WARNING("Success. [getGeneratorByFrequency] 1");
             Map<Integer, GT_MetaTileEntity_TesseractGenerator> generators = getGeneratorOwnershipByPlayer(player);
             Set<Entry<Integer, GT_MetaTileEntity_TesseractGenerator>> players = generators.entrySet();
-            Iterator<Entry<Integer, GT_MetaTileEntity_TesseractGenerator>> i = players.iterator();
-            while (i.hasNext()) {
+            for (Entry<Integer, GT_MetaTileEntity_TesseractGenerator> current : players) {
                 // Utils.LOG_WARNING("Success. [getGeneratorByFrequency] 2");
-                Entry<Integer, GT_MetaTileEntity_TesseractGenerator> current = i.next();
                 if (current.getKey().equals(freq)) {
                     // Utils.LOG_WARNING("Success. [getGeneratorByFrequency] 3");
                     Logger.WARNING("Success!");
@@ -136,9 +132,7 @@ public class TesseractHelper {
         if (!sTesseractTerminalOwnershipMap.isEmpty() && playerIdentifier != null) {
             Map<Integer, GT_MetaTileEntity_TesseractTerminal> generators = getTerminalOwnershipByPlayer(player);
             Set<Entry<Integer, GT_MetaTileEntity_TesseractTerminal>> players = generators.entrySet();
-            Iterator<Entry<Integer, GT_MetaTileEntity_TesseractTerminal>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<Integer, GT_MetaTileEntity_TesseractTerminal> current = i.next();
+            for (Entry<Integer, GT_MetaTileEntity_TesseractTerminal> current : players) {
                 if (current.getValue().equals(generator)) {
                     return true;
                 }
@@ -190,9 +184,7 @@ public class TesseractHelper {
         if (!sTesseractTerminalOwnershipMap.isEmpty() && playerIdentifier != null) {
             Map<Integer, GT_MetaTileEntity_TesseractTerminal> generators = getTerminalOwnershipByPlayer(player);
             Set<Entry<Integer, GT_MetaTileEntity_TesseractTerminal>> players = generators.entrySet();
-            Iterator<Entry<Integer, GT_MetaTileEntity_TesseractTerminal>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<Integer, GT_MetaTileEntity_TesseractTerminal> current = i.next();
+            for (Entry<Integer, GT_MetaTileEntity_TesseractTerminal> current : players) {
                 if (current.getKey().equals(freq)) {
                     Logger.WARNING("Success!");
                     return current.getValue();
@@ -227,9 +219,7 @@ public class TesseractHelper {
         if (!sTesseractGeneratorOwnershipMap.isEmpty() && playerIdentifier != null) {
             Set<Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>>> players =
                     sTesseractGeneratorOwnershipMap.entrySet();
-            Iterator<Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>> current = i.next();
+            for (Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>> current : players) {
                 if (current.getKey().compareTo(playerIdentifier) == 0) {
                     return current.getValue();
                 }
@@ -244,9 +234,7 @@ public class TesseractHelper {
         if (!sTesseractTerminalOwnershipMap.isEmpty() && playerIdentifier != null) {
             Set<Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>>> players =
                     sTesseractTerminalOwnershipMap.entrySet();
-            Iterator<Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>> current = i.next();
+            for (Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>> current : players) {
                 if (current.getKey().compareTo(playerIdentifier) == 0) {
                     return current.getValue();
                 }

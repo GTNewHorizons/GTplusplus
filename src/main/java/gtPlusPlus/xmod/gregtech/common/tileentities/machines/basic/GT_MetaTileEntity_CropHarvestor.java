@@ -291,9 +291,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
 
                     if (!aAllDrops.isEmpty()) {
                         Logger.INFO("Handling " + aAllDrops.size() + " Harvests");
-                        Iterator<ItemStack> iter = aAllDrops.iterator();
-                        while (iter.hasNext()) {
-                            ItemStack aDrop = iter.next();
+                        for (ItemStack aDrop : aAllDrops) {
                             if (ItemUtils.checkForInvalidItems(aDrop)) {
 
                                 for (int i = SLOT_OUTPUT_START; i < this.getSizeInventory(); i++) {

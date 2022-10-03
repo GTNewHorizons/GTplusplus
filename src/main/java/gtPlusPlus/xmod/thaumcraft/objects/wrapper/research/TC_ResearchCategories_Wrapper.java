@@ -23,15 +23,11 @@ public class TC_ResearchCategories_Wrapper {
 
     public static TC_ResearchItem_Wrapper getResearch(String key) {
         Collection rc = researchCategories.values();
-        Iterator i$ = rc.iterator();
 
-        while (i$.hasNext()) {
-            Object cat = i$.next();
+        for (Object cat : rc) {
             Collection rl = ((TC_ResearchCategoryList_Wrapper) cat).research.values();
-            Iterator i$1 = rl.iterator();
 
-            while (i$1.hasNext()) {
-                Object ri = i$1.next();
+            for (Object ri : rl) {
                 if (((TC_ResearchItem_Wrapper) ri).key.equals(key)) {
                     return (TC_ResearchItem_Wrapper) ri;
                 }
@@ -52,10 +48,8 @@ public class TC_ResearchCategories_Wrapper {
         TC_ResearchCategoryList_Wrapper rl = getResearchList(ri.category);
         if (rl != null && !rl.research.containsKey(ri.key)) {
             if (!ri.isVirtual()) {
-                Iterator i$ = rl.research.values().iterator();
 
-                while (i$.hasNext()) {
-                    TC_ResearchItem_Wrapper rr = (TC_ResearchItem_Wrapper) i$.next();
+                for (TC_ResearchItem_Wrapper rr : rl.research.values()) {
                     if (rr.displayColumn == ri.displayColumn && rr.displayRow == ri.displayRow) {
                         FMLLog.log(
                                 Level.FATAL,

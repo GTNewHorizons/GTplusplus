@@ -154,9 +154,8 @@ public class Container_VolumetricFlaskSetter extends Container {
         mCustomValue = mTileEntity.getCustomValue();
         mTimer++;
 
-        Iterator var2 = this.crafters.iterator();
-        while (var2.hasNext()) {
-            ICrafting var1 = (ICrafting) var2.next();
+        for (Object crafter : this.crafters) {
+            ICrafting var1 = (ICrafting) crafter;
             if (mTimer % 20 == 10 || oCustomValue != mCustomValue) {
                 var1.sendProgressBarUpdate(this, 0, mCustomValue);
             }

@@ -351,9 +351,8 @@ public class RecipeUtils {
         Logger.RECIPE("All recipes should be gone?");
         if (!items.hasNext()) {
             Logger.RECIPE("We iterated once, let's try again to double check.");
-            final Iterator<IRecipe> items2 = recipes.iterator();
-            while (items2.hasNext()) {
-                final ItemStack is = items2.next().getRecipeOutput();
+            for (IRecipe recipe : recipes) {
+                final ItemStack is = recipe.getRecipeOutput();
                 if ((is != null) && (is.getItem() == I)) {
                     items.remove();
                     Logger.RECIPE("REMOVING MISSED RECIPE - RECHECK CONSTRUCTORS");

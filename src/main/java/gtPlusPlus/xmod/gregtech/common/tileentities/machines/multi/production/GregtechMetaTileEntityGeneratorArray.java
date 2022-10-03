@@ -456,10 +456,8 @@ public class GregtechMetaTileEntityGeneratorArray
         if (aLiquid != null && this.getRecipeMap() != null) {
             Collection<GT_Recipe> tRecipeList = this.getRecipeMap().mRecipeList;
             if (tRecipeList != null) {
-                Iterator<GT_Recipe> arg3 = tRecipeList.iterator();
 
-                while (arg3.hasNext()) {
-                    GT_Recipe tFuel = (GT_Recipe) arg3.next();
+                for (GT_Recipe tFuel : tRecipeList) {
                     FluidStack tLiquid;
                     if ((tLiquid = GT_Utility.getFluidForFilledItem(tFuel.getRepresentativeInput(0), true)) != null
                             && aLiquid.isFluidEqual(tLiquid)) {

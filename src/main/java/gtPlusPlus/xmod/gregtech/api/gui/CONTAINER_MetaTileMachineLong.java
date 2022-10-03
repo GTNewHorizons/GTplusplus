@@ -125,9 +125,8 @@ public class CONTAINER_MetaTileMachineLong extends GT_Container {
             return;
         }
 
-        Iterator var2 = this.crafters.iterator();
-        while (var2.hasNext()) {
-            ICrafting var1 = (ICrafting) var2.next();
+        for (Object crafter : this.crafters) {
+            ICrafting var1 = (ICrafting) crafter;
             if (mTimer % 500 == 10 || nEnergy != pEnergy) {
                 var1.sendProgressBarUpdate(this, 0, mLeftOverPowerStored & 65535);
                 var1.sendProgressBarUpdate(this, 1, mLeftOverPowerStored >>> 16);

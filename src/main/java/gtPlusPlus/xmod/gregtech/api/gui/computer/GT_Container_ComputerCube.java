@@ -305,9 +305,7 @@ public class GT_Container_ComputerCube extends GT_ContainerMetaTile_Machine {
         int[] aEUSplit2 = MathUtils.splitLongIntoTwoIntegers(mEU);
         this.mEU1 = aEUSplit2[0];
         this.mEU2 = aEUSplit2[1];
-        Iterator<ICrafting> var2 = this.crafters.iterator();
-        while (var2.hasNext()) {
-            ICrafting var1 = var2.next();
+        for (ICrafting var1 : (Iterable<ICrafting>) this.crafters) {
             var1.sendProgressBarUpdate(this, 101, this.mID);
             var1.sendProgressBarUpdate(this, 102, this.mHeat & 0xFFFF);
             var1.sendProgressBarUpdate(this, 103, this.mMaxHeat & 0xFFFF);

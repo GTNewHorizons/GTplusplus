@@ -49,9 +49,7 @@ public class AC_Helper_Utils {
     public static final GT4Entity_AutoCrafter getCrafterByID(int ID) {
         if (!sAutocrafterMap.isEmpty()) {
             Set<Entry<Integer, GT4Entity_AutoCrafter>> players = sAutocrafterMap.entrySet();
-            Iterator<Entry<Integer, GT4Entity_AutoCrafter>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<Integer, GT4Entity_AutoCrafter> current = i.next();
+            for (Entry<Integer, GT4Entity_AutoCrafter> current : players) {
                 if (current.getKey().equals(ID)) {
                     return current.getValue();
                 }
@@ -64,9 +62,7 @@ public class AC_Helper_Utils {
     public static final int getIDByCrafter(GT4Entity_AutoCrafter AC) {
         if (!sAutocrafterMap.isEmpty()) {
             Set<Entry<Integer, GT4Entity_AutoCrafter>> players = sAutocrafterMap.entrySet();
-            Iterator<Entry<Integer, GT4Entity_AutoCrafter>> i = players.iterator();
-            while (i.hasNext()) {
-                Entry<Integer, GT4Entity_AutoCrafter> current = i.next();
+            for (Entry<Integer, GT4Entity_AutoCrafter> current : players) {
                 if (current.getValue().equals(AC)) {
                     return current.getKey();
                 }

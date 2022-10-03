@@ -41,12 +41,10 @@ public class PlayerUtils {
     public static EntityPlayer getPlayer(final String name) {
         try {
             final List<EntityPlayer> i = new ArrayList<>();
-            final Iterator<EntityPlayerMP> iterator = MinecraftServer.getServer()
+            for (EntityPlayerMP entityPlayerMP : (Iterable<EntityPlayerMP>) MinecraftServer.getServer()
                     .getConfigurationManager()
-                    .playerEntityList
-                    .iterator();
-            while (iterator.hasNext()) {
-                i.add((iterator.next()));
+                    .playerEntityList) {
+                i.add(entityPlayerMP);
             }
             for (final EntityPlayer temp : i) {
                 if (temp.getDisplayName().toLowerCase().equals(name.toLowerCase())) {

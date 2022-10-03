@@ -25,20 +25,14 @@ public class SlotModularBaubleUpgrades extends Slot {
             Logger.INFO("trying to insert " + itemstack.getDisplayName());
             Logger.INFO("Valid Upgrade count: " + mValidUpgradeList.size());
 
-            Iterator<Entry<ItemStack, BT>> it =
-                    mValidUpgradeListFormChange.entrySet().iterator();
-            while (it.hasNext()) {
-                Entry<ItemStack, BT> pair = it.next();
+            for (Entry<ItemStack, BT> pair : mValidUpgradeListFormChange.entrySet()) {
                 if (pair.getKey().getItem() == itemstack.getItem()
                         && pair.getKey().getItemDamage() == itemstack.getItemDamage()) {
                     isValid = true;
                 }
             }
 
-            Iterator<Entry<ItemStack, Pair<Modifiers, Integer>>> it2 =
-                    mValidUpgradeList.entrySet().iterator();
-            while (it2.hasNext()) {
-                Entry<ItemStack, Pair<Modifiers, Integer>> pair = it2.next();
+            for (Entry<ItemStack, Pair<Modifiers, Integer>> pair : mValidUpgradeList.entrySet()) {
                 if (pair.getKey().getItem() == itemstack.getItem()
                         && pair.getKey().getItemDamage() == itemstack.getItemDamage()) {
                     isValid = true;

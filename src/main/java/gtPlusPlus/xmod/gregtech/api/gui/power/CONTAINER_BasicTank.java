@@ -34,10 +34,8 @@ public class CONTAINER_BasicTank extends GT_ContainerMetaTile_Machine {
                 this.mContent = 0;
             }
 
-            Iterator var2 = this.crafters.iterator();
-
-            while (var2.hasNext()) {
-                ICrafting var1 = (ICrafting) var2.next();
+            for (Object crafter : this.crafters) {
+                ICrafting var1 = (ICrafting) crafter;
                 var1.sendProgressBarUpdate(this, 100, this.mContent & '￿');
                 var1.sendProgressBarUpdate(this, 101, this.mContent >>> 16);
             }
