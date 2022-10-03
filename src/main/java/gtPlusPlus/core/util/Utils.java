@@ -252,7 +252,7 @@ public class Utils {
                 Integer.valueOf(hexString.substring(3, 5), 16),
                 Integer.valueOf(hexString.substring(5, 7), 16));
 
-        final StringBuffer sb = new StringBuffer();
+        final StringBuilder sb = new StringBuilder();
         sb.append("rgb(");
         sb.append(c.getRed());
         sb.append(",");
