@@ -56,7 +56,7 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer
     }
 
     public IMetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
-        return (IMetaTileEntity) new GregtechMetaTileEntity_IndustrialVacuumFreezer(this.mName);
+        return new GregtechMetaTileEntity_IndustrialVacuumFreezer(this.mName);
     }
 
     @Override

@@ -48,9 +48,9 @@ public class MapGenExtendedVillage extends MapGenStructure {
         while (iterator.hasNext()) {
             Entry<?, ?> entry = (Entry<?, ?>) iterator.next();
 
-            if (((String) entry.getKey()).equals("size")) {
+            if (entry.getKey().equals("size")) {
                 this.terrainType = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(), this.terrainType, 0);
-            } else if (((String) entry.getKey()).equals("distance")) {
+            } else if (entry.getKey().equals("distance")) {
                 this.field_82665_g = MathHelper.parseIntWithDefaultAndMax(
                         (String) entry.getValue(), this.field_82665_g, this.field_82666_h + 1);
             }

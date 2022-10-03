@@ -174,7 +174,7 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
 
                                     if (b0 < 16) {
                                         p_150573_3_[i2] = Blocks.stained_hardened_clay;
-                                        p_150573_4_[i2] = (byte) b0;
+                                        p_150573_4_[i2] = b0;
                                     } else {
                                         p_150573_3_[i2] = Blocks.hardened_clay;
                                     }

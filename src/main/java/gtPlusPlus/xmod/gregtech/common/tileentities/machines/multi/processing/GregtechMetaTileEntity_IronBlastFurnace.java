@@ -381,7 +381,7 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
 
     private int getProperTime(int time) {
         if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            return (int) (time / 3);
+            return time / 3;
         } else {
             return time;
         }

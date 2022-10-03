@@ -153,8 +153,7 @@ public class AchievementHandler {
         this.registerAchievement(
                 "decay.technetium99", 15, 8, ItemUtils.getSimpleStack(ModItems.dustTechnetium99), "multi.cyclo", false);
 
-        AchievementPage.registerAchievementPage(new AchievementPage("GT++", (Achievement[])
-                ((Achievement[]) this.achievementList.values().toArray(new Achievement[0]))));
+        AchievementPage.registerAchievementPage(new AchievementPage("GT++", this.achievementList.values().toArray(new Achievement[0])));
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
     }
@@ -196,12 +195,12 @@ public class AchievementHandler {
 
     public void issueAchievement(EntityPlayer entityplayer, String textId) {
         if (entityplayer != null) {
-            entityplayer.triggerAchievement((StatBase) this.achievementList.get(textId));
+            entityplayer.triggerAchievement(this.achievementList.get(textId));
         }
     }
 
     public Achievement getAchievement(String textId) {
-        return this.achievementList.containsKey(textId) ? (Achievement) this.achievementList.get(textId) : null;
+        return this.achievementList.containsKey(textId) ? this.achievementList.get(textId) : null;
     }
 
     /**

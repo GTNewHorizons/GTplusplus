@@ -93,10 +93,10 @@ public class ClassTransformer_TT_ThaumicRestorer {
         }
         if (mInit) {
             if (mTileRepairerClass.isInstance(aTile)) {
-                int ticksExisted = (int) ReflectionUtils.getFieldValue(mTicksExisted, aTile);
-                ItemStack[] inventorySlots = (ItemStack[]) ReflectionUtils.getFieldValue(mInventory, aTile);
-                boolean tookLastTick = (boolean) ReflectionUtils.getFieldValue(mTookLastTick, aTile);
-                int dmgLastTick = (int) ReflectionUtils.getFieldValue(mDamageLastTick, aTile);
+                int ticksExisted = ReflectionUtils.getFieldValue(mTicksExisted, aTile);
+                ItemStack[] inventorySlots = ReflectionUtils.getFieldValue(mInventory, aTile);
+                boolean tookLastTick = ReflectionUtils.getFieldValue(mTookLastTick, aTile);
+                int dmgLastTick = ReflectionUtils.getFieldValue(mDamageLastTick, aTile);
                 ticksExisted++;
                 ReflectionUtils.setField(aTile, mTicksExisted, ticksExisted);
                 boolean aDidRun = false;

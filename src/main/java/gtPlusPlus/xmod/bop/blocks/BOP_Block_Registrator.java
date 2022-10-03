@@ -172,7 +172,7 @@ public class BOP_Block_Registrator {
                             GT_Utility.copyAmount(
                                     GT_Mod.gregtechproxy.mNerfedWoodPlank
                                             ? ((long) tStack.stackSize)
-                                            : ((long) (tStack.stackSize * 5L / 4)),
+                                            : (tStack.stackSize * 5L / 4),
                                     tStack),
                             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 2L),
                             200,
@@ -186,7 +186,7 @@ public class BOP_Block_Registrator {
                             GT_Utility.copyAmount(
                                     GT_Mod.gregtechproxy.mNerfedWoodPlank
                                             ? ((long) tStack.stackSize)
-                                            : ((long) (tStack.stackSize * 5L / 4)),
+                                            : (tStack.stackSize * 5L / 4),
                                     tStack),
                             new Object[] {"s", "L", 'L', new ItemStack(aStack.getItem(), 1, i)});
                     GT_ModHandler.addShapelessCraftingRecipe(
@@ -221,7 +221,7 @@ public class BOP_Block_Registrator {
                         GT_Utility.copyAmount(
                                 GT_Mod.gregtechproxy.mNerfedWoodPlank
                                         ? ((long) tStack2.stackSize)
-                                        : ((long) (tStack2.stackSize * 5L / 4)),
+                                        : (tStack2.stackSize * 5L / 4),
                                 tStack2),
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 2L),
                         200,
@@ -235,7 +235,7 @@ public class BOP_Block_Registrator {
                         GT_Utility.copyAmount(
                                 GT_Mod.gregtechproxy.mNerfedWoodPlank
                                         ? ((long) tStack2.stackSize)
-                                        : ((long) (tStack2.stackSize * 5L / 4)),
+                                        : (tStack2.stackSize * 5L / 4),
                                 tStack2),
                         new Object[] {"s", "L", 'L', GT_Utility.copyAmount(1L, aStack)});
                 GT_ModHandler.addShapelessCraftingRecipe(

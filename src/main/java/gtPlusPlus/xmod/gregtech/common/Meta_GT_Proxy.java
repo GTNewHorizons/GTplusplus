@@ -309,7 +309,7 @@ public class Meta_GT_Proxy {
         if (sBaseMetaTileEntityClass == null) {
             try {
                 sBaseMetaTileEntityClass = BaseCustomTileEntity.class;
-                return (BaseCustomTileEntity) BaseCustomTileEntity.class.newInstance();
+                return BaseCustomTileEntity.class.newInstance();
             } catch (Throwable arg1) {
                 try {
                     Constructor<?> g = BaseCustomTileEntity.class.getConstructors()[0];
@@ -324,7 +324,7 @@ public class Meta_GT_Proxy {
             }
         }
         try {
-            return (BaseCustomTileEntity) ((BaseCustomTileEntity) sBaseMetaTileEntityClass.newInstance());
+            return sBaseMetaTileEntityClass.newInstance();
         } catch (Throwable arg0) {
             arg0.printStackTrace(GT_Log.err);
             try {
@@ -350,7 +350,7 @@ public class Meta_GT_Proxy {
         if (sBaseMetaTileEntityClass2 == null) {
             try {
                 sBaseMetaTileEntityClass2 = BaseCustomPower_MTE.class;
-                return (BaseCustomPower_MTE) BaseCustomPower_MTE.class.newInstance();
+                return BaseCustomPower_MTE.class.newInstance();
             } catch (Throwable arg1) {
                 try {
                     Constructor<?> g = BaseCustomPower_MTE.class.getConstructors()[0];
@@ -367,7 +367,7 @@ public class Meta_GT_Proxy {
         }
 
         try {
-            return (BaseCustomPower_MTE) ((BaseCustomPower_MTE) sBaseMetaTileEntityClass2.newInstance());
+            return sBaseMetaTileEntityClass2.newInstance();
         } catch (Throwable arg0) {
             arg0.printStackTrace(GT_Log.err);
             try {
@@ -399,7 +399,7 @@ public class Meta_GT_Proxy {
                     Field aBlackList = ReflectionUtils.getField(aCoreModConfig, "BlacklistedTileEntiyClassNames");
                     Object aInstance = ReflectionUtils.getFieldValue(aCoreConfig);
                     if (aBlackList != null && aInstance != null) {
-                        String[] aBlackListValue = (String[]) ReflectionUtils.getFieldValue(aBlackList, aInstance);
+                        String[] aBlackListValue = ReflectionUtils.getFieldValue(aBlackList, aInstance);
                         if (aBlackListValue != null) {
                             aBlackListValue = ArrayUtils.add(aBlackListValue, aClassName);
                             ReflectionUtils.setField(aInstance, aBlackList, aBlackListValue);

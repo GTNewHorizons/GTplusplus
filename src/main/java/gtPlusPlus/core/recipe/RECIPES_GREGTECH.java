@@ -443,7 +443,7 @@ public class RECIPES_GREGTECH {
                 },
                 ItemUtils.getSimpleStack(ModBlocks.blockCasings3Misc, 15, 32),
                 20 * 60 * 10 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(6));
+                MaterialUtils.getVoltageForTier(6));
 
         // Slow Fusion Controller
         /*CORE.RA.addAssemblylineRecipe(
@@ -521,7 +521,7 @@ public class RECIPES_GREGTECH {
                 },
                 GregtechItemList.Hatch_Input_TurbineHousing.get(4),
                 20 * 60 * 60 * (GTNH ? 2 : 1),
-                (int) MaterialUtils.getVoltageForTier(8));
+                MaterialUtils.getVoltageForTier(8));
 
         /*
          * Contianment casings
@@ -558,7 +558,7 @@ public class RECIPES_GREGTECH {
                     },
                     aGemCasings[aCasingSlot++],
                     20 * 60 * 1 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(j));
+                    MaterialUtils.getVoltageForTier(j));
         }
 
         /*
@@ -600,7 +600,7 @@ public class RECIPES_GREGTECH {
                     },
                     aGemBatteries[aCasingSlot++],
                     20 * 60 * 1 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(j));
+                    MaterialUtils.getVoltageForTier(j));
         }
 
         if (LoadedMods.Baubles) {
@@ -627,7 +627,7 @@ public class RECIPES_GREGTECH {
                     },
                     ItemUtils.getItemStackFromFQRN("miscutils:personalHealingDevice", 1),
                     20 * 60 * 30 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(7));
+                    MaterialUtils.getVoltageForTier(7));
 
             // Charge Pack LuV-UV
 
@@ -669,7 +669,7 @@ public class RECIPES_GREGTECH {
                         },
                         aChargeOutputs[aCurrSlot],
                         20 * 60 * 30 * (GTNH ? 2 : 1) * (aCurrSlot + 1),
-                        (int) MaterialUtils.getVoltageForTier(h));
+                        MaterialUtils.getVoltageForTier(h));
                 aCurrSlot++;
             }
 
@@ -696,7 +696,7 @@ public class RECIPES_GREGTECH {
                     },
                     ItemUtils.getItemStackFromFQRN("miscutils:personalCloakingDevice", 1),
                     20 * 60 * 30 * (GTNH ? 2 : 1),
-                    (int) MaterialUtils.getVoltageForTier(8));
+                    MaterialUtils.getVoltageForTier(8));
         }
     }
 
@@ -2184,7 +2184,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {50, 50, 50, 50, 50, 50},
                 20 * 300 * 9,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Lepton Smash
@@ -2202,7 +2202,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {600, 40, 20, 15, 10, 5},
                 20 * 300 * 8,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Boson Smash
@@ -2219,7 +2219,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {160, 260, 150, 150, 1},
                 20 * 300 * 6,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 750 * 20);
 
         // Mixed Smash 1
@@ -2239,7 +2239,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {10, 20, 20, 10, 10, 5, 5, 2},
                 17 * 247 * 32,
-                (int) MaterialUtils.getVoltageForTier(8),
+                MaterialUtils.getVoltageForTier(8),
                 750 * 20);
 
         // Graviton Smash
@@ -2251,7 +2251,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {15, 100},
                 20 * (GTNH ? 90 : 30),
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1000 * 20);
 
         FluidStack aPlasma = Materials.Duranium.getMolten(GTNH ? 40 : 10);
@@ -2271,7 +2271,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {100},
                 20 * (GTNH ? 25 : 60),
-                (int) MaterialUtils.getVoltageForTier(8),
+                MaterialUtils.getVoltageForTier(8),
                 500 * 20);
 
         /*
@@ -2309,7 +2309,7 @@ public class RECIPES_GREGTECH {
                         null,
                         new int[] {275, 250, 225, 275, 250, 225, 275, 250, 275},
                         20 * 20 * (IonCount++) * tenCountA,
-                        (int) MaterialUtils.getVoltageForTier(7),
+                        MaterialUtils.getVoltageForTier(7),
                         1500 * 20 * tenCountA);
             } else {
                 Logger.INFO("Plasma for " + y + " does not exist, please report this to Alkalus.");
@@ -2341,7 +2341,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {500, 500, 500, 500, 500, 500, 500, 500, 500},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 2500);
 
         // Generate Hydrogen Plasma Recipe
@@ -2362,7 +2362,7 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getFluidStack("plasma.hydrogen", 100),
                 new int[] {1250, 1250, 1250, 750, 750, 750, 10000},
                 20 * 60 * 2,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 750 * 20);
 
         CORE.RA.addCyclotronRecipe(
@@ -2381,7 +2381,7 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getFluidStack("plasma.hydrogen", 100),
                 new int[] {1250, 1250, 1250, 750, 750, 750},
                 20 * 60 * 2,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 750 * 20);
 
         // Generate Protons Easily
@@ -2402,7 +2402,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {750, 750, 750, 750, 750, 750, 750, 750, 750},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1500);
 
         CORE.RA.addCyclotronRecipe(
@@ -2424,7 +2424,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {375, 375, 375, 375, 375, 375, 375, 375, 375},
                 20 * 20,
-                (int) MaterialUtils.getVoltageForTier(6),
+                MaterialUtils.getVoltageForTier(6),
                 1500);
 
         // Create Strange Dust
@@ -2445,7 +2445,7 @@ public class RECIPES_GREGTECH {
                 null,
                 new int[] {2500},
                 20 * 60 * 15,
-                (int) MaterialUtils.getVoltageForTier(7),
+                MaterialUtils.getVoltageForTier(7),
                 250);
     }
 

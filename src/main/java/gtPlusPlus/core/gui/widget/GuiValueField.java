@@ -34,7 +34,7 @@ public class GuiValueField extends GuiTextField {
         Field canLoseFocus = ReflectionUtils.getField(
                 GuiTextField.class, DevHelper.isObfuscatedEnvironment() ? "field_146212_n" : "canLoseFocus");
         if (canLoseFocus != null) {
-            return (boolean) ReflectionUtils.getFieldValue(canLoseFocus, this);
+            return ReflectionUtils.getFieldValue(canLoseFocus, this);
         }
         return true;
     }
@@ -48,7 +48,7 @@ public class GuiValueField extends GuiTextField {
         Field enableBackgroundDrawing = ReflectionUtils.getField(
                 GuiTextField.class, DevHelper.isObfuscatedEnvironment() ? "field_146215_m" : "enableBackgroundDrawing");
         if (enableBackgroundDrawing != null) {
-            return (boolean) ReflectionUtils.getFieldValue(enableBackgroundDrawing, this);
+            return ReflectionUtils.getFieldValue(enableBackgroundDrawing, this);
         }
         return true;
     }
@@ -57,7 +57,7 @@ public class GuiValueField extends GuiTextField {
         Field lineScrollOffset = ReflectionUtils.getField(
                 GuiTextField.class, DevHelper.isObfuscatedEnvironment() ? "field_146225_q" : "lineScrollOffset");
         if (lineScrollOffset != null) {
-            return (int) ReflectionUtils.getFieldValue(lineScrollOffset, this);
+            return ReflectionUtils.getFieldValue(lineScrollOffset, this);
         }
         return 0;
     }

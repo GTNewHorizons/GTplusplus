@@ -131,7 +131,7 @@ public class GT_MetaTileEntity_Hatch_Plasma extends GT_MetaTileEntity_Hatch_Outp
     }
 
     public MetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
-        return (MetaTileEntity) new GT_MetaTileEntity_Hatch_Plasma(this.mName, this.mDescription, this.mTextures);
+        return new GT_MetaTileEntity_Hatch_Plasma(this.mName, this.mDescription, this.mTextures);
     }
 
     @Override

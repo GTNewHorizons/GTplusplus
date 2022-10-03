@@ -62,7 +62,7 @@ public class GT_GUIContainer_CropHarvestor extends GT_GUIContainerMetaTile_Machi
             if (x >= 47 && x <= 56) {
                 int aWater = ((GT_Container_CropHarvestor) mContainer).mWaterRealAmount;
                 list.add("Water: " + aWater + "L / "
-                        + ((GT_Container_CropHarvestor) mContainer)
+                        + mContainer
                                 .mTileEntity
                                 .getMetaTileEntity()
                                 .getCapacity() + "L");

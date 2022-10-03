@@ -13,7 +13,7 @@ public class TC_ResearchCategories_Wrapper {
             new LinkedHashMap<>();
 
     public static TC_ResearchCategoryList_Wrapper getResearchList(String key) {
-        return (TC_ResearchCategoryList_Wrapper) researchCategories.get(key);
+        return researchCategories.get(key);
     }
 
     public static String getCategoryName(String key) {

@@ -270,7 +270,7 @@ public class GT4Entity_Shelf extends GT_MetaTileEntity_BasicHull_NonElectric {
                 (aSide >= 2)
                         ? ((aSide != aFacing)
                                 ? 2
-                                : ((byte) this.mType == 0
+                                : (this.mType == 0
                                         ? 4
                                         : this.mType == 1 || this.mType == 2 ? 5 : this.mType == 3 ? 6 : 0))
                         : aSide][

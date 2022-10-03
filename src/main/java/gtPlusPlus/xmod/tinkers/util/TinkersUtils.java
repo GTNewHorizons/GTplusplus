@@ -234,7 +234,7 @@ public class TinkersUtils {
     }
 
     public static boolean addBaseBasinRecipes(Material aMaterial) {
-        return addBasinRecipe(aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), (ItemStack) null, true, 100);
+        return addBasinRecipe(aMaterial.getBlock(1), aMaterial.getFluidStack(144 * 9), null, true, 100);
     }
 
     public static boolean addBasinRecipe(

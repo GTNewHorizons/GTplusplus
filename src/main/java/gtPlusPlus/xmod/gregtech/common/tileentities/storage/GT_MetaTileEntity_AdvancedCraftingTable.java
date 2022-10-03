@@ -289,7 +289,7 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
             NBTTagCompound tNBT = mInventory[30].getTagCompound();
             NBTTagList tNBT_ItemList = tNBT.getTagList("Blueprint", 10);
             for (int i = 0; i < tNBT_ItemList.tagCount() && i < 9; i++) {
-                NBTTagCompound tag = (NBTTagCompound) tNBT_ItemList.getCompoundTagAt(i);
+                NBTTagCompound tag = tNBT_ItemList.getCompoundTagAt(i);
                 byte slot = tag.getByte("Slot");
                 if (slot >= 0 && slot < 9 && mInventory[slot + 21] == null) {
                     mInventory[slot + 21] = GT_Utility.loadItem(tag);

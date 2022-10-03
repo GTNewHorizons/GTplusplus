@@ -448,7 +448,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 }
             }
             // -- Try not to fail after this point - inputs have already been consumed! --
-            this.mMaxProgresstime = (int) (aFuelProcessing.mDuration);
+            this.mMaxProgresstime = aFuelProcessing.mDuration;
             this.mEUt = aFuelProcessing.mSpecialValue * 4;
             Logger.WARNING("Outputting " + this.mEUt + "eu/t");
             this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);

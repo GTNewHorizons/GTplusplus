@@ -586,9 +586,9 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         int i = aSide;
         return tryFindInvetoryAtXYZ(
                 this.getWorldObj(),
-                (double) (this.xCoord + Facing.offsetsXForSide[i]),
-                (double) (this.yCoord + Facing.offsetsYForSide[i]),
-                (double) (this.zCoord + Facing.offsetsZForSide[i]));
+                this.xCoord + Facing.offsetsXForSide[i],
+                this.yCoord + Facing.offsetsYForSide[i],
+                this.zCoord + Facing.offsetsZForSide[i]);
     }
 
     public static IInventory tryFindInvetoryAtXYZ(World aWorld, double aX, double aY, double aZ) {
@@ -612,7 +612,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
 
         if (iinventory == null) {
             List list = aWorld.getEntitiesWithinAABBExcludingEntity(
-                    (Entity) null,
+                    null,
                     AxisAlignedBB.getBoundingBox(aX, aY, aZ, aX + 1.0D, aY + 1.0D, aZ + 1.0D),
                     IEntitySelector.selectInventories);
 

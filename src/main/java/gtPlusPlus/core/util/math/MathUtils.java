@@ -639,7 +639,7 @@ public class MathUtils {
     }
 
     public static int safeCast_ShortToInt(short o) {
-        int i = (int) o;
+        int i = o;
         return i;
     }
 
@@ -653,7 +653,7 @@ public class MathUtils {
     }
 
     public static short safeCast_ByteToshort(byte o) {
-        short i = (short) o;
+        short i = o;
         return i;
     }
 

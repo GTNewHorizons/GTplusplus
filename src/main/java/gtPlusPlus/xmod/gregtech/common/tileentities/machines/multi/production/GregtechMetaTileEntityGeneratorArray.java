@@ -404,7 +404,7 @@ public class GregtechMetaTileEntityGeneratorArray
             if (tFuelValue > 0) {
                 ItemStack tEmptyContainer1 = this.getEmptyContainer(a);
                 if (this.addOutput(tEmptyContainer1)) {
-                    aBaseMetaTileEntity.increaseStoredEnergyUnits((long) tFuelValue, true);
+                    aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
                     this.depleteInput(a);
                     PollutionUtils.addPollution(this.getBaseMetaTileEntity(), 10 * this.getPollutionPerTick(null));
                 }
@@ -420,7 +420,7 @@ public class GregtechMetaTileEntityGeneratorArray
                 int tEmptyContainer = this.consumedFluidPerOperation(mFluid);
                 if (tFuelValue > 0 && tEmptyContainer > 0 && mFluid.amount > tEmptyContainer) {
                     long tFluidAmountToUse = Math.min(
-                            (long) (mFluid.amount / tEmptyContainer),
+                            mFluid.amount / tEmptyContainer,
                             (this.maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / (long) tFuelValue);
                     if (tFluidAmountToUse > 0L
                             && aBaseMetaTileEntity.increaseStoredEnergyUnits(
@@ -476,7 +476,7 @@ public class GregtechMetaTileEntityGeneratorArray
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
                                 aStack
                             });
             return tFuel != null ? (int) ((long) tFuel.mSpecialValue * 1000L * (long) this.mEfficiency / 100L) : 0;
@@ -489,7 +489,7 @@ public class GregtechMetaTileEntityGeneratorArray
         if (!GT_Utility.isStackInvalid(aStack) && this.getRecipeMap() != null) {
             GT_Recipe tFuel = this.getRecipeMap()
                     .findRecipe(
-                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, (FluidStack[]) null, new ItemStack[] {
+                            this.getBaseMetaTileEntity(), false, Long.MAX_VALUE, null, new ItemStack[] {
                                 aStack
                             });
             return tFuel != null

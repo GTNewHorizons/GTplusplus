@@ -36,7 +36,7 @@ public class EntityUtils {
     public static boolean isEntityOnFire(final Entity aEntity) {
         Field aIsOnFire = ReflectionUtils.getField(Entity.class, "fire");
         if (aIsOnFire != null) {
-            int aFireTime = (int) ReflectionUtils.getFieldValue(aIsOnFire, aEntity);
+            int aFireTime = ReflectionUtils.getFieldValue(aIsOnFire, aEntity);
             return aFireTime > 0;
         }
         return false;

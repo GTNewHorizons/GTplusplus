@@ -34,12 +34,12 @@ public class WorldGenAustralianOre extends WorldGenerator {
 
     public boolean generate(World aWorld, Random aRand, int aX, int aY, int aZ) {
         float f = MathUtils.randFloat(0f, 1.5f) * CORE.PI;
-        double d0 = (double) ((float) (aX + 8) + MathHelper.sin(f) * (float) this.numberOfBlocks / 8.0F);
-        double d1 = (double) ((float) (aX + 8) - MathHelper.sin(f) * (float) this.numberOfBlocks / 8.0F);
-        double d2 = (double) ((float) (aZ + 8) + MathHelper.cos(f) * (float) this.numberOfBlocks / 8.0F);
-        double d3 = (double) ((float) (aZ + 8) - MathHelper.cos(f) * (float) this.numberOfBlocks / 8.0F);
-        double d4 = (double) (aY + aRand.nextInt(MathUtils.randInt(3, 6)) - 2);
-        double d5 = (double) (aY + aRand.nextInt(MathUtils.randInt(3, 6)) - 2);
+        double d0 = (float) (aX + 8) + MathHelper.sin(f) * (float) this.numberOfBlocks / 8.0F;
+        double d1 = (float) (aX + 8) - MathHelper.sin(f) * (float) this.numberOfBlocks / 8.0F;
+        double d2 = (float) (aZ + 8) + MathHelper.cos(f) * (float) this.numberOfBlocks / 8.0F;
+        double d3 = (float) (aZ + 8) - MathHelper.cos(f) * (float) this.numberOfBlocks / 8.0F;
+        double d4 = aY + aRand.nextInt(MathUtils.randInt(3, 6)) - 2;
+        double d5 = aY + aRand.nextInt(MathUtils.randInt(3, 6)) - 2;
 
         for (int aOreGenerated = 0; aOreGenerated <= this.numberOfBlocks; ++aOreGenerated) {
             double d6 = d0 + (d1 - d0) * (double) aOreGenerated / (double) this.numberOfBlocks;

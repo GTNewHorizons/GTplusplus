@@ -337,11 +337,11 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
                     // Clean up old entities first
                     if (this.mInRange.size() > 0) {
                         for (Entity j : this.mInRange.values()) {
-                            if (((Entity) j).getDistance(this.xLoc, this.yLoc, this.zLoc) > this.mRange) {
+                            if (j.getDistance(this.xLoc, this.yLoc, this.zLoc) > this.mRange) {
                                 mInRange.remove(
                                         new Pair<>(
-                                                ((Entity) j).getUniqueID().getMostSignificantBits(),
-                                                ((Entity) j).getUniqueID().getLeastSignificantBits()),
+                                                j.getUniqueID().getMostSignificantBits(),
+                                                j.getUniqueID().getLeastSignificantBits()),
                                         (Entity) j);
                             }
                         }
@@ -424,7 +424,7 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
                                         // EntityTeslaTowerLightning(world, (double)j1, (double)l1, (double)k1))){
                                         if (isEnergyEnough()
                                                 && world.addWeatherEffect(new EntityTeslaTowerLightning(
-                                                        world, (double) j1, (double) l1, (double) k1, f, getOwner()))) {
+                                                        world, j1, l1, k1, f, getOwner()))) {
                                             if (f == null || f.isDead || !f.isEntityAlive()) {
                                                 this.mInRange.remove(new Pair<>(
                                                         f.getUniqueID().getMostSignificantBits(),

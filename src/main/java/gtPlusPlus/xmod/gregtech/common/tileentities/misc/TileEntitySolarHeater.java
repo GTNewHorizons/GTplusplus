@@ -309,7 +309,7 @@ public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock 
     public boolean setSolarTower(GregtechMetaTileEntity_SolarTower aTowerTile) {
         if (!hasSolarTower()) {
             this.mTX = aTowerTile.getBaseMetaTileEntity().getXCoord();
-            this.mTY = (int) aTowerTile.getBaseMetaTileEntity().getYCoord();
+            this.mTY = aTowerTile.getBaseMetaTileEntity().getYCoord();
             this.mTZ = aTowerTile.getBaseMetaTileEntity().getZCoord();
             this.mHasTower = true;
             this.mTower = aTowerTile;
