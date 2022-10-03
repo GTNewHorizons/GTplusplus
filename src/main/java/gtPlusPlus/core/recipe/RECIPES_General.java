@@ -222,9 +222,9 @@ public class RECIPES_General {
                     });
 
             String[] ironTypes = {"", "Wrought", "Pig", "Any"};
-            for (int y = 0; y < ironTypes.length; y++) {
+            for (String ironType : ironTypes) {
                 // Iron bars
-                String ironRecipe = "stick" + ironTypes[y] + "Iron";
+                String ironRecipe = "stick" + ironType + "Iron";
                 if (RecipeUtils.addShapedRecipe(
                         null,
                         CI.craftingToolWrench,

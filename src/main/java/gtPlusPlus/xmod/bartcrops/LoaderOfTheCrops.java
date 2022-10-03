@@ -55,8 +55,8 @@ public class LoaderOfTheCrops {
     private static final List<CropCard> cropObjs() {
         List<CropCard> p = new ArrayList<CropCard>();
 
-        for (int i = 0; i < mCropList.size(); ++i) {
-            p.add(cropUnpackerCC((LoaderOfTheCrops) mCropList.get(i)));
+        for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
+            p.add(cropUnpackerCC((LoaderOfTheCrops) loaderOfTheCrops));
         }
 
         return p;
@@ -65,8 +65,8 @@ public class LoaderOfTheCrops {
     private static final List<ItemStack> setBaseSeed() {
         List<ItemStack> p = new ArrayList<ItemStack>();
 
-        for (int i = 0; i < mCropList.size(); ++i) {
-            p.add(cropUnpackerCG((LoaderOfTheCrops) mCropList.get(i)));
+        for (LoaderOfTheCrops loaderOfTheCrops : mCropList) {
+            p.add(cropUnpackerCG((LoaderOfTheCrops) loaderOfTheCrops));
         }
 
         return p;

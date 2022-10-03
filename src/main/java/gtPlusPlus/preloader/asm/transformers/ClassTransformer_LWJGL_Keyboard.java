@@ -72,8 +72,7 @@ public class ClassTransformer_LWJGL_Keyboard {
             GameSettings options = Minecraft.getMinecraft().gameSettings;
             KeyBinding[] akeybinding = Minecraft.getMinecraft().gameSettings.keyBindings;
             int i = akeybinding.length;
-            for (int j = 0; j < i; ++j) {
-                KeyBinding keybinding = akeybinding[j];
+            for (KeyBinding keybinding : akeybinding) {
                 if (keybinding != null && keybinding.getKeyCode() == aKey) {
                     options.setOptionKeyBinding(keybinding, 0);
                     FMLRelaunchLog.log(

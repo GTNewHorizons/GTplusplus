@@ -34,13 +34,13 @@ public class BaseItemFood extends ItemFood {
     protected void onFoodEaten(final ItemStack stack, final World world, final EntityPlayer player) {
         super.onFoodEaten(stack, world, player);
 
-        for (int i = 0; i < this.effects.length; i++) {
-            if (!world.isRemote && (this.effects[i] != null) && (this.effects[i].getPotionID() > 0)) {
+        for (PotionEffect effect : this.effects) {
+            if (!world.isRemote && (effect != null) && (effect.getPotionID() > 0)) {
                 player.addPotionEffect(new PotionEffect(
-                        this.effects[i].getPotionID(),
-                        this.effects[i].getDuration(),
-                        this.effects[i].getAmplifier(),
-                        this.effects[i].getIsAmbient()));
+                        effect.getPotionID(),
+                        effect.getDuration(),
+                        effect.getAmplifier(),
+                        effect.getIsAmbient()));
             }
         }
     }

@@ -26,21 +26,21 @@ public class SystemUtils {
     }
 
     public static boolean isWindows() {
-        return (getOSString().indexOf("win") >= 0);
+        return (getOSString().contains("win"));
     }
 
     public static boolean isMac() {
-        return (getOSString().indexOf("mac") >= 0);
+        return (getOSString().contains("mac"));
     }
 
     public static boolean isUnix() {
-        return (getOSString().indexOf("nix") >= 0
-                || getOSString().indexOf("nux") >= 0
+        return (getOSString().contains("nix")
+                || getOSString().contains("nux")
                 || getOSString().indexOf("aix") > 0);
     }
 
     public static boolean isSolaris() {
-        return (getOSString().indexOf("sunos") >= 0);
+        return (getOSString().contains("sunos"));
     }
 
     public static String getOSString() {

@@ -43,8 +43,7 @@ public class Workbench_CraftingHandler {
         if (par2ArrayOfObj[i] instanceof String[]) {
             final String as[] = (String[]) par2ArrayOfObj[i++];
 
-            for (int l = 0; l < as.length; l++) {
-                final String s2 = as[l];
+            for (final String s2 : as) {
                 k++;
                 j = s2.length();
                 s = (new StringBuilder()).append(s).append(s2).toString();
@@ -95,9 +94,7 @@ public class Workbench_CraftingHandler {
         final Object aobj[] = par2ArrayOfObj;
         final int i = aobj.length;
 
-        for (int j = 0; j < i; j++) {
-            final Object obj = aobj[j];
-
+        for (final Object obj : aobj) {
             if (obj instanceof ItemStack) {
                 arraylist.add(((ItemStack) obj).copy());
                 continue;
@@ -151,9 +148,7 @@ public class Workbench_CraftingHandler {
         	return new ItemStack(itemstack.itemID, 1, k1);
         }*/
 
-        for (int k = 0; k < this.recipes.size(); k++) {
-            final IRecipe irecipe = this.recipes.get(k);
-
+        for (final IRecipe irecipe : this.recipes) {
             if (irecipe.matches(par1InventoryCrafting, par2World)) {
                 return irecipe.getCraftingResult(par1InventoryCrafting);
             }
