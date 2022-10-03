@@ -32,19 +32,19 @@ public class WorldGen_Australia_Ores {
     private static final Material SHIT_COAL = MaterialUtils.generateMaterialFromGtENUM(Materials.Lignite);
     private static final Material GRAPHITE = MaterialUtils.generateMaterialFromGtENUM(Materials.Graphite);
 
-    public static WorldGen_GT_Australia_Ore_Layer BaseVein = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer BaseVein = new WorldGen_GT_Australia_Ore_Layer(
             "veinA", 0, 128, 5, 8, 32, ELEMENT.getInstance().IRON, BANDED_IRON, LIM_YELLOW, TETRAHEDRITE);
 
     /**
      * Custom ore Veins
      */
-    public static WorldGen_GT_Australia_Ore_Layer Vein1 =
+    public static final WorldGen_GT_Australia_Ore_Layer Vein1 =
             new WorldGen_GT_Australia_Ore_Layer("vein1", 0, 10, 1, 8, 16, EMERALD, SHIT_COAL, TOPAZ, DIAMOND);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein2 =
+    public static final WorldGen_GT_Australia_Ore_Layer Vein2 =
             new WorldGen_GT_Australia_Ore_Layer("vein2", 0, 128, 20, 16, 64, COAL, COAL, SHIT_COAL, SHIT_COAL);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein3 = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer Vein3 = new WorldGen_GT_Australia_Ore_Layer(
             "vein3",
             0,
             128,
@@ -56,7 +56,7 @@ public class WorldGen_Australia_Ores {
             ELEMENT.getInstance().GOLD,
             ELEMENT.getInstance().LEAD);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein4 = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer Vein4 = new WorldGen_GT_Australia_Ore_Layer(
             "vein4",
             0,
             128,
@@ -68,10 +68,10 @@ public class WorldGen_Australia_Ores {
             ELEMENT.getInstance().COBALT,
             ALMANDINE);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein5 =
+    public static final WorldGen_GT_Australia_Ore_Layer Vein5 =
             new WorldGen_GT_Australia_Ore_Layer("vein5", 0, 128, 15, 8, 16, PYRITE, PYROPE, LIM_YELLOW, CHALCOPYRITE);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein6 = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer Vein6 = new WorldGen_GT_Australia_Ore_Layer(
             "vein6",
             0,
             128,
@@ -83,10 +83,10 @@ public class WorldGen_Australia_Ores {
             ELEMENT.getInstance().IRON,
             ELEMENT.getInstance().COPPER);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein7 = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer Vein7 = new WorldGen_GT_Australia_Ore_Layer(
             "vein7", 0, 128, 5, 8, 32, GRAPHITE, RUBY, LIM_YELLOW, ELEMENT.getInstance().NICKEL);
 
-    public static WorldGen_GT_Australia_Ore_Layer Vein8 = new WorldGen_GT_Australia_Ore_Layer(
+    public static final WorldGen_GT_Australia_Ore_Layer Vein8 = new WorldGen_GT_Australia_Ore_Layer(
             "vein8", 0, 128, 5, 8, 32, ELEMENT.getInstance().IRON, SAPPHIRE_BLUE, LIM_YELLOW, GRAPHITE);
 
     /*public static WorldGen_GT_Australia_Ore_Layer Vein9 = new WorldGen_GT_Australia_Ore_Layer(
@@ -201,7 +201,7 @@ public class WorldGen_Australia_Ores {
     		ORES.AGARDITE_LA,
     		ORES.AGARDITE_CD);*/
 
-    public static Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins =
+    public static final Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins =
             new Hashtable<>(1024);
 
     public static volatile BoxedQuad<Integer, Integer, Integer, Integer> OreVein1 =

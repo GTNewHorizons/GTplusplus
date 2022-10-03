@@ -17,7 +17,7 @@ public class FuelRod_Base extends Item {
     public int maximumFuel = 0;
     public String fuelType = "";
     public float heat = 0;
-    public float maxHeat = this.getMaxHeat();
+    public final float maxHeat = this.getMaxHeat();
 
     public FuelRod_Base(final String unlocalizedName, final String type, final int fuelLeft, final int maxFuel) {
         this.setUnlocalizedName(unlocalizedName);

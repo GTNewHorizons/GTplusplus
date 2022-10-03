@@ -25,7 +25,7 @@ public class FireProtectionBauble extends BaseBauble {
     public static HashMap<UUID, Boolean> mDataMap = new HashMap<>();
     public static HashSet<UUID> mPlayerMap = new HashSet<>();
 
-    private static Field isImmuneToFire;
+    private static final Field isImmuneToFire;
 
     static {
         isImmuneToFire = ReflectionUtils.getField(

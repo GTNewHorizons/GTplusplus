@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.FluidStack;
 public class RecipeGen_MultisUsingFluidInsteadOfCells {
 
     private static ItemStack mEmptyCell;
-    private static AutoMap<ItemStack> mItemsToIgnore = new AutoMap<>();
+    private static final AutoMap<ItemStack> mItemsToIgnore = new AutoMap<>();
     private static boolean mInit = false;
 
     private static void init() {

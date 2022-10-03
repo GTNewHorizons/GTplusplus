@@ -21,7 +21,7 @@ public class GregtechMetaPipeEntityFluid extends GT_MetaPipeEntity_Fluid {
     }
 
     public final GT_Materials mMaterial;
-    private boolean mCheckConnections;
+    private final boolean mCheckConnections;
 
     public GregtechMetaPipeEntityFluid(
             int aID,

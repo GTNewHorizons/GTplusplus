@@ -49,7 +49,7 @@ public class TexturesCentrifugeMultiblock {
     private static final CustomIcon frontFace_8 = (GT8_9);
     private static final CustomIcon frontFaceActive_8 = (GT8_9_Active);
 
-    CustomIcon[] CENTRIFUGE = new CustomIcon[] {
+    final CustomIcon[] CENTRIFUGE = new CustomIcon[] {
         frontFace_0,
         frontFace_1,
         frontFace_2,
@@ -61,7 +61,7 @@ public class TexturesCentrifugeMultiblock {
         frontFace_8
     };
 
-    CustomIcon[] CENTRIFUGE_ACTIVE = new CustomIcon[] {
+    final CustomIcon[] CENTRIFUGE_ACTIVE = new CustomIcon[] {
         frontFaceActive_0,
         frontFaceActive_1,
         frontFaceActive_2,

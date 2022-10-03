@@ -38,7 +38,7 @@ public class GT_Computercube_Simulator {
 
     private String currentReactorOldCode = null;
 
-    private ArrayList<String> output = new ArrayList<>();
+    private final ArrayList<String> output = new ArrayList<>();
 
     private final GT_TileEntity_ComputerCube mTile;
 

@@ -25,11 +25,11 @@ public class StaballoyAxe extends ItemAxe {
     }
 
     //   EXPLODE TREE
-    byte[] tre = new byte[32000];
-    byte unchecked = 0;
-    byte needcheck = 1;
-    byte ignore = 2;
-    byte harvest = 3;
+    final byte[] tre = new byte[32000];
+    final byte unchecked = 0;
+    final byte needcheck = 1;
+    final byte ignore = 2;
+    final byte harvest = 3;
 
     private boolean setcheck(final int x, final int y, final int z) {
         if ((x < 0) || (x > 19) || (z < 0) || (z > 19) || (y < 0) || (y > 79)) {

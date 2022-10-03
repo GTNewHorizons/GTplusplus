@@ -23,7 +23,7 @@ import net.minecraftforge.common.BiomeManager;
 
 public class Biome_AustralianForest extends BiomeGenForest {
 
-    private int mWoodMeta;
+    private final int mWoodMeta;
     protected static final WorldGenForest mGenTreeForest = new WorldGenForest(false, true);
     protected static final WorldGenForest mGenTreeForest2 = new WorldGenForest(false, false);
     protected static final WorldGenCanopyTree mGenTreeCanopy = new WorldGenCanopyTree(false);

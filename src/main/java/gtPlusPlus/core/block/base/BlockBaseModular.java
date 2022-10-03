@@ -25,9 +25,9 @@ public class BlockBaseModular extends BasicBlock {
 
     protected Material blockMaterial;
 
-    protected int blockColour;
-    public BlockTypes thisBlock;
-    protected String thisBlockMaterial;
+    protected final int blockColour;
+    public final BlockTypes thisBlock;
+    protected final String thisBlockMaterial;
     protected final String thisBlockType;
 
     private static final HashMap<String, Block> sBlockCache = new HashMap<>();

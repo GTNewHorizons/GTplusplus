@@ -57,7 +57,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
     // Is Master?
     protected boolean mIsMaster = false;
     // Is Connected?
-    protected boolean[] mIsConnected = new boolean[] {false, false, false, false, false, false};
+    protected final boolean[] mIsConnected = new boolean[] {false, false, false, false, false, false};
     // How many are connected?
     protected int mConnectedCount = 0;
     // Map of connected locations

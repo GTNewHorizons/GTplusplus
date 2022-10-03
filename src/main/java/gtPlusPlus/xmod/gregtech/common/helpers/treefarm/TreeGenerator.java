@@ -58,7 +58,7 @@ public class TreeGenerator {
         private int mCurrentGeneratorIteration = 0;
 
         private boolean hasGenerated = false;
-        private AutoMap<ItemStack> aOutputsFromGenerator = new AutoMap<>();
+        private final AutoMap<ItemStack> aOutputsFromGenerator = new AutoMap<>();
 
         public FakeTreeInFakeWorldGenerator() {
             this(4, 0, 0, false, 5000);

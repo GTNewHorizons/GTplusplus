@@ -18,7 +18,7 @@ public class ModelEggBox extends ModelTabulaBase {
 
     private static RenderTabulaBase mRendererInstance;
 
-    public ModelRenderer bottom;
+    public final ModelRenderer bottom;
     // EggBox_full.png
 
     public ModelEggBox() {

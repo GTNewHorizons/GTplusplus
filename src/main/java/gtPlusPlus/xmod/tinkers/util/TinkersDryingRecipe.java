@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class TinkersDryingRecipe {
 
-    public static AutoMap<TinkersDryingRecipe> recipes = new AutoMap<>();
+    public static final AutoMap<TinkersDryingRecipe> recipes = new AutoMap<>();
 
     public final int time;
     public final ItemStack input;

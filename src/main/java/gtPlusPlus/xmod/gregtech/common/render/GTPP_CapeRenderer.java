@@ -289,7 +289,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
     private static class CapeUtils {
 
-        private static char SPLIT_CHARACTER = '§';
+        private static final char SPLIT_CHARACTER = '§';
         private static AES sAES;
 
         // UUID - Username

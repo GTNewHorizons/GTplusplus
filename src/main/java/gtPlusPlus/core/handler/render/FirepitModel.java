@@ -13,14 +13,14 @@ import net.minecraft.entity.Entity;
 
 public class FirepitModel extends ModelBase {
     // fields
-    ModelRenderer Side_A;
-    ModelRenderer Side_B;
-    ModelRenderer Side_C;
-    ModelRenderer Side_D;
-    ModelRenderer Log1;
-    ModelRenderer Log2;
-    ModelRenderer Log3;
-    ModelRenderer Log4;
+    final ModelRenderer Side_A;
+    final ModelRenderer Side_B;
+    final ModelRenderer Side_C;
+    final ModelRenderer Side_D;
+    final ModelRenderer Log1;
+    final ModelRenderer Log2;
+    final ModelRenderer Log3;
+    final ModelRenderer Log4;
 
     public FirepitModel() {
         this.textureWidth = 16;

@@ -694,8 +694,8 @@ public class TreeFarmHelper {
     public static class TreeCutter {
 
         private final World mWorld;
-        private Map<String, BlockPos> mQueue = new ConcurrentHashMap<>();
-        private AutoMap<ItemStack[]> mDrops = new AutoMap<>();
+        private final Map<String, BlockPos> mQueue = new ConcurrentHashMap<>();
+        private final AutoMap<ItemStack[]> mDrops = new AutoMap<>();
         private boolean isValid = true;
 
         public TreeCutter(World world) {

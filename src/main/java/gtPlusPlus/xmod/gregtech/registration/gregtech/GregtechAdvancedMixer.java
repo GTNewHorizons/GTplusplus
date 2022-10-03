@@ -18,7 +18,7 @@ public class GregtechAdvancedMixer {
         run1();
     }
 
-    private static GT_Recipe_Map map = GT_Recipe.GT_Recipe_Map.sMixerRecipes;
+    private static final GT_Recipe_Map map = GT_Recipe.GT_Recipe_Map.sMixerRecipes;
 
     private static boolean generateMixerRecipeMap() {
         if (GTPP_Recipe.GTPP_Recipe_Map.sAdvancedMixerRecipes.mRecipeList.size() == 0) {

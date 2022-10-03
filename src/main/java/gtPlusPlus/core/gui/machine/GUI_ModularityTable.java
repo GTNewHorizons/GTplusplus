@@ -17,8 +17,8 @@ public class GUI_ModularityTable extends GuiContainer {
 
     private static final ResourceLocation craftingTableGuiTextures =
             new ResourceLocation(CORE.MODID, "textures/gui/ModularityTable.png");
-    private Container_ModularityTable mThisContainer;
-    private TileEntityModularityTable mThisTile;
+    private final Container_ModularityTable mThisContainer;
+    private final TileEntityModularityTable mThisTile;
     private int mRecipeTime = -1;
 
     public GUI_ModularityTable(final InventoryPlayer player_inventory, final TileEntityModularityTable tile) {

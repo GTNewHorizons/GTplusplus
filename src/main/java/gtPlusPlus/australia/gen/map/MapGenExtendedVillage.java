@@ -32,7 +32,7 @@ public class MapGenExtendedVillage extends MapGenStructure {
     private int terrainType;
 
     private int field_82665_g;
-    private int field_82666_h;
+    private final int field_82666_h;
 
     public MapGenExtendedVillage() {
         this.field_82665_g = 8;

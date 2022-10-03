@@ -26,7 +26,7 @@ public class ClassTransformer_Forge_ChunkLoading {
     String aWorld;
     String aEntity;
 
-    private static boolean doesMethodAlreadyExist = false;
+    private static final boolean doesMethodAlreadyExist = false;
 
     public ClassTransformer_Forge_ChunkLoading(byte[] basicClass, boolean obfuscated) {
 

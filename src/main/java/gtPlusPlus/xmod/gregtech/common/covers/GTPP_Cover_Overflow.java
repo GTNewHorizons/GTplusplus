@@ -169,7 +169,7 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
     private class GUI extends GT_GUICover {
         private final byte side;
         private final int coverID;
-        private GT_GuiIntegerTextBox tBox;
+        private final GT_GuiIntegerTextBox tBox;
         private int coverVariable;
 
         private static final int startX = 10;

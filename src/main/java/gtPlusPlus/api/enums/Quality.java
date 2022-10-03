@@ -22,8 +22,8 @@ public enum Quality {
     TRADEOFF("Trade-off", EnumChatFormatting.DARK_RED),
     EPIC("Epic", EnumChatFormatting.LIGHT_PURPLE);
 
-    private String LOOT;
-    private EnumChatFormatting COLOUR;
+    private final String LOOT;
+    private final EnumChatFormatting COLOUR;
 
     Quality(final String lootTier, final EnumChatFormatting tooltipColour) {
         this.LOOT = lootTier;

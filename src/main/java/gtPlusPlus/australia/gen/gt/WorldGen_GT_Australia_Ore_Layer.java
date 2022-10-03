@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldGen_GT_Australia_Ore_Layer extends WorldGen_GT_Australia {
-    public static ArrayList<WorldGen_GT_Australia_Ore_Layer> sList = new ArrayList<>();
+    public static final ArrayList<WorldGen_GT_Australia_Ore_Layer> sList = new ArrayList<>();
     public static int sWeight = 0;
     public final short mMinY;
     public final short mMaxY;
@@ -41,7 +41,7 @@ public class WorldGen_GT_Australia_Ore_Layer extends WorldGen_GT_Australia {
     public final Material mBetween;
     public final Material mSporadic;
 
-    public static boolean mUpdated = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK;
+    public static final boolean mUpdated = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK;
     public static final Block mStoneTypes;
 
     // public final String mBiome;
@@ -457,7 +457,7 @@ public class WorldGen_GT_Australia_Ore_Layer extends WorldGen_GT_Australia {
             ore2String = "unset",
             ore3String = "unset",
             ore4String = "unset";
-    Map<Materials, String> gtOreMap = new HashMap<>();
+    final Map<Materials, String> gtOreMap = new HashMap<>();
 
     @SuppressWarnings("deprecation")
     public boolean setOreBlock(World aWorld, int aX, int aY, int aZ, Block aMetaData, boolean isSmallOre, boolean air) {

@@ -20,7 +20,7 @@ public abstract class CustomBoxInventory implements IInventory {
     public final int INV_SIZE;
 
     /** Inventory's size must be same as number of slots you add to the Container class */
-    private ItemStack[] inventory;
+    private final ItemStack[] inventory;
 
     /**
      * @param itemstack - the ItemStack to which this inventory belongs

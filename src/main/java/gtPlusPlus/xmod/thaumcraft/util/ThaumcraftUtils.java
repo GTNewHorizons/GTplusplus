@@ -36,7 +36,7 @@ import net.minecraft.world.World;
 
 public class ThaumcraftUtils {
 
-    private static Class<?> mClass_Aspect;
+    private static final Class<?> mClass_Aspect;
     private static Field mField_Aspects;
 
     static {

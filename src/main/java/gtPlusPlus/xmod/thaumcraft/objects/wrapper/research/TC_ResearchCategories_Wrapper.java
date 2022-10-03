@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Level;
 
 public class TC_ResearchCategories_Wrapper {
 
-    public static LinkedHashMap<String, TC_ResearchCategoryList_Wrapper> researchCategories =
+    public static final LinkedHashMap<String, TC_ResearchCategoryList_Wrapper> researchCategories =
             new LinkedHashMap<>();
 
     public static TC_ResearchCategoryList_Wrapper getResearchList(String key) {

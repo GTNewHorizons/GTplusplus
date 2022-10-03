@@ -75,7 +75,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class HANDLER_GT {
 
-    public static GT_Config mMaterialProperties = null;
+    public static final GT_Config mMaterialProperties = null;
 
     public static GTPP_Config sCustomWorldgenFile = null;
     public static final List<WorldGen_GT> sWorldgenListEverglades = new ArrayList<>();

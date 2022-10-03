@@ -140,7 +140,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
         super.abortProcess();
     }
 
-    long mFusionPoint = 20000000L;
+    final long mFusionPoint = 20000000L;
 
     @Override
     public int checkRecipe() {

@@ -26,8 +26,8 @@ public class TexturesGtBlock {
 
     public static class CustomIcon implements IIconContainer, Runnable {
         protected IIcon mIcon;
-        protected String mIconName;
-        protected String mModID;
+        protected final String mIconName;
+        protected final String mModID;
 
         public CustomIcon(final String aIconName) {
             this(CORE.MODID, aIconName);
@@ -66,7 +66,7 @@ public class TexturesGtBlock {
 
     public static class VanillaIcon implements IIconContainer, Runnable {
         protected IIcon mIcon;
-        protected String mIconName;
+        protected final String mIconName;
 
         public VanillaIcon(final String aIconName) {
             this.mIconName = aIconName;
@@ -756,7 +756,7 @@ public class TexturesGtBlock {
         TextureFactory.of(OVERLAY_ENERGY_OUT_BUFFER, new short[] {240, 240, 245, 0})
     };
 
-    public static ITexture[] OVERLAYS_ENERGY_OUT_MULTI_BUFFER = new ITexture[] {
+    public static final ITexture[] OVERLAYS_ENERGY_OUT_MULTI_BUFFER = new ITexture[] {
         TextureFactory.of(OVERLAY_ENERGY_OUT_MULTI_BUFFER, new short[] {220, 220, 220, 0}),
         TextureFactory.of(OVERLAY_ENERGY_OUT_MULTI_BUFFER, new short[] {220, 220, 220, 0}),
         TextureFactory.of(OVERLAY_ENERGY_OUT_MULTI_BUFFER, new short[] {255, 100, 0, 0}),
@@ -769,7 +769,7 @@ public class TexturesGtBlock {
         TextureFactory.of(OVERLAY_ENERGY_OUT_MULTI_BUFFER, new short[] {240, 240, 245, 0})
     };
 
-    public static ITexture[] OVERLAYS_CABINET_FRONT = new ITexture[] {
+    public static final ITexture[] OVERLAYS_CABINET_FRONT = new ITexture[] {
         TextureFactory.of(OVERLAY_CABINET_1, new short[] {255, 255, 255, 0}),
         TextureFactory.of(OVERLAY_CABINET_2, new short[] {255, 255, 255, 0}),
         TextureFactory.of(OVERLAY_CABINET_3, new short[] {255, 255, 255, 0}),
@@ -788,7 +788,7 @@ public class TexturesGtBlock {
         TextureFactory.of(OVERLAY_CABINET_16, new short[] {255, 255, 255, 0}),
     };
 
-    public static ITexture[] OVERLAYS_COMPARTMENT_FRONT;
+    public static final ITexture[] OVERLAYS_COMPARTMENT_FRONT;
 
     static {
         OVERLAYS_COMPARTMENT_FRONT = new ITexture[] {
@@ -811,14 +811,14 @@ public class TexturesGtBlock {
         };
     }
 
-    public static IIconContainer[] CONNECTED_FUSION_HULLS = new IIconContainer[] {
+    public static final IIconContainer[] CONNECTED_FUSION_HULLS = new IIconContainer[] {
         TEXTURE_CASING_FUSION_COIL_II_1, TEXTURE_CASING_FUSION_COIL_II_2, TEXTURE_CASING_FUSION_COIL_II_3,
         TEXTURE_CASING_FUSION_COIL_II_4, TEXTURE_CASING_FUSION_COIL_II_5, TEXTURE_CASING_FUSION_COIL_II_6,
         TEXTURE_CASING_FUSION_COIL_II_7, TEXTURE_CASING_FUSION_COIL_II_8, TEXTURE_CASING_FUSION_COIL_II_9,
         TEXTURE_CASING_FUSION_COIL_II_10, TEXTURE_CASING_FUSION_COIL_II_11, TEXTURE_CASING_FUSION_COIL_II_12
     };
 
-    public static IIconContainer[] TIERED_MACHINE_HULLS = new IIconContainer[] {
+    public static final IIconContainer[] TIERED_MACHINE_HULLS = new IIconContainer[] {
         TEXTURE_CASING_TIERED_ULV,
         TEXTURE_CASING_TIERED_LV,
         TEXTURE_CASING_TIERED_MV,

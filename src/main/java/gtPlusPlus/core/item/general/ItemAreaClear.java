@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 public class ItemAreaClear extends CoreItem {
 
-    public IIcon[] mIcon = new IIcon[1];
+    public final IIcon[] mIcon = new IIcon[1];
 
     public ItemAreaClear() {
         super(

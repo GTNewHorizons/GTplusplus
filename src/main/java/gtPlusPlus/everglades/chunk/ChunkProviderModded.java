@@ -27,7 +27,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderModded implements IChunkProvider {
-	private Random rand;
+	private final Random rand;
 	private NoiseGeneratorOctaves field_147431_j;
 	private NoiseGeneratorOctaves field_147432_k;
 	private NoiseGeneratorOctaves field_147429_l;
@@ -44,8 +44,8 @@ public class ChunkProviderModded implements IChunkProvider {
 	/**
 	 * Reference to the World object.
 	 */
-	private World worldObj;
-	private WorldType field_147435_p;
+	private final World worldObj;
+	private final WorldType field_147435_p;
 	private final double[] field_147434_q;
 	private final float[] parabolicField;
 	private double[] stoneNoise = new double[256];

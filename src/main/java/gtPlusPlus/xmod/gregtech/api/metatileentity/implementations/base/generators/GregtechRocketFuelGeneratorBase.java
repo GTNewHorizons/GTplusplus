@@ -20,7 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public abstract class GregtechRocketFuelGeneratorBase extends GT_MetaTileEntity_BasicTank {
 
-    private boolean useFuel = false;
+    private final boolean useFuel = false;
     protected int pollMin, pollMax;
 
     public GregtechRocketFuelGeneratorBase(

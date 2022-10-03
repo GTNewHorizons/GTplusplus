@@ -10,12 +10,12 @@ import net.minecraft.item.ItemStack;
 
 public class RECIPE_Batteries {
 
-    static ItemStack RECIPE_Battery_Sodium = GregtechItemList.Battery_RE_EV_Sodium.get(1);
-    static ItemStack RECIPE_Battery_Cadmium = GregtechItemList.Battery_RE_EV_Cadmium.get(1);
-    static ItemStack RECIPE_Battery_Lithium = GregtechItemList.Battery_RE_EV_Lithium.get(1);
-    static ItemStack GT_Battery_Sodium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32539, 1);
-    static ItemStack GT_Battery_Cadmium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32537, 1);
-    static ItemStack GT_Battery_Lithium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32538, 1);
+    static final ItemStack RECIPE_Battery_Sodium = GregtechItemList.Battery_RE_EV_Sodium.get(1);
+    static final ItemStack RECIPE_Battery_Cadmium = GregtechItemList.Battery_RE_EV_Cadmium.get(1);
+    static final ItemStack RECIPE_Battery_Lithium = GregtechItemList.Battery_RE_EV_Lithium.get(1);
+    static final ItemStack GT_Battery_Sodium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32539, 1);
+    static final ItemStack GT_Battery_Cadmium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32537, 1);
+    static final ItemStack GT_Battery_Lithium = ItemUtils.simpleMetaStack("gregtech:gt.metaitem.01", 32538, 1);
     static ItemStack machineTransformer_EV;
 
     public static void loadRecipes() {

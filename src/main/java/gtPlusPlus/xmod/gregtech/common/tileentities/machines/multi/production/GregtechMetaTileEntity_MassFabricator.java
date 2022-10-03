@@ -50,9 +50,9 @@ public class GregtechMetaTileEntity_MassFabricator
     public int mScrapUsed = 0;
     public int mAmplifierUsed = 0;
 
-    public static String mCasingName1 = "Matter Fabricator Casing";
-    public static String mCasingName2 = "Containment Casing";
-    public static String mCasingName3 = "Matter Generation Coil";
+    public static final String mCasingName1 = "Matter Fabricator Casing";
+    public static final String mCasingName2 = "Containment Casing";
+    public static final String mCasingName3 = "Matter Generation Coil";
 
     private int mMode = 0;
 

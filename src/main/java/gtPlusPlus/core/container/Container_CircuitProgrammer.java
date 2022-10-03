@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class Container_CircuitProgrammer extends Container {
 
-    protected TileEntityCircuitProgrammer tile_entity;
+    protected final TileEntityCircuitProgrammer tile_entity;
     public final InventoryCircuitProgrammer inventoryChest;
 
     private final World worldObj;
@@ -25,8 +25,8 @@ public class Container_CircuitProgrammer extends Container {
 
     public static final int SLOT_OUTPUT = 25;
 
-    public static int StorageSlotNumber = 26; // Number of slots in storage area
-    public static int InventorySlotNumber = 36; // Inventory Slots (Inventory
+    public static final int StorageSlotNumber = 26; // Number of slots in storage area
+    public static final int InventorySlotNumber = 36; // Inventory Slots (Inventory
     // and Hotbar)
     public static int FullSlotNumber = InventorySlotNumber + StorageSlotNumber; // All
     // slots

@@ -12,7 +12,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class MobMentality {
 
-    public static HashSet<Class<EntityLivingBase>> sIgnoredTypes = new HashSet<>();
+    public static final HashSet<Class<EntityLivingBase>> sIgnoredTypes = new HashSet<>();
 
     @SubscribeEvent
     public void onEntityDamaged(LivingHurtEvent event) {

@@ -27,7 +27,7 @@ public class GTPP_ChunkManager
                 ForgeChunkManager.PlayerOrderedLoadingCallback {
     private static GTPP_ChunkManager instance;
 
-    public static boolean enableChunkloaders = true;
+    public static final boolean enableChunkloaders = true;
     public static boolean alwaysReloadChunkloaders = false;
     public static boolean debugChunkloaders = false;
 

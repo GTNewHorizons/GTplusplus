@@ -20,7 +20,7 @@ public class TAE {
     public static int gtPPLastUsedIndex = 64;
     public static int secondaryIndex = 0;
 
-    public static HashMap<Integer, ITexture> mTAE = new HashMap<>();
+    public static final HashMap<Integer, ITexture> mTAE = new HashMap<>();
     private static final HashSet<Integer> mFreeSlots = new HashSet<>(64);
 
     static {

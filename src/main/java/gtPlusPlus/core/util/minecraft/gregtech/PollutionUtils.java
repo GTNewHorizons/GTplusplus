@@ -24,7 +24,7 @@ public class PollutionUtils {
 
     private static boolean mIsPollutionEnabled = true;
 
-    public static AutoMap<FluidStack> mPollutionFluidStacks = new AutoMap<>();
+    public static final AutoMap<FluidStack> mPollutionFluidStacks = new AutoMap<>();
 
     static {
         if (MAIN_GREGTECH_5U_EXPERIMENTAL_FORK || CORE.GTNH) {

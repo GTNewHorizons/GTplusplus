@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemControlCore extends Item {
 
-    public static IIcon[] icons = new IIcon[10];
+    public static final IIcon[] icons = new IIcon[10];
 
     public ItemControlCore() {
         super();

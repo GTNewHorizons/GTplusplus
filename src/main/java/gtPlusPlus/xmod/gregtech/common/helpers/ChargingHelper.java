@@ -33,7 +33,7 @@ public class ChargingHelper {
 
     private static final Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
             new HashMap<>();
-    protected static Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap =
+    protected static final Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap =
             new HashMap<>();
     private int mTickTimer = 0;
     private final int mTickMultiplier = 20;

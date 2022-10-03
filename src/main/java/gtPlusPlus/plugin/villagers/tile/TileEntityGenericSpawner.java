@@ -25,7 +25,7 @@ public class TileEntityGenericSpawner extends TileEntityMobSpawner {
     /**
      * The Mob Spawner Map
      */
-    public static HashMap<Integer, Class<Entity>> mSpawners = new HashMap<>();
+    public static final HashMap<Integer, Class<Entity>> mSpawners = new HashMap<>();
 
     /**
      * Registers a New Mob Spawner Type

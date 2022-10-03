@@ -14,21 +14,21 @@ import org.lwjgl.opengl.GL11;
 public class ModelDingo extends ModelBase {
 
     /** main box for the dingo head */
-    public ModelRenderer dingoHeadMain;
+    public final ModelRenderer dingoHeadMain;
     /** The dingo's body */
-    public ModelRenderer dingoBody;
+    public final ModelRenderer dingoBody;
     /** dingo'se first leg */
-    public ModelRenderer dingoLeg1;
+    public final ModelRenderer dingoLeg1;
     /** dingo's second leg */
-    public ModelRenderer dingoLeg2;
+    public final ModelRenderer dingoLeg2;
     /** dingo's third leg */
-    public ModelRenderer dingoLeg3;
+    public final ModelRenderer dingoLeg3;
     /** dingo's fourth leg */
-    public ModelRenderer dingoLeg4;
+    public final ModelRenderer dingoLeg4;
     /** The dingo's tail */
-    ModelRenderer dingoTail;
+    final ModelRenderer dingoTail;
     /** The dingo's mane */
-    ModelRenderer dingoMane;
+    final ModelRenderer dingoMane;
 
     public ModelDingo() {
         float f = 0.0F;

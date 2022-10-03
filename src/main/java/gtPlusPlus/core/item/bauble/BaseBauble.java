@@ -39,7 +39,7 @@ public class BaseBauble extends Item implements IBauble {
 
     private final String mDisplayName;
     private final List<String> damageNegations = new ArrayList<>();
-    Multimap<String, AttributeModifier> attributes = HashMultimap.create();
+    final Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 
     public BaseBauble(BaubleType type, String displayName) {
         this.mThisBauble = type;

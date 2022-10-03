@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL12;
 
 @SideOnly(Side.CLIENT)
 public class RenderToxinball extends Render {
-    private float mSize;
+    private final float mSize;
 
     public RenderToxinball(float scale) {
         this.mSize = scale;

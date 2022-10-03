@@ -11,9 +11,9 @@ public enum GTPP_DropType {
     FORCE(1, "Force", true, Utils.rgbtoHexValue(250, 250, 20), Utils.rgbtoHexValue(200, 200, 5));
 
     public boolean mShowInList;
-    public Material mMaterial;
+    public final Material mMaterial;
     public int mChance;
-    public int mID;
+    public final int mID;
 
     private final String mName;
     private final String mNameUnlocal;

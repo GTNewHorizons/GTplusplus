@@ -11,17 +11,17 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class ModelBatKing extends ModelBase {
-    private ModelRenderer batHead;
+    private final ModelRenderer batHead;
     /** The body box of the bat model. */
-    private ModelRenderer batBody;
+    private final ModelRenderer batBody;
     /** The inner right wing box of the bat model. */
-    private ModelRenderer batRightWing;
+    private final ModelRenderer batRightWing;
     /** The inner left wing box of the bat model. */
-    private ModelRenderer batLeftWing;
+    private final ModelRenderer batLeftWing;
     /** The outer right wing box of the bat model. */
-    private ModelRenderer batOuterRightWing;
+    private final ModelRenderer batOuterRightWing;
     /** The outer left wing box of the bat model. */
-    private ModelRenderer batOuterLeftWing;
+    private final ModelRenderer batOuterLeftWing;
 
     public ModelBatKing() {
         this.textureWidth = 64;

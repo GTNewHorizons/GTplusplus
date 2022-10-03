@@ -35,7 +35,7 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
     private static CustomIcon _mGTIco_Norm_Active;
     private static CustomIcon _mGTIco_TE_Idle;
     private static CustomIcon _mGTIco_TE_Active;
-    private static int[] mAccelerateStatic = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, 512, 512, 512, 512, 512};
+    private static final int[] mAccelerateStatic = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, 512, 512, 512, 512, 512};
 
     @Override
     public void registerIcons(IIconRegister aBlockIconRegister) {
@@ -185,7 +185,7 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
         return 8;
     }
 
-    private static String[] mModeStr = {"Blocks", "TileEntities"};
+    private static final String[] mModeStr = {"Blocks", "TileEntities"};
 
     @Override
     public void onScrewdriverRightClick(byte pSide, EntityPlayer pPlayer, float pX, float pY, float pZ) {
@@ -245,7 +245,7 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
         }
     }
 
-    private static List<String> _mBlacklistedTileEntities = new ArrayList<>();
+    private static final List<String> _mBlacklistedTileEntities = new ArrayList<>();
 
     // Inspired by ChromatiCraft's TileAccelerator
     private boolean isTEBlackListed(TileEntity pTile) {

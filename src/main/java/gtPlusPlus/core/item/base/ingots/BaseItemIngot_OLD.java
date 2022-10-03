@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 
 public class BaseItemIngot_OLD extends Item {
 
-    protected int colour;
-    protected String materialName;
-    protected String unlocalName;
+    protected final int colour;
+    protected final String materialName;
+    protected final String unlocalName;
 
     public BaseItemIngot_OLD(
             final String unlocalizedName, final String materialName, final int colour, final int sRadioactivity) {

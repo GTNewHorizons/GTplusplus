@@ -25,7 +25,7 @@ public class BaseItemTickable extends CoreItem {
     public final boolean twoRenderPasses;
     public final boolean ticksInContainers;
 
-    public IIcon[] mIcon = new IIcon[2];
+    public final IIcon[] mIcon = new IIcon[2];
 
     public BaseItemTickable(boolean twoPass, final String unlocalName, final int colour, final int maxTicks) {
         this(false, twoPass, unlocalName, colour, maxTicks, new String[] {});

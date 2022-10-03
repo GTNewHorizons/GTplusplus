@@ -41,9 +41,9 @@ public class BasicBlock extends BlockContainer {
         FRAME("blockFrameGt", "wrench", soundTypeMetal),
         ORE("blockStone", "pickaxe", soundTypeStone);
 
-        private String TEXTURE_NAME;
-        private String HARVEST_TOOL;
-        private SoundType soundOfBlock;
+        private final String TEXTURE_NAME;
+        private final String HARVEST_TOOL;
+        private final SoundType soundOfBlock;
 
         BlockTypes(final String textureName, final String harvestTool, final SoundType blockSound) {
             this.TEXTURE_NAME = textureName;

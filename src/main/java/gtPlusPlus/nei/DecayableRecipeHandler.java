@@ -198,8 +198,8 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
     }
 
     public class DecayableRecipeNEI extends TemplateRecipeHandler.CachedRecipe implements Comparable<CachedRecipe> {
-        private PositionedStack input;
-        private PositionedStack output;
+        private final PositionedStack input;
+        private final PositionedStack output;
         public int time;
 
         @Override

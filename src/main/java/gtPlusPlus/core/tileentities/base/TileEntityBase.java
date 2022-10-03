@@ -329,9 +329,11 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     };
     protected TileEntityBase mMetaTileEntity;
     protected long mStoredEnergy = 0;
-    protected int mAverageEUInputIndex = 0, mAverageEUOutputIndex = 0;
+    protected final int mAverageEUInputIndex = 0;
+    protected final int mAverageEUOutputIndex = 0;
     protected boolean mReleaseEnergy = false;
-    protected int[] mAverageEUInput = new int[11], mAverageEUOutput = new int[11];
+    protected final int[] mAverageEUInput = new int[11];
+    protected final int[] mAverageEUOutput = new int[11];
     private final boolean[] mActiveEUInputs = new boolean[] {false, false, false, false, false, false};
     private final boolean[] mActiveEUOutputs = new boolean[] {false, false, false, false, false, false};
     private final byte[] mSidedRedstone = new byte[] {15, 15, 15, 15, 15, 15};
@@ -339,9 +341,9 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     private final int[] mCoverData = new int[] {0, 0, 0, 0, 0, 0};
     private final int[] mTimeStatistics = new int[GregTech_API.TICKS_FOR_LAG_AVERAGING];
     private boolean mHasEnoughEnergy = true;
-    protected boolean mRunningThroughTick = false;
-    protected boolean mInputDisabled = false;
-    protected boolean mOutputDisabled = false;
+    protected final boolean mRunningThroughTick = false;
+    protected final boolean mInputDisabled = false;
+    protected final boolean mOutputDisabled = false;
     private final boolean mMuffler = false;
     private final boolean mLockUpgrade = false;
     private final boolean mActive = false;
@@ -376,7 +378,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     private final int mTimeStatisticsIndex = 0;
     private final int mLagWarningCount = 0;
     private final short mID = 0;
-    protected long mTickTimer = 0;
+    protected final long mTickTimer = 0;
     private final long oOutput = 0;
     private long mAcceptedAmperes = Long.MAX_VALUE;
 
@@ -516,7 +518,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     }
 
     private final TileEntity[] mBufferedTileEntities = new TileEntity[6];
-    public boolean ignoreUnloadedChunks = true;
+    public final boolean ignoreUnloadedChunks = true;
     public boolean isDead = false;
 
     private final void clearNullMarkersFromTileEntityBuffer() {

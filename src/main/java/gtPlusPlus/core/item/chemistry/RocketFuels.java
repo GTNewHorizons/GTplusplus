@@ -29,8 +29,8 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class RocketFuels extends ItemPackage {
 
-    public static HashSet<String> mValidRocketFuelNames = new HashSet<>();
-    public static HashMap<Integer, Fluid> mValidRocketFuels = new HashMap<>();
+    public static final HashSet<String> mValidRocketFuelNames = new HashSet<>();
+    public static final HashMap<Integer, Fluid> mValidRocketFuels = new HashMap<>();
 
     public static Fluid Oil_Heavy;
     public static Fluid Diesel;

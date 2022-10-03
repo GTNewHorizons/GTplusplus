@@ -25,7 +25,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank {
 
-    protected String mLocalName;
+    protected final String mLocalName;
 
     private static final int SLOT_WEEDEX_1 = 1;
     private static final int SLOT_WEEDEX_2 = 2;

@@ -153,16 +153,16 @@ public class EntityAIBatKingAttack extends EntityAIBase {
          */
         private int rangedAttackTime;
 
-        private double entityMoveSpeed;
+        private final double entityMoveSpeed;
         private int mCooldownTime;
-        private int field_96561_g;
+        private final int field_96561_g;
         /**
          * The maximum time the AI has to wait before performing another ranged attack.
          */
         private int maxRangedAttackTime;
 
-        private float field_96562_i;
-        private float field_82642_h; // Max range
+        private final float field_96562_i;
+        private final float field_82642_h; // Max range
 
         public Ranged(
                 EntityAIBatKingAttack aParent,

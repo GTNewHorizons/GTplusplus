@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemAirFilter extends Item {
 
-    public IIcon[] icons = new IIcon[1];
+    public final IIcon[] icons = new IIcon[1];
 
     public ItemAirFilter() {
         super();

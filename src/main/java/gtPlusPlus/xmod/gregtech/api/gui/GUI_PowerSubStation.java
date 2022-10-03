@@ -9,9 +9,9 @@ import gtPlusPlus.core.util.math.MathUtils;
 import net.minecraft.entity.player.InventoryPlayer;
 
 public class GUI_PowerSubStation extends GT_GUIContainerMetaTile_Machine {
-    public String mNEI;
-    String mName;
-    boolean[] mRepairStatus = new boolean[6];
+    public final String mNEI;
+    final String mName;
+    final boolean[] mRepairStatus = new boolean[6];
 
     public final CONTAINER_PowerSubStation mPowerContainer;
 

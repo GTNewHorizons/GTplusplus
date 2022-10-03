@@ -20,7 +20,7 @@ public class GregtechMetaPollutionCreator extends GregtechMetaTileEntity {
 
     int mCurrentPollution;
     int mAveragePollution;
-    int[] mAveragePollutionArray = new int[10];
+    final int[] mAveragePollutionArray = new int[10];
     private int mArrayPos = 0;
     private int mTickTimer = 0;
     private final int mSecondTimer = 0;

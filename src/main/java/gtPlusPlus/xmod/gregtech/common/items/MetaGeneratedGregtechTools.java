@@ -22,7 +22,7 @@ public class MetaGeneratedGregtechTools extends GT_MetaGenerated_Tool {
     public static final short SKOOKUM_CHOOCHER = 7734;
     public static final short ANGLE_GRINDER = 7834;
     public static final short ELECTRIC_SNIPS = 7934;
-    public static GT_MetaGenerated_Tool INSTANCE;
+    public static final GT_MetaGenerated_Tool INSTANCE;
 
     static {
         INSTANCE = new MetaGeneratedGregtechTools();

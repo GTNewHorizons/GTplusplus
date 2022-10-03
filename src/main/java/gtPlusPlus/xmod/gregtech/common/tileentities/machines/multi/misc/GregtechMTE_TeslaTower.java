@@ -288,7 +288,7 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
         return !mMaintenanceHatches.isEmpty() && !mEnergyHatches.isEmpty();
     }
 
-    private Map<Pair<Long, Long>, Entity> mInRange = new HashMap<>();
+    private final Map<Pair<Long, Long>, Entity> mInRange = new HashMap<>();
 
     @SuppressWarnings("unchecked")
     @Override

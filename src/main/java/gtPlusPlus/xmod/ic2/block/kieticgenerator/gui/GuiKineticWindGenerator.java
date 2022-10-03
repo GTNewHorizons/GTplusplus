@@ -12,8 +12,8 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GuiKineticWindGenerator extends GuiContainer {
-    public ContainerWindKineticGenerator container;
-    public String name;
+    public final ContainerWindKineticGenerator container;
+    public final String name;
 
     public GuiKineticWindGenerator(final ContainerWindKineticGenerator container1) {
         super(container1);

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class Container_DecayablesChest extends Container {
 
-    protected TileEntityDecayablesChest tile_entity;
+    protected final TileEntityDecayablesChest tile_entity;
     public final Inventory_DecayablesChest inventoryChest;
 
     private final World worldObj;
@@ -20,8 +20,8 @@ public class Container_DecayablesChest extends Container {
     private final int posY;
     private final int posZ;
 
-    public static int StorageSlotNumber = 15; // Number of slots in storage area
-    public static int InventorySlotNumber = 36; // Inventory Slots (Inventory
+    public static final int StorageSlotNumber = 15; // Number of slots in storage area
+    public static final int InventorySlotNumber = 36; // Inventory Slots (Inventory
     // and Hotbar)
     public static int FullSlotNumber = InventorySlotNumber + StorageSlotNumber; // All
     // slots

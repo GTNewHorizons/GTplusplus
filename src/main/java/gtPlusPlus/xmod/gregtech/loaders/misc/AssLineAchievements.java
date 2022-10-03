@@ -23,8 +23,8 @@ public class AssLineAchievements {
     public static int assReg = -1;
     public static ConcurrentHashMap<String, Achievement> mAchievementMap;
     public static ConcurrentHashMap<String, Boolean> mIssuedAchievementMap;
-    public static int adjX = 5;
-    public static int adjY = 9;
+    public static final int adjX = 5;
+    public static final int adjY = 9;
     private static boolean active = true;
 
     public AssLineAchievements() {

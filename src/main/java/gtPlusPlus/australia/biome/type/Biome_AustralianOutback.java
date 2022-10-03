@@ -47,7 +47,7 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
         this.theBiomeDecorator.treesPerChunk = 5;
     }
 
-    public static Biome_AustralianOutback biome = new Biome_AustralianOutback(CORE.AUSTRALIA_BIOME_OUTBACK_ID);
+    public static final Biome_AustralianOutback biome = new Biome_AustralianOutback(CORE.AUSTRALIA_BIOME_OUTBACK_ID);
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.DRY);

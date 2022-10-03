@@ -39,7 +39,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         implements ISurvivalConstructable {
 
     protected int mInternalMode = 0;
-    protected GT_Recipe[] mLastRecipeExtended = new GT_Recipe[9];
+    protected final GT_Recipe[] mLastRecipeExtended = new GT_Recipe[9];
     private static final int MODE_COMPRESSOR = 0;
     private static final int MODE_LATHE = 1;
     private static final int MODE_MAGNETIC = 2;

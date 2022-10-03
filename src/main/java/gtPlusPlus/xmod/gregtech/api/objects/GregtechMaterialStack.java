@@ -4,7 +4,7 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 
 public class GregtechMaterialStack implements Cloneable {
     public long mAmount;
-    public GT_Materials mMaterial;
+    public final GT_Materials mMaterial;
 
     public GregtechMaterialStack(final GT_Materials aMaterial, final long aAmount) {
         this.mMaterial = aMaterial == null ? GT_Materials._NULL : aMaterial;

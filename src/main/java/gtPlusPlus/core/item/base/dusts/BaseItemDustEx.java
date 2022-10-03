@@ -16,10 +16,10 @@ import org.apache.commons.lang3.StringUtils;
 
 public class BaseItemDustEx extends BaseItemComponent {
 
-    public static Map<String, String> mCachedPileLinkages = new HashMap<>();
+    public static final Map<String, String> mCachedPileLinkages = new HashMap<>();
 
-    protected IIcon[] baseAr = new IIcon[3];
-    protected IIcon[] overlayAr = new IIcon[3];
+    protected final IIcon[] baseAr = new IIcon[3];
+    protected final IIcon[] overlayAr = new IIcon[3];
     public static final ComponentTypes[] componentTypeAr =
             new ComponentTypes[] {ComponentTypes.DUST, ComponentTypes.DUSTSMALL, ComponentTypes.DUSTTINY};
 

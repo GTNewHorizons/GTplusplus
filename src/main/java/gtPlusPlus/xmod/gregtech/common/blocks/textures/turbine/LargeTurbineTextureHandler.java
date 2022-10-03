@@ -87,7 +87,7 @@ public class LargeTurbineTextureHandler {
     /**
      * LP Turbines
      */
-    public static BlockIcons[] OVERLAY_LP_TURBINE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_LP_TURBINE = new BlockIcons[] {
         LARGETURBINE_ST1,
         LARGETURBINE_ST2,
         LARGETURBINE_ST3,
@@ -99,7 +99,7 @@ public class LargeTurbineTextureHandler {
         LARGETURBINE_ST9,
     };
 
-    public static BlockIcons[] OVERLAY_LP_TURBINE_ACTIVE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_LP_TURBINE_ACTIVE = new BlockIcons[] {
         LARGETURBINE_ST_ACTIVE1,
         LARGETURBINE_ST_ACTIVE2,
         LARGETURBINE_ST_ACTIVE3,
@@ -114,7 +114,7 @@ public class LargeTurbineTextureHandler {
     /**
      * HP Turbines
      */
-    public static BlockIcons[] OVERLAY_HP_TURBINE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_HP_TURBINE = new BlockIcons[] {
         LARGETURBINE_TI1,
         LARGETURBINE_TI2,
         LARGETURBINE_TI3,
@@ -126,7 +126,7 @@ public class LargeTurbineTextureHandler {
         LARGETURBINE_TI9,
     };
 
-    public static BlockIcons[] OVERLAY_HP_TURBINE_ACTIVE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_HP_TURBINE_ACTIVE = new BlockIcons[] {
         LARGETURBINE_TI_ACTIVE1,
         LARGETURBINE_TI_ACTIVE2,
         LARGETURBINE_TI_ACTIVE3,
@@ -141,7 +141,7 @@ public class LargeTurbineTextureHandler {
     /**
      * Gas Turbines
      */
-    public static BlockIcons[] OVERLAY_GAS_TURBINE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_GAS_TURBINE = new BlockIcons[] {
         LARGETURBINE_SS1,
         LARGETURBINE_SS2,
         LARGETURBINE_SS3,
@@ -153,7 +153,7 @@ public class LargeTurbineTextureHandler {
         LARGETURBINE_SS9,
     };
 
-    public static BlockIcons[] OVERLAY_GAS_TURBINE_ACTIVE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_GAS_TURBINE_ACTIVE = new BlockIcons[] {
         LARGETURBINE_SS_ACTIVE1,
         LARGETURBINE_SS_ACTIVE2,
         LARGETURBINE_SS_ACTIVE3,
@@ -168,7 +168,7 @@ public class LargeTurbineTextureHandler {
     /**
      * Plasma Turbines
      */
-    public static BlockIcons[] OVERLAY_PLASMA_TURBINE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_PLASMA_TURBINE = new BlockIcons[] {
         LARGETURBINE_TU1,
         LARGETURBINE_TU2,
         LARGETURBINE_TU3,
@@ -180,7 +180,7 @@ public class LargeTurbineTextureHandler {
         LARGETURBINE_TU9,
     };
 
-    public static BlockIcons[] OVERLAY_PLASMA_TURBINE_ACTIVE = new BlockIcons[] {
+    public static final BlockIcons[] OVERLAY_PLASMA_TURBINE_ACTIVE = new BlockIcons[] {
         LARGETURBINE_TU_ACTIVE1,
         LARGETURBINE_TU_ACTIVE2,
         LARGETURBINE_TU_ACTIVE3,

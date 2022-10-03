@@ -44,16 +44,16 @@ public class RECIPES_Machines {
     public static ItemStack RECIPE_SteamCondenser;
     public static ItemStack RECIPE_IronBlastFurnace;
     public static ItemStack RECIPE_IronPlatedBricks;
-    public static ItemStack RECIPE_Buffer_ULV = GregtechItemList.Energy_Buffer_1by1_ULV.get(1);
-    public static ItemStack RECIPE_Buffer_LV = GregtechItemList.Energy_Buffer_1by1_LV.get(1);
-    public static ItemStack RECIPE_Buffer_MV = GregtechItemList.Energy_Buffer_1by1_MV.get(1);
-    public static ItemStack RECIPE_Buffer_HV = GregtechItemList.Energy_Buffer_1by1_HV.get(1);
-    public static ItemStack RECIPE_Buffer_EV = GregtechItemList.Energy_Buffer_1by1_EV.get(1);
-    public static ItemStack RECIPE_Buffer_IV = GregtechItemList.Energy_Buffer_1by1_IV.get(1);
-    public static ItemStack RECIPE_Buffer_LuV = GregtechItemList.Energy_Buffer_1by1_LuV.get(1);
-    public static ItemStack RECIPE_Buffer_ZPM = GregtechItemList.Energy_Buffer_1by1_ZPM.get(1);
-    public static ItemStack RECIPE_Buffer_UV = GregtechItemList.Energy_Buffer_1by1_UV.get(1);
-    public static ItemStack RECIPE_Buffer_MAX = GregtechItemList.Energy_Buffer_1by1_MAX.get(1);
+    public static final ItemStack RECIPE_Buffer_ULV = GregtechItemList.Energy_Buffer_1by1_ULV.get(1);
+    public static final ItemStack RECIPE_Buffer_LV = GregtechItemList.Energy_Buffer_1by1_LV.get(1);
+    public static final ItemStack RECIPE_Buffer_MV = GregtechItemList.Energy_Buffer_1by1_MV.get(1);
+    public static final ItemStack RECIPE_Buffer_HV = GregtechItemList.Energy_Buffer_1by1_HV.get(1);
+    public static final ItemStack RECIPE_Buffer_EV = GregtechItemList.Energy_Buffer_1by1_EV.get(1);
+    public static final ItemStack RECIPE_Buffer_IV = GregtechItemList.Energy_Buffer_1by1_IV.get(1);
+    public static final ItemStack RECIPE_Buffer_LuV = GregtechItemList.Energy_Buffer_1by1_LuV.get(1);
+    public static final ItemStack RECIPE_Buffer_ZPM = GregtechItemList.Energy_Buffer_1by1_ZPM.get(1);
+    public static final ItemStack RECIPE_Buffer_UV = GregtechItemList.Energy_Buffer_1by1_UV.get(1);
+    public static final ItemStack RECIPE_Buffer_MAX = GregtechItemList.Energy_Buffer_1by1_MAX.get(1);
     // Industrial Centrifuge
     public static ItemStack RECIPE_IndustrialCentrifugeController;
     public static ItemStack RECIPE_IndustrialCentrifugeCasing;
@@ -146,11 +146,11 @@ public class RECIPES_Machines {
     public static String cableTier1 = "cableGt04Lead";
     public static String cableTier2 = "cableGt04Tin";
     public static String cableTier3 = "cableGt04Copper";
-    public static String cableTier4 = "cableGt04Gold";
+    public static final String cableTier4 = "cableGt04Gold";
     public static String cableTier5 = "cableGt04Aluminium";
     public static String cableTier6 = "cableGt04Tungsten";
     public static String cableTier7 = "cableGt04Naquadah";
-    public static String cableTier8 = "cableGt04Osmium";
+    public static final String cableTier8 = "cableGt04Osmium";
     public static String cableTier9 = "cableGt04NiobiumTitanium";
     public static String cableTier10 = "cableGt08NiobiumTitanium";
 
@@ -158,12 +158,12 @@ public class RECIPES_Machines {
     public static String pipeTier2 = "pipeHuge" + "Potin";
     public static String pipeTier3 = "pipeHuge" + "Steel";
     public static String pipeTier4 = "pipeHuge" + "StainlessSteel";
-    public static String pipeTier5 = "pipeHuge" + "TungstenSteel";
-    public static String pipeTier6 = "pipeHuge" + "MaragingSteel300";
-    public static String pipeTier7 = "pipeHuge" + "Tantalloy60";
-    public static String pipeTier8 = "pipeHuge" + "Tantalloy61";
-    public static String pipeTier9 = "pipeHuge" + "Inconel792";
-    public static String pipeTier10 = "pipeHuge" + "HastelloyX";
+    public static final String pipeTier5 = "pipeHuge" + "TungstenSteel";
+    public static final String pipeTier6 = "pipeHuge" + "MaragingSteel300";
+    public static final String pipeTier7 = "pipeHuge" + "Tantalloy60";
+    public static final String pipeTier8 = "pipeHuge" + "Tantalloy61";
+    public static final String pipeTier9 = "pipeHuge" + "Inconel792";
+    public static final String pipeTier10 = "pipeHuge" + "HastelloyX";
     public static String pipeTier11 = "pipeHuge" + "Europium";
 
     // EV/IV MACHINES
@@ -187,20 +187,20 @@ public class RECIPES_Machines {
 
     // Plates
     public static String plateElectricalSteel = "plateElectricalSteel";
-    public static String plateEnergeticAlloy = "plateEnergeticAlloy";
-    public static String plateCobalt = "plateCobalt";
-    public static String plateBronze = "plateBronze";
-    public static String plateSteel = "plateSteel";
+    public static final String plateEnergeticAlloy = "plateEnergeticAlloy";
+    public static final String plateCobalt = "plateCobalt";
+    public static final String plateBronze = "plateBronze";
+    public static final String plateSteel = "plateSteel";
 
     // Pipes
-    public static String pipeLargeCopper = "pipeLargeCopper";
-    public static String pipeHugeSteel = "pipeHugeSteel";
-    public static String pipeHugeStainlessSteel = "pipeHugeStainlessSteel";
+    public static final String pipeLargeCopper = "pipeLargeCopper";
+    public static final String pipeHugeSteel = "pipeHugeSteel";
+    public static final String pipeHugeStainlessSteel = "pipeHugeStainlessSteel";
     public static String pipeHugeTitanium = "pipeHugeTitanium";
 
     // Lava Boiler
     public static ItemStack boiler_Coal;
-    public static ItemStack blockBricks = ItemUtils.getItemStackFromFQRN("minecraft:brick_block", 1);
+    public static final ItemStack blockBricks = ItemUtils.getItemStackFromFQRN("minecraft:brick_block", 1);
 
     // Batteries
     public static String batteryBasic = "batteryBasic";

@@ -15,7 +15,7 @@ public class GT_MetaTileEntity_RedstoneButtonPanel extends GT_MetaTileEntity_Red
 
     public byte mRedstoneStrength = 0, mType = 0, mUpdate = 0;
 
-    public static TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[64];
+    public static final TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[64];
 
     static {
         for (int i = 0; i < 64; i++) {

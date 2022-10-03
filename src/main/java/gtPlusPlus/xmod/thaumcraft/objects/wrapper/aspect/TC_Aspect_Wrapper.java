@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class TC_Aspect_Wrapper {
 
-    private static Class mClass_Aspect;
+    private static final Class mClass_Aspect;
     private static Field mField_Aspects;
 
     private final String tag;
@@ -230,7 +230,7 @@ public class TC_Aspect_Wrapper {
     /**
      * Internal Map containing all the TC_Aspects.
      */
-    private static Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<>();
+    private static final Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<>();
 
     /**
      * Public getter for all TC_Aspects

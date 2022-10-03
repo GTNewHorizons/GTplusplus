@@ -22,8 +22,8 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
     public static final Class sQuantumChest;
     public static final Class sSuperChestGTPP;
     public static final Class sSuperChestGTNH;
-    public static HashMap<Integer, Field> mItemAmountFields = new HashMap<>();
-    public static HashMap<Integer, Field> mItemTypeFields = new HashMap<>();
+    public static final HashMap<Integer, Field> mItemAmountFields = new HashMap<>();
+    public static final HashMap<Integer, Field> mItemTypeFields = new HashMap<>();
 
     static {
         sQuantumChest = ReflectionUtils.getClass("gregtech.common.tileentities.storage.GT_MetaTileEntity_QuantumChest");

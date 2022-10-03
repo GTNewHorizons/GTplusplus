@@ -157,7 +157,7 @@ public class MiningUtils {
         }
     }
 
-    public static AutoMap<GT_Worldgen_GT_Ore_Layer>[] mOreMaps = new AutoMap[7];
+    public static final AutoMap<GT_Worldgen_GT_Ore_Layer>[] mOreMaps = new AutoMap[7];
     private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Overworld = new AutoMap<>();
     private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_Nether = new AutoMap<>();
     private static final AutoMap<GT_Worldgen_GT_Ore_Layer> Ores_End = new AutoMap<>();

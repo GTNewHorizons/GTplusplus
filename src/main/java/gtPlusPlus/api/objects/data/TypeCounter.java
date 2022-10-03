@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class TypeCounter<V> implements Set<V> {
 
-    private Map<String, InternalTypeCounterObject<V>> mInternalMap =
+    private final Map<String, InternalTypeCounterObject<V>> mInternalMap =
             new LinkedHashMap<>();
     private String mHighestValueKey;
     private int mHighestValue = 0;

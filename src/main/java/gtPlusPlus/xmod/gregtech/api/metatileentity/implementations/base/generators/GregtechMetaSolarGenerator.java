@@ -15,7 +15,7 @@ public abstract class GregtechMetaSolarGenerator extends GT_MetaTileEntity_Basic
     public int mProcessingEnergy = 0;
     public int mSolarCharge = 20;
     public int mLossTimer = 0;
-    public static int sEnergyPerTick = 16;
+    public static final int sEnergyPerTick = 16;
 
     public GregtechMetaSolarGenerator(
             final int aID,

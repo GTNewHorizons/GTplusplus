@@ -99,7 +99,7 @@ public class StringUtils {
         yellow('e'),
         white('f');
 
-        private char colourValue;
+        private final char colourValue;
 
         TextUtils(final char value) {
             this.colourValue = value;

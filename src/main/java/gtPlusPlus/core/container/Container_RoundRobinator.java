@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class Container_RoundRobinator extends Container {
 
-    public TileEntityRoundRobinator tile_entity;
+    public final TileEntityRoundRobinator tile_entity;
     public final Inventory_RoundRobinator inventoryChest;
 
     private final World worldObj;
@@ -28,8 +28,8 @@ public class Container_RoundRobinator extends Container {
 
     private final boolean[] mActiveData = new boolean[] {false, false, false, false};
 
-    public static int mStorageSlotNumber = 4; // Number of slots in storage area
-    public static int mInventorySlotNumber = 36; // Inventory Slots (Inventory
+    public static final int mStorageSlotNumber = 4; // Number of slots in storage area
+    public static final int mInventorySlotNumber = 36; // Inventory Slots (Inventory
     // and Hotbar)
     public static int mFullSlotNumber = mInventorySlotNumber + mStorageSlotNumber; // All
     // slots
