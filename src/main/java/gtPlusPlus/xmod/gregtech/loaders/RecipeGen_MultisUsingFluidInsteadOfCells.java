@@ -10,6 +10,8 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -124,13 +126,9 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                     }
                 }
                 // Add Input fluids second
-                for (FluidStack aInputFluid : aInputFluids) {
-                    aInputFluidsMap.add(aInputFluid);
-                }
+                Collections.addAll(aInputFluidsMap, aInputFluids);
                 // Add Output fluids second
-                for (FluidStack aOutputFluid : aOutputFluids) {
-                    aOutputFluidsMap.add(aOutputFluid);
-                }
+                Collections.addAll(aOutputFluidsMap, aOutputFluids);
 
                 // Make some new Arrays
                 ItemStack[] aNewItemInputs = new ItemStack[aInputItemsMap.size()];

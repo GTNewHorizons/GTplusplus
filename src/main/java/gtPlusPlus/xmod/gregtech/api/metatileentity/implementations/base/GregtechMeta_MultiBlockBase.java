@@ -236,9 +236,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
                 extra = new String[0];
             }
             if (extra.length > 0) {
-                for (String s : extra) {
-                    mInfo.add(s);
-                }
+                Collections.addAll(mInfo, extra);
             }
 
             long seconds = (this.mTotalRunTime / 20);
