@@ -319,7 +319,7 @@ public class GT_MetaTileEntity_RedstoneCircuitBlock extends GT_MetaTileEntity_Re
         if (sCoversItems.isEmpty()) {
             initCovers();
         }
-        return sCoversItems.get(Integer.valueOf(aStack));
+        return sCoversItems.get(aStack);
     }
 
     @Override

@@ -336,7 +336,7 @@ public abstract class GregtechMetaBoilerBase extends GT_MetaTileEntity_BasicTank
     @Override
     public void doSound(final byte aIndex, final double aX, final double aY, final double aZ) {
         if (aIndex == 1) {
-            GT_Utility.doSoundAtClient(GregTech_API.sSoundList.get(Integer.valueOf(4)), 2, 1.0F, aX, aY, aZ);
+            GT_Utility.doSoundAtClient(GregTech_API.sSoundList.get(4), 2, 1.0F, aX, aY, aZ);
             for (int l = 0; l < 8; l++) {
                 this.getBaseMetaTileEntity()
                         .getWorld()

@@ -75,7 +75,7 @@ public abstract class TOOL_Gregtech_Base implements Interface_ToolStats {
 
     @Override
     public String getBreakingSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(0));
+        return GregTech_API.sSoundList.get(0);
     }
 
     @Override

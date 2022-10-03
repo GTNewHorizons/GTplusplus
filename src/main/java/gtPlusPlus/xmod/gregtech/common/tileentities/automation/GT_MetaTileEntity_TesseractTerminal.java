@@ -270,7 +270,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
         }
         if (rTesseract.mFrequency != aFrequency) {
             TesseractHelper.setTerminalOwnershipByPlayer(
-                    PlayerUtils.getPlayerOnServerFromUUID(mOwner), Integer.valueOf(aFrequency), null);
+                    PlayerUtils.getPlayerOnServerFromUUID(mOwner), aFrequency, null);
             return null;
         }
         if (!rTesseract.isValidTesseractGenerator(this.getBaseMetaTileEntity().getOwnerName(), aWorkIrrelevant)) {

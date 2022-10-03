@@ -707,7 +707,7 @@ public class GregtechMetaTileEntity_CompactFusionReactor extends GT_MetaTileEnti
         super.startSoundLoop(aIndex, aX, aY, aZ);
         if (aIndex == 1) {
             GT_Utility.doSoundAtClient(
-                    (String) GregTech_API.sSoundList.get(Integer.valueOf(212)), 10, 1.0F, aX, aY, aZ);
+                    (String) GregTech_API.sSoundList.get(212), 10, 1.0F, aX, aY, aZ);
         }
     }
 }

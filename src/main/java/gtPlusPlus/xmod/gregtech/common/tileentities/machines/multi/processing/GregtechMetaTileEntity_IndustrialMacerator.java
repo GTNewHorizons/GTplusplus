@@ -168,7 +168,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(201));
+        return GregTech_API.sSoundList.get(201);
     }
 
     @Override

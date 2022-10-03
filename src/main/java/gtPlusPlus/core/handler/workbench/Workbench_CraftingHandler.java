@@ -28,7 +28,7 @@ public class Workbench_CraftingHandler {
         // just a example recipe so you know how to add them
         this.addRecipe(
                 new ItemStack(Blocks.iron_block),
-                new Object[] {"###", "###", "###", Character.valueOf('#'), Items.iron_ingot});
+                new Object[] {"###", "###", "###", '#', Items.iron_ingot});
 
         // another example Recipe, but shapeless
         this.addShapelessRecipe(new ItemStack(Items.cake), new Object[] {Items.stick});
@@ -79,8 +79,8 @@ public class Workbench_CraftingHandler {
         for (int i1 = 0; i1 < (j * k); i1++) {
             final char c = s.charAt(i1);
 
-            if (hashmap.containsKey(Character.valueOf(c))) {
-                aitemstack[i1] = hashmap.get(Character.valueOf(c)).copy();
+            if (hashmap.containsKey(c)) {
+                aitemstack[i1] = hashmap.get(c).copy();
             } else {
                 aitemstack[i1] = null;
             }

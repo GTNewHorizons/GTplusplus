@@ -51,7 +51,7 @@ public abstract class WorldGen_GT {
         if (tAllowed == null) {
             boolean tValue = HANDLER_GT.sCustomWorldgenFile.get(
                     "worldgen.dimensions." + this.mWorldGenName, aDimName, aDimensionType == aAllowedDimensionType);
-            this.mDimensionMap.put(aDimName, Boolean.valueOf(tValue));
+            this.mDimensionMap.put(aDimName, tValue);
             return tValue;
         } else {
             return tAllowed.booleanValue();

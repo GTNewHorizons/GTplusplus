@@ -71,7 +71,7 @@ public class EntityBoar extends EntityAnimal {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(16, (byte) 0);
     }
 
     /**
@@ -169,9 +169,9 @@ public class EntityBoar extends EntityAnimal {
      */
     public void setSaddled(boolean p_70900_1_) {
         if (p_70900_1_) {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) 1));
+            this.dataWatcher.updateObject(16, (byte) 1);
         } else {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) 0));
+            this.dataWatcher.updateObject(16, (byte) 0);
         }
     }
 

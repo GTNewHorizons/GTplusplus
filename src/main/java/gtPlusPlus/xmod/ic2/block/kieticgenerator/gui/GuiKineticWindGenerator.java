@@ -39,7 +39,7 @@ public class GuiKineticWindGenerator extends GuiContainer {
                 this.fontRendererObj.drawString(
                         StatCollector.translateToLocalFormatted(
                                 "ic2.WindKineticGenerator.gui.output",
-                                new Object[] {Integer.valueOf(this.container.base.getKuOutput())}),
+                                new Object[] {this.container.base.getKuOutput()}),
                         55,
                         52,
                         2157374);

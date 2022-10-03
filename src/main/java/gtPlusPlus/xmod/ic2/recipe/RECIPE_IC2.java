@@ -201,11 +201,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                    Character.valueOf('P'),
+                        'P',
                     ItemList.Shape_Extruder_Rod,
-                    Character.valueOf('X'),
+                        'X',
                     OrePrefixes.plate.get(Materials.DarkSteel),
-                    Character.valueOf('S'),
+                        'S',
                     OrePrefixes.screw.get(Materials.DarkSteel)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -217,11 +217,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                    Character.valueOf('P'),
+                        'P',
                     ItemList.Shape_Extruder_Rod,
-                    Character.valueOf('X'),
+                        'X',
                     OrePrefixes.plate.get(Materials.TungstenSteel),
-                    Character.valueOf('S'),
+                        'S',
                     OrePrefixes.screw.get(Materials.TungstenSteel)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -233,11 +233,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                    Character.valueOf('P'),
+                        'P',
                     ItemList.Shape_Extruder_Rod,
-                    Character.valueOf('X'),
+                        'X',
                     OrePrefixes.plate.get(Materials.Molybdenum),
-                    Character.valueOf('S'),
+                        'S',
                     OrePrefixes.screw.get(Materials.Molybdenum)
                 });
         Logger.INFO("Added recipe item for GT5 Extruder: Shaft Shape");

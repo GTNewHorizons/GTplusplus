@@ -79,19 +79,19 @@ public class AustraliaWorldGenerator implements IWorldGenerator {
         boolean gen = false;
         try {
             if (ALLOWED_BIOMES.containsValue(
-                    Integer.valueOf(world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID))) {
+                    world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID)) {
                 Collections.shuffle(this.generators, random);
                 for (IGeneratorWorld generator : this.generators) {
                     boolean canGenerate = false;
 
                     if (generator instanceof WorldHandlerShack) {
                         if (SHACK_ALLOWED_BIOMES.containsValue(
-                                Integer.valueOf(world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID))) {
+                                world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID)) {
                             canGenerate = true;
                         }
                     } else if (generator instanceof WorldHandlerHut) {
                         if (HUT_ALLOWED_BIOMES.containsValue(
-                                Integer.valueOf(world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID))) {
+                                world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID)) {
                             canGenerate = true;
                         }
                     }

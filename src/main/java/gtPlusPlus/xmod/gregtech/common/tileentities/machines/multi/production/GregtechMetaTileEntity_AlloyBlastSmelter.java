@@ -145,7 +145,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(208));
+        return GregTech_API.sSoundList.get(208);
     }
 
     @Override

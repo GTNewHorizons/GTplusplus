@@ -200,7 +200,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(207));
+        return GregTech_API.sSoundList.get(207);
     }
 
     @Override

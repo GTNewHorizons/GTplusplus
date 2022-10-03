@@ -118,7 +118,7 @@ public class GregtechMetaTileEntity_IndustrialExtruder
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(203));
+        return GregTech_API.sSoundList.get(203);
     }
 
     @Override

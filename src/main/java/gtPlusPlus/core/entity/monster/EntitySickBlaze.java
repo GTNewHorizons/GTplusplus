@@ -39,7 +39,7 @@ public class EntitySickBlaze extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(mDataWatcherID, new Byte((byte) 0));
+        this.dataWatcher.addObject(mDataWatcherID, (byte) 0);
     }
 
     /**

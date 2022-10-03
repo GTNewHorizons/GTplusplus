@@ -31,7 +31,7 @@ public class ProcessingToolHeadChoocher implements Interface_OreRecipeRegistrato
                     GT_ModHandler.addCraftingRecipe(
                             MetaGeneratedGregtechTools.INSTANCE.getToolWithStats(16, 1, aMaterial, aMaterial, null),
                             GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS | GT_ModHandler.RecipeBits.BUFFERED,
-                            new Object[] {"IhI", "III", " I ", Character.valueOf('I'), OrePrefixes.ingot.get(aMaterial)
+                            new Object[] {"IhI", "III", " I ", 'I', OrePrefixes.ingot.get(aMaterial)
                             });
                 }
             }

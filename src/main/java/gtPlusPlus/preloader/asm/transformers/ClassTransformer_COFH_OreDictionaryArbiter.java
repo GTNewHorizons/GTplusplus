@@ -171,17 +171,17 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
                 }
                 if (arg.getItem() != null && !Strings.isNullOrEmpty(arg0)) {
                     int arg1 = OreDictionary.getOreID(arg0);
-                    oreIDs.put(arg0, Integer.valueOf(arg1));
-                    if (!oreStacks.containsKey(Integer.valueOf(arg1))) {
-                        oreStacks.put(Integer.valueOf(arg1), new ArrayList<ItemStack>());
+                    oreIDs.put(arg0, arg1);
+                    if (!oreStacks.containsKey(arg1)) {
+                        oreStacks.put(arg1, new ArrayList<ItemStack>());
                     }
-                    ((ArrayList<ItemStack>) oreStacks.get(Integer.valueOf(arg1))).add(arg);
+                    ((ArrayList<ItemStack>) oreStacks.get(arg1)).add(arg);
                     ItemWrapper arg2 = ItemWrapper.fromItemStack(arg);
                     if (!stackIDs.containsKey(arg2)) {
                         stackIDs.put(arg2, new ArrayList<Integer>());
                         stackNames.put(arg2, new ArrayList<String>());
                     }
-                    ((ArrayList<Integer>) stackIDs.get(arg2)).add(Integer.valueOf(arg1));
+                    ((ArrayList<Integer>) stackIDs.get(arg2)).add(arg1);
                     ((ArrayList<String>) stackNames.get(arg2)).add(arg0);
                 }
             } catch (Throwable t) {

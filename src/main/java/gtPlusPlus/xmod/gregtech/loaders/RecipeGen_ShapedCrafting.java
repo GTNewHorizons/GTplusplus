@@ -65,9 +65,9 @@ public class RecipeGen_ShapedCrafting extends RecipeGen_Base {
                             "h",
                             "B",
                             "I",
-                            Character.valueOf('I'),
+                                'I',
                             material.getIngot(1),
-                            Character.valueOf('B'),
+                                'B',
                             material.getIngot(1)
                         });
 
@@ -88,9 +88,9 @@ public class RecipeGen_ShapedCrafting extends RecipeGen_Base {
                         "I",
                         "B",
                         "h",
-                        Character.valueOf('I'),
+                            'I',
                         material.getPlate(1),
-                        Character.valueOf('B'),
+                            'B',
                         material.getPlate(1)
                     });
 

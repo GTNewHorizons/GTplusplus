@@ -137,7 +137,7 @@ public class BetterKeyboard {
      */
     public static String getKeyDisplayString(int aKeyValue) {
         return aKeyValue < 0
-                ? I18n.format("key.mouseButton", new Object[] {Integer.valueOf(aKeyValue + 101)})
+                ? I18n.format("key.mouseButton", new Object[] {aKeyValue + 101})
                 : getKeyName(aKeyValue);
     }
 }

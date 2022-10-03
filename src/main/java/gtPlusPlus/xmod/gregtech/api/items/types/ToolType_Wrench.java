@@ -56,7 +56,7 @@ public class ToolType_Wrench extends ToolType_Base {
                             || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
                         ((IWrenchable) aTileEntity).setFacing(aTargetSide);
                         GT_Utility.sendSoundToPlayers(
-                                aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                                aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                     }
                     return true;
                 }
@@ -77,7 +77,7 @@ public class ToolType_Wrench extends ToolType_Base {
                         }
                         aWorld.setBlockToAir(aX, aY, aZ);
                         GT_Utility.sendSoundToPlayers(
-                                aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                                aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                     }
                     return true;
                 }
@@ -90,7 +90,7 @@ public class ToolType_Wrench extends ToolType_Base {
                     || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
                 aWorld.setBlockMetadataWithNotify(aX, aY, aZ, (aMeta + 4) % 12, 3);
                 GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                        aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
             }
             return true;
         }
@@ -99,7 +99,7 @@ public class ToolType_Wrench extends ToolType_Base {
                     || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
                 aWorld.setBlockMetadataWithNotify(aX, aY, aZ, ((aMeta / 4) * 4) + (((aMeta % 4) + 1) % 4), 3);
                 GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                        aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
             }
             return true;
         }
@@ -108,7 +108,7 @@ public class ToolType_Wrench extends ToolType_Base {
                     || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
                 aWorld.setBlockMetadataWithNotify(aX, aY, aZ, ((aMeta / 4) * 4) + (((aMeta % 4) + 1) % 4), 3);
                 GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                        aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
             }
             return true;
         }
@@ -119,7 +119,7 @@ public class ToolType_Wrench extends ToolType_Base {
                         new EntityItem(aWorld, aX + 0.5D, aY + 0.5D, aZ + 0.5D, new ItemStack(aBlock, 1, aMeta)));
                 aWorld.setBlockToAir(aX, aY, aZ);
                 GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                        aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
             }
             return true;
         }
@@ -142,7 +142,7 @@ public class ToolType_Wrench extends ToolType_Base {
                             new EntityItem(aWorld, aX + 0.5D, aY + 0.5D, aZ + 0.5D, new ItemStack(aBlock, 1, 0)));
                     aWorld.setBlockToAir(aX, aY, aZ);
                     GT_Utility.sendSoundToPlayers(
-                            aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                            aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                 }
                 return true;
             }
@@ -156,7 +156,7 @@ public class ToolType_Wrench extends ToolType_Base {
                                 || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts)))) {
                     aWorld.setBlockMetadataWithNotify(aX, aY, aZ, aTargetSide, 3);
                     GT_Utility.sendSoundToPlayers(
-                            aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                            aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                 }
                 return true;
             }
@@ -172,7 +172,7 @@ public class ToolType_Wrench extends ToolType_Base {
                                 || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts)))) {
                     aWorld.setBlockMetadataWithNotify(aX, aY, aZ, aTargetSide, 3);
                     GT_Utility.sendSoundToPlayers(
-                            aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                            aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                 }
                 return true;
             }
@@ -182,7 +182,7 @@ public class ToolType_Wrench extends ToolType_Base {
                                 || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts)))) {
                     aWorld.setBlockMetadataWithNotify(aX, aY, aZ, aTargetSide, 3);
                     GT_Utility.sendSoundToPlayers(
-                            aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                            aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
                 }
                 return true;
             }
@@ -197,7 +197,7 @@ public class ToolType_Wrench extends ToolType_Base {
                 ((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts);
             }
             GT_Utility.sendSoundToPlayers(
-                    aWorld, GregTech_API.sSoundList.get(Integer.valueOf(100)), 1.0F, -1.0F, aX, aY, aZ);
+                    aWorld, GregTech_API.sSoundList.get(100), 1.0F, -1.0F, aX, aY, aZ);
         }
         return false;
     }

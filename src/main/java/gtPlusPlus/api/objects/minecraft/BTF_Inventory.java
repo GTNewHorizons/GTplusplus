@@ -117,7 +117,7 @@ public class BTF_Inventory implements ISidedInventory {
                                             tTileEntity.getCoverDataAtSide((byte) aSide),
                                             rArray,
                                             tTileEntity))) {
-                tList.add(Integer.valueOf(rArray));
+                tList.add(rArray);
             }
         }
 

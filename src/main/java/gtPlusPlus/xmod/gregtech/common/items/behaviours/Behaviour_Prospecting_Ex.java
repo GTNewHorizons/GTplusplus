@@ -58,7 +58,7 @@ public class Behaviour_Prospecting_Ex extends Behaviour_Prospecting {
             GT_Utility.sendChatToPlayer(
                     aPlayer, "This is " + tAssotiation.mMaterial.mMaterial.mDefaultLocalName + " Ore.");
             GT_Utility.sendSoundToPlayers(
-                    aWorld, GregTech_API.sSoundList.get(Integer.valueOf(1)), 1.0F, -1.0F, aX, aY, aZ);
+                    aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
             return true;
         }
         if ((aBlock.isReplaceableOreGen(aWorld, aX, aY, aZ, Blocks.stone))
@@ -69,7 +69,7 @@ public class Behaviour_Prospecting_Ex extends Behaviour_Prospecting {
                 || (aBlock.isReplaceableOreGen(aWorld, aX, aY, aZ, Blocks.grass))) {
             if (GT_ModHandler.damageOrDechargeItem(aStack, this.mVanillaCosts, this.mEUCosts, aPlayer)) {
                 GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(Integer.valueOf(1)), 1.0F, -1.0F, aX, aY, aZ);
+                        aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
                 int tX = aX;
                 int tY = aY;
                 int tZ = aZ;

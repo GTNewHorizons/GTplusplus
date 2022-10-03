@@ -123,7 +123,7 @@ public class GregtechMetaTileEntity_IndustrialMixer
 
     @Override
     public String getSound() {
-        return GregTech_API.sSoundList.get(Integer.valueOf(203));
+        return GregTech_API.sSoundList.get(203);
     }
 
     @Override

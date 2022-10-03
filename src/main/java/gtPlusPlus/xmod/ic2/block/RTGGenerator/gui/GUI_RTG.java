@@ -31,7 +31,7 @@ public class GUI_RTG extends GuiRTGenerator {
                 par2 - this.guiTop,
                 StatCollector.translateToLocalFormatted(
                         "ic2.generic.text.bufferEU",
-                        new Object[] {Double.valueOf(((TileEntityRTG) this.container.base).storage)}),
+                        new Object[] {((TileEntityRTG) this.container.base).storage}),
                 117,
                 38,
                 150,

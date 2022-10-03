@@ -61,7 +61,7 @@ public abstract class MetaTileEntityCustomPower extends CustomMetaTileBase {
         int tZ = this.getBaseMetaTileEntity().getZCoord();
         World tWorld = this.getBaseMetaTileEntity().getWorld();
         GT_Utility.sendSoundToPlayers(
-                tWorld, (String) GregTech_API.sSoundList.get(Integer.valueOf(209)), 1.0F, -1.0F, tX, tY, tZ);
+                tWorld, (String) GregTech_API.sSoundList.get(209), 1.0F, -1.0F, tX, tY, tZ);
         tWorld.setBlock(tX, tY, tZ, Blocks.air);
         if (GregTech_API.sMachineExplosions) {
             tWorld.createExplosion(

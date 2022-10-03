@@ -108,7 +108,7 @@ public class EntityDingo extends EntityWolf {
      * main AI tick function, replaces updateEntityActionState
      */
     protected void updateAITick() {
-        this.dataWatcher.updateObject(18, Float.valueOf(this.getHealth()));
+        this.dataWatcher.updateObject(18, this.getHealth());
     }
 
     protected void entityInit() {
@@ -468,9 +468,9 @@ public class EntityDingo extends EntityWolf {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 | 2)));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 2));
         } else {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -3)));
+            this.dataWatcher.updateObject(16, (byte) (b0 & -3));
         }
     }
 
@@ -485,7 +485,7 @@ public class EntityDingo extends EntityWolf {
      * Set this dingo's collar color.
      */
     public void setCollarColor(int p_82185_1_) {
-        this.dataWatcher.updateObject(20, Byte.valueOf((byte) (p_82185_1_ & 15)));
+        this.dataWatcher.updateObject(20, (byte) (p_82185_1_ & 15));
     }
 
     public EntityDingo createChild(EntityAgeable p_90011_1_) {
@@ -502,9 +502,9 @@ public class EntityDingo extends EntityWolf {
 
     public void func_70918_i(boolean p_70918_1_) {
         if (p_70918_1_) {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte) 1));
+            this.dataWatcher.updateObject(19, (byte) 1);
         } else {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte) 0));
+            this.dataWatcher.updateObject(19, (byte) 0);
         }
     }
 
