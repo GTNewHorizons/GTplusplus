@@ -230,36 +230,43 @@ public class StaballoyPickaxe extends ItemPickaxe {
         if (!world.isRemote) {
 
             Logger.WARNING("hardness:" + block.getBlockHardness(world, X, Y, Z));
-            if (FACING.equals("below") || FACING.equals("above")) {
-                DURABILITY_LOSS = 0;
-                for (int i = -1; i < 2; i++) {
-                    for (int j = -1; j < 2; j++) {
-                        final float dur = this.calculateDurabilityLoss(world, X + i, Y, Z + j);
-                        DURABILITY_LOSS = (DURABILITY_LOSS + dur);
-                        Logger.WARNING("Added Loss: " + dur);
-                        this.removeBlockAndDropAsItem(world, X + i, Y, Z + j, heldItem);
+            switch (FACING) {
+                case "below":
+                case "above":
+                    DURABILITY_LOSS = 0;
+                    for (int i = -1; i < 2; i++) {
+                        for (int j = -1; j < 2; j++) {
+                            final float dur = this.calculateDurabilityLoss(world, X + i, Y, Z + j);
+                            DURABILITY_LOSS = (DURABILITY_LOSS + dur);
+                            Logger.WARNING("Added Loss: " + dur);
+                            this.removeBlockAndDropAsItem(world, X + i, Y, Z + j, heldItem);
+                        }
                     }
-                }
-            } else if (FACING.equals("facingEast") || FACING.equals("facingWest")) {
-                DURABILITY_LOSS = 0;
-                for (int i = -1; i < 2; i++) {
-                    for (int j = -1; j < 2; j++) {
-                        final float dur = this.calculateDurabilityLoss(world, X, Y + i, Z + j);
-                        DURABILITY_LOSS = (DURABILITY_LOSS + dur);
-                        Logger.WARNING("Added Loss: " + dur);
-                        this.removeBlockAndDropAsItem(world, X, Y + i, Z + j, heldItem);
+                    break;
+                case "facingEast":
+                case "facingWest":
+                    DURABILITY_LOSS = 0;
+                    for (int i = -1; i < 2; i++) {
+                        for (int j = -1; j < 2; j++) {
+                            final float dur = this.calculateDurabilityLoss(world, X, Y + i, Z + j);
+                            DURABILITY_LOSS = (DURABILITY_LOSS + dur);
+                            Logger.WARNING("Added Loss: " + dur);
+                            this.removeBlockAndDropAsItem(world, X, Y + i, Z + j, heldItem);
+                        }
                     }
-                }
-            } else if (FACING.equals("facingNorth") || FACING.equals("facingSouth")) {
-                DURABILITY_LOSS = 0;
-                for (int i = -1; i < 2; i++) {
-                    for (int j = -1; j < 2; j++) {
-                        final float dur = this.calculateDurabilityLoss(world, X + j, Y + i, Z);
-                        DURABILITY_LOSS = (DURABILITY_LOSS + dur);
-                        Logger.WARNING("Added Loss: " + dur);
-                        this.removeBlockAndDropAsItem(world, X + j, Y + i, Z, heldItem);
+                    break;
+                case "facingNorth":
+                case "facingSouth":
+                    DURABILITY_LOSS = 0;
+                    for (int i = -1; i < 2; i++) {
+                        for (int j = -1; j < 2; j++) {
+                            final float dur = this.calculateDurabilityLoss(world, X + j, Y + i, Z);
+                            DURABILITY_LOSS = (DURABILITY_LOSS + dur);
+                            Logger.WARNING("Added Loss: " + dur);
+                            this.removeBlockAndDropAsItem(world, X + j, Y + i, Z, heldItem);
+                        }
                     }
-                }
+                    break;
             }
 
             // int heldItemDurability = heldItem.getDamage(1);

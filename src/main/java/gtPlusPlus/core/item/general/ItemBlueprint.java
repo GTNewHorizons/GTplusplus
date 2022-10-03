@@ -269,15 +269,20 @@ public class ItemBlueprint extends Item implements IItemBlueprint {
             return null;
         }
         Object o = null;
-        if (tagNBT.equals("mID")) {
-            o = itemStack.stackTagCompound.getInteger(tagNBT);
-        } else if (tagNBT.equals("mBlueprint")) {
-            o = itemStack.stackTagCompound.getBoolean(tagNBT);
-        } else if (tagNBT.equals("mName")) {
-            o = itemStack.stackTagCompound.getString(tagNBT);
-        } else if (tagNBT.equals("")) {
-            // For More Tag Support
-            // o = itemStack.stackTagCompound.getInteger(tagNBT);
+        switch (tagNBT) {
+            case "mID":
+                o = itemStack.stackTagCompound.getInteger(tagNBT);
+                break;
+            case "mBlueprint":
+                o = itemStack.stackTagCompound.getBoolean(tagNBT);
+                break;
+            case "mName":
+                o = itemStack.stackTagCompound.getString(tagNBT);
+                break;
+            case "":
+                // For More Tag Support
+                // o = itemStack.stackTagCompound.getInteger(tagNBT);
+                break;
         }
         if (o != null) {
             return o;

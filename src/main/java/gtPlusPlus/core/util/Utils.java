@@ -105,55 +105,60 @@ public class Utils {
 
         TC_AspectStack returnValue = null;
 
-        if (aspect.toUpperCase().equals("COGNITIO")) {
-            // Adds in Compat for older GT Versions which Misspell aspects.
-            try {
-                if (EnumUtils.isValidEnum(TC_Aspects.class, "COGNITIO")) {
-                    Logger.WARNING("TC Aspect found - " + aspect);
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("COGNITIO"), size);
-                } else {
-                    Logger.INFO(
-                            "Fallback TC Aspect found - " + aspect
-                                    + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("COGNITO"), size);
+        switch (aspect.toUpperCase()) {
+            case "COGNITIO":
+                // Adds in Compat for older GT Versions which Misspell aspects.
+                try {
+                    if (EnumUtils.isValidEnum(TC_Aspects.class, "COGNITIO")) {
+                        Logger.WARNING("TC Aspect found - " + aspect);
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("COGNITIO"), size);
+                    } else {
+                        Logger.INFO(
+                                "Fallback TC Aspect found - " + aspect
+                                        + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("COGNITO"), size);
+                    }
+                } catch (final NoSuchFieldError r) {
+                    Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
                 }
-            } catch (final NoSuchFieldError r) {
-                Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
-            }
-        } else if (aspect.toUpperCase().equals("EXANIMUS")) {
-            // Adds in Compat for older GT Versions which Misspell aspects.
-            try {
-                if (EnumUtils.isValidEnum(TC_Aspects.class, "EXANIMUS")) {
-                    Logger.WARNING("TC Aspect found - " + aspect);
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("EXANIMUS"), size);
-                } else {
-                    Logger.INFO(
-                            "Fallback TC Aspect found - " + aspect
-                                    + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("EXAMINIS"), size);
+                break;
+            case "EXANIMUS":
+                // Adds in Compat for older GT Versions which Misspell aspects.
+                try {
+                    if (EnumUtils.isValidEnum(TC_Aspects.class, "EXANIMUS")) {
+                        Logger.WARNING("TC Aspect found - " + aspect);
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("EXANIMUS"), size);
+                    } else {
+                        Logger.INFO(
+                                "Fallback TC Aspect found - " + aspect
+                                        + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("EXAMINIS"), size);
+                    }
+                } catch (final NoSuchFieldError r) {
+                    Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
                 }
-            } catch (final NoSuchFieldError r) {
-                Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
-            }
 
-        } else if (aspect.toUpperCase().equals("PRAECANTATIO")) {
-            // Adds in Compat for older GT Versions which Misspell aspects.
-            try {
-                if (EnumUtils.isValidEnum(TC_Aspects.class, "PRAECANTATIO")) {
-                    Logger.WARNING("TC Aspect found - " + aspect);
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("PRAECANTATIO"), size);
-                } else {
-                    Logger.INFO(
-                            "Fallback TC Aspect found - " + aspect
-                                    + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
-                    returnValue = new TC_AspectStack(TC_Aspects.valueOf("PRAECANTIO"), size);
+                break;
+            case "PRAECANTATIO":
+                // Adds in Compat for older GT Versions which Misspell aspects.
+                try {
+                    if (EnumUtils.isValidEnum(TC_Aspects.class, "PRAECANTATIO")) {
+                        Logger.WARNING("TC Aspect found - " + aspect);
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("PRAECANTATIO"), size);
+                    } else {
+                        Logger.INFO(
+                                "Fallback TC Aspect found - " + aspect
+                                        + " - PLEASE UPDATE GREGTECH TO A NEWER VERSION TO REMOVE THIS MESSAGE - THIS IS NOT AN ERROR");
+                        returnValue = new TC_AspectStack(TC_Aspects.valueOf("PRAECANTIO"), size);
+                    }
+                } catch (final NoSuchFieldError r) {
+                    Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
                 }
-            } catch (final NoSuchFieldError r) {
-                Logger.INFO("Invalid Thaumcraft Aspects - Report this issue to Alkalus");
-            }
-        } else {
-            Logger.WARNING("TC Aspect found - " + aspect);
-            returnValue = new TC_AspectStack(TC_Aspects.valueOf(aspect), size);
+                break;
+            default:
+                Logger.WARNING("TC Aspect found - " + aspect);
+                returnValue = new TC_AspectStack(TC_Aspects.valueOf(aspect), size);
+                break;
         }
 
         return returnValue;
