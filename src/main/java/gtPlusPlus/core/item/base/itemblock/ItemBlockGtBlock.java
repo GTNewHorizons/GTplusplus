@@ -20,13 +20,13 @@ import net.minecraft.world.World;
 
 public class ItemBlockGtBlock extends ItemBlock {
 
-    public static HashMap<String, String> sNameCache = new HashMap<>();
+    public static final HashMap<String, String> sNameCache = new HashMap<>();
 
     protected final int blockColour;
     private int sRadiation;
 
     private Material mMaterial;
-    protected BlockTypes thisBlockType;
+    protected final BlockTypes thisBlockType;
 
     private final Block thisBlock;
     private boolean isOre = false;

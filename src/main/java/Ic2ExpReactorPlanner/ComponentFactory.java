@@ -33,9 +33,9 @@ import java.util.Map;
  */
 public class ComponentFactory {
 
-    public static int MAX_COMPONENT_ID = 64;
+    public static final int MAX_COMPONENT_ID = 64;
 
-    static ItemList[] aGtItems =
+    static final ItemList[] aGtItems =
             new ItemList[] {ItemList.Neutron_Reflector, ItemList.Moxcell_1, ItemList.Moxcell_2, ItemList.Moxcell_4};
 
     private ComponentFactory() {

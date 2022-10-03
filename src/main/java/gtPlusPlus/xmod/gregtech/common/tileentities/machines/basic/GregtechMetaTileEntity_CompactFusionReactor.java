@@ -138,7 +138,7 @@ public class GregtechMetaTileEntity_CompactFusionReactor extends GT_MetaTileEnti
         super.abortProcess();
     }
 
-    long mFusionPoint = 20000000L;
+    final long mFusionPoint = 20000000L;
 
     @Override
     public int checkRecipe() {
@@ -450,8 +450,8 @@ public class GregtechMetaTileEntity_CompactFusionReactor extends GT_MetaTileEnti
                 if (mMachine) {
                     // Logger.MACHINE_INFO("5");
 
-                    if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock()) < maxEUStore()) {
-                        if (aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock(), true)) {
+                    if (aBaseMetaTileEntity.getStoredEU() + (2048L * tierOverclock()) < maxEUStore()) {
+                        if (aBaseMetaTileEntity.increaseStoredEnergyUnits(2048L * tierOverclock(), true)) {
                             // Logger.MACHINE_INFO("5.5 A");
                         } else {
                             // Logger.MACHINE_INFO("5.5 B");

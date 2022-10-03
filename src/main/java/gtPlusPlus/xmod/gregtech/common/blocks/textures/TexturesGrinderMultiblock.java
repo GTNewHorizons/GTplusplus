@@ -49,7 +49,7 @@ public class TexturesGrinderMultiblock {
     private static final CustomIcon frontFace_8 = (GT8_9);
     private static final CustomIcon frontFaceActive_8 = (GT8_9_Active);
 
-    CustomIcon[] GRINDER = new CustomIcon[] {
+    final CustomIcon[] GRINDER = new CustomIcon[] {
         frontFace_0,
         frontFace_1,
         frontFace_2,
@@ -61,7 +61,7 @@ public class TexturesGrinderMultiblock {
         frontFace_8
     };
 
-    CustomIcon[] GRINDER_ACTIVE = new CustomIcon[] {
+    final CustomIcon[] GRINDER_ACTIVE = new CustomIcon[] {
         frontFaceActive_0,
         frontFaceActive_1,
         frontFaceActive_2,

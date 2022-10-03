@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class Container_HeliumGenerator extends Container {
 
-    protected TileEntityHeliumGenerator tile_entity;
+    protected final TileEntityHeliumGenerator tile_entity;
     public final InventoryHeliumGenerator inventoryChest;
 
     private final World worldObj;
@@ -23,8 +23,8 @@ public class Container_HeliumGenerator extends Container {
     private final int posY;
     private final int posZ;
 
-    public static int StorageSlotNumber = 19; // Number of slots in storage area
-    public static int InventorySlotNumber = 36; // Inventory Slots (Inventory and Hotbar)
+    public static final int StorageSlotNumber = 19; // Number of slots in storage area
+    public static final int InventorySlotNumber = 36; // Inventory Slots (Inventory and Hotbar)
     public static int FullSlotNumber = InventorySlotNumber + StorageSlotNumber; // All slots
 
     // 0 Is output, 1-18 are input.

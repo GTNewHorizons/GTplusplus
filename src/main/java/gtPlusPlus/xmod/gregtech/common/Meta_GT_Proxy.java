@@ -50,10 +50,10 @@ public class Meta_GT_Proxy {
         sDoesVolumetricFlaskExist = ReflectionUtils.doesClassExist("gregtech.common.items.GT_VolumetricFlask");
     }
 
-    public static List<Runnable> GT_BlockIconload = new ArrayList<>();
-    public static List<Runnable> GT_ItemIconload = new ArrayList<>();
+    public static final List<Runnable> GT_BlockIconload = new ArrayList<>();
+    public static final List<Runnable> GT_ItemIconload = new ArrayList<>();
 
-    public static AutoMap<Integer> GT_ValidHeatingCoilMetas = new AutoMap<>();
+    public static final AutoMap<Integer> GT_ValidHeatingCoilMetas = new AutoMap<>();
 
     private static Class<BaseCustomTileEntity> sBaseMetaTileEntityClass;
     private static Class<BaseCustomPower_MTE> sBaseMetaTileEntityClass2;
@@ -439,7 +439,7 @@ public class Meta_GT_Proxy {
         }
     }
 
-    static GT_Proxy[] mProxies = new GT_Proxy[2];
+    static final GT_Proxy[] mProxies = new GT_Proxy[2];
 
     /**
      * @deprecated Use {@link StaticFields59#getFieldFromGregtechProxy(boolean,String)} instead

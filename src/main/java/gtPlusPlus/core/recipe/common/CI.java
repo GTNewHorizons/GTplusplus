@@ -27,13 +27,13 @@ import net.minecraftforge.fluids.FluidStack;
 public class CI {
 
     // null
-    public static ItemStack _NULL = ItemUtils.getErrorStack(1);
+    public static final ItemStack _NULL = ItemUtils.getErrorStack(1);
 
     // bits
-    public static long bits = GT_ModHandler.RecipeBits.NOT_REMOVABLE
+    public static final long bits = GT_ModHandler.RecipeBits.NOT_REMOVABLE
             | GT_ModHandler.RecipeBits.REVERSIBLE
             | GT_ModHandler.RecipeBits.BUFFERED;
-    public static long bitsd = GT_ModHandler.RecipeBits.DISMANTLEABLE
+    public static final long bitsd = GT_ModHandler.RecipeBits.DISMANTLEABLE
             | GT_ModHandler.RecipeBits.NOT_REMOVABLE
             | GT_ModHandler.RecipeBits.REVERSIBLE
             | GT_ModHandler.RecipeBits.BUFFERED;
@@ -176,24 +176,24 @@ public class CI {
     public static String[] component_Ingot;
 
     // Crafting Tools
-    public static String craftingToolWrench = "craftingToolWrench";
-    public static String craftingToolHammer_Hard = "craftingToolHardHammer";
-    public static String craftingToolHammer_Soft = "craftingToolSoftHammer";
-    public static String craftingToolScrewdriver = "craftingToolScrewdriver";
-    public static String craftingToolFile = "craftingToolFile";
-    public static String craftingToolMortar = "craftingToolMortar";
-    public static String craftingToolKnife = "craftingToolKnife";
+    public static final String craftingToolWrench = "craftingToolWrench";
+    public static final String craftingToolHammer_Hard = "craftingToolHardHammer";
+    public static final String craftingToolHammer_Soft = "craftingToolSoftHammer";
+    public static final String craftingToolScrewdriver = "craftingToolScrewdriver";
+    public static final String craftingToolFile = "craftingToolFile";
+    public static final String craftingToolMortar = "craftingToolMortar";
+    public static final String craftingToolKnife = "craftingToolKnife";
     public static String craftingToolCrowbar = "craftingToolCrowbar";
-    public static String craftingToolSaw = "craftingToolSaw";
-    public static String craftingToolWireCutter = "craftingToolWirecutter";
-    public static String craftingToolSolderingIron = "craftingToolSolderingIron";
+    public static final String craftingToolSaw = "craftingToolSaw";
+    public static final String craftingToolWireCutter = "craftingToolWirecutter";
+    public static final String craftingToolSolderingIron = "craftingToolSolderingIron";
 
     // Explosives
     public static ItemStack explosivePowderKeg;
     public static ItemStack explosiveTNT;
     public static ItemStack explosiveITNT;
 
-    public static Materials[] tieredMaterials = new Materials[] {
+    public static final Materials[] tieredMaterials = new Materials[] {
         Materials.Iron, Materials.Steel, Materials.Aluminium,
         Materials.StainlessSteel, Materials.Titanium, Materials.TungstenSteel,
         Materials.Chrome, Materials.Iridium, Materials.Osmium,

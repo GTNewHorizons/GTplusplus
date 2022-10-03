@@ -29,7 +29,7 @@ public class Biome_AustralianForest extends BiomeGenForest {
     protected static final WorldGenCanopyTree mGenTreeCanopy = new WorldGenCanopyTree(false);
     protected static final WorldGenAustralianTrees mGenTreeAustralian = new WorldGenAustralianTrees(true);
 
-    public static Biome_AustralianForest biome = new Biome_AustralianForest(CORE.AUSTRALIA_BIOME_FOREST_ID, 2);
+    public static final Biome_AustralianForest biome = new Biome_AustralianForest(CORE.AUSTRALIA_BIOME_FOREST_ID, 2);
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.FOREST);

@@ -454,8 +454,8 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
                 if (mMachine) {
                     // Logger.MACHINE_INFO("5");
 
-                    if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock()) < maxEUStore()) {
-                        if (aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock(), true)) {
+                    if (aBaseMetaTileEntity.getStoredEU() + (2048L * tierOverclock()) < maxEUStore()) {
+                        if (aBaseMetaTileEntity.increaseStoredEnergyUnits(2048L * tierOverclock(), true)) {
                             // Logger.MACHINE_INFO("5.5 A");
                         } else {
                             // Logger.MACHINE_INFO("5.5 B");

@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GUI_RTG extends GuiRTGenerator {
-    public CONTAINER_RTG container;
+    public final CONTAINER_RTG container;
 
     public GUI_RTG(final CONTAINER_RTG container1) {
         super(container1);

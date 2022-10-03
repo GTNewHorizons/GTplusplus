@@ -96,7 +96,7 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
                         && (!aBaseMetaTileEntity.getWorld().isThundering())
                         && (aBaseMetaTileEntity.getUniversalEnergyStored()
                                 < (this.maxEUStore() - this.getMinimumStoredEU()))) {
-                    this.getBaseMetaTileEntity().increaseStoredEnergyUnits(sEnergyPerTick * this.getEfficiency(), true);
+                    this.getBaseMetaTileEntity().increaseStoredEnergyUnits((long) sEnergyPerTick * this.getEfficiency(), true);
                 }
             }
 

@@ -39,16 +39,16 @@ import net.minecraft.world.World;
 public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
 
     public static int MODE_MAIN = 0;
-    public static int MODE_REACTOR_PLANNER = 1;
-    public static int MODE_SCANNER = 2;
-    public static int MODE_CENTRIFUGE = 3;
-    public static int MODE_FUSION = 4;
-    public static int MODE_INFO = 5;
-    public static int MODE_ELECTROLYZER = 6;
+    public static final int MODE_REACTOR_PLANNER = 1;
+    public static final int MODE_SCANNER = 2;
+    public static final int MODE_CENTRIFUGE = 3;
+    public static final int MODE_FUSION = 4;
+    public static final int MODE_INFO = 5;
+    public static final int MODE_ELECTROLYZER = 6;
 
-    public static boolean mSeedscanner = true;
+    public static final boolean mSeedscanner = true;
 
-    public static boolean mReactorplanner = true;
+    public static final boolean mReactorplanner = true;
 
     public static ArrayList<GT_ItemStack> sReactorList;
 
@@ -564,7 +564,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank {
         showElectrolyzerRecipe(this.mMaxHeat);
     }
 
-    public static ArrayList<GT_Recipe> sFusionReactorRecipes = new ArrayList<>();
+    public static final ArrayList<GT_Recipe> sFusionReactorRecipes = new ArrayList<>();
 
     public void showFusionRecipe(int aIndex) {
 

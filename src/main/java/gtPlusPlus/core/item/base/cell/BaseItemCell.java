@@ -15,7 +15,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class BaseItemCell extends BaseItemComponent {
 
-    ComponentTypes Cell = ComponentTypes.CELL;
+    final ComponentTypes Cell = ComponentTypes.CELL;
 
     public BaseItemCell(final Material material) {
         super(material, BaseItemComponent.ComponentTypes.CELL);

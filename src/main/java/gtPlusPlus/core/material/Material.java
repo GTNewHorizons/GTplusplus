@@ -37,12 +37,12 @@ import net.minecraftforge.fluids.FluidStack;
 public class Material {
 
     public static final Set<Material> mMaterialMap = new HashSet<>();
-    public static HashMap<String, Material> mMaterialCache = new HashMap<>();
+    public static final HashMap<String, Material> mMaterialCache = new HashMap<>();
 
     public static final Map<String, Map<String, ItemStack>> mComponentMap =
             new HashMap<>();
 
-    public static HashMap<String, String> sChemicalFormula = new HashMap<>();
+    public static final HashMap<String, String> sChemicalFormula = new HashMap<>();
 
     private String unlocalizedName;
     private String localizedName;
@@ -55,7 +55,7 @@ public class Material {
 
     private boolean vGenerateCells;
 
-    protected Object dataVar = MathUtils.generateSingularRandomHexValue();
+    protected final Object dataVar = MathUtils.generateSingularRandomHexValue();
 
     private ArrayList<MaterialStack> vMaterialInput = new ArrayList<>();
     public long[] vSmallestRatio;
@@ -90,7 +90,7 @@ public class Material {
 
     public short werkstoffID;
 
-    public static AutoMap<Materials> invalidMaterials = new AutoMap<>();
+    public static final AutoMap<Materials> invalidMaterials = new AutoMap<>();
 
     public Material(final String materialName, final MaterialState defaultState, final MaterialStack... inputs) {
         this(materialName, defaultState, null, inputs);
@@ -679,7 +679,7 @@ public class Material {
                         ? aTempDura
                         : (this.getComposites().isEmpty()
                                 ? 51200
-                                : 32000 * this.getComposites().size());
+                                : 32000L * this.getComposites().size());
             }
 
             if ((this.vDurability >= 0) && (this.vDurability < 64000)) {

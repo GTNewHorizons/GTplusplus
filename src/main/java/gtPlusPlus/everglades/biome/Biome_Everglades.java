@@ -23,7 +23,7 @@ import net.minecraftforge.common.BiomeManager;
 
 public class Biome_Everglades {
 
-    public static BiomeGenEverglades biome = new BiomeGenEverglades();
+    public static final BiomeGenEverglades biome = new BiomeGenEverglades();
 
     public Object instance;
 

@@ -24,7 +24,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch_Muffler {
 
-    protected int SLOT_FILTER = 0;
+    protected final int SLOT_FILTER = 0;
 
     @Override
     public void onConfigLoad(GT_Config aConfig) {

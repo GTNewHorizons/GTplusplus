@@ -11,8 +11,8 @@ import vswe.stevescarts.Modules.ModuleBase;
 
 public class GppModuleData extends ModuleData {
 
-    static byte ID_ExoticSeedAddon = 105;
-    public static ArrayList<ModuleData> moduleListCustom = new ArrayList<>();
+    static final byte ID_ExoticSeedAddon = 105;
+    public static final ArrayList<ModuleData> moduleListCustom = new ArrayList<>();
 
     public GppModuleData(int id, String name, Class<? extends ModuleBase> moduleClass, int modularCost) {
         super(id, name, moduleClass, modularCost);

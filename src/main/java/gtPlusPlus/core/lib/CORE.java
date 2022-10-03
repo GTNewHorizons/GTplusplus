@@ -35,7 +35,7 @@ public class CORE {
 
     // Math Related
     public static final float PI = (float) Math.PI;
-    public static volatile Random RANDOM = new XSTR();
+    public static final Random RANDOM = new XSTR();
 
     // Env. Variables
     public static Configuration Config;
@@ -53,14 +53,14 @@ public class CORE {
     // Tweakables
     public static int EVERGLADES_ID = 227;
     public static int EVERGLADESBIOME_ID = 238;
-    public static int AUSTRALIA_ID = 228;
-    public static int AUSTRALIA_BIOME_DESERT_1_ID = 239;
-    public static int AUSTRALIA_BIOME_DESERT_2_ID = 240;
-    public static int AUSTRALIA_BIOME_DESERT_3_ID = 241;
-    public static int AUSTRALIA_BIOME_PLAINS_ID = 242;
-    public static int AUSTRALIA_BIOME_OUTBACK_ID = 243;
-    public static int AUSTRALIA_BIOME_OCEAN_ID = 244;
-    public static int AUSTRALIA_BIOME_FOREST_ID = 245;
+    public static final int AUSTRALIA_ID = 228;
+    public static final int AUSTRALIA_BIOME_DESERT_1_ID = 239;
+    public static final int AUSTRALIA_BIOME_DESERT_2_ID = 240;
+    public static final int AUSTRALIA_BIOME_DESERT_3_ID = 241;
+    public static final int AUSTRALIA_BIOME_PLAINS_ID = 242;
+    public static final int AUSTRALIA_BIOME_OUTBACK_ID = 243;
+    public static final int AUSTRALIA_BIOME_OCEAN_ID = 244;
+    public static final int AUSTRALIA_BIOME_FOREST_ID = 245;
 
     // GT Vars;
     public static final int GREG_FIRST_ID = 760;
@@ -93,7 +93,7 @@ public class CORE {
      */
 
     // Burnables List
-    public static List<Pair<Integer, ItemStack>> burnables = new ArrayList<>();
+    public static final List<Pair<Integer, ItemStack>> burnables = new ArrayList<>();
 
     // TesseractMaps
     public static final Map<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>> sTesseractGeneratorOwnershipMap =
@@ -221,7 +221,7 @@ public class CORE {
         public static boolean enableMultiblock_PowerSubstation = true;
         public static boolean enableMultiblock_LiquidFluorideThoriumReactor = true;
         public static boolean enableMultiblock_NuclearFuelRefinery = true;
-        public static boolean enableMultiblock_TreeFarmer = true;
+        public static final boolean enableMultiblock_TreeFarmer = true;
         public static boolean enableMultiblock_IndustrialSifter = true;
         public static boolean enableMultiblock_IndustrialThermalCentrifuge = true;
         public static boolean enableMultiblock_IndustrialWashPlant = true;
@@ -234,8 +234,8 @@ public class CORE {
         public static boolean enableMultiblock_Cyclotron = true;
 
         // Visuals
-        public static boolean enableTreeFarmerParticles = true;
-        public static boolean useGregtechTextures = true;
+        public static final boolean enableTreeFarmerParticles = true;
+        public static final boolean useGregtechTextures = true;
 
         // Pollution
         public static int pollutionPerSecondMultiPackager = 40;

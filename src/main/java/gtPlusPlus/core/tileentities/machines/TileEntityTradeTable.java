@@ -11,8 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityTradeTable extends TileEntityBase {
 
-    public InventoryTradeMain inventoryGrid;
-    public InventoryTradeOutput inventoryOutputs;
+    public final InventoryTradeMain inventoryGrid;
+    public final InventoryTradeOutput inventoryOutputs;
 
     private Container_TradeTable container;
 

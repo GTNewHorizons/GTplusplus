@@ -67,7 +67,7 @@ public class TexturesGregtech59 {
     private static final Textures.BlockIcons.CustomIcon frontFace_8 = (GT8_9);
     private static final Textures.BlockIcons.CustomIcon frontFaceActive_8 = (GT8_9_Active);
 
-    Textures.BlockIcons.CustomIcon[] TURBINE = new Textures.BlockIcons.CustomIcon[] {
+    final Textures.BlockIcons.CustomIcon[] TURBINE = new Textures.BlockIcons.CustomIcon[] {
         frontFace_0,
         frontFace_1,
         frontFace_2,
@@ -79,7 +79,7 @@ public class TexturesGregtech59 {
         frontFace_8
     };
 
-    Textures.BlockIcons.CustomIcon[] TURBINE_ACTIVE = new Textures.BlockIcons.CustomIcon[] {
+    final Textures.BlockIcons.CustomIcon[] TURBINE_ACTIVE = new Textures.BlockIcons.CustomIcon[] {
         frontFaceActive_0,
         frontFaceActive_1,
         frontFaceActive_2,

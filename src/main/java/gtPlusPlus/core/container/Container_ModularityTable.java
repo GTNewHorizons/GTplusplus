@@ -18,11 +18,11 @@ import net.minecraft.world.World;
 public class Container_ModularityTable extends Container {
 
     /** The crafting matrix inventory (3x3). */
-    protected TileEntityModularityTable tile_entity;
+    protected final TileEntityModularityTable tile_entity;
 
     public final InventoryModularMain inventoryGrid;
     public final InventoryModularOutput inventoryOutputs;
-    public int mRecipeTime;
+    public final int mRecipeTime;
 
     private final World worldObj;
     private final int posX;

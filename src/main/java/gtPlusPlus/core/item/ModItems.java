@@ -65,10 +65,10 @@ import net.minecraftforge.fluids.*;
 
 public final class ModItems {
 
-    public static ToolMaterial STABALLOY = EnumHelper.addToolMaterial("Staballoy", 3, 2500, 7, 1.0F, 18);
+    public static final ToolMaterial STABALLOY = EnumHelper.addToolMaterial("Staballoy", 3, 2500, 7, 1.0F, 18);
 
-    public static Item ZZZ_Empty;
-    public static Item AAA_Broken;
+    public static final Item ZZZ_Empty;
+    public static final Item AAA_Broken;
 
     public static Item itemAlkalusDisk;
     public static Item itemDebugShapeSpawner;

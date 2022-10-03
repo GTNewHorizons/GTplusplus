@@ -31,8 +31,8 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityProjectTable extends TileEntity
         implements INetworkDataProvider, INetworkUpdateListener, IWrenchable {
 
-    public InventoryProjectMain inventoryGrid;
-    public InventoryProjectOutput inventoryOutputs;
+    public final InventoryProjectMain inventoryGrid;
+    public final InventoryProjectOutput inventoryOutputs;
 
     /** The crafting matrix inventory (3x3). */
     public InventoryCrafting craftMatrix;

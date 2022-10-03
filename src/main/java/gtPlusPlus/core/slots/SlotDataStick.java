@@ -12,7 +12,7 @@ public class SlotDataStick extends Slot {
         super(inventory, slot, x, y);
     }
 
-    public static ItemStack[] mDataItems = new ItemStack[2];
+    public static final ItemStack[] mDataItems = new ItemStack[2];
 
     @Override
     public synchronized boolean isItemValid(final ItemStack itemstack) {

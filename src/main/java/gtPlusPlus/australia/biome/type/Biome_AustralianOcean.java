@@ -21,7 +21,7 @@ public class Biome_AustralianOcean extends BiomeGenOcean {
         this.spawnableCreatureList.clear();
     }
 
-    public static Biome_AustralianOcean biome = new Biome_AustralianOcean(CORE.AUSTRALIA_BIOME_OCEAN_ID);
+    public static final Biome_AustralianOcean biome = new Biome_AustralianOcean(CORE.AUSTRALIA_BIOME_OCEAN_ID);
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.SPARSE);

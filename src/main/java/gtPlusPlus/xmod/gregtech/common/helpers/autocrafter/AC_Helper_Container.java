@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 public class AC_Helper_Container extends Container {
     /** The crafting matrix inventory (3x3). */
-    public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
+    public final InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 
-    public IInventory craftResult = new InventoryCraftResult();
+    public final IInventory craftResult = new InventoryCraftResult();
     private final World worldObj;
 
     public InventoryCrafting getMatrix() {

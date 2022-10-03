@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class HANDLER_Tinkers {
 
-    public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<>();
+    public static final AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<>();
 
     public static final void preInit() {
         if (LoadedMods.TiCon) {}

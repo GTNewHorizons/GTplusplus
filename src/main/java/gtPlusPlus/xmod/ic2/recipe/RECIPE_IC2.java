@@ -33,20 +33,20 @@ public class RECIPE_IC2 {
     public static ItemStack block_T3 = GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.VibrantAlloy, 1L);
     public static ItemStack block_T4 = GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Iridium, 1L);
 
-    public static ItemStack shaft_block_T1 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.EnergeticAlloy, 1L);
-    public static ItemStack shaft_block_T2 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.TungstenSteel, 1L);
-    public static ItemStack shaft_block_T3 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.VibrantAlloy, 1L);
-    public static ItemStack shaft_block_T4 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.Iridium, 1L);
+    public static final ItemStack shaft_block_T1 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.EnergeticAlloy, 1L);
+    public static final ItemStack shaft_block_T2 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.TungstenSteel, 1L);
+    public static final ItemStack shaft_block_T3 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.VibrantAlloy, 1L);
+    public static final ItemStack shaft_block_T4 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.Iridium, 1L);
 
     public static String ingot_T1 = "ingotEnergeticAlloy";
     public static String ingot_T2 = "ingotTungstenSteel";
     public static String ingot_T3 = "ingotVibrantAlloy";
     public static String ingot_T4 = "ingotIridium";
 
-    public static String ring_T1 = "ringStainlessSteel";
-    public static String ring_T2 = "ringTungstenSteel";
-    public static String ring_T3 = "ringChrome";
-    public static String ring_T4 = "ringOsmiridium";
+    public static final String ring_T1 = "ringStainlessSteel";
+    public static final String ring_T2 = "ringTungstenSteel";
+    public static final String ring_T3 = "ringChrome";
+    public static final String ring_T4 = "ringOsmiridium";
 
     private static final ItemStack rotor_blade_T1 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_1.getItem());
     private static final ItemStack rotor_blade_T2 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_2.getItem());

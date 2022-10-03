@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 public abstract class BaseItemDustAbstract extends Item {
 
     protected int colour = 0;
-    protected String materialName;
+    protected final String materialName;
     protected String pileType;
 
     public BaseItemDustAbstract(

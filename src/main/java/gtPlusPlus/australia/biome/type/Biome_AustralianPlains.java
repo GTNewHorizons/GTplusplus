@@ -36,7 +36,7 @@ public class Biome_AustralianPlains extends BiomeGenPlains {
         this.addFlower(Blocks.yellow_flower, 0, 30);
     }
 
-    public static Biome_AustralianPlains biome = new Biome_AustralianPlains(CORE.AUSTRALIA_BIOME_PLAINS_ID);
+    public static final Biome_AustralianPlains biome = new Biome_AustralianPlains(CORE.AUSTRALIA_BIOME_PLAINS_ID);
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.DRY);

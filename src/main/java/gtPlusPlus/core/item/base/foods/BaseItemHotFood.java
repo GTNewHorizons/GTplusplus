@@ -15,10 +15,10 @@ import net.minecraft.world.World;
 
 public class BaseItemHotFood extends BaseItemFood {
 
-    protected String materialName;
-    protected String unlocalName;
-    protected int cooldownTime;
-    protected Item output;
+    protected final String materialName;
+    protected final String unlocalName;
+    protected final int cooldownTime;
+    protected final Item output;
 
     public BaseItemHotFood(
             final String unlocalizedName,

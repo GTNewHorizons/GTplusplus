@@ -36,11 +36,11 @@ public class RECIPES_General {
     static ItemStack RECIPE_Dirt;
     static ItemStack RECIPE_Snow;
     static ItemStack RECIPE_Obsidian;
-    static String RECIPE_LapisDust = "dustLazurite";
+    static final String RECIPE_LapisDust = "dustLazurite";
     static ItemStack OUTPUT_Blueprint;
     static ItemStack RECIPE_CraftingTable;
-    static String RECIPE_BronzePlate = "plateBronze";
-    static String RECIPE_StainlessPlate = "plateStainlessSteel";
+    static final String RECIPE_BronzePlate = "plateBronze";
+    static final String RECIPE_StainlessPlate = "plateStainlessSteel";
     static ItemStack RECIPE_BasicCasingIC2;
     static ItemStack OUTPUT_Workbench_Bronze;
     static ItemStack OUTPUT_Workbench_Advanced;

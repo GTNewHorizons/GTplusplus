@@ -70,7 +70,7 @@ public final class ModBlocks {
 
     public static Block MatterFabricatorEffectBlock;
 
-    public static Fluid fluidSludge = new Fluid("fluid.sludge");
+    public static final Fluid fluidSludge = new Fluid("fluid.sludge");
     public static Block blockFluidSludge;
 
     public static Block blockFirePit;

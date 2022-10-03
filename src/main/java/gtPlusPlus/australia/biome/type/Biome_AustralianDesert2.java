@@ -34,7 +34,7 @@ import net.minecraftforge.common.BiomeManager;
 
 public class Biome_AustralianDesert2 {
 
-    public static BiomeGenAustralianDesert2 biome = new BiomeGenAustralianDesert2();
+    public static final BiomeGenAustralianDesert2 biome = new BiomeGenAustralianDesert2();
 
     public Object instance;
 

@@ -13,13 +13,13 @@ import net.minecraftforge.oredict.OreDictionary;
 public class RECIPES_Tools {
 
     // Outputs
-    public static ItemStack RECIPE_StaballoyPickaxe = new ItemStack(ModItems.itemStaballoyPickaxe);
-    public static ItemStack RECIPE_StaballoyAxe = new ItemStack(ModItems.itemStaballoyAxe);
-    public static ItemStack RECIPE_SandstoneHammer = new ItemStack(ModItems.itemSandstoneHammer);
+    public static final ItemStack RECIPE_StaballoyPickaxe = new ItemStack(ModItems.itemStaballoyPickaxe);
+    public static final ItemStack RECIPE_StaballoyAxe = new ItemStack(ModItems.itemStaballoyAxe);
+    public static final ItemStack RECIPE_SandstoneHammer = new ItemStack(ModItems.itemSandstoneHammer);
     // public static ItemStack RECIPE_StaballoyIngot = new ItemStack(ModItems.itemIngotStaballoy);
-    public static ItemStack RECIPE_SandStone = new ItemStack(Blocks.sandstone, 2);
-    public static ItemStack RECIPE_Sand = new ItemStack(Blocks.sand, 4);
-    public static ItemStack RECIPE_FireStarter = ItemUtils.getSimpleStack(ModItems.itemBasicFireMaker);
+    public static final ItemStack RECIPE_SandStone = new ItemStack(Blocks.sandstone, 2);
+    public static final ItemStack RECIPE_Sand = new ItemStack(Blocks.sand, 4);
+    public static final ItemStack RECIPE_FireStarter = ItemUtils.getSimpleStack(ModItems.itemBasicFireMaker);
 
     public static ItemStack RECIPE_DivisionSigil;
 
@@ -27,9 +27,9 @@ public class RECIPES_Tools {
     public static Item Apple = Items.apple;
 
     // MC Blocks
-    public static Block CobbleStone = Blocks.cobblestone;
+    public static final Block CobbleStone = Blocks.cobblestone;
     public static Block Dirt = Blocks.dirt;
-    public static Block Sand = Blocks.sand;
+    public static final Block Sand = Blocks.sand;
     public static Block Gravel = Blocks.gravel;
     public static Block Sandstone = Blocks.sandstone;
 
@@ -63,22 +63,22 @@ public class RECIPES_Tools {
     public static String cableGt02AnnealedCopper = "cableGt02AnnealedCopper";
 
     // Rods
-    public static String stickWood = "stickWood";
+    public static final String stickWood = "stickWood";
     public static String stickStaballoy = "stickStaballoy";
     public static String stickTitanium = "stickTitanium";
     public static String stickIron = "stickIron";
     public static String stickGold = "stickGold";
     public static String stickSilver = "stickSilver";
-    public static String stickSteel = "stickSteel";
-    public static String stickBronze = "stickBronze";
-    public static String stickTungsten = "stickTungsten";
+    public static final String stickSteel = "stickSteel";
+    public static final String stickBronze = "stickBronze";
+    public static final String stickTungsten = "stickTungsten";
     public static String stickRedAlloy = "stickRedAlloy";
     public static String stickInvar = "stickInvar";
     public static String stickElectrum = "stickElectrum";
     public static String stickElectricalSteel = "stickElectricalSteel";
 
     // Plates
-    public static String plateStaballoy = "plateStaballoy";
+    public static final String plateStaballoy = "plateStaballoy";
     public static String plateTitanium = "plateTitanium";
     public static String plateIron = "plateIron";
     public static String plateGold = "plateGold";
@@ -88,11 +88,11 @@ public class RECIPES_Tools {
     public static String plateTungsten = "plateTungsten";
     public static String plateRedAlloy = "plateRedAlloy";
     public static String plateInvar = "plateInvar";
-    public static String plateElectrum = "plateElectrum";
+    public static final String plateElectrum = "plateElectrum";
     public static String plateElectricalSteel = "plateElectricalSteel";
 
     // Ingots
-    public static String ingotStaballoy = "ingotStaballoy";
+    public static final String ingotStaballoy = "ingotStaballoy";
     public static String ingotTitanium = "ingotTitanium";
     public static String ingotIron = "ingotIron";
     public static String ingotGold = "ingotGold";
@@ -102,22 +102,22 @@ public class RECIPES_Tools {
     public static String ingotTungsten = "ingotTungsten";
     public static String ingotRedAlloy = "ingotRedAlloy";
     public static String ingotInvar = "ingotInvar";
-    public static String ingotElectrum = "ingotElectrum";
+    public static final String ingotElectrum = "ingotElectrum";
     public static String ingotUranium = "ingotUranium";
     public static String ingotElectricalSteel = "ingotElectricalSteel";
 
     // Crafting Tools
-    public static String craftingToolHardHammer = "craftingToolHardHammer";
+    public static final String craftingToolHardHammer = "craftingToolHardHammer";
     public static String craftingToolSoftHammer = "craftingToolSoftHammer";
-    public static String craftingToolFile = "craftingToolFile";
+    public static final String craftingToolFile = "craftingToolFile";
     public static String craftingToolSaw = "craftingToolSaw";
     public static String craftingToolPickaxe = "craftingToolPickaxe";
-    public static String craftingToolWrench = "craftingToolWrench";
+    public static final String craftingToolWrench = "craftingToolWrench";
     public static String craftingToolCrowbar = "craftingToolCrowbar";
     public static String craftingToolKnife = "craftingToolKnife";
-    public static String craftingToolScrewdriver = "craftingToolScrewdriver";
+    public static final String craftingToolScrewdriver = "craftingToolScrewdriver";
 
-    public static ItemStack sandHammer = new ItemStack(ModItems.itemSandstoneHammer, 1, OreDictionary.WILDCARD_VALUE);
+    public static final ItemStack sandHammer = new ItemStack(ModItems.itemSandstoneHammer, 1, OreDictionary.WILDCARD_VALUE);
     public static String craftingToolSandHammer = "craftingToolSandHammer";
 
     public static ItemStack personalCloakingDevice = ItemUtils.getSimpleStack(ModItems.itemPersonalCloakingDevice);

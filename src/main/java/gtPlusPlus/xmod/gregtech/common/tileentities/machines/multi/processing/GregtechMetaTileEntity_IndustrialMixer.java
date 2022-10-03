@@ -31,8 +31,8 @@ public class GregtechMetaTileEntity_IndustrialMixer
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMixer> implements ISurvivalConstructable {
 
     public static int CASING_TEXTURE_ID;
-    public static String mCasingName = "Multi-Use Casing";
-    public static String mCasingName2 = "Titanium Turbine Casing";
+    public static final String mCasingName = "Multi-Use Casing";
+    public static final String mCasingName2 = "Titanium Turbine Casing";
     private int mCasing;
     private IStructureDefinition<GregtechMetaTileEntity_IndustrialMixer> STRUCTURE_DEFINITION = null;
 

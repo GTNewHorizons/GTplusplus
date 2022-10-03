@@ -50,8 +50,8 @@ import net.minecraft.item.ItemStack;
 
 public class COMPAT_HANDLER {
 
-    public static Queue<Object> RemoveRecipeQueue = new LinkedList<>();
-    public static Queue<ShapedRecipeObject> AddRecipeQueue = new LinkedList<>();
+    public static final Queue<Object> RemoveRecipeQueue = new LinkedList<>();
+    public static final Queue<ShapedRecipeObject> AddRecipeQueue = new LinkedList<>();
     public static Boolean areInitItemsLoaded = false;
 
     public static void registerMyModsOreDictEntries() {

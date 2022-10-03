@@ -22,7 +22,7 @@ import net.minecraft.world.gen.structure.StructureVillagePieces;
 
 public class MapGenExtendedVillage extends MapGenStructure {
     /** A list of all the biomes villages can spawn in. */
-    public static List<BiomeGenBase> villageSpawnBiomes = Arrays.asList(new BiomeGenBase[] {
+    public static final List<BiomeGenBase> villageSpawnBiomes = Arrays.asList(new BiomeGenBase[] {
         GTplusplus_Australia.Australian_Desert_Biome_3,
         GTplusplus_Australia.Australian_Plains_Biome,
         GTplusplus_Australia.Australian_Forest_Biome,

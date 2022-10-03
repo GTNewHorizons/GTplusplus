@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemCreativeTab extends Item {
 
-    public IIcon[] icons = new IIcon[10];
+    public final IIcon[] icons = new IIcon[10];
 
     public ItemCreativeTab() {
         super();

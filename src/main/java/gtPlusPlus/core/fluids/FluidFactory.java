@@ -175,7 +175,7 @@ public class FluidFactory {
      */
     public static class BucketHandler {
 
-        public static BucketHandler INSTANCE = new BucketHandler();
+        public static final BucketHandler INSTANCE = new BucketHandler();
 
         private BucketHandler() {}
 

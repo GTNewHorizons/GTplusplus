@@ -25,8 +25,8 @@ public class AustraliaWorldGenerator implements IWorldGenerator {
     private final List<IGeneratorWorld> generators;
     private int midX;
     private int midZ;
-    int field_82665_g;
-    int field_82666_h = 8;
+    final int field_82665_g;
+    final int field_82666_h = 8;
 
     public static final AutoMap<Integer> SHACK_ALLOWED_BIOMES = new AutoMap<>();
     public static final AutoMap<Integer> HUT_ALLOWED_BIOMES = new AutoMap<>();

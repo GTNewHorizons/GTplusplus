@@ -23,10 +23,10 @@ import net.minecraft.world.World;
 
 public class LeavesBase extends BlockLeaves {
 
-    protected IIcon[][] leafTextures = new IIcon[2][];
+    protected final IIcon[][] leafTextures = new IIcon[2][];
     protected String[][] leafType = new String[][] {{}, {}};
     protected String[] treeType = new String[] {};
-    protected ItemStack[] bonusDrops;
+    protected final ItemStack[] bonusDrops;
 
     @SuppressWarnings("deprecation")
     public LeavesBase(String blockNameLocalized, String blockNameUnlocalized, ItemStack[] bonusDrops) {

@@ -93,7 +93,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
 
     @Override
     public long maxEUStore() {
-        return TESSERACT_ENERGY_COST_DIMENSIONAL * 8 * 32;
+        return (long) TESSERACT_ENERGY_COST_DIMENSIONAL * 8 * 32;
     }
 
     @Override

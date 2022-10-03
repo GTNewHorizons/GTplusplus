@@ -47,7 +47,7 @@ public class RecipeGen_FluidCanning implements Runnable {
         mCache.add(r);
     }
 
-    protected boolean disableOptional;
+    protected final boolean disableOptional;
 
     private final GT_Recipe recipe;
     private final boolean isValid;

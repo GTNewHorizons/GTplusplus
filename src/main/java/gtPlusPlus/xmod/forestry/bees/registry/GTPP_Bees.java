@@ -25,11 +25,11 @@ public class GTPP_Bees {
     public static GTPP_Drop drop;
     public static GTPP_Comb combs;
 
-    public static HashMap<String, Material> sMaterialMappings = new HashMap<>();
-    public static HashMap<Integer, GTPP_PropolisType> sPropolisMappings = new HashMap<>();
-    public static HashMap<Integer, GTPP_PollenType> sPollenMappings = new HashMap<>();
-    public static HashMap<Integer, GTPP_DropType> sDropMappings = new HashMap<>();
-    public static HashMap<Integer, GTPP_CombType> sCombMappings = new HashMap<>();
+    public static final HashMap<String, Material> sMaterialMappings = new HashMap<>();
+    public static final HashMap<Integer, GTPP_PropolisType> sPropolisMappings = new HashMap<>();
+    public static final HashMap<Integer, GTPP_PollenType> sPollenMappings = new HashMap<>();
+    public static final HashMap<Integer, GTPP_DropType> sDropMappings = new HashMap<>();
+    public static final HashMap<Integer, GTPP_CombType> sCombMappings = new HashMap<>();
 
     public GTPP_Bees() {
         if (Loader.isModLoaded(MOD_ID_FR) && GT_Mod.gregtechproxy.mGTBees) {

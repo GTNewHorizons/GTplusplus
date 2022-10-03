@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class GT_MetaTileEntity_RedstoneLamp extends GT_MetaTileEntity_RedstoneBase {
 
     public byte mRedstoneStrength = 0, mType = 0;
-    public static TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[2];
+    public static final TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[2];
 
     static {
         sIconList[0] = new CustomIcon("TileEntities/gt4/redstone/Lamp/off");

@@ -23,16 +23,16 @@ public class UtilityGL11Debug {
             this.fetchCommand = init_fetchCommand;
         }
 
-        public int gLconstant;
-        public String name;
-        public String description;
-        public String category;
-        public String fetchCommand;
+        public final int gLconstant;
+        public final String name;
+        public final String description;
+        public final String category;
+        public final String fetchCommand;
     }
 
-    public static UtilityGL11Debug instance = new UtilityGL11Debug();
+    public static final UtilityGL11Debug instance = new UtilityGL11Debug();
 
-    public GLproperty[] propertyList = {
+    public final GLproperty[] propertyList = {
         new GLproperty(GL11.GL_CURRENT_COLOR, "GL_CURRENT_COLOR", "Current color", "current", "glGetFloatv()"),
         new GLproperty(GL11.GL_CURRENT_INDEX, "GL_CURRENT_INDEX", "Current color index", "current", "glGetFloatv()"),
         new GLproperty(

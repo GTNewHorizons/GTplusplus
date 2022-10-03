@@ -25,7 +25,7 @@ The steps to add NBT data to an ItemStack:
 
 public class BaseItemBrain extends Item {
     // This is an array of all the types I am going to be adding.
-    String[] brainTypes = {"dead", "preserved", "fresh", "tasty"};
+    final String[] brainTypes = {"dead", "preserved", "fresh", "tasty"};
 
     // This method allows us to have different language translation keys for
     // each item we add.

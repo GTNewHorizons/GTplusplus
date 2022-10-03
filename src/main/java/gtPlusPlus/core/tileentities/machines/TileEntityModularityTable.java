@@ -24,9 +24,9 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityModularityTable extends TileEntityBase implements ISidedInventory {
 
-    public InventoryModularMain inventoryGrid;
-    public InventoryModularOutput inventoryOutputs;
-    public InventoryModularOutput mTempRecipeStorage;
+    public final InventoryModularMain inventoryGrid;
+    public final InventoryModularOutput inventoryOutputs;
+    public final InventoryModularOutput mTempRecipeStorage;
     private Container_ModularityTable container;
     private String customName;
     private int mRecipeTimeRemaining = -1;
@@ -140,9 +140,9 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
         return true;
     }
 
-    public static Map<ItemStack, Pair<Modifiers, Integer>> mValidUpgradeList =
+    public static final Map<ItemStack, Pair<Modifiers, Integer>> mValidUpgradeList =
             new HashMap<>();
-    public static Map<ItemStack, BT> mValidUpgradeListFormChange = new HashMap<>();
+    public static final Map<ItemStack, BT> mValidUpgradeListFormChange = new HashMap<>();
 
     private static boolean generateAllValidUpgrades() {
 

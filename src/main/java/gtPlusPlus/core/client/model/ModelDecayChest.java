@@ -8,11 +8,11 @@ import net.minecraft.client.model.ModelRenderer;
 @SideOnly(Side.CLIENT)
 public class ModelDecayChest extends ModelBase {
     /** The chest lid in the chest's model. */
-    public ModelRenderer chestLid = (new ModelRenderer(this, 0, 0)).setTextureSize(64, 64);
+    public final ModelRenderer chestLid = (new ModelRenderer(this, 0, 0)).setTextureSize(64, 64);
     /** The model of the bottom of the chest. */
-    public ModelRenderer chestBelow;
+    public final ModelRenderer chestBelow;
     /** The chest's knob in the chest model. */
-    public ModelRenderer chestKnob;
+    public final ModelRenderer chestKnob;
 
     public ModelDecayChest() {
         this.chestLid.addBox(0.0F, -5.0F, -14.0F, 14, 5, 14, 0.0F);

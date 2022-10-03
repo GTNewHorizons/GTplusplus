@@ -17,7 +17,7 @@ public class BaseItemPlasmaCell extends BaseItemComponent {
 
     private IIcon base;
     private IIcon overlay;
-    ComponentTypes PlasmaCell = ComponentTypes.PLASMACELL;
+    final ComponentTypes PlasmaCell = ComponentTypes.PLASMACELL;
     private int tickCounter = 0;
     private final int tickCounterMax = 200;
     private final short[] fluidColour;

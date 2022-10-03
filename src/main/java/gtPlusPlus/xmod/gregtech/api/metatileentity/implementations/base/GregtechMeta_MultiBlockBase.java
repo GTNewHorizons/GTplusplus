@@ -125,16 +125,16 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     protected long mTotalRunTime = 0;
     protected boolean mVoidExcess = false;
 
-    public ArrayList<GT_MetaTileEntity_Hatch_ControlCore> mControlCoreBus = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_ControlCore> mControlCoreBus = new ArrayList<>();
     /**
      * Don't use this for recipe input check, otherwise you'll get duplicated fluids
      */
-    public ArrayList<GT_MetaTileEntity_Hatch_AirIntake> mAirIntakes = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_AirIntake> mAirIntakes = new ArrayList<>();
 
-    public ArrayList<GT_MetaTileEntity_Hatch_InputBattery> mChargeHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_OutputBattery> mDischargeHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch> mAllEnergyHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch> mAllDynamoHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_InputBattery> mChargeHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_OutputBattery> mDischargeHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch> mAllEnergyHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch> mAllDynamoHatches = new ArrayList<>();
 
     // Custom Behaviour Map
     private static final HashMap<String, SpecialMultiBehaviour> mCustomBehviours = new HashMap<>();
@@ -242,7 +242,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
             int weeks = (int) (TimeUnit.SECONDS.toDays(seconds) / 7);
             int days = (int) (TimeUnit.SECONDS.toDays(seconds) - 7 * weeks);
             long hours =
-                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7 * weeks);
+                    TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7L * weeks);
             long minutes = TimeUnit.SECONDS.toMinutes(seconds) - (TimeUnit.SECONDS.toHours(seconds) * 60);
             long second = TimeUnit.SECONDS.toSeconds(seconds) - (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
@@ -2058,12 +2058,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     /**
      * This is the array Used to Store the Tectech Multi-Amp Dynamo hatches.
      */
-    public ArrayList<GT_MetaTileEntity_Hatch> mTecTechDynamoHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch> mTecTechDynamoHatches = new ArrayList<>();
 
     /**
      * This is the array Used to Store the Tectech Multi-Amp Energy hatches.
      */
-    public ArrayList<GT_MetaTileEntity_Hatch> mTecTechEnergyHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch> mTecTechEnergyHatches = new ArrayList<>();
 
     /**
      * TecTech Multi-Amp Dynamo Support

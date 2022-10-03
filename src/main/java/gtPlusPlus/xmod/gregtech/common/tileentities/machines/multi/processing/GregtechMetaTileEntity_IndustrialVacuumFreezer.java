@@ -33,9 +33,9 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer
         implements ISurvivalConstructable {
 
     public static int CASING_TEXTURE_ID;
-    public static String mCryoFuelName = "Gelid Cryotheum";
-    public static String mCasingName = "Advanced Cryogenic Casing";
-    public static String mHatchName = "Cryotheum Hatch";
+    public static final String mCryoFuelName = "Gelid Cryotheum";
+    public static final String mCasingName = "Advanced Cryogenic Casing";
+    public static final String mHatchName = "Cryotheum Hatch";
     public static FluidStack mFuelStack;
     private int mCasing;
     private IStructureDefinition<GregtechMetaTileEntity_IndustrialVacuumFreezer> STRUCTURE_DEFINITION = null;

@@ -40,8 +40,8 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     protected int mBaseEff = 2500;
     protected int mOptimalAirFlow = 0;
     protected boolean mHasPollution = false;
-    protected int SLOT_ROTOR = 5;
-    protected int SLOT_FILTER = 6;
+    protected final int SLOT_ROTOR = 5;
+    protected final int SLOT_FILTER = 6;
     protected static boolean mPollutionEnabled = true;
 
     protected boolean mSaveRotor = false;

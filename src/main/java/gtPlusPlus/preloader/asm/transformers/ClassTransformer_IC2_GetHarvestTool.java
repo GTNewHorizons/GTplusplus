@@ -172,7 +172,7 @@ public class ClassTransformer_IC2_GetHarvestTool {
 
     public final class localClassVisitor extends ClassVisitor {
 
-        String aClassName;
+        final String aClassName;
 
         public localClassVisitor(ClassVisitor cv, String aName) {
             super(ASM5, cv);

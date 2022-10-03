@@ -29,8 +29,8 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
     public boolean mFluidTransfer_1 = false;
     public boolean mFluidTransfer_2 = false;
 
-    public FluidStack[] mInputFluids = new FluidStack[4];
-    public FluidStack[] mOutputFluids = new FluidStack[2];
+    public final FluidStack[] mInputFluids = new FluidStack[4];
+    public final FluidStack[] mOutputFluids = new FluidStack[2];
 
     public GregtechMetaTileEntity_ChemicalReactor(int aID, String aName, String aNameRegional, int aTier) {
         super(

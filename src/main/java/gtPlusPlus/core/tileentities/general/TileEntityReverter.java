@@ -8,10 +8,10 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityReverter extends TileEntity {
     private static final int REVERT_CHANCE = 10;
-    public int radius = 16;
-    public int diameter = (8 * this.radius) + 4;
-    public double requiredPlayerRange = 64.0D;
-    public Random rand = new Random();
+    public final int radius = 16;
+    public final int diameter = (8 * this.radius) + 4;
+    public final double requiredPlayerRange = 64.0D;
+    public final Random rand = new Random();
     private int tickCount;
     private boolean slowScan;
     private int ticksSinceChange;

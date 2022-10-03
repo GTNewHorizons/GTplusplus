@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class Container_TradeTable extends Container {
 
-    protected TileEntityTradeTable tile_entity;
+    protected final TileEntityTradeTable tile_entity;
     public final InventoryTradeMain inventoryChest;
     public final InventoryTradeOutput inventoryOutputs;
 

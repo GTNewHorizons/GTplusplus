@@ -6,7 +6,7 @@ import java.util.List;
 
 public class WorldGenUtils {
 
-    static List<GT_OreVein_Object> mOresToRegister = new ArrayList<>();
+    static final List<GT_OreVein_Object> mOresToRegister = new ArrayList<>();
 
     public static final void addNewOreMixForWorldgen(GT_OreVein_Object newVein) {
         mOresToRegister.add(newVein);

@@ -28,11 +28,11 @@ import org.apache.commons.lang3.ArrayUtils;
 public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMultiBase<T>>
         extends GregtechMeta_MultiBlockBase<T> {
 
-    public ArrayList<GT_MetaTileEntity_Hatch_Steam_BusInput> mSteamInputs =
+    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusInput> mSteamInputs =
             new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Steam_BusOutput> mSteamOutputs =
+    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusOutput> mSteamOutputs =
             new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mSteamInputFluids =
+    public final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mSteamInputFluids =
             new ArrayList<>();
 
     protected static final String TT_steaminputbus = StatCollector.translateToLocal("GTPP.MBTT.SteamInputBus");

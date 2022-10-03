@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class FireProtectionBauble extends BaseBauble {
 
     public static HashMap<UUID, Boolean> mDataMap = new HashMap<>();
-    public static HashSet<UUID> mPlayerMap = new HashSet<>();
+    public static final HashSet<UUID> mPlayerMap = new HashSet<>();
 
     private static final Field isImmuneToFire;
 

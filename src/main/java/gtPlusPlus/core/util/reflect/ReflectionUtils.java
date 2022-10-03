@@ -22,10 +22,10 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class ReflectionUtils {
 
-    public static Map<String, Class<?>> mCachedClasses = new LinkedHashMap<>();
-    public static Map<String, CachedMethod> mCachedMethods = new LinkedHashMap<>();
-    public static Map<String, CachedField> mCachedFields = new LinkedHashMap<>();
-    public static Map<String, CachedConstructor> mCachedConstructors = new LinkedHashMap<>();
+    public static final Map<String, Class<?>> mCachedClasses = new LinkedHashMap<>();
+    public static final Map<String, CachedMethod> mCachedMethods = new LinkedHashMap<>();
+    public static final Map<String, CachedField> mCachedFields = new LinkedHashMap<>();
+    public static final Map<String, CachedConstructor> mCachedConstructors = new LinkedHashMap<>();
 
     private static class CachedConstructor {
 

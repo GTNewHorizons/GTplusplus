@@ -28,7 +28,7 @@ public class GT_GUIContainer_ComputerCube extends GT_GUIContainerMetaTile_Machin
         }
     }
 
-    public static ResourceLocation[] mGUIbackground = new ResourceLocation[8];
+    public static final ResourceLocation[] mGUIbackground = new ResourceLocation[8];
 
     static {
         mGUIbackground[0] = new ResourceLocation(CORE.RES_PATH_GUI + "computer/0.png");

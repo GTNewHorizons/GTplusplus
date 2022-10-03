@@ -15,9 +15,9 @@ import org.lwjgl.input.Keyboard;
 
 public class TileEntityXpConverter extends TileBasicTank {
 
-    public BTF_FluidTank tankEssence =
+    public final BTF_FluidTank tankEssence =
             new BTF_FluidTank((int) (64000 * EnchantingUtils.RATIO_MOB_ESSENCE_TO_LIQUID_XP));
-    public BTF_FluidTank tankLiquidXp = new BTF_FluidTank(64000);
+    public final BTF_FluidTank tankLiquidXp = new BTF_FluidTank(64000);
     private boolean mConvertToEssence = true;
 
     public TileEntityXpConverter() {

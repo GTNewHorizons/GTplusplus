@@ -10,9 +10,9 @@ import net.minecraft.entity.Entity;
 public class ModelOctopus extends ModelBase {
 
     /** The squid's body */
-    ModelRenderer octopusBody;
+    final ModelRenderer octopusBody;
     /** The squid's tentacles */
-    ModelRenderer[] octoTentacles = new ModelRenderer[8];
+    final ModelRenderer[] octoTentacles = new ModelRenderer[8];
 
     public ModelOctopus() {
         byte b0 = -16;

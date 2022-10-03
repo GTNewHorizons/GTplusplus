@@ -122,7 +122,7 @@ public final class NeiTextureHandler {
     public static final ResourceLocation BLOCK_TEX;
     public static final ResourceLocation ITEM_TEX;
     public static final ResourceLocation GLINT_TEX;
-    public static int BRIGHTNESS_MAX;
+    public static final int BRIGHTNESS_MAX;
 
     static {
         BLOCK_TEX = TextureMap.locationBlocksTexture;

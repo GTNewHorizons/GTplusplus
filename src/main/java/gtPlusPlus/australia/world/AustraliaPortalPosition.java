@@ -3,7 +3,7 @@ package gtPlusPlus.australia.world;
 import net.minecraft.util.ChunkCoordinates;
 
 public class AustraliaPortalPosition extends ChunkCoordinates {
-    public long field_85087_d;
+    public final long field_85087_d;
     final AustraliaTeleporterDimensionMod field_85088_e;
 
     public AustraliaPortalPosition(

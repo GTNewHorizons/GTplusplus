@@ -111,7 +111,7 @@ public abstract class GregtechMetaBoilerBase extends GT_MetaTileEntity_BasicTank
         }
         if (aPlayer != null) {
             if (GT_Utility.areStacksEqual(aPlayer.getCurrentEquippedItem(), new ItemStack(Items.water_bucket, 1))) {
-                this.fill(Materials.Water.getFluid(1000 * aPlayer.getCurrentEquippedItem().stackSize), true);
+                this.fill(Materials.Water.getFluid(1000L * aPlayer.getCurrentEquippedItem().stackSize), true);
                 aPlayer.getCurrentEquippedItem().func_150996_a(Items.bucket);
             } else {
                 aBaseMetaTileEntity.openGUI(aPlayer);

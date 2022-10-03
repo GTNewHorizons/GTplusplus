@@ -6,16 +6,16 @@ import net.minecraft.item.ItemStack;
 
 public class ShapedRecipeObject {
 
-    public Object object_A;
-    public Object object_B;
-    public Object object_C;
-    public Object object_D;
-    public Object object_E;
-    public Object object_F;
-    public Object object_G;
-    public Object object_H;
-    public Object object_I;
-    public ItemStack object_OUTPUT;
+    public final Object object_A;
+    public final Object object_B;
+    public final Object object_C;
+    public final Object object_D;
+    public final Object object_E;
+    public final Object object_F;
+    public final Object object_G;
+    public final Object object_H;
+    public final Object object_I;
+    public final ItemStack object_OUTPUT;
 
     public ShapedRecipeObject(
             final Object input_A,

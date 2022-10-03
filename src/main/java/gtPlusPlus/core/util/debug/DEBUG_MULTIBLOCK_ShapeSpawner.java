@@ -49,14 +49,14 @@ public abstract class DEBUG_MULTIBLOCK_ShapeSpawner extends MetaTileEntity {
             mEfficiency = 0;
     public ItemStack[] mOutputItems = null;
     public FluidStack[] mOutputFluids = null;
-    public ArrayList<GT_MetaTileEntity_Hatch_Input> mInputHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Output> mOutputHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_InputBus> mInputBusses = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_OutputBus> mOutputBusses = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Dynamo> mDynamoHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Muffler> mMufflerHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Energy> mEnergyHatches = new ArrayList<>();
-    public ArrayList<GT_MetaTileEntity_Hatch_Maintenance> mMaintenanceHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Input> mInputHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Output> mOutputHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_InputBus> mInputBusses = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_OutputBus> mOutputBusses = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Dynamo> mDynamoHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Muffler> mMufflerHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Energy> mEnergyHatches = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Maintenance> mMaintenanceHatches = new ArrayList<>();
 
     public DEBUG_MULTIBLOCK_ShapeSpawner(final int aID, final String aName, final String aNameRegional) {
         super(aID, aName, aNameRegional, 2);

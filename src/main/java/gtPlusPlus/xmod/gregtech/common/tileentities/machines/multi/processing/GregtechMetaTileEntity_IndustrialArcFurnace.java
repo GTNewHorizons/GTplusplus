@@ -35,7 +35,7 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace
 
     // 862
     private static final int mCasingTextureID = TAE.getIndexFromPage(3, 3);
-    public static String mCasingName = "Tempered Arc Furnace Casing";
+    public static final String mCasingName = "Tempered Arc Furnace Casing";
     private boolean mPlasmaMode = false;
     private int mSize = 0;
     private int mCasing;

@@ -120,7 +120,7 @@ public class ChargingHelper {
                                                         if (mEntityTemp.getMode() == 0) {
                                                             mMaxDistance = (4 * GT_Values.V[mEntityTemp.getTier()]);
                                                         } else if (mEntityTemp.getMode() == 1) {
-                                                            mMaxDistance = (mEntityTemp.getTier() * 10);
+                                                            mMaxDistance = (mEntityTemp.getTier() * 10L);
                                                         } else {
                                                             mMaxDistance = (4 * GT_Values.V[mEntityTemp.getTier()] / 2);
                                                         }

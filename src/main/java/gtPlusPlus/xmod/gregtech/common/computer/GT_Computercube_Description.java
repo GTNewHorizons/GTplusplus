@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 
 public class GT_Computercube_Description {
-    public static ArrayList<GT_Computercube_Description> sDescriptions = new ArrayList<>();
+    public static final ArrayList<GT_Computercube_Description> sDescriptions = new ArrayList<>();
 
-    public String[] mDescription;
+    public final String[] mDescription;
 
-    public ItemStack[] mStacks;
+    public final ItemStack[] mStacks;
 
     public GT_Computercube_Description(String[] aDescription, ItemStack[] aStacks) {
         this.mDescription = aDescription;

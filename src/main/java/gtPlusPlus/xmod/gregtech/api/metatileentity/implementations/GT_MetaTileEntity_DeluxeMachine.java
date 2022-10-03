@@ -277,7 +277,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
 
     @Override
     public long maxAmperesIn() {
-        return (mEUt * 2) / V[mTier] + 1;
+        return (mEUt * 2L) / V[mTier] + 1;
     }
 
     @Override

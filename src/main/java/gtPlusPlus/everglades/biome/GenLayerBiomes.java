@@ -6,7 +6,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerBiomes extends GenLayer {
 
-    protected BiomeGenBase[] allowedBiomes = {
+    protected final BiomeGenBase[] allowedBiomes = {
         Biome_Everglades.biome,
     };
 

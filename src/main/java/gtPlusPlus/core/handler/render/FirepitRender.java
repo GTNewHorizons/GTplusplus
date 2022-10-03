@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class FirepitRender extends TileEntitySpecialRenderer {
-    ResourceLocation texture = new ResourceLocation("miscutils" + ":" + "textures/blocks/FirePit/mossyFirepit.png");
+    final ResourceLocation texture = new ResourceLocation("miscutils" + ":" + "textures/blocks/FirePit/mossyFirepit.png");
 
     private final FirepitModel model;
 

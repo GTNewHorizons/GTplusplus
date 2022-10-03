@@ -11,7 +11,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 public class DEBUG_ScreenOverlay extends Gui {
 
     int width, height;
-    Minecraft mc = Minecraft.getMinecraft();
+    final Minecraft mc = Minecraft.getMinecraft();
 
     @SubscribeEvent
     public void eventHandler(final RenderGameOverlayEvent.Text event) {

@@ -529,9 +529,9 @@ public enum GregtechOrePrefixes {
     private final ArrayList<Interface_OreRecipeRegistrator> mOreProcessing = new ArrayList<>();
     private final ArrayList<Interface_OreRecipeRegistrator> mOreProcessingFake = new ArrayList<>();
     public ItemStack mContainerItem = null;
-    public ICondition<ISubTagContainer> mCondition = null;
+    public final ICondition<ISubTagContainer> mCondition = null;
     public byte mDefaultStackSize = 64;
-    public GregtechMaterialStack mSecondaryMaterial = null;
+    public final GregtechMaterialStack mSecondaryMaterial = null;
     public GregtechOrePrefixes mPrefixInto = this;
     public float mHeatDamage = 0.0F; // Negative for Frost Damage
     /**
@@ -1847,11 +1847,14 @@ public enum GregtechOrePrefixes {
                 mArcSmeltInto = this,
                 mHandleMaterial = this;
         public byte mToolQuality = 0;
-        public Fluid mSolid = null, mFluid = null, mGas = null, mPlasma = null;
+        public final Fluid mSolid = null;
+        public Fluid mFluid = null;
+        public Fluid mGas = null;
+        public Fluid mPlasma = null;
         /**
          * This Fluid is used as standard Unit for Molten Materials. 1296 is a Molten Block, what means 144 is one Material Unit worth
          */
-        public Fluid mStandardMoltenFluid = null;
+        public final Fluid mStandardMoltenFluid = null;
 
         GT_Materials(
                 final int aMetaItemSubID,

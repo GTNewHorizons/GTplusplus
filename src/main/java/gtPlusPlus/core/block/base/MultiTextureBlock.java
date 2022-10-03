@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 
 public class MultiTextureBlock extends Block {
 
-    public IIcon[] icons = new IIcon[6];
+    public final IIcon[] icons = new IIcon[6];
 
     protected MultiTextureBlock(final String unlocalizedName, final Material material, final SoundType blockSound) {
         super(material);

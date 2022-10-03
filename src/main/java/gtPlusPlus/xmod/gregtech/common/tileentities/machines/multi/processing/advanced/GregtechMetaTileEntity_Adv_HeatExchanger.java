@@ -95,7 +95,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger
                                     GregtechMetaTileEntity_Adv_HeatExchanger::onCasingAdded,
                                     ofBlock(ModBlocks.blockSpecialMultiCasings, 14))))
                     .build();
-    public static float penalty_per_config = 0.015f; // penalize 1.5% efficiency per circuitry level (1-25)
+    public static final float penalty_per_config = 0.015f; // penalize 1.5% efficiency per circuitry level (1-25)
 
     private GT_MetaTileEntity_Hatch_Input mInputHotFluidHatch;
     private GT_MetaTileEntity_Hatch_Output mOutputColdFluidHatch;
@@ -359,7 +359,7 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger
             StatCollector.translateToLocal("GT5U.multiblock.usage") + " "
                     + StatCollector.translateToLocal("GT5U.LHE.steam") + ": "
                     + (superheated ? EnumChatFormatting.RED : EnumChatFormatting.YELLOW)
-                    + GT_Utility.formatNumbers(superheated ? -2 * mEUt : -mEUt) + EnumChatFormatting.RESET + " EU/t",
+                    + GT_Utility.formatNumbers(superheated ? -2L * mEUt : -mEUt) + EnumChatFormatting.RESET + " EU/t",
             StatCollector.translateToLocal("GT5U.multiblock.problems") + ": " + EnumChatFormatting.RED
                     + (getIdealStatus() - getRepairStatus()) + EnumChatFormatting.RESET + " "
                     + StatCollector.translateToLocal("GT5U.multiblock.efficiency")

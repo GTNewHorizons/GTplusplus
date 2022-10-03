@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BaseItemFood extends ItemFood {
 
     private final PotionEffect[] effects;
-    protected String localName;
+    protected final String localName;
 
     public BaseItemFood(
             final String unlocalizedName,

@@ -17,14 +17,14 @@ import net.minecraft.util.IIcon;
 
 public class IonParticles extends BaseItemParticle {
 
-    public static HashMap<String, Integer> NameToMetaMap = new HashMap<>();
-    public static HashMap<Integer, String> MetaToNameMap = new HashMap<>();
+    public static final HashMap<String, Integer> NameToMetaMap = new HashMap<>();
+    public static final HashMap<Integer, String> MetaToNameMap = new HashMap<>();
 
     public IonParticles() {
         super("Ion", ELEMENT.NAMES.length, EnumRarity.rare);
     }
 
-    public static IIcon[] overlays = new IIcon[ELEMENT.NAMES.length];
+    public static final IIcon[] overlays = new IIcon[ELEMENT.NAMES.length];
     public static IIcon baseTexture;
 
     static {

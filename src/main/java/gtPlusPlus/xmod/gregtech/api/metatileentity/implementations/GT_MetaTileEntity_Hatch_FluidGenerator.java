@@ -23,7 +23,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTileEntity_Hatch_Input {
 
-    protected static XSTR floatGen = new XSTR();
+    protected static final XSTR floatGen = new XSTR();
     public int mProgresstime = 0, mMaxProgresstime = 0;
 
     public GT_MetaTileEntity_Hatch_FluidGenerator(

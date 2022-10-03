@@ -56,12 +56,12 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
     protected int counter = 0;
     protected boolean mFastMode = false;
     protected double mufflerReduction = 1;
-    protected float[] flowMultipliers = new float[] {1, 1, 1};
+    protected final float[] flowMultipliers = new float[] {1, 1, 1};
 
-    public ITexture frontFace;
-    public ITexture frontFaceActive;
+    public final ITexture frontFace;
+    public final ITexture frontFaceActive;
 
-    public ArrayList<GT_MetaTileEntity_Hatch_Turbine> mTurbineRotorHatches =
+    public final ArrayList<GT_MetaTileEntity_Hatch_Turbine> mTurbineRotorHatches =
             new ArrayList<>();
 
     public GregtechMetaTileEntity_LargerTurbineBase(int aID, String aName, String aNameRegional) {

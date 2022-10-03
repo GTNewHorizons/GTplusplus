@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemDehydratorCoilWire extends Item {
 
-    public IIcon[] icons = new IIcon[4];
+    public final IIcon[] icons = new IIcon[4];
 
     public ItemDehydratorCoilWire() {
         super();

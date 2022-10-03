@@ -19,7 +19,7 @@ public class BookHandler {
 
     public static int mBookKeeperCount = 0;
 
-    public static Map<Integer, BookTemplate> mBookMap = new HashMap<>();
+    public static final Map<Integer, BookTemplate> mBookMap = new HashMap<>();
 
     public static BookTemplate book_ThermalBoiler;
     public static BookTemplate book_MultiPowerStation;

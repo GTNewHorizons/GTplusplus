@@ -10,7 +10,7 @@ import net.minecraftforge.fluids.*;
 
 public class TileEntityInfiniteFluid extends TileEntity implements IFluidHandler {
 
-    public FluidTank tank = new FluidTank(Integer.MAX_VALUE);
+    public final FluidTank tank = new FluidTank(Integer.MAX_VALUE);
     private boolean needsUpdate = false;
     private int updateTimer = 0;
 

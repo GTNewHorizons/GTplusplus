@@ -8,7 +8,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileThermalHandler extends TileEntity implements IThermalHandler {
 
-    protected ThermalStorage storage = new ThermalStorage(32000);
+    protected final ThermalStorage storage = new ThermalStorage(32000);
 
     public void readFromNBT(NBTTagCompound arg0) {
         super.readFromNBT(arg0);

@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockGtFrameBox extends ItemBlock {
 
-    protected int blockColour;
+    protected final int blockColour;
     private final Material mMaterial;
     private final int sRadiation;
 

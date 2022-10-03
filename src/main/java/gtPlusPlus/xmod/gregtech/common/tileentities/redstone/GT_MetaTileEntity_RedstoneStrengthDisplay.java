@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class GT_MetaTileEntity_RedstoneStrengthDisplay extends GT_MetaTileEntity_RedstoneBase {
 
     public byte mRedstoneStrength = 0, mType = 0;
-    public static TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[144];
+    public static final TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[144];
 
     static {
         for (int i = 0; i < 144; i++) {

@@ -47,7 +47,7 @@ public class CustomGtTextures {
 
         public static class CustomIcon implements IIconContainer, Runnable {
             protected IIcon mIcon, mOverlay;
-            protected String mIconName;
+            protected final String mIconName;
 
             public CustomIcon(final String aIconName) {
                 this.mIconName = aIconName;

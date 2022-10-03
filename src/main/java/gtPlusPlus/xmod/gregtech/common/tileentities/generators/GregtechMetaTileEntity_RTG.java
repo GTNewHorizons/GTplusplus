@@ -46,7 +46,7 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     }
 
     public static long getTotalEUGenerated(int ticks, int voltage) {
-        return ticks * voltage;
+        return (long) ticks * voltage;
     }
 
     @Override

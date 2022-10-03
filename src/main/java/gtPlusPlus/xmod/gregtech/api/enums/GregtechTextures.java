@@ -86,7 +86,7 @@ public class GregtechTextures {
 
         public static class CustomIcon implements Interface_IconContainer, Runnable {
             protected IIcon mIcon;
-            protected String mIconName;
+            protected final String mIconName;
 
             public CustomIcon(final String aIconName) {
                 this.mIconName = aIconName;
@@ -180,7 +180,7 @@ public class GregtechTextures {
 
         public static class CustomIcon implements Interface_IconContainer, Runnable {
             protected IIcon mIcon, mOverlay;
-            protected String mIconName;
+            protected final String mIconName;
 
             public CustomIcon(final String aIconName) {
                 this.mIconName = aIconName;

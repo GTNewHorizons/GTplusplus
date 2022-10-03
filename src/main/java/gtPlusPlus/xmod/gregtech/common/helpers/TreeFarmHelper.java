@@ -867,8 +867,8 @@ public class TreeFarmHelper {
         public final EntityPlayer player;
         public final int blocksPerTick;
 
-        public Queue<ChunkPosition> blocks = Lists.newLinkedList();
-        public Set<ChunkPosition> visited = new THashSet<>();
+        public final Queue<ChunkPosition> blocks = Lists.newLinkedList();
+        public final Set<ChunkPosition> visited = new THashSet<>();
 
         public TreeChopTask(ChunkPosition start, EntityPlayer player, int blocksPerTick) {
             this.world = player.getEntityWorld();

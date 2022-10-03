@@ -29,7 +29,7 @@ public class GT_NEI_LFTR extends GT_NEI_MultiNoCell {
                 93,
                 this.mRecipeMap.mNEISpecialValuePre
                         + MathUtils.formatNumbers(
-                                (((CachedDefaultRecipe) this.arecipes.get(aRecipeIndex)).mRecipe.mSpecialValue
+                                ((long) ((CachedDefaultRecipe) this.arecipes.get(aRecipeIndex)).mRecipe.mSpecialValue
                                         * this.mRecipeMap.mNEISpecialValueMultiplier))
                         + this.mRecipeMap.mNEISpecialValuePost,
                 -16777216);

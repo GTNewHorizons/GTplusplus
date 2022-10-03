@@ -53,7 +53,7 @@ public class ItemGenericFluidBucket extends ItemBucket {
         return ItemUtils.simpleMetaStack(FluidFactory.mGenericBucket, aID, 1);
     }
 
-    Map<Integer, IIcon> mIconCache = new LinkedHashMap<>();
+    final Map<Integer, IIcon> mIconCache = new LinkedHashMap<>();
 
     /**
      * Called whenever this item is equipped and the right mouse button is pressed.

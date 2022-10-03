@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class GT_MetaTileEntity_RedstoneStrengthScale extends GT_MetaTileEntity_RedstoneStrengthDisplay {
 
-    public static TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[32];
+    public static final TexturesGtBlock.CustomIcon[] sIconList = new TexturesGtBlock.CustomIcon[32];
 
     static {
         for (int i = 0; i < 32; i++) {

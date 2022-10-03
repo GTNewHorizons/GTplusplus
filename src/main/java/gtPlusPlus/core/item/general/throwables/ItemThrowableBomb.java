@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 public class ItemThrowableBomb extends CoreItem {
 
     private static final AutoMap<ItemStack> mLighters = new AutoMap<>();
-    public static IIcon[] icons = new IIcon[10];
+    public static final IIcon[] icons = new IIcon[10];
 
     public ItemThrowableBomb() {
         super(

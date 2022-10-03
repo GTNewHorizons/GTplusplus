@@ -63,7 +63,7 @@ public class ToolType_Wrench extends ToolType_Base {
                 if (((IWrenchable) aTileEntity).wrenchCanRemove(aPlayer)) {
                     final int tDamage = ((IWrenchable) aTileEntity).getWrenchDropRate() < 1.0F ? 10 : 3;
                     if ((aPlayer.capabilities.isCreativeMode)
-                            || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, tDamage * this.mCosts))) {
+                            || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, (long) tDamage * this.mCosts))) {
                         ItemStack tOutput = ((IWrenchable) aTileEntity).getWrenchDrop(aPlayer);
                         for (final ItemStack tStack : aBlock.getDrops(aWorld, aX, aY, aZ, aMeta, 0)) {
                             if (tOutput == null) {

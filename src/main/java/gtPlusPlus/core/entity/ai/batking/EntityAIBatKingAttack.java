@@ -278,14 +278,14 @@ public class EntityAIBatKingAttack extends EntityAIBase {
          */
         int attackTick;
         /** The speed with which the mob will approach the target */
-        double speedTowardsTarget;
+        final double speedTowardsTarget;
         /**
          * When true, the mob will continue chasing its target, even if it can't find a
          * path to them right now.
          */
-        boolean longMemory;
+        final boolean longMemory;
 
-        Class classTarget;
+        final Class classTarget;
         private int field_75445_i;
         private double field_151497_i;
         private double field_151495_j;

@@ -74,7 +74,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
         return 0;
     }
 
-    AutoMap<Entity> mNearbyEntityCache = new AutoMap<>();
+    final AutoMap<Entity> mNearbyEntityCache = new AutoMap<>();
 
     @Override
     public void updateEntity() {

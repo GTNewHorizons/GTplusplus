@@ -91,8 +91,8 @@ public enum CustomCombs {
         {0x003300, 0x002400},
     };
     public boolean showInList;
-    public Materials material;
-    public int chance;
+    public final Materials material;
+    public final int chance;
     private final String name;
 
     CustomCombs(String pName, boolean show, Materials material, int chance) {

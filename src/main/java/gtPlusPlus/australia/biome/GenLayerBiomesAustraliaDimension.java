@@ -11,7 +11,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerBiomesAustraliaDimension extends GenLayer {
 
-    protected BiomeGenBase[] allowedBiomes = {
+    protected final BiomeGenBase[] allowedBiomes = {
         Biome_AustralianDesert_Ex.biome,
         Biome_AustralianDesert_Ex.biome,
         Biome_AustralianOutback.biome,

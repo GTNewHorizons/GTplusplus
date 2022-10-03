@@ -28,11 +28,11 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
 public class AchievementHandler {
 
-    public ConcurrentHashMap<String, Achievement> achievementList = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, Achievement> achievementList = new ConcurrentHashMap<>();
     public ConcurrentHashMap<String, Boolean> issuedAchievements = new ConcurrentHashMap<>();
 
-    public int adjX = 5;
-    public int adjY = 9;
+    public final int adjX = 5;
+    public final int adjY = 9;
 
     private static final String aBaseAchievementName = "gtpp.start";
 

@@ -10,9 +10,9 @@ public enum GTPP_PollenType {
     DRAGONBLOOD(0, "Dragon Blood", true, Utils.rgbtoHexValue(220, 20, 20), Utils.rgbtoHexValue(20, 20, 20));
 
     public boolean mShowInList;
-    public Material mMaterial;
+    public final Material mMaterial;
     public int mChance;
-    public int mID;
+    public final int mID;
 
     private final String mName;
     private final String mNameUnlocal;

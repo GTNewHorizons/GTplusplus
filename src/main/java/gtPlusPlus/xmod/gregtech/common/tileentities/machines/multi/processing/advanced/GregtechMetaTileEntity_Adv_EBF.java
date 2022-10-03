@@ -41,9 +41,9 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         implements ISurvivalConstructable {
 
     public static int CASING_TEXTURE_ID;
-    public static String mHotFuelName = "Blazing Pyrotheum";
-    public static String mCasingName = "Volcanus Casing";
-    public static String mHatchName = "Pyrotheum Hatch";
+    public static final String mHotFuelName = "Blazing Pyrotheum";
+    public static final String mCasingName = "Volcanus Casing";
+    public static final String mHatchName = "Pyrotheum Hatch";
     private IStructureDefinition<GregtechMetaTileEntity_Adv_EBF> STRUCTURE_DEFINITION = null;
     private int mCasing;
     private final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mPyrotheumHatches = new ArrayList<>();

@@ -328,7 +328,7 @@ public abstract class GTPP_MTE_BasicMachine extends GTPP_MTE_BasicTank {
 
     @Override
     public long maxAmperesIn() {
-        return (mEUt * 2) / V[mTier] + 1;
+        return (mEUt * 2L) / V[mTier] + 1;
     }
 
     @Override

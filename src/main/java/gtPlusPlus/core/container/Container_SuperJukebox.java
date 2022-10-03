@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class Container_SuperJukebox extends Container {
 
-    protected TileEntitySuperJukebox tile_entity;
+    protected final TileEntitySuperJukebox tile_entity;
     public final Inventory_SuperJukebox inventoryChest;
 
     private final World worldObj;
@@ -31,8 +31,8 @@ public class Container_SuperJukebox extends Container {
     public static final int SLOT_HOLO_LOOP = 19;
     public static final int SLOT_OUTPUT = 20;
 
-    public static int StorageSlotNumber = 26; // Number of slots in storage area
-    public static int InventorySlotNumber = 36; // Inventory Slots (Inventory
+    public static final int StorageSlotNumber = 26; // Number of slots in storage area
+    public static final int InventorySlotNumber = 36; // Inventory Slots (Inventory
     // and Hotbar)
     public static int FullSlotNumber = InventorySlotNumber + StorageSlotNumber; // All
     // slots

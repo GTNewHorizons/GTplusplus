@@ -8,7 +8,7 @@ public class SneakManager {
 
     // We make this a singleton for clientside data storage.
 
-    public static ConcurrentHashMap<String, SneakManager> mPlayerCache = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, SneakManager> mPlayerCache = new ConcurrentHashMap<>();
 
     private static void addPlayer(EntityPlayer aPlayer) {
         String aKey = getKey(aPlayer);
@@ -31,10 +31,10 @@ public class SneakManager {
     }
 
     public SneakManager instance;
-    public EntityPlayer owner;
+    public final EntityPlayer owner;
     public boolean canSprint = true;
     public boolean isSneaking = true;
-    public boolean optionDoubleTap = true;
+    public final boolean optionDoubleTap = true;
     public boolean wasSprintDisabled = false;
     public boolean mIsWearingRing = false;
 

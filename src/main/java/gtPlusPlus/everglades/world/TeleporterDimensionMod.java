@@ -461,7 +461,7 @@ public class TeleporterDimensionMod extends Teleporter {
         /**
          * The worldtime at which this PortalPosition was last verified
          */
-        public long lastUpdateTime;
+        public final long lastUpdateTime;
 
         public PortalPosition(int par2, int par3, int par4, long par5) {
             super(par2, par3, par4);

@@ -94,7 +94,7 @@ public class LoginEventHandler {
     public Timer ShortTimer(EntityPlayer localPlayer, final int seconds) {
         Timer timer;
         timer = new Timer();
-        timer.schedule(new NotifyPlayer(localPlayer), seconds * 1000);
+        timer.schedule(new NotifyPlayer(localPlayer), seconds * 1000L);
         return timer;
     }
 

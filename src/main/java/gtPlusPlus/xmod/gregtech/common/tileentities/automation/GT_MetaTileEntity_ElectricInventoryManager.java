@@ -22,7 +22,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntity_TieredMachineBlock {
 
-    public int[] mSlotRange = new int[4];
+    public final int[] mSlotRange = new int[4];
     public boolean mWorkedLastTick = false;
     protected String mLocalName;
 

@@ -11,27 +11,27 @@ import net.minecraft.util.MathHelper;
 public class ModelAustralianSpider extends ModelBase {
 
     /** The spider's head box */
-    public ModelRenderer spiderHead;
+    public final ModelRenderer spiderHead;
     /** The spider's neck box */
-    public ModelRenderer spiderNeck;
+    public final ModelRenderer spiderNeck;
     /** The spider's body box */
-    public ModelRenderer spiderBody;
+    public final ModelRenderer spiderBody;
     /** Spider's first leg */
-    public ModelRenderer spiderLeg1;
+    public final ModelRenderer spiderLeg1;
     /** Spider's second leg */
-    public ModelRenderer spiderLeg2;
+    public final ModelRenderer spiderLeg2;
     /** Spider's third leg */
-    public ModelRenderer spiderLeg3;
+    public final ModelRenderer spiderLeg3;
     /** Spider's fourth leg */
-    public ModelRenderer spiderLeg4;
+    public final ModelRenderer spiderLeg4;
     /** Spider's fifth leg */
-    public ModelRenderer spiderLeg5;
+    public final ModelRenderer spiderLeg5;
     /** Spider's sixth leg */
-    public ModelRenderer spiderLeg6;
+    public final ModelRenderer spiderLeg6;
     /** Spider's seventh leg */
-    public ModelRenderer spiderLeg7;
+    public final ModelRenderer spiderLeg7;
     /** Spider's eight leg */
-    public ModelRenderer spiderLeg8;
+    public final ModelRenderer spiderLeg8;
 
     public ModelAustralianSpider() {
         float f = 0.0F;

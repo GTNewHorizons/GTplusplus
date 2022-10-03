@@ -42,7 +42,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableBlock, ITileEntityProvider {
-    public static ThreadLocal<IGregTechTileEntity> mTemporaryTileEntity = new ThreadLocal<>();
+    public static final ThreadLocal<IGregTechTileEntity> mTemporaryTileEntity = new ThreadLocal<>();
 
     public GTPP_Block_Machines() {
         super(GTPP_Item_Machines.class, "gtpp.blockmachines", new GT_Material_Machines());

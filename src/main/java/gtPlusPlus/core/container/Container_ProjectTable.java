@@ -18,11 +18,11 @@ import net.minecraft.world.World;
 public class Container_ProjectTable extends Container {
 
     /** The crafting matrix inventory (3x3). */
-    public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
+    public final InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 
-    public IInventory craftResult = new InventoryCraftResult();
+    public final IInventory craftResult = new InventoryCraftResult();
 
-    protected TileEntityProjectTable tile_entity;
+    protected final TileEntityProjectTable tile_entity;
     public final InventoryProjectMain inventoryGrid;
     public final InventoryProjectOutput inventoryOutputs;
 

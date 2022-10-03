@@ -21,7 +21,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
 public class GeneralTooltipEventHandler {
 
-    ItemStack[] mGregtechTurbines = new ItemStack[6];
+    final ItemStack[] mGregtechTurbines = new ItemStack[6];
     String mTurbine;
     String mExtra;
 

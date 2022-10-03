@@ -331,7 +331,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                             Logger.WARNING("Drained from EIO Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                         } else {
                             ((IPowerContainer) tTileEntity).setEnergyStored(0);
-                            tEU = storedRF * GregTech_API.mRFtoEU / 100;
+                            tEU = (long) storedRF * GregTech_API.mRFtoEU / 100;
                             Logger.WARNING("Drained from EIO Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                         }
                     }

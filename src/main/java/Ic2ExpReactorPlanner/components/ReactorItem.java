@@ -17,7 +17,7 @@ import java.util.HashMap;
  */
 public class ReactorItem {
 
-    public static HashMap<String, ReactorItem> sComponentMap = new HashMap<>();
+    public static final HashMap<String, ReactorItem> sComponentMap = new HashMap<>();
     // Fundamental values, set at object instantiation, should never need to be
     // changed.
     public final int id;
@@ -25,13 +25,13 @@ public class ReactorItem {
     // internal program use
     public final String name; // this is expected to be localized, for display
     // usage.
-    protected double maxDamage;
+    protected final double maxDamage;
 
     public double getMaxDamage() {
         return maxDamage;
     }
 
-    protected double maxHeat;
+    protected final double maxHeat;
 
     public double getMaxHeat() {
         return maxHeat;

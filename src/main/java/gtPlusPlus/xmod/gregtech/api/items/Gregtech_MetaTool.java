@@ -91,18 +91,18 @@ public abstract class Gregtech_MetaTool extends GT_MetaGenerated_Tool
         if (this.isItemStackUsable(aStack) && (this.getDigSpeed(aStack, aBlock, aMetaData) > 0.0F)) {
             this.doDamage(
                     aStack,
-                    tStats.convertBlockDrops(
-                                    aDrops,
-                                    aStack,
-                                    aPlayer,
-                                    aBlock,
-                                    aX,
-                                    aY,
-                                    aZ,
-                                    aMetaData,
-                                    aFortune,
-                                    aSilkTouch,
-                                    aEvent)
+                    (long) tStats.convertBlockDrops(
+                            aDrops,
+                            aStack,
+                            aPlayer,
+                            aBlock,
+                            aX,
+                            aY,
+                            aZ,
+                            aMetaData,
+                            aFortune,
+                            aSilkTouch,
+                            aEvent)
                             * tStats.getToolDamagePerDropConversion());
         }
     }

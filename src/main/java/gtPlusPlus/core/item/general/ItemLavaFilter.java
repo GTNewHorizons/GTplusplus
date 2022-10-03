@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemLavaFilter extends CoreItem {
 
-    public IIcon[] mIcon = new IIcon[1];
+    public final IIcon[] mIcon = new IIcon[1];
 
     public ItemLavaFilter() {
         super(

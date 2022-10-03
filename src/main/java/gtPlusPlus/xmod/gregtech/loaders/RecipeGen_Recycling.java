@@ -26,7 +26,7 @@ import org.apache.commons.lang3.reflect.FieldUtils;
 
 public class RecipeGen_Recycling implements Runnable {
 
-    public static AutoMap<Runnable> mQueuedRecyclingGenerators = new AutoMap<>();
+    public static final AutoMap<Runnable> mQueuedRecyclingGenerators = new AutoMap<>();
 
     public static void executeGenerators() {
         if (mQueuedRecyclingGenerators.size() > 0) {

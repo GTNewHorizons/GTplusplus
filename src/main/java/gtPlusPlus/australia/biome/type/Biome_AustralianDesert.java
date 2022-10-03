@@ -44,7 +44,7 @@ public class Biome_AustralianDesert {
 
     public Biome_AustralianDesert() {}
 
-    public static BiomeGenAustralianDesert biome = new BiomeGenAustralianDesert();
+    public static final BiomeGenAustralianDesert biome = new BiomeGenAustralianDesert();
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.DESERT);
