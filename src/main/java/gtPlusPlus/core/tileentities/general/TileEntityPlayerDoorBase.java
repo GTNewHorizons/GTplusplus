@@ -167,11 +167,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
         }
 
         if (mTickCounter % 4 == 0) {
-            for (Entity y : mNearbyEntityCache) {
-                if (y.getDistance(xCoord, yCoord, zCoord) > 2) {
-                    mNearbyEntityCache.remove(y);
-                }
-            }
+            mNearbyEntityCache.removeIf(y -> y.getDistance(xCoord, yCoord, zCoord) > 2);
 
             boolean foundMonster = mNearbyEntityCache.size() > 0;
             int aNeighbourDoorState = 0;
