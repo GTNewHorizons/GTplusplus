@@ -175,8 +175,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             // If player is invisible, don't render.
             if (GT_Utility.getFullInvisibility(aPlayer)
                     || aPlayer.isInvisible()
-                    || GT_Utility.getPotion(
-                            aPlayer, Integer.valueOf(Potion.invisibility.id))) {
+                    || GT_Utility.getPotion(aPlayer, Integer.valueOf(Potion.invisibility.id))) {
                 aEvent.setCanceled(true);
                 return false;
             }
@@ -299,7 +298,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
         private static final AutoMap<Pair<String, String>> mPatreonCapes = new AutoMap<>();
         private static final AutoMap<Pair<String, String>> mDevCapes = new AutoMap<>();
 
-        private static final boolean init() {
+        private static boolean init() {
             CapeUtils.handleOldCapeCache();
             if (CORE.DEVENV) {
                 return true;
@@ -325,7 +324,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return false;
         }
 
-        private static final boolean isCapeCacheWeekOld() {
+        private static boolean isCapeCacheWeekOld() {
             if (!doesCapeCacheExistLocally()) {
                 return true;
             } else {
@@ -339,7 +338,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return false;
         }
 
-        private static final void downloadCapeList() {
+        private static void downloadCapeList() {
             try {
                 File dat = getCapeCache();
                 File temp = allocateTempFile();
@@ -355,7 +354,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             }
         }
 
-        private static final boolean isDownloadedCapeListBigger(File aFile) {
+        private static boolean isDownloadedCapeListBigger(File aFile) {
             double aExistingFileSize =
                     (doesCapeCacheExistLocally() ? getCapeCache().length() : 0);
             double aNewFileSize = aFile.length();
@@ -372,7 +371,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             }
         }
 
-        private static final boolean doesCapeCacheExistLocally() {
+        private static boolean doesCapeCacheExistLocally() {
             File aCacheFile = FileUtils.getFile("CapeCache", "dat");
             if (FileUtils.doesFileExist(aCacheFile)) {
                 return true;
@@ -380,7 +379,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return false;
         }
 
-        private static final File getCapeCache() {
+        private static File getCapeCache() {
             File aCacheFile = FileUtils.getFile("CapeCache", "dat");
             if (FileUtils.doesFileExist(aCacheFile)) {
                 FileUtils.createFile(aCacheFile);
@@ -388,7 +387,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return aCacheFile;
         }
 
-        public static final List<String> getDataFromCache() {
+        public static List<String> getDataFromCache() {
             File aCacheFile = getCapeCache();
             List<String> aCache = FileUtils.readLines(aCacheFile);
             if (aCache != null && !aCache.isEmpty()) {
@@ -397,7 +396,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return new AutoMap<>();
         }
 
-        private static final File allocateTempFile() {
+        private static File allocateTempFile() {
             File tempFile = null;
             try {
                 tempFile = File.createTempFile("gtpp-", null);
@@ -412,7 +411,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             return tempFile;
         }
 
-        public static final void writeCacheToMaps() {
+        public static void writeCacheToMaps() {
             List<String> aCacheData = getDataFromCache();
             if (aCacheData != null && !aCacheData.isEmpty()) {
                 if (sAES == null) {
@@ -441,8 +440,8 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                                             "UUID: " + aSplitData[1],
                                             "Username: "
                                                     + (aSplitData[2] != null && aSplitData[0].length() > 0
-                                                    ? aSplitData[2]
-                                                    : "Not Specified"));
+                                                            ? aSplitData[2]
+                                                            : "Not Specified"));
                                     Logger.INFO("Cape Type: " + aCapeTypeID);
                                     switch (aCapeTypeID) {
                                         case 0:

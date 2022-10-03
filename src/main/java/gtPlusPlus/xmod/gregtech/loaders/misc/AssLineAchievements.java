@@ -54,8 +54,8 @@ public class AssLineAchievements {
 
     public static void registerAchievements() {
         if (active && mAchievementMap.size() > 0) {
-            AchievementPage.registerAchievementPage(new AchievementPage("GT Assembly Line", (Achievement[])
-                    mAchievementMap.values().toArray(new Achievement[0])));
+            AchievementPage.registerAchievementPage(new AchievementPage(
+                    "GT Assembly Line", (Achievement[]) mAchievementMap.values().toArray(new Achievement[0])));
         } else if (active) {
             Logger.INFO("Unable to register custom achievement page for Assembly Line recipes.");
         }

@@ -42,7 +42,10 @@ public class CustomWorldType extends WorldType {
             return c.newInstance();
 
             // production code should handle these exceptions more gracefully
-        } catch (InvocationTargetException | IllegalAccessException | InstantiationException | NoSuchMethodException x) {
+        } catch (InvocationTargetException
+                | IllegalAccessException
+                | InstantiationException
+                | NoSuchMethodException x) {
             x.printStackTrace();
         }
         return null;

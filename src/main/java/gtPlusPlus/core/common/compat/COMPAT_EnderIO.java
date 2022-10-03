@@ -11,7 +11,7 @@ public class COMPAT_EnderIO {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
         ItemUtils.getItemForOreDict("EnderIO:itemAlloy", "ingotVibrantAlloy", "Vibrant Alloy Ingot", 2);
         GT_OreDictUnificator.registerOre("plateConductiveIron", new ItemStack(ModItems.itemPlateConductiveIron));
         GT_OreDictUnificator.registerOre("plateDarkSteel", new ItemStack(ModItems.itemPlateDarkSteel));

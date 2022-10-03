@@ -148,7 +148,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         return 21;
     }
 
-    private static final int getRange(int aTier) {
+    private static int getRange(int aTier) {
         switch (aTier) {
             case 1:
                 return 1;

@@ -28,7 +28,8 @@ public class GT4Entity_Shelf extends GT_MetaTileEntity_BasicHull_NonElectric {
     public static final ITexture texBottom = TextureFactory.of(new CustomIcon("TileEntities/gt4/machine_bottom"));
     public static final ITexture texTop = TextureFactory.of(new CustomIcon("TileEntities/gt4/machine_top"));
     public static final ITexture texSide = TextureFactory.of(new CustomIcon("TileEntities/gt4/machine_side"));
-    public static final ITexture texSideCabinet = TextureFactory.of(new CustomIcon("TileEntities/gt4/machine_side_cabinet"));
+    public static final ITexture texSideCabinet =
+            TextureFactory.of(new CustomIcon("TileEntities/gt4/machine_side_cabinet"));
 
     public GT4Entity_Shelf(final int aID, final String aName, final String aNameRegional, final String aDescription) {
         super(aID, aName, aNameRegional, 0, aDescription);

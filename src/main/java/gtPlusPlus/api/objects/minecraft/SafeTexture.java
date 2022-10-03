@@ -26,7 +26,7 @@ public class SafeTexture implements Runnable {
 
     private final String mTextureName;
 
-    private static final String getKey(String aTexPath) {
+    private static String getKey(String aTexPath) {
         String aNameKey = Utils.sanitizeString(aTexPath);
         aNameKey = aNameKey.replace('/', ' ');
         aNameKey = aNameKey.toLowerCase();

@@ -74,11 +74,11 @@ public class Utils {
 
     public static final int WILDCARD_VALUE = Short.MAX_VALUE;
 
-    public static final boolean isServer() {
+    public static boolean isServer() {
         return FMLCommonHandler.instance().getEffectiveSide().isServer();
     }
 
-    public static final boolean isClient() {
+    public static boolean isClient() {
         return FMLCommonHandler.instance().getEffectiveSide().isClient();
     }
 
@@ -682,8 +682,7 @@ public class Utils {
             } else if (e[0] == Versioning.OLDER) {
                 return Versioning.OLDER;
             } else {
-                if (versioning == Versioning.OLDER) {
-                }
+                if (versioning == Versioning.OLDER) {}
 
                 return Versioning.NEWER;
             }

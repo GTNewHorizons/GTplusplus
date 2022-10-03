@@ -13,7 +13,6 @@ import gtPlusPlus.core.util.minecraft.ModularArmourUtils;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.BT;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.Modifiers;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import net.minecraft.entity.player.EntityPlayer;
@@ -140,8 +139,7 @@ public class TileEntityModularityTable extends TileEntityBase implements ISidedI
         return true;
     }
 
-    public static final Map<ItemStack, Pair<Modifiers, Integer>> mValidUpgradeList =
-            new HashMap<>();
+    public static final Map<ItemStack, Pair<Modifiers, Integer>> mValidUpgradeList = new HashMap<>();
     public static final Map<ItemStack, BT> mValidUpgradeListFormChange = new HashMap<>();
 
     private static boolean generateAllValidUpgrades() {

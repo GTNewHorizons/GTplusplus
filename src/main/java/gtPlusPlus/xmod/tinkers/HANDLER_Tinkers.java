@@ -16,15 +16,15 @@ public class HANDLER_Tinkers {
 
     public static final AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<>();
 
-    public static final void preInit() {
+    public static void preInit() {
         if (LoadedMods.TiCon) {}
     }
 
-    public static final void init() {
+    public static void init() {
         if (LoadedMods.TiCon) {}
     }
 
-    public static final void postInit() {
+    public static void postInit() {
         if (LoadedMods.TiCon) {
 
             Fluid pyrotheumFluid = FluidRegistry.getFluid("pyrotheum");

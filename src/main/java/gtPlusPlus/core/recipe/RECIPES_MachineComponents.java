@@ -93,7 +93,7 @@ public class RECIPES_MachineComponents {
     public static final String smallGearTier9 = "gearGtSmallOsmium";
     public static final String smallGearTier10 = "gearGtSmallNeutronium";
 
-    public static final void loadRecipes() {
+    public static void loadRecipes() {
         Logger.INFO("Loading Recipes for the Various Circuits and Machine components.");
         if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
             run();

@@ -191,8 +191,7 @@ public class CustomDecorator extends BiomeDecorator {
 
             for (i1 = nextInt(this.currentWorld.getHeightValue(k, l) * 2);
                     i1 > 0 && this.currentWorld.isAirBlock(k, i1 - 1, l);
-                    --i1) {
-            }
+                    --i1) {}
 
             this.waterlilyGen.generate(this.currentWorld, this.randomGenerator, k, i1, l);
         }
@@ -262,8 +261,7 @@ public class CustomDecorator extends BiomeDecorator {
         try {
             int midX = Math.max(0, 7 / 2);
             int midZ = Math.max(0, 7 / 2);
-            int mCurrentBiomeID =
-                    currentWorld.getBiomeGenForCoords(chunk_X + midX, chunk_Z + midZ).biomeID;
+            int mCurrentBiomeID = currentWorld.getBiomeGenForCoords(chunk_X + midX, chunk_Z + midZ).biomeID;
 
             if (mCurrentBiomeID == GTplusplus_Australia.Australian_Outback_Biome.biomeID) {
                 this.generateLakes = false;

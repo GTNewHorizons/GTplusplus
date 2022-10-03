@@ -342,12 +342,12 @@ public class MathUtils {
         return result;
     }
 
-    public static final int getRgbAsHex(final short[] RGBA) {
+    public static int getRgbAsHex(final short[] RGBA) {
         final int returnValue = Utils.rgbtoHexValue(RGBA[0], RGBA[1], RGBA[2]);
         return (returnValue == 0) ? 0 : returnValue;
     }
 
-    public static final int returnLargestNumber(final int a, final int b) {
+    public static int returnLargestNumber(final int a, final int b) {
         if (a > b) {
             return a;
         } else if (a == b) {

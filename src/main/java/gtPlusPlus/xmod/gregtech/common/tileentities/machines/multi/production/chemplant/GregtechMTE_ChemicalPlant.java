@@ -62,8 +62,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     private int mCasing;
     private IStructureDefinition<GregtechMTE_ChemicalPlant> STRUCTURE_DEFINITION = null;
 
-    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
-            new ArrayList<>();
+    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses = new ArrayList<>();
 
     private static final HashMap<Integer, Triplet<Block, Integer, Integer>> mTieredBlockRegistry = new HashMap<>();
 
@@ -76,8 +75,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     public static boolean registerMachineCasingForTier(int aTier, Block aBlock, int aMeta, int aCasingTextureID) {
-        Triplet<Block, Integer, Integer> aCasingData =
-                new Triplet<>(aBlock, aMeta, aCasingTextureID);
+        Triplet<Block, Integer, Integer> aCasingData = new Triplet<>(aBlock, aMeta, aCasingTextureID);
         if (mTieredBlockRegistry.containsKey(aTier)) {
             CORE.crash("Tried to register a Machine casing for tier " + aTier
                     + " to the Chemical Plant, however this tier already contains one.");

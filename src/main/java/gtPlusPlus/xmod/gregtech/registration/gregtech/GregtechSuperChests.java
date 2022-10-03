@@ -51,13 +51,13 @@ public class GregtechSuperChests {
                         "DPD",
                         "PMP",
                         "DGD",
-                            'M',
+                        'M',
                         ItemList.Hull_LV,
-                            'G',
+                        'G',
                         ItemList.Automation_ChestBuffer_LV,
-                            'D',
+                        'D',
                         OrePrefixes.circuit.get(Materials.Basic),
-                            'P',
+                        'P',
                         OrePrefixes.plate.get(Materials.Invar)
                     });
 
@@ -66,13 +66,13 @@ public class GregtechSuperChests {
                         "DPD",
                         "PMP",
                         "DGD",
-                            'M',
+                        'M',
                         ItemList.Hull_MV,
-                            'G',
+                        'G',
                         ItemList.Automation_ChestBuffer_MV,
-                            'D',
+                        'D',
                         OrePrefixes.circuit.get(Materials.Good),
-                            'P',
+                        'P',
                         OrePrefixes.plate.get(Materials.Aluminium)
                     });
 
@@ -81,13 +81,13 @@ public class GregtechSuperChests {
                         "DPD",
                         "PMP",
                         "DGD",
-                            'M',
+                        'M',
                         ItemList.Hull_HV,
-                            'G',
+                        'G',
                         ItemList.Automation_ChestBuffer_HV,
-                            'D',
+                        'D',
                         OrePrefixes.circuit.get(Materials.Advanced),
-                            'P',
+                        'P',
                         OrePrefixes.plate.get(Materials.StainlessSteel)
                     });
 
@@ -96,13 +96,13 @@ public class GregtechSuperChests {
                         "DPD",
                         "PMP",
                         "DGD",
-                            'M',
+                        'M',
                         ItemList.Hull_EV,
-                            'G',
+                        'G',
                         ItemList.Automation_ChestBuffer_EV,
-                            'D',
+                        'D',
                         OrePrefixes.circuit.get(Materials.Data),
-                            'P',
+                        'P',
                         OrePrefixes.plate.get(Materials.Titanium)
                     });
 
@@ -111,13 +111,13 @@ public class GregtechSuperChests {
                         "DPD",
                         "PMP",
                         "DGD",
-                            'M',
+                        'M',
                         ItemList.Hull_IV,
-                            'G',
+                        'G',
                         ItemList.Automation_ChestBuffer_IV,
-                            'D',
+                        'D',
                         OrePrefixes.circuit.get(Materials.Elite),
-                            'P',
+                        'P',
                         OrePrefixes.plate.get(Materials.Tungsten)
                     });
         }

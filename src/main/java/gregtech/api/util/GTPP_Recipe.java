@@ -192,7 +192,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         }
     }
 
-    private static final boolean checkRecipeOwnership(GT_Recipe aRecipe) {
+    private static boolean checkRecipeOwnership(GT_Recipe aRecipe) {
         if (aRecipe instanceof GTPP_Recipe) {
             GTPP_Recipe nRecipe = (GTPP_Recipe) aRecipe;
             GTPP_Recipe_Map_Internal.mHashedRecipes.put(nRecipe.hashCode(), nRecipe);
@@ -201,7 +201,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         return false;
     }
 
-    public static final void checkRecipeModifications() {
+    public static void checkRecipeModifications() {
         for (GTPP_Recipe aRecipe : GTPP_Recipe_Map_Internal.mHashedRecipes.values()) {
             Logger.INFO("Checking recipe: " + aRecipe.hashCode());
             aRecipe.checkModified();
@@ -1174,8 +1174,8 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                     for (FluidStack mFluidOutput : mFluidOutputs) {
                         int x = mOutputSlotMap.get(aSlotToCheck).getKey();
                         int y = mOutputSlotMap.get(aSlotToCheck).getValue();
-                        outputStacks.add(new FixedPositionedStack(
-                                GT_Utility.getFluidDisplayStack(mFluidOutput, true), x, y));
+                        outputStacks.add(
+                                new FixedPositionedStack(GT_Utility.getFluidDisplayStack(mFluidOutput, true), x, y));
                         aSlotToCheck++;
                         aOutputSlotsUsed++;
                     }

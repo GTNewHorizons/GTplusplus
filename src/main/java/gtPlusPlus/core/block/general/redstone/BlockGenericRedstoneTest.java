@@ -141,8 +141,7 @@ public class BlockGenericRedstoneTest extends BlockGenericRedstone {
     }
 
     public void generateTextureArray(final IIconRegister iicon) {
-        HashMap<Integer, HashMap<ForgeDirection, IIcon>> aTextures =
-                new HashMap<>();
+        HashMap<Integer, HashMap<ForgeDirection, IIcon>> aTextures = new HashMap<>();
 
         // New Block for Each Meta
         int aMeta = 0;

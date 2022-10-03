@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Gui_ID_Registry {
-    private static final Map<Class<? extends IGuiManagerMiscUtils>, MU_GuiId> classMap =
-            new HashMap<>();
+    private static final Map<Class<? extends IGuiManagerMiscUtils>, MU_GuiId> classMap = new HashMap<>();
     private static final Map<Integer, MU_GuiId> idMap = new HashMap<>();
     private static int nextId = 0;
 

@@ -72,8 +72,7 @@ public class WorldGen_Ores {
     public static final WorldGen_GT_Ore_Layer Vein18 = new WorldGen_GT_Ore_Layer(
             "vein18", 15, 40, 4, 1, 48, ORES.GADOLINITE_CE, ORES.GADOLINITE_Y, ORES.AGARDITE_LA, ORES.AGARDITE_CD);
 
-    public static final Hashtable<Long, WorldGen_GT_Ore_Layer> validOreveins =
-            new Hashtable<>(1024);
+    public static final Hashtable<Long, WorldGen_GT_Ore_Layer> validOreveins = new Hashtable<>(1024);
 
     static long ID = 0;
 

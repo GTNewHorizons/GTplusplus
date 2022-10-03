@@ -62,11 +62,11 @@ public class DevHelper {
         return null;
     }
 
-    private static final synchronized DevHelper getInstance() {
+    private static synchronized DevHelper getInstance() {
         return mInstance;
     }
 
-    public static final synchronized boolean isValidHelperObject() {
+    public static synchronized boolean isValidHelperObject() {
         return mIsValidHelper;
     }
 
@@ -3508,8 +3508,7 @@ public class DevHelper {
             mInitMap.put(new Pair<>("func_75382_a", "hasPlayerGotBoneInHand"));
             mInitMap.put(new Pair<>("func_75388_i", "spawnBaby"));
             mInitMap.put(new Pair<>("func_75389_f", "getNearbyMate"));
-            mInitMap.put(
-                    new Pair<>("func_75446_f", "checkSufficientDoorsPresentFormInitMap.put(newVillager"));
+            mInitMap.put(new Pair<>("func_75446_f", "checkSufficientDoorsPresentFormInitMap.put(newVillager"));
             mInitMap.put(new Pair<>("func_75447_i", "giveBirth"));
             mInitMap.put(new Pair<>("func_75461_b", "findRandomTargetBlockAwayFrom"));
             mInitMap.put(new Pair<>("func_75462_c", "findRandomTargetBlock"));
@@ -3560,8 +3559,7 @@ public class DevHelper {
             mInitMap.put(new Pair<>("func_75543_d", "dropOldestVillagerPosition"));
             mInitMap.put(new Pair<>("func_75544_a", "tick"));
             mInitMap.put(new Pair<>("func_75545_e", "addmInitMap.put(newDoorsToVillageOrCreateVillage"));
-            mInitMap.put(new Pair<>(
-                    "func_75546_a", "addUnassignedWoodenDoorsAroundTomInitMap.put(newDoorsList"));
+            mInitMap.put(new Pair<>("func_75546_a", "addUnassignedWoodenDoorsAroundTomInitMap.put(newDoorsList"));
             mInitMap.put(new Pair<>("func_75547_b", "getVillageDoorAt"));
             mInitMap.put(new Pair<>("func_75548_d", "isVillagerPositionPresent"));
             mInitMap.put(new Pair<>("func_75549_c", "removeAnnihilatedVillages"));
@@ -5064,8 +5062,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bih", "net/minecraft/client/model/ModelSquid"));
             mObInitMap.put(new Pair<>("bmg", "net/minecraft/client/shader/Framebuffer"));
             mObInitMap.put(new Pair<>("na", "net/minecraft/client/network/NetHandlerHandshakeMemory"));
-            mObInitMap.put(
-                    new Pair<>("jb", "net/minecraft/network/play/client/C02PacketUseEntity$Action"));
+            mObInitMap.put(new Pair<>("jb", "net/minecraft/network/play/client/C02PacketUseEntity$Action"));
             mObInitMap.put(new Pair<>("fc", "net/minecraft/util/MessageDeserializer2"));
             mObInitMap.put(new Pair<>("bd", "net/minecraft/command/server/CommandPardonIp"));
             mObInitMap.put(new Pair<>("amw", "net/minecraft/block/BlockPumpkin"));
@@ -5081,18 +5078,15 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("afm", "net/minecraft/enchantment/EnchantmentArrowDamage"));
             mObInitMap.put(new Pair<>("brm", "net/minecraft/client/resources/SkinManager$3"));
             mObInitMap.put(new Pair<>("aqu", "net/minecraft/world/gen/ChunkProviderFlat"));
-            mObInitMap.put(new Pair<>(
-                    "aut", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Prison"));
+            mObInitMap.put(new Pair<>("aut", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Prison"));
             mObInitMap.put(new Pair<>("ays", "net/minecraft/world/storage/WorldInfo"));
             mObInitMap.put(new Pair<>("bbq", "net/minecraft/util/MinecraftError"));
             mObInitMap.put(new Pair<>("bfp", "net/minecraft/util/EnchantmentNameParts"));
-            mObInitMap.put(
-                    new Pair<>("bjo", "net/minecraft/client/multiplayer/ServerData$ServerResourceMode"));
+            mObInitMap.put(new Pair<>("bjo", "net/minecraft/client/multiplayer/ServerData$ServerResourceMode"));
             mObInitMap.put(new Pair<>("bnn", "net/minecraft/client/renderer/entity/RenderManager"));
             mObInitMap.put(new Pair<>("ck", "net/minecraft/dispenser/IBlockSource"));
             mObInitMap.put(new Pair<>("zp", "net/minecraft/entity/projectile/EntityWitherSkull"));
-            mObInitMap.put(
-                    new Pair<>("vq", "net/minecraft/entity/ai/EntityAINearestAttackableTarget$Sorter"));
+            mObInitMap.put(new Pair<>("vq", "net/minecraft/entity/ai/EntityAINearestAttackableTarget$Sorter"));
             mObInitMap.put(new Pair<>("rr", "net/minecraft/potion/PotionAbsoption"));
             mObInitMap.put(new Pair<>("ns", "net/minecraft/server/management/PlayerProfileCache"));
             mObInitMap.put(new Pair<>("anj", "net/minecraft/block/BlockSapling"));
@@ -5139,25 +5133,20 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("xk", "net/minecraft/entity/item/EntityItem"));
             mObInitMap.put(new Pair<>("tl", "net/minecraft/entity/ai/attributes/BaseAttributeMap"));
             mObInitMap.put(new Pair<>("pm", "net/minecraft/stats/IStatType"));
-            mObInitMap.put(
-                    new Pair<>("atc", "net/minecraft/world/gen/structure/StructureMineshaftStart"));
+            mObInitMap.put(new Pair<>("atc", "net/minecraft/world/gen/structure/StructureMineshaftStart"));
             mObInitMap.put(new Pair<>("apd", "net/minecraft/tileentity/TileEntityEnchantmentTable"));
             mObInitMap.put(new Pair<>("ale", "net/minecraft/block/BlockFurnace"));
             mObInitMap.put(new Pair<>("adg", "net/minecraft/item/ItemLeaves"));
             mObInitMap.put(new Pair<>("ahf", "net/minecraft/world/World$4"));
             mObInitMap.put(new Pair<>("axb", "net/minecraft/world/gen/layer/GenLayerAddIsland"));
             mObInitMap.put(new Pair<>("bpg", "net/minecraft/client/util/JsonBlendingMode"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/RealmsMth", "net/minecraft/realms/RealmsMth"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsMth", "net/minecraft/realms/RealmsMth"));
             mObInitMap.put(new Pair<>("qa", "net/minecraft/util/IntHashMap$Entry"));
             mObInitMap.put(new Pair<>("mb", "net/minecraft/server/gui/MinecraftServerGui$3"));
-            mObInitMap.put(
-                    new Pair<>("ic", "net/minecraft/network/play/server/S3BPacketScoreboardObjective"));
+            mObInitMap.put(new Pair<>("ic", "net/minecraft/network/play/server/S3BPacketScoreboardObjective"));
             mObInitMap.put(new Pair<>("ed", "net/minecraft/nbt/JsonToNBT$Compound"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RendererUtility", "net/minecraft/realms/RendererUtility"));
-            mObInitMap.put(new Pair<>(
-                    "atv", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Stairs"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RendererUtility", "net/minecraft/realms/RendererUtility"));
+            mObInitMap.put(new Pair<>("atv", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Stairs"));
             mObInitMap.put(new Pair<>("apw", "net/minecraft/world/chunk/EmptyChunk"));
             mObInitMap.put(new Pair<>("alx", "net/minecraft/block/BlockLog"));
             mObInitMap.put(new Pair<>("adz", "net/minecraft/item/ItemSign"));
@@ -5167,12 +5156,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("yr", "net/minecraft/entity/monster/EntityZombie$1"));
             mObInitMap.put(new Pair<>("us", "net/minecraft/entity/ai/EntityAIMoveThroughVillage"));
             mObInitMap.put(new Pair<>("mu", "net/minecraft/world/WorldServer$1"));
-            mObInitMap.put(
-                    new Pair<>("iv", "net/minecraft/network/play/client/C0FPacketConfirmTransaction"));
+            mObInitMap.put(new Pair<>("iv", "net/minecraft/network/play/client/C0FPacketConfirmTransaction"));
             mObInitMap.put(new Pair<>("ew", "net/minecraft/network/NetworkStatistics$PacketStat"));
             mObInitMap.put(new Pair<>("ax", "net/minecraft/command/server/CommandListBans"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/ServerPing", "net/minecraft/realms/ServerPing"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/ServerPing", "net/minecraft/realms/ServerPing"));
             mObInitMap.put(new Pair<>("aqk", "net/minecraft/world/chunk/storage/AnvilChunkLoader"));
             mObInitMap.put(new Pair<>("aml", "net/minecraft/block/BlockOldLeaf"));
             mObInitMap.put(new Pair<>("aen", "net/minecraft/potion/PotionHelper"));
@@ -5184,8 +5171,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bar", "net/minecraft/client/Minecraft$11"));
             mObInitMap.put(new Pair<>("beq", "net/minecraft/client/gui/achievement/GuiStats$Stats"));
             mObInitMap.put(new Pair<>("bip", "net/minecraft/client/model/ModelZombie"));
-            mObInitMap.put(new Pair<>(
-                    "bmo", "net/minecraft/client/renderer/tileentity/TileEntityEnderChestRenderer"));
+            mObInitMap.put(new Pair<>("bmo", "net/minecraft/client/renderer/tileentity/TileEntityEnderChestRenderer"));
             mObInitMap.put(new Pair<>("ni", "net/minecraft/network/NetHandlerPlayServer$1"));
             mObInitMap.put(new Pair<>("jj", "net/minecraft/network/play/client/C0BPacketEntityAction"));
             mObInitMap.put(new Pair<>("fk", "net/minecraft/util/IChatComponent$Serializer"));
@@ -5193,11 +5179,9 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("yq", "net/minecraft/entity/monster/EntityZombie"));
             mObInitMap.put(new Pair<>("abc", "net/minecraft/item/ItemArmor$1"));
             mObInitMap.put(new Pair<>("afb", "net/minecraft/item/crafting/RecipesMapCloning"));
-            mObInitMap.put(new Pair<>(
-                    "brb", "net/minecraft/client/resources/ResourcePackFileNotFoundException"));
+            mObInitMap.put(new Pair<>("brb", "net/minecraft/client/resources/ResourcePackFileNotFoundException"));
             mObInitMap.put(new Pair<>("aqj", "net/minecraft/world/chunk/storage/RegionFileCache"));
-            mObInitMap.put(
-                    new Pair<>("aui", "net/minecraft/world/gen/structure/StructureStrongholdPieces"));
+            mObInitMap.put(new Pair<>("aui", "net/minecraft/world/gen/structure/StructureStrongholdPieces"));
             mObInitMap.put(new Pair<>("bbf", "net/minecraft/client/Minecraft$9"));
             mObInitMap.put(new Pair<>("bfe", "net/minecraft/client/gui/GuiScreenBook"));
             mObInitMap.put(new Pair<>("bjd", "net/minecraft/client/multiplayer/ChunkProviderClient"));
@@ -5218,8 +5202,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ajs", "net/minecraft/block/BlockButton"));
             mObInitMap.put(new Pair<>("avp", "net/minecraft/world/gen/structure/StructureVillagePieces"));
             mObInitMap.put(new Pair<>("azo", "net/minecraft/world/storage/SaveHandlerMP"));
-            mObInitMap.put(new Pair<>(
-                    "brt", "net/minecraft/client/resources/data/BaseMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("brt", "net/minecraft/client/resources/data/BaseMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("bfw", "net/minecraft/client/gui/GuiMerchant$MerchantButton"));
             mObInitMap.put(new Pair<>("bjv", "net/minecraft/client/particle/EntityBubbleFX"));
             mObInitMap.put(new Pair<>("bnu", "net/minecraft/client/renderer/entity/RenderGiantZombie"));
@@ -5232,8 +5215,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("akg", "net/minecraft/block/BlockDaylightDetector"));
             mObInitMap.put(new Pair<>("aci", "net/minecraft/item/ItemDoublePlant"));
             mObInitMap.put(new Pair<>("agh", "net/minecraft/enchantment/EnchantmentOxygen"));
-            mObInitMap.put(new Pair<>(
-                    "bsh", "net/minecraft/client/resources/data/PackMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("bsh", "net/minecraft/client/resources/data/PackMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("bcl", "net/minecraft/client/gui/GuiOptionsRowList$Row"));
             mObInitMap.put(new Pair<>("bgk", "net/minecraft/client/gui/GuiResourcePackList"));
             mObInitMap.put(new Pair<>("bkj", "net/minecraft/client/particle/EntityHugeExplodeFX"));
@@ -5243,8 +5225,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("he", "net/minecraft/network/play/server/S34PacketMaps"));
             mObInitMap.put(new Pair<>("df", "net/minecraft/nbt/NBTTagByteArray"));
             mObInitMap.put(new Pair<>("asd", "net/minecraft/world/gen/feature/WorldGenDungeons"));
-            mObInitMap.put(
-                    new Pair<>("awc", "net/minecraft/world/gen/structure/StructureVillagePieces$House3"));
+            mObInitMap.put(new Pair<>("awc", "net/minecraft/world/gen/structure/StructureVillagePieces$House3"));
             mObInitMap.put(new Pair<>("dy", "net/minecraft/nbt/NBTBase"));
             mObInitMap.put(new Pair<>("ta", "net/minecraft/entity/IEntityOwnable"));
             mObInitMap.put(new Pair<>("pb", "net/minecraft/stats/Achievement"));
@@ -5262,15 +5243,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("lv", "net/minecraft/server/dedicated/DedicatedServer$2"));
             mObInitMap.put(new Pair<>("hw", "net/minecraft/network/play/server/S1CPacketEntityMetadata"));
             mObInitMap.put(new Pair<>("dx", "net/minecraft/nbt/NBTTagString"));
-            mObInitMap.put(new Pair<>(
-                    "atk", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor4"));
+            mObInitMap.put(
+                    new Pair<>("atk", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor4"));
             mObInitMap.put(new Pair<>("apl", "net/minecraft/tileentity/TileEntityNote"));
             mObInitMap.put(new Pair<>("alm", "net/minecraft/block/BlockHay"));
             mObInitMap.put(new Pair<>("ado", "net/minecraft/item/ItemPiston"));
             mObInitMap.put(new Pair<>("ahn", "net/minecraft/world/EnumSkyBlock"));
             mObInitMap.put(new Pair<>("axj", "net/minecraft/world/gen/layer/GenLayerFuzzyZoom"));
-            mObInitMap.put(new Pair<>(
-                    "btn", "net/minecraft/client/audio/SoundManager$SoundSystemStarterThread"));
+            mObInitMap.put(new Pair<>("btn", "net/minecraft/client/audio/SoundManager$SoundSystemStarterThread"));
             mObInitMap.put(new Pair<>("bpo", "net/minecraft/client/shader/ShaderUniform"));
             mObInitMap.put(new Pair<>("bhq", "net/minecraft/client/model/ModelMinecart"));
             mObInitMap.put(new Pair<>("blp", "net/minecraft/client/renderer/RenderSorter"));
@@ -5286,8 +5266,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aad", "net/minecraft/inventory/ContainerChest"));
             mObInitMap.put(new Pair<>("aib", "net/minecraft/world/biome/WorldChunkManager"));
             mObInitMap.put(new Pair<>("d", "net/minecraft/crash/CrashReport$2"));
-            mObInitMap.put(new Pair<>(
-                    "bub", "net/minecraft/client/stream/BroadcastController$SwitchBroadcastState"));
+            mObInitMap.put(new Pair<>("bub", "net/minecraft/client/stream/BroadcastController$SwitchBroadcastState"));
             mObInitMap.put(new Pair<>("bqc", "net/minecraft/client/renderer/texture/TextureMap$3"));
             mObInitMap.put(new Pair<>("bag", "net/minecraft/scoreboard/ScoreHealthCriteria"));
             mObInitMap.put(new Pair<>("bef", "net/minecraft/client/gui/GuiVideoSettings"));
@@ -5297,14 +5276,12 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aev", "net/minecraft/item/crafting/RecipesArmor"));
             mObInitMap.put(new Pair<>("aaw", "net/minecraft/inventory/InventoryCraftResult"));
             mObInitMap.put(new Pair<>("w", "net/minecraft/client/audio/SoundCategory"));
-            mObInitMap.put(
-                    new Pair<>("bqv", "net/minecraft/client/resources/IReloadableResourceManager"));
+            mObInitMap.put(new Pair<>("bqv", "net/minecraft/client/resources/IReloadableResourceManager"));
             mObInitMap.put(new Pair<>("baz", "net/minecraft/client/Minecraft$3"));
             mObInitMap.put(new Pair<>("bey", "net/minecraft/client/gui/GuiRepair"));
             mObInitMap.put(new Pair<>("bix", "net/minecraft/client/model/ModelRenderer"));
             mObInitMap.put(new Pair<>("bmw", "net/minecraft/client/renderer/culling/ClippingHelperImpl"));
-            mObInitMap.put(
-                    new Pair<>("fs", "net/minecraft/util/ChatComponentTranslationFormatException"));
+            mObInitMap.put(new Pair<>("fs", "net/minecraft/util/ChatComponentTranslationFormatException"));
             mObInitMap.put(new Pair<>("bt", "net/minecraft/command/server/CommandStop"));
             mObInitMap.put(new Pair<>("yy", "net/minecraft/entity/player/InventoryPlayer$1"));
             mObInitMap.put(new Pair<>("uz", "net/minecraft/entity/ai/EntityAIPanic"));
@@ -5312,21 +5289,18 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ams", "net/minecraft/block/BlockCompressedPowered"));
             mObInitMap.put(new Pair<>("aeu", "net/minecraft/item/crafting/RecipesArmorDyes"));
             mObInitMap.put(new Pair<>("ait", "net/minecraft/world/biome/BiomeGenSavanna$Mutated"));
-            mObInitMap.put(new Pair<>(
-                    "auq", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Library"));
+            mObInitMap.put(new Pair<>("auq", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Library"));
             mObInitMap.put(new Pair<>("ayp", "net/minecraft/world/storage/DerivedWorldInfo"));
             mObInitMap.put(new Pair<>("bbn", "net/minecraft/client/settings/GameSettings$Options$1"));
-            mObInitMap.put(new Pair<>(
-                    "bfm", "net/minecraft/client/gui/inventory/GuiContainerCreative$ContainerCreative"));
+            mObInitMap.put(
+                    new Pair<>("bfm", "net/minecraft/client/gui/inventory/GuiContainerCreative$ContainerCreative"));
             mObInitMap.put(new Pair<>("but", "net/minecraft/realms/RealmsServerStatusPinger$1"));
             mObInitMap.put(new Pair<>("bqu", "net/minecraft/client/resources/GrassColorReloadListener"));
             mObInitMap.put(new Pair<>("zm", "net/minecraft/entity/item/EntityEnderPearl"));
             mObInitMap.put(new Pair<>("vn", "net/minecraft/entity/ai/EntityAIHurtByTarget"));
             mObInitMap.put(new Pair<>("ro", "net/minecraft/util/DamageSource"));
-            mObInitMap.put(
-                    new Pair<>("np", "net/minecraft/server/network/NetHandlerLoginServer$LoginState"));
-            mObInitMap.put(
-                    new Pair<>("jq", "net/minecraft/network/handshake/INetHandlerHandshakeServer"));
+            mObInitMap.put(new Pair<>("np", "net/minecraft/server/network/NetHandlerLoginServer$LoginState"));
+            mObInitMap.put(new Pair<>("jq", "net/minecraft/network/handshake/INetHandlerHandshakeServer"));
             mObInitMap.put(new Pair<>("fr", "net/minecraft/util/ChatComponentTranslation"));
             mObInitMap.put(new Pair<>("arf", "net/minecraft/world/gen/feature/WorldGenBlockBlob"));
             mObInitMap.put(new Pair<>("ang", "net/minecraft/block/BlockRotatedPillar"));
@@ -5335,8 +5309,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ajh", "net/minecraft/block/BlockBed"));
             mObInitMap.put(new Pair<>("ave", "net/minecraft/world/gen/structure/MapGenStructure"));
             mObInitMap.put(new Pair<>("azd", "net/minecraft/client/AnvilConverterException"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/client/main/Main", "net/minecraft/client/main/Main"));
+            mObInitMap.put(new Pair<>("net/minecraft/client/main/Main", "net/minecraft/client/main/Main"));
             mObInitMap.put(new Pair<>("bri", "net/minecraft/client/resources/SimpleResource"));
             mObInitMap.put(new Pair<>("bfl", "net/minecraft/client/gui/inventory/GuiContainerCreative"));
             mObInitMap.put(new Pair<>("bjk", "net/minecraft/client/entity/EntityClientPlayerMP"));
@@ -5345,24 +5318,21 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("sc", "net/minecraft/entity/Entity$2"));
             mObInitMap.put(new Pair<>("od", "net/minecraft/server/management/PreYggdrasilConverter$4"));
             mObInitMap.put(new Pair<>("ke", "net/minecraft/network/ServerStatusResponse$Serializer"));
-            mObInitMap.put(
-                    new Pair<>("gf", "net/minecraft/network/play/server/S35PacketUpdateTileEntity"));
+            mObInitMap.put(new Pair<>("gf", "net/minecraft/network/play/server/S35PacketUpdateTileEntity"));
             mObInitMap.put(new Pair<>("cg", "net/minecraft/command/PlayerNotFoundException"));
             mObInitMap.put(new Pair<>("ary", "net/minecraft/world/gen/feature/WorldGenGlowStone1"));
             mObInitMap.put(new Pair<>("anz", "net/minecraft/block/BlockTallGrass"));
             mObInitMap.put(new Pair<>("bca", "net/minecraft/client/gui/ScaledResolution"));
             mObInitMap.put(new Pair<>("ow", "net/minecraft/network/rcon/RConThreadBase"));
             mObInitMap.put(new Pair<>("kx", "net/minecraft/init/Bootstrap$6"));
-            mObInitMap.put(
-                    new Pair<>("gy", "net/minecraft/network/play/server/S21PacketChunkData$Extracted"));
+            mObInitMap.put(new Pair<>("gy", "net/minecraft/network/play/server/S21PacketChunkData$Extracted"));
             mObInitMap.put(new Pair<>("cz", "net/minecraft/util/IRegistry"));
             mObInitMap.put(new Pair<>("acq", "net/minecraft/item/ItemFireball"));
             mObInitMap.put(new Pair<>("agp", "net/minecraft/command/server/CommandBlockLogic"));
             mObInitMap.put(new Pair<>("bsp", "net/minecraft/client/audio/SoundList"));
             mObInitMap.put(new Pair<>("boq", "net/minecraft/client/renderer/entity/RenderSheep"));
             mObInitMap.put(new Pair<>("arx", "net/minecraft/world/gen/feature/WorldGenLakes"));
-            mObInitMap.put(new Pair<>(
-                    "avw", "net/minecraft/world/gen/structure/StructureVillagePieces$House4Garden"));
+            mObInitMap.put(new Pair<>("avw", "net/minecraft/world/gen/structure/StructureVillagePieces$House4Garden"));
             mObInitMap.put(new Pair<>("azv", "net/minecraft/util/MovingObjectPosition$MovingObjectType"));
             mObInitMap.put(new Pair<>("bct", "net/minecraft/client/gui/GuiChat"));
             mObInitMap.put(new Pair<>("bgs", "net/minecraft/client/gui/stream/GuiTwitchUserMode"));
@@ -5386,10 +5356,8 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("alb", "net/minecraft/block/BlockFire"));
             mObInitMap.put(new Pair<>("add", "net/minecraft/item/ItemStack"));
             mObInitMap.put(new Pair<>("ahc", "net/minecraft/world/World$1"));
-            mObInitMap.put(new Pair<>(
-                    "btc", "net/minecraft/client/network/LanServerDetector$ThreadLanServerFind"));
-            mObInitMap.put(
-                    new Pair<>("bpd", "net/minecraft/client/renderer/tileentity/RenderWitherSkull"));
+            mObInitMap.put(new Pair<>("btc", "net/minecraft/client/network/LanServerDetector$ThreadLanServerFind"));
+            mObInitMap.put(new Pair<>("bpd", "net/minecraft/client/renderer/tileentity/RenderWitherSkull"));
             mObInitMap.put(new Pair<>("bhf", "net/minecraft/client/model/ModelBook"));
             mObInitMap.put(new Pair<>("ble", "net/minecraft/client/particle/EntityFishWakeFX"));
             mObInitMap.put(new Pair<>("ea", "net/minecraft/nbt/NBTException"));
@@ -5401,55 +5369,47 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bdz", "net/minecraft/client/gui/GuiShareToLan"));
             mObInitMap.put(new Pair<>("bhy", "net/minecraft/client/model/ModelSheep2"));
             mObInitMap.put(new Pair<>("blx", "net/minecraft/client/renderer/IImageBuffer"));
-            mObInitMap.put(
-                    new Pair<>("mr", "net/minecraft/server/management/PlayerManager$PlayerInstance"));
+            mObInitMap.put(new Pair<>("mr", "net/minecraft/server/management/PlayerManager$PlayerInstance"));
             mObInitMap.put(new Pair<>("is", "net/minecraft/network/play/client/C16PacketClientStatus"));
             mObInitMap.put(new Pair<>("et", "net/minecraft/network/PacketBuffer"));
             mObInitMap.put(new Pair<>("au", "net/minecraft/command/CommandHelp"));
             mObInitMap.put(new Pair<>("aek", "net/minecraft/item/ItemCloth"));
             mObInitMap.put(new Pair<>("aal", "net/minecraft/inventory/ContainerHopper"));
             mObInitMap.put(new Pair<>("l", "net/minecraft/crash/CrashReportCategory$1"));
-            mObInitMap.put(
-                    new Pair<>("bqk", "net/minecraft/client/renderer/texture/ITickableTextureObject"));
-            mObInitMap.put(new Pair<>(
-                    "atr", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Throne"));
+            mObInitMap.put(new Pair<>("bqk", "net/minecraft/client/renderer/texture/ITickableTextureObject"));
+            mObInitMap.put(new Pair<>("atr", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Throne"));
             mObInitMap.put(new Pair<>("aps", "net/minecraft/tileentity/TileEntityPiston"));
             mObInitMap.put(new Pair<>("axq", "net/minecraft/world/gen/layer/GenLayerRareBiome"));
             mObInitMap.put(new Pair<>("bao", "net/minecraft/client/Minecraft"));
             mObInitMap.put(new Pair<>("ben", "net/minecraft/client/gui/achievement/GuiStats$StatsItem"));
             mObInitMap.put(new Pair<>("bim", "net/minecraft/client/model/ModelWitch"));
-            mObInitMap.put(new Pair<>(
-                    "bml", "net/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer"));
+            mObInitMap.put(new Pair<>("bml", "net/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer"));
             mObInitMap.put(new Pair<>("fh", "net/minecraft/event/ClickEvent"));
             mObInitMap.put(new Pair<>("bi", "net/minecraft/command/server/CommandSaveOff"));
             mObInitMap.put(new Pair<>("yn", "net/minecraft/entity/monster/EntitySpider"));
             mObInitMap.put(new Pair<>("uo", "net/minecraft/entity/ai/EntityAILookAtTradePlayer"));
-            mObInitMap.put(new Pair<>(
-                    "aqg", "net/minecraft/world/chunk/storage/ChunkLoader$AnvilConverterData"));
+            mObInitMap.put(new Pair<>("aqg", "net/minecraft/world/chunk/storage/ChunkLoader$AnvilConverterData"));
             mObInitMap.put(new Pair<>("amh", "net/minecraft/block/BlockNewLeaf"));
             mObInitMap.put(new Pair<>("aii", "net/minecraft/world/biome/BiomeGenHell"));
-            mObInitMap.put(new Pair<>(
-                    "auf", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$SwampHut"));
+            mObInitMap.put(
+                    new Pair<>("auf", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$SwampHut"));
             mObInitMap.put(new Pair<>("aye", "net/minecraft/pathfinding/PathPoint"));
             mObInitMap.put(new Pair<>("bbc", "net/minecraft/client/Minecraft$6"));
-            mObInitMap.put(
-                    new Pair<>("bfb", "net/minecraft/client/gui/inventory/GuiBeacon$ConfirmButton"));
+            mObInitMap.put(new Pair<>("bfb", "net/minecraft/client/gui/inventory/GuiBeacon$ConfirmButton"));
             mObInitMap.put(new Pair<>("bui", "net/minecraft/client/stream/IngestServerTester"));
             mObInitMap.put(new Pair<>("bqj", "net/minecraft/client/renderer/texture/ITickable"));
-            mObInitMap.put(
-                    new Pair<>("zb", "net/minecraft/entity/player/EntityPlayer$EnumChatVisibility"));
+            mObInitMap.put(new Pair<>("zb", "net/minecraft/entity/player/EntityPlayer$EnumChatVisibility"));
             mObInitMap.put(new Pair<>("vc", "net/minecraft/entity/ai/EntityAIWander"));
             mObInitMap.put(new Pair<>("rd", "net/minecraft/world/EnumDifficulty"));
             mObInitMap.put(new Pair<>("ne", "net/minecraft/network/NetworkSystem$2"));
-            mObInitMap.put(new Pair<>(
-                    "jf", "net/minecraft/network/play/client/C03PacketPlayer$C06PacketPlayerPosLook"));
+            mObInitMap.put(
+                    new Pair<>("jf", "net/minecraft/network/play/client/C03PacketPlayer$C06PacketPlayerPosLook"));
             mObInitMap.put(new Pair<>("fg", "net/minecraft/util/ChatComponentStyle$2"));
             mObInitMap.put(new Pair<>("aqz", "net/minecraft/world/gen/ChunkProviderGenerate"));
-            mObInitMap.put(new Pair<>(
-                    "auy", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stairs"));
+            mObInitMap.put(new Pair<>("auy", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stairs"));
             mObInitMap.put(new Pair<>("ayx", "net/minecraft/world/storage/WorldInfo$5"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RealmsSliderButton", "net/minecraft/realms/RealmsSliderButton"));
+            mObInitMap.put(
+                    new Pair<>("net/minecraft/realms/RealmsSliderButton", "net/minecraft/realms/RealmsSliderButton"));
             mObInitMap.put(new Pair<>("zu", "net/minecraft/inventory/ContainerRepair"));
             mObInitMap.put(new Pair<>("vv", "net/minecraft/pathfinding/PathNavigate"));
             mObInitMap.put(new Pair<>("rw", "net/minecraft/potion/PotionEffect"));
@@ -5463,8 +5423,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ajp", "net/minecraft/block/BlockBookshelf"));
             mObInitMap.put(new Pair<>("brq", "net/minecraft/client/resources/Language"));
             mObInitMap.put(new Pair<>("bbu", "net/minecraft/client/gui/FontRenderer"));
-            mObInitMap.put(
-                    new Pair<>("bft", "net/minecraft/client/gui/inventory/GuiScreenHorseInventory"));
+            mObInitMap.put(new Pair<>("bft", "net/minecraft/client/gui/inventory/GuiScreenHorseInventory"));
             mObInitMap.put(new Pair<>("bjs", "net/minecraft/client/network/OldServerPinger$2"));
             mObInitMap.put(new Pair<>("bnr", "net/minecraft/client/renderer/entity/RenderFireball"));
             mObInitMap.put(new Pair<>("sk", "net/minecraft/command/IEntitySelector$1"));
@@ -5474,18 +5433,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("co", "net/minecraft/util/RegistryDefaulted"));
             mObInitMap.put(new Pair<>("acf", "net/minecraft/creativetab/CreativeTabs$9"));
             mObInitMap.put(new Pair<>("age", "net/minecraft/enchantment/EnchantmentFishingSpeed"));
-            mObInitMap.put(
-                    new Pair<>("bse", "net/minecraft/client/resources/data/LanguageMetadataSection"));
+            mObInitMap.put(new Pair<>("bse", "net/minecraft/client/resources/data/LanguageMetadataSection"));
             mObInitMap.put(new Pair<>("arm", "net/minecraft/world/gen/feature/WorldGenDoublePlant"));
-            mObInitMap.put(new Pair<>(
-                    "avl", "net/minecraft/world/gen/structure/StructureComponent$BlockSelector"));
+            mObInitMap.put(new Pair<>("avl", "net/minecraft/world/gen/structure/StructureComponent$BlockSelector"));
             mObInitMap.put(new Pair<>("bci", "net/minecraft/client/gui/GuiListExtended$IGuiListEntry"));
-            mObInitMap.put(
-                    new Pair<>("bgh", "net/minecraft/client/resources/ResourcePackListEntryDefault"));
+            mObInitMap.put(new Pair<>("bgh", "net/minecraft/client/resources/ResourcePackListEntryDefault"));
             mObInitMap.put(new Pair<>("bkg", "net/minecraft/client/particle/EntityFootStepFX"));
             mObInitMap.put(new Pair<>("bof", "net/minecraft/client/renderer/entity/RenderLeashKnot"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/server/MinecraftServer", "net/minecraft/server/MinecraftServer"));
+            mObInitMap.put(new Pair<>("net/minecraft/server/MinecraftServer", "net/minecraft/server/MinecraftServer"));
             mObInitMap.put(new Pair<>("hb", "net/minecraft/network/play/server/S2APacketParticles"));
             mObInitMap.put(new Pair<>("wi", "net/minecraft/entity/passive/EntityHorse"));
             mObInitMap.put(new Pair<>("sj", "net/minecraft/command/IEntitySelector"));
@@ -5493,8 +5448,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aob", "net/minecraft/block/BlockTNT"));
             mObInitMap.put(new Pair<>("akc", "net/minecraft/block/BlockRedstoneComparator"));
             mObInitMap.put(new Pair<>("agd", "net/minecraft/enchantment/EnchantmentFireAspect"));
-            mObInitMap.put(new Pair<>(
-                    "bsd", "net/minecraft/client/resources/data/FontMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("bsd", "net/minecraft/client/resources/data/FontMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("ha", "net/minecraft/network/play/server/S28PacketEffect"));
             mObInitMap.put(new Pair<>("ast", "net/minecraft/world/gen/FlatLayerInfo"));
             mObInitMap.put(new Pair<>("aou", "net/minecraft/tileentity/TileEntity$3"));
@@ -5527,8 +5481,8 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aj", "net/minecraft/command/server/CommandDeOp"));
             mObInitMap.put(new Pair<>("aaa", "net/minecraft/inventory/ContainerBrewingStand$Ingredient"));
             mObInitMap.put(new Pair<>("a", "net/minecraft/util/EnumChatFormatting"));
-            mObInitMap.put(new Pair<>(
-                    "atg", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing3"));
+            mObInitMap.put(
+                    new Pair<>("atg", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing3"));
             mObInitMap.put(new Pair<>("axf", "net/minecraft/world/gen/layer/GenLayerBiome"));
             mObInitMap.put(new Pair<>("bad", "net/minecraft/scoreboard/ScoreboardSaveData"));
             mObInitMap.put(new Pair<>("bec", "net/minecraft/client/gui/GuiScreenOptionsSounds"));
@@ -5538,8 +5492,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ud", "net/minecraft/entity/ai/EntityAIEatGrass"));
             mObInitMap.put(new Pair<>("qe", "net/minecraft/util/LongHashMap$Entry"));
             mObInitMap.put(new Pair<>("t", "net/minecraft/util/ChatAllowedCharacters"));
-            mObInitMap.put(new Pair<>(
-                    "atz", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces"));
+            mObInitMap.put(new Pair<>("atz", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces"));
             mObInitMap.put(new Pair<>("baw", "net/minecraft/client/Minecraft$16"));
             mObInitMap.put(new Pair<>("bev", "net/minecraft/client/gui/GuiKeyBindingList$KeyEntry"));
             mObInitMap.put(new Pair<>("yv", "net/minecraft/entity/passive/EntityVillager"));
@@ -5550,30 +5503,27 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aqo", "net/minecraft/world/WorldProvider"));
             mObInitMap.put(new Pair<>("amp", "net/minecraft/block/BlockPortal"));
             mObInitMap.put(new Pair<>("aas", "net/minecraft/inventory/InventoryMerchant"));
-            mObInitMap.put(new Pair<>(
-                    "aun", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Corridor"));
+            mObInitMap.put(new Pair<>("aun", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Corridor"));
             mObInitMap.put(new Pair<>("aym", "net/minecraft/world/chunk/storage/AnvilSaveHandler"));
             mObInitMap.put(new Pair<>("buq", "net/minecraft/client/stream/TwitchStream$1$1"));
             mObInitMap.put(new Pair<>("bqr", "net/minecraft/client/resources/FileResourcePack"));
-            mObInitMap.put(new Pair<>(
-                    "bms", "net/minecraft/client/renderer/tileentity/TileEntitySkullRenderer"));
+            mObInitMap.put(new Pair<>("bms", "net/minecraft/client/renderer/tileentity/TileEntitySkullRenderer"));
             mObInitMap.put(new Pair<>("zj", "net/minecraft/entity/projectile/EntitySnowball"));
             mObInitMap.put(new Pair<>("vk", "net/minecraft/entity/ai/EntityAITempt"));
             mObInitMap.put(new Pair<>("rl", "net/minecraft/inventory/ISidedInventory"));
-            mObInitMap.put(new Pair<>(
-                    "nm", "net/minecraft/server/network/NetHandlerHandshakeTCP$SwitchEnumConnectionState"));
+            mObInitMap.put(
+                    new Pair<>("nm", "net/minecraft/server/network/NetHandlerHandshakeTCP$SwitchEnumConnectionState"));
             mObInitMap.put(new Pair<>("jn", "net/minecraft/network/play/client/C12PacketUpdateSign"));
             mObInitMap.put(new Pair<>("fo", "net/minecraft/util/ChatStyle$1"));
             mObInitMap.put(new Pair<>("bp", "net/minecraft/command/CommandSetSpawnpoint"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RealmsServerAddress", "net/minecraft/realms/RealmsServerAddress"));
+            mObInitMap.put(
+                    new Pair<>("net/minecraft/realms/RealmsServerAddress", "net/minecraft/realms/RealmsServerAddress"));
             mObInitMap.put(new Pair<>("arc", "net/minecraft/world/gen/feature/WorldGenAbstractTree"));
             mObInitMap.put(new Pair<>("and", "net/minecraft/block/BlockRedstoneTorch$Toggle"));
             mObInitMap.put(new Pair<>("abg", "net/minecraft/item/ItemBed"));
             mObInitMap.put(new Pair<>("aff", "net/minecraft/item/crafting/CraftingManager$1"));
             mObInitMap.put(new Pair<>("aje", "net/minecraft/block/BlockRailBase"));
-            mObInitMap.put(
-                    new Pair<>("brf", "net/minecraft/client/resources/ResourcePackRepository$Entry"));
+            mObInitMap.put(new Pair<>("brf", "net/minecraft/client/resources/ResourcePackRepository$Entry"));
             mObInitMap.put(new Pair<>("bbj", "net/minecraft/client/settings/GameSettings"));
             mObInitMap.put(new Pair<>("bfi", "net/minecraft/client/gui/inventory/GuiChest"));
             mObInitMap.put(new Pair<>("bjh", "net/minecraft/client/multiplayer/WorldClient$2"));
@@ -5584,29 +5534,23 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("cd", "net/minecraft/command/CommandException"));
             mObInitMap.put(new Pair<>("abz", "net/minecraft/creativetab/CreativeTabs$3"));
             mObInitMap.put(new Pair<>("afy", "net/minecraft/enchantment/EnchantmentHelper$HurtIterator"));
-            mObInitMap.put(new Pair<>(
-                    "bry", "net/minecraft/client/resources/data/IMetadataSerializer$Registration"));
-            mObInitMap.put(new Pair<>(
-                    "ava", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Straight"));
+            mObInitMap.put(new Pair<>("bry", "net/minecraft/client/resources/data/IMetadataSerializer$Registration"));
+            mObInitMap.put(new Pair<>("ava", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Straight"));
             mObInitMap.put(new Pair<>("bnz", "net/minecraft/client/renderer/entity/RenderItem$1"));
-            mObInitMap.put(
-                    new Pair<>("gv", "net/minecraft/network/play/server/S2BPacketChangeGameState"));
+            mObInitMap.put(new Pair<>("gv", "net/minecraft/network/play/server/S2BPacketChangeGameState"));
             mObInitMap.put(new Pair<>("cw", "net/minecraft/util/RegistryNamespaced"));
             mObInitMap.put(new Pair<>(
                     "net/minecraft/realms/RealmsScrolledSelectionList",
                     "net/minecraft/realms/RealmsScrolledSelectionList"));
             mObInitMap.put(new Pair<>("aru", "net/minecraft/world/gen/feature/WorldGenBigMushroom"));
             mObInitMap.put(new Pair<>("anv", "net/minecraft/block/BlockStone"));
-            mObInitMap.put(
-                    new Pair<>("afx", "net/minecraft/enchantment/EnchantmentHelper$DamageIterator"));
+            mObInitMap.put(new Pair<>("afx", "net/minecraft/enchantment/EnchantmentHelper$DamageIterator"));
             mObInitMap.put(new Pair<>("ajw", "net/minecraft/block/BlockCauldron"));
-            mObInitMap.put(
-                    new Pair<>("avt", "net/minecraft/world/gen/structure/StructureVillagePieces$Torch"));
+            mObInitMap.put(new Pair<>("avt", "net/minecraft/world/gen/structure/StructureVillagePieces$Torch"));
             mObInitMap.put(new Pair<>("azs", "net/minecraft/world/storage/IThreadedFileIO"));
             mObInitMap.put(new Pair<>("bcq", "net/minecraft/client/gui/GuiScreenRealmsProxy"));
             mObInitMap.put(new Pair<>("bgp", "net/minecraft/client/gui/stream/GuiStreamUnavailable"));
-            mObInitMap.put(
-                    new Pair<>("brx", "net/minecraft/client/resources/data/IMetadataSerializer$1"));
+            mObInitMap.put(new Pair<>("brx", "net/minecraft/client/resources/data/IMetadataSerializer$1"));
             mObInitMap.put(new Pair<>("wq", "net/minecraft/entity/passive/EntitySheep$1"));
             mObInitMap.put(new Pair<>("sr", "net/minecraft/entity/EntityFlying"));
             mObInitMap.put(new Pair<>("os", "net/minecraft/server/management/UserListWhitelistEntry"));
@@ -5621,14 +5565,12 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bom", "net/minecraft/client/renderer/entity/RenderOcelot"));
             mObInitMap.put(new Pair<>("bgo", "net/minecraft/client/gui/stream/GuiStreamOptions"));
             mObInitMap.put(new Pair<>("bkn", "net/minecraft/client/particle/EffectRenderer"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/RealmsScreen", "net/minecraft/realms/RealmsScreen"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsScreen", "net/minecraft/realms/RealmsScreen"));
             mObInitMap.put(new Pair<>("xe", "net/minecraft/entity/projectile/EntityFishHook"));
             mObInitMap.put(new Pair<>("tf", "net/minecraft/entity/DataWatcher$WatchableObject"));
             mObInitMap.put(new Pair<>("pg", "net/minecraft/stats/StatisticsFile"));
             mObInitMap.put(new Pair<>("lh", "net/minecraft/server/MinecraftServer$1"));
-            mObInitMap.put(new Pair<>(
-                    "hi", "net/minecraft/network/play/server/S14PacketEntity$S16PacketEntityLook"));
+            mObInitMap.put(new Pair<>("hi", "net/minecraft/network/play/server/S14PacketEntity$S16PacketEntityLook"));
             mObInitMap.put(new Pair<>("dj", "net/minecraft/nbt/NBTTagCompound$2"));
             mObInitMap.put(new Pair<>("ada", "net/minecraft/item/ItemHoe"));
             mObInitMap.put(new Pair<>("bpa", "net/minecraft/client/renderer/entity/RenderVillager"));
@@ -5650,8 +5592,8 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("xw", "net/minecraft/entity/item/EntityTNTPrimed"));
             mObInitMap.put(new Pair<>("tx", "net/minecraft/entity/ai/EntityAIAvoidEntity$1"));
             mObInitMap.put(new Pair<>("i", "net/minecraft/crash/CrashReport$7"));
-            mObInitMap.put(new Pair<>(
-                    "ato", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor5"));
+            mObInitMap.put(
+                    new Pair<>("ato", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor5"));
             mObInitMap.put(new Pair<>("app", "net/minecraft/block/BlockPistonBase"));
             mObInitMap.put(new Pair<>("alq", "net/minecraft/block/BlockJukebox"));
             mObInitMap.put(new Pair<>("ahr", "net/minecraft/world/ChunkCache"));
@@ -5671,8 +5613,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>(
                     "auc", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$JunglePyramid"));
             mObInitMap.put(new Pair<>("ayb", "net/minecraft/world/gen/layer/GenLayerVoronoiZoom"));
-            mObInitMap.put(
-                    new Pair<>("buf", "net/minecraft/client/stream/ChatController$SwitchChatState"));
+            mObInitMap.put(new Pair<>("buf", "net/minecraft/client/stream/ChatController$SwitchChatState"));
             mObInitMap.put(new Pair<>("bqg", "net/minecraft/client/renderer/texture/TextureManager$1"));
             mObInitMap.put(new Pair<>("bii", "net/minecraft/client/model/PositionTextureVertex"));
             mObInitMap.put(new Pair<>("bmh", "net/minecraft/client/renderer/Tessellator"));
@@ -5686,8 +5627,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("amx", "net/minecraft/block/BlockQuartz"));
             mObInitMap.put(new Pair<>("aez", "net/minecraft/item/crafting/RecipesFood"));
             mObInitMap.put(new Pair<>("aiy", "net/minecraft/world/biome/BiomeEndDecorator"));
-            mObInitMap.put(
-                    new Pair<>("bqz", "net/minecraft/client/resources/IResourceManagerReloadListener"));
+            mObInitMap.put(new Pair<>("bqz", "net/minecraft/client/resources/IResourceManagerReloadListener"));
             mObInitMap.put(new Pair<>("rt", "net/minecraft/potion/PotionHealthBoost"));
             mObInitMap.put(new Pair<>("nu", "net/minecraft/server/management/PlayerProfileCache$2"));
             mObInitMap.put(new Pair<>("jv", "net/minecraft/network/login/INetHandlerLoginServer"));
@@ -5697,17 +5637,15 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("afn", "net/minecraft/enchantment/EnchantmentArrowFire"));
             mObInitMap.put(new Pair<>("brn", "net/minecraft/client/resources/SkinManager$3$1"));
             mObInitMap.put(new Pair<>("aqv", "net/minecraft/world/gen/ChunkProviderHell"));
-            mObInitMap.put(new Pair<>(
-                    "auu", "net/minecraft/world/gen/structure/StructureStrongholdPieces$RightTurn"));
+            mObInitMap.put(new Pair<>("auu", "net/minecraft/world/gen/structure/StructureStrongholdPieces$RightTurn"));
             mObInitMap.put(new Pair<>("ayt", "net/minecraft/world/storage/WorldInfo$1"));
             mObInitMap.put(new Pair<>("bbr", "net/minecraft/util/Timer"));
             mObInitMap.put(new Pair<>("bfq", "net/minecraft/client/gui/GuiEnchantment"));
             mObInitMap.put(new Pair<>("bjp", "net/minecraft/client/multiplayer/ServerList"));
             mObInitMap.put(new Pair<>("bno", "net/minecraft/client/renderer/entity/Render"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RealmsLevelSummary", "net/minecraft/realms/RealmsLevelSummary"));
             mObInitMap.put(
-                    new Pair<>("gk", "net/minecraft/network/play/server/S22PacketMultiBlockChange"));
+                    new Pair<>("net/minecraft/realms/RealmsLevelSummary", "net/minecraft/realms/RealmsLevelSummary"));
+            mObInitMap.put(new Pair<>("gk", "net/minecraft/network/play/server/S22PacketMultiBlockChange"));
             mObInitMap.put(new Pair<>("cl", "net/minecraft/block/BlockSourceImpl"));
             mObInitMap.put(new Pair<>("vr", "net/minecraft/entity/ai/EntityAITargetNonTamed"));
             mObInitMap.put(new Pair<>("rs", "net/minecraft/potion/PotionAttackDamage"));
@@ -5719,15 +5657,12 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bge", "net/minecraft/client/gui/ServerSelectionList"));
             mObInitMap.put(new Pair<>("wf", "net/minecraft/entity/passive/EntityAnimal"));
             mObInitMap.put(new Pair<>("sg", "net/minecraft/entity/EntityList"));
-            mObInitMap.put(new Pair<>(
-                    "oh", "net/minecraft/server/management/PreYggdrasilConverter$ConversionError"));
+            mObInitMap.put(new Pair<>("oh", "net/minecraft/server/management/PreYggdrasilConverter$ConversionError"));
             mObInitMap.put(new Pair<>("ki", "net/minecraft/network/status/client/C01PacketPing"));
             mObInitMap.put(new Pair<>("gj", "net/minecraft/network/play/server/S02PacketChat"));
             mObInitMap.put(new Pair<>("acb", "net/minecraft/creativetab/CreativeTabs$5"));
-            mObInitMap.put(
-                    new Pair<>("aga", "net/minecraft/enchantment/EnchantmentHelper$ModifierLiving"));
-            mObInitMap.put(
-                    new Pair<>("bsa", "net/minecraft/client/resources/data/AnimationMetadataSection"));
+            mObInitMap.put(new Pair<>("aga", "net/minecraft/enchantment/EnchantmentHelper$ModifierLiving"));
+            mObInitMap.put(new Pair<>("bsa", "net/minecraft/client/resources/data/AnimationMetadataSection"));
             mObInitMap.put(new Pair<>("bkc", "net/minecraft/client/particle/EntityFireworkOverlayFX"));
             mObInitMap.put(new Pair<>("bob", "net/minecraft/client/renderer/entity/RenderItem$3"));
             mObInitMap.put(new Pair<>("wy", "net/minecraft/entity/boss/EntityDragonPart"));
@@ -5742,12 +5677,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bcx", "net/minecraft/client/multiplayer/GuiConnecting"));
             mObInitMap.put(new Pair<>("bgw", "net/minecraft/client/main/Main$3"));
             mObInitMap.put(new Pair<>("bkv", "net/minecraft/client/particle/EntitySmokeFX"));
-            mObInitMap.put(
-                    new Pair<>("tn", "net/minecraft/entity/ai/attributes/ModifiableAttributeInstance"));
+            mObInitMap.put(new Pair<>("tn", "net/minecraft/entity/ai/attributes/ModifiableAttributeInstance"));
             mObInitMap.put(new Pair<>("po", "net/minecraft/util/IJsonSerializable"));
             mObInitMap.put(new Pair<>("lp", "net/minecraft/scoreboard/ServerScoreboard"));
-            mObInitMap.put(
-                    new Pair<>("hq", "net/minecraft/network/play/server/S13PacketDestroyEntities"));
+            mObInitMap.put(new Pair<>("hq", "net/minecraft/network/play/server/S13PacketDestroyEntities"));
             mObInitMap.put(new Pair<>("dr", "net/minecraft/nbt/NBTTagLong"));
             mObInitMap.put(new Pair<>("adi", "net/minecraft/item/ItemBucketMilk"));
             mObInitMap.put(new Pair<>("ahh", "net/minecraft/world/IWorldAccess"));
@@ -5774,8 +5707,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("mc", "net/minecraft/server/gui/MinecraftServerGui$4"));
             mObInitMap.put(new Pair<>("id", "net/minecraft/network/play/server/S3EPacketTeams"));
             mObInitMap.put(new Pair<>("q", "net/minecraft/util/Facing"));
-            mObInitMap.put(new Pair<>(
-                    "atw", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Start"));
+            mObInitMap.put(new Pair<>("atw", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Start"));
             mObInitMap.put(new Pair<>("apx", "net/minecraft/world/chunk/Chunk"));
             mObInitMap.put(new Pair<>("aly", "net/minecraft/block/BlockMelon"));
             mObInitMap.put(new Pair<>("ahz", "net/minecraft/world/biome/BiomeCache$Block"));
@@ -5788,8 +5720,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("iw", "net/minecraft/network/play/client/C11PacketEnchantItem"));
             mObInitMap.put(new Pair<>("ex", "net/minecraft/network/NetworkStatistics$Tracker"));
             mObInitMap.put(new Pair<>("ay", "net/minecraft/command/server/CommandListPlayers"));
-            mObInitMap.put(
-                    new Pair<>("aql", "net/minecraft/world/chunk/storage/AnvilChunkLoader$PendingChunk"));
+            mObInitMap.put(new Pair<>("aql", "net/minecraft/world/chunk/storage/AnvilChunkLoader$PendingChunk"));
             mObInitMap.put(new Pair<>("amm", "net/minecraft/block/BlockOldLog"));
             mObInitMap.put(new Pair<>("aap", "net/minecraft/inventory/ContainerPlayer"));
             mObInitMap.put(new Pair<>("ain", "net/minecraft/world/biome/BiomeGenMutated"));
@@ -5799,8 +5730,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bas", "net/minecraft/client/Minecraft$12"));
             mObInitMap.put(new Pair<>("ber", "net/minecraft/client/gui/IProgressMeter"));
             mObInitMap.put(new Pair<>("biq", "net/minecraft/client/model/ModelDragon"));
-            mObInitMap.put(new Pair<>(
-                    "bmp", "net/minecraft/client/renderer/tileentity/TileEntityMobSpawnerRenderer"));
+            mObInitMap.put(new Pair<>("bmp", "net/minecraft/client/renderer/tileentity/TileEntityMobSpawnerRenderer"));
             mObInitMap.put(new Pair<>("ri", "net/minecraft/profiler/PlayerUsageSnooper"));
             mObInitMap.put(new Pair<>("nj", "net/minecraft/network/NetHandlerPlayServer$2"));
             mObInitMap.put(new Pair<>("jk", "net/minecraft/network/play/client/C0CPacketInput"));
@@ -5810,8 +5740,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("afc", "net/minecraft/item/crafting/RecipesMapExtending"));
             mObInitMap.put(new Pair<>("ajb", "net/minecraft/block/BlockAnvil"));
             mObInitMap.put(new Pair<>("brc", "net/minecraft/client/resources/ResourcePackRepository"));
-            mObInitMap.put(
-                    new Pair<>("auj", "net/minecraft/world/gen/structure/StructureStrongholdPieces$1"));
+            mObInitMap.put(new Pair<>("auj", "net/minecraft/world/gen/structure/StructureStrongholdPieces$1"));
             mObInitMap.put(new Pair<>("ayi", "net/minecraft/world/storage/MapData"));
             mObInitMap.put(new Pair<>("bbg", "net/minecraft/util/MouseHelper"));
             mObInitMap.put(new Pair<>("bff", "net/minecraft/client/gui/GuiScreenBook$NextPageButton"));
@@ -5832,8 +5761,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("abv", "net/minecraft/creativetab/CreativeTabs$10"));
             mObInitMap.put(new Pair<>("afu", "net/minecraft/enchantment/EnumEnchantmentType"));
             mObInitMap.put(new Pair<>("ajt", "net/minecraft/block/BlockCactus"));
-            mObInitMap.put(
-                    new Pair<>("avq", "net/minecraft/world/gen/structure/StructureVillagePieces$House1"));
+            mObInitMap.put(new Pair<>("avq", "net/minecraft/world/gen/structure/StructureVillagePieces$House1"));
             mObInitMap.put(new Pair<>("azp", "net/minecraft/world/storage/IPlayerFileData"));
             mObInitMap.put(new Pair<>("bru", "net/minecraft/client/resources/data/IMetadataSection"));
             mObInitMap.put(new Pair<>("bjw", "net/minecraft/client/particle/EntityCrit2FX"));
@@ -5848,28 +5776,24 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("akh", "net/minecraft/block/BlockDeadBush"));
             mObInitMap.put(new Pair<>("acj", "net/minecraft/item/ItemDye"));
             mObInitMap.put(new Pair<>("agi", "net/minecraft/enchantment/EnchantmentProtection"));
-            mObInitMap.put(
-                    new Pair<>("bsi", "net/minecraft/client/resources/data/TextureMetadataSection"));
+            mObInitMap.put(new Pair<>("bsi", "net/minecraft/client/resources/data/TextureMetadataSection"));
             mObInitMap.put(new Pair<>("bcm", "net/minecraft/client/gui/GuiSlot"));
             mObInitMap.put(new Pair<>("bgl", "net/minecraft/client/gui/GuiResourcePackSelected"));
             mObInitMap.put(new Pair<>("bkk", "net/minecraft/client/particle/EntityLavaFX"));
-            mObInitMap.put(
-                    new Pair<>("boj", "net/minecraft/client/renderer/entity/RenderMinecartMobSpawner"));
+            mObInitMap.put(new Pair<>("boj", "net/minecraft/client/renderer/entity/RenderMinecartMobSpawner"));
             mObInitMap.put(new Pair<>("tc", "net/minecraft/entity/item/EntityPainting$EnumArt"));
             mObInitMap.put(new Pair<>("pd", "net/minecraft/stats/IStatStringFormat"));
             mObInitMap.put(new Pair<>("le", "net/minecraft/command/ServerCommand"));
             mObInitMap.put(new Pair<>("hf", "net/minecraft/network/play/server/S14PacketEntity"));
             mObInitMap.put(new Pair<>("dg", "net/minecraft/nbt/NBTTagByte"));
             mObInitMap.put(new Pair<>("ase", "net/minecraft/world/gen/feature/WorldGenMinable"));
-            mObInitMap.put(new Pair<>(
-                    "awd", "net/minecraft/world/gen/structure/StructureVillagePieces$Village"));
+            mObInitMap.put(new Pair<>("awd", "net/minecraft/world/gen/structure/StructureVillagePieces$Village"));
             mObInitMap.put(new Pair<>("bda", "net/minecraft/client/gui/GuiCreateFlatWorld$Details"));
             mObInitMap.put(new Pair<>("hy", "net/minecraft/network/play/server/S12PacketEntityVelocity"));
             mObInitMap.put(new Pair<>("dz", "net/minecraft/nbt/NBTBase$NBTPrimitive"));
             mObInitMap.put(new Pair<>("xa", "net/minecraft/entity/boss/EntityDragon"));
             mObInitMap.put(new Pair<>("tb", "net/minecraft/entity/item/EntityPainting"));
-            mObInitMap.put(
-                    new Pair<>("asx", "net/minecraft/world/gen/structure/StructureMineshaftPieces"));
+            mObInitMap.put(new Pair<>("asx", "net/minecraft/world/gen/structure/StructureMineshaftPieces"));
             mObInitMap.put(new Pair<>("aoy", "net/minecraft/tileentity/TileEntityCommandBlock$1"));
             mObInitMap.put(new Pair<>("akz", "net/minecraft/block/BlockFence"));
             mObInitMap.put(new Pair<>("aww", "net/minecraft/block/material/MaterialPortal"));
@@ -5881,8 +5805,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("lw", "net/minecraft/server/dedicated/DedicatedServer$3"));
             mObInitMap.put(new Pair<>("hx", "net/minecraft/network/play/server/S1BPacketEntityAttach"));
             mObInitMap.put(new Pair<>("f", "net/minecraft/crash/CrashReport$4"));
-            mObInitMap.put(new Pair<>(
-                    "atl", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Entrance"));
+            mObInitMap.put(new Pair<>("atl", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Entrance"));
             mObInitMap.put(new Pair<>("apm", "net/minecraft/tileentity/TileEntitySign"));
             mObInitMap.put(new Pair<>("aln", "net/minecraft/block/BlockHopper"));
             mObInitMap.put(new Pair<>("adp", "net/minecraft/item/ItemPotion"));
@@ -5897,8 +5820,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>(
                     "net/minecraft/realms/RealmsServerStatusPinger", "net/minecraft/realms/RealmsServerStatusPinger"));
             mObInitMap.put(new Pair<>("mk", "net/minecraft/world/demo/DemoWorldServer"));
-            mObInitMap.put(
-                    new Pair<>("il", "net/minecraft/network/play/server/S20PacketEntityProperties"));
+            mObInitMap.put(new Pair<>("il", "net/minecraft/network/play/server/S20PacketEntityProperties"));
             mObInitMap.put(new Pair<>("em", "net/minecraft/network/NetworkManager$3"));
             mObInitMap.put(new Pair<>("an", "net/minecraft/command/server/CommandEmote"));
             mObInitMap.put(new Pair<>("aqa", "net/minecraft/world/chunk/storage/NibbleArrayReader"));
@@ -5907,8 +5829,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aae", "net/minecraft/inventory/InventoryCrafting"));
             mObInitMap.put(new Pair<>("aic", "net/minecraft/world/biome/BiomeGenDesert"));
             mObInitMap.put(new Pair<>("e", "net/minecraft/crash/CrashReport$3"));
-            mObInitMap.put(
-                    new Pair<>("buc", "net/minecraft/client/stream/BroadcastController$BroadcastState"));
+            mObInitMap.put(new Pair<>("buc", "net/minecraft/client/stream/BroadcastController$BroadcastState"));
             mObInitMap.put(new Pair<>("bqd", "net/minecraft/client/renderer/texture/TextureAtlasSprite"));
             mObInitMap.put(new Pair<>("bah", "net/minecraft/scoreboard/IScoreObjectiveCriteria"));
             mObInitMap.put(new Pair<>("beg", "net/minecraft/client/gui/GuiWinGame"));
@@ -5931,12 +5852,11 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aqs", "net/minecraft/world/gen/MapGenRavine"));
             mObInitMap.put(new Pair<>("amt", "net/minecraft/block/BlockRailPowered"));
             mObInitMap.put(new Pair<>("aiu", "net/minecraft/world/biome/BiomeGenStoneBeach"));
-            mObInitMap.put(new Pair<>(
-                    "aur", "net/minecraft/world/gen/structure/StructureStrongholdPieces$PieceWeight"));
+            mObInitMap.put(
+                    new Pair<>("aur", "net/minecraft/world/gen/structure/StructureStrongholdPieces$PieceWeight"));
             mObInitMap.put(new Pair<>("ayq", "net/minecraft/world/storage/SaveHandler"));
             mObInitMap.put(new Pair<>("bbo", "net/minecraft/client/LoadingScreenRenderer"));
-            mObInitMap.put(new Pair<>(
-                    "bfn", "net/minecraft/client/gui/inventory/GuiContainerCreative$CreativeSlot"));
+            mObInitMap.put(new Pair<>("bfn", "net/minecraft/client/gui/inventory/GuiContainerCreative$CreativeSlot"));
             mObInitMap.put(new Pair<>("bjm", "net/minecraft/client/multiplayer/ServerAddress"));
             mObInitMap.put(new Pair<>("buu", "net/minecraft/client/renderer/OpenGlHelper"));
             mObInitMap.put(new Pair<>("zn", "net/minecraft/entity/item/EntityExpBottle"));
@@ -5953,13 +5873,12 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aze", "net/minecraft/world/storage/ISaveFormat"));
             mObInitMap.put(new Pair<>("brj", "net/minecraft/client/resources/SkinManager"));
             mObInitMap.put(new Pair<>("bjl", "net/minecraft/client/gui/GuiPlayerInfo"));
-            mObInitMap.put(
-                    new Pair<>("bnk", "net/minecraft/client/renderer/tileentity/RenderEnderCrystal"));
+            mObInitMap.put(new Pair<>("bnk", "net/minecraft/client/renderer/tileentity/RenderEnderCrystal"));
             mObInitMap.put(new Pair<>("wc", "net/minecraft/village/VillageCollection"));
             mObInitMap.put(new Pair<>("sd", "net/minecraft/entity/Entity$SwitchEnumEntitySize"));
             mObInitMap.put(new Pair<>("oe", "net/minecraft/server/management/PreYggdrasilConverter$5"));
-            mObInitMap.put(new Pair<>(
-                    "kf", "net/minecraft/network/ServerStatusResponse$MinecraftProtocolVersionIdentifier"));
+            mObInitMap.put(
+                    new Pair<>("kf", "net/minecraft/network/ServerStatusResponse$MinecraftProtocolVersionIdentifier"));
             mObInitMap.put(new Pair<>("gg", "net/minecraft/network/play/server/S24PacketBlockAction"));
             mObInitMap.put(new Pair<>("ch", "net/minecraft/command/CommandNotFoundException"));
             mObInitMap.put(new Pair<>("arz", "net/minecraft/world/gen/feature/WorldGenMegaJungle"));
@@ -5974,8 +5893,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("agq", "net/minecraft/tileentity/MobSpawnerBaseLogic"));
             mObInitMap.put(new Pair<>("bsq", "net/minecraft/client/audio/SoundList$SoundEntry"));
             mObInitMap.put(new Pair<>("bor", "net/minecraft/client/renderer/entity/RenderSilverfish"));
-            mObInitMap.put(new Pair<>(
-                    "avx", "net/minecraft/world/gen/structure/StructureVillagePieces$WoodHut"));
+            mObInitMap.put(new Pair<>("avx", "net/minecraft/world/gen/structure/StructureVillagePieces$WoodHut"));
             mObInitMap.put(new Pair<>("azw", "net/minecraft/util/Vec3"));
             mObInitMap.put(new Pair<>("bcu", "net/minecraft/client/gui/GuiConfirmOpenLink"));
             mObInitMap.put(new Pair<>("bgt", "net/minecraft/client/main/Main$1"));
@@ -5993,21 +5911,19 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("tj", "net/minecraft/entity/ai/attributes/AttributeModifier"));
             mObInitMap.put(new Pair<>("pk", "net/minecraft/stats/StatBase$3"));
             mObInitMap.put(new Pair<>("ll", "net/minecraft/server/MinecraftServer$5"));
-            mObInitMap.put(
-                    new Pair<>("ata", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Room"));
+            mObInitMap.put(new Pair<>("ata", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Room"));
             mObInitMap.put(new Pair<>("apb", "net/minecraft/tileentity/TileEntityDispenser"));
             mObInitMap.put(new Pair<>("alc", "net/minecraft/block/BlockFlower"));
             mObInitMap.put(new Pair<>("ade", "net/minecraft/init/Items"));
             mObInitMap.put(new Pair<>("ahd", "net/minecraft/world/World$2"));
-            mObInitMap.put(
-                    new Pair<>("btd", "net/minecraft/client/network/LanServerDetector$LanServerList"));
+            mObInitMap.put(new Pair<>("btd", "net/minecraft/client/network/LanServerDetector$LanServerList"));
             mObInitMap.put(new Pair<>("bpe", "net/minecraft/client/renderer/entity/RenderWolf"));
             mObInitMap.put(new Pair<>("blf", "net/minecraft/client/particle/EntityRainFX"));
             mObInitMap.put(new Pair<>("ia", "net/minecraft/network/play/server/S1FPacketSetExperience"));
             mObInitMap.put(new Pair<>("eb", "net/minecraft/nbt/JsonToNBT"));
             mObInitMap.put(new Pair<>("ac", "net/minecraft/command/ICommandSender"));
-            mObInitMap.put(new Pair<>(
-                    "att", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$PieceWeight"));
+            mObInitMap.put(
+                    new Pair<>("att", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$PieceWeight"));
             mObInitMap.put(new Pair<>("apu", "net/minecraft/world/chunk/IChunkProvider"));
             mObInitMap.put(new Pair<>("alv", "net/minecraft/block/BlockLever"));
             mObInitMap.put(new Pair<>("adx", "net/minecraft/item/ItemShears"));
@@ -6018,28 +5934,22 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bly", "net/minecraft/client/renderer/ItemRenderer"));
             mObInitMap.put(new Pair<>("uq", "net/minecraft/entity/ai/EntityAIAttackOnCollide"));
             mObInitMap.put(new Pair<>("ms", "net/minecraft/world/gen/ChunkProviderServer"));
-            mObInitMap.put(new Pair<>(
-                    "it", "net/minecraft/network/play/client/C16PacketClientStatus$EnumState"));
+            mObInitMap.put(new Pair<>("it", "net/minecraft/network/play/client/C16PacketClientStatus$EnumState"));
             mObInitMap.put(new Pair<>("eu", "net/minecraft/network/NetworkStatistics"));
             mObInitMap.put(new Pair<>("av", "net/minecraft/command/CommandServerKick"));
             mObInitMap.put(new Pair<>("ael", "net/minecraft/item/ItemWritableBook"));
             mObInitMap.put(new Pair<>("aam", "net/minecraft/inventory/ContainerHorseInventory"));
             mObInitMap.put(new Pair<>("aik", "net/minecraft/world/biome/BiomeGenJungle"));
             mObInitMap.put(new Pair<>("m", "net/minecraft/crash/CrashReportCategory$2"));
-            mObInitMap.put(new Pair<>(
-                    "buk", "net/minecraft/client/stream/IngestServerTester$IngestTestListener"));
+            mObInitMap.put(new Pair<>("buk", "net/minecraft/client/stream/IngestServerTester$IngestTestListener"));
             mObInitMap.put(new Pair<>("bql", "net/minecraft/client/renderer/texture/TextureClock"));
-            mObInitMap.put(new Pair<>(
-                    "ats", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Piece"));
+            mObInitMap.put(new Pair<>("ats", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Piece"));
             mObInitMap.put(new Pair<>("axr", "net/minecraft/world/gen/layer/GenLayerHills"));
             mObInitMap.put(new Pair<>("bap", "net/minecraft/client/Minecraft$1"));
-            mObInitMap.put(
-                    new Pair<>("beo", "net/minecraft/client/gui/achievement/GuiStats$StatsItem$1"));
+            mObInitMap.put(new Pair<>("beo", "net/minecraft/client/gui/achievement/GuiStats$StatsItem$1"));
             mObInitMap.put(new Pair<>("bin", "net/minecraft/client/model/ModelWither"));
-            mObInitMap.put(new Pair<>(
-                    "bmm", "net/minecraft/client/renderer/tileentity/TileEntityChestRenderer"));
-            mObInitMap.put(
-                    new Pair<>("jh", "net/minecraft/network/play/client/C13PacketPlayerAbilities"));
+            mObInitMap.put(new Pair<>("bmm", "net/minecraft/client/renderer/tileentity/TileEntityChestRenderer"));
+            mObInitMap.put(new Pair<>("jh", "net/minecraft/network/play/client/C13PacketPlayerAbilities"));
             mObInitMap.put(new Pair<>("fi", "net/minecraft/event/ClickEvent$Action"));
             mObInitMap.put(new Pair<>("bj", "net/minecraft/command/server/CommandSaveOn"));
             mObInitMap.put(new Pair<>("yo", "net/minecraft/entity/monster/EntitySpider$GroupData"));
@@ -6052,16 +5962,13 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bbd", "net/minecraft/client/Minecraft$7"));
             mObInitMap.put(new Pair<>("bfc", "net/minecraft/client/gui/inventory/GuiBeacon$PowerButton"));
             mObInitMap.put(new Pair<>("bjb", "net/minecraft/client/network/NetHandlerPlayClient"));
-            mObInitMap.put(
-                    new Pair<>("buj", "net/minecraft/client/stream/IngestServerTester$SwitchStatType"));
+            mObInitMap.put(new Pair<>("buj", "net/minecraft/client/stream/IngestServerTester$SwitchStatType"));
             mObInitMap.put(new Pair<>("zc", "net/minecraft/entity/projectile/EntityArrow"));
             mObInitMap.put(new Pair<>("vd", "net/minecraft/entity/ai/EntityAIArrowAttack"));
             mObInitMap.put(new Pair<>("re", "net/minecraft/client/renderer/IconFlipped"));
             mObInitMap.put(new Pair<>("nf", "net/minecraft/network/NetworkSystem$3"));
-            mObInitMap.put(new Pair<>(
-                    "jg", "net/minecraft/network/play/client/C03PacketPlayer$C05PacketPlayerLook"));
-            mObInitMap.put(new Pair<>(
-                    "auz", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stairs2"));
+            mObInitMap.put(new Pair<>("jg", "net/minecraft/network/play/client/C03PacketPlayer$C05PacketPlayerLook"));
+            mObInitMap.put(new Pair<>("auz", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stairs2"));
             mObInitMap.put(new Pair<>("ayy", "net/minecraft/world/storage/WorldInfo$6"));
             mObInitMap.put(new Pair<>("bja", "net/minecraft/client/network/NetHandlerLoginClient$1"));
             mObInitMap.put(new Pair<>(
@@ -6090,12 +5997,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ake", "net/minecraft/block/BlockWorkbench"));
             mObInitMap.put(new Pair<>("acg", "net/minecraft/item/ItemTool"));
             mObInitMap.put(new Pair<>("agf", "net/minecraft/enchantment/EnchantmentKnockback"));
-            mObInitMap.put(new Pair<>(
-                    "bsf", "net/minecraft/client/resources/data/LanguageMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("bsf", "net/minecraft/client/resources/data/LanguageMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("avm", "net/minecraft/world/gen/structure/StructureStart"));
             mObInitMap.put(new Pair<>("bcj", "net/minecraft/client/gui/GuiOptionButton"));
-            mObInitMap.put(
-                    new Pair<>("bgi", "net/minecraft/client/resources/ResourcePackListEntryFound"));
+            mObInitMap.put(new Pair<>("bgi", "net/minecraft/client/resources/ResourcePackListEntryFound"));
             mObInitMap.put(new Pair<>("bkh", "net/minecraft/client/particle/EntityHeartFX"));
             mObInitMap.put(new Pair<>("bog", "net/minecraft/client/renderer/entity/RenderLightningBolt"));
             mObInitMap.put(new Pair<>("lb", "net/minecraft/client/util/JsonException"));
@@ -6104,8 +6009,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("wj", "net/minecraft/entity/passive/EntityHorse$1"));
             mObInitMap.put(new Pair<>("asb", "net/minecraft/world/gen/feature/WorldGenHugeTrees"));
             mObInitMap.put(new Pair<>("aoc", "net/minecraft/block/BlockTorch"));
-            mObInitMap.put(
-                    new Pair<>("awa", "net/minecraft/world/gen/structure/StructureVillagePieces$Start"));
+            mObInitMap.put(new Pair<>("awa", "net/minecraft/world/gen/structure/StructureVillagePieces$Start"));
             mObInitMap.put(new Pair<>("la", "net/minecraft/init/Bootstrap$9"));
             mObInitMap.put(new Pair<>("aov", "net/minecraft/tileentity/TileEntityBrewingStand"));
             mObInitMap.put(new Pair<>("akw", "net/minecraft/block/ITileEntityProvider"));
@@ -6120,8 +6024,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("lt", "net/minecraft/server/dedicated/DedicatedServer"));
             mObInitMap.put(new Pair<>("hu", "net/minecraft/network/play/server/S09PacketHeldItemChange"));
             mObInitMap.put(new Pair<>("dv", "net/minecraft/nbt/NBTUtil"));
-            mObInitMap.put(new Pair<>(
-                    "ati", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Straight"));
+            mObInitMap.put(new Pair<>("ati", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Straight"));
             mObInitMap.put(new Pair<>("apj", "net/minecraft/tileentity/TileEntityMobSpawner"));
             mObInitMap.put(new Pair<>("alk", "net/minecraft/block/BlockBreakable"));
             mObInitMap.put(new Pair<>("adm", "net/minecraft/item/ItemNameTag"));
@@ -6140,8 +6043,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aab", "net/minecraft/inventory/ContainerBrewingStand$Potion"));
             mObInitMap.put(new Pair<>("b", "net/minecraft/crash/CrashReport"));
             mObInitMap.put(new Pair<>("bqa", "net/minecraft/client/renderer/texture/TextureMap$1"));
-            mObInitMap.put(new Pair<>(
-                    "ath", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$End"));
+            mObInitMap.put(new Pair<>("ath", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$End"));
             mObInitMap.put(new Pair<>("bae", "net/minecraft/scoreboard/Team"));
             mObInitMap.put(new Pair<>("bed", "net/minecraft/client/gui/GuiScreenOptionsSounds$Button"));
             mObInitMap.put(new Pair<>("bic", "net/minecraft/client/model/ModelSkeleton"));
@@ -6159,8 +6061,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("amq", "net/minecraft/block/BlockPortal$Size"));
             mObInitMap.put(new Pair<>("aat", "net/minecraft/inventory/ContainerMerchant"));
             mObInitMap.put(new Pair<>("air", "net/minecraft/world/biome/BiomeGenRiver"));
-            mObInitMap.put(new Pair<>(
-                    "auo", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Crossing"));
+            mObInitMap.put(new Pair<>("auo", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Crossing"));
             mObInitMap.put(new Pair<>("ayn", "net/minecraft/world/chunk/storage/AnvilSaveConverter"));
             mObInitMap.put(new Pair<>("bbl", "net/minecraft/client/settings/GameSettings$SwitchOptions"));
             mObInitMap.put(new Pair<>("bur", "net/minecraft/client/stream/NullStream"));
@@ -6170,8 +6071,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("vl", "net/minecraft/entity/ai/EntityAITradePlayer"));
             mObInitMap.put(new Pair<>("rm", "net/minecraft/util/CombatEntry"));
             mObInitMap.put(new Pair<>("nn", "net/minecraft/server/network/NetHandlerLoginServer"));
-            mObInitMap.put(
-                    new Pair<>("jo", "net/minecraft/network/play/client/C08PacketPlayerBlockPlacement"));
+            mObInitMap.put(new Pair<>("jo", "net/minecraft/network/play/client/C08PacketPlayerBlockPlacement"));
             mObInitMap.put(new Pair<>("fp", "net/minecraft/util/ChatStyle$Serializer"));
             mObInitMap.put(new Pair<>("bq", "net/minecraft/command/CommandShowSeed"));
             mObInitMap.put(new Pair<>("ard", "net/minecraft/world/gen/feature/WorldGenBigTree"));
@@ -6179,26 +6079,23 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("abh", "net/minecraft/item/ItemBlock"));
             mObInitMap.put(new Pair<>("afg", "net/minecraft/item/crafting/IRecipe"));
             mObInitMap.put(new Pair<>("ajf", "net/minecraft/block/BlockRailBase$Rail"));
-            mObInitMap.put(new Pair<>(
-                    "avc", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stronghold"));
-            mObInitMap.put(
-                    new Pair<>("brg", "net/minecraft/client/resources/SimpleReloadableResourceManager"));
+            mObInitMap.put(new Pair<>("avc", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stronghold"));
+            mObInitMap.put(new Pair<>("brg", "net/minecraft/client/resources/SimpleReloadableResourceManager"));
             mObInitMap.put(new Pair<>("bbk", "net/minecraft/client/settings/GameSettings$1"));
             mObInitMap.put(new Pair<>("bfj", "net/minecraft/client/gui/inventory/GuiCrafting"));
             mObInitMap.put(new Pair<>("bji", "net/minecraft/client/multiplayer/WorldClient$3"));
             mObInitMap.put(new Pair<>("bnh", "net/minecraft/client/renderer/entity/RenderCow"));
             mObInitMap.put(new Pair<>("sa", "net/minecraft/entity/Entity"));
             mObInitMap.put(new Pair<>("ob", "net/minecraft/server/management/PreYggdrasilConverter$2"));
-            mObInitMap.put(
-                    new Pair<>("kc", "net/minecraft/network/ServerStatusResponse$PlayerCountData"));
+            mObInitMap.put(new Pair<>("kc", "net/minecraft/network/ServerStatusResponse$PlayerCountData"));
             mObInitMap.put(new Pair<>("gd", "net/minecraft/network/play/server/S37PacketStatistics"));
             mObInitMap.put(new Pair<>("ce", "net/minecraft/command/NumberInvalidException"));
             mObInitMap.put(new Pair<>("net/minecraft/realms/Realms", "net/minecraft/realms/Realms"));
             mObInitMap.put(new Pair<>("ajy", "net/minecraft/block/BlockClay"));
             mObInitMap.put(new Pair<>("afz", "net/minecraft/enchantment/EnchantmentHelper$IModifier"));
             mObInitMap.put(new Pair<>("brz", "net/minecraft/client/resources/data/AnimationFrame"));
-            mObInitMap.put(new Pair<>(
-                    "avb", "net/minecraft/world/gen/structure/StructureStrongholdPieces$StairsStraight"));
+            mObInitMap.put(
+                    new Pair<>("avb", "net/minecraft/world/gen/structure/StructureStrongholdPieces$StairsStraight"));
             mObInitMap.put(new Pair<>("aza", "net/minecraft/world/storage/WorldInfo$8"));
             mObInitMap.put(new Pair<>("kv", "net/minecraft/init/Bootstrap$5"));
             mObInitMap.put(new Pair<>("gw", "net/minecraft/network/play/server/S00PacketKeepAlive"));
@@ -6206,12 +6103,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("arv", "net/minecraft/world/gen/feature/WorldGenIcePath"));
             mObInitMap.put(new Pair<>("anw", "net/minecraft/block/BlockStoneBrick"));
             mObInitMap.put(new Pair<>("ajx", "net/minecraft/block/BlockChest"));
-            mObInitMap.put(new Pair<>(
-                    "avu", "net/minecraft/world/gen/structure/StructureVillagePieces$PieceWeight"));
+            mObInitMap.put(new Pair<>("avu", "net/minecraft/world/gen/structure/StructureVillagePieces$PieceWeight"));
             mObInitMap.put(new Pair<>("azt", "net/minecraft/util/AxisAlignedBB"));
             mObInitMap.put(new Pair<>("bcr", "net/minecraft/client/gui/GuiSlotRealmsProxy"));
-            mObInitMap.put(new Pair<>(
-                    "bgq", "net/minecraft/client/gui/stream/GuiStreamUnavailable$SwitchReason"));
+            mObInitMap.put(new Pair<>("bgq", "net/minecraft/client/gui/stream/GuiStreamUnavailable$SwitchReason"));
             mObInitMap.put(new Pair<>("bkp", "net/minecraft/client/particle/EffectRenderer$2"));
             mObInitMap.put(new Pair<>("wr", "net/minecraft/entity/monster/EntitySnowman"));
             mObInitMap.put(new Pair<>("ss", "net/minecraft/entity/EntityHanging"));
@@ -6253,17 +6148,15 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ty", "net/minecraft/entity/ai/EntityAIBeg"));
             mObInitMap.put(new Pair<>("aaj", "net/minecraft/inventory/ContainerFurnace"));
             mObInitMap.put(new Pair<>("j", "net/minecraft/crash/CrashReport$8"));
-            mObInitMap.put(new Pair<>(
-                    "atp", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor2"));
+            mObInitMap.put(
+                    new Pair<>("atp", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor2"));
             mObInitMap.put(new Pair<>("apq", "net/minecraft/block/BlockPistonExtension"));
             mObInitMap.put(new Pair<>("alr", "net/minecraft/block/BlockJukebox$TileEntityJukebox"));
             mObInitMap.put(new Pair<>("axo", "net/minecraft/world/gen/layer/GenLayer$1"));
             mObInitMap.put(new Pair<>("bam", "net/minecraft/client/renderer/RenderHelper"));
-            mObInitMap.put(
-                    new Pair<>("bel", "net/minecraft/client/gui/achievement/GuiStats$StatsBlock$1"));
+            mObInitMap.put(new Pair<>("bel", "net/minecraft/client/gui/achievement/GuiStats$StatsBlock$1"));
             mObInitMap.put(new Pair<>("bik", "net/minecraft/client/model/ModelVillager"));
-            mObInitMap.put(new Pair<>(
-                    "bmj", "net/minecraft/client/renderer/tileentity/TileEntityBeaconRenderer"));
+            mObInitMap.put(new Pair<>("bmj", "net/minecraft/client/renderer/tileentity/TileEntityBeaconRenderer"));
             mObInitMap.put(new Pair<>("bg", "net/minecraft/command/server/CommandPublishLocalServer"));
             mObInitMap.put(new Pair<>("yl", "net/minecraft/entity/monster/EntitySkeleton"));
             mObInitMap.put(new Pair<>("um", "net/minecraft/entity/ai/EntityAILeapAtTarget"));
@@ -6289,31 +6182,26 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aqx", "net/minecraft/world/gen/MapGenBase"));
             mObInitMap.put(new Pair<>("amy", "net/minecraft/block/BlockRail"));
             mObInitMap.put(new Pair<>("aiz", "net/minecraft/world/gen/feature/WorldGenWaterlily"));
-            mObInitMap.put(new Pair<>(
-                    "auw", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stones"));
+            mObInitMap.put(new Pair<>("auw", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stones"));
             mObInitMap.put(new Pair<>("vt", "net/minecraft/entity/ai/EntityAIOwnerHurtTarget"));
             mObInitMap.put(new Pair<>("ru", "net/minecraft/potion/PotionHealth"));
-            mObInitMap.put(
-                    new Pair<>("nv", "net/minecraft/server/management/PlayerProfileCache$ProfileEntry"));
+            mObInitMap.put(new Pair<>("nv", "net/minecraft/server/management/PlayerProfileCache$ProfileEntry"));
             mObInitMap.put(new Pair<>("jw", "net/minecraft/network/login/client/C00PacketLoginStart"));
-            mObInitMap.put(
-                    new Pair<>("fx", "net/minecraft/network/play/server/S11PacketSpawnExperienceOrb"));
+            mObInitMap.put(new Pair<>("fx", "net/minecraft/network/play/server/S11PacketSpawnExperienceOrb"));
             mObInitMap.put(new Pair<>("by", "net/minecraft/command/server/CommandTestFor"));
             mObInitMap.put(new Pair<>("abp", "net/minecraft/item/ItemCarrotOnAStick"));
             mObInitMap.put(new Pair<>("afo", "net/minecraft/enchantment/EnchantmentArrowInfinite"));
             mObInitMap.put(new Pair<>("ajn", "net/minecraft/init/Blocks"));
-            mObInitMap.put(new Pair<>(
-                    "bro", "net/minecraft/client/resources/SkinManager$SkinAvailableCallback"));
-            mObInitMap.put(new Pair<>(
-                    "auv", "net/minecraft/world/gen/structure/StructureStrongholdPieces$RoomCrossing"));
+            mObInitMap.put(new Pair<>("bro", "net/minecraft/client/resources/SkinManager$SkinAvailableCallback"));
+            mObInitMap.put(
+                    new Pair<>("auv", "net/minecraft/world/gen/structure/StructureStrongholdPieces$RoomCrossing"));
             mObInitMap.put(new Pair<>("ayu", "net/minecraft/world/storage/WorldInfo$2"));
             mObInitMap.put(new Pair<>("bbs", "net/minecraft/util/Session"));
             mObInitMap.put(new Pair<>("bfr", "net/minecraft/client/gui/inventory/GuiFurnace"));
             mObInitMap.put(new Pair<>("bjq", "net/minecraft/client/network/OldServerPinger"));
             mObInitMap.put(new Pair<>("bnp", "net/minecraft/client/renderer/entity/RenderXPOrb"));
             mObInitMap.put(new Pair<>("kk", "net/minecraft/dispenser/BehaviorProjectileDispense"));
-            mObInitMap.put(
-                    new Pair<>("gl", "net/minecraft/network/play/server/S32PacketConfirmTransaction"));
+            mObInitMap.put(new Pair<>("gl", "net/minecraft/network/play/server/S32PacketConfirmTransaction"));
             mObInitMap.put(new Pair<>("cm", "net/minecraft/dispenser/BehaviorDefaultDispenseItem"));
             mObInitMap.put(new Pair<>("zr", "net/minecraft/util/FoodStats"));
             mObInitMap.put(new Pair<>("vs", "net/minecraft/entity/ai/EntityAIOwnerHurtByTarget"));
@@ -6325,15 +6213,12 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bke", "net/minecraft/client/particle/EntityFireworkStarterFX"));
             mObInitMap.put(new Pair<>("wg", "net/minecraft/entity/passive/EntityChicken"));
             mObInitMap.put(new Pair<>("sh", "net/minecraft/entity/EntityList$EntityEggInfo"));
-            mObInitMap.put(
-                    new Pair<>("oi", "net/minecraft/server/management/ServerConfigurationManager"));
+            mObInitMap.put(new Pair<>("oi", "net/minecraft/server/management/ServerConfigurationManager"));
             mObInitMap.put(new Pair<>("kj", "net/minecraft/network/status/client/C00PacketServerQuery"));
             mObInitMap.put(new Pair<>("aka", "net/minecraft/block/BlockColored"));
             mObInitMap.put(new Pair<>("acc", "net/minecraft/creativetab/CreativeTabs$6"));
-            mObInitMap.put(
-                    new Pair<>("agb", "net/minecraft/enchantment/EnchantmentHelper$ModifierDamage"));
-            mObInitMap.put(new Pair<>(
-                    "bsb", "net/minecraft/client/resources/data/AnimationMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("agb", "net/minecraft/enchantment/EnchantmentHelper$ModifierDamage"));
+            mObInitMap.put(new Pair<>("bsb", "net/minecraft/client/resources/data/AnimationMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("bkd", "net/minecraft/client/particle/EntityFireworkSparkFX"));
             mObInitMap.put(new Pair<>("boc", "net/minecraft/client/renderer/entity/RenderItem$4"));
             mObInitMap.put(new Pair<>("wz", "net/minecraft/entity/item/EntityEnderCrystal"));
@@ -6353,8 +6238,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("to", "net/minecraft/entity/ai/attributes/RangedAttribute"));
             mObInitMap.put(new Pair<>("pp", "net/minecraft/stats/StatList"));
             mObInitMap.put(new Pair<>("lq", "net/minecraft/server/dedicated/PropertyManager"));
-            mObInitMap.put(
-                    new Pair<>("hr", "net/minecraft/network/play/server/S1EPacketRemoveEntityEffect"));
+            mObInitMap.put(new Pair<>("hr", "net/minecraft/network/play/server/S1EPacketRemoveEntityEffect"));
             mObInitMap.put(new Pair<>("ds", "net/minecraft/nbt/NBTSizeTracker"));
             mObInitMap.put(new Pair<>("alh", "net/minecraft/block/BlockGrass"));
             mObInitMap.put(new Pair<>("adj", "net/minecraft/item/ItemMinecart"));
@@ -6368,10 +6252,8 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("eg", "net/minecraft/network/NettyEncryptionTranslator"));
             mObInitMap.put(new Pair<>("ah", "net/minecraft/command/server/CommandBroadcast"));
             mObInitMap.put(new Pair<>("xm", "net/minecraft/entity/item/EntityMinecartChest"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/Tezzelator", "net/minecraft/realms/Tezzelator"));
-            mObInitMap.put(
-                    new Pair<>("ate", "net/minecraft/world/gen/structure/MapGenNetherBridge$Start"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/Tezzelator", "net/minecraft/realms/Tezzelator"));
+            mObInitMap.put(new Pair<>("ate", "net/minecraft/world/gen/structure/MapGenNetherBridge$Start"));
             mObInitMap.put(new Pair<>("apf", "net/minecraft/tileentity/TileEntityFlowerPot"));
             mObInitMap.put(new Pair<>("alg", "net/minecraft/block/BlockGlowstone"));
             mObInitMap.put(new Pair<>("axd", "net/minecraft/world/gen/layer/GenLayerAddSnow"));
@@ -6396,19 +6278,16 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("amn", "net/minecraft/block/BlockOre"));
             mObInitMap.put(new Pair<>("aaq", "net/minecraft/inventory/ContainerPlayer$1"));
             mObInitMap.put(new Pair<>("aio", "net/minecraft/world/biome/BiomeGenOcean"));
-            mObInitMap.put(new Pair<>(
-                    "aul", "net/minecraft/world/gen/structure/StructureStrongholdPieces$SwitchDoor"));
+            mObInitMap.put(new Pair<>("aul", "net/minecraft/world/gen/structure/StructureStrongholdPieces$SwitchDoor"));
             mObInitMap.put(new Pair<>("buo", "net/minecraft/client/stream/TwitchStream"));
             mObInitMap.put(new Pair<>("bqp", "net/minecraft/client/resources/DefaultResourcePack"));
             mObInitMap.put(new Pair<>("bat", "net/minecraft/client/Minecraft$13"));
             mObInitMap.put(new Pair<>("bes", "net/minecraft/client/gui/GuiKeyBindingList"));
             mObInitMap.put(new Pair<>("bir", "net/minecraft/client/model/ModelEnderCrystal"));
-            mObInitMap.put(new Pair<>(
-                    "bmq", "net/minecraft/client/renderer/tileentity/TileEntityRendererPiston"));
+            mObInitMap.put(new Pair<>("bmq", "net/minecraft/client/renderer/tileentity/TileEntityRendererPiston"));
             mObInitMap.put(new Pair<>("vi", "net/minecraft/entity/ai/EntityAICreeperSwell"));
             mObInitMap.put(new Pair<>("rj", "net/minecraft/profiler/PlayerUsageSnooper$1"));
-            mObInitMap.put(
-                    new Pair<>("nk", "net/minecraft/network/NetHandlerPlayServer$SwitchEnumState"));
+            mObInitMap.put(new Pair<>("nk", "net/minecraft/network/NetHandlerPlayServer$SwitchEnumState"));
             mObInitMap.put(new Pair<>("jl", "net/minecraft/network/play/client/C09PacketHeldItemChange"));
             mObInitMap.put(new Pair<>("fm", "net/minecraft/event/HoverEvent$Action"));
             mObInitMap.put(new Pair<>("bn", "net/minecraft/command/server/CommandSetDefaultSpawnpoint"));
@@ -6416,8 +6295,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("afd", "net/minecraft/item/crafting/RecipesIngots"));
             mObInitMap.put(new Pair<>("ajc", "net/minecraft/block/BlockContainer"));
             mObInitMap.put(new Pair<>("brd", "net/minecraft/client/resources/ResourcePackRepository$1"));
-            mObInitMap.put(
-                    new Pair<>("auk", "net/minecraft/world/gen/structure/StructureStrongholdPieces$2"));
+            mObInitMap.put(new Pair<>("auk", "net/minecraft/world/gen/structure/StructureStrongholdPieces$2"));
             mObInitMap.put(new Pair<>("ayj", "net/minecraft/world/storage/MapData$MapInfo"));
             mObInitMap.put(new Pair<>("bbh", "net/minecraft/client/renderer/OpenGlCapsChecker"));
             mObInitMap.put(new Pair<>("bfg", "net/minecraft/client/gui/inventory/GuiBrewingStand"));
@@ -6437,12 +6315,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("abw", "net/minecraft/creativetab/CreativeTabs$11"));
             mObInitMap.put(new Pair<>("afv", "net/minecraft/enchantment/EnchantmentHelper"));
             mObInitMap.put(new Pair<>("aju", "net/minecraft/block/BlockCake"));
-            mObInitMap.put(
-                    new Pair<>("avr", "net/minecraft/world/gen/structure/StructureVillagePieces$Field1"));
+            mObInitMap.put(new Pair<>("avr", "net/minecraft/world/gen/structure/StructureVillagePieces$Field1"));
             mObInitMap.put(new Pair<>("azq", "net/minecraft/world/storage/MapStorage"));
             mObInitMap.put(new Pair<>("bco", "net/minecraft/client/gui/GuiStreamIndicator"));
-            mObInitMap.put(
-                    new Pair<>("brv", "net/minecraft/client/resources/data/IMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("brv", "net/minecraft/client/resources/data/IMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("bnw", "net/minecraft/client/renderer/entity/RenderBiped"));
             mObInitMap.put(new Pair<>("wo", "net/minecraft/entity/passive/EntityPig"));
             mObInitMap.put(new Pair<>("sp", "net/minecraft/command/IEntitySelector$ArmoredMob"));
@@ -6450,17 +6326,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("kr", "net/minecraft/init/Bootstrap$14"));
             mObInitMap.put(new Pair<>("gs", "net/minecraft/network/play/server/S40PacketDisconnect"));
             mObInitMap.put(new Pair<>("ct", "net/minecraft/util/ObjectIntIdentityMap"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RealmsEditBox", "net/minecraft/realms/RealmsEditBox"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsEditBox", "net/minecraft/realms/RealmsEditBox"));
             mObInitMap.put(new Pair<>("asg", "net/minecraft/world/gen/feature/WorldGenPumpkin"));
             mObInitMap.put(new Pair<>("aoh", "net/minecraft/block/BlockVine"));
             mObInitMap.put(new Pair<>("aki", "net/minecraft/block/BlockRailDetector"));
             mObInitMap.put(new Pair<>("ack", "net/minecraft/item/ItemEgg"));
             mObInitMap.put(new Pair<>("agj", "net/minecraft/enchantment/EnchantmentThorns"));
-            mObInitMap.put(
-                    new Pair<>("awf", "net/minecraft/world/gen/structure/StructureVillagePieces$Well"));
-            mObInitMap.put(new Pair<>(
-                    "bsj", "net/minecraft/client/resources/data/TextureMetadataSectionSerializer"));
+            mObInitMap.put(new Pair<>("awf", "net/minecraft/world/gen/structure/StructureVillagePieces$Well"));
+            mObInitMap.put(new Pair<>("bsj", "net/minecraft/client/resources/data/TextureMetadataSectionSerializer"));
             mObInitMap.put(new Pair<>("bok", "net/minecraft/client/renderer/entity/RenderLiving"));
             mObInitMap.put(new Pair<>("bcn", "net/minecraft/client/gui/GuiOptionSlider"));
             mObInitMap.put(new Pair<>("bgm", "net/minecraft/client/gui/stream/GuiIngestServers"));
@@ -6468,31 +6341,27 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("xc", "net/minecraft/entity/boss/EntityWither"));
             mObInitMap.put(new Pair<>("td", "net/minecraft/entity/EntityCreature"));
             mObInitMap.put(new Pair<>("pe", "net/minecraft/stats/StatBasic"));
-            mObInitMap.put(new Pair<>(
-                    "hg", "net/minecraft/network/play/server/S14PacketEntity$S15PacketEntityRelMove"));
-            mObInitMap.put(new Pair<>("dh", "net/minecraft/nbt/NBTTagCompound"));
             mObInitMap.put(
-                    new Pair<>("awe", "net/minecraft/world/gen/structure/StructureVillagePieces$Road"));
+                    new Pair<>("hg", "net/minecraft/network/play/server/S14PacketEntity$S15PacketEntityRelMove"));
+            mObInitMap.put(new Pair<>("dh", "net/minecraft/nbt/NBTTagCompound"));
+            mObInitMap.put(new Pair<>("awe", "net/minecraft/world/gen/structure/StructureVillagePieces$Road"));
             mObInitMap.put(new Pair<>("bdb", "net/minecraft/client/gui/GuiCreateWorld"));
             mObInitMap.put(new Pair<>("ly", "net/minecraft/server/gui/MinecraftServerGui"));
-            mObInitMap.put(
-                    new Pair<>("hz", "net/minecraft/network/play/server/S04PacketEntityEquipment"));
-            mObInitMap.put(new Pair<>(
-                    "asy", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Corridor"));
+            mObInitMap.put(new Pair<>("hz", "net/minecraft/network/play/server/S04PacketEntityEquipment"));
+            mObInitMap.put(new Pair<>("asy", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Corridor"));
             mObInitMap.put(new Pair<>("aoz", "net/minecraft/tileentity/TileEntityComparator"));
             mObInitMap.put(new Pair<>("awx", "net/minecraft/world/gen/layer/GenLayerDeepOcean"));
             mObInitMap.put(new Pair<>("bdu", "net/minecraft/client/gui/GuiDownloadTerrain"));
             mObInitMap.put(new Pair<>("bht", "net/minecraft/client/model/ModelOcelot"));
-            mObInitMap.put(new Pair<>(
-                    "bls", "net/minecraft/client/renderer/tileentity/TileEntityRendererChestHelper"));
+            mObInitMap.put(new Pair<>("bls", "net/minecraft/client/renderer/tileentity/TileEntityRendererChestHelper"));
             mObInitMap.put(new Pair<>("ap", "net/minecraft/command/CommandXP"));
             mObInitMap.put(new Pair<>("xu", "net/minecraft/entity/ai/EntityMinecartMobSpawner$1"));
             mObInitMap.put(new Pair<>("tv", "net/minecraft/entity/ai/EntityMoveHelper"));
             mObInitMap.put(new Pair<>("pw", "net/minecraft/util/HttpUtil$1"));
             mObInitMap.put(new Pair<>("lx", "net/minecraft/server/dedicated/DedicatedServer$4"));
             mObInitMap.put(new Pair<>("g", "net/minecraft/crash/CrashReport$5"));
-            mObInitMap.put(new Pair<>(
-                    "atm", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing2"));
+            mObInitMap.put(
+                    new Pair<>("atm", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing2"));
             mObInitMap.put(new Pair<>("apn", "net/minecraft/tileentity/TileEntitySkull"));
             mObInitMap.put(new Pair<>("alo", "net/minecraft/block/BlockHugeMushroom"));
             mObInitMap.put(new Pair<>("adq", "net/minecraft/item/EnumRarity"));
@@ -6506,21 +6375,16 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("uj", "net/minecraft/entity/ai/EntityAITasks"));
             mObInitMap.put(new Pair<>("qk", "net/minecraft/util/IProgressUpdate"));
             mObInitMap.put(new Pair<>("ml", "net/minecraft/world/demo/DemoWorldManager"));
-            mObInitMap.put(new Pair<>(
-                    "im", "net/minecraft/network/play/server/S20PacketEntityProperties$Snapshot"));
-            mObInitMap.put(new Pair<>(
-                    "en", "net/minecraft/network/NetworkManager$InboundHandlerTuplePacketListener"));
+            mObInitMap.put(new Pair<>("im", "net/minecraft/network/play/server/S20PacketEntityProperties$Snapshot"));
+            mObInitMap.put(new Pair<>("en", "net/minecraft/network/NetworkManager$InboundHandlerTuplePacketListener"));
             mObInitMap.put(new Pair<>("ao", "net/minecraft/command/CommandEnchant"));
             mObInitMap.put(new Pair<>("amc", "net/minecraft/block/BlockMushroom"));
             mObInitMap.put(new Pair<>("aee", "net/minecraft/item/ItemMonsterPlacer"));
             mObInitMap.put(new Pair<>("aaf", "net/minecraft/inventory/ContainerWorkbench"));
             mObInitMap.put(new Pair<>("aid", "net/minecraft/world/biome/BiomeGenHills"));
-            mObInitMap.put(new Pair<>(
-                    "aua", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$1"));
-            mObInitMap.put(new Pair<>(
-                    "bud", "net/minecraft/client/stream/BroadcastController$BroadcastListener"));
-            mObInitMap.put(
-                    new Pair<>("bqe", "net/minecraft/client/renderer/texture/TextureAtlasSprite$1"));
+            mObInitMap.put(new Pair<>("aua", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$1"));
+            mObInitMap.put(new Pair<>("bud", "net/minecraft/client/stream/BroadcastController$BroadcastListener"));
+            mObInitMap.put(new Pair<>("bqe", "net/minecraft/client/renderer/texture/TextureAtlasSprite$1"));
             mObInitMap.put(new Pair<>("beh", "net/minecraft/client/gui/achievement/GuiAchievement"));
             mObInitMap.put(new Pair<>("big", "net/minecraft/client/model/ModelSpider"));
             mObInitMap.put(new Pair<>("ja", "net/minecraft/network/play/client/C02PacketUseEntity"));
@@ -6534,16 +6398,13 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bqx", "net/minecraft/util/ResourceLocation"));
             mObInitMap.put(new Pair<>("biz", "net/minecraft/client/network/NetHandlerLoginClient"));
             mObInitMap.put(new Pair<>("bmy", "net/minecraft/client/renderer/culling/ClippingHelper"));
-            mObInitMap.put(
-                    new Pair<>("jt", "net/minecraft/network/login/server/S01PacketEncryptionRequest"));
+            mObInitMap.put(new Pair<>("jt", "net/minecraft/network/login/server/S01PacketEncryptionRequest"));
             mObInitMap.put(new Pair<>("fu", "net/minecraft/network/play/server/S08PacketPlayerPosLook"));
             mObInitMap.put(new Pair<>("bv", "net/minecraft/command/server/CommandTeleport"));
-            mObInitMap.put(new Pair<>(
-                    "net/minecraft/realms/RealmsConnect", "net/minecraft/realms/RealmsConnect"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsConnect", "net/minecraft/realms/RealmsConnect"));
             mObInitMap.put(new Pair<>("abm", "net/minecraft/item/ItemBow"));
             mObInitMap.put(new Pair<>("amu", "net/minecraft/block/BlockPressurePlate"));
-            mObInitMap.put(new Pair<>(
-                    "aus", "net/minecraft/world/gen/structure/StructureStrongholdPieces$PortalRoom"));
+            mObInitMap.put(new Pair<>("aus", "net/minecraft/world/gen/structure/StructureStrongholdPieces$PortalRoom"));
             mObInitMap.put(new Pair<>("ayr", "net/minecraft/world/storage/SaveFormatOld"));
             mObInitMap.put(new Pair<>("bbp", "net/minecraft/util/ScreenShotHelper"));
             mObInitMap.put(new Pair<>("bfo", "net/minecraft/client/renderer/InventoryEffectRenderer"));
@@ -6570,10 +6431,8 @@ public class DevHelper {
                     "kg", "net/minecraft/network/ServerStatusResponse$MinecraftProtocolVersionIdentifier$Serializer"));
             mObInitMap.put(new Pair<>("gh", "net/minecraft/network/play/server/S23PacketBlockChange"));
             mObInitMap.put(new Pair<>("ci", "net/minecraft/command/WrongUsageException"));
-            mObInitMap.put(
-                    new Pair<>("avz", "net/minecraft/world/gen/structure/StructureVillagePieces$House2"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/RealmsButton", "net/minecraft/realms/RealmsButton"));
+            mObInitMap.put(new Pair<>("avz", "net/minecraft/world/gen/structure/StructureVillagePieces$House2"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsButton", "net/minecraft/realms/RealmsButton"));
             mObInitMap.put(new Pair<>("bcc", "net/minecraft/client/gui/GuiNewChat"));
             mObInitMap.put(new Pair<>("bgb", "net/minecraft/client/gui/ServerListEntryLanDetected"));
             mObInitMap.put(new Pair<>("bka", "net/minecraft/client/particle/EntityExplodeFX"));
@@ -6583,12 +6442,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("kz", "net/minecraft/init/Bootstrap$8"));
             mObInitMap.put(new Pair<>("akq", "net/minecraft/block/BlockDropper"));
             mObInitMap.put(new Pair<>("acs", "net/minecraft/item/ItemFirework"));
-            mObInitMap.put(new Pair<>(
-                    "agr", "net/minecraft/tileentity/MobSpawnerBaseLogic$WeightedRandomMinecart"));
+            mObInitMap.put(new Pair<>("agr", "net/minecraft/tileentity/MobSpawnerBaseLogic$WeightedRandomMinecart"));
             mObInitMap.put(new Pair<>("bsr", "net/minecraft/client/audio/SoundList$SoundEntry$Type"));
             mObInitMap.put(new Pair<>("bos", "net/minecraft/client/renderer/entity/RenderSkeleton"));
-            mObInitMap.put(
-                    new Pair<>("avy", "net/minecraft/world/gen/structure/StructureVillagePieces$Church"));
+            mObInitMap.put(new Pair<>("avy", "net/minecraft/world/gen/structure/StructureVillagePieces$Church"));
             mObInitMap.put(new Pair<>("azx", "net/minecraft/scoreboard/ScoreObjective"));
             mObInitMap.put(new Pair<>("bcv", "net/minecraft/client/gui/GuiYesNoCallback"));
             mObInitMap.put(new Pair<>("bgu", "net/minecraft/client/main/Main$1$1"));
@@ -6601,15 +6458,13 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aoo", "net/minecraft/block/BlockWoodSlab"));
             mObInitMap.put(new Pair<>("bdj", "net/minecraft/client/gui/GuiLanguage"));
             mObInitMap.put(new Pair<>("bhi", "net/minecraft/client/model/ModelCow"));
-            mObInitMap.put(
-                    new Pair<>("blh", "net/minecraft/client/entity/AbstractClientPlayer$SwitchType"));
+            mObInitMap.put(new Pair<>("blh", "net/minecraft/client/entity/AbstractClientPlayer$SwitchType"));
             mObInitMap.put(new Pair<>("ae", "net/minecraft/command/server/CommandAchievement"));
             mObInitMap.put(new Pair<>("xj", "net/minecraft/entity/item/EntityFallingBlock"));
             mObInitMap.put(new Pair<>("tk", "net/minecraft/entity/ai/attributes/BaseAttribute"));
             mObInitMap.put(new Pair<>("pl", "net/minecraft/stats/StatBase$4"));
             mObInitMap.put(new Pair<>("lm", "net/minecraft/server/MinecraftServer$6"));
-            mObInitMap.put(new Pair<>(
-                    "atb", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Stairs"));
+            mObInitMap.put(new Pair<>("atb", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Stairs"));
             mObInitMap.put(new Pair<>("apc", "net/minecraft/tileentity/TileEntityDropper"));
             mObInitMap.put(new Pair<>("ald", "net/minecraft/block/BlockFlowerPot"));
             mObInitMap.put(new Pair<>("adf", "net/minecraft/item/ItemLead"));
@@ -6621,8 +6476,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ib", "net/minecraft/network/play/server/S06PacketUpdateHealth"));
             mObInitMap.put(new Pair<>("ec", "net/minecraft/nbt/JsonToNBT$Any"));
             mObInitMap.put(new Pair<>("ad", "net/minecraft/command/PlayerSelector"));
-            mObInitMap.put(new Pair<>(
-                    "atu", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing"));
+            mObInitMap.put(new Pair<>("atu", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Crossing"));
             mObInitMap.put(new Pair<>("apv", "net/minecraft/world/chunk/NibbleArray"));
             mObInitMap.put(new Pair<>("alw", "net/minecraft/block/BlockLiquid"));
             mObInitMap.put(new Pair<>("ady", "net/minecraft/item/ItemSpade"));
@@ -6639,16 +6493,13 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aan", "net/minecraft/inventory/ContainerHorseInventory$1"));
             mObInitMap.put(new Pair<>("ail", "net/minecraft/world/biome/BiomeGenMesa"));
             mObInitMap.put(new Pair<>("n", "net/minecraft/crash/CrashReportCategory$3"));
-            mObInitMap.put(
-                    new Pair<>("bul", "net/minecraft/client/stream/IngestServerTester$IngestTestState"));
+            mObInitMap.put(new Pair<>("bul", "net/minecraft/client/stream/IngestServerTester$IngestTestState"));
             mObInitMap.put(new Pair<>("bqm", "net/minecraft/client/renderer/texture/TextureCompass"));
             mObInitMap.put(new Pair<>("axs", "net/minecraft/world/gen/layer/GenLayerRemoveTooMuchOcean"));
             mObInitMap.put(new Pair<>("baq", "net/minecraft/client/Minecraft$10"));
-            mObInitMap.put(
-                    new Pair<>("bep", "net/minecraft/client/gui/achievement/GuiStats$StatsMobsList"));
+            mObInitMap.put(new Pair<>("bep", "net/minecraft/client/gui/achievement/GuiStats$StatsMobsList"));
             mObInitMap.put(new Pair<>("bio", "net/minecraft/client/model/ModelWolf"));
-            mObInitMap.put(
-                    new Pair<>("bmn", "net/minecraft/client/renderer/entity/RenderEnchantmentTable"));
+            mObInitMap.put(new Pair<>("bmn", "net/minecraft/client/renderer/entity/RenderEnchantmentTable"));
             mObInitMap.put(new Pair<>("nh", "net/minecraft/network/NetHandlerPlayServer"));
             mObInitMap.put(new Pair<>("ji", "net/minecraft/network/play/client/C07PacketPlayerDigging"));
             mObInitMap.put(new Pair<>("fj", "net/minecraft/util/IChatComponent"));
@@ -6699,16 +6550,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bck", "net/minecraft/client/gui/GuiOptionsRowList"));
             mObInitMap.put(new Pair<>("bgj", "net/minecraft/client/gui/GuiResourcePackAvailable"));
             mObInitMap.put(new Pair<>("bki", "net/minecraft/client/particle/EntityLargeExplodeFX"));
-            mObInitMap.put(
-                    new Pair<>("boh", "net/minecraft/client/renderer/entity/RendererLivingEntity"));
+            mObInitMap.put(new Pair<>("boh", "net/minecraft/client/renderer/entity/RendererLivingEntity"));
             mObInitMap.put(new Pair<>("lc", "net/minecraft/client/util/JsonException$1"));
             mObInitMap.put(new Pair<>("hd", "net/minecraft/network/play/server/S01PacketJoinGame"));
             mObInitMap.put(new Pair<>("de", "net/minecraft/util/StringTranslate"));
             mObInitMap.put(new Pair<>("wk", "net/minecraft/entity/passive/EntityHorse$GroupData"));
             mObInitMap.put(new Pair<>("asc", "net/minecraft/world/gen/feature/WorldGenMelon"));
             mObInitMap.put(new Pair<>("aod", "net/minecraft/block/BlockLeavesBase"));
-            mObInitMap.put(
-                    new Pair<>("awb", "net/minecraft/world/gen/structure/StructureVillagePieces$Path"));
+            mObInitMap.put(new Pair<>("awb", "net/minecraft/world/gen/structure/StructureVillagePieces$Path"));
             mObInitMap.put(new Pair<>("pa", "net/minecraft/network/rcon/RConThreadMain"));
             mObInitMap.put(new Pair<>("asv", "net/minecraft/world/gen/structure/StructureBoundingBox"));
             mObInitMap.put(new Pair<>("aow", "net/minecraft/tileentity/TileEntityChest"));
@@ -6722,11 +6571,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("xr", "net/minecraft/entity/item/EntityMinecartHopper"));
             mObInitMap.put(new Pair<>("pt", "net/minecraft/util/CryptManager"));
             mObInitMap.put(new Pair<>("lu", "net/minecraft/server/dedicated/DedicatedServer$1"));
-            mObInitMap.put(
-                    new Pair<>("hv", "net/minecraft/network/play/server/S3DPacketDisplayScoreboard"));
+            mObInitMap.put(new Pair<>("hv", "net/minecraft/network/play/server/S3DPacketDisplayScoreboard"));
             mObInitMap.put(new Pair<>("dw", "net/minecraft/nbt/NBTTagShort"));
-            mObInitMap.put(new Pair<>(
-                    "atj", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor3"));
+            mObInitMap.put(
+                    new Pair<>("atj", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor3"));
             mObInitMap.put(new Pair<>("apk", "net/minecraft/tileentity/TileEntityMobSpawner$1"));
             mObInitMap.put(new Pair<>("all", "net/minecraft/block/BlockHardenedClay"));
             mObInitMap.put(new Pair<>("adn", "net/minecraft/item/ItemPickaxe"));
@@ -6763,13 +6611,11 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aqq", "net/minecraft/world/WorldProviderSurface"));
             mObInitMap.put(new Pair<>("amr", "net/minecraft/block/BlockPotato"));
             mObInitMap.put(new Pair<>("ais", "net/minecraft/world/biome/BiomeGenSavanna"));
-            mObInitMap.put(new Pair<>(
-                    "aup", "net/minecraft/world/gen/structure/StructureStrongholdPieces$LeftTurn"));
+            mObInitMap.put(new Pair<>("aup", "net/minecraft/world/gen/structure/StructureStrongholdPieces$LeftTurn"));
             mObInitMap.put(new Pair<>("ayo", "net/minecraft/world/chunk/storage/AnvilSaveConverter$1"));
             mObInitMap.put(new Pair<>("bbm", "net/minecraft/client/settings/GameSettings$Options"));
             mObInitMap.put(new Pair<>("bus", "net/minecraft/realms/RealmsConnect$1"));
-            mObInitMap.put(
-                    new Pair<>("bqt", "net/minecraft/client/resources/FoliageColorReloadListener"));
+            mObInitMap.put(new Pair<>("bqt", "net/minecraft/client/resources/FoliageColorReloadListener"));
             mObInitMap.put(new Pair<>("zl", "net/minecraft/entity/projectile/EntityEgg"));
             mObInitMap.put(new Pair<>("vm", "net/minecraft/entity/ai/EntityAIDefendVillage"));
             mObInitMap.put(new Pair<>("rn", "net/minecraft/util/CombatTracker"));
@@ -6782,19 +6628,17 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("abi", "net/minecraft/item/ItemReed"));
             mObInitMap.put(new Pair<>("afh", "net/minecraft/item/crafting/ShapedRecipes"));
             mObInitMap.put(new Pair<>("ajg", "net/minecraft/block/BlockBeacon"));
-            mObInitMap.put(new Pair<>(
-                    "avd", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stronghold$Door"));
+            mObInitMap.put(
+                    new Pair<>("avd", "net/minecraft/world/gen/structure/StructureStrongholdPieces$Stronghold$Door"));
             mObInitMap.put(new Pair<>("azc", "net/minecraft/world/storage/ISaveHandler"));
-            mObInitMap.put(new Pair<>(
-                    "brh", "net/minecraft/client/resources/SimpleReloadableResourceManager$1"));
+            mObInitMap.put(new Pair<>("brh", "net/minecraft/client/resources/SimpleReloadableResourceManager$1"));
             mObInitMap.put(new Pair<>("bfk", "net/minecraft/client/gui/inventory/CreativeCrafting"));
             mObInitMap.put(new Pair<>("bjj", "net/minecraft/client/multiplayer/WorldClient$4"));
             mObInitMap.put(new Pair<>("bni", "net/minecraft/client/renderer/entity/RenderCreeper"));
             mObInitMap.put(new Pair<>("wa", "net/minecraft/village/Village$VillageAgressor"));
             mObInitMap.put(new Pair<>("sb", "net/minecraft/entity/Entity$1"));
             mObInitMap.put(new Pair<>("oc", "net/minecraft/server/management/PreYggdrasilConverter$3"));
-            mObInitMap.put(new Pair<>(
-                    "kd", "net/minecraft/network/ServerStatusResponse$PlayerCountData$Serializer"));
+            mObInitMap.put(new Pair<>("kd", "net/minecraft/network/ServerStatusResponse$PlayerCountData$Serializer"));
             mObInitMap.put(new Pair<>("ge", "net/minecraft/network/play/server/S25PacketBlockBreakAnim"));
             mObInitMap.put(new Pair<>("cf", "net/minecraft/command/SyntaxErrorException"));
             mObInitMap.put(new Pair<>("any", "net/minecraft/block/BlockStoneSlab"));
@@ -6808,12 +6652,10 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("bop", "net/minecraft/client/renderer/entity/RenderPlayer"));
             mObInitMap.put(new Pair<>("arw", "net/minecraft/world/gen/feature/WorldGenIceSpike"));
             mObInitMap.put(new Pair<>("anx", "net/minecraft/block/BlockButtonStone"));
-            mObInitMap.put(
-                    new Pair<>("avv", "net/minecraft/world/gen/structure/StructureVillagePieces$Hall"));
+            mObInitMap.put(new Pair<>("avv", "net/minecraft/world/gen/structure/StructureVillagePieces$Hall"));
             mObInitMap.put(new Pair<>("azu", "net/minecraft/util/MovingObjectPosition"));
             mObInitMap.put(new Pair<>("bcs", "net/minecraft/client/gui/ScreenChatOptions"));
-            mObInitMap.put(
-                    new Pair<>("bgr", "net/minecraft/client/gui/stream/GuiStreamUnavailable$Reason"));
+            mObInitMap.put(new Pair<>("bgr", "net/minecraft/client/gui/stream/GuiStreamUnavailable$Reason"));
             mObInitMap.put(new Pair<>("bkq", "net/minecraft/client/particle/EffectRenderer$3"));
             mObInitMap.put(new Pair<>("dm", "net/minecraft/nbt/NBTTagFloat"));
             mObInitMap.put(new Pair<>("ws", "net/minecraft/entity/passive/EntitySquid"));
@@ -6832,8 +6674,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("th", "net/minecraft/entity/ai/attributes/IAttribute"));
             mObInitMap.put(new Pair<>("pi", "net/minecraft/stats/StatBase$1"));
             mObInitMap.put(new Pair<>("lj", "net/minecraft/server/MinecraftServer$3"));
-            mObInitMap.put(
-                    new Pair<>("hk", "net/minecraft/network/play/server/S39PacketPlayerAbilities"));
+            mObInitMap.put(new Pair<>("hk", "net/minecraft/network/play/server/S39PacketPlayerAbilities"));
             mObInitMap.put(new Pair<>("dl", "net/minecraft/nbt/NBTTagEnd"));
             mObInitMap.put(new Pair<>("ala", "net/minecraft/block/BlockFenceGate"));
             mObInitMap.put(new Pair<>("adc", "net/minecraft/item/Item$ToolMaterial"));
@@ -6861,16 +6702,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aej", "net/minecraft/item/ItemLilyPad"));
             mObInitMap.put(new Pair<>("aak", "net/minecraft/inventory/SlotFurnace"));
             mObInitMap.put(new Pair<>("k", "net/minecraft/crash/CrashReportCategory"));
-            mObInitMap.put(new Pair<>(
-                    "atq", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$NetherStalkRoom"));
+            mObInitMap.put(
+                    new Pair<>("atq", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$NetherStalkRoom"));
             mObInitMap.put(new Pair<>("apr", "net/minecraft/block/BlockPistonMoving"));
             mObInitMap.put(new Pair<>("axp", "net/minecraft/world/gen/layer/GenLayer$2"));
             mObInitMap.put(new Pair<>("ban", "net/minecraft/client/renderer/GLAllocation"));
-            mObInitMap.put(
-                    new Pair<>("bem", "net/minecraft/client/gui/achievement/GuiStats$StatsGeneral"));
+            mObInitMap.put(new Pair<>("bem", "net/minecraft/client/gui/achievement/GuiStats$StatsGeneral"));
             mObInitMap.put(new Pair<>("bil", "net/minecraft/client/model/ModelZombieVillager"));
-            mObInitMap.put(new Pair<>(
-                    "bmk", "net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher"));
+            mObInitMap.put(new Pair<>("bmk", "net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher"));
             mObInitMap.put(new Pair<>("bh", "net/minecraft/command/server/CommandSaveAll"));
             mObInitMap.put(new Pair<>("ym", "net/minecraft/entity/monster/EntitySlime"));
             mObInitMap.put(new Pair<>("un", "net/minecraft/entity/ai/EntityAIWatchClosest"));
@@ -6879,20 +6718,19 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("amg", "net/minecraft/block/BlockNetherrack"));
             mObInitMap.put(new Pair<>("aei", "net/minecraft/item/EnumAction"));
             mObInitMap.put(new Pair<>("aih", "net/minecraft/world/biome/BiomeGenForest$2"));
-            mObInitMap.put(new Pair<>(
-                    "aue", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$Feature"));
+            mObInitMap.put(
+                    new Pair<>("aue", "net/minecraft/world/gen/structure/ComponentScatteredFeaturePieces$Feature"));
             mObInitMap.put(new Pair<>("ayd", "net/minecraft/pathfinding/Path"));
             mObInitMap.put(new Pair<>("bbb", "net/minecraft/client/Minecraft$5"));
-            mObInitMap.put(
-                    new Pair<>("bfa", "net/minecraft/client/gui/inventory/GuiBeacon$CancelButton"));
+            mObInitMap.put(new Pair<>("bfa", "net/minecraft/client/gui/inventory/GuiBeacon$CancelButton"));
             mObInitMap.put(new Pair<>("buh", "net/minecraft/client/stream/ChatController$ChatListener"));
             mObInitMap.put(new Pair<>("bqi", "net/minecraft/client/renderer/texture/TextureUtil"));
             mObInitMap.put(new Pair<>("za", "net/minecraft/entity/player/EntityPlayer$EnumStatus"));
             mObInitMap.put(new Pair<>("vb", "net/minecraft/entity/ai/EntityAILookIdle"));
             mObInitMap.put(new Pair<>("rc", "net/minecraft/inventory/IInvBasic"));
             mObInitMap.put(new Pair<>("nd", "net/minecraft/network/NetworkSystem$1"));
-            mObInitMap.put(new Pair<>(
-                    "je", "net/minecraft/network/play/client/C03PacketPlayer$C04PacketPlayerPosition"));
+            mObInitMap.put(
+                    new Pair<>("je", "net/minecraft/network/play/client/C03PacketPlayer$C04PacketPlayerPosition"));
             mObInitMap.put(new Pair<>("ff", "net/minecraft/util/ChatComponentStyle$1"));
             mObInitMap.put(new Pair<>("aqy", "net/minecraft/world/gen/MapGenCavesHell"));
             mObInitMap.put(new Pair<>("amz", "net/minecraft/block/BlockRedstoneOre"));
@@ -6900,12 +6738,9 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("zt", "net/minecraft/inventory/AnimalChest"));
             mObInitMap.put(new Pair<>("vu", "net/minecraft/entity/ai/EntityAITarget"));
             mObInitMap.put(new Pair<>("rv", "net/minecraft/potion/Potion"));
-            mObInitMap.put(
-                    new Pair<>("nw", "net/minecraft/server/management/PlayerProfileCache$Serializer"));
-            mObInitMap.put(
-                    new Pair<>("jx", "net/minecraft/network/login/client/C01PacketEncryptionResponse"));
-            mObInitMap.put(
-                    new Pair<>("fy", "net/minecraft/network/play/server/S2CPacketSpawnGlobalEntity"));
+            mObInitMap.put(new Pair<>("nw", "net/minecraft/server/management/PlayerProfileCache$Serializer"));
+            mObInitMap.put(new Pair<>("jx", "net/minecraft/network/login/client/C01PacketEncryptionResponse"));
+            mObInitMap.put(new Pair<>("fy", "net/minecraft/network/play/server/S2CPacketSpawnGlobalEntity"));
             mObInitMap.put(new Pair<>("bz", "net/minecraft/command/CommandTime"));
             mObInitMap.put(new Pair<>("ann", "net/minecraft/block/BlockSnow"));
             mObInitMap.put(new Pair<>("abq", "net/minecraft/item/ItemCoal"));
@@ -6938,8 +6773,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("agc", "net/minecraft/enchantment/EnchantmentData"));
             mObInitMap.put(new Pair<>("bsc", "net/minecraft/client/resources/data/FontMetadataSection"));
             mObInitMap.put(new Pair<>("bod", "net/minecraft/client/renderer/entity/RenderSnowball"));
-            mObInitMap.put(
-                    new Pair<>("net/minecraft/realms/RealmsBridge", "net/minecraft/realms/RealmsBridge"));
+            mObInitMap.put(new Pair<>("net/minecraft/realms/RealmsBridge", "net/minecraft/realms/RealmsBridge"));
             mObInitMap.put(new Pair<>("da", "net/minecraft/util/RegistrySimple"));
             mObInitMap.put(new Pair<>("ass", "net/minecraft/world/gen/FlatGeneratorInfo"));
             mObInitMap.put(new Pair<>("aot", "net/minecraft/tileentity/TileEntity$2"));
@@ -6969,8 +6803,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("eh", "net/minecraft/network/NettyEncryptingDecoder"));
             mObInitMap.put(new Pair<>("ai", "net/minecraft/command/CommandClearInventory"));
             mObInitMap.put(new Pair<>("xn", "net/minecraft/entity/EntityMinecartCommandBlock"));
-            mObInitMap.put(
-                    new Pair<>("atf", "net/minecraft/world/gen/structure/StructureNetherBridgePieces"));
+            mObInitMap.put(new Pair<>("atf", "net/minecraft/world/gen/structure/StructureNetherBridgePieces"));
             mObInitMap.put(new Pair<>("apg", "net/minecraft/tileentity/TileEntityFurnace"));
             mObInitMap.put(new Pair<>("axe", "net/minecraft/world/gen/layer/GenLayerBiomeEdge"));
             mObInitMap.put(new Pair<>("bac", "net/minecraft/scoreboard/Scoreboard"));
@@ -6983,8 +6816,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>(
                     "net/minecraft/client/ClientBrandRetriever", "net/minecraft/client/ClientBrandRetriever"));
             mObInitMap.put(new Pair<>("apz", "net/minecraft/world/chunk/storage/ExtendedBlockStorage"));
-            mObInitMap.put(
-                    new Pair<>("aty", "net/minecraft/world/gen/structure/MapGenScatteredFeature$Start"));
+            mObInitMap.put(new Pair<>("aty", "net/minecraft/world/gen/structure/MapGenScatteredFeature$Start"));
             mObInitMap.put(new Pair<>("axx", "net/minecraft/world/gen/layer/GenLayerSmooth"));
             mObInitMap.put(new Pair<>("bav", "net/minecraft/client/Minecraft$15"));
             mObInitMap.put(new Pair<>("beu", "net/minecraft/client/gui/GuiKeyBindingList$CategoryEntry"));
@@ -6996,21 +6828,19 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("ez", "net/minecraft/util/MessageDeserializer"));
             mObInitMap.put(new Pair<>("amo", "net/minecraft/block/BlockPackedIce"));
             mObInitMap.put(new Pair<>("aip", "net/minecraft/world/biome/BiomeGenPlains"));
-            mObInitMap.put(new Pair<>(
-                    "aum", "net/minecraft/world/gen/structure/StructureStrongholdPieces$ChestCorridor"));
+            mObInitMap.put(
+                    new Pair<>("aum", "net/minecraft/world/gen/structure/StructureStrongholdPieces$ChestCorridor"));
             mObInitMap.put(new Pair<>("ayl", "net/minecraft/world/WorldSavedData"));
             mObInitMap.put(new Pair<>("bup", "net/minecraft/client/stream/TwitchStream$1"));
             mObInitMap.put(new Pair<>("bqq", "net/minecraft/client/resources/FallbackResourceManager"));
             mObInitMap.put(new Pair<>("bet", "net/minecraft/client/gui/GuiKeyBindingList$1"));
             mObInitMap.put(new Pair<>("bis", "net/minecraft/client/model/ModelBox"));
-            mObInitMap.put(
-                    new Pair<>("bmr", "net/minecraft/client/renderer/tileentity/TileEntitySignRenderer"));
+            mObInitMap.put(new Pair<>("bmr", "net/minecraft/client/renderer/tileentity/TileEntitySignRenderer"));
             mObInitMap.put(new Pair<>("zi", "net/minecraft/entity/projectile/EntitySmallFireball"));
             mObInitMap.put(new Pair<>("vj", "net/minecraft/entity/ai/EntityAIFollowGolem"));
             mObInitMap.put(new Pair<>("rk", "net/minecraft/profiler/IPlayerUsage"));
             mObInitMap.put(new Pair<>("nl", "net/minecraft/server/network/NetHandlerHandshakeTCP"));
-            mObInitMap.put(new Pair<>(
-                    "jm", "net/minecraft/network/play/client/C10PacketCreativeInventoryAction"));
+            mObInitMap.put(new Pair<>("jm", "net/minecraft/network/play/client/C10PacketCreativeInventoryAction"));
             mObInitMap.put(new Pair<>("fn", "net/minecraft/util/ChatStyle"));
             mObInitMap.put(new Pair<>("bo", "net/minecraft/command/CommandSetPlayerTimeout"));
             mObInitMap.put(new Pair<>("anc", "net/minecraft/block/BlockRedstoneTorch"));
@@ -7029,15 +6859,13 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("aby", "net/minecraft/creativetab/CreativeTabs$2"));
             mObInitMap.put(new Pair<>("ara", "net/minecraft/world/gen/ChunkProviderEnd"));
             mObInitMap.put(new Pair<>("anb", "net/minecraft/block/BlockRedstoneLight"));
-            mObInitMap.put(
-                    new Pair<>("bjz", "net/minecraft/client/particle/EntityEnchantmentTableParticleFX"));
+            mObInitMap.put(new Pair<>("bjz", "net/minecraft/client/particle/EntityEnchantmentTableParticleFX"));
             mObInitMap.put(new Pair<>("bny", "net/minecraft/client/renderer/entity/RenderItem"));
             mObInitMap.put(new Pair<>("cv", "net/minecraft/dispenser/ILocation"));
             mObInitMap.put(new Pair<>("anu", "net/minecraft/block/BlockStem"));
             mObInitMap.put(new Pair<>("afw", "net/minecraft/enchantment/EnchantmentHelper$1"));
             mObInitMap.put(new Pair<>("ajv", "net/minecraft/block/BlockCarrot"));
-            mObInitMap.put(
-                    new Pair<>("avs", "net/minecraft/world/gen/structure/StructureVillagePieces$Field2"));
+            mObInitMap.put(new Pair<>("avs", "net/minecraft/world/gen/structure/StructureVillagePieces$Field2"));
             mObInitMap.put(new Pair<>("azr", "net/minecraft/world/storage/ThreadedFileIOBase"));
             mObInitMap.put(new Pair<>("bcp", "net/minecraft/client/gui/GuiButtonRealmsProxy"));
             mObInitMap.put(new Pair<>("brw", "net/minecraft/client/resources/data/IMetadataSerializer"));
@@ -7055,15 +6883,14 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("agk", "net/minecraft/enchantment/EnchantmentUntouching"));
             mObInitMap.put(new Pair<>("bsk", "net/minecraft/client/audio/PositionedSound"));
             mObInitMap.put(new Pair<>("bol", "net/minecraft/client/renderer/entity/RenderMooshroom"));
-            mObInitMap.put(
-                    new Pair<>("bgn", "net/minecraft/client/gui/stream/GuiIngestServers$ServerList"));
+            mObInitMap.put(new Pair<>("bgn", "net/minecraft/client/gui/stream/GuiIngestServers$ServerList"));
             mObInitMap.put(new Pair<>("bkm", "net/minecraft/client/particle/EntityFX"));
             mObInitMap.put(new Pair<>("xd", "net/minecraft/entity/boss/EntityWither$1"));
             mObInitMap.put(new Pair<>("te", "net/minecraft/entity/DataWatcher"));
             mObInitMap.put(new Pair<>("pf", "net/minecraft/stats/StatCrafting"));
             mObInitMap.put(new Pair<>("lg", "net/minecraft/server/ServerEula"));
-            mObInitMap.put(new Pair<>(
-                    "hh", "net/minecraft/network/play/server/S14PacketEntity$S17PacketEntityLookMove"));
+            mObInitMap.put(
+                    new Pair<>("hh", "net/minecraft/network/play/server/S14PacketEntity$S17PacketEntityLookMove"));
             mObInitMap.put(new Pair<>("di", "net/minecraft/nbt/NBTTagCompound$1"));
             mObInitMap.put(new Pair<>("bdc", "net/minecraft/client/gui/GuiGameOver"));
             mObInitMap.put(new Pair<>("bla", "net/minecraft/client/particle/EntityAuraFX"));
@@ -7071,8 +6898,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("lz", "net/minecraft/server/gui/MinecraftServerGui$1"));
             mObInitMap.put(new Pair<>("ads", "net/minecraft/item/ItemRedstone"));
             mObInitMap.put(new Pair<>("bps", "net/minecraft/client/renderer/ThreadDownloadImageData$1"));
-            mObInitMap.put(new Pair<>(
-                    "asz", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Cross"));
+            mObInitMap.put(new Pair<>("asz", "net/minecraft/world/gen/structure/StructureMineshaftPieces$Cross"));
             mObInitMap.put(new Pair<>("awy", "net/minecraft/world/gen/layer/GenLayerEdge"));
             mObInitMap.put(new Pair<>("bdv", "net/minecraft/client/gui/GuiRenameWorld"));
             mObInitMap.put(new Pair<>("bhu", "net/minecraft/client/model/ModelPig"));
@@ -7083,8 +6909,7 @@ public class DevHelper {
             mObInitMap.put(new Pair<>("tw", "net/minecraft/entity/ai/EntityAIAvoidEntity"));
             mObInitMap.put(new Pair<>("px", "net/minecraft/util/HttpUtil$DownloadListener"));
             mObInitMap.put(new Pair<>("h", "net/minecraft/crash/CrashReport$6"));
-            mObInitMap.put(new Pair<>(
-                    "atn", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor"));
+            mObInitMap.put(new Pair<>("atn", "net/minecraft/world/gen/structure/StructureNetherBridgePieces$Corridor"));
             mObInitMap.put(new Pair<>("apo", "net/minecraft/tileentity/TileEntityEndPortal"));
             mObInitMap.put(new Pair<>("alp", "net/minecraft/block/BlockIce"));
             mObInitMap.put(new Pair<>("adr", "net/minecraft/item/ItemRecord"));

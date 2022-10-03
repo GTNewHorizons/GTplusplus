@@ -201,8 +201,7 @@ public class WorldGen_Australia_Ores {
     		ORES.AGARDITE_LA,
     		ORES.AGARDITE_CD);*/
 
-    public static final Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins =
-            new Hashtable<>(1024);
+    public static final Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins = new Hashtable<>(1024);
 
     public static volatile BoxedQuad<Integer, Integer, Integer, Integer> OreVein1 =
             new BoxedQuad<>(null, null, null, null);

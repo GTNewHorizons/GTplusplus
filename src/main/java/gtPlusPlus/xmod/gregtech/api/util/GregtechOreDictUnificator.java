@@ -27,8 +27,7 @@ public class GregtechOreDictUnificator {
 
     private static final Map<String, ItemStack> sName2StackMap = new HashMap<>();
     private static final Map<GT_ItemStack, ItemData> sItemStack2DataMap = new HashMap<>();
-    private static final Map<GT_ItemStack, List<ItemStack>> sUnificationTable =
-            new HashMap<>();
+    private static final Map<GT_ItemStack, List<ItemStack>> sUnificationTable = new HashMap<>();
     private static final GT_HashSet<GT_ItemStack> sNoUnificationList = new GT_HashSet<>();
 
     private static int isRegisteringOre = 0, isAddingOre = 0;

@@ -222,8 +222,8 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
                 aStringLeft = aTexPathBuilt + aStringLeft;
                 aStringRight = aTexPathBuilt + aStringRight;
                 // Convenience Blob
-                CubicObject<String> aMetaBlob = new CubicObject<>(
-                        aStringBot, aStringTop, aStringBack, aStringFront, aStringLeft, aStringRight);
+                CubicObject<String> aMetaBlob =
+                        new CubicObject<>(aStringBot, aStringTop, aStringBack, aStringFront, aStringLeft, aStringRight);
                 mSidedTexturePathArray.put(aMetaBlob);
                 Logger.INFO("[TeTexture] Added Texture Path data to map for meta " + i);
             }

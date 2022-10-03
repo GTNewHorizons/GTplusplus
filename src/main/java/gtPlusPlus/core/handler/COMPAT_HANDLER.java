@@ -263,11 +263,9 @@ public class COMPAT_HANDLER {
     }
 
     public static final AutoMap<RunnableWithInfo<String>> mRecipesToGenerate = new AutoMap<>();
-    public static final AutoMap<RunnableWithInfo<String>> mGtRecipesToGenerate =
-            new AutoMap<>();
+    public static final AutoMap<RunnableWithInfo<String>> mGtRecipesToGenerate = new AutoMap<>();
 
-    public static final AutoMap<RunnableWithInfo<String>> mObjectsToRunInPostInit =
-            new AutoMap<>();
+    public static final AutoMap<RunnableWithInfo<String>> mObjectsToRunInPostInit = new AutoMap<>();
     public static final AutoMap<ItemPackage> mObjectsToRunInOnLoadComplete = new AutoMap<>();
 
     public static void runQueuedRecipes() {

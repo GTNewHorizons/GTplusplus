@@ -37,10 +37,7 @@ public class BaseItemFood extends ItemFood {
         for (PotionEffect effect : this.effects) {
             if (!world.isRemote && (effect != null) && (effect.getPotionID() > 0)) {
                 player.addPotionEffect(new PotionEffect(
-                        effect.getPotionID(),
-                        effect.getDuration(),
-                        effect.getAmplifier(),
-                        effect.getIsAmbient()));
+                        effect.getPotionID(), effect.getDuration(), effect.getAmplifier(), effect.getIsAmbient()));
             }
         }
     }

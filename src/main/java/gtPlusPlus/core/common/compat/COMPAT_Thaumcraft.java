@@ -14,7 +14,7 @@ public class COMPAT_Thaumcraft {
         }
     }
 
-    private static final void run() {
+    private static void run() {
 
         for (int i = 0; i <= 6; i++) {
             // Utils.LOG_INFO(""+i);

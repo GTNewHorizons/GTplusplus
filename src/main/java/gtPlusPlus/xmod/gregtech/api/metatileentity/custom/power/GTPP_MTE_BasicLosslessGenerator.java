@@ -10,7 +10,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import java.util.Collection;
-import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

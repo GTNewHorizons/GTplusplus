@@ -26,7 +26,7 @@ public class FishTrapHandler {
         }
     }
 
-    private static final Object setFishTrapRegistry() {
+    private static Object setFishTrapRegistry() {
         Class mFishingRegistryClass;
         try {
             mFishingRegistryClass = ReflectionUtils.getClass("growthcraft.api.fishtrap.FishTrapRegistry");

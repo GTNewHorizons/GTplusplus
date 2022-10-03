@@ -33,9 +33,12 @@ public class RECIPE_IC2 {
     public static ItemStack block_T3 = GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.VibrantAlloy, 1L);
     public static ItemStack block_T4 = GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Iridium, 1L);
 
-    public static final ItemStack shaft_block_T1 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.EnergeticAlloy, 1L);
-    public static final ItemStack shaft_block_T2 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.TungstenSteel, 1L);
-    public static final ItemStack shaft_block_T3 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.VibrantAlloy, 1L);
+    public static final ItemStack shaft_block_T1 =
+            GT_OreDictUnificator.get(OrePrefixes.block, Materials.EnergeticAlloy, 1L);
+    public static final ItemStack shaft_block_T2 =
+            GT_OreDictUnificator.get(OrePrefixes.block, Materials.TungstenSteel, 1L);
+    public static final ItemStack shaft_block_T3 =
+            GT_OreDictUnificator.get(OrePrefixes.block, Materials.VibrantAlloy, 1L);
     public static final ItemStack shaft_block_T4 = GT_OreDictUnificator.get(OrePrefixes.block, Materials.Iridium, 1L);
 
     public static String ingot_T1 = "ingotEnergeticAlloy";
@@ -48,10 +51,14 @@ public class RECIPE_IC2 {
     public static final String ring_T3 = "ringChrome";
     public static final String ring_T4 = "ringOsmiridium";
 
-    private static final ItemStack rotor_blade_T1 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_1.getItem());
-    private static final ItemStack rotor_blade_T2 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_2.getItem());
-    private static final ItemStack rotor_blade_T3 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_3.getItem());
-    private static final ItemStack rotor_blade_T4 = ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_4.getItem());
+    private static final ItemStack rotor_blade_T1 =
+            ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_1.getItem());
+    private static final ItemStack rotor_blade_T2 =
+            ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_2.getItem());
+    private static final ItemStack rotor_blade_T3 =
+            ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_3.getItem());
+    private static final ItemStack rotor_blade_T4 =
+            ItemUtils.getSimpleStack(IC2_Items.rotor_Blade_Material_4.getItem());
 
     private static final ItemStack shaft_T1 = ItemUtils.getSimpleStack(IC2_Items.shaft_Material_1.getItem());
     private static final ItemStack shaft_T2 = ItemUtils.getSimpleStack(IC2_Items.shaft_Material_2.getItem());
@@ -201,11 +208,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                        'P',
+                    'P',
                     ItemList.Shape_Extruder_Rod,
-                        'X',
+                    'X',
                     OrePrefixes.plate.get(Materials.DarkSteel),
-                        'S',
+                    'S',
                     OrePrefixes.screw.get(Materials.DarkSteel)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -217,11 +224,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                        'P',
+                    'P',
                     ItemList.Shape_Extruder_Rod,
-                        'X',
+                    'X',
                     OrePrefixes.plate.get(Materials.TungstenSteel),
-                        'S',
+                    'S',
                     OrePrefixes.screw.get(Materials.TungstenSteel)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -233,11 +240,11 @@ public class RECIPE_IC2 {
                     "hXS",
                     "XPX",
                     "fXd",
-                        'P',
+                    'P',
                     ItemList.Shape_Extruder_Rod,
-                        'X',
+                    'X',
                     OrePrefixes.plate.get(Materials.Molybdenum),
-                        'S',
+                    'S',
                     OrePrefixes.screw.get(Materials.Molybdenum)
                 });
         Logger.INFO("Added recipe item for GT5 Extruder: Shaft Shape");

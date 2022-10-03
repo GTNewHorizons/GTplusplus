@@ -4,7 +4,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableOldGTcircuits;
 
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.EmptyRecipeMap;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;

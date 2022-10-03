@@ -43,8 +43,8 @@ public class RECIPEHANDLER_MatterFabricator {
         Logger.WARNING("aFluidInput:" + aFluidInput.toString() + " aFluidOutput:" + aFluidOutput.toString()
                 + " aDuration:" + aDuration + " aEU/t:" + aEUt);
         Logger.WARNING("Passed.");
-        Logger.WARNING("aFluidInput:" + aFluidInput + " aFluidOutput:" + aFluidOutput
-                + " aDuration:" + aDuration + " aEU/t:" + aEUt);
+        Logger.WARNING("aFluidInput:" + aFluidInput + " aFluidOutput:" + aFluidOutput + " aDuration:" + aDuration
+                + " aEU/t:" + aEUt);
     }
 
     public static void debug5(

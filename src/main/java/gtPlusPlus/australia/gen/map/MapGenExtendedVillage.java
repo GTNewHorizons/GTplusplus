@@ -193,7 +193,7 @@ public class MapGenExtendedVillage extends MapGenStructure {
 
             if (structurestart.isSizeableStructure()
                     && (structurestart.getBoundingBox().intersectsWith(k, l, k + 15, l + 15)
-                    || structurestart.getBoundingBox().intersectsWith(k, l, k - 15, l - 15))) {
+                            || structurestart.getBoundingBox().intersectsWith(k, l, k - 15, l - 15))) {
                 Logger.INFO("Iterating. 2");
                 structurestart.generateStructure(
                         p_75051_1_, p_75051_2_, new StructureBoundingBox(k, l, k + 15, l + 15));

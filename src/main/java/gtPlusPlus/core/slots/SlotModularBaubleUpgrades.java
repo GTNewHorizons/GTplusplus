@@ -6,7 +6,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.BT;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.Modifiers;
-import java.util.Iterator;
 import java.util.Map.Entry;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

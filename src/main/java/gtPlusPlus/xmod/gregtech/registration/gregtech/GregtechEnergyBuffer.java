@@ -87,11 +87,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_ULV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Lead),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -103,11 +103,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_LV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Tin),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -119,11 +119,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_MV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.AnyCopper),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -135,11 +135,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_HV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Gold),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -151,11 +151,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_EV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Aluminium),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -167,11 +167,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_IV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Tungsten),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -183,11 +183,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_LuV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Osmium),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -199,11 +199,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_ZPM,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Osmium),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -215,11 +215,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_UV,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Osmium),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -231,11 +231,11 @@ public class GregtechEnergyBuffer {
                 new Object[] {
                     "WTW",
                     "WMW",
-                        'M',
+                    'M',
                     ItemList.Hull_MAX,
-                        'W',
+                    'W',
                     OrePrefixes.wireGt08.get(Materials.Superconductor),
-                        'T',
+                    'T',
                     GregtechOreDictNames.buffer_core
                 });
         /*GT_ModHandler.addCraftingRecipe(

@@ -28,12 +28,9 @@ import org.apache.commons.lang3.ArrayUtils;
 public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMultiBase<T>>
         extends GregtechMeta_MultiBlockBase<T> {
 
-    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusInput> mSteamInputs =
-            new ArrayList<>();
-    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusOutput> mSteamOutputs =
-            new ArrayList<>();
-    public final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mSteamInputFluids =
-            new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusInput> mSteamInputs = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_Steam_BusOutput> mSteamOutputs = new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mSteamInputFluids = new ArrayList<>();
 
     protected static final String TT_steaminputbus = StatCollector.translateToLocal("GTPP.MBTT.SteamInputBus");
     protected static final String TT_steamoutputbus = StatCollector.translateToLocal("GTPP.MBTT.SteamOutputBus");
@@ -416,8 +413,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
 
             // A map to hold the items we will be 'inputting' into the output buses. These itemstacks are actually the
             // recipe outputs.
-            ConcurrentSet<FlexiblePair<ItemStack, Integer>> aInputMap =
-                    new ConcurrentHashSet<>();
+            ConcurrentSet<FlexiblePair<ItemStack, Integer>> aInputMap = new ConcurrentHashSet<>();
 
             // Iterate over the outputs, calculating require stack spacing they will require.
             for (int i = 0; i < getOutputCount(aOutputs); i++) {
@@ -479,8 +475,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                                     // Update the stack size in the bus storage map.
                                     y.setValue(64);
                                     // Create a new object to iterate over later, with the remainder data;
-                                    FlexiblePair<ItemStack, Integer> t =
-                                            new FlexiblePair<>(u.getKey(), aRemainder);
+                                    FlexiblePair<ItemStack, Integer> t = new FlexiblePair<>(u.getKey(), aRemainder);
                                     // Remove the 'input' stack from the recipe outputs, so we don't try count it again.
                                     aInputMap.remove(u);
                                     // Add the remainder stack.
@@ -527,8 +522,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
             int aEmptyFluidHatches = 0;
             int aFullFluidHatches = 0;
             // Create Map for Fluid Output
-            ArrayList<Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>> aOutputHatches =
-                    new ArrayList<>();
+            ArrayList<Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer>> aOutputHatches = new ArrayList<>();
             for (final GT_MetaTileEntity_Hatch_Output tBus : this.mOutputHatches) {
                 if (!isValidMetaTileEntity(tBus)) {
                     continue;
@@ -536,12 +530,10 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                 aFluidHatches++;
                 // Map the Hatch with the space left for easy checking later.
                 if (tBus.getFluid() == null) {
-                    aOutputHatches.add(new Triplet<>(
-                            tBus, null, tBus.getCapacity()));
+                    aOutputHatches.add(new Triplet<>(tBus, null, tBus.getCapacity()));
                 } else {
                     int aSpaceLeft = tBus.getCapacity() - tBus.getFluidAmount();
-                    aOutputHatches.add(new Triplet<>(
-                            tBus, tBus.getFluid(), aSpaceLeft));
+                    aOutputHatches.add(new Triplet<>(tBus, tBus.getFluid(), aSpaceLeft));
                 }
             }
             // Create a map of all the fluids we would like to output, we can iterate over this and see how many we can
@@ -617,8 +609,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                                 i--;
                                 // Re-add hatch to hatch list, with new data.
                                 Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aNewHatchData =
-                                        new Triplet<>(
-                                                aHatch, aNewHatchStack, aNewHatchStack.amount);
+                                        new Triplet<>(aHatch, aNewHatchStack, aNewHatchStack.amount);
                                 aOutputHatches.add(aNewHatchData);
                                 break;
                             }
@@ -637,8 +628,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
                                 i--;
                                 // Re-add hatch to hatch list, with new data.
                                 Triplet<GT_MetaTileEntity_Hatch_Output, FluidStack, Integer> aNewHatchData =
-                                        new Triplet<>(
-                                                aHatch, aNewHatchStack, aNewHatchStack.amount);
+                                        new Triplet<>(aHatch, aNewHatchStack, aNewHatchStack.amount);
                                 aOutputHatches.add(aNewHatchData);
                                 // Check next fluid
                                 continue;

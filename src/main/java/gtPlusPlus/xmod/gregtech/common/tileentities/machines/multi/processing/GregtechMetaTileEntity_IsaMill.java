@@ -57,8 +57,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     private static final IIconContainer frontFaceActive = new CustomIcon("iconsets/Grinder/GRINDER_ACTIVE5");
     private static final IIconContainer frontFace = new CustomIcon("iconsets/Grinder/GRINDER5");
 
-    private final ArrayList<GT_MetaTileEntity_Hatch_MillingBalls> mMillingBallBuses =
-            new ArrayList<>();
+    private final ArrayList<GT_MetaTileEntity_Hatch_MillingBalls> mMillingBallBuses = new ArrayList<>();
     private static final DamageSource mIsaMillDamageSource = new DamageSource("gtpp.grinder").setDamageBypassesArmor();
 
     public GregtechMetaTileEntity_IsaMill(int aID, String aName, String aNameRegional) {
@@ -274,7 +273,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         }
     }
 
-    private static final AutoMap<EntityLivingBase> getEntities(AutoMap<BlockPos> aPositionsToCheck, World aWorld) {
+    private static AutoMap<EntityLivingBase> getEntities(AutoMap<BlockPos> aPositionsToCheck, World aWorld) {
         AutoMap<EntityLivingBase> aEntities = new AutoMap<>();
         HashSet<Chunk> aChunksToCheck = new HashSet<>();
         if (!aPositionsToCheck.isEmpty()) {

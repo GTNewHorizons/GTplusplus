@@ -11,7 +11,7 @@ public class COMPAT_OpenBlocks {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
 
         Item aGraveItem = ItemUtils.getItemFromFQRN("OpenBlocks:grave");
         if (aGraveItem == null) {

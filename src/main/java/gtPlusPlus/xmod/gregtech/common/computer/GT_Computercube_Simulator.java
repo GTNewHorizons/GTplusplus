@@ -14,8 +14,7 @@ import java.util.HashMap;
 
 public class GT_Computercube_Simulator {
 
-    private static final HashMap<Integer, Pair<Integer, Integer>> sSlotPositions =
-            new HashMap<>();
+    private static final HashMap<Integer, Pair<Integer, Integer>> sSlotPositions = new HashMap<>();
 
     static {
         int aSlot = 4;

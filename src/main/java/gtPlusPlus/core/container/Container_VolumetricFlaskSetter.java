@@ -9,7 +9,6 @@ import gtPlusPlus.core.slots.SlotNoInput;
 import gtPlusPlus.core.slots.SlotVolumetricFlask;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import gtPlusPlus.core.util.Utils;
-import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

@@ -17,7 +17,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.BTF_Inventory;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import ic2.api.Direction;
-
 import java.util.Arrays;
 import java.util.UUID;
 import net.minecraft.block.Block;

@@ -256,8 +256,7 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                                             && !aBaseMetaTileEntity.addStackToSlot(
                                                     this.getOutputSlot() + (i + i) % this.mOutputItems.length,
                                                     this.mOutputItems[i]);
-                                    ++i) {
-                            }
+                                    ++i) {}
                         }
 
                         if (this.mOutputFluid != null) {

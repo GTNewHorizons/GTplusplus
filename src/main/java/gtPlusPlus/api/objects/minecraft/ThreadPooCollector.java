@@ -22,8 +22,7 @@ public class ThreadPooCollector extends Thread {
     private static long internalTickCounter = 0;
 
     private static final ThreadPooCollector mThread;
-    private static final HashMap<String, Pair<BlockPos, TileEntityPooCollector>> mPooCollectors =
-            new LinkedHashMap<>();
+    private static final HashMap<String, Pair<BlockPos, TileEntityPooCollector>> mPooCollectors = new LinkedHashMap<>();
 
     static {
         mThread = new ThreadPooCollector();

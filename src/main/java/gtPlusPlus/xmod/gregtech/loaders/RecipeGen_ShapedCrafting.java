@@ -61,15 +61,7 @@ public class RecipeGen_ShapedCrafting extends RecipeGen_Base {
                         material.getPlate(1),
                         gregtech.api.util.GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS
                                 | gregtech.api.util.GT_ModHandler.RecipeBits.BUFFERED,
-                        new Object[] {
-                            "h",
-                            "B",
-                            "I",
-                                'I',
-                            material.getIngot(1),
-                                'B',
-                            material.getIngot(1)
-                        });
+                        new Object[] {"h", "B", "I", 'I', material.getIngot(1), 'B', material.getIngot(1)});
 
         if (ItemUtils.checkForInvalidItems(material.getPlate(1))
                 && ItemUtils.checkForInvalidItems(material.getIngot(1)))
@@ -84,15 +76,7 @@ public class RecipeGen_ShapedCrafting extends RecipeGen_Base {
                     material.getPlateDouble(1),
                     gregtech.api.util.GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS
                             | gregtech.api.util.GT_ModHandler.RecipeBits.BUFFERED,
-                    new Object[] {
-                        "I",
-                        "B",
-                        "h",
-                            'I',
-                        material.getPlate(1),
-                            'B',
-                        material.getPlate(1)
-                    });
+                    new Object[] {"I", "B", "h", 'I', material.getPlate(1), 'B', material.getPlate(1)});
 
         if (ItemUtils.checkForInvalidItems(material.getPlateDouble(1))
                 && ItemUtils.checkForInvalidItems(material.getPlate(1)))

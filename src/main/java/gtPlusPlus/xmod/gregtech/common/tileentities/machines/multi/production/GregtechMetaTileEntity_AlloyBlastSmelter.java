@@ -299,8 +299,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter
                             tOutPutItems.add(tOut);
                         }
                     }
-                    if (tOutPutItems.size() > 0)
-                        this.mOutputItems = tOutPutItems.toArray(new ItemStack[0]);
+                    if (tOutPutItems.size() > 0) this.mOutputItems = tOutPutItems.toArray(new ItemStack[0]);
                     this.updateSlots();
                     return true;
                 }

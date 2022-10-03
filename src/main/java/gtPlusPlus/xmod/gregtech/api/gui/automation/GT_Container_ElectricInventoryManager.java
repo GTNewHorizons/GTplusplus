@@ -7,7 +7,6 @@ import gregtech.api.gui.GT_Slot_Holo;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_ElectricInventoryManager;
-import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -173,9 +172,8 @@ public class GT_Container_ElectricInventoryManager extends GT_ContainerMetaTile_
                 ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot3Direction(3);
 
         mTargetInOut = 0;
-        mTargetInOut |= ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot1InOut(0)
-                ? 1
-                : 0;
+        mTargetInOut |=
+                ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot1InOut(0) ? 1 : 0;
         mTargetInOut |= ((GT_MetaTileEntity_ElectricInventoryManager) mTileEntity.getMetaTileEntity()).getSlot2InOut(0)
                 ? 1 << 1
                 : 0;

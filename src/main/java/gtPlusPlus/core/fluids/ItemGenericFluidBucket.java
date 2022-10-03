@@ -151,7 +151,6 @@ public class ItemGenericFluidBucket extends ItemBucket {
                     }
                 }
             }
-
         }
         return aStack;
     }

@@ -69,7 +69,7 @@ public class IonParticles extends BaseItemParticle {
         return true;
     }
 
-    public static final long getChargeState(final ItemStack aStack) {
+    public static long getChargeState(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("Ion");
@@ -82,7 +82,7 @@ public class IonParticles extends BaseItemParticle {
         return 0L;
     }
 
-    public static final boolean setChargeState(final ItemStack aStack, final long aCharge) {
+    public static boolean setChargeState(final ItemStack aStack, final long aCharge) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("Ion");

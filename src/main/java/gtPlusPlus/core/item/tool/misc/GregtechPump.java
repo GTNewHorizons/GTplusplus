@@ -670,7 +670,8 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
         if ((aMetaValue < 0) || (aMetaValue >= 32766) || (aBehavior == null)) {
             return this;
         }
-        ArrayList<IItemBehaviour<GregtechPump>> tList = this.mItemBehaviors.computeIfAbsent((short) aMetaValue, k -> new ArrayList<>(1));
+        ArrayList<IItemBehaviour<GregtechPump>> tList =
+                this.mItemBehaviors.computeIfAbsent((short) aMetaValue, k -> new ArrayList<>(1));
         tList.add(aBehavior);
         return this;
     }

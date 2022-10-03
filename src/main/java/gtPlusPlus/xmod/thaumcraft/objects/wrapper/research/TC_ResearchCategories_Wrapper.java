@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.thaumcraft.objects.wrapper.research;
 
 import cpw.mods.fml.common.FMLLog;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;

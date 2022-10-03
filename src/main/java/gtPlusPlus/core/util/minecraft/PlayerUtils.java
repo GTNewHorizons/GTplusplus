@@ -41,9 +41,8 @@ public class PlayerUtils {
     public static EntityPlayer getPlayer(final String name) {
         try {
             final List<EntityPlayer> i = new ArrayList<>();
-            for (EntityPlayerMP entityPlayerMP : (Iterable<EntityPlayerMP>) MinecraftServer.getServer()
-                    .getConfigurationManager()
-                    .playerEntityList) {
+            for (EntityPlayerMP entityPlayerMP :
+                    (Iterable<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
                 i.add(entityPlayerMP);
             }
             for (final EntityPlayer temp : i) {
@@ -173,7 +172,7 @@ public class PlayerUtils {
         return null;
     }
 
-    public static final EntityPlayer getPlayerEntityByName(final String aPlayerName) {
+    public static EntityPlayer getPlayerEntityByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
         if (player != null) {
             return player;
@@ -181,7 +180,7 @@ public class PlayerUtils {
         return null;
     }
 
-    public static final UUID getPlayersUUIDByName(final String aPlayerName) {
+    public static UUID getPlayersUUIDByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
         if (player != null) {
             return player.getUniqueID();
@@ -190,14 +189,14 @@ public class PlayerUtils {
     }
 
     @SideOnly(Side.CLIENT)
-    public static final boolean isPlayerAlkalus() {
+    public static boolean isPlayerAlkalus() {
         if (Utils.isServer()) {
             return false;
         }
         return isPlayerAlkalus(Minecraft.getMinecraft().thePlayer);
     }
 
-    public static final boolean isPlayerAlkalus(EntityPlayer player) {
+    public static boolean isPlayerAlkalus(EntityPlayer player) {
         if (player != null) {
             if (player.getDisplayName().toLowerCase().equals("draknyte1")
                     || player.getDisplayName().toLowerCase().equals("alkalus")) {

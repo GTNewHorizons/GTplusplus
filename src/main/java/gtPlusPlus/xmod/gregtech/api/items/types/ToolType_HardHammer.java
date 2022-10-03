@@ -55,8 +55,7 @@ public class ToolType_HardHammer extends ToolType_Base {
         if ((tAssotiation != null) && (tAssotiation.mPrefix.toString().startsWith("ore"))) {
             GT_Utility.sendChatToPlayer(
                     aPlayer, "This is " + tAssotiation.mMaterial.mMaterial.mDefaultLocalName + " Ore.");
-            GT_Utility.sendSoundToPlayers(
-                    aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
+            GT_Utility.sendSoundToPlayers(aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
             return true;
         }
         if ((aBlock.isReplaceableOreGen(aWorld, aX, aY, aZ, Blocks.stone))
@@ -64,8 +63,7 @@ public class ToolType_HardHammer extends ToolType_Base {
                 || (aBlock.isReplaceableOreGen(aWorld, aX, aY, aZ, Blocks.netherrack))
                 || (aBlock.isReplaceableOreGen(aWorld, aX, aY, aZ, Blocks.end_stone))) {
             if (GT_ModHandler.damageOrDechargeItem(aStack, this.mVanillaCosts, this.mEUCosts, aPlayer)) {
-                GT_Utility.sendSoundToPlayers(
-                        aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
+                GT_Utility.sendSoundToPlayers(aWorld, GregTech_API.sSoundList.get(1), 1.0F, -1.0F, aX, aY, aZ);
                 int tX = aX;
                 int tY = aY;
                 int tZ = aZ;

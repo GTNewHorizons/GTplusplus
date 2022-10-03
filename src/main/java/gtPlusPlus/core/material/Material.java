@@ -39,8 +39,7 @@ public class Material {
     public static final Set<Material> mMaterialMap = new HashSet<>();
     public static final HashMap<String, Material> mMaterialCache = new HashMap<>();
 
-    public static final Map<String, Map<String, ItemStack>> mComponentMap =
-            new HashMap<>();
+    public static final Map<String, Map<String, ItemStack>> mComponentMap = new HashMap<>();
 
     public static final HashMap<String, String> sChemicalFormula = new HashMap<>();
 
@@ -977,8 +976,7 @@ public class Material {
                     sets.put(r.getStackMaterial());
                 }
             }
-            TextureSet mostUsedTypeTextureSet =
-                    MaterialUtils.getMostCommonTextureSet(new ArrayList<>(sets.values()));
+            TextureSet mostUsedTypeTextureSet = MaterialUtils.getMostCommonTextureSet(new ArrayList<>(sets.values()));
             if (mostUsedTypeTextureSet instanceof TextureSet) {
                 Logger.MATERIALS(
                         "Set textureset for " + this.localizedName + " to be " + mostUsedTypeTextureSet.mSetName + ".");
@@ -1464,13 +1462,22 @@ public class Material {
                                         if (dummyFormulaArray[e] > 1) {
 
                                             if (aChemFormula.length() > 3) {
-                                                dummyFormula.append("(").append(aChemFormula).append(")").append(dummyFormulaArray[e]);
+                                                dummyFormula
+                                                        .append("(")
+                                                        .append(aChemFormula)
+                                                        .append(")")
+                                                        .append(dummyFormulaArray[e]);
                                             } else {
-                                                dummyFormula.append(aChemFormula).append(dummyFormulaArray[e]);
+                                                dummyFormula
+                                                        .append(aChemFormula)
+                                                        .append(dummyFormulaArray[e]);
                                             }
                                         } else if (dummyFormulaArray[e] == 1) {
                                             if (aChemFormula.length() > 3) {
-                                                dummyFormula.append("(").append(aChemFormula).append(")");
+                                                dummyFormula
+                                                        .append("(")
+                                                        .append(aChemFormula)
+                                                        .append(")");
                                             } else {
                                                 dummyFormula.append(aChemFormula);
                                             }
@@ -1502,7 +1509,7 @@ public class Material {
         return isFluidQueued = true;
     }
 
-    public static final void generateQueuedFluids() {
+    public static void generateQueuedFluids() {
         for (Material m : mMaterialMap) {
             if (m.isFluidQueued) {}
         }

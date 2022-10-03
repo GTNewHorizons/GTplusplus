@@ -9,7 +9,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gtPlusPlus.core.slots.SlotLockedInput;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.shelving.GT4Entity_Shelf_Large;
-import java.util.Iterator;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.item.ItemStack;

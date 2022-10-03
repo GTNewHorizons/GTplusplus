@@ -46,7 +46,7 @@ public class FishPondFakeRecipe {
                         ItemStack t =
                                 (ItemStack) ReflectionUtils.getField(WeightedRandomFishable.class, "field_150711_b")
                                         .get(u);
-                        addNewFishPondLoot(mType, new ItemStack[]{t}, new int[]{10000});
+                        addNewFishPondLoot(mType, new ItemStack[] {t}, new int[] {10000});
                     } catch (IllegalArgumentException | IllegalAccessException e1) {
                         Logger.INFO("Error generating Fish Pond Recipes. [2]");
                         e1.printStackTrace();

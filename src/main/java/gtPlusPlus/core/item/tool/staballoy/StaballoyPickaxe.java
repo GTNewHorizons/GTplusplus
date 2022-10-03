@@ -52,7 +52,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
      * Is the player facing horizontally?
      */
 
-    public static final boolean isFacingHorizontal(final ItemStack aStack) {
+    public static boolean isFacingHorizontal(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -65,7 +65,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
         return true;
     }
 
-    public static final boolean setFacingHorizontal(final ItemStack aStack, final boolean aFacingHorizontal) {
+    public static boolean setFacingHorizontal(final ItemStack aStack, final boolean aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -81,7 +81,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
      * Handles the Direction the player is facing
      */
 
-    public static final String getFacingDirection(final ItemStack aStack) {
+    public static String getFacingDirection(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -94,7 +94,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
         return "north";
     }
 
-    public static final boolean setFacingDirection(final ItemStack aStack, final String aFacingHorizontal) {
+    public static boolean setFacingDirection(final ItemStack aStack, final String aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -110,7 +110,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
      * The Looking Direction handlers
      */
 
-    public static final String getLookingDirection(final ItemStack aStack) {
+    public static String getLookingDirection(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");
@@ -123,7 +123,7 @@ public class StaballoyPickaxe extends ItemPickaxe {
         return "";
     }
 
-    public static final boolean setLookingDirection(final ItemStack aStack, final String aFacingHorizontal) {
+    public static boolean setLookingDirection(final ItemStack aStack, final String aFacingHorizontal) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("PickStats");

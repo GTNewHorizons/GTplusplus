@@ -40,8 +40,7 @@ public class BlockBaseFluid extends BlockFluidClassic {
     }
 
     public BlockFluidClassic setParticleColor(int arg0) {
-        return this.setParticleColor(
-                (arg0 >> 16 & 255) / 255.0F, (arg0 >> 8 & 255) / 255.0F, (arg0 & 255) / 255.0F);
+        return this.setParticleColor((arg0 >> 16 & 255) / 255.0F, (arg0 >> 8 & 255) / 255.0F, (arg0 & 255) / 255.0F);
     }
 
     public BlockFluidClassic setParticleColor(float arg0, float arg1, float arg2) {

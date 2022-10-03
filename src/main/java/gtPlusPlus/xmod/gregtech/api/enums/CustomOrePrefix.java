@@ -130,7 +130,7 @@ public enum CustomOrePrefix {
         return mSelfReference != null;
     }
 
-    public static final boolean checkEntryWasAdded(CustomOrePrefix aCustomPrefixObject) {
+    public static boolean checkEntryWasAdded(CustomOrePrefix aCustomPrefixObject) {
         return aCustomPrefixObject.mSelfReference != null;
     }
 

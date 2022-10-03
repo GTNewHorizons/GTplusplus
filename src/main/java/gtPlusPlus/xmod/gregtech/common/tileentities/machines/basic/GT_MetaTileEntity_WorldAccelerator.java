@@ -35,7 +35,8 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
     private static CustomIcon _mGTIco_Norm_Active;
     private static CustomIcon _mGTIco_TE_Idle;
     private static CustomIcon _mGTIco_TE_Active;
-    private static final int[] mAccelerateStatic = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, 512, 512, 512, 512, 512};
+    private static final int[] mAccelerateStatic = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, 512, 512, 512, 512, 512
+    };
 
     @Override
     public void registerIcons(IIconRegister aBlockIconRegister) {

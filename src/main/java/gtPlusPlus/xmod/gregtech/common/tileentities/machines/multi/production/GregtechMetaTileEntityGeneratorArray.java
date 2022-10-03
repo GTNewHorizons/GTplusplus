@@ -167,7 +167,7 @@ public class GregtechMetaTileEntityGeneratorArray
     private static final int[] ID_PLASMA = new int[] {1196, 1197, 1198};
     private static final int[] ID_NAQUADAH = new int[] {1190, 1191, 1192};
 
-    private static final int getModeFromInventorySlot(ItemStack aStack) {
+    private static int getModeFromInventorySlot(ItemStack aStack) {
 
         if (aStack == null) {
             return MODE_NONE;

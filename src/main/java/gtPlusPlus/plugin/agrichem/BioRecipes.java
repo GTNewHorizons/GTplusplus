@@ -75,23 +75,23 @@ public class BioRecipes {
     private static Fluid mButanol;
     private static Fluid mAcetone;
 
-    private static final ItemStack getGreenAlgaeRecipeChip() {
+    private static ItemStack getGreenAlgaeRecipeChip() {
         return getBioChip(4);
     }
 
-    private static final ItemStack getBrownAlgaeRecipeChip() {
+    private static ItemStack getBrownAlgaeRecipeChip() {
         return getBioChip(8);
     }
 
-    private static final ItemStack getGoldenBrownAlgaeRecipeChip() {
+    private static ItemStack getGoldenBrownAlgaeRecipeChip() {
         return getBioChip(12);
     }
 
-    private static final ItemStack getRedAlgaeRecipeChip() {
+    private static ItemStack getRedAlgaeRecipeChip() {
         return getBioChip(16);
     }
 
-    private static final ItemStack getBioChip(int aID) {
+    private static ItemStack getBioChip(int aID) {
         return ItemUtils.simpleMetaStack(AgriculturalChem.mBioCircuit, aID, 0);
     }
 
@@ -105,7 +105,7 @@ public class BioRecipes {
         Logger.INFO("[Bio] Finished with recipes");
     }
 
-    private static final void initRecipeVars() {
+    private static void initRecipeVars() {
         mFert = AgriculturalChem.dustOrganicFertilizer;
         mDustDirt = AgriculturalChem.dustDirt;
 

@@ -85,7 +85,7 @@ public class ItemAirFilter extends Item {
         return true;
     }
 
-    public static final long getFilterDamage(final ItemStack aStack) {
+    public static long getFilterDamage(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("AirFilter");
@@ -98,7 +98,7 @@ public class ItemAirFilter extends Item {
         return 0L;
     }
 
-    public static final boolean setFilterDamage(final ItemStack aStack, final long aDamage) {
+    public static boolean setFilterDamage(final ItemStack aStack, final long aDamage) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("AirFilter");

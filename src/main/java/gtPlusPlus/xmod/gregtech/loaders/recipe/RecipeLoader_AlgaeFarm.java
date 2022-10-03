@@ -16,8 +16,7 @@ import net.minecraftforge.fluids.FluidStack;
 public class RecipeLoader_AlgaeFarm {
 
     private static final HashMap<Integer, AutoMap<GT_Recipe>> mRecipeCache = new HashMap<>();
-    private static final HashMap<Integer, AutoMap<GT_Recipe>> mRecipeCompostCache =
-            new HashMap<>();
+    private static final HashMap<Integer, AutoMap<GT_Recipe>> mRecipeCompostCache = new HashMap<>();
 
     public static void generateRecipes() {
         for (int i = 0; i < 10; i++) {

@@ -60,13 +60,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_ULV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Basic),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Basic)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -78,13 +78,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_LV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Basic),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Good)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -96,13 +96,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_MV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Good),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Good)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -114,13 +114,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_HV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Good),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Advanced)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -132,13 +132,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_EV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Advanced),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Elite)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -150,13 +150,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_IV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Advanced),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -168,13 +168,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_LuV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Elite),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -186,13 +186,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_ZPM,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Elite),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Master)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -204,13 +204,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_UV,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Master),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Superconductor)
                 });
         GT_ModHandler.addCraftingRecipe(
@@ -222,13 +222,13 @@ public class GregtechSafeBlock {
                 new Object[] {
                     "CMV",
                     " X ",
-                        'M',
+                    'M',
                     ItemList.Hull_MAX,
-                        'V',
+                    'V',
                     OrePrefixes.circuit.get(Materials.Master),
-                        'C',
+                    'C',
                     OreDictNames.craftingChest,
-                        'X',
+                    'X',
                     OrePrefixes.circuit.get(Materials.Infinite)
                 });
     }

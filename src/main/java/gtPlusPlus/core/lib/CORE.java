@@ -306,11 +306,11 @@ public class CORE {
         public static final String VERSION = "GRADLETOKEN_VERSION";
     }
 
-    public static final void crash() {
+    public static void crash() {
         crash("Generic Crash");
     }
 
-    public static final void crash(String aReason) {
+    public static void crash(String aReason) {
         try {
             Logger.INFO("==========================================================");
             Logger.INFO("[GT++ CRASH]");
@@ -340,7 +340,7 @@ public class CORE {
         FMLCommonHandler.instance().exitJava(0, true);
     }
 
-    public static final void gc() {
+    public static void gc() {
         System.gc();
     }
 }

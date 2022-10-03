@@ -106,11 +106,9 @@ public class BaseItemMetaFood extends ItemFood {
     private static final HashMap<Integer, EnumRarity> mRarityMap = new HashMap<>();
     private static final HashMap<Integer, Integer> mHealAmountMap = new HashMap<>();
     private static final HashMap<Integer, Float> mSaturationAmountMap = new HashMap<>();
-    private static final HashMap<Integer, AutoMap<PotionEffectPackage>> mPotionEffectsMap =
-            new HashMap<>();
+    private static final HashMap<Integer, AutoMap<PotionEffectPackage>> mPotionEffectsMap = new HashMap<>();
     private static final HashMap<Integer, Boolean> mHasSpecialBehaviourMap = new HashMap<>();
-    private static final HashMap<Integer, SpecialFoodBehaviour> mSpecialBehaviourMap =
-            new HashMap<>();
+    private static final HashMap<Integer, SpecialFoodBehaviour> mSpecialBehaviourMap = new HashMap<>();
     private static final HashMap<Integer, ArrayList<String>> mOreDictNames = new HashMap<>();
 
     public static void registerNewMetaFood(
@@ -258,7 +256,7 @@ public class BaseItemMetaFood extends ItemFood {
         BaseItemMetaFood.registerMetaFoods();
     }
 
-    private static final int getMetaKey(ItemStack aStack) {
+    private static int getMetaKey(ItemStack aStack) {
         return aStack.getItemDamage();
     }
 

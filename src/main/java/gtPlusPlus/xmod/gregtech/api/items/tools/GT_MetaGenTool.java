@@ -61,7 +61,7 @@ public abstract class GT_MetaGenTool extends GT_MetaGenerated_Tool {
 
     /* ---------- FOR ADDING CUSTOM ITEMS INTO THE REMAINING 766 RANGE ---------- */
 
-    public static final Materials getPrimaryMaterialEx(final ItemStack aStack) {
+    public static Materials getPrimaryMaterialEx(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("GT.ToolStats");
@@ -72,7 +72,7 @@ public abstract class GT_MetaGenTool extends GT_MetaGenerated_Tool {
         return Materials._NULL;
     }
 
-    public static final Materials getSecondaryMaterialEx(final ItemStack aStack) {
+    public static Materials getSecondaryMaterialEx(final ItemStack aStack) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (aNBT != null) {
             aNBT = aNBT.getCompoundTag("GT.ToolStats");
@@ -194,17 +194,17 @@ public abstract class GT_MetaGenTool extends GT_MetaGenerated_Tool {
             this.doDamage(
                     aStack,
                     (long) tStats.convertBlockDrops(
-                            aDrops,
-                            aStack,
-                            aPlayer,
-                            aBlock,
-                            aX,
-                            aY,
-                            aZ,
-                            aMetaData,
-                            aFortune,
-                            aSilkTouch,
-                            aEvent)
+                                    aDrops,
+                                    aStack,
+                                    aPlayer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    aMetaData,
+                                    aFortune,
+                                    aSilkTouch,
+                                    aEvent)
                             * tStats.getToolDamagePerDropConversion());
         }
     }

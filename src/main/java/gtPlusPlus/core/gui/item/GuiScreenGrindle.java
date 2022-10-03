@@ -426,9 +426,7 @@ public class GuiScreenGrindle extends GuiContainer {
             final String s3 = I18n.format("book.finalizeWarning", new Object[0]);
             this.fontRendererObj.drawSplitString(s3, k + 36, b0 + 80, 116, 0);
         } else {
-            s = I18n.format(
-                    "book.pageIndicator",
-                    new Object[] {this.currPage + 1, this.bookTotalPages});
+            s = I18n.format("book.pageIndicator", new Object[] {this.currPage + 1, this.bookTotalPages});
             s1 = "";
 
             if ((this.bookPages != null) && (this.currPage >= 0) && (this.currPage < this.bookPages.tagCount())) {

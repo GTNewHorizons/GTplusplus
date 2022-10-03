@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.lib.CORE;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;

@@ -433,8 +433,7 @@ public interface IGregtech_RecipeAdder {
     boolean addBrewingRecipe(
             ItemStack aIngredient, FluidStack aInput, FluidStack aOutput, int aTime, int aEu, boolean aHidden);
 
-    boolean addBrewingRecipe(
-            int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu, boolean aHidden);
+    boolean addBrewingRecipe(int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu, boolean aHidden);
 
     boolean addSmeltingAndAlloySmeltingRecipe(ItemStack aDust, ItemStack aOutput);
 
@@ -609,8 +608,7 @@ public interface IGregtech_RecipeAdder {
             int aTime,
             int aEU);
 
-    boolean addpackagerRecipe(
-            ItemStack aRecipeType, ItemStack aInput1, ItemStack aInput2, ItemStack aOutputStack1);
+    boolean addpackagerRecipe(ItemStack aRecipeType, ItemStack aInput1, ItemStack aInput2, ItemStack aOutputStack1);
 
     boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage);
 
@@ -634,13 +632,11 @@ public interface IGregtech_RecipeAdder {
             int aTime,
             int aEU);
 
-    boolean addFluidHeaterRecipe(
-            ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration, int aEUt);
+    boolean addFluidHeaterRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration, int aEUt);
 
     boolean addVacuumFreezerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
 
     boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
 
-    boolean addMolecularTransformerRecipe(
-            ItemStack aInput, ItemStack aOutput, int aDuration, int aEU, int aAmps);
+    boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU, int aAmps);
 }

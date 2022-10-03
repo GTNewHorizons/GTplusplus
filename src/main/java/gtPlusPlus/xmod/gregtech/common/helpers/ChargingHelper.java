@@ -31,10 +31,8 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
 public class ChargingHelper {
 
-    private static final Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers =
-            new HashMap<>();
-    protected static final Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap =
-            new HashMap<>();
+    private static final Map<String, Pair<GregtechMetaWirelessCharger, Byte>> mValidPlayers = new HashMap<>();
+    protected static final Map<BlockPos, GregtechMetaWirelessCharger> mChargerMap = new HashMap<>();
     private int mTickTimer = 0;
     private final int mTickMultiplier = 20;
 
@@ -202,8 +200,7 @@ public class ChargingHelper {
             return false;
         } else {
             Logger.WARNING("key not found, adding");
-            Pair<GregtechMetaWirelessCharger, Byte> mEntry =
-                    new Pair<>(mEntity, (byte) mEntity.getMode());
+            Pair<GregtechMetaWirelessCharger, Byte> mEntry = new Pair<>(mEntity, (byte) mEntity.getMode());
             if (mValidPlayers.put(mPlayer.getDisplayName(), mEntry) == null) {
                 Logger.WARNING("Added a Player to the Tick Map.");
                 return true;
@@ -221,8 +218,7 @@ public class ChargingHelper {
         Logger.WARNING("trying to remove player from map");
         if (mValidPlayers.containsKey(mPlayer.getDisplayName())) {
             Logger.WARNING("key found, removing");
-            Pair<GregtechMetaWirelessCharger, Byte> mEntry =
-                    new Pair<>(mEntity, (byte) mEntity.getMode());
+            Pair<GregtechMetaWirelessCharger, Byte> mEntry = new Pair<>(mEntity, (byte) mEntity.getMode());
             if (mValidPlayers.remove(mPlayer, mEntry)) {
                 Logger.WARNING("Removed a Player to the Tick Map.");
                 return true;

@@ -8,7 +8,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.slots.SlotPollutionScrubber;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaAtmosphericReconditioner;
-import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;

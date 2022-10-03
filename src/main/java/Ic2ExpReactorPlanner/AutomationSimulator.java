@@ -323,7 +323,10 @@ public class AutomationSimulator {
                         if (component.getCurrentHeat() > 0.0) {
                             prevTotalComponentHeat += component.getCurrentHeat();
                             publish(String.format("R%dC%d:0xFFA500", row, col)); // NOI18N
-                            component.info.append("ComponentInfo.RemainingHeat ").append(component.getCurrentHeat());
+                            component
+                                    .info
+                                    .append("ComponentInfo.RemainingHeat ")
+                                    .append(component.getCurrentHeat());
                         }
                     }
                 }
@@ -363,7 +366,10 @@ public class AutomationSimulator {
                             if (component != null && !component.isBroken()) {
                                 currentTotalComponentHeat += component.getCurrentHeat();
                                 if (component.getCurrentHeat() == 0.0 && needsCooldown[row][col]) {
-                                    component.info.append("ComponentInfo.CooldownTime ").append(cooldownTicks);
+                                    component
+                                            .info
+                                            .append("ComponentInfo.CooldownTime ")
+                                            .append(cooldownTicks);
                                     needsCooldown[row][col] = false;
                                 }
                             }
@@ -405,23 +411,46 @@ public class AutomationSimulator {
                 ReactorItem component = reactor.getComponentAt(row, col);
                 if (component != null) {
                     if (component.getVentCoolingCapacity() > 0) {
-                        component.info.append("ComponentInfo.UsedCooling ").append(component.getBestVentCooling()).append(" | ").append(component.getVentCoolingCapacity());
+                        component
+                                .info
+                                .append("ComponentInfo.UsedCooling ")
+                                .append(component.getBestVentCooling())
+                                .append(" | ")
+                                .append(component.getVentCoolingCapacity());
                         totalEffectiveVentCooling += component.getBestVentCooling();
                         totalVentCoolingCapacity += component.getVentCoolingCapacity();
                     } else if (component.getBestCellCooling() > 0) {
                         component.info.append("ComponentInfo.ReceivedHeat ").append(component.getBestCellCooling());
                         totalCellCooling += component.getBestCellCooling();
                     } else if (component.getBestCondensatorCooling() > 0) {
-                        component.info.append("ComponentInfo.ReceivedHeat ").append(component.getBestCondensatorCooling());
+                        component
+                                .info
+                                .append("ComponentInfo.ReceivedHeat ")
+                                .append(component.getBestCondensatorCooling());
                         totalCondensatorCooling += component.getBestCondensatorCooling();
                     } else if (component.getMaxHeatGenerated() > 0) {
                         if (!reactor.isFluid() && component.getMaxEUGenerated() > 0) {
-                            component.info.append("ComponentInfo.GeneratedEU ").append(component.getMinEUGenerated()).append(" | ").append(component.getMaxEUGenerated());
+                            component
+                                    .info
+                                    .append("ComponentInfo.GeneratedEU ")
+                                    .append(component.getMinEUGenerated())
+                                    .append(" | ")
+                                    .append(component.getMaxEUGenerated());
                         }
-                        component.info.append("ComponentInfo.GeneratedHeat ").append(component.getMinHeatGenerated()).append(" | ").append(component.getMaxHeatGenerated());
+                        component
+                                .info
+                                .append("ComponentInfo.GeneratedHeat ")
+                                .append(component.getMinHeatGenerated())
+                                .append(" | ")
+                                .append(component.getMaxHeatGenerated());
                     }
                     if (component.getMaxReachedHeat() > 0) {
-                        component.info.append("ComponentInfo.ReachedHeat ").append(component.getMaxReachedHeat()).append(" | ").append(component.getMaxHeat());
+                        component
+                                .info
+                                .append("ComponentInfo.ReachedHeat ")
+                                .append(component.getMaxReachedHeat())
+                                .append(" | ")
+                                .append(component.getMaxHeat());
                     }
                 }
             }
@@ -494,7 +523,10 @@ public class AutomationSimulator {
                         if (component.getAutomationThreshold() > component.getInitialHeat()
                                 && component.getCurrentHeat() >= component.getAutomationThreshold()) {
                             component.clearCurrentHeat();
-                            component.info.append("ComponentInfo.ReplacedTime | ").append(reactorTicks);
+                            component
+                                    .info
+                                    .append("ComponentInfo.ReplacedTime | ")
+                                    .append(reactorTicks);
                             if (component.getReactorPause() > 0) {
                                 active = false;
                                 pauseTimer = Math.max(pauseTimer, component.getReactorPause());
@@ -505,7 +537,10 @@ public class AutomationSimulator {
                         } else if (component.getAutomationThreshold() < component.getInitialHeat()
                                 && component.getCurrentHeat() <= component.getAutomationThreshold()) {
                             component.clearCurrentHeat();
-                            component.info.append("ComponentInfo.ReplacedTime | ").append(reactorTicks);
+                            component
+                                    .info
+                                    .append("ComponentInfo.ReplacedTime | ")
+                                    .append(reactorTicks);
                             if (component.getReactorPause() > 0) {
                                 active = false;
                                 pauseTimer = Math.max(pauseTimer, component.getReactorPause());

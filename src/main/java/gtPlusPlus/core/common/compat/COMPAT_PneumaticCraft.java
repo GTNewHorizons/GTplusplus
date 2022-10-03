@@ -10,7 +10,7 @@ public class COMPAT_PneumaticCraft {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
         GT_OreDictUnificator.registerOre("plateCompressedIron", new ItemStack(ModItems.itemPlateCompressedIron));
     }
 }

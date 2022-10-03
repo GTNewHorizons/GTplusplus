@@ -78,8 +78,7 @@ public class AustraliaWorldGenerator implements IWorldGenerator {
     private void generateOverworld(World world, Random random, int x, int z) {
         boolean gen = false;
         try {
-            if (ALLOWED_BIOMES.containsValue(
-                    world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID)) {
+            if (ALLOWED_BIOMES.containsValue(world.getBiomeGenForCoords(x + this.midX, z + this.midZ).biomeID)) {
                 Collections.shuffle(this.generators, random);
                 for (IGeneratorWorld generator : this.generators) {
                     boolean canGenerate = false;

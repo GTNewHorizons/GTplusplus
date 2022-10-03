@@ -10,7 +10,7 @@ public class COMPAT_BigReactors {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
         GT_OreDictUnificator.registerOre("plateBlutonium", new ItemStack(ModItems.itemPlateBlutonium));
         GT_OreDictUnificator.registerOre("plateCyanite", new ItemStack(ModItems.itemPlateCyanite));
         GT_OreDictUnificator.registerOre("plateLudicrite", new ItemStack(ModItems.itemPlateLudicrite));

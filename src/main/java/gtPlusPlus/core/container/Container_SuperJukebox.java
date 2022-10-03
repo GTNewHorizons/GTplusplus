@@ -8,7 +8,6 @@ import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox
 import gtPlusPlus.core.inventories.Inventory_SuperJukebox;
 import gtPlusPlus.core.slots.SlotJukebox;
 import gtPlusPlus.core.slots.SlotNoInput;
-import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

@@ -15,7 +15,7 @@ public class NameLists {
         mScottishFirstNames = generateScottishFirstNames();
     }
 
-    private static final String[] generateScottishFirstNames() {
+    private static String[] generateScottishFirstNames() {
         return new String[] {
             "Aadam",
             "Aadit",
@@ -3209,7 +3209,7 @@ public class NameLists {
         };
     }
 
-    private static final String[] generateFirstNames() {
+    private static String[] generateFirstNames() {
         return new String[] {
             "AARON",
             "ABBIE",
@@ -4994,7 +4994,7 @@ public class NameLists {
         };
     }
 
-    private static final String[] generateLastNames() {
+    private static String[] generateLastNames() {
         return new String[] {
             "AARON",
             "ABBOTT",

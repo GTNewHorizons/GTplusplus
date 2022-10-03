@@ -44,12 +44,7 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
     public static void registerEntityForSpawnEgg(
             final int aMetaID, String parEntityToSpawnName, int aPrimaryColor, int aSecondaryColor) {
         registerEntityForSpawnEgg(
-                aMetaID,
-                parEntityToSpawnName,
-                aPrimaryColor,
-                aSecondaryColor,
-                EnumRarity.common,
-                new ArrayList<>());
+                aMetaID, parEntityToSpawnName, aPrimaryColor, aSecondaryColor, EnumRarity.common, new ArrayList<>());
     }
 
     public static void registerEntityForSpawnEgg(
@@ -131,7 +126,6 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
                     --par1ItemStack.stackSize;
                 }
             }
-
         }
         return true;
     }
@@ -180,7 +174,6 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
                         }
                     }
                 }
-
             }
             return par1ItemStack;
         }

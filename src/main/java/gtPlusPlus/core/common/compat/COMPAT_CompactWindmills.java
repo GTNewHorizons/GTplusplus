@@ -30,7 +30,8 @@ public class COMPAT_CompactWindmills {
     public static final ItemStack evTransformer = ItemUtils.simpleMetaStack("gregtech:gt.blockmachines", 24, 1);
 
     // Compact Windmills
-    public static final ItemStack elvWindmill = ItemUtils.simpleMetaStack("CompactWindmills:blockCompactWindmill", 0, 1);
+    public static final ItemStack elvWindmill =
+            ItemUtils.simpleMetaStack("CompactWindmills:blockCompactWindmill", 0, 1);
     public static final ItemStack lvWindmill = ItemUtils.simpleMetaStack("CompactWindmills:blockCompactWindmill", 1, 1);
     public static final ItemStack mvWindmill = ItemUtils.simpleMetaStack("CompactWindmills:blockCompactWindmill", 2, 1);
     public static final ItemStack hvWindmill = ItemUtils.simpleMetaStack("CompactWindmills:blockCompactWindmill", 3, 1);
@@ -188,7 +189,7 @@ public class COMPAT_CompactWindmills {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
         // RemoveRecipeQueue.add("CompactWindmills:WOOL");
         // RemoveRecipeQueue.add("CompactWindmills:WOOD");
         // RemoveRecipeQueue.add("CompactWindmills:ALLOY");

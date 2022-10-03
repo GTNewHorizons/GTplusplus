@@ -6,7 +6,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
@@ -517,8 +516,7 @@ public class EntityNativeAustralian extends EntityVillager {
                 : ((Integer) tuple.getFirst() >= (Integer) tuple.getSecond()
                         ? (Integer) tuple.getFirst()
                         : (Integer) tuple.getFirst()
-                                + aRand.nextInt((Integer) tuple.getSecond()
-                                        - (Integer) tuple.getFirst()));
+                                + aRand.nextInt((Integer) tuple.getSecond() - (Integer) tuple.getFirst()));
     }
 
     public static void addPurchaseRecipe(MerchantRecipeList aTradeList, Item aItem, Random aRand, float aChance) {
@@ -549,7 +547,6 @@ public class EntityNativeAustralian extends EntityVillager {
                 : ((Integer) tuple.getFirst() >= (Integer) tuple.getSecond()
                         ? (Integer) tuple.getFirst()
                         : (Integer) tuple.getFirst()
-                                + aRand.nextInt((Integer) tuple.getSecond()
-                                        - (Integer) tuple.getFirst()));
+                                + aRand.nextInt((Integer) tuple.getSecond() - (Integer) tuple.getFirst()));
     }
 }

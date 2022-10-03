@@ -32,8 +32,7 @@ import net.minecraftforge.fluids.FluidStack;
 public class GregtechMetaTileEntity_Adv_AssemblyLine
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Adv_AssemblyLine> {
 
-    public final ArrayList<GT_MetaTileEntity_Hatch_DataAccess> mDataAccessHatches =
-            new ArrayList<>();
+    public final ArrayList<GT_MetaTileEntity_Hatch_DataAccess> mDataAccessHatches = new ArrayList<>();
 
     public static final String[] mCasingName = new String[5];
     private final int CASING_TEXTURE_ID = TAE.getIndexFromPage(0, 13);

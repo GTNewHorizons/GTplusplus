@@ -1,6 +1,5 @@
 package gtPlusPlus.core.util.data;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -32,12 +31,12 @@ public class AES {
         secretKey = generateKey(key);
     }
 
-    private static final String getHashedString(String aString) {
+    private static String getHashedString(String aString) {
 
         return toHexString(getSHA(aString));
     }
 
-    private static final byte[] getSHA(String input) {
+    private static byte[] getSHA(String input) {
 
         MessageDigest md;
 
@@ -55,7 +54,7 @@ public class AES {
         return new byte[] {};
     }
 
-    private static final String toHexString(byte[] hash) {
+    private static String toHexString(byte[] hash) {
 
         BigInteger number = new BigInteger(1, hash);
 
@@ -100,7 +99,6 @@ public class AES {
             } catch (NoSuchAlgorithmException e) {
 
                 e.printStackTrace();
-
             }
         }
 

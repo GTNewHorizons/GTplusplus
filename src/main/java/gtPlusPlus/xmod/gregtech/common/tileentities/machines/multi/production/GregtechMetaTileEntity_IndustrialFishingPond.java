@@ -426,8 +426,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
     }
 
     // reflection map
-    private static final Map<WeightedRandomFishable, ItemStack> reflectiveFishMap =
-            new HashMap<>();
+    private static final Map<WeightedRandomFishable, ItemStack> reflectiveFishMap = new HashMap<>();
 
     private ItemStack reflectiveFish(WeightedRandomFishable y) {
         if (reflectiveFishMap.containsKey(y)) {

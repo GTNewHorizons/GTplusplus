@@ -7,7 +7,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.plugin.agrichem.AlgaeDefinition;
 import gtPlusPlus.plugin.agrichem.IAlgalItem;
 import gtPlusPlus.plugin.agrichem.logic.AlgaeGeneticData;
-import gtPlusPlus.plugin.agrichem.logic.AlgaeGrowthRequirement;
 import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

@@ -578,7 +578,7 @@ public class FluidUtils {
         return amount(aStacksize, container(aStack, aCheckIFluidContainerItems));
     }
 
-    public static final Fluid generateFluid(
+    public static Fluid generateFluid(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -610,7 +610,7 @@ public class FluidUtils {
         }
     }
 
-    public static final Fluid generateFluidNonMolten(
+    public static Fluid generateFluidNonMolten(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -619,7 +619,7 @@ public class FluidUtils {
         return generateFluidNonMolten(unlocalizedName, localizedName, MeltingPoint, RGBA, null, null, 0, aGenerateCell);
     }
 
-    public static final Fluid generateFluidNonMolten(
+    public static Fluid generateFluidNonMolten(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -630,7 +630,7 @@ public class FluidUtils {
                 unlocalizedName, localizedName, MeltingPoint, RGBA, dustStack, dustStack2, 144, true);
     }
 
-    public static final Fluid generateFluidNonMolten(
+    public static Fluid generateFluidNonMolten(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -642,7 +642,7 @@ public class FluidUtils {
                 unlocalizedName, localizedName, MeltingPoint, RGBA, dustStack, dustStack2, 144, aGenerateCell);
     }
 
-    public static final Fluid generateFluidNonMolten(
+    public static Fluid generateFluidNonMolten(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -694,12 +694,12 @@ public class FluidUtils {
         }
     }
 
-    public static final Fluid generateFluidNoPrefix(
+    public static Fluid generateFluidNoPrefix(
             final String unlocalizedName, final String localizedName, final int MeltingPoint, final short[] RGBA) {
         return generateFluidNoPrefix(unlocalizedName, localizedName, MeltingPoint, RGBA, true);
     }
 
-    public static final Fluid generateFluidNoPrefix(
+    public static Fluid generateFluidNoPrefix(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,
@@ -728,7 +728,7 @@ public class FluidUtils {
         return gtFluid;
     }
 
-    public static final Fluid generateGas(
+    public static Fluid generateGas(
             final String unlocalizedName,
             final String localizedName,
             final int MeltingPoint,

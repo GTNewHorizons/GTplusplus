@@ -108,7 +108,7 @@ public class StaticFields59 {
         }
     }
 
-    public static final synchronized Block getBlockCasings5() {
+    public static synchronized Block getBlockCasings5() {
         try {
             return (Block) mGtBlockCasings5.get(GregTech_API.class);
         } catch (IllegalArgumentException | IllegalAccessException e) {
@@ -132,7 +132,7 @@ public class StaticFields59 {
         return ReflectionUtils.getMethod(a, b, params);
     }
 
-    public static final synchronized Collection<Materials> getOrePrefixesBooleanDisabledItems() {
+    public static synchronized Collection<Materials> getOrePrefixesBooleanDisabledItems() {
         try {
             return (Collection<Materials>) mDisabledItems.get(OrePrefixes.class);
         } catch (IllegalArgumentException | IllegalAccessException e) {
@@ -140,7 +140,7 @@ public class StaticFields59 {
         }
     }
 
-    public static final synchronized List<OrePrefixes> geOrePrefixesBooleanPreventableComponents() {
+    public static synchronized List<OrePrefixes> geOrePrefixesBooleanPreventableComponents() {
         try {
             return (List<OrePrefixes>) mPreventableComponents.get(OrePrefixes.class);
         } catch (IllegalArgumentException | IllegalAccessException e) {
@@ -148,7 +148,7 @@ public class StaticFields59 {
         }
     }
 
-    public static final synchronized GT_Recipe_Map getLargeChemicalReactorRecipeMap() {
+    public static synchronized GT_Recipe_Map getLargeChemicalReactorRecipeMap() {
         try {
             return (GT_Recipe_Map) mMultiblockChemicalRecipes.get(null);
         } catch (IllegalArgumentException | IllegalAccessException e) {
@@ -156,7 +156,7 @@ public class StaticFields59 {
         }
     }
 
-    public static final synchronized GT_Recipe_Map getPyrolyseRecipeMap() {
+    public static synchronized GT_Recipe_Map getPyrolyseRecipeMap() {
         try {
             return mPyrolyseRecipes != null ? (GT_Recipe_Map) mPyrolyseRecipes.get(null) : null;
         } catch (IllegalArgumentException | IllegalAccessException e) {

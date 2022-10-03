@@ -53,7 +53,7 @@ public enum AlgaeDefinition {
         }
     }
 
-    private static final int getRGB(int r, int g, int b) {
+    private static int getRGB(int r, int g, int b) {
         return AlgaeUtils.rgbtoHexValue(r, g, b);
     }
 }

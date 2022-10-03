@@ -207,15 +207,12 @@ public class GT4Entity_Shelf_Large extends GT4Entity_Shelf {
 
     public String[] getInfoData() {
         if (this.mItemStack == null) {
-            return new String[] {
-                this.getLocalName(), "No Items Stored", "Free Space: " + this.getMaxItemCount()
-            };
+            return new String[] {this.getLocalName(), "No Items Stored", "Free Space: " + this.getMaxItemCount()};
         }
         return new String[] {
             this.getLocalName(),
             "Storing: " + this.mItemStack.getDisplayName() + " x" + this.mItemCount,
-            "Space Remaining: " + (this.getMaxItemCount() - this.getItemCount()) + "/"
-                    + this.getMaxItemCount()
+            "Space Remaining: " + (this.getMaxItemCount() - this.getItemCount()) + "/" + this.getMaxItemCount()
         };
     }
 

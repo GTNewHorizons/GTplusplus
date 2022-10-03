@@ -60,8 +60,7 @@ public class Meta_GT_Proxy {
 
     public static AchievementHandler mAssemblyAchievements;
 
-    public static final Map<String, FormattedTooltipString> mCustomGregtechMetaTooltips =
-            new LinkedHashMap<>();
+    public static final Map<String, FormattedTooltipString> mCustomGregtechMetaTooltips = new LinkedHashMap<>();
 
     /**
      * Does this feature exist within GT? Saves loading useless content if not.

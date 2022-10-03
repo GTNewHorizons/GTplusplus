@@ -391,7 +391,7 @@ public class CI {
         }
     }
 
-    public static final ItemStack getTieredMachineHull(int tier) {
+    public static ItemStack getTieredMachineHull(int tier) {
         if (tier == 0) {
             return machineHull_ULV;
         } else if (tier == 1) {
@@ -417,7 +417,7 @@ public class CI {
         }
     }
 
-    public static final ItemStack getTieredMachineCasing(int tier) {
+    public static ItemStack getTieredMachineCasing(int tier) {
         if (tier == 0) {
             if (machineCasing_ULV == null) {
                 machineCasing_ULV = ItemList.Casing_ULV.get(1);
@@ -788,8 +788,7 @@ public class CI {
                     // All Invalid? Ok, shit.
                     // Let's add a special error ingot.
                     if (!ItemUtils.checkForInvalidItems(aReturn)) {
-                        aReturn = ItemUtils.getErrorStack(
-                                1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
+                        aReturn = ItemUtils.getErrorStack(1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
                     }
                 }
             }

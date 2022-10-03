@@ -117,14 +117,15 @@ public class RECIPES_Tools {
     public static String craftingToolKnife = "craftingToolKnife";
     public static final String craftingToolScrewdriver = "craftingToolScrewdriver";
 
-    public static final ItemStack sandHammer = new ItemStack(ModItems.itemSandstoneHammer, 1, OreDictionary.WILDCARD_VALUE);
+    public static final ItemStack sandHammer =
+            new ItemStack(ModItems.itemSandstoneHammer, 1, OreDictionary.WILDCARD_VALUE);
     public static String craftingToolSandHammer = "craftingToolSandHammer";
 
     public static ItemStack personalCloakingDevice = ItemUtils.getSimpleStack(ModItems.itemPersonalCloakingDevice);
     public static String plateDoubleNiChrome = "plateDoubleNichrome";
     public static String plateIridiumAlloy = "plateAlloyIridium";
 
-    public static final void loadRecipes() {
+    public static void loadRecipes() {
 
         run();
     }

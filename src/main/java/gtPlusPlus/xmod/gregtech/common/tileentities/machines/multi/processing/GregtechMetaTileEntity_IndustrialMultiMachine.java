@@ -294,7 +294,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         return getRecipeMap(getCircuitID(circuit));
     }
 
-    private static final GT_Recipe.GT_Recipe_Map getRecipeMap(int aMode) {
+    private static GT_Recipe.GT_Recipe_Map getRecipeMap(int aMode) {
         if (aMode == MODE_COMPRESSOR) {
             return GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
         } else if (aMode == MODE_LATHE) {

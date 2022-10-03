@@ -30,7 +30,8 @@ public class Biome_AustralianDesert_Ex extends BiomeGenDesert {
         this.spawnableCreatureList.clear();
     }
 
-    public static final Biome_AustralianDesert_Ex biome = new Biome_AustralianDesert_Ex(CORE.AUSTRALIA_BIOME_DESERT_3_ID);
+    public static final Biome_AustralianDesert_Ex biome =
+            new Biome_AustralianDesert_Ex(CORE.AUSTRALIA_BIOME_DESERT_3_ID);
 
     public void load() {
         BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.DRY);

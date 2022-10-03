@@ -57,8 +57,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class MaterialGenerator {
 
-    public static final AutoMap<Set<RunnableWithInfo<Material>>> mRecipeMapsToGenerate =
-            new AutoMap<>();
+    public static final AutoMap<Set<RunnableWithInfo<Material>>> mRecipeMapsToGenerate = new AutoMap<>();
 
     @SuppressWarnings("unused")
     private static volatile Item temp;

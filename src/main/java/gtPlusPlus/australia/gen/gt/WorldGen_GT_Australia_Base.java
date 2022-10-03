@@ -62,8 +62,7 @@ public class WorldGen_GT_Australia_Base implements IWorldGenerator {
             ELEMENT.getInstance().LEAD,
             ELEMENT.getInstance().TIN);
 
-    public static final Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins =
-            new Hashtable<>(1024);
+    public static final Hashtable<Long, WorldGen_GT_Australia_Ore_Layer> validOreveins = new Hashtable<>(1024);
 
     public boolean mIsGenerating = false;
     public static final Object listLock = new Object();

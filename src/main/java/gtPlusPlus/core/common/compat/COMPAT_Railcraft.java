@@ -6,5 +6,5 @@ public class COMPAT_Railcraft {
         run();
     }
 
-    private static final void run() {}
+    private static void run() {}
 }

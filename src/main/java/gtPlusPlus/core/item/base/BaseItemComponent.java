@@ -300,7 +300,7 @@ public class BaseItemComponent extends Item {
 
         if (extraData != null) {
             if (componentMaterial != null && componentMaterial.getRGBA()[3] > 1) {
-                ((Map<Integer, Short[]>) extraData).computeIfAbsent(9999, k -> new Short[]{0});
+                ((Map<Integer, Short[]>) extraData).computeIfAbsent(9999, k -> new Short[] {0});
                 Short aCurrentFrame = ((Map<Integer, Short[]>) extraData).get(9999)[0];
                 short fC = (short) (aCurrentFrame >= Short.MAX_VALUE ? 0 : aCurrentFrame + 1);
                 ((Map<Integer, Short[]>) extraData).put((int) 9999, new Short[] {(short) (fC), 0});

@@ -765,12 +765,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     public void doSound(byte aIndex, double aX, double aY, double aZ) {
         if (aIndex == -120) {
             GT_Utility.doSoundAtClient(
-                    (String) GregTech_API.sSoundList.get(103),
-                    MathUtils.randInt(5, 50),
-                    0.05F,
-                    aX,
-                    aY,
-                    aZ);
+                    (String) GregTech_API.sSoundList.get(103), MathUtils.randInt(5, 50), 0.05F, aX, aY, aZ);
         } else if (aIndex == -121 || aIndex == -122) {
             // GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(108)), 0, 0.5F, aX, aY,
             // aZ);

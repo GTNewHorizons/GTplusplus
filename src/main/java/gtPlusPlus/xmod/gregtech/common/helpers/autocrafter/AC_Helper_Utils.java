@@ -8,8 +8,7 @@ import java.util.Map.Entry;
 public class AC_Helper_Utils {
 
     // AC maps
-    public static final Map<Integer, GT4Entity_AutoCrafter> sAutocrafterMap =
-            new HashMap<>();
+    public static final Map<Integer, GT4Entity_AutoCrafter> sAutocrafterMap = new HashMap<>();
 
     // Add Crafter
     public static int addCrafter(GT4Entity_AutoCrafter AC) {

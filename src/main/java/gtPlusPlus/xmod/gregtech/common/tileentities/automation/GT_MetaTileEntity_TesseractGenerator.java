@@ -613,8 +613,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
                     && (this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(this.mNeededEnergy, false))) {
                 // Utils.LOG_WARNING("Can Work & Has Energy");
                 if ((getGeneratorEntity(this.mFrequency) == null)
-                        || (!getGeneratorEntity(this.mFrequency)
-                                .isValidTesseractGenerator(null, true))) {
+                        || (!getGeneratorEntity(this.mFrequency).isValidTesseractGenerator(null, true))) {
                     // Utils.LOG_WARNING("storing TE I think to mFreq map?");
                     TesseractHelper.setGeneratorOwnershipByPlayer(
                             PlayerUtils.getPlayerOnServerFromUUID(mOwner), this.mFrequency, this);
