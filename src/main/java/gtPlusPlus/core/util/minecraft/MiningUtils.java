@@ -88,22 +88,22 @@ public class MiningUtils {
             blockClass = block.getClass().toString().toLowerCase();
             Logger.WARNING(blockClass);
             if (blockClass.toLowerCase().contains(LIQUID)) {
-                Logger.WARNING(block.toString() + " is a Liquid.");
+                Logger.WARNING(block + " is a Liquid.");
                 return false;
             } else if (blockClass.toLowerCase().contains(ORE)) {
-                Logger.WARNING(block.toString() + " is an Ore.");
+                Logger.WARNING(block + " is an Ore.");
                 return true;
             } else if (block.getHarvestLevel(world.getBlockMetadata(xyz[0], xyz[1], xyz[2])) >= miningLevel) {
-                Logger.WARNING(block.toString() + " is minable.");
+                Logger.WARNING(block + " is minable.");
                 return true;
             } else if (blockClass.toLowerCase().contains(AIR)) {
-                Logger.WARNING(block.toString() + " is Air.");
+                Logger.WARNING(block + " is Air.");
                 return false;
             } else if (blockClass.toLowerCase().contains(BLOCK)) {
-                Logger.WARNING(block.toString() + " is a block of some kind.");
+                Logger.WARNING(block + " is a block of some kind.");
                 return false;
             } else {
-                Logger.WARNING(block.toString() + " is mystery.");
+                Logger.WARNING(block + " is mystery.");
                 return false;
             }
         } catch (final NullPointerException e) {

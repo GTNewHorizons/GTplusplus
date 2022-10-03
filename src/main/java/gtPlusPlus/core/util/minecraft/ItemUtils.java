@@ -978,7 +978,7 @@ public class ItemUtils {
         if (aGtStack == null) {
             Logger.INFO(
                     "Failed to find `" + mPrefix + MaterialUtils.getMaterialName(mMat) + "` in OD. [Prefix Search]");
-            return getErrorStack(mAmount, (mPrefix.toString() + MaterialUtils.getMaterialName(mMat) + " x" + mAmount));
+            return getErrorStack(mAmount, (mPrefix + MaterialUtils.getMaterialName(mMat) + " x" + mAmount));
         } else {
             return aGtStack;
         }

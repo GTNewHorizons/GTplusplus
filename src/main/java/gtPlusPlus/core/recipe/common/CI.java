@@ -791,7 +791,7 @@ public class CI {
                     // Let's add a special error ingot.
                     if (!ItemUtils.checkForInvalidItems(aReturn)) {
                         aReturn = ItemUtils.getErrorStack(
-                                1, (aPrefix.toString() + m.getLocalizedName() + " x" + aAmount));
+                                1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
                     }
                 }
             }

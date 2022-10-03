@@ -125,7 +125,7 @@ public class AES {
 
         } catch (Exception e) {
 
-            System.out.println("Error while encrypting: " + e.toString());
+            System.out.println("Error while encrypting: " + e);
         }
 
         return null;

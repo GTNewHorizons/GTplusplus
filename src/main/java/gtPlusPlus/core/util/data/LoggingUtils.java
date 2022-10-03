@@ -38,7 +38,7 @@ public class LoggingUtils {
     public static boolean logCurrentSystemTime(final String message) {
         final Date date = new Date(System.currentTimeMillis());
         try {
-            profileLog(message + " | " + date.toString());
+            profileLog(message + " | " + date);
             return true;
         } catch (final Throwable r) {
             return false;

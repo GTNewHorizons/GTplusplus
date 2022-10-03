@@ -403,7 +403,7 @@ public class Utils {
             sb.append('0');
         }
         // sb.append(originalString);
-        if (sb.length() > 0) originalString = (originalString + sb.toString());
+        if (sb.length() > 0) originalString = (originalString + sb);
         final String paddedString = sb.toString();
         return originalString;
     }
@@ -799,15 +799,13 @@ public class Utils {
                     Logger.INFO("WARNING: String for written Book too long! -> " + aPages[i]);
                     GT_Log.err.println(new StringBuilder()
                             .append("WARNING: String for written Book too long! -> ")
-                            .append(aPages[i])
-                            .toString());
+                            .append(aPages[i]));
                 }
             } else {
                 Logger.INFO("WARNING: Too much Pages for written Book! -> " + aTitle);
                 GT_Log.err.println(new StringBuilder()
                         .append("WARNING: Too much Pages for written Book! -> ")
-                        .append(aTitle)
-                        .toString());
+                        .append(aTitle));
                 break;
             }
         }
@@ -827,8 +825,7 @@ public class Utils {
                 .append(aTitle)
                 .append("'  -  Author: '")
                 .append(aAuthor)
-                .append("'")
-                .toString());
+                .append("'"));
         NBTUtils.createIntegerTagCompound(rStack, "stats", "mMeta", vMeta);
         CORE.sBookList.put(aMapping, rStack);
         Logger.INFO("Creating book: " + aTitle + " by " + aAuthor + ". Using Meta " + vMeta + ".");

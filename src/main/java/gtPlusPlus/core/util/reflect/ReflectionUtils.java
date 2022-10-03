@@ -387,10 +387,10 @@ public class ReflectionUtils {
                     return true;
                 }
             } catch (final NoSuchFieldException e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + fieldName + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + fieldName + ") failed.");
                 clazz = clazz.getSuperclass();
             } catch (final Exception e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + fieldName + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + fieldName + ") failed.");
                 throw new IllegalStateException(e);
             }
         }
@@ -413,10 +413,10 @@ public class ReflectionUtils {
                     return true;
                 }
             } catch (final NoSuchFieldException e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + field.getName() + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + field.getName() + ") failed.");
                 clazz = clazz.getSuperclass();
             } catch (final Exception e) {
-                Logger.REFLECTION("setField(" + object.toString() + ", " + field.getName() + ") failed.");
+                Logger.REFLECTION("setField(" + object + ", " + field.getName() + ") failed.");
                 throw new IllegalStateException(e);
             }
         }
