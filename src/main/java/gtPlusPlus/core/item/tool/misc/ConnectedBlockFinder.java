@@ -101,12 +101,6 @@ public class ConnectedBlockFinder extends BaseItemWithDamageValue {
         mFirstSearch.add(mStartPoint);
         mTotalIndex.add(mStartPoint);
 
-        for (BlockPos G : mSearch_D) {
-            if (!world.isAirBlock(G.xPos, G.yPos, G.zPos)) {
-                world.setBlock(G.xPos, G.yPos, G.zPos, Blocks.diamond_ore);
-            }
-        }
-
         return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
     }
 

@@ -188,7 +188,7 @@ public abstract class GregtechMetaSolarGenerator extends GT_MetaTileEntity_Basic
                                     && (aBaseMetaTileEntity.getUniversalEnergyStored()
                                             < ((this.maxEUOutput() * 20) + this.getMinimumStoredEU())))) {
                         this.getBaseMetaTileEntity()
-                                .increaseStoredEnergyUnits((sEnergyPerTick * this.getEfficiency()) / 10, false);
+                                .increaseStoredEnergyUnits(((long) sEnergyPerTick * this.getEfficiency()) / 10, false);
                     }
                 }
             }

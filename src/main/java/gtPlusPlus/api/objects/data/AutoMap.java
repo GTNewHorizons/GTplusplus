@@ -230,7 +230,6 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
         aTempAllocation.removeAll(c);
         aTempAllocation.clear();
         aTrue = aTempAllocation.isEmpty();
-        aTempAllocation.clear();
         return aTrue;
     }
 

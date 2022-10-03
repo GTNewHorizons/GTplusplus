@@ -308,7 +308,7 @@ public class Utils {
     public static Timer ShortTimer(final int seconds) {
         Timer timer;
         timer = new Timer();
-        timer.schedule(new ShortTimerTask(), seconds * 1000);
+        timer.schedule(new ShortTimerTask(), seconds * 1000L);
         return timer;
     }
 

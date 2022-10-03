@@ -43,7 +43,6 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
         this.theBiomeDecorator.reedsPerChunk = 3;
         this.theBiomeDecorator.cactiPerChunk = 20;
         this.theBiomeDecorator.flowersPerChunk = 0;
-        this.spawnableCreatureList.clear();
         this.theBiomeDecorator.treesPerChunk = 5;
     }
 

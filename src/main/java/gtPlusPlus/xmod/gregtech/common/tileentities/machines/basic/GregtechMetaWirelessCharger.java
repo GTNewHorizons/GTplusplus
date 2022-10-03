@@ -307,9 +307,9 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
         if (this.mMode == 0) {
             return 2;
         } else if (this.mMode == 1) {
-            return this.mLocalChargingMap.size() * 8;
+            return this.mLocalChargingMap.size() * 8L;
         } else {
-            return ((this.mLocalChargingMap.size() * 4) + this.mWirelessChargingMap.size());
+            return ((this.mLocalChargingMap.size() * 4L) + this.mWirelessChargingMap.size());
         }
     }
 
