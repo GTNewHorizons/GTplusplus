@@ -56,14 +56,12 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
 
     public String getHarvestTool(int aMeta) {
         switch (aMeta / 4) {
-            case 0:
-                return "wrench";
-            case 1:
-                return "wrench";
             case 2:
                 return "cutter";
             case 3:
                 return "axe";
+            case 1:
+            case 0:
             default:
                 return "wrench";
         }

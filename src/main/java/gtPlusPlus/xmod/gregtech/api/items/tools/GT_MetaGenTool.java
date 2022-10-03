@@ -581,15 +581,13 @@ public abstract class GT_MetaGenTool extends GT_MetaGenerated_Tool {
                     case armor_head:
                     case armor_legs:
                     case armor_torso:
+                    case fishing_rod:
+                    case breakable:
                         break;
                     case bow:
                         if (tStats.isRangedWeapon()) {
                             tResult.put(tEntry.getKey(), tEntry.getValue());
                         }
-                        break;
-                    case breakable:
-                        break;
-                    case fishing_rod:
                         break;
                     case digger:
                         if (tStats.isMiningTool()) {

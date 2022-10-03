@@ -11,16 +11,12 @@ public abstract class BaseAestheticCrop extends BaseHarvestableCrop {
 
     public int stat(int n) {
         switch (n) {
-            case 0:
-                return 0;
-            case 1:
-                return 0;
-            case 2:
-                return 0;
             case 3:
                 return 4;
             case 4:
-                return 0;
+            case 2:
+            case 1:
+            case 0:
             default:
                 return 0;
         }

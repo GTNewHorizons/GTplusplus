@@ -160,12 +160,11 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
      */
     public int getSawBoost(SAWTOOL sawType) {
         switch (sawType) {
-            case SAW:
-                return 1;
             case BUZZSAW:
                 return 2;
             case CHAINSAW:
                 return 4;
+            case SAW:
             default:
                 return 1;
         }

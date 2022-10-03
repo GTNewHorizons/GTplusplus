@@ -126,15 +126,9 @@ public class GT_MetaTileEntity_RedstoneButtonPanel extends GT_MetaTileEntity_Red
                                 mRedstoneStrength = (byte) (mRedstoneStrength ^ (1 << ((byte) (aZ * 4))));
                                 break;
                             case 2:
-                                mRedstoneStrength = (byte) (mRedstoneStrength ^ (1 << ((byte) (4 - aY * 4))));
-                                break;
-                            case 3:
-                                mRedstoneStrength = (byte) (mRedstoneStrength ^ (1 << ((byte) (4 - aY * 4))));
-                                break;
-                            case 4:
-                                mRedstoneStrength = (byte) (mRedstoneStrength ^ (1 << ((byte) (4 - aY * 4))));
-                                break;
                             case 5:
+                            case 4:
+                            case 3:
                                 mRedstoneStrength = (byte) (mRedstoneStrength ^ (1 << ((byte) (4 - aY * 4))));
                                 break;
                         }

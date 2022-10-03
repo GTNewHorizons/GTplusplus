@@ -71,17 +71,15 @@ public class GregtechMetaCasingBlocks4 extends GregtechMetaCasingBlocksAbstract 
                 case 3:
                     return TexturesGtBlock.TEXTURE_METAL_PANEL_A.getIcon();
                 case 4:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
+                case 15:
+                case 14:
+                case 13:
+                case 12:
+                case 8:
+                case 7:
+                case 6:
                 case 5:
                     return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 6:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 7:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 8:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 9:
-                    return TexturesGtBlock.Casing_Material_MaragingSteel.getIcon();
                 case 10:
                     if (aSide < 2) {
                         return TexturesGtBlock.TEXTURE_STONE_RED_B.getIcon();
@@ -90,14 +88,7 @@ public class GregtechMetaCasingBlocks4 extends GregtechMetaCasingBlocksAbstract 
                     }
                 case 11:
                     return TexturesGtBlock.TEXTURE_CASING_ROCKETDYNE.getIcon();
-                case 12:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 13:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 14:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-                case 15:
-                    return Textures.BlockIcons.RENDERING_ERROR.getIcon();
+                case 9:
                 default:
                     return TexturesGtBlock.Casing_Material_MaragingSteel.getIcon();
             }

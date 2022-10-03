@@ -87,7 +87,6 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
             case 2:
                 switch (aSide) {
                     case 0:
-                        return this.mTextures[2][aColorIndex + 1];
                     case 1:
                         return this.mTextures[2][aColorIndex + 1];
                     case 4:
@@ -98,7 +97,6 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
             case 3:
                 switch (aSide) {
                     case 0:
-                        return this.mTextures[4][aColorIndex + 1];
                     case 1:
                         return this.mTextures[4][aColorIndex + 1];
                     case 4:
@@ -109,22 +107,18 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
             case 4:
                 switch (aSide) {
                     case 0:
-                        return this.mTextures[3][aColorIndex + 1];
-                    case 1:
-                        return this.mTextures[1][aColorIndex + 1];
                     case 2:
                         return this.mTextures[3][aColorIndex + 1];
+                    case 1:
                     case 3:
                         return this.mTextures[1][aColorIndex + 1];
                 }
             case 5:
                 switch (aSide) {
                     case 0:
-                        return this.mTextures[1][aColorIndex + 1];
-                    case 1:
-                        return this.mTextures[3][aColorIndex + 1];
                     case 2:
                         return this.mTextures[1][aColorIndex + 1];
+                    case 1:
                     case 3:
                         return this.mTextures[3][aColorIndex + 1];
                 }

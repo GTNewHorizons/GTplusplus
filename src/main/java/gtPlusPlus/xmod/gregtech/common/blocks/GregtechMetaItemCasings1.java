@@ -25,8 +25,6 @@ public class GregtechMetaItemCasings1 extends GregtechMetaItemCasingsAbstract {
                 aList.add(this.mCasing_CokeCoil1);
                 break;
             case 3:
-                aList.add(this.mCasing_CokeCoil2);
-                break;
             default:
                 aList.add(this.mCasing_CokeCoil2);
                 break;

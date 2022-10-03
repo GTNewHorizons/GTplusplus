@@ -112,7 +112,6 @@ public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hat
             case 2:
                 return new CONTAINER_Electric_2by2(aPlayerInventory, aBaseMetaTileEntity);
             case 4:
-                return new CONTAINER_Electric_4by4(aPlayerInventory, aBaseMetaTileEntity);
             default:
                 return new CONTAINER_Electric_4by4(aPlayerInventory, aBaseMetaTileEntity);
         }
@@ -124,7 +123,6 @@ public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hat
             case 2:
                 return new GUI_Electric_2by2(aPlayerInventory, aBaseMetaTileEntity, "Discharging Bus");
             case 4:
-                return new GUI_Electric_4by4(aPlayerInventory, aBaseMetaTileEntity, "Discharging Bus");
             default:
                 return new GUI_Electric_4by4(aPlayerInventory, aBaseMetaTileEntity, "Discharging Bus");
         }

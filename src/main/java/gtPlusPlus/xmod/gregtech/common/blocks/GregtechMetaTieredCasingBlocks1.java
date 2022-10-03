@@ -79,16 +79,11 @@ public class GregtechMetaTieredCasingBlocks1 extends GregtechMetaCasingBlocksAbs
         }
         switch (aMeta) {
             case 10:
-                return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-            case 11:
-                return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-            case 12:
-                return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-            case 13:
-                return Textures.BlockIcons.RENDERING_ERROR.getIcon();
-            case 14:
-                return Textures.BlockIcons.RENDERING_ERROR.getIcon();
             case 15:
+            case 14:
+            case 13:
+            case 12:
+            case 11:
                 return Textures.BlockIcons.RENDERING_ERROR.getIcon();
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();

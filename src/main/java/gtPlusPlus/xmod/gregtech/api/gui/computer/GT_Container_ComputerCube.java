@@ -87,6 +87,7 @@ public class GT_Container_ComputerCube extends GT_ContainerMetaTile_Machine {
                 addSlotToContainer(new GT_Slot_Output(this.mTileEntity, 57, 152, 28));
                 break;
             case 3:
+            case 6:
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 58, 88, 65, false, false, 1));
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 58, 104, 65, false, false, 1));
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 59, 122, 35, false, false, 64));
@@ -120,16 +121,6 @@ public class GT_Container_ComputerCube extends GT_ContainerMetaTile_Machine {
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 70, 153, 39, false, false, 64));
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 71, 169, 39, false, false, 64));
                 addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 72, 185, 39, false, false, 64));
-                break;
-            case 6:
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 58, 88, 65, false, false, 1));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 58, 104, 65, false, false, 1));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 59, 122, 35, false, false, 64));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 60, 92, 5, false, false, 64));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 61, 122, 5, false, false, 64));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 62, 152, 35, false, false, 64));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 63, 122, 65, false, false, 64));
-                addSlotToContainer(new GT_Slot_Holo(this.mTileEntity, 64, 92, 35, false, false, 64));
                 break;
         }
     }

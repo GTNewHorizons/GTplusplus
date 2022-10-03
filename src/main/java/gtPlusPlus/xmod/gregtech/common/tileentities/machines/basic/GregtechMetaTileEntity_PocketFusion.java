@@ -560,17 +560,12 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     public boolean isLiquidInput(byte aSide) {
         switch (aSide) {
             case 0:
-                return true;
+            case 2:
             case 1:
                 return true;
-            case 2:
-                return true;
-            case 3:
-                return false;
-            case 4:
-                return false;
             case 5:
-                return false;
+            case 4:
+            case 3:
             default:
                 return false;
         }
@@ -580,17 +575,12 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     public boolean isLiquidOutput(byte aSide) {
         switch (aSide) {
             case 0:
-                return false;
+            case 2:
             case 1:
                 return false;
-            case 2:
-                return false;
-            case 3:
-                return true;
-            case 4:
-                return true;
             case 5:
-                return true;
+            case 4:
+            case 3:
             default:
                 return true;
         }

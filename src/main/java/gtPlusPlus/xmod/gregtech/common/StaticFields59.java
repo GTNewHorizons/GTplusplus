@@ -270,6 +270,7 @@ public class StaticFields59 {
                 mHeatingCapacity = 7200;
                 break;
             case 6:
+            case 10:
                 mHeatingCapacity = 9000;
                 break;
             case 7:
@@ -280,9 +281,6 @@ public class StaticFields59 {
                 break;
             case 9:
                 mHeatingCapacity = 6300;
-                break;
-            case 10:
-                mHeatingCapacity = 9000;
                 break;
             default:
                 Logger.INFO("Heating Coils are bad.");

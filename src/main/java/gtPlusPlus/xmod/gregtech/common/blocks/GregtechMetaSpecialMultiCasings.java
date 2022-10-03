@@ -114,6 +114,7 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
             case 9:
                 return TexturesGtBlock.TEXTURE_CASING_FLOTATION.getIcon();
             case 10:
+            case 14:
                 return TexturesGtBlock.Casing_Material_Talonite.getIcon();
             case 11:
                 return Textures.BlockIcons.MACHINE_CASING_RADIATIONPROOF.getIcon();
@@ -121,8 +122,6 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
                 return TexturesGtBlock.Casing_Redox_5.getIcon();
             case 13:
                 return TexturesGtBlock.TEXTURE_MAGIC_PANEL_B.getIcon();
-            case 14:
-                return TexturesGtBlock.Casing_Material_Talonite.getIcon();
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();
     }
