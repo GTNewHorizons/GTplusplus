@@ -173,7 +173,8 @@ public class FLUORIDES {
             -1, // Neutrons
             false, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(ELEMENT.getInstance().BERYLLIUM, 1), new MaterialStack(MISC_MATERIALS.HYDROXIDE, 2));
+            new MaterialStack(ELEMENT.getInstance().BERYLLIUM, 1),
+            new MaterialStack(MISC_MATERIALS.HYDROXIDE, 2));
 
     // (NH4)2Be(OH)2 / (NH4)2BeF4
     public static final Material AMMONIUM_TETRAFLUOROBERYLLATE = new Material(
@@ -186,7 +187,8 @@ public class FLUORIDES {
             -1,
             false, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(MISC_MATERIALS.AMMONIUM, 2), new MaterialStack(FLUORIDES.BERYLLIUM_HYDROXIDE, 1));
+            new MaterialStack(MISC_MATERIALS.AMMONIUM, 2),
+            new MaterialStack(FLUORIDES.BERYLLIUM_HYDROXIDE, 1));
 
     // LFTR Output
     public static final Material NEPTUNIUM_HEXAFLUORIDE = new Material(
@@ -238,7 +240,8 @@ public class FLUORIDES {
             -1, // Neutrons
             false, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(ELEMENT.getInstance().SODIUM, 1), new MaterialStack(ELEMENT.getInstance().FLUORINE, 1));
+            new MaterialStack(ELEMENT.getInstance().SODIUM, 1),
+            new MaterialStack(ELEMENT.getInstance().FLUORINE, 1));
 
     private static final FLUORIDES INSTANCE = new FLUORIDES();
 

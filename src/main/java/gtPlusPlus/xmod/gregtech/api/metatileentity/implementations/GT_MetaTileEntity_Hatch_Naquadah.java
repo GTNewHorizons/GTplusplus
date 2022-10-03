@@ -57,8 +57,7 @@ public class GT_MetaTileEntity_Hatch_Naquadah extends GT_MetaTileEntity_Hatch_In
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
         return new ITexture[] {
-            aBaseTexture,
-            TextureFactory.of((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)
+            aBaseTexture, TextureFactory.of((IIconContainer) Textures.BlockIcons.NAQUADAH_REACTOR_FLUID_SIDE_ACTIVE)
         };
     }
 

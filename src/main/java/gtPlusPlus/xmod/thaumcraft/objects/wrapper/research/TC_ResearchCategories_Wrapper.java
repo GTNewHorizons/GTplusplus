@@ -60,8 +60,7 @@ public class TC_ResearchCategories_Wrapper {
                         FMLLog.log(
                                 Level.FATAL,
                                 "[Thaumcraft] Research [" + ri.getName()
-                                        + "] not added as it overlaps with existing research [" + rr.getName() + "]"
-                        );
+                                        + "] not added as it overlaps with existing research [" + rr.getName() + "]");
                         return;
                     }
                 }

@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.items;
 
+import static gtPlusPlus.core.util.Utils.getTcAspectStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
@@ -32,8 +34,6 @@ import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
 import net.minecraft.item.EnumAction;
 
-import static gtPlusPlus.core.util.Utils.getTcAspectStack;
-
 public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
     public static final MetaGeneratedGregtechItems INSTANCE;
@@ -55,44 +55,60 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
             Logger.INFO(
                     "Gregtech 5.09 not found, using fallback components. (I like how I have to add compat to something I added first and had stolen.)");
-            GregtechItemList.Electric_Pump_LuV.set(
-                    this.addItem(tLastID = 0, "Electric Pump (LuV)", "163920 L/sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                            getTcAspectStack(TC_Aspects.ITER, 1L),
-                            getTcAspectStack(TC_Aspects.AQUA, 1L)));
-            GregtechItemList.Electric_Pump_ZPM.set(
-                    this.addItem(tLastID = 1, "Electric Pump (ZPM)", "655680 L/sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 2L),
-                            getTcAspectStack(TC_Aspects.ITER, 2L),
-                            getTcAspectStack(TC_Aspects.AQUA, 2L)));
-            GregtechItemList.Electric_Pump_UV.set(
-                    this.addItem(tLastID = 2, "Electric Pump (UV)", "2622720 L/sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 4L),
-                            getTcAspectStack(TC_Aspects.ITER, 4L),
-                            getTcAspectStack(TC_Aspects.AQUA, 4L)));
-            GregtechItemList.Electric_Pump_MAX.set(
-                    this.addItem(tLastID = 3, "Electric Pump (MAX)", "10490880 L/sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 8L),
-                            getTcAspectStack(TC_Aspects.ITER, 8L),
-                            getTcAspectStack(TC_Aspects.AQUA, 8L)));
+            GregtechItemList.Electric_Pump_LuV.set(this.addItem(
+                    tLastID = 0,
+                    "Electric Pump (LuV)",
+                    "163920 L/sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                    getTcAspectStack(TC_Aspects.ITER, 1L),
+                    getTcAspectStack(TC_Aspects.AQUA, 1L)));
+            GregtechItemList.Electric_Pump_ZPM.set(this.addItem(
+                    tLastID = 1,
+                    "Electric Pump (ZPM)",
+                    "655680 L/sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 2L),
+                    getTcAspectStack(TC_Aspects.ITER, 2L),
+                    getTcAspectStack(TC_Aspects.AQUA, 2L)));
+            GregtechItemList.Electric_Pump_UV.set(this.addItem(
+                    tLastID = 2,
+                    "Electric Pump (UV)",
+                    "2622720 L/sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 4L),
+                    getTcAspectStack(TC_Aspects.ITER, 4L),
+                    getTcAspectStack(TC_Aspects.AQUA, 4L)));
+            GregtechItemList.Electric_Pump_MAX.set(this.addItem(
+                    tLastID = 3,
+                    "Electric Pump (MAX)",
+                    "10490880 L/sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 8L),
+                    getTcAspectStack(TC_Aspects.ITER, 8L),
+                    getTcAspectStack(TC_Aspects.AQUA, 8L)));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_LuV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[5][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[5][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                     new GT_Cover_Pump(8196));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_ZPM.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[6][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[6][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                     new GT_Cover_Pump(32768));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_UV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[7][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[7][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                     new GT_Cover_Pump(131072));
             GregTech_API.registerCover(
                     GregtechItemList.Electric_Pump_MAX.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[8][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[8][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                     new GT_Cover_Pump(524288));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Electric_Pump_LuV.get(1L),
@@ -127,16 +143,32 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.cableGt01.get(Materials.Aluminium), Character.valueOf('P'),
             // OrePrefixes.pipeMedium.get(Materials.Titanium)});
             tLastID = 4;
-            GregtechItemList.Electric_Motor_LuV.set(this.addItem(tLastID = 4, "Electric Motor (LuV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+            GregtechItemList.Electric_Motor_LuV.set(this.addItem(
+                    tLastID = 4,
+                    "Electric Motor (LuV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                     getTcAspectStack(TC_Aspects.MACHINA, 1L),
                     getTcAspectStack(TC_Aspects.MOTUS, 1L)));
-            GregtechItemList.Electric_Motor_ZPM.set(this.addItem(tLastID = 5, "Electric Motor (ZPM)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+            GregtechItemList.Electric_Motor_ZPM.set(this.addItem(
+                    tLastID = 5,
+                    "Electric Motor (ZPM)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
                     getTcAspectStack(TC_Aspects.MACHINA, 2L),
                     getTcAspectStack(TC_Aspects.MOTUS, 2L)));
-            GregtechItemList.Electric_Motor_UV.set(this.addItem(tLastID = 6, "Electric Motor (UV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+            GregtechItemList.Electric_Motor_UV.set(this.addItem(
+                    tLastID = 6,
+                    "Electric Motor (UV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
                     getTcAspectStack(TC_Aspects.MACHINA, 4L),
                     getTcAspectStack(TC_Aspects.MOTUS, 4L)));
-            GregtechItemList.Electric_Motor_MAX.set(this.addItem(tLastID = 7, "Electric Motor (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+            GregtechItemList.Electric_Motor_MAX.set(this.addItem(
+                    tLastID = 7,
+                    "Electric Motor (MAX)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                     getTcAspectStack(TC_Aspects.MACHINA, 8L),
                     getTcAspectStack(TC_Aspects.MOTUS, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Electric_Motor_LuV.get(1L),
@@ -170,19 +202,31 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
             tLastID = 8;
             GregtechItemList.Conveyor_Module_LuV.set(this.addItem(
-                    tLastID = 8, "Conveyor Module (LuV)", "1 Stack every 20 secs (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                    tLastID = 8,
+                    "Conveyor Module (LuV)",
+                    "1 Stack every 20 secs (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                     getTcAspectStack(TC_Aspects.MACHINA, 1L),
                     getTcAspectStack(TC_Aspects.ITER, 1L)));
-            GregtechItemList.Conveyor_Module_ZPM.set(
-                    this.addItem(tLastID = 9, "Conveyor Module (ZPM)", "1 Stack every 5 secs (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 2L),
-                            getTcAspectStack(TC_Aspects.ITER, 2L)));
-            GregtechItemList.Conveyor_Module_UV.set(
-                    this.addItem(tLastID = 10, "Conveyor Module (UV)", "1 Stack every 1 sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 4L),
-                            getTcAspectStack(TC_Aspects.ITER, 4L)));
+            GregtechItemList.Conveyor_Module_ZPM.set(this.addItem(
+                    tLastID = 9,
+                    "Conveyor Module (ZPM)",
+                    "1 Stack every 5 secs (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 2L),
+                    getTcAspectStack(TC_Aspects.ITER, 2L)));
+            GregtechItemList.Conveyor_Module_UV.set(this.addItem(
+                    tLastID = 10,
+                    "Conveyor Module (UV)",
+                    "1 Stack every 1 sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 4L),
+                    getTcAspectStack(TC_Aspects.ITER, 4L)));
             GregtechItemList.Conveyor_Module_MAX.set(this.addItem(
-                    tLastID = 11, "Conveyor Module (MAX)", "1 Stack every 1/5 sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                    tLastID = 11,
+                    "Conveyor Module (MAX)",
+                    "1 Stack every 1/5 sec (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                     getTcAspectStack(TC_Aspects.MACHINA, 8L),
                     getTcAspectStack(TC_Aspects.ITER, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Conveyor_Module_LuV.get(1L),
@@ -209,41 +253,57 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.plate.get(Materials.Rubber)});
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_LuV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[1][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[1][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                     new GT_Cover_Conveyor(400));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_ZPM.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[2][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[2][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                     new GT_Cover_Conveyor(100));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_UV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[3][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[3][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                     new GT_Cover_Conveyor(20));
             GregTech_API.registerCover(
                     GregtechItemList.Conveyor_Module_MAX.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[4][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                     new GT_Cover_Conveyor(4));
             tLastID = 12;
-            GregtechItemList.Electric_Piston_LuV.set(
-                    this.addItem(tLastID = 12, "Electric Piston (LuV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 2L),
-                            getTcAspectStack(TC_Aspects.MOTUS, 1L)));
-            GregtechItemList.Electric_Piston_ZPM.set(
-                    this.addItem(tLastID = 13, "Electric Piston (ZPM)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 4L),
-                            getTcAspectStack(TC_Aspects.MOTUS, 2L)));
-            GregtechItemList.Electric_Piston_UV.set(
-                    this.addItem(tLastID = 14, "Electric Piston (UV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 8L),
-                            getTcAspectStack(TC_Aspects.MOTUS, 4L)));
-            GregtechItemList.Electric_Piston_MAX.set(
-                    this.addItem(tLastID = 15, "Electric Piston (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 16L),
-                            getTcAspectStack(TC_Aspects.MOTUS, 8L)));
+            GregtechItemList.Electric_Piston_LuV.set(this.addItem(
+                    tLastID = 12,
+                    "Electric Piston (LuV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 2L),
+                    getTcAspectStack(TC_Aspects.MOTUS, 1L)));
+            GregtechItemList.Electric_Piston_ZPM.set(this.addItem(
+                    tLastID = 13,
+                    "Electric Piston (ZPM)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 4L),
+                    getTcAspectStack(TC_Aspects.MOTUS, 2L)));
+            GregtechItemList.Electric_Piston_UV.set(this.addItem(
+                    tLastID = 14,
+                    "Electric Piston (UV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 8L),
+                    getTcAspectStack(TC_Aspects.MOTUS, 4L)));
+            GregtechItemList.Electric_Piston_MAX.set(this.addItem(
+                    tLastID = 15,
+                    "Electric Piston (MAX)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 16L),
+                    getTcAspectStack(TC_Aspects.MOTUS, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Electric_Piston_LuV.get(1L),
             // //GT_ModHandler.RecipeBits.DISMANTLEABLE | //GT_ModHandler.RecipeBits.NOT_REMOVABLE |
             // //GT_ModHandler.RecipeBits.REVERSIBLE, new Object[]{"PPP", "CSS", "CMG", Character.valueOf('P'),
@@ -275,22 +335,34 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.cableGt01.get(Materials.Aluminium)});
             tLastID = 16;
             GregtechItemList.Robot_Arm_LuV.set(this.addItem(
-                    tLastID = 16, "Robot Arm (LuV)", "Inserts into specific Slots (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                    tLastID = 16,
+                    "Robot Arm (LuV)",
+                    "Inserts into specific Slots (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                     getTcAspectStack(TC_Aspects.MACHINA, 2L),
                     getTcAspectStack(TC_Aspects.MOTUS, 1L),
                     Utils.getTcAspectStack("COGNITIO", 1L)));
             GregtechItemList.Robot_Arm_ZPM.set(this.addItem(
-                    tLastID = 17, "Robot Arm (ZPM)", "Inserts into specific Slots (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                    tLastID = 17,
+                    "Robot Arm (ZPM)",
+                    "Inserts into specific Slots (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
                     getTcAspectStack(TC_Aspects.MACHINA, 4L),
                     getTcAspectStack(TC_Aspects.MOTUS, 2L),
                     getTcAspectStack("COGNITIO", 2L)));
             GregtechItemList.Robot_Arm_UV.set(this.addItem(
-                    tLastID = 18, "Robot Arm (UV)", "Inserts into specific Slots (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+                    tLastID = 18,
+                    "Robot Arm (UV)",
+                    "Inserts into specific Slots (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
                     getTcAspectStack(TC_Aspects.MACHINA, 8L),
                     getTcAspectStack(TC_Aspects.MOTUS, 4L),
                     getTcAspectStack("COGNITIO", 4L)));
             GregtechItemList.Robot_Arm_MAX.set(this.addItem(
-                    tLastID = 19, "Robot Arm (MAX)", "Inserts into specific Slots (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                    tLastID = 19,
+                    "Robot Arm (MAX)",
+                    "Inserts into specific Slots (as Cover)",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                     getTcAspectStack(TC_Aspects.MACHINA, 16L),
                     getTcAspectStack(TC_Aspects.MOTUS, 8L),
                     getTcAspectStack("COGNITIO", 8L)));
@@ -324,41 +396,57 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.cableGt01.get(Materials.Aluminium)});
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_LuV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[1][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[1][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                     new GT_Cover_Arm(400));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_ZPM.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[2][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[2][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                     new GT_Cover_Arm(100));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_UV.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[3][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[3][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                     new GT_Cover_Arm(20));
             GregTech_API.registerCover(
                     GregtechItemList.Robot_Arm_MAX.get(1L),
-                    TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0],
+                    TextureFactory.of(
+                            Textures.BlockIcons.MACHINE_CASINGS[4][0],
                             TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                     new GT_Cover_Arm(4));
             tLastID = 20;
-            GregtechItemList.Field_Generator_LuV.set(
-                    this.addItem(tLastID = 20, "Field Generator (LuV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                            getTcAspectStack(TC_Aspects.TUTAMEN, 1L)));
-            GregtechItemList.Field_Generator_ZPM.set(
-                    this.addItem(tLastID = 21, "Field Generator (ZPM)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 2L),
-                            getTcAspectStack(TC_Aspects.TUTAMEN, 2L)));
-            GregtechItemList.Field_Generator_UV.set(
-                    this.addItem(tLastID = 22, "Field Generator (UV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 4L),
-                            getTcAspectStack(TC_Aspects.TUTAMEN, 4L)));
-            GregtechItemList.Field_Generator_MAX.set(
-                    this.addItem(tLastID = 23, "Field Generator (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
-                            getTcAspectStack(TC_Aspects.MACHINA, 8L),
-                            getTcAspectStack(TC_Aspects.TUTAMEN, 8L)));
+            GregtechItemList.Field_Generator_LuV.set(this.addItem(
+                    tLastID = 20,
+                    "Field Generator (LuV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                    getTcAspectStack(TC_Aspects.TUTAMEN, 1L)));
+            GregtechItemList.Field_Generator_ZPM.set(this.addItem(
+                    tLastID = 21,
+                    "Field Generator (ZPM)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 2L),
+                    getTcAspectStack(TC_Aspects.TUTAMEN, 2L)));
+            GregtechItemList.Field_Generator_UV.set(this.addItem(
+                    tLastID = 22,
+                    "Field Generator (UV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 4L),
+                    getTcAspectStack(TC_Aspects.TUTAMEN, 4L)));
+            GregtechItemList.Field_Generator_MAX.set(this.addItem(
+                    tLastID = 23,
+                    "Field Generator (MAX)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
+                    getTcAspectStack(TC_Aspects.MACHINA, 8L),
+                    getTcAspectStack(TC_Aspects.TUTAMEN, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Field_Generator_LuV.get(1L),
             // //GT_ModHandler.RecipeBits.DISMANTLEABLE | //GT_ModHandler.RecipeBits.NOT_REMOVABLE |
             // //GT_ModHandler.RecipeBits.REVERSIBLE, new Object[]{"WCW", "CGC", "WCW", Character.valueOf('G'),
@@ -383,16 +471,32 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.circuit.get(Materials.Elite), Character.valueOf('W'),
             // OrePrefixes.wireGt08.get(Materials.Osmium)});
             tLastID = 24;
-            GregtechItemList.Emitter_LuV.set(this.addItem(tLastID = 24, "Emitter (LuV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+            GregtechItemList.Emitter_LuV.set(this.addItem(
+                    tLastID = 24,
+                    "Emitter (LuV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                     getTcAspectStack(TC_Aspects.MACHINA, 1L),
                     getTcAspectStack(TC_Aspects.LUX, 1L)));
-            GregtechItemList.Emitter_ZPM.set(this.addItem(tLastID = 25, "Emitter (ZPM)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+            GregtechItemList.Emitter_ZPM.set(this.addItem(
+                    tLastID = 25,
+                    "Emitter (ZPM)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
                     getTcAspectStack(TC_Aspects.MACHINA, 2L),
                     getTcAspectStack(TC_Aspects.LUX, 2L)));
-            GregtechItemList.Emitter_UV.set(this.addItem(tLastID = 26, "Emitter (UV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+            GregtechItemList.Emitter_UV.set(this.addItem(
+                    tLastID = 26,
+                    "Emitter (UV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
                     getTcAspectStack(TC_Aspects.MACHINA, 4L),
                     getTcAspectStack(TC_Aspects.LUX, 4L)));
-            GregtechItemList.Emitter_MAX.set(this.addItem(tLastID = 27, "Emitter (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+            GregtechItemList.Emitter_MAX.set(this.addItem(
+                    tLastID = 27,
+                    "Emitter (MAX)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                     getTcAspectStack(TC_Aspects.MACHINA, 8L),
                     getTcAspectStack(TC_Aspects.LUX, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Emitter_LuV.get(1L),
@@ -422,16 +526,32 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             // OrePrefixes.circuit.get(Materials.Elite), Character.valueOf('W'),
             // OrePrefixes.cableGt01.get(Materials.Aluminium)});
             tLastID = 28;
-            GregtechItemList.Sensor_LuV.set(this.addItem(tLastID = 28, "Sensor (LuV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+            GregtechItemList.Sensor_LuV.set(this.addItem(
+                    tLastID = 28,
+                    "Sensor (LuV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                     getTcAspectStack(TC_Aspects.MACHINA, 1L),
                     getTcAspectStack(TC_Aspects.SENSUS, 1L)));
-            GregtechItemList.Sensor_ZPM.set(this.addItem(tLastID = 29, "Sensor (ZPM)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+            GregtechItemList.Sensor_ZPM.set(this.addItem(
+                    tLastID = 29,
+                    "Sensor (ZPM)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
                     getTcAspectStack(TC_Aspects.MACHINA, 2L),
                     getTcAspectStack(TC_Aspects.SENSUS, 2L)));
-            GregtechItemList.Sensor_UV.set(this.addItem(tLastID = 30, "Sensor (UV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
+            GregtechItemList.Sensor_UV.set(this.addItem(
+                    tLastID = 30,
+                    "Sensor (UV)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 4L),
                     getTcAspectStack(TC_Aspects.MACHINA, 4L),
                     getTcAspectStack(TC_Aspects.SENSUS, 4L)));
-            GregtechItemList.Sensor_MAX.set(this.addItem(tLastID = 31, "Sensor (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+            GregtechItemList.Sensor_MAX.set(this.addItem(
+                    tLastID = 31,
+                    "Sensor (MAX)",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                     getTcAspectStack(TC_Aspects.MACHINA, 8L),
                     getTcAspectStack(TC_Aspects.SENSUS, 8L)));
             // GT_ModHandler.addCraftingRecipe(GregtechItemList.Sensor_LuV.get(1L),
@@ -481,36 +601,57 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         }
 
         // Batteries
-        GregtechItemList.Battery_RE_EV_Sodium.set(
-                this.addItem(tLastID = 50, "Quad Cell Sodium Battery", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 2L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 2L)));
+        GregtechItemList.Battery_RE_EV_Sodium.set(this.addItem(
+                tLastID = 50,
+                "Quad Cell Sodium Battery",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+                getTcAspectStack(TC_Aspects.METALLUM, 2L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 2L)));
         this.setElectricStats(32000 + tLastID, 3200000L, GT_Values.V[4], 4L, -3L, true);
 
-        GregtechItemList.Battery_RE_EV_Cadmium.set(
-                this.addItem(tLastID = 52, "Quad Cell Cadmium Battery", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 1L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 1L)));
+        GregtechItemList.Battery_RE_EV_Cadmium.set(this.addItem(
+                tLastID = 52,
+                "Quad Cell Cadmium Battery",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.METALLUM, 1L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 1L)));
         this.setElectricStats(32000 + tLastID, 4800000L, GT_Values.V[4], 4L, -3L, true);
 
-        GregtechItemList.Battery_RE_EV_Lithium.set(
-                this.addItem(tLastID = 54, "Quad Cell Lithium Battery", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 3L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 3L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 3L)));
+        GregtechItemList.Battery_RE_EV_Lithium.set(this.addItem(
+                tLastID = 54,
+                "Quad Cell Lithium Battery",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 3L),
+                getTcAspectStack(TC_Aspects.METALLUM, 3L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 3L)));
         this.setElectricStats(32000 + tLastID, 6400000L, GT_Values.V[4], 4L, -3L, true);
 
         /**
          * Power Gems
          */
-        GregtechItemList.Battery_Gem_1.set(this.addItem(tLastID = 66, "Proton Cell", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Battery_Gem_1.set(this.addItem(
+                tLastID = 66,
+                "Proton Cell",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.METALLUM, 24L),
                 getTcAspectStack(TC_Aspects.POTENTIA, 16L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[6] * 20 * 300 / 4, GT_Values.V[6], 6L, -3L, false);
-        GregtechItemList.Battery_Gem_2.set(this.addItem(tLastID = 68, "Electron Cell", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
+        GregtechItemList.Battery_Gem_2.set(this.addItem(
+                tLastID = 68,
+                "Electron Cell",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
                 getTcAspectStack(TC_Aspects.METALLUM, 32L),
                 getTcAspectStack(TC_Aspects.POTENTIA, 32L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[7] * 20 * 300 / 4, GT_Values.V[7], 7L, -3L, false);
-        GregtechItemList.Battery_Gem_3.set(this.addItem(tLastID = 70, "Quark Entanglement", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 32L),
+        GregtechItemList.Battery_Gem_3.set(this.addItem(
+                tLastID = 70,
+                "Quark Entanglement",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 32L),
                 getTcAspectStack(TC_Aspects.METALLUM, 48L),
                 getTcAspectStack(TC_Aspects.POTENTIA, 64L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[8] * 20 * 300 / 4, GT_Values.V[8], 8L, -3L, false);
@@ -525,22 +666,34 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         setElectricStats(32000 + tLastID, 5000000L, GT_Values.V[2], 4L, -3L, true);*/
 
         // RTG Pellet
-        GregtechItemList.Pellet_RTG_PU238.set(
-                this.addItem(41, StringUtils.superscript("238") + "Pu Pellet", "", getTcAspectStack(TC_Aspects.RADIO, 4L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 2L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 2L)));
-        GregtechItemList.Pellet_RTG_SR90.set(
-                this.addItem(42, StringUtils.superscript("90") + "Sr Pellet", "", getTcAspectStack(TC_Aspects.RADIO, 4L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 2L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 2L)));
-        GregtechItemList.Pellet_RTG_PO210.set(
-                this.addItem(43, StringUtils.superscript("210") + "Po Pellet", "", getTcAspectStack(TC_Aspects.RADIO, 4L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 2L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 2L)));
-        GregtechItemList.Pellet_RTG_AM241.set(
-                this.addItem(44, StringUtils.superscript("241") + "Am Pellet", "", getTcAspectStack(TC_Aspects.RADIO, 4L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 2L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 2L)));
+        GregtechItemList.Pellet_RTG_PU238.set(this.addItem(
+                41,
+                StringUtils.superscript("238") + "Pu Pellet",
+                "",
+                getTcAspectStack(TC_Aspects.RADIO, 4L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 2L),
+                getTcAspectStack(TC_Aspects.METALLUM, 2L)));
+        GregtechItemList.Pellet_RTG_SR90.set(this.addItem(
+                42,
+                StringUtils.superscript("90") + "Sr Pellet",
+                "",
+                getTcAspectStack(TC_Aspects.RADIO, 4L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 2L),
+                getTcAspectStack(TC_Aspects.METALLUM, 2L)));
+        GregtechItemList.Pellet_RTG_PO210.set(this.addItem(
+                43,
+                StringUtils.superscript("210") + "Po Pellet",
+                "",
+                getTcAspectStack(TC_Aspects.RADIO, 4L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 2L),
+                getTcAspectStack(TC_Aspects.METALLUM, 2L)));
+        GregtechItemList.Pellet_RTG_AM241.set(this.addItem(
+                44,
+                StringUtils.superscript("241") + "Am Pellet",
+                "",
+                getTcAspectStack(TC_Aspects.RADIO, 4L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 2L),
+                getTcAspectStack(TC_Aspects.METALLUM, 2L)));
 
         CORE.RA.addFuelForRTG(GregtechItemList.Pellet_RTG_PU238.get(1), MathUtils.roundToClosestInt(87.7f), 64);
         CORE.RA.addFuelForRTG(GregtechItemList.Pellet_RTG_SR90.get(1), MathUtils.roundToClosestInt(28.8f), 32);
@@ -549,25 +702,33 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         CORE.RA.addFuelForRTG(GT_ModHandler.getIC2Item("RTGPellets", 1), MathUtils.roundToClosestInt(2.6f), 8);
 
         // Computer Cube
-        GregtechItemList.Gregtech_Computer_Cube.set(
-                this.addItem(tLastID = 55, "Gregtech Computer Cube", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Gregtech_Computer_Cube.set(this.addItem(
+                tLastID = 55,
+                "Gregtech Computer Cube",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[6] * 10 * 60 * 20, GT_Values.V[5], 5L, -3L, true);
 
         // FOOOOOOOOOOOOOOD
-        GregtechItemList.Food_Baked_Raisin_Bread.set(
-                this.addItem(tLastID = 60, "Raisin Bread", "Extra Raisins, Just for ImQ009", new GT_FoodStat(5, 0.5F, EnumAction.eat, null, false, true, false),
-                        getTcAspectStack(TC_Aspects.CORPUS, 1L),
-                        getTcAspectStack(TC_Aspects.FAMES, 1L),
-                        getTcAspectStack(TC_Aspects.IGNIS, 1L)));
+        GregtechItemList.Food_Baked_Raisin_Bread.set(this.addItem(
+                tLastID = 60,
+                "Raisin Bread",
+                "Extra Raisins, Just for ImQ009",
+                new GT_FoodStat(5, 0.5F, EnumAction.eat, null, false, true, false),
+                getTcAspectStack(TC_Aspects.CORPUS, 1L),
+                getTcAspectStack(TC_Aspects.FAMES, 1L),
+                getTcAspectStack(TC_Aspects.IGNIS, 1L)));
 
         if (!CORE.GTNH) {
             GregtechItemList.Fluid_Cell_144L.set(this.addItem(
-                    tLastID = 61, "144L Invar Fluid Cell", "Holds exactly one dust worth of liquid.", new ItemData(
+                    tLastID = 61,
+                    "144L Invar Fluid Cell",
+                    "Holds exactly one dust worth of liquid.",
+                    new ItemData(
                             Materials.Invar,
-                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)
-                    ),
+                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)),
                     getTcAspectStack(TC_Aspects.VACUOS, 2L),
                     getTcAspectStack(TC_Aspects.AQUA, 1L)));
             this.setFluidContainerStats(32000 + tLastID, 144L, 64L);
@@ -578,8 +739,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                     "Holds exactly one small dust worth of liquid.",
                     new ItemData(
                             Materials.Brass,
-                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)
-                    ),
+                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)),
                     getTcAspectStack(TC_Aspects.VACUOS, 2L),
                     getTcAspectStack(TC_Aspects.AQUA, 1L)));
             this.setFluidContainerStats(32000 + tLastID, 36L, 64L);
@@ -590,8 +750,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                     "Holds exactly one tiny dust / nugget worth of liquid.",
                     new ItemData(
                             Materials.Bronze,
-                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)
-                    ),
+                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)),
                     getTcAspectStack(TC_Aspects.VACUOS, 2L),
                     getTcAspectStack(TC_Aspects.AQUA, 1L)));
             this.setFluidContainerStats(32000 + tLastID, 16L, 64L);
@@ -602,72 +761,95 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                     "Holds exactly one litre worth of liquid.",
                     new ItemData(
                             Materials.WroughtIron,
-                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)
-                    ),
+                            (OrePrefixes.plate.mMaterialAmount * 8L) + (4L * OrePrefixes.ring.mMaterialAmount)),
                     getTcAspectStack(TC_Aspects.VACUOS, 2L),
                     getTcAspectStack(TC_Aspects.AQUA, 1L)));
             this.setFluidContainerStats(32000 + tLastID, 1L, 64L);
         }
 
-        GregtechItemList.Cover_Overflow_ULV.set(
-                this.addItem(71, "Overflow Valve (ULV)", "Maximum void amount: 8000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Cover_Overflow_LV.set(
-                this.addItem(72, "Overflow Valve (LV)", "Maximum void amount: 64000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Cover_Overflow_MV.set(
-                this.addItem(73, "Overflow Valve (MV)", "Maximum void amount: 512000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Cover_Overflow_HV.set(
-                this.addItem(74, "Overflow Valve (HV)", "Maximum void amount: 4096000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Cover_Overflow_EV.set(
-                this.addItem(75, "Overflow Valve (EV)", "Maximum void amount: 32768000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Cover_Overflow_IV.set(
-                this.addItem(76, "Overflow Valve (IV)", "Maximum void amount: 262144000", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_ULV.set(this.addItem(
+                71,
+                "Overflow Valve (ULV)",
+                "Maximum void amount: 8000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_LV.set(this.addItem(
+                72,
+                "Overflow Valve (LV)",
+                "Maximum void amount: 64000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_MV.set(this.addItem(
+                73,
+                "Overflow Valve (MV)",
+                "Maximum void amount: 512000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_HV.set(this.addItem(
+                74,
+                "Overflow Valve (HV)",
+                "Maximum void amount: 4096000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_EV.set(this.addItem(
+                75,
+                "Overflow Valve (EV)",
+                "Maximum void amount: 32768000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Cover_Overflow_IV.set(this.addItem(
+                76,
+                "Overflow Valve (IV)",
+                "Maximum void amount: 262144000",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
 
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_ULV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[4][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(8));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_LV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[4][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(64));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_MV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[5][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[5][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(512));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_HV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[5][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[5][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(4096));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_EV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[8][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[8][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(32768));
         GregTech_API.registerCover(
                 GregtechItemList.Cover_Overflow_IV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[8][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[8][0],
                         TextureFactory.of(TexturesGtBlock.Overlay_Overflow_Valve)),
                 new GTPP_Cover_Overflow(262144));
 
@@ -696,7 +878,11 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregtechItemList.Battery_Casing_Gem_3.set(this.addItem(108, "Advanced Containment Unit", "Used in crafting"));
         GregtechItemList.Battery_Casing_Gem_4.set(this.addItem(109, "Exotic Containment Unit", "Used in crafting"));
 
-        GregtechItemList.Battery_Gem_4.set(this.addItem(tLastID = 110, "Graviton Anomaly", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 64L),
+        GregtechItemList.Battery_Gem_4.set(this.addItem(
+                tLastID = 110,
+                "Graviton Anomaly",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 64L),
                 getTcAspectStack(TC_Aspects.METALLUM, 64L),
                 getTcAspectStack(TC_Aspects.POTENTIA, 64L)));
         this.setElectricStats(32000 + tLastID, (64000000000L * 16), GT_Values.V[9], 9L, -3L, false);
@@ -714,30 +900,45 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         /*
          * High Tier 'Saws' for the tree Farm
          */
-        GregtechItemList.Farm_Processor_EV.set(
-                this.addItem(tLastID = 120, "Farm Processor [EV]", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Farm_Processor_EV.set(this.addItem(
+                tLastID = 120,
+                "Farm Processor [EV]",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[5] * 10 * 60 * 20, GT_Values.V[4], 4L, -3L, false);
-        GregtechItemList.Farm_Processor_IV.set(
-                this.addItem(tLastID = 122, "Farm Processor [IV]", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Farm_Processor_IV.set(this.addItem(
+                tLastID = 122,
+                "Farm Processor [IV]",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[6] * 10 * 60 * 20, GT_Values.V[5], 5L, -3L, false);
-        GregtechItemList.Farm_Processor_LuV.set(
-                this.addItem(tLastID = 124, "Farm Processor [LuV]", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Farm_Processor_LuV.set(this.addItem(
+                tLastID = 124,
+                "Farm Processor [LuV]",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[7] * 10 * 60 * 20, GT_Values.V[6], 6L, -3L, false);
-        GregtechItemList.Farm_Processor_ZPM.set(
-                this.addItem(tLastID = 126, "Farm Processor [ZPM]", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Farm_Processor_ZPM.set(this.addItem(
+                tLastID = 126,
+                "Farm Processor [ZPM]",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[8] * 10 * 60 * 20, GT_Values.V[7], 7L, -3L, false);
-        GregtechItemList.Farm_Processor_UV.set(
-                this.addItem(tLastID = 128, "Farm Processor [UV]", "Reusable", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                        getTcAspectStack(TC_Aspects.METALLUM, 8L),
-                        getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
+        GregtechItemList.Farm_Processor_UV.set(this.addItem(
+                tLastID = 128,
+                "Farm Processor [UV]",
+                "Reusable",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+                getTcAspectStack(TC_Aspects.METALLUM, 8L),
+                getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[9] * 10 * 60 * 20, GT_Values.V[8], 8L, -3L, false);
 
         String aTierName;
@@ -762,8 +963,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 mMachineCasingCovers[i].set(this.addItem(
                         aFirstMachineCasingID++,
                         aTierName + " Machine Plate Cover",
-                        "Deprecated - Shapeless Craft to new version"
-                ));
+                        "Deprecated - Shapeless Craft to new version"));
                 GregTech_API.registerCover(
                         mMachineCasingCovers[i].get(1L),
                         TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[i][0]),
@@ -787,10 +987,13 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
             GregtechItemList.TransmissionComponent_MAX,
         };
         for (int aIndex = 0; aIndex < 10; aIndex++) {
-            aTransParts[aIndex].set(
-                    this.addItem(aStartID++, "Transmission Component (" + GT_Values.VN[aIndex] + ")", "", getTcAspectStack(TC_Aspects.ELECTRUM, aIndex),
-                            getTcAspectStack(TC_Aspects.MACHINA, aIndex),
-                            getTcAspectStack(TC_Aspects.MAGNETO, aIndex)));
+            aTransParts[aIndex].set(this.addItem(
+                    aStartID++,
+                    "Transmission Component (" + GT_Values.VN[aIndex] + ")",
+                    "",
+                    getTcAspectStack(TC_Aspects.ELECTRUM, aIndex),
+                    getTcAspectStack(TC_Aspects.MACHINA, aIndex),
+                    getTcAspectStack(TC_Aspects.MAGNETO, aIndex)));
         }
 
         // Distillus Chip
@@ -821,93 +1024,160 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
     }
 
     private boolean registerComponents_ULV() {
-        GregtechItemList.Electric_Pump_ULV.set(
-                this.addItem(32, "Electric Pump (ULV)", "160 L/sec (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L),
-                        getTcAspectStack(TC_Aspects.AQUA, 1L)));
-        GregtechItemList.Electric_Motor_ULV.set(this.addItem(33, "Electric Motor (ULV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+        GregtechItemList.Electric_Pump_ULV.set(this.addItem(
+                32,
+                "Electric Pump (ULV)",
+                "160 L/sec (as Cover)",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L),
+                getTcAspectStack(TC_Aspects.AQUA, 1L)));
+        GregtechItemList.Electric_Motor_ULV.set(this.addItem(
+                33,
+                "Electric Motor (ULV)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                 getTcAspectStack(TC_Aspects.MACHINA, 1L),
                 getTcAspectStack(TC_Aspects.MOTUS, 1L)));
-        GregtechItemList.Conveyor_Module_ULV.set(
-                this.addItem(34, "Conveyor Module (ULV)", "1 Stack every 80 secs (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
-                        getTcAspectStack(TC_Aspects.ITER, 1L)));
-        GregtechItemList.Electric_Piston_ULV.set(this.addItem(35, "Electric Piston (ULV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+        GregtechItemList.Conveyor_Module_ULV.set(this.addItem(
+                34,
+                "Conveyor Module (ULV)",
+                "1 Stack every 80 secs (as Cover)",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                getTcAspectStack(TC_Aspects.ITER, 1L)));
+        GregtechItemList.Electric_Piston_ULV.set(this.addItem(
+                35,
+                "Electric Piston (ULV)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                 getTcAspectStack(TC_Aspects.MACHINA, 2L),
                 getTcAspectStack(TC_Aspects.MOTUS, 1L)));
-        GregtechItemList.Robot_Arm_ULV.set(
-                this.addItem(36, "Robot Arm (ULV)", "Inserts into specific Slots (as Cover)", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 2L),
-                        getTcAspectStack(TC_Aspects.MOTUS, 1L),
-                        Utils.getTcAspectStack("COGNITIO", 1L)));
-        GregtechItemList.Field_Generator_ULV.set(this.addItem(37, "Field Generator (ULV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
+        GregtechItemList.Robot_Arm_ULV.set(this.addItem(
+                36,
+                "Robot Arm (ULV)",
+                "Inserts into specific Slots (as Cover)",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+                getTcAspectStack(TC_Aspects.MACHINA, 2L),
+                getTcAspectStack(TC_Aspects.MOTUS, 1L),
+                Utils.getTcAspectStack("COGNITIO", 1L)));
+        GregtechItemList.Field_Generator_ULV.set(this.addItem(
+                37,
+                "Field Generator (ULV)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 2L),
                 getTcAspectStack(TC_Aspects.MACHINA, 1L),
                 getTcAspectStack(TC_Aspects.TUTAMEN, 1L)));
-        GregtechItemList.Emitter_ULV.set(this.addItem(38, "Emitter (ULV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+        GregtechItemList.Emitter_ULV.set(this.addItem(
+                38,
+                "Emitter (ULV)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                 getTcAspectStack(TC_Aspects.MACHINA, 1L),
                 getTcAspectStack(TC_Aspects.LUX, 1L)));
-        GregtechItemList.Sensor_ULV.set(this.addItem(39, "Sensor (ULV)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
+        GregtechItemList.Sensor_ULV.set(this.addItem(
+                39,
+                "Sensor (ULV)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                 getTcAspectStack(TC_Aspects.MACHINA, 1L),
                 getTcAspectStack(TC_Aspects.SENSUS, 1L)));
 
         GregTech_API.registerCover(
                 GregtechItemList.Electric_Pump_ULV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[5][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[5][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                 new GT_Cover_Pump(8));
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_ULV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[1][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[1][0],
                         TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                 new GT_Cover_Conveyor(1600));
         GregTech_API.registerCover(
                 GregtechItemList.Robot_Arm_ULV.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                 new GT_Cover_Arm(1600));
 
         return true;
     }
 
     private boolean registerComponents_MAX() {
-        GregtechItemList.Electric_Pump_MAX.set(this.addItem(3, "Electric Pump (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Electric_Pump_MAX.set(this.addItem(
+                3,
+                "Electric Pump (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.ITER, 8L),
                 getTcAspectStack(TC_Aspects.AQUA, 8L)));
-        GregtechItemList.Electric_Motor_MAX.set(this.addItem(7, "Electric Motor (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Electric_Motor_MAX.set(this.addItem(
+                7,
+                "Electric Motor (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.MOTUS, 8L)));
-        GregtechItemList.Conveyor_Module_MAX.set(this.addItem(11, "Conveyor Module (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Conveyor_Module_MAX.set(this.addItem(
+                11,
+                "Conveyor Module (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.ITER, 8L)));
-        GregtechItemList.Electric_Piston_MAX.set(this.addItem(15, "Electric Piston (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Electric_Piston_MAX.set(this.addItem(
+                15,
+                "Electric Piston (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 16L),
                 getTcAspectStack(TC_Aspects.MOTUS, 8L)));
-        GregtechItemList.Robot_Arm_MAX.set(this.addItem(19, "Robot Arm (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Robot_Arm_MAX.set(this.addItem(
+                19,
+                "Robot Arm (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 16L),
                 getTcAspectStack(TC_Aspects.MOTUS, 8L),
                 getTcAspectStack("COGNITIO", 8L)));
-        GregtechItemList.Field_Generator_MAX.set(this.addItem(23, "Field Generator (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
+        GregtechItemList.Field_Generator_MAX.set(this.addItem(
+                23,
+                "Field Generator (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.TUTAMEN, 8L)));
-        GregtechItemList.Emitter_MAX.set(this.addItem(27, "Emitter (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Emitter_MAX.set(this.addItem(
+                27,
+                "Emitter (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.LUX, 8L)));
-        GregtechItemList.Sensor_MAX.set(this.addItem(31, "Sensor (MAX)", "", getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
+        GregtechItemList.Sensor_MAX.set(this.addItem(
+                31,
+                "Sensor (MAX)",
+                "",
+                getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                 getTcAspectStack(TC_Aspects.MACHINA, 8L),
                 getTcAspectStack(TC_Aspects.SENSUS, 8L)));
 
         GregTech_API.registerCover(
                 GregtechItemList.Electric_Pump_MAX.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[8][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[8][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
                 new GT_Cover_Pump(524288));
         GregTech_API.registerCover(
                 GregtechItemList.Conveyor_Module_MAX.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0],
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[4][0],
                         TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
                 new GT_Cover_Conveyor(4));
         GregTech_API.registerCover(
                 GregtechItemList.Robot_Arm_MAX.get(1L),
-                TextureFactory.of(Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
+                TextureFactory.of(
+                        Textures.BlockIcons.MACHINE_CASINGS[4][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_ARM)),
                 new GT_Cover_Arm(4));
 
         return true;
@@ -917,31 +1187,41 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         // Enable Old Circuits
         Logger.INFO("[Old Feature - Circuits] Enabling Pre-5.09.28 Circuits and Data Storage.");
 
-        GregtechItemList.Old_Circuit_Primitive.set(this.addItem(
-                200, "NAND Chip", "A very simple Circuit", OrePrefixes.circuit.get(Materials.Primitive)));
-        GregtechItemList.Old_Circuit_Basic.set(
-                this.addItem(201, "Basic Electronic Circuit", "A basic Circuit", OrePrefixes.circuit.get(Materials.Basic)));
+        GregtechItemList.Old_Circuit_Primitive.set(
+                this.addItem(200, "NAND Chip", "A very simple Circuit", OrePrefixes.circuit.get(Materials.Primitive)));
+        GregtechItemList.Old_Circuit_Basic.set(this.addItem(
+                201, "Basic Electronic Circuit", "A basic Circuit", OrePrefixes.circuit.get(Materials.Basic)));
         GregtechItemList.Old_Circuit_Good.set(this.addItem(
                 202, "Good Electronic Circuit", "A good Circuit", OrePrefixes.circuit.get(Materials.Good)));
-        GregtechItemList.Old_Circuit_Advanced.set(
-                this.addItem(203, "Advanced Circuit", "An advanced Circuit", OrePrefixes.circuit.get(Materials.Advanced)));
-        GregtechItemList.Old_Circuit_Data.set(
-                this.addItem(204, "Data Storage Circuit", "A Data Storage Chip", OrePrefixes.circuit.get(Materials.Data)));
-        GregtechItemList.Old_Circuit_Elite.set(this.addItem(
-                205, "Data Control Circuit", "A Processor", OrePrefixes.circuit.get(Materials.Elite)));
-        GregtechItemList.Old_Circuit_Master.set(
-                this.addItem(206, "Energy Flow Circuit", "A High Voltage Processor", OrePrefixes.circuit.get(Materials.Master)));
+        GregtechItemList.Old_Circuit_Advanced.set(this.addItem(
+                203, "Advanced Circuit", "An advanced Circuit", OrePrefixes.circuit.get(Materials.Advanced)));
+        GregtechItemList.Old_Circuit_Data.set(this.addItem(
+                204, "Data Storage Circuit", "A Data Storage Chip", OrePrefixes.circuit.get(Materials.Data)));
+        GregtechItemList.Old_Circuit_Elite.set(
+                this.addItem(205, "Data Control Circuit", "A Processor", OrePrefixes.circuit.get(Materials.Elite)));
+        GregtechItemList.Old_Circuit_Master.set(this.addItem(
+                206, "Energy Flow Circuit", "A High Voltage Processor", OrePrefixes.circuit.get(Materials.Master)));
 
-        GregtechItemList.Old_Tool_DataOrb.set(
-                this.addItem(207, "Data Orb [GT++]", "A High Capacity Data Storage", OrePrefixes.circuit.get(Materials.Ultimate), SubTag.NO_UNIFICATION, new Behaviour_DataOrb()));
+        GregtechItemList.Old_Tool_DataOrb.set(this.addItem(
+                207,
+                "Data Orb [GT++]",
+                "A High Capacity Data Storage",
+                OrePrefixes.circuit.get(Materials.Ultimate),
+                SubTag.NO_UNIFICATION,
+                new Behaviour_DataOrb()));
         GregtechItemList.Old_Circuit_Ultimate.set(GregtechItemList.Old_Tool_DataOrb.get(1L));
         GT_ModHandler.addShapelessCraftingRecipe(
                 GregtechItemList.Old_Tool_DataOrb.get(1L),
                 GT_ModHandler.RecipeBits.NOT_REMOVABLE,
                 new Object[] {GregtechItemList.Old_Tool_DataOrb.get(1L)});
 
-        GregtechItemList.Old_Tool_DataStick.set(
-                this.addItem(208, "Data Stick [GT++]", "A Low Capacity Data Storage", OrePrefixes.circuit.get(Materials.Data), SubTag.NO_UNIFICATION, new Behaviour_DataStick()));
+        GregtechItemList.Old_Tool_DataStick.set(this.addItem(
+                208,
+                "Data Stick [GT++]",
+                "A Low Capacity Data Storage",
+                OrePrefixes.circuit.get(Materials.Data),
+                SubTag.NO_UNIFICATION,
+                new Behaviour_DataStick()));
         GT_ModHandler.addShapelessCraftingRecipe(
                 GregtechItemList.Old_Tool_DataStick.get(1L),
                 GT_ModHandler.RecipeBits.NOT_REMOVABLE,
@@ -972,12 +1252,21 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
     public boolean registerCustomCircuits() {
         if (CORE.ConfigSwitches.enableCustomCircuits) {
-            GregtechItemList.Circuit_IV.set(
-                    this.addItem(704, "Symbiotic Circuit (IV)", "A Symbiotic Data Processor", GregtechOrePrefixes.circuit.get(GT_Materials.Symbiotic)));
-            GregtechItemList.Circuit_LuV.set(
-                    this.addItem(705, "Neutronic Circuit (LuV)", "A Neutron Particle Processor", GregtechOrePrefixes.circuit.get(GT_Materials.Neutronic)));
-            GregtechItemList.Circuit_ZPM.set(
-                    this.addItem(706, "Quantum Circuit (ZPM)", "A Singlularity Processor", GregtechOrePrefixes.circuit.get(GT_Materials.Quantum)));
+            GregtechItemList.Circuit_IV.set(this.addItem(
+                    704,
+                    "Symbiotic Circuit (IV)",
+                    "A Symbiotic Data Processor",
+                    GregtechOrePrefixes.circuit.get(GT_Materials.Symbiotic)));
+            GregtechItemList.Circuit_LuV.set(this.addItem(
+                    705,
+                    "Neutronic Circuit (LuV)",
+                    "A Neutron Particle Processor",
+                    GregtechOrePrefixes.circuit.get(GT_Materials.Neutronic)));
+            GregtechItemList.Circuit_ZPM.set(this.addItem(
+                    706,
+                    "Quantum Circuit (ZPM)",
+                    "A Singlularity Processor",
+                    GregtechOrePrefixes.circuit.get(GT_Materials.Quantum)));
             GregtechItemList.Circuit_Board_IV.set(
                     this.addItem(710, "IV Circuit Board", "An IV Voltage Rated Circuit Board"));
             GregtechItemList.Circuit_Board_LuV.set(

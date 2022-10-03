@@ -447,16 +447,18 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public boolean inputEnergyFrom(byte aSide) {
-        return aSide == 6 || (!this.isServerSide()
-                ? this.isEnergyInputSide(aSide)
-                : aSide >= 0 && aSide < 6 && this.mActiveEUInputs[aSide] && !this.mReleaseEnergy);
+        return aSide == 6
+                || (!this.isServerSide()
+                        ? this.isEnergyInputSide(aSide)
+                        : aSide >= 0 && aSide < 6 && this.mActiveEUInputs[aSide] && !this.mReleaseEnergy);
     }
 
     @Override
     public boolean outputsEnergyTo(byte aSide) {
-        return aSide == 6 || (!this.isServerSide()
-                ? this.isEnergyOutputSide(aSide)
-                : aSide >= 0 && aSide < 6 && this.mActiveEUOutputs[aSide] || this.mReleaseEnergy);
+        return aSide == 6
+                || (!this.isServerSide()
+                        ? this.isEnergyOutputSide(aSide)
+                        : aSide >= 0 && aSide < 6 && this.mActiveEUOutputs[aSide] || this.mReleaseEnergy);
     }
 
     private boolean isEnergyInputSide(byte aSide) {
@@ -758,15 +760,18 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     }
 
     public final boolean getSky(int aX, int aY, int aZ) {
-        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ) || this.worldObj.canBlockSeeTheSky(aX, aY, aZ);
+        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ)
+                || this.worldObj.canBlockSeeTheSky(aX, aY, aZ);
     }
 
     public final boolean getOpacity(int aX, int aY, int aZ) {
-        return (!this.ignoreUnloadedChunks || !this.crossedChunkBorder(aX, aZ) || this.worldObj.blockExists(aX, aY, aZ)) && GT_Utility.isOpaqueBlock(this.worldObj, aX, aY, aZ);
+        return (!this.ignoreUnloadedChunks || !this.crossedChunkBorder(aX, aZ) || this.worldObj.blockExists(aX, aY, aZ))
+                && GT_Utility.isOpaqueBlock(this.worldObj, aX, aY, aZ);
     }
 
     public final boolean getAir(int aX, int aY, int aZ) {
-        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ) || GT_Utility.isBlockAir(this.worldObj, aX, aY, aZ);
+        return this.ignoreUnloadedChunks && this.crossedChunkBorder(aX, aZ) && !this.worldObj.blockExists(aX, aY, aZ)
+                || GT_Utility.isBlockAir(this.worldObj, aX, aY, aZ);
     }
 
     public final TileEntity getTileEntity(int aX, int aY, int aZ) {

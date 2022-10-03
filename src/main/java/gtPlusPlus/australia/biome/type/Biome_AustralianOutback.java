@@ -309,9 +309,9 @@ public class Biome_AustralianOutback extends BiomeGenMesa {
     }
 
     public byte func_150618_d(int p_150618_1_, int p_150618_2_, int p_150618_3_) {
-        int l = (int) Math.round(this.field_150625_aG.func_151601_a(
-                        (double) p_150618_1_ / 512.0D, (double) p_150618_1_ / 512.0D)
-                * 2.0D);
+        int l = (int) Math.round(
+                this.field_150625_aG.func_151601_a((double) p_150618_1_ / 512.0D, (double) p_150618_1_ / 512.0D)
+                        * 2.0D);
         return this.field_150621_aC[(p_150618_2_ + l + 64) % 64];
     }
 

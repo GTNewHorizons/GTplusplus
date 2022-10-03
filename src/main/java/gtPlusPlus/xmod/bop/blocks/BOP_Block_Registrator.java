@@ -261,8 +261,7 @@ public class BOP_Block_Registrator {
                 null,
                 0,
                 false);
-        GT_ModHandler.addCompressionRecipe(
-                GT_Utility.copyAmount(8L, aStack), ItemList.IC2_Plantball.get(1L));
+        GT_ModHandler.addCompressionRecipe(GT_Utility.copyAmount(8L, aStack), ItemList.IC2_Plantball.get(1L));
         GT_Values.RA.addLatheRecipe(
                 GT_Utility.copyAmount(1L, aStack),
                 GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Wood, 1L),

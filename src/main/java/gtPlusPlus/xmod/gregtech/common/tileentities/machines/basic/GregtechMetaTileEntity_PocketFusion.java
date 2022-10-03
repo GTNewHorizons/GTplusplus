@@ -199,13 +199,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
         if (tFluidList.size() > 1) {
             FluidStack[] tFluids = tFluidList.toArray(new FluidStack[tFluidList.size()]);
             GT_Recipe tRecipe = getRecipeList()
-                    .findRecipe(
-                            this.getBaseMetaTileEntity(),
-                            this.mLastRecipe,
-                            false,
-                            GT_Values.V[8],
-                            tFluids
-                    );
+                    .findRecipe(this.getBaseMetaTileEntity(), this.mLastRecipe, false, GT_Values.V[8], tFluids);
 
             if (tRecipe == null) {
                 return false;
@@ -408,8 +402,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     }
 
     public ITexture[] getFrontActive(final byte aColor) {
-        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)
-        };
+        return new ITexture[] {this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Overlay_MatterFab_Active)};
     }
 
     public ITexture[] getBackActive(final byte aColor) {
@@ -721,8 +714,7 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
         super.startSoundLoop(aIndex, aX, aY, aZ);
         if (aIndex == 1) {
-            GT_Utility.doSoundAtClient(
-                    GregTech_API.sSoundList.get(Integer.valueOf(212)), 10, 1.0F, aX, aY, aZ);
+            GT_Utility.doSoundAtClient(GregTech_API.sSoundList.get(Integer.valueOf(212)), 10, 1.0F, aX, aY, aZ);
         }
     }
 }

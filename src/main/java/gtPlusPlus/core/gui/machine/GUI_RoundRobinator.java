@@ -57,10 +57,7 @@ public class GUI_RoundRobinator extends GuiContainer {
         fontRendererObj.drawString("Rate: 1 Item/" + aTickRate + "t", 85, 20, Utils.rgbtoHexValue(50, 150, 50));
 
         boolean[] aStates = new boolean[] {
-                mContainer.mSide_1 != 0,
-                mContainer.mSide_2 != 0,
-                mContainer.mSide_3 != 0,
-                mContainer.mSide_4 != 0
+            mContainer.mSide_1 != 0, mContainer.mSide_2 != 0, mContainer.mSide_3 != 0, mContainer.mSide_4 != 0
         };
 
         fontRendererObj.drawString(

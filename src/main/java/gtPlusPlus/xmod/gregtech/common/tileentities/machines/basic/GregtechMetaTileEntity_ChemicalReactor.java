@@ -13,7 +13,6 @@ import gtPlusPlus.core.slots.SlotChemicalPlantInput;
 import gtPlusPlus.xmod.gregtech.api.gui.fluidreactor.Container_FluidReactor;
 import gtPlusPlus.xmod.gregtech.api.gui.fluidreactor.GUI_FluidReactor;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import java.util.List;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -256,8 +255,7 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                                             && !aBaseMetaTileEntity.addStackToSlot(
                                                     this.getOutputSlot() + (i + i) % this.mOutputItems.length,
                                                     this.mOutputItems[i]);
-                                    ++i) {
-                            }
+                                    ++i) {}
                         }
 
                         if (this.mOutputFluid != null) {

@@ -69,8 +69,7 @@ public class UnbreakableBlockManager {
             if ((entity instanceof BaseTileEntity) && !(entity instanceof BaseMetaPipeEntity)) {
                 final IMetaTileEntity I = ((BaseMetaTileEntity) entity).getMetaTileEntity();
                 Logger.WARNING("Checking State of Flag[nUnbreakable]. Value=" + MetaSafeBlock.bUnbreakable);
-                Logger.WARNING(
-                        "I Details: " + I.getMetaName() + " | " + I.getTileEntityBaseType() + " | " + I);
+                Logger.WARNING("I Details: " + I.getMetaName() + " | " + I.getTileEntityBaseType() + " | " + I);
 
                 if (I instanceof GregtechMetaSafeBlock) {
                     Logger.WARNING("Checking State of Flag[nUnbreakable]. Value=" + MetaSafeBlock.bUnbreakable);

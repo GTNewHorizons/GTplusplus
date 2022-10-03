@@ -11,6 +11,7 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
+import java.util.List;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,8 +21,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.List;
 
 public class MetaCustomCoverItem extends Item {
 
@@ -63,9 +62,7 @@ public class MetaCustomCoverItem extends Item {
                 ItemUtils.hideItemFromNEI(thisStack);
             }
             GregTech_API.registerCover(
-                    thisStack,
-                    TextureFactory.of(TextureFactory.of(mTextures[i])),
-                    new GTPP_Cover_ToggleVisual());
+                    thisStack, TextureFactory.of(TextureFactory.of(mTextures[i])), new GTPP_Cover_ToggleVisual());
         }
     }
 

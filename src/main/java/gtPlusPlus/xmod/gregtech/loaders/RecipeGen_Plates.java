@@ -57,10 +57,7 @@ public class RecipeGen_Plates extends RecipeGen_Base {
         // Bender
         if (ItemUtils.checkForInvalidItems(ingotStackOne) && ItemUtils.checkForInvalidItems(plate_Single))
             if (addBenderRecipe(
-                    ingotStackOne,
-                    plate_Single,
-                    (int) Math.max(material.getMass(), 1L),
-                    material.vVoltageMultiplier)) {
+                    ingotStackOne, plate_Single, (int) Math.max(material.getMass(), 1L), material.vVoltageMultiplier)) {
                 Logger.WARNING("Bender Recipe: " + material.getLocalizedName() + " - Success");
             } else {
                 Logger.WARNING("Bender Recipe: " + material.getLocalizedName() + " - Failed");

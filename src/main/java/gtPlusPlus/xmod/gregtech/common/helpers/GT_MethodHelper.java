@@ -46,8 +46,8 @@ public class GT_MethodHelper {
                         Field aColor = ReflectionUtils.getField(BaseMetaTileEntity.class, "mColor");
                         Field aActive = ReflectionUtils.getField(BaseMetaTileEntity.class, "mActive");
                         Field aMetaTile = ReflectionUtils.getField(BaseMetaTileEntity.class, "mMetaTileEntity");
-                        Method aHasValidTile = ReflectionUtils.getMethod(
-                                BaseMetaTileEntity.class, "hasValidMetaTileEntity");
+                        Method aHasValidTile =
+                                ReflectionUtils.getMethod(BaseMetaTileEntity.class, "hasValidMetaTileEntity");
 
                         boolean hasValidTileObj = (boolean) aHasValidTile.invoke(aTile, new Object[] {});
                         boolean aActiveObj = aActive.getBoolean(aTile);

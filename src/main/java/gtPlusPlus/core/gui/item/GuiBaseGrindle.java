@@ -68,10 +68,7 @@ public class GuiBaseGrindle extends GuiContainer {
 
             // Title
             this.fontRendererObj.drawStringWithShadow(
-                    I18n.format("Gregtech Information Transponder"),
-                    0,
-                    -12,
-                    Utils.rgbtoHexValue(255, 255, 255));
+                    I18n.format("Gregtech Information Transponder"), 0, -12, Utils.rgbtoHexValue(255, 255, 255));
             ItemStack aStack = this.inventory.getStackInSlot(0);
 
             if (aStack != null) {
@@ -97,22 +94,13 @@ public class GuiBaseGrindle extends GuiContainer {
                                 Utils.rgbtoHexValue(125, 255, 125));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------"),
-                                10,
-                                23,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format("-------------------"), 10, 23, Utils.rgbtoHexValue(125, 125, 255));
                         // Pos data
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mPosInfo),
-                                10,
-                                29,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format(aDataCurrent.mPosInfo), 10, 29, Utils.rgbtoHexValue(125, 125, 255));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------"),
-                                10,
-                                35,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format("-------------------"), 10, 35, Utils.rgbtoHexValue(125, 125, 255));
                         int aLastYUsed = 41;
 
                         int posOuter = 0;
@@ -166,28 +154,16 @@ public class GuiBaseGrindle extends GuiContainer {
                         // Draw the GUI
                         // List prospection
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mTierDim),
-                                10,
-                                18,
-                                Utils.rgbtoHexValue(125, 255, 125));
+                                I18n.format(aDataCurrent.mTierDim), 10, 18, Utils.rgbtoHexValue(125, 255, 125));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------"),
-                                10,
-                                23,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format("-------------------"), 10, 23, Utils.rgbtoHexValue(125, 125, 255));
                         // Pos data
                         this.fontRendererObj.drawString(
-                                I18n.format(aDataCurrent.mPosInfo),
-                                10,
-                                29,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format(aDataCurrent.mPosInfo), 10, 29, Utils.rgbtoHexValue(125, 125, 255));
                         // Divider
                         this.fontRendererObj.drawString(
-                                I18n.format("-------------------"),
-                                10,
-                                35,
-                                Utils.rgbtoHexValue(125, 125, 255));
+                                I18n.format("-------------------"), 10, 35, Utils.rgbtoHexValue(125, 125, 255));
                         int aLastYUsed = 41;
                         /*for (int i=0;i<aDataCurrent.mListData.size();i++) {
                         	if ((aLastYUsed + 9) <= (68 + 56)) {
@@ -206,10 +182,7 @@ public class GuiBaseGrindle extends GuiContainer {
             } else {
                 // Valid Datastick?
                 this.fontRendererObj.drawStringWithShadow(
-                        I18n.format("Insert device into port."),
-                        10,
-                        8,
-                        Utils.rgbtoHexValue(255, 125, 125));
+                        I18n.format("Insert device into port."), 10, 8, Utils.rgbtoHexValue(255, 125, 125));
                 this.mPageDataArray = new String[][] {{}};
                 this.mCurrentPage = 0;
             }

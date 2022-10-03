@@ -156,8 +156,7 @@ public class EntityOctopus extends EntityWaterMob {
             this.rotationYaw = this.renderYawOffset;
             this.octopusYaw += (float) Math.PI * this.field_70871_bB * 1.5F;
             this.octopusPitch +=
-                    (-((float) Math.atan2(f, this.motionY)) * 180.0F / (float) Math.PI - this.octopusPitch)
-                            * 0.1F;
+                    (-((float) Math.atan2(f, this.motionY)) * 180.0F / (float) Math.PI - this.octopusPitch) * 0.1F;
         } else {
             this.tentacleAngle = MathHelper.abs(MathHelper.sin(this.octopusRotation)) * (float) Math.PI * 0.25F;
 

@@ -15,7 +15,18 @@ import net.minecraftforge.fluids.FluidStack;
 public class GregtechMetaTileEntity_ReactorColdTrap extends GT_MetaTileEntity_BasicMachine {
 
     public GregtechMetaTileEntity_ReactorColdTrap(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 1, "Just like the Arctic", 2, 9, "Dehydrator.png", "", TextureFactory.of(TexturesGtBlock.OVERLAY_REACTOR_COLDTRAP_SIDE_ACTIVE),
+        super(
+                aID,
+                aName,
+                aNameRegional,
+                aTier,
+                1,
+                "Just like the Arctic",
+                2,
+                9,
+                "Dehydrator.png",
+                "",
+                TextureFactory.of(TexturesGtBlock.OVERLAY_REACTOR_COLDTRAP_SIDE_ACTIVE),
                 TextureFactory.of(TexturesGtBlock.OVERLAY_REACTOR_COLDTRAP_SIDE),
                 TextureFactory.of(TexturesGtBlock.OVERLAY_REACTOR_COLDTRAP_FRONT_ACTIVE),
                 TextureFactory.of(TexturesGtBlock.OVERLAY_REACTOR_COLDTRAP_FRONT),

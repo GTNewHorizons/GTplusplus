@@ -255,8 +255,7 @@ public class ItemGiantEgg extends BaseItemTickable {
                 entityitem.motionZ = MathHelper.cos(player.rotationYaw / 180.0F * (float) Math.PI)
                         * MathHelper.cos(player.rotationPitch / 180.0F * (float) Math.PI)
                         * f;
-                entityitem.motionY =
-                        -MathHelper.sin(player.rotationPitch / 180.0F * (float) Math.PI) * f + 0.1F;
+                entityitem.motionY = -MathHelper.sin(player.rotationPitch / 180.0F * (float) Math.PI) * f + 0.1F;
                 f = 0.02F;
                 f1 = RANDOM.nextFloat() * (float) Math.PI * 2.0F;
                 f *= RANDOM.nextFloat();

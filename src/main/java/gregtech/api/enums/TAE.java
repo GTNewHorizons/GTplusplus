@@ -8,11 +8,10 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class TAE {
 

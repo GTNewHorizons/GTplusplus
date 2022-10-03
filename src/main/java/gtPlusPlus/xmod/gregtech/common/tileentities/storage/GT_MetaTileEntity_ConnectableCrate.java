@@ -70,8 +70,7 @@ public class GT_MetaTileEntity_ConnectableCrate extends GT_MetaTileEntity_Tiered
                 aNameRegional,
                 aTier,
                 3,
-                "This Crate stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items"
-        );
+                "This Crate stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items");
     }
 
     public GT_MetaTileEntity_ConnectableCrate(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {

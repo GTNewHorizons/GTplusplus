@@ -24,57 +24,54 @@ public class GregtechGeneratorsULV {
                 new GT_MetaTileEntity_ULV_SteamTurbine(962, "basicgenerator.steam.tier.00", "Simple Steam Turbine", 0)
                         .getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Diesel_ULV.get(1L), bitsd, new Object[] {
-                    "PCP",
-                    "EME",
-                    "GWG",
-                    'M',
-                    ItemList.Hull_ULV,
-                    'P',
-                    GregtechItemList.Electric_Piston_ULV,
-                    'E',
-                    GregtechItemList.Electric_Motor_ULV,
-                    'C',
-                    OrePrefixes.circuit.get(Materials.Primitive),
-                    'W',
-                    OrePrefixes.cableGt01.get(Materials.RedAlloy),
-                    'G',
-                    OrePrefixes.gearGt.get(Materials.Bronze)
-                });
-        GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Gas_Turbine_ULV.get(1L), bitsd, new Object[] {
-                    "CRC",
-                    "RMR",
-                    "EWE",
-                    'M',
-                    ItemList.Hull_ULV,
-                    'E',
-                    GregtechItemList.Electric_Motor_ULV,
-                    'R',
-                    OrePrefixes.rotor.get(Materials.Tin),
-                    'C',
-                    OrePrefixes.circuit.get(Materials.Primitive),
-                    'W',
-                    OrePrefixes.cableGt01.get(Materials.RedAlloy)
-                });
-        GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Generator_Steam_Turbine_ULV.get(1L), bitsd, new Object[] {
-                    "PCP",
-                    "RMR",
-                    "EWE",
-                    'M',
-                    ItemList.Hull_ULV,
-                    'E',
-                    GregtechItemList.Electric_Motor_ULV,
-                    'R',
-                    OrePrefixes.rotor.get(Materials.Tin),
-                    'C',
-                    OrePrefixes.circuit.get(Materials.Primitive),
-                    'W',
-                    OrePrefixes.cableGt01.get(Materials.RedAlloy),
-                    'P',
-                    OrePrefixes.pipeMedium.get(Materials.Copper)
-                });
+        GT_ModHandler.addCraftingRecipe(GregtechItemList.Generator_Diesel_ULV.get(1L), bitsd, new Object[] {
+            "PCP",
+            "EME",
+            "GWG",
+            'M',
+            ItemList.Hull_ULV,
+            'P',
+            GregtechItemList.Electric_Piston_ULV,
+            'E',
+            GregtechItemList.Electric_Motor_ULV,
+            'C',
+            OrePrefixes.circuit.get(Materials.Primitive),
+            'W',
+            OrePrefixes.cableGt01.get(Materials.RedAlloy),
+            'G',
+            OrePrefixes.gearGt.get(Materials.Bronze)
+        });
+        GT_ModHandler.addCraftingRecipe(GregtechItemList.Generator_Gas_Turbine_ULV.get(1L), bitsd, new Object[] {
+            "CRC",
+            "RMR",
+            "EWE",
+            'M',
+            ItemList.Hull_ULV,
+            'E',
+            GregtechItemList.Electric_Motor_ULV,
+            'R',
+            OrePrefixes.rotor.get(Materials.Tin),
+            'C',
+            OrePrefixes.circuit.get(Materials.Primitive),
+            'W',
+            OrePrefixes.cableGt01.get(Materials.RedAlloy)
+        });
+        GT_ModHandler.addCraftingRecipe(GregtechItemList.Generator_Steam_Turbine_ULV.get(1L), bitsd, new Object[] {
+            "PCP",
+            "RMR",
+            "EWE",
+            'M',
+            ItemList.Hull_ULV,
+            'E',
+            GregtechItemList.Electric_Motor_ULV,
+            'R',
+            OrePrefixes.rotor.get(Materials.Tin),
+            'C',
+            OrePrefixes.circuit.get(Materials.Primitive),
+            'W',
+            OrePrefixes.cableGt01.get(Materials.RedAlloy),
+            'P',
+            OrePrefixes.pipeMedium.get(Materials.Copper)
+        });
     }
 }

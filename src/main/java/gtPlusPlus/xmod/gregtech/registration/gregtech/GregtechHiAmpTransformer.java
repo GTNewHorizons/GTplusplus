@@ -120,247 +120,229 @@ public class GregtechHiAmpTransformer {
         }
 
         if (!GTNH) {
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_ULV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Tin),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Lead)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_LV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Copper),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Tin)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_MV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.AnnealedCopper)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_HV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Cupronickel
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_EV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Kanthal
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_IV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Nichrome
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_LuV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('K'),
-                        mItem_1
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_ZPM,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('K'),
-                        mItem_2
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Hull_UV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt01.get(Materials.Bedrockium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('K'),
-                        mItem_3
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Hull_ULV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Tin),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Lead)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Hull_LV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Copper),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Tin)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Hull_MV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Gold),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.AnnealedCopper)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_HV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Aluminium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Gold),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Cupronickel
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_EV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Tungsten),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Aluminium),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Kanthal
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_IV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Tungsten),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Nichrome
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_LuV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Naquadah),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
+                Character.valueOf('K'),
+                mItem_1
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_ZPM,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Naquadah),
+                Character.valueOf('K'),
+                mItem_2
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Hull_UV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt01.get(Materials.Bedrockium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
+                Character.valueOf('K'),
+                mItem_3
+            });
         } else {
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_LV_ULV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Tin),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Lead)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_MV_LV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.AnyCopper),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Tin)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
-                        " BB",
-                        "CM ",
-                        " BB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_HV_MV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.AnyCopper)
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_EV_HV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Gold),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Cupronickel
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_IV_EV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Aluminium),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Kanthal
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_LuV_IV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Tungsten),
-                        Character.valueOf('K'),
-                        ItemList.Casing_Coil_Nichrome
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_ZPM_LuV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
-                        Character.valueOf('K'),
-                        mItem_1
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_UV_ZPM,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt16.get(Materials.Naquadah),
-                        Character.valueOf('K'),
-                        mItem_2
-                    });
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
-                        "KBB",
-                        "CM ",
-                        "KBB",
-                        Character.valueOf('M'),
-                        ItemList.Transformer_MAX_UV,
-                        Character.valueOf('C'),
-                        OrePrefixes.wireGt01.get(Materials.Bedrockium),
-                        Character.valueOf('B'),
-                        OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
-                        Character.valueOf('K'),
-                        mItem_3
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_LV_ULV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Transformer_LV_ULV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Tin),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Lead)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_MV_LV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Transformer_MV_LV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.AnyCopper),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Tin)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_HV_MV.get(1L), bitsd, new Object[] {
+                " BB",
+                "CM ",
+                " BB",
+                Character.valueOf('M'),
+                ItemList.Transformer_HV_MV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Gold),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.AnyCopper)
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_EV_HV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_EV_HV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Aluminium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Gold),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Cupronickel
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_IV_EV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_IV_EV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Tungsten),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Aluminium),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Kanthal
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_LuV_IV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_LuV_IV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Tungsten),
+                Character.valueOf('K'),
+                ItemList.Casing_Coil_Nichrome
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_ZPM_LuV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_ZPM_LuV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt16.get(Materials.Naquadah),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.VanadiumGallium),
+                Character.valueOf('K'),
+                mItem_1
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_UV_ZPM.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_UV_ZPM,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt16.get(Materials.Naquadah),
+                Character.valueOf('K'),
+                mItem_2
+            });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Transformer_HA_MAX_UV.get(1L), bitsd, new Object[] {
+                "KBB",
+                "CM ",
+                "KBB",
+                Character.valueOf('M'),
+                ItemList.Transformer_MAX_UV,
+                Character.valueOf('C'),
+                OrePrefixes.wireGt01.get(Materials.Bedrockium),
+                Character.valueOf('B'),
+                OrePrefixes.wireGt04.get(Materials.NaquadahAlloy),
+                Character.valueOf('K'),
+                mItem_3
+            });
         }
     }
 }

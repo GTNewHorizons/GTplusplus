@@ -65,7 +65,9 @@ public class PacketDispatcher {
                         playerInstanceClass,
                         null,
                         new String[] {"func_72690_a", "getOrCreateChunkWatcher"},
-                        Integer.TYPE, Integer.TYPE, Boolean.TYPE);
+                        Integer.TYPE,
+                        Integer.TYPE,
+                        Boolean.TYPE);
             }
             try {
                 b = DevHelper.getForgeMethod(PlayerManager.class, "sendToAllPlayersWatchingChunk", Packet.class);

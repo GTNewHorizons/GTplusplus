@@ -924,8 +924,7 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
                 getAllInputs());
         if (tRecipe == null) return DID_NOT_FIND_RECIPE;
 
-        if (false)
-            return FOUND_RECIPE_BUT_DID_NOT_MEET_REQUIREMENTS;
+        if (false) return FOUND_RECIPE_BUT_DID_NOT_MEET_REQUIREMENTS;
         if (tRecipe.mCanBeBuffered) mLastRecipe = tRecipe;
         if (!canOutput(tRecipe)) {
             mOutputBlocked++;

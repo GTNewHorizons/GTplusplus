@@ -333,12 +333,14 @@ public class EntityAIBatKingAttack extends EntityAIBase {
          */
         public boolean continueExecuting() {
             EntityLivingBase entitylivingbase = parentAI.mAttackingEntity.getAttackTarget();
-            return entitylivingbase != null && (entitylivingbase.isEntityAlive() && (!this.longMemory
-                    ? !parentAI.mAttackingEntity.getNavigator().noPath()
-                    : parentAI.mAttackingEntity.isWithinHomeDistance(
-                    MathHelper.floor_double(entitylivingbase.posX),
-                    MathHelper.floor_double(entitylivingbase.posY),
-                    MathHelper.floor_double(entitylivingbase.posZ))));
+            return entitylivingbase != null
+                    && (entitylivingbase.isEntityAlive()
+                            && (!this.longMemory
+                                    ? !parentAI.mAttackingEntity.getNavigator().noPath()
+                                    : parentAI.mAttackingEntity.isWithinHomeDistance(
+                                            MathHelper.floor_double(entitylivingbase.posX),
+                                            MathHelper.floor_double(entitylivingbase.posY),
+                                            MathHelper.floor_double(entitylivingbase.posZ))));
         }
 
         /**

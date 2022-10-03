@@ -291,8 +291,7 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         return registerMutation(parent1.species, parent2, chance, chancedivider);
     }
 
-    private final IBeeMutationCustom registerMutation(
-            String parent1, String parent2, int chance, float chancedivider) {
+    private final IBeeMutationCustom registerMutation(String parent1, String parent2, int chance, float chancedivider) {
         return registerMutation(getGregtechBeeType(parent1), getGregtechBeeType(parent2), chance, chancedivider);
     }
 

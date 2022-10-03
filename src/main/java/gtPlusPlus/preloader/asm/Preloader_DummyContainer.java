@@ -12,9 +12,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.Preloader_Logger;
 import java.io.File;
-import java.util.Arrays;
 import java.util.Collections;
-
 import net.minecraftforge.common.config.Configuration;
 
 public class Preloader_DummyContainer extends DummyModContainer {

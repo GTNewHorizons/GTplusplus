@@ -13,31 +13,40 @@ public class TexturesGregtech58 {
 
     private static final Textures.BlockIcons.CustomIcon GT8_1_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE1");
-    private static final Textures.BlockIcons.CustomIcon GT8_1 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE1");
+    private static final Textures.BlockIcons.CustomIcon GT8_1 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE1");
     private static final Textures.BlockIcons.CustomIcon GT8_2_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE2");
-    private static final Textures.BlockIcons.CustomIcon GT8_2 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE2");
+    private static final Textures.BlockIcons.CustomIcon GT8_2 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE2");
     private static final Textures.BlockIcons.CustomIcon GT8_3_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE3");
-    private static final Textures.BlockIcons.CustomIcon GT8_3 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE3");
+    private static final Textures.BlockIcons.CustomIcon GT8_3 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE3");
     private static final Textures.BlockIcons.CustomIcon GT8_4_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE4");
-    private static final Textures.BlockIcons.CustomIcon GT8_4 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE4");
+    private static final Textures.BlockIcons.CustomIcon GT8_4 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE4");
     private static final Textures.BlockIcons.CustomIcon GT8_5_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE5");
-    private static final Textures.BlockIcons.CustomIcon GT8_5 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE5");
+    private static final Textures.BlockIcons.CustomIcon GT8_5 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE5");
     private static final Textures.BlockIcons.CustomIcon GT8_6_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE6");
-    private static final Textures.BlockIcons.CustomIcon GT8_6 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE6");
+    private static final Textures.BlockIcons.CustomIcon GT8_6 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE6");
     private static final Textures.BlockIcons.CustomIcon GT8_7_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE7");
-    private static final Textures.BlockIcons.CustomIcon GT8_7 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE7");
+    private static final Textures.BlockIcons.CustomIcon GT8_7 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE7");
     private static final Textures.BlockIcons.CustomIcon GT8_8_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE8");
-    private static final Textures.BlockIcons.CustomIcon GT8_8 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE8");
+    private static final Textures.BlockIcons.CustomIcon GT8_8 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE8");
     private static final Textures.BlockIcons.CustomIcon GT8_9_Active =
             new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE_ACTIVE9");
-    private static final Textures.BlockIcons.CustomIcon GT8_9 = new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE9");
+    private static final Textures.BlockIcons.CustomIcon GT8_9 =
+            new Textures.BlockIcons.CustomIcon("iconsets/LARGETURBINE9");
 
     private static final Textures.BlockIcons.CustomIcon frontFace_0 = (GT8_1);
     private static final Textures.BlockIcons.CustomIcon frontFaceActive_0 = (GT8_1_Active);

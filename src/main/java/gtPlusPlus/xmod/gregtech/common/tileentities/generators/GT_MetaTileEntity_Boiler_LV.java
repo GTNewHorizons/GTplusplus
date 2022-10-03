@@ -37,9 +37,7 @@ public class GT_MetaTileEntity_Boiler_LV extends GT_MetaTileEntity_Boiler_Base {
     @Override
     public ITexture[] getTop(final byte aColor) {
         return new ITexture[] {
-            super.getTop(aColor)[0],
-            this.getCasingTexture(),
-            TextureFactory.of(TexturesGtBlock.Casing_Material_Potin)
+            super.getTop(aColor)[0], this.getCasingTexture(), TextureFactory.of(TexturesGtBlock.Casing_Material_Potin)
         };
     }
 

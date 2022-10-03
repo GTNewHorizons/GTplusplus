@@ -72,14 +72,10 @@ public class ClassTransformer_TT_ThaumicRestorer {
             mThaumicTinkerer = ReflectionUtils.getClass("thaumic.tinkerer.common.ThaumicTinkerer");
             mTCProxy = ReflectionUtils.getClass("thaumcraft.common.CommonProxy");
             // Set the methods we need
-            mIsTcTool = ReflectionUtils.getMethod(
-                    mTinkersConstructCompat, "isTConstructTool", ItemStack.class);
-            mGetTcDamage =
-                    ReflectionUtils.getMethod(mTinkersConstructCompat, "getDamage", ItemStack.class);
-            mFixTcDamage = ReflectionUtils.getMethod(
-                    mTinkersConstructCompat, "fixDamage", ItemStack.class, int.class);
-            mSparkle = ReflectionUtils.getMethod(
-                    mTCProxy, "sparkle", float.class, float.class, float.class, int.class);
+            mIsTcTool = ReflectionUtils.getMethod(mTinkersConstructCompat, "isTConstructTool", ItemStack.class);
+            mGetTcDamage = ReflectionUtils.getMethod(mTinkersConstructCompat, "getDamage", ItemStack.class);
+            mFixTcDamage = ReflectionUtils.getMethod(mTinkersConstructCompat, "fixDamage", ItemStack.class, int.class);
+            mSparkle = ReflectionUtils.getMethod(mTCProxy, "sparkle", float.class, float.class, float.class, int.class);
             mDrawEssentia = ReflectionUtils.getMethod(mTileRepairerClass, "drawEssentia");
             // Set the fields we need
             mRepairTiconTools = ReflectionUtils.getField(mTTConfigHandler, "repairTConTools");

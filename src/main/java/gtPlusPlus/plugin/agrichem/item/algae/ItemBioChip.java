@@ -75,13 +75,9 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
         try {
             aList.add("Configuration == " + aStack.getItemDamage());
             aList.add(GT_LanguageManager.addStringLocalization(
-                    getUnlocalizedName() +
-                            ".tooltip.0",
-                    "Right click to reconfigure"));
+                    getUnlocalizedName() + ".tooltip.0", "Right click to reconfigure"));
             aList.add(GT_LanguageManager.addStringLocalization(
-                    getUnlocalizedName() +
-                            ".tooltip.1",
-                    "Needs a screwdriver or circuit programming tool"));
+                    getUnlocalizedName() + ".tooltip.1", "Needs a screwdriver or circuit programming tool"));
         } catch (Throwable t) {
             t.printStackTrace();
         }

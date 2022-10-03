@@ -288,8 +288,11 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                 }
             }
 
-            return tTileEntity instanceof IGregTechTileEntity && (((IGregTechTileEntity) tTileEntity).getTimer() >= 50L && (!aWorld.isRemote && !((IGregTechTileEntity) tTileEntity).isUseableByPlayer(aPlayer) || ((IGregTechTileEntity) tTileEntity)
-                    .onRightclick(aPlayer, (byte) aSide, par1, par2, par3)));
+            return tTileEntity instanceof IGregTechTileEntity
+                    && (((IGregTechTileEntity) tTileEntity).getTimer() >= 50L
+                            && (!aWorld.isRemote && !((IGregTechTileEntity) tTileEntity).isUseableByPlayer(aPlayer)
+                                    || ((IGregTechTileEntity) tTileEntity)
+                                            .onRightclick(aPlayer, (byte) aSide, par1, par2, par3)));
         }
     }
 

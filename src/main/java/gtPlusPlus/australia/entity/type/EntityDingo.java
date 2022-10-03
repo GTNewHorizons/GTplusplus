@@ -34,7 +34,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -355,8 +354,7 @@ public class EntityDingo extends EntityWolf {
                         this.heal((float) itemfood.func_150905_g(itemstack));
 
                         if (itemstack.stackSize <= 0) {
-                            p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, null);
+                            p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -368,8 +366,7 @@ public class EntityDingo extends EntityWolf {
                         this.setCollarColor(i);
 
                         if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
-                            p_70085_1_.inventory.setInventorySlotContents(
-                                    p_70085_1_.inventory.currentItem, null);
+                            p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                         }
 
                         return true;
@@ -440,7 +437,9 @@ public class EntityDingo extends EntityWolf {
      * (wheat, carrots or seeds depending on the animal type)
      */
     public boolean isBreedingItem(ItemStack p_70877_1_) {
-        return p_70877_1_ != null && (p_70877_1_.getItem() instanceof ItemFood && ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat());
+        return p_70877_1_ != null
+                && (p_70877_1_.getItem() instanceof ItemFood
+                        && ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat());
     }
 
     /**
@@ -542,8 +541,9 @@ public class EntityDingo extends EntityWolf {
             }
 
             return (!(p_142018_1_ instanceof EntityPlayer)
-                    || !(p_142018_2_ instanceof EntityPlayer)
-                    || ((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_)) && (!(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame());
+                            || !(p_142018_2_ instanceof EntityPlayer)
+                            || ((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_))
+                    && (!(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame());
         } else {
             return false;
         }

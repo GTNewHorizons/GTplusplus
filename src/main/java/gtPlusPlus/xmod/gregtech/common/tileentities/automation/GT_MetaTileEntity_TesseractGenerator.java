@@ -197,9 +197,7 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
         if (this.mOwner == null) {
             if (this.getBaseMetaTileEntity().getOwnerName() != null
                     && !this.getBaseMetaTileEntity().getOwnerName().equals("")) {
-                if (this.getBaseMetaTileEntity()
-                        .getOwnerName()
-                        .equalsIgnoreCase(aPlayer.getDisplayName())) {
+                if (this.getBaseMetaTileEntity().getOwnerName().equalsIgnoreCase(aPlayer.getDisplayName())) {
                     this.mOwner = PlayerUtils.getPlayersUUIDByName(
                             this.getBaseMetaTileEntity().getOwnerName());
                 }

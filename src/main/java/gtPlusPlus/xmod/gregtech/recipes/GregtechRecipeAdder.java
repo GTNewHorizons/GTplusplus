@@ -1971,8 +1971,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if (GT_Utility.getContainerItem(aInput, false) == null) {
 
             if (GregTech_API.sRecipeFile.get(ConfigCategories.Machines.maceration, aInput, true)) {
-                GT_Utility.addSimpleIC2MachineRecipe(
-                        aInput, GT_ModHandler.getMaceratorRecipeList(), null, aOutput1);
+                GT_Utility.addSimpleIC2MachineRecipe(aInput, GT_ModHandler.getMaceratorRecipeList(), null, aOutput1);
             }
             GT_Values.RA.addPulveriserRecipe(
                     aInput, new ItemStack[] {aOutput1, aOutput2, aOutput3}, new int[] {10000, 10000, 10000}, 400, 2);
@@ -2093,8 +2092,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         aResults.put(GT_Values.RA.addBoxingRecipe(
                 GT_Utility.copyAmount(4L, aSmallDust), aRecipeType, aOutputStack1, 100, 4));
         // Dust 2
-        aResults.put(GT_Values.RA.addBoxingRecipe(
-                GT_Utility.copyAmount(9L, aTinyDust), aRecipeType, aOutputStack1, 100, 4));
+        aResults.put(
+                GT_Values.RA.addBoxingRecipe(GT_Utility.copyAmount(9L, aTinyDust), aRecipeType, aOutputStack1, 100, 4));
         for (boolean b : aResults) {
             if (!b) {
                 return false;

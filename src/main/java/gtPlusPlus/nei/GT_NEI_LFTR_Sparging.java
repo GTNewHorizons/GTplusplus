@@ -72,8 +72,7 @@ public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
     }
 
     public void loadTransferRects() {
-        this.transferRects.add(
-                new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getOverlayIdentifier()));
+        this.transferRects.add(new RecipeTransferRect(new Rectangle(72, 14, 22, 16), getOverlayIdentifier()));
     }
 
     public List<GasSpargingRecipeNEI> getCache() {

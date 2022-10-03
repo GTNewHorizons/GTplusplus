@@ -26,10 +26,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
     private static final ITexture[] FACING_SIDE = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Simple_Top)};
-    private static final ITexture[] FACING_FRONT = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_Off)
-    };
-    private static final ITexture[] FACING_ACTIVE = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_On)
-    };
+    private static final ITexture[] FACING_FRONT = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_Off)};
+    private static final ITexture[] FACING_ACTIVE = {TextureFactory.of(TexturesGtBlock.Casing_Machine_Redstone_On)};
     public int mMaxProgresstime = 0;
     public int mUpdate = 30;
     public int mProgresstime = 0;
@@ -225,7 +223,9 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
                             }
                         } else if ((!GT_Utility.arrayContains(
                                         this.getBaseMetaTileEntity().getBlockOffset(xDir + i, j, zDir + k),
-                                Blocks.lava, Blocks.flowing_lava, null))
+                                        Blocks.lava,
+                                        Blocks.flowing_lava,
+                                        null))
                                 && (!this.getBaseMetaTileEntity().getAirOffset(xDir + i, j, zDir + k))) {
                             return false;
                         }
@@ -372,13 +372,13 @@ public class GregtechMetaTileEntity_IronBlastFurnace extends MetaTileEntity {
 
     private boolean spaceForOutput(final ItemStack aStack1, final ItemStack aStack2) {
         return ((this.mInventory[2] == null)
-                || (aStack1 == null)
-                || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
-                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
+                        || (aStack1 == null)
+                        || (((this.mInventory[2].stackSize + aStack1.stackSize) <= this.mInventory[2].getMaxStackSize())
+                                && (GT_Utility.areStacksEqual(this.mInventory[2], aStack1))))
                 && ((this.mInventory[3] == null)
-                || (aStack2 == null)
-                || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
-                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))));
+                        || (aStack2 == null)
+                        || (((this.mInventory[3].stackSize + aStack2.stackSize) <= this.mInventory[3].getMaxStackSize())
+                                && (GT_Utility.areStacksEqual(this.mInventory[3], aStack2))));
     }
 
     private int getProperTime(int time) {

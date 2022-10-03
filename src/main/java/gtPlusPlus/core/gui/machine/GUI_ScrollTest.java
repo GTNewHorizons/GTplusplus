@@ -45,10 +45,9 @@ public class GUI_ScrollTest extends GuiScreen {
      */
     @SuppressWarnings("unchecked")
     public void initGui() {
-        this.buttonList.add(new GuiOptionButton(
-                2, this.width / 2 - 154, this.height - 48, I18n.format("resourcePack.openFolder")));
         this.buttonList.add(
-                new GuiOptionButton(1, this.width / 2 + 4, this.height - 48, I18n.format("gui.done")));
+                new GuiOptionButton(2, this.width / 2 - 154, this.height - 48, I18n.format("resourcePack.openFolder")));
+        this.buttonList.add(new GuiOptionButton(1, this.width / 2 + 4, this.height - 48, I18n.format("gui.done")));
         this.field_146966_g = new ArrayList<Object>();
         this.field_146969_h = new ArrayList<Entry>();
         ResourcePackRepository resourcepackrepository = this.mc.getResourcePackRepository();
@@ -190,8 +189,7 @@ public class GUI_ScrollTest extends GuiScreen {
         this.drawBackground(0);
         this.MapOfFreeResourcePacks.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
         this.MapOfActiveResourcePacks.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
-        this.drawCenteredString(
-                this.fontRendererObj, I18n.format("resourcePack.title"), this.width / 2, 16, 16777215);
+        this.drawCenteredString(this.fontRendererObj, I18n.format("resourcePack.title"), this.width / 2, 16, 16777215);
         this.drawCenteredString(
                 this.fontRendererObj,
                 I18n.format("resourcePack.folderInfo"),

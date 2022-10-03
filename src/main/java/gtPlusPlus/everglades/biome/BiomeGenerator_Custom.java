@@ -172,8 +172,7 @@ public class BiomeGenerator_Custom extends BiomeDecorator {
 
             for (i1 = nextInt(this.currentWorld.getHeightValue(k, l) * 2);
                     i1 > 0 && this.currentWorld.isAirBlock(k, i1 - 1, l);
-                    --i1) {
-            }
+                    --i1) {}
 
             this.waterlilyGen.generate(this.currentWorld, this.randomGenerator, k, i1, l);
         }

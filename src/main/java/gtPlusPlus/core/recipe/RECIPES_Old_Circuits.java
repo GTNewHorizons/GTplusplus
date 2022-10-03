@@ -93,13 +93,12 @@ public class RECIPES_Old_Circuits implements IOreRecipeRegistrator {
 
     private static boolean addCircuitRecipes() {
         Logger.INFO("[Old Feature - Circuits] Adding recipes for old circuits. (Part 1)");
-        GT_ModHandler.addShapelessCraftingRecipe(
-                GregtechItemList.Old_Circuit_Primitive.get(1L), new Object[] {
-                    GT_ModHandler.getIC2Item("casingadviron", 1L),
-                    OrePrefixes.wireGt01.get(Materials.RedAlloy),
-                    OrePrefixes.wireGt01.get(Materials.RedAlloy),
-                    OrePrefixes.wireGt01.get(Materials.Tin)
-                });
+        GT_ModHandler.addShapelessCraftingRecipe(GregtechItemList.Old_Circuit_Primitive.get(1L), new Object[] {
+            GT_ModHandler.getIC2Item("casingadviron", 1L),
+            OrePrefixes.wireGt01.get(Materials.RedAlloy),
+            OrePrefixes.wireGt01.get(Materials.RedAlloy),
+            OrePrefixes.wireGt01.get(Materials.Tin)
+        });
         GT_ModHandler.addCraftingRecipe(GregtechItemList.Old_Circuit_Basic.get(1L), new Object[] {
             "WWW",
             "CPC",

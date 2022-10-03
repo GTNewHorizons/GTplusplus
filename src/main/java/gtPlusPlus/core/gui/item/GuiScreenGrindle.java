@@ -127,12 +127,7 @@ public class GuiScreenGrindle extends GuiContainer {
                             I18n.format("book.signButton")));
             this.buttonList.add(
                     this.buttonDone = new GuiButton(
-                            0,
-                            (this.width / 2) + 2,
-                            this.bookImageHeight - 4,
-                            98,
-                            20,
-                            I18n.format("gui.close")));
+                            0, (this.width / 2) + 2, this.bookImageHeight - 4, 98, 20, I18n.format("gui.close")));
             this.buttonList.add(
                     this.buttonFinalize = new GuiButton(
                             5,
@@ -143,21 +138,11 @@ public class GuiScreenGrindle extends GuiContainer {
                             I18n.format("book.finalizeButton")));
             this.buttonList.add(
                     this.buttonCancel = new GuiButton(
-                            4,
-                            (this.width / 2) + 2,
-                            4 + this.bookImageHeight,
-                            98,
-                            20,
-                            I18n.format("gui.cancel")));
+                            4, (this.width / 2) + 2, 4 + this.bookImageHeight, 98, 20, I18n.format("gui.cancel")));
         } else {
             this.buttonList.add(
                     this.buttonDone = new GuiButton(
-                            0,
-                            (this.width / 2) - 100,
-                            this.bookImageHeight + 100,
-                            200,
-                            20,
-                            I18n.format("gui.done")));
+                            0, (this.width / 2) - 100, this.bookImageHeight + 100, 200, 20, I18n.format("gui.done")));
         }
 
         final int i = (this.width - this.bookImageWidth) / 2;
@@ -426,8 +411,7 @@ public class GuiScreenGrindle extends GuiContainer {
             this.fontRendererObj.drawSplitString(s3, k + 36, b0 + 80, 116, 0);
         } else {
             s = I18n.format(
-                    "book.pageIndicator",
-                    Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages));
+                    "book.pageIndicator", Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages));
             s1 = "";
 
             if ((this.bookPages != null) && (this.currPage >= 0) && (this.currPage < this.bookPages.tagCount())) {

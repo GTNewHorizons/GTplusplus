@@ -94,7 +94,11 @@ public class MetaGeneratedGregtechTools extends GT_MetaGenerated_Tool {
 
         // Electric Lighter
         this.addTool(
-                ELECTRIC_LIGHTER, "Pyromatic 9k", "Electric Fire!", new TOOL_Gregtech_ElectricLighter(), GregtechToolDictNames.craftingToolElectricLighter,
+                ELECTRIC_LIGHTER,
+                "Pyromatic 9k",
+                "Electric Fire!",
+                new TOOL_Gregtech_ElectricLighter(),
+                GregtechToolDictNames.craftingToolElectricLighter,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L));

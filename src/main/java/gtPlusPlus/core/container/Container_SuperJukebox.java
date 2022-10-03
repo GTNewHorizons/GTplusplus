@@ -93,8 +93,7 @@ public class Container_SuperJukebox extends Container {
 
             // Two Control Buttons
             this.addSlotToContainer(new SlotNoInput(this.inventoryChest, SLOT_HOLO_PLAY, xStart + (18 * c), 12));
-            this.addSlotToContainer(
-                    new SlotNoInput(this.inventoryChest, SLOT_HOLO_LOOP, xStart + (18 * c), 12 + (18)));
+            this.addSlotToContainer(new SlotNoInput(this.inventoryChest, SLOT_HOLO_LOOP, xStart + (18 * c), 12 + (18)));
 
             // Active playing slot for visual
             this.addSlotToContainer(

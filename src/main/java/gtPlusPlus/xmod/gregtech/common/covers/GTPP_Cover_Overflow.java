@@ -198,8 +198,7 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
         @Override
         public void drawExtras(int mouseX, int mouseY, float parTicks) {
             super.drawExtras(mouseX, mouseY, parTicks);
-            this.getFontRenderer()
-                    .drawString(trans("323", "L"), startX + spaceX * 4, 4 + startY + 8, 0xFF555555);
+            this.getFontRenderer().drawString(trans("323", "L"), startX + spaceX * 4, 4 + startY + 8, 0xFF555555);
             if (warn)
                 this.getFontRenderer()
                         .drawString(

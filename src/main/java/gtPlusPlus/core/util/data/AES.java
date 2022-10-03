@@ -1,6 +1,5 @@
 package gtPlusPlus.core.util.data;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -100,7 +99,6 @@ public class AES {
             } catch (NoSuchAlgorithmException e) {
 
                 e.printStackTrace();
-
             }
         }
 

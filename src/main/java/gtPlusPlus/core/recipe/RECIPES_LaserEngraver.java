@@ -156,25 +156,17 @@ public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
             ItemStack wireT4a = ItemUtils.getItemStackOfAmountFromOreDict(wire + "Naquadah", 1);
 
             // T1
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT1a, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT1b, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
+            GT_Values.RA.addLaserEngraverRecipe(wireT1a, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
+            GT_Values.RA.addLaserEngraverRecipe(wireT1b, GT_Utility.copyAmount(0L, aStack), coilWire1, 10 * 20, 500);
             // T2
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT2a, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT2b, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT2a, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT2b, GT_Utility.copyAmount(0L, aStack), coilWire2, 20 * 20, 2000);
             // T3
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3a, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3b, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT3c, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT3a, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT3b, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT3c, GT_Utility.copyAmount(0L, aStack), coilWire3, 30 * 20, 8000);
             // T4
-            GT_Values.RA.addLaserEngraverRecipe(
-                    wireT4a, GT_Utility.copyAmount(0L, aStack), coilWire4, 40 * 20, 32000);
+            GT_Values.RA.addLaserEngraverRecipe(wireT4a, GT_Utility.copyAmount(0L, aStack), coilWire4, 40 * 20, 32000);
 
         } else if (aOreDictName.equals(OreDictNames.craftingLensOrange.toString())) {
             GT_Values.RA.addLaserEngraverRecipe(

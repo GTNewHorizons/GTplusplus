@@ -194,17 +194,17 @@ public abstract class GT_MetaGenTool extends GT_MetaGenerated_Tool {
             this.doDamage(
                     aStack,
                     (long) tStats.convertBlockDrops(
-                            aDrops,
-                            aStack,
-                            aPlayer,
-                            aBlock,
-                            aX,
-                            aY,
-                            aZ,
-                            aMetaData,
-                            aFortune,
-                            aSilkTouch,
-                            aEvent)
+                                    aDrops,
+                                    aStack,
+                                    aPlayer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    aMetaData,
+                                    aFortune,
+                                    aSilkTouch,
+                                    aEvent)
                             * tStats.getToolDamagePerDropConversion());
         }
     }

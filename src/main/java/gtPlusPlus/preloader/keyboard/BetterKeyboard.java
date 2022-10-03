@@ -136,8 +136,6 @@ public class BetterKeyboard {
      * Represents a key or mouse button as a string. Args: key
      */
     public static String getKeyDisplayString(int aKeyValue) {
-        return aKeyValue < 0
-                ? I18n.format("key.mouseButton", Integer.valueOf(aKeyValue + 101))
-                : getKeyName(aKeyValue);
+        return aKeyValue < 0 ? I18n.format("key.mouseButton", Integer.valueOf(aKeyValue + 101)) : getKeyName(aKeyValue);
     }
 }

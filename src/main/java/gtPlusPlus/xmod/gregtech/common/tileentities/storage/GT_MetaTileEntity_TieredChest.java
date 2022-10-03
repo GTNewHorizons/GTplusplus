@@ -27,8 +27,7 @@ public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachi
                 aNameRegional,
                 aTier,
                 3,
-                "This Chest stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items"
-        );
+                "This Chest stores " + (int) (Math.pow(6.0D, aTier) * mStorageFactor) + " Items");
     }
 
     public GT_MetaTileEntity_TieredChest(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {

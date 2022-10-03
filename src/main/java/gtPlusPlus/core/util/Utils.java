@@ -253,13 +253,7 @@ public class Utils {
                 Integer.valueOf(hexString.substring(3, 5), 16),
                 Integer.valueOf(hexString.substring(5, 7), 16));
 
-        String sb = "rgb(" +
-                c.getRed() +
-                "," +
-                c.getGreen() +
-                "," +
-                c.getBlue() +
-                ")";
+        String sb = "rgb(" + c.getRed() + "," + c.getGreen() + "," + c.getBlue() + ")";
         return sb;
     }
 
@@ -722,24 +716,14 @@ public class Utils {
 
     public static String addBookTitleLocalization(final String aTitle) {
         return GT_LanguageManager.addStringLocalization(
-                "Book." +
-                        aTitle +
-                        ".Name",
-                aTitle,
-                !GregTech_API.sPostloadFinished);
+                "Book." + aTitle + ".Name", aTitle, !GregTech_API.sPostloadFinished);
     }
 
     public static String[] addBookPagesLocalization(final String aTitle, final String[] aPages) {
         String[] aLocalizationPages = new String[aPages.length];
         for (byte i = 0; i < aPages.length; i = (byte) (i + 1)) {
             aLocalizationPages[i] = GT_LanguageManager.addStringLocalization(
-                    "Book." +
-                            aTitle +
-                            ".Page" +
-                            ((i < 10)
-                                    ? "0" +
-                                    i
-                                    : Byte.valueOf(i)),
+                    "Book." + aTitle + ".Page" + ((i < 10) ? "0" + i : Byte.valueOf(i)),
                     aPages[i],
                     !GregTech_API.sPostloadFinished);
         }
@@ -778,30 +762,26 @@ public class Utils {
                     tNBTList.appendTag(new NBTTagString(aPages[i]));
                 } else {
                     Logger.INFO("WARNING: String for written Book too long! -> " + aPages[i]);
-                    GT_Log.err.println("WARNING: String for written Book too long! -> " +
-                            aPages[i]);
+                    GT_Log.err.println("WARNING: String for written Book too long! -> " + aPages[i]);
                 }
             } else {
                 Logger.INFO("WARNING: Too much Pages for written Book! -> " + aTitle);
-                GT_Log.err.println("WARNING: Too much Pages for written Book! -> " +
-                        aTitle);
+                GT_Log.err.println("WARNING: Too much Pages for written Book! -> " + aTitle);
                 break;
             }
         }
-        tNBTList.appendTag(new NBTTagString("Credits to " +
-                aAuthor +
-                " for writing this Book. This was Book Nr. " +
-                aID +
-                " at its creation. Gotta get 'em all!"));
+        tNBTList.appendTag(new NBTTagString("Credits to " + aAuthor
+                + " for writing this Book. This was Book Nr. "
+                + aID
+                + " at its creation. Gotta get 'em all!"));
         tNBT.setTag("pages", tNBTList);
         rStack.setTagCompound(tNBT);
-        GT_Log.out.println("GT++_Mod: Added Book to Book++ List  -  Mapping: '" +
-                aMapping +
-                "'  -  Name: '" +
-                aTitle +
-                "'  -  Author: '" +
-                aAuthor +
-                "'");
+        GT_Log.out.println("GT++_Mod: Added Book to Book++ List  -  Mapping: '" + aMapping
+                + "'  -  Name: '"
+                + aTitle
+                + "'  -  Author: '"
+                + aAuthor
+                + "'");
         NBTUtils.createIntegerTagCompound(rStack, "stats", "mMeta", vMeta);
         CORE.sBookList.put(aMapping, rStack);
         Logger.INFO("Creating book: " + aTitle + " by " + aAuthor + ". Using Meta " + vMeta + ".");

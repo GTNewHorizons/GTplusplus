@@ -309,13 +309,13 @@ public class GregtechConduits {
                 OrePrefixes.wireGt01,
                 aMaterial,
                 new GregtechMetaPipeEntity_Cable(
-                        aStartID,
+                                aStartID,
                                 "wire." + aMaterial.name().toLowerCase() + ".01",
                                 "1x " + aMaterial.mDefaultLocalName + " Wire",
                                 0.125F,
                                 aMaterial,
                                 aLoss,
-                        aAmperage,
+                                aAmperage,
                                 aVoltage,
                                 false,
                                 !aAutoInsulated,
@@ -412,7 +412,7 @@ public class GregtechConduits {
                                     0.25F,
                                     aMaterial,
                                     aLossInsulated,
-                            aAmperage,
+                                    aAmperage,
                                     aVoltage,
                                     true,
                                     false,
@@ -534,12 +534,12 @@ public class GregtechConduits {
                 OrePrefixes.wireGt01,
                 aMaterial,
                 new GregtechMetaPipeEntity_Cable(
-                        aStartID,
+                                aStartID,
                                 "wire." + aMaterial.getLocalizedName().toLowerCase() + ".01",
                                 "1x " + aMaterial.getLocalizedName() + " Wire",
                                 0.125F,
                                 aLoss,
-                        aAmperage,
+                                aAmperage,
                                 aVoltage,
                                 false,
                                 !aAutoInsulated,
@@ -630,7 +630,7 @@ public class GregtechConduits {
                                     "1x " + aMaterial.getLocalizedName() + " Cable",
                                     0.25F,
                                     aLossInsulated,
-                            aAmperage,
+                                    aAmperage,
                                     aVoltage,
                                     true,
                                     false,
@@ -1054,8 +1054,7 @@ public class GregtechConduits {
         String tName = aName.toString();
         if (GT_Utility.isStringInvalid(tName)) return false;
         ArrayList<ItemStack> tList = GT_OreDictUnificator.getOres(tName);
-        for (int i = 0; i < tList.size(); ++i)
-            if (GT_Utility.areStacksEqual(tList.get(i), aStack, true)) return false;
+        for (int i = 0; i < tList.size(); ++i) if (GT_Utility.areStacksEqual(tList.get(i), aStack, true)) return false;
         OreDictionary.registerOre(tName, GT_Utility.copyAmount(1L, aStack));
         return true;
     }

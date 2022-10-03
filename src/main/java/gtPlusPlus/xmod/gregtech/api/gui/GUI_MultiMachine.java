@@ -133,12 +133,12 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             if (aRecipeEU != 0 && aRecipeDuration > 0) {
                 if (aRecipeEU > 0) {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.RED + -aRecipeEU
-                            + EnumChatFormatting.RESET + " EU/t/parallel"));
+                    mInfo.add(StatCollector.translateToLocal(
+                            "" + EnumChatFormatting.RED + -aRecipeEU + EnumChatFormatting.RESET + " EU/t/parallel"));
                 } else {
                     mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
-                    mInfo.add(StatCollector.translateToLocal("" + EnumChatFormatting.GREEN + aRecipeEU
-                            + EnumChatFormatting.RESET + " EU/t/parallel"));
+                    mInfo.add(StatCollector.translateToLocal(
+                            "" + EnumChatFormatting.GREEN + aRecipeEU + EnumChatFormatting.RESET + " EU/t/parallel"));
                 }
                 mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.duration") + ": " + EnumChatFormatting.RED
                         + aRecipeDuration + EnumChatFormatting.RESET + " ticks");
@@ -166,15 +166,11 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
             // "+EnumChatFormatting.GREEN+(aMaxParallel)+EnumChatFormatting.RESET);
 
             mInfo.add("Total Time Since Built: ");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + weeks + EnumChatFormatting.RESET
-                    + " Weeks,");
-            mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + days + EnumChatFormatting.RESET + " Days,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + weeks + EnumChatFormatting.RESET + " Weeks,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + days + EnumChatFormatting.RESET + " Days,");
             mInfo.add("" + EnumChatFormatting.DARK_GREEN + hours + EnumChatFormatting.RESET + " Hours,");
-            mInfo.add("" + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET
-                    + " Minutes,");
-            mInfo.add(
-                    "" + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + minutes + EnumChatFormatting.RESET + " Minutes,");
+            mInfo.add("" + EnumChatFormatting.DARK_GREEN + second + EnumChatFormatting.RESET + " Seconds");
 
             // Machine Name
             // fontRendererObj.drawString(this.mName, 6, 7, 16448255);
@@ -317,11 +313,15 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                 for (aIndex = 0; aIndex < 6; aIndex++) {
                     int x = 156;
                     int y = 112 - (18 * 3) + (aIndex * 18);
-                    mDrawItemStack.invoke(this, aToolStacks2[aIndex] != null ? aToolStacks2[aIndex] : ItemUtils.getErrorStack(1, "Bad Times"),
+                    mDrawItemStack.invoke(
+                            this,
+                            aToolStacks2[aIndex] != null
+                                    ? aToolStacks2[aIndex]
+                                    : ItemUtils.getErrorStack(1, "Bad Times"),
                             x,
                             y,
                             "" + (aIndex == 2 ? "H" : aIndex == 3 ? "M" : "") // Stacksize Overlay
-                    );
+                            );
                     // this.fontRendererObj.drawString("", 10, 64, 16448255);
                 }
 
@@ -334,7 +334,9 @@ public class GUI_MultiMachine extends GT_GUIContainerMetaTile_Machine {
                     mToolStacks.put(running + "GLASS", aGlassPane);
                 }
 
-                mDrawItemStack.invoke(this, aGlassPane != null ? aGlassPane : ItemUtils.getErrorStack(1, "Bad Times"),
+                mDrawItemStack.invoke(
+                        this,
+                        aGlassPane != null ? aGlassPane : ItemUtils.getErrorStack(1, "Bad Times"),
                         156,
                         112 - (18 * 5),
                         running ? "On" : "Off"); // Stacksize Overlay

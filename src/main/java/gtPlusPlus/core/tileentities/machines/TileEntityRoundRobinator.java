@@ -11,7 +11,6 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -549,8 +548,9 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     private static boolean canInsertItemIntoNeighbour(IInventory aNeighbour, ItemStack aStack, int aSlot, int aSide) {
-        return aNeighbour.isItemValidForSlot(aSlot, aStack) && (!(aNeighbour instanceof ISidedInventory)
-                || ((ISidedInventory) aNeighbour).canInsertItem(aSlot, aStack, aSide));
+        return aNeighbour.isItemValidForSlot(aSlot, aStack)
+                && (!(aNeighbour instanceof ISidedInventory)
+                        || ((ISidedInventory) aNeighbour).canInsertItem(aSlot, aStack, aSide));
     }
 
     private static ItemStack tryMoveStack(IInventory aNeighbour, ItemStack aStack, int aSlot, int aSide) {
@@ -627,7 +627,10 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     private static boolean areItemStacksEqual(ItemStack aStack, ItemStack aStack2) {
-        return aStack.getItem() == aStack2.getItem() && (aStack.getItemDamage() == aStack2.getItemDamage() && (aStack.stackSize <= aStack.getMaxStackSize() && ItemStack.areItemStackTagsEqual(aStack, aStack2)));
+        return aStack.getItem() == aStack2.getItem()
+                && (aStack.getItemDamage() == aStack2.getItemDamage()
+                        && (aStack.stackSize <= aStack.getMaxStackSize()
+                                && ItemStack.areItemStackTagsEqual(aStack, aStack2)));
     }
 
     public void readFromNBT2(NBTTagCompound p_145839_1_) {

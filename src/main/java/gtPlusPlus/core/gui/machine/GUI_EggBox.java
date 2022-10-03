@@ -24,8 +24,7 @@ public class GUI_EggBox extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(final int i, final int j) {
         // this.fontRendererObj.drawString(I18n.format("Workbench", new Object[0]), 28, 6, 4210752);
-        this.fontRendererObj.drawString(
-                I18n.format("container.EggBox"), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRendererObj.drawString(I18n.format("container.EggBox"), 8, this.ySize - 96 + 2, 4210752);
     }
 
     @Override

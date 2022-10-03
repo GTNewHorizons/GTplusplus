@@ -40,11 +40,9 @@ public class GUI_ModularityTable extends GuiContainer {
         if (mRecipeTime > -1) {
             this.fontRendererObj.drawString(I18n.format("Time"), 84, 42, 4210752);
             this.fontRendererObj.drawString(I18n.format("Remaining"), 84, 50, 4210752);
-            this.fontRendererObj.drawString(
-                    I18n.format("" + this.mRecipeTime + " Ticks"), 84, 58, 4210752);
+            this.fontRendererObj.drawString(I18n.format("" + this.mRecipeTime + " Ticks"), 84, 58, 4210752);
         }
-        this.fontRendererObj.drawString(
-                I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
 
     @Override

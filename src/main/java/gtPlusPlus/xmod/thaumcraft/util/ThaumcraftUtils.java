@@ -207,12 +207,7 @@ public class ThaumcraftUtils {
             return null;
         }
         return addInfusionCraftingRecipe(
-                aResearch,
-                GT_Utility.copy(aOutput),
-                aInstability,
-                getAspectList_Ex(aAspects),
-                aMainInput,
-                aSideInputs);
+                aResearch, GT_Utility.copy(aOutput), aInstability, getAspectList_Ex(aAspects), aMainInput, aSideInputs);
     }
 
     public static boolean registerThaumcraftAspectsToItem(

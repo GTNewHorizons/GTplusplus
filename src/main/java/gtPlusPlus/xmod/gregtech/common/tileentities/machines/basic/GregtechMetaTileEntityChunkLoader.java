@@ -39,8 +39,7 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
                 0,
                 0,
                 "Recycler.png",
-                ""
-        );
+                "");
     }
 
     public GregtechMetaTileEntityChunkLoader(

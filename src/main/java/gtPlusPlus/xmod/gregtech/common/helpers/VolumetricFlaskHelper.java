@@ -156,8 +156,8 @@ public class VolumetricFlaskHelper {
     }
 
     public static Item generateNewFlask(String unlocalized, String english, int maxCapacity) {
-        Constructor aFlask = ReflectionUtils.getConstructor(
-                sClassVolumetricFlask, String.class, String.class, int.class);
+        Constructor aFlask =
+                ReflectionUtils.getConstructor(sClassVolumetricFlask, String.class, String.class, int.class);
         if (aFlask != null) {
             Object aInstance = ReflectionUtils.createNewInstanceFromConstructor(
                     aFlask, new Object[] {unlocalized, english, maxCapacity});

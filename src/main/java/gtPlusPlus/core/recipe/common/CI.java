@@ -789,8 +789,7 @@ public class CI {
                     // All Invalid? Ok, shit.
                     // Let's add a special error ingot.
                     if (!ItemUtils.checkForInvalidItems(aReturn)) {
-                        aReturn = ItemUtils.getErrorStack(
-                                1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
+                        aReturn = ItemUtils.getErrorStack(1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
                     }
                 }
             }

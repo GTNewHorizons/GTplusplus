@@ -76,14 +76,15 @@ public class TF_Items {
     public static void postInit() {
         if (!CORE.GTNH) {
             ItemHelper.addRecipe(ItemHelper.ShapelessRecipe(
-                    ItemHelper.cloneStack(dustPyrotheum, 1),
-                    "dustCoal", "dustSulfur", "dustRedstone", "dustBlaze"));
+                    ItemHelper.cloneStack(dustPyrotheum, 1), "dustCoal", "dustSulfur", "dustRedstone", "dustBlaze"));
             ItemHelper.addRecipe(ItemHelper.ShapelessRecipe(
                     ItemHelper.cloneStack(dustCryotheum, 1),
-                    Items.snowball, "dustSaltpeter", "dustRedstone", "dustBlizz"));
+                    Items.snowball,
+                    "dustSaltpeter",
+                    "dustRedstone",
+                    "dustBlizz"));
             ItemHelper.addRecipe(ItemHelper.ShapelessRecipe(
-                    ItemHelper.cloneStack(dustCryotheum, 1),
-                    Items.snowball, "dustNitor", "dustRedstone", "dustBlizz"));
+                    ItemHelper.cloneStack(dustCryotheum, 1), Items.snowball, "dustNitor", "dustRedstone", "dustBlizz"));
         }
     }
 }

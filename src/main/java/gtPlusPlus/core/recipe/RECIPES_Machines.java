@@ -1001,27 +1001,25 @@ public class RECIPES_Machines {
 
     private static void chemPlant() {
 
-        GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Casing_Machine_Custom_1.get(2L), CI.bits, new Object[] {
-                    "PhP",
-                    "PFP",
-                    "PwP",
-                    'P',
-                    OrePrefixes.plate.get(Materials.Bronze),
-                    'F',
-                    OrePrefixes.frameGt.get(Materials.Bronze)
-                });
+        GT_ModHandler.addCraftingRecipe(GregtechItemList.Casing_Machine_Custom_1.get(2L), CI.bits, new Object[] {
+            "PhP",
+            "PFP",
+            "PwP",
+            'P',
+            OrePrefixes.plate.get(Materials.Bronze),
+            'F',
+            OrePrefixes.frameGt.get(Materials.Bronze)
+        });
 
-        GT_ModHandler.addCraftingRecipe(
-                GregtechItemList.Casing_Machine_Custom_2.get(2L), CI.bits, new Object[] {
-                    "PPP",
-                    "hFw",
-                    "PPP",
-                    'P',
-                    OrePrefixes.plate.get(Materials.Aluminium),
-                    'F',
-                    OrePrefixes.frameGt.get(Materials.Aluminium)
-                });
+        GT_ModHandler.addCraftingRecipe(GregtechItemList.Casing_Machine_Custom_2.get(2L), CI.bits, new Object[] {
+            "PPP",
+            "hFw",
+            "PPP",
+            'P',
+            OrePrefixes.plate.get(Materials.Aluminium),
+            'F',
+            OrePrefixes.frameGt.get(Materials.Aluminium)
+        });
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
@@ -3342,8 +3340,7 @@ public class RECIPES_Machines {
                                     "plateDoubleTriniumTitaniumAlloy", (GTNH ? 2 : 1)),
                             ItemUtils.getItemStackOfAmountFromOreDict("gearGtPikyonium64B", 2 * (GTNH ? 2 : 1)),
                             ALLOY.TRINIUM_REINFORCED_STEEL.getPlateDouble(4 * (GTNH ? 2 : 1)),
-                            ItemUtils.getSimpleStack(
-                                    (GTNH ? CI.machineHull_UV : CI.machineHull_LuV), (GTNH ? 2 : 1)),
+                            ItemUtils.getSimpleStack((GTNH ? CI.machineHull_UV : CI.machineHull_LuV), (GTNH ? 2 : 1)),
                         },
                         ALLOY.MARAGING350.getFluidStack(144 * 16 * (GTNH ? 2 : 1)),
                         GregtechItemList.Casing_BedrockMiner.get(1),

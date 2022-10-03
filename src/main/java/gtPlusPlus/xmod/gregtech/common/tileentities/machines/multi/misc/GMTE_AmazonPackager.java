@@ -17,7 +17,6 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -208,8 +207,7 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
                 }
                 return false;
             } else if (ItemList.Schematic_2by2.isStackEqual(schematicStack) && inputStack.stackSize >= 4) {
-                tOutputStack = GT_ModHandler.getRecipeOutput(
-                        inputStack, inputStack, null, inputStack, inputStack);
+                tOutputStack = GT_ModHandler.getRecipeOutput(inputStack, inputStack, null, inputStack, inputStack);
                 if (tOutputStack != null && this.allowPutStack(tOutputStack, schematicStack)) {
                     final ItemStack input2 = inputStack;
                     input2.stackSize -= 4;
@@ -222,7 +220,8 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
                 }
                 return false;
             } else if (ItemList.Schematic_3by3.isStackEqual(schematicStack) && inputStack.stackSize >= 9) {
-                tOutputStack = GT_ModHandler.getRecipeOutput(inputStack,
+                tOutputStack = GT_ModHandler.getRecipeOutput(
+                        inputStack,
                         inputStack,
                         inputStack,
                         inputStack,
@@ -424,17 +423,17 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         }
         // Something
         if (GT_Recipe.GT_Recipe_Map.sBoxinatorRecipes.findRecipe(
-                this.getBaseMetaTileEntity(),
+                        this.getBaseMetaTileEntity(),
                         true,
                         GT_Values.V[this.mTier],
-                null,
-                GT_Utility.copyAmount(64L, aStack), schematicStack)
+                        null,
+                        GT_Utility.copyAmount(64L, aStack),
+                        schematicStack)
                 != null) {
             return true;
         }
         // 1x1
-        if (ItemList.Schematic_1by1.isStackEqual(schematicStack)
-                && GT_ModHandler.getRecipeOutput(aStack) != null) {
+        if (ItemList.Schematic_1by1.isStackEqual(schematicStack) && GT_ModHandler.getRecipeOutput(aStack) != null) {
             return true;
         }
         // 2x2
@@ -444,9 +443,8 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
         }
         // 3x3
         return ItemList.Schematic_3by3.isStackEqual(schematicStack)
-                && GT_ModHandler.getRecipeOutput(
-                aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack)
-                != null;
+                && GT_ModHandler.getRecipeOutput(aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack, aStack)
+                        != null;
     }
 
     @Override

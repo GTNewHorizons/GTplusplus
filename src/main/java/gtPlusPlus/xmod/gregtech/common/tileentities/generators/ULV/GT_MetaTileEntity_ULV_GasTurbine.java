@@ -4,7 +4,6 @@ import static gregtech.api.enums.GT_Values.V;
 
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
-import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -55,8 +54,7 @@ public class GT_MetaTileEntity_ULV_GasTurbine extends GT_MetaTileEntity_GasTurbi
     @Override
     public ITexture[] getSidesActive(final byte aColor) {
         return new ITexture[] {
-            super.getSidesActive(aColor)[0],
-            TextureFactory.of(TexturesGtBlock.Overlay_Machine_Turbine_Active)
+            super.getSidesActive(aColor)[0], TextureFactory.of(TexturesGtBlock.Overlay_Machine_Turbine_Active)
         };
     }
 }

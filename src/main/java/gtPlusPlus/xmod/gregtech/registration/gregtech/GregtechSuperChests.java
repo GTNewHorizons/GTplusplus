@@ -46,80 +46,75 @@ public class GregtechSuperChests {
             ItemUtils.hideItemFromNEI(GregtechItemList.Super_Chest_EV.get(1L));
             ItemUtils.hideItemFromNEI(GregtechItemList.Super_Chest_IV.get(1L));
         } else {
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_LV.get(1L), bitsd, new Object[] {
-                        "DPD",
-                        "PMP",
-                        "DGD",
-                        Character.valueOf('M'),
-                        ItemList.Hull_LV,
-                        Character.valueOf('G'),
-                        ItemList.Automation_ChestBuffer_LV,
-                        Character.valueOf('D'),
-                        OrePrefixes.circuit.get(Materials.Basic),
-                        Character.valueOf('P'),
-                        OrePrefixes.plate.get(Materials.Invar)
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Super_Chest_LV.get(1L), bitsd, new Object[] {
+                "DPD",
+                "PMP",
+                "DGD",
+                Character.valueOf('M'),
+                ItemList.Hull_LV,
+                Character.valueOf('G'),
+                ItemList.Automation_ChestBuffer_LV,
+                Character.valueOf('D'),
+                OrePrefixes.circuit.get(Materials.Basic),
+                Character.valueOf('P'),
+                OrePrefixes.plate.get(Materials.Invar)
+            });
 
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_MV.get(1L), bitsd, new Object[] {
-                        "DPD",
-                        "PMP",
-                        "DGD",
-                        Character.valueOf('M'),
-                        ItemList.Hull_MV,
-                        Character.valueOf('G'),
-                        ItemList.Automation_ChestBuffer_MV,
-                        Character.valueOf('D'),
-                        OrePrefixes.circuit.get(Materials.Good),
-                        Character.valueOf('P'),
-                        OrePrefixes.plate.get(Materials.Aluminium)
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Super_Chest_MV.get(1L), bitsd, new Object[] {
+                "DPD",
+                "PMP",
+                "DGD",
+                Character.valueOf('M'),
+                ItemList.Hull_MV,
+                Character.valueOf('G'),
+                ItemList.Automation_ChestBuffer_MV,
+                Character.valueOf('D'),
+                OrePrefixes.circuit.get(Materials.Good),
+                Character.valueOf('P'),
+                OrePrefixes.plate.get(Materials.Aluminium)
+            });
 
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_HV.get(1L), bitsd, new Object[] {
-                        "DPD",
-                        "PMP",
-                        "DGD",
-                        Character.valueOf('M'),
-                        ItemList.Hull_HV,
-                        Character.valueOf('G'),
-                        ItemList.Automation_ChestBuffer_HV,
-                        Character.valueOf('D'),
-                        OrePrefixes.circuit.get(Materials.Advanced),
-                        Character.valueOf('P'),
-                        OrePrefixes.plate.get(Materials.StainlessSteel)
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Super_Chest_HV.get(1L), bitsd, new Object[] {
+                "DPD",
+                "PMP",
+                "DGD",
+                Character.valueOf('M'),
+                ItemList.Hull_HV,
+                Character.valueOf('G'),
+                ItemList.Automation_ChestBuffer_HV,
+                Character.valueOf('D'),
+                OrePrefixes.circuit.get(Materials.Advanced),
+                Character.valueOf('P'),
+                OrePrefixes.plate.get(Materials.StainlessSteel)
+            });
 
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_EV.get(1L), bitsd, new Object[] {
-                        "DPD",
-                        "PMP",
-                        "DGD",
-                        Character.valueOf('M'),
-                        ItemList.Hull_EV,
-                        Character.valueOf('G'),
-                        ItemList.Automation_ChestBuffer_EV,
-                        Character.valueOf('D'),
-                        OrePrefixes.circuit.get(Materials.Data),
-                        Character.valueOf('P'),
-                        OrePrefixes.plate.get(Materials.Titanium)
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Super_Chest_EV.get(1L), bitsd, new Object[] {
+                "DPD",
+                "PMP",
+                "DGD",
+                Character.valueOf('M'),
+                ItemList.Hull_EV,
+                Character.valueOf('G'),
+                ItemList.Automation_ChestBuffer_EV,
+                Character.valueOf('D'),
+                OrePrefixes.circuit.get(Materials.Data),
+                Character.valueOf('P'),
+                OrePrefixes.plate.get(Materials.Titanium)
+            });
 
-            GT_ModHandler.addCraftingRecipe(
-                    GregtechItemList.Super_Chest_IV.get(1L), bitsd, new Object[] {
-                        "DPD",
-                        "PMP",
-                        "DGD",
-                        Character.valueOf('M'),
-                        ItemList.Hull_IV,
-                        Character.valueOf('G'),
-                        ItemList.Automation_ChestBuffer_IV,
-                        Character.valueOf('D'),
-                        OrePrefixes.circuit.get(Materials.Elite),
-                        Character.valueOf('P'),
-                        OrePrefixes.plate.get(Materials.Tungsten)
-                    });
+            GT_ModHandler.addCraftingRecipe(GregtechItemList.Super_Chest_IV.get(1L), bitsd, new Object[] {
+                "DPD",
+                "PMP",
+                "DGD",
+                Character.valueOf('M'),
+                ItemList.Hull_IV,
+                Character.valueOf('G'),
+                ItemList.Automation_ChestBuffer_IV,
+                Character.valueOf('D'),
+                OrePrefixes.circuit.get(Materials.Elite),
+                Character.valueOf('P'),
+                OrePrefixes.plate.get(Materials.Tungsten)
+            });
         }
 
         // Test Thing

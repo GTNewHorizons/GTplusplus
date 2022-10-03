@@ -45,8 +45,7 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
     }
 
     public void loadTransferRects() {
-        this.transferRects.add(
-                new RecipeTransferRect(new Rectangle(6, 3, 16, 16), getOverlayIdentifier()));
+        this.transferRects.add(new RecipeTransferRect(new Rectangle(6, 3, 16, 16), getOverlayIdentifier()));
     }
 
     public void loadCraftingRecipes(ItemStack result) {

@@ -36,8 +36,7 @@ public class HazmatUtils {
 
     @SuppressWarnings("rawtypes")
     public static void init() {
-        if (mInit) {
-        }
+        if (mInit) {}
         // doInit(); Disabled, hazmat moved to gt5u
     }
 

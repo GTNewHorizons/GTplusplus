@@ -44,7 +44,8 @@ public class MaterialHelper {
         if (Utils.getGregtechVersionAsInt() >= 50930) {
             try {
                 Class<GT_MetaPipeEntity_Fluid> aPipeEntity = GT_MetaPipeEntity_Fluid.class;
-                Constructor<GT_MetaPipeEntity_Fluid> constructor = aPipeEntity.getConstructor(int.class,
+                Constructor<GT_MetaPipeEntity_Fluid> constructor = aPipeEntity.getConstructor(
+                        int.class,
                         String.class,
                         String.class,
                         float.class,

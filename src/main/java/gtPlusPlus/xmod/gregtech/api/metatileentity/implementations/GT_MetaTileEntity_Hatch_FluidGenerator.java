@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
 import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -87,15 +86,11 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
     }
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
-        return new ITexture[] {
-            aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)
-        };
+        return new ITexture[] {aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)};
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
-        return new ITexture[] {
-            aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)
-        };
+        return new ITexture[] {aBaseTexture, TextureFactory.of(Textures.BlockIcons.OVERLAY_MUFFLER)};
     }
 
     public boolean isSimpleMachine() {
@@ -198,7 +193,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
         }
         return this.mFluid == null
                 || (this.mFluid != null
-                && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
+                        && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()));
     }
 
     @Override

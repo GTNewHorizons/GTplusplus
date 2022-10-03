@@ -422,8 +422,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
         if (tFluids.length > 0 && tRecipeList != null && tRecipeList.size() > 0) { // Does input hatch have a LFTR fuel?
             Logger.WARNING("Found more than one input fluid and a list of valid recipes.");
             // Find a valid recipe
-            GT_Recipe aFuelProcessing =
-                    this.findRecipe(getBaseMetaTileEntity(), mLastRecipe, true, 0, tFluids);
+            GT_Recipe aFuelProcessing = this.findRecipe(getBaseMetaTileEntity(), mLastRecipe, true, 0, tFluids);
             if (aFuelProcessing == null) {
                 Logger.WARNING("Did not find valid recipe for given inputs.");
                 return false;

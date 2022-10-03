@@ -43,7 +43,8 @@ public final class ALLOY {
             100, // Neutrons
             false, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(ALLOY.STEEL, 5), new MaterialStack(ELEMENT.getInstance().IGNIS, 5));
+            new MaterialStack(ALLOY.STEEL, 5),
+            new MaterialStack(ELEMENT.getInstance().IGNIS, 5));
 
     public static final Material STABALLOY = new Material(
             "Staballoy", // Material Name
@@ -95,7 +96,8 @@ public final class ALLOY {
             -1,
             false, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(ELEMENT.getInstance().GOLD, 70), new MaterialStack(ELEMENT.getInstance().COPPER, 30));
+            new MaterialStack(ELEMENT.getInstance().GOLD, 70),
+            new MaterialStack(ELEMENT.getInstance().COPPER, 30));
 
     public static final Material POTIN = new Material(
             "Potin", // Material Name
@@ -429,7 +431,8 @@ public final class ALLOY {
             -1,
             true, // Uses Blast furnace?
             // Material Stacks with Percentage of required elements.
-            new MaterialStack(TUNGSTEN_CARBIDE, 70), new MaterialStack(ELEMENT.getInstance().TITANIUM, 30));
+            new MaterialStack(TUNGSTEN_CARBIDE, 70),
+            new MaterialStack(ELEMENT.getInstance().TITANIUM, 30));
 
     public static final Material SILICON_CARBIDE = new Material(
             "Silicon Carbide", // Material Name
@@ -512,7 +515,8 @@ public final class ALLOY {
             new MaterialStack(ELEMENT.getInstance().POTASSIUM, 18),
             new MaterialStack(ELEMENT.getInstance().LITHIUM, 18),
             new MaterialStack(ELEMENT.getInstance().SULFUR, 18),
-            new MaterialStack(ELEMENT.getInstance().HYDROGEN, 10)); // Material Stacks with Percentage of required elements.
+            new MaterialStack(
+                    ELEMENT.getInstance().HYDROGEN, 10)); // Material Stacks with Percentage of required elements.
 
     public static final Material EGLIN_STEEL_BASE = new Material(
             "Eglin Steel Base Compound", // Material Name
@@ -611,7 +615,8 @@ public final class ALLOY {
             -1,
             -1,
             true, // Uses Blast furnace?
-            new MaterialStack(TRINIUM_NAQUADAH, 9), new MaterialStack(ELEMENT.getInstance().CARBON, 1));
+            new MaterialStack(TRINIUM_NAQUADAH, 9),
+            new MaterialStack(ELEMENT.getInstance().CARBON, 1));
 
     public static final Material TRINIUM_REINFORCED_STEEL = new Material(
             "Arceus Alloy 2B", // Material Name

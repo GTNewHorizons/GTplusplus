@@ -25,8 +25,8 @@ public class ChunkDebugger {
 
     public static void storeLoadChunkToCache(Ticket aTicket, ChunkCoordIntPair aChunk) {
         mChunksLoadedByModsMap.put(aChunk.toString(), new Pair<String, String>(aTicket.getModId(), aChunk.toString()));
-        Logger.REFLECTION("Chunk Loaded by " + aTicket.getModId() + " at position " + aChunk
-                + " for dimension " + aTicket.world.provider.dimensionId);
+        Logger.REFLECTION("Chunk Loaded by " + aTicket.getModId() + " at position " + aChunk + " for dimension "
+                + aTicket.world.provider.dimensionId);
     }
 
     public static void removeTicketFromCache(Ticket aTicket) {

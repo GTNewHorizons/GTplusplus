@@ -297,10 +297,17 @@ public class GT_MetaTileEntity_AdvancedCraftingTable extends GT_MetaTileEntity_B
                 }
             }
         }
-        mInventory[31] =
-                GT_ModHandler.getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), mInventory[21], mInventory[22], mInventory[23],
-                        mInventory[24], mInventory[25], mInventory[26],
-                        mInventory[27], mInventory[28], mInventory[29]);
+        mInventory[31] = GT_ModHandler.getAllRecipeOutput(
+                getBaseMetaTileEntity().getWorld(),
+                mInventory[21],
+                mInventory[22],
+                mInventory[23],
+                mInventory[24],
+                mInventory[25],
+                mInventory[26],
+                mInventory[27],
+                mInventory[28],
+                mInventory[29]);
         return mInventory[31];
     }
 

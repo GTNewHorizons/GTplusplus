@@ -14,7 +14,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
-import net.minecraft.stats.StatBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
@@ -54,7 +53,8 @@ public class AssLineAchievements {
 
     public static void registerAchievements() {
         if (active && mAchievementMap.size() > 0) {
-            AchievementPage.registerAchievementPage(new AchievementPage("GT Assembly Line", mAchievementMap.values().toArray(new Achievement[mAchievementMap.size()])));
+            AchievementPage.registerAchievementPage(new AchievementPage(
+                    "GT Assembly Line", mAchievementMap.values().toArray(new Achievement[mAchievementMap.size()])));
         } else if (active) {
             Logger.INFO("Unable to register custom achievement page for Assembly Line recipes.");
         }

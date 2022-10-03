@@ -137,10 +137,11 @@ public class TileEntityKineticWindGenerator extends TileEntityWindKineticGenerat
     @Override
     public String getRotorhealth() {
         if (!this.rotorSlot.isEmpty()) {
-            return StatCollector.translateToLocalFormatted("ic2.WindKineticGenerator.gui.rotorhealth", Integer.valueOf((int) (100.0F
-                    - ((this.rotorSlot.get().getItemDamage()
-                                    / this.rotorSlot.get().getMaxDamage())
-                            * 100.0F))));
+            return StatCollector.translateToLocalFormatted(
+                    "ic2.WindKineticGenerator.gui.rotorhealth", Integer.valueOf((int) (100.0F
+                            - ((this.rotorSlot.get().getItemDamage()
+                                            / this.rotorSlot.get().getMaxDamage())
+                                    * 100.0F))));
         }
         return "";
     }

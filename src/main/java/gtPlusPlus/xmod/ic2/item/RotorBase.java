@@ -46,7 +46,8 @@ public class RotorBase extends ItemWindRotor {
     public void addInformation(final ItemStack itemStack, final EntityPlayer player, final List info, final boolean b) {
         info.add(StatCollector.translateToLocalFormatted(
                 "ic2.itemrotor.wind.info",
-                Integer.valueOf(this.minWindStrength), Integer.valueOf(this.maxWindStrength)));
+                Integer.valueOf(this.minWindStrength),
+                Integer.valueOf(this.maxWindStrength)));
         IKineticRotor.GearboxType type = null;
         if ((Minecraft.getMinecraft().currentScreen != null)
                 && ((Minecraft.getMinecraft().currentScreen instanceof GuiWaterKineticGenerator))) {

@@ -152,9 +152,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
         if (this.mOwner == null) {
             if (this.getBaseMetaTileEntity().getOwnerName() != null
                     && !this.getBaseMetaTileEntity().getOwnerName().equals("")) {
-                if (this.getBaseMetaTileEntity()
-                        .getOwnerName()
-                        .equalsIgnoreCase(aPlayer.getDisplayName())) {
+                if (this.getBaseMetaTileEntity().getOwnerName().equalsIgnoreCase(aPlayer.getDisplayName())) {
                     this.mOwner = PlayerUtils.getPlayersUUIDByName(
                             this.getBaseMetaTileEntity().getOwnerName());
                 }
@@ -190,10 +188,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                 }
                 PlayerUtils.messagePlayer(aPlayer, "Frequency: " + this.mFrequency);
                 if (this.getTesseract(this.mFrequency, false) != null) {
-                    PlayerUtils.messagePlayer(
-                            aPlayer,
-                            EnumChatFormatting.GREEN +
-                                    " (Connected)");
+                    PlayerUtils.messagePlayer(aPlayer, EnumChatFormatting.GREEN + " (Connected)");
                 }
             }
         } else if (aPlayer.getUniqueID().compareTo(this.mOwner) != 0) {
@@ -242,8 +237,7 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                         "Frequency: " + this.mFrequency
                                 + (this.getTesseract(this.mFrequency, false) == null
                                         ? ""
-                                        : EnumChatFormatting.GREEN +
-                                " (Connected)"));
+                                        : EnumChatFormatting.GREEN + " (Connected)"));
             }
         } else if (aPlayer.getUniqueID().compareTo(this.mOwner) != 0) {
             GT_Utility.sendChatToPlayer(aPlayer, "This is not your Tesseract Terminal to configure.");

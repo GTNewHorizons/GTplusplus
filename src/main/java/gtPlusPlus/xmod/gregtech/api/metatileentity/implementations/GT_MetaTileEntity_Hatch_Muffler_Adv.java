@@ -114,11 +114,11 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
 
     private boolean airCheck() {
         return this.getBaseMetaTileEntity()
-                .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
+                        .getAirAtSide(this.getBaseMetaTileEntity().getFrontFacing())
                 && this.getBaseMetaTileEntity()
-                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
+                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 1)
                 && this.getBaseMetaTileEntity()
-                .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2);
+                        .getAirAtSideAndDistance(this.getBaseMetaTileEntity().getFrontFacing(), 2);
     }
 
     public boolean polluteEnvironment() {

@@ -709,10 +709,7 @@ public class RECIPES_MachineComponents {
                     90,
                     2000);
             GT_Values.RA.addForgeHammerRecipe(
-                    ItemList.Circuit_Master.get(1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(5L),
-                    30,
-                    256);
+                    ItemList.Circuit_Master.get(1L), GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(5L), 30, 256);
             GT_Values.RA.addForgeHammerRecipe(
                     GregtechItemList.Circuit_IV.get(1L),
                     GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(5L),

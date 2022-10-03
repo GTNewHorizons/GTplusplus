@@ -211,7 +211,7 @@ public class BTF_Inventory implements ISidedInventory {
                     ItemStack slot = mInventory[s];
                     if (slot == null
                             || (GT_Utility.areStacksEqual(aInput, slot)
-                            && slot.stackSize != slot.getItem().getItemStackLimit(slot))) {
+                                    && slot.stackSize != slot.getItem().getItemStackLimit(slot))) {
                         if (slot == null) {
                             slot = aInput.copy();
                         } else {

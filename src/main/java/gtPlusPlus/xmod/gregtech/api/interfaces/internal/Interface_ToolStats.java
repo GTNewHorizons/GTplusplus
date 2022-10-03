@@ -179,15 +179,13 @@ public interface Interface_ToolStats extends IToolStats {
      * @return the Damage actually done to the Mob.
      */
     @Override
-    float getNormalDamageAgainstEntity(
-            float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer);
+    float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer);
 
     /**
      * @return the Damage actually done to the Mob.
      */
     @Override
-    float getMagicDamageAgainstEntity(
-            float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer);
+    float getMagicDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer);
 
     @Override
     IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack);

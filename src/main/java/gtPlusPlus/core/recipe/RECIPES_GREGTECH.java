@@ -1888,14 +1888,11 @@ public class RECIPES_GREGTECH {
     private static void extractorRecipes() {
         Logger.INFO("Registering Extractor Recipes.");
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Sodium.get(1L),
-                ItemList.Battery_Hull_HV.get(4L));
+                GregtechItemList.Battery_RE_EV_Sodium.get(1L), ItemList.Battery_Hull_HV.get(4L));
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Cadmium.get(1L),
-                ItemList.Battery_Hull_HV.get(4L));
+                GregtechItemList.Battery_RE_EV_Cadmium.get(1L), ItemList.Battery_Hull_HV.get(4L));
         GT_ModHandler.addExtractionRecipe(
-                GregtechItemList.Battery_RE_EV_Lithium.get(1L),
-                ItemList.Battery_Hull_HV.get(4L));
+                GregtechItemList.Battery_RE_EV_Lithium.get(1L), ItemList.Battery_Hull_HV.get(4L));
     }
 
     private static void fluidExtractorRecipes() {}

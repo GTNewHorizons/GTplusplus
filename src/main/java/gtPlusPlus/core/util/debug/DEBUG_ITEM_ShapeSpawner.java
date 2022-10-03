@@ -37,8 +37,7 @@ public class DEBUG_ITEM_ShapeSpawner extends BaseItemGeneric {
 
     @SubscribeEvent
     public void playerInteractEventHandler(final PlayerInteractEvent event) {
-        if (event.isCanceled() || event.world.isRemote || (event.action != RIGHT_CLICK_BLOCK)) {
-        }
+        if (event.isCanceled() || event.world.isRemote || (event.action != RIGHT_CLICK_BLOCK)) {}
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

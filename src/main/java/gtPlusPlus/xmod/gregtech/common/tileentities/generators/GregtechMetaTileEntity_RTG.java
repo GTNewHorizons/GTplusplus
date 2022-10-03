@@ -96,9 +96,8 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
         final NBTTagCompound data = list.getCompoundTagAt(0);
         ItemStack lastUsedFuel = ItemStack.loadItemStackFromNBT(data);
         if (lastUsedFuel != null) {
-            this.mCurrentRecipe = getRecipes()
-                    .findRecipe(
-                            getBaseMetaTileEntity(), false, 9223372036854775807L, null, lastUsedFuel);
+            this.mCurrentRecipe =
+                    getRecipes().findRecipe(getBaseMetaTileEntity(), false, 9223372036854775807L, null, lastUsedFuel);
         }
     }
 
@@ -277,16 +276,14 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     @Override
     public ITexture[] getBackActive(byte aColor) {
         return new ITexture[] {
-            super.getBackActive(aColor)[0],
-            TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
+            super.getBackActive(aColor)[0], TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
         };
     }
 
     @Override
     public ITexture[] getBottomActive(byte aColor) {
         return new ITexture[] {
-            super.getBottomActive(aColor)[0],
-            TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
+            super.getBottomActive(aColor)[0], TextureFactory.of(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)
         };
     }
 
@@ -315,8 +312,7 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     @Override
     public int getFuelValue(ItemStack aStack) {
         if ((GT_Utility.isStackInvalid(aStack)) || (getRecipes() == null)) return 0;
-        GT_Recipe tFuel = getRecipes()
-                .findRecipe(getBaseMetaTileEntity(), false, 9223372036854775807L, null, aStack);
+        GT_Recipe tFuel = getRecipes().findRecipe(getBaseMetaTileEntity(), false, 9223372036854775807L, null, aStack);
         if (tFuel != null) {
             this.mCurrentRecipe = tFuel;
             int voltage = tFuel.mEUt;

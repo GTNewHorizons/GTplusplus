@@ -17,7 +17,8 @@ public class FR_Gregtech_Recipes {
     private static final String rod_Uranium = "stickUranium";
     private static final String rod_LongUranium = "stickLongUranium";
     private static final String foil_Uranium235 = "foilUranium235";
-    private static final ItemStack hiveFrameAccelerated = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameAccelerated);
+    private static final ItemStack hiveFrameAccelerated =
+            ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameAccelerated);
     private static final ItemStack hiveFrameMutagenic = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameMutagenic);
     private static final ItemStack hiveFrameVoid = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameVoid);
     private static final ItemStack hiveFrameBusy = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameBusy);
@@ -28,7 +29,8 @@ public class FR_Gregtech_Recipes {
     private static final ItemStack hiveFrameClay = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameClay);
     private static final ItemStack hiveFrameNova = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameNova);
 
-    private static final ItemStack hiveFrameImpregnated = ItemUtils.getItemStackFromFQRN("Forestry:frameImpregnated", 1);
+    private static final ItemStack hiveFrameImpregnated =
+            ItemUtils.getItemStackFromFQRN("Forestry:frameImpregnated", 1);
     private static final ItemStack blockSoulSand = new ItemStack(Blocks.soul_sand, 1);
     private static final ItemStack blockIronBars = new ItemStack(Blocks.iron_bars, 1);
     private static final ItemStack itemClayDust = new ItemStack(Items.clay_ball, 1);

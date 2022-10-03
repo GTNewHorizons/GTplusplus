@@ -21,7 +21,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
-import net.minecraft.stats.StatBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
@@ -153,7 +152,8 @@ public class AchievementHandler {
         this.registerAchievement(
                 "decay.technetium99", 15, 8, ItemUtils.getSimpleStack(ModItems.dustTechnetium99), "multi.cyclo", false);
 
-        AchievementPage.registerAchievementPage(new AchievementPage("GT++", this.achievementList.values().toArray(new Achievement[this.achievementList.size()])));
+        AchievementPage.registerAchievementPage(new AchievementPage(
+                "GT++", this.achievementList.values().toArray(new Achievement[this.achievementList.size()])));
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
     }

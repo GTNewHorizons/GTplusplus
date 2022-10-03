@@ -372,7 +372,8 @@ public class TreeFarmHelper {
         }
 
         return (!OrePrefixes.log.contains(new ItemStack(log, 1)) || ((tTool == null) || (!tTool.equals("axe"))))
-                && (log.getMaterial() == Material.wood) && (!OrePrefixes.fence.contains(new ItemStack(log, 1)));
+                && (log.getMaterial() == Material.wood)
+                && (!OrePrefixes.fence.contains(new ItemStack(log, 1)));
     }
 
     public static boolean isLeaves(final Block log) {
@@ -414,7 +415,10 @@ public class TreeFarmHelper {
     }
 
     public static boolean isFenceBlock(final Block fence) {
-        return (fence == Blocks.fence || (fence == Blocks.fence_gate || (fence == Blocks.nether_brick_fence || (OrePrefixes.fence.contains(new ItemStack(fence, 1))))));
+        return (fence == Blocks.fence
+                || (fence == Blocks.fence_gate
+                        || (fence == Blocks.nether_brick_fence
+                                || (OrePrefixes.fence.contains(new ItemStack(fence, 1))))));
     }
 
     public static boolean isAirBlock(final Block air) {

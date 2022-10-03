@@ -154,9 +154,7 @@ public class GTPP_Worldgen_GT_Ore_Layer extends GTPP_Worldgen {
         if (!isGenerationAllowed(
                 aWorld,
                 aDimensionType,
-                ((aDimensionType == 0) && (this.mDarkWorld))
-                        || (false)
-                        || (false)
+                ((aDimensionType == 0) && (this.mDarkWorld)) || (false) || (false)
                         ? aDimensionType
                         : aDimensionType ^ 0xFFFFFFFF)) {
             return false;

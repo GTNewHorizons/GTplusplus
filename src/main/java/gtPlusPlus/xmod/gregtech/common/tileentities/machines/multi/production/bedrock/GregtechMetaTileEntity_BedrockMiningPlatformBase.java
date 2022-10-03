@@ -283,8 +283,7 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
         this.xDrill = this.getBaseMetaTileEntity().getXCoord();
         this.yDrill = this.getBaseMetaTileEntity().getYCoord() - 1;
         this.zDrill = this.getBaseMetaTileEntity().getZCoord();
-        this.back =
-                ForgeDirection.getOrientation(this.getBaseMetaTileEntity().getBackFacing());
+        this.back = ForgeDirection.getOrientation(this.getBaseMetaTileEntity().getBackFacing());
 
         // Middle
         this.xCenter[0] = this.xDrill + this.back.offsetX;
