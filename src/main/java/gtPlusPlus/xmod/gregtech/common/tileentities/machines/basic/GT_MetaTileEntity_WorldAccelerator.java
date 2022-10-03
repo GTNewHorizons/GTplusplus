@@ -10,7 +10,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
-import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.render.TextureFactory;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import java.util.ArrayList;
@@ -103,15 +103,15 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
                 (pSide < 2)
                         ? null
                         : pActive
-                                ? new GT_RenderedTexture(_mGTIco_Norm_Active)
-                                : new GT_RenderedTexture(_mGTIco_Norm_Idle)
+                                ? TextureFactory.of(_mGTIco_Norm_Active)
+                                : TextureFactory.of(_mGTIco_Norm_Idle)
             };
         else
             return new ITexture[] {
                 Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1],
                 (pSide < 2)
                         ? null
-                        : pActive ? new GT_RenderedTexture(_mGTIco_TE_Active) : new GT_RenderedTexture(_mGTIco_TE_Idle)
+                        : pActive ? TextureFactory.of(_mGTIco_TE_Active) : TextureFactory.of(_mGTIco_TE_Idle)
             };
     }
 
