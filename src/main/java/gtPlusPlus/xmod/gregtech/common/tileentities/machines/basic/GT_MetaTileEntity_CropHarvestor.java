@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic;
 
+import com.gtnewhorizon.gtnhlib.util.map.ItemStackMap;
 import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -7,6 +8,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.render.TextureFactory;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -16,6 +18,7 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import ic2.api.crops.*;
 import ic2.core.item.DamageHandler;
 import java.util.*;
+import java.util.Map.Entry;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
@@ -206,7 +209,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
 
         int aRadius = 10 + getRange(this.mTier);
         int aSide = (aRadius - 1) / 2;
-        ArrayList<ItemStack> aAllDrops = new ArrayList<ItemStack>();
+        Map<ItemStack, Integer> aAllDrops = new ItemStackMap<>(true);
 
         if (this.mCropCache.isEmpty() || aTick % 1200 == 0 || this.mInvalidCache) {
             if (!this.mCropCache.isEmpty()) {
@@ -251,11 +254,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
                         Logger.INFO("Bonus output given for " + aCrop.displayName());
                     }
                     Logger.INFO("Harvested " + aCrop.displayName());
-                    int maxStackSize = aStack.getMaxStackSize();
-                    while (aStack.stackSize > maxStackSize) {
-                        aAllDrops.add(aStack.splitStack(maxStackSize));
-                    }
-                    aAllDrops.add(aStack);
+                    aAllDrops.merge(aStack, aStack.stackSize, Integer::sum);
                 }
             }
         }
@@ -263,10 +262,33 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         if (aAllDrops.isEmpty()) return;
 
         Logger.INFO("Handling " + aAllDrops.size() + " Harvests");
-        for (ItemStack aDrop : aAllDrops) {
-            if (!ItemUtils.checkForInvalidItems(aDrop)) continue;
-            for (int i = SLOT_OUTPUT_START; i < this.getSizeInventory(); i++) {
-                if (getBaseMetaTileEntity().addStackToSlot(i, aDrop)) break;
+        for (int i = SLOT_OUTPUT_START; i < this.getSizeInventory() && !aAllDrops.isEmpty(); i++) {
+            ItemStack invStack = mInventory[i];
+            if (invStack == null || GT_Utility.isStackInvalid(invStack) || invStack.stackSize == 0) {
+                Iterator<Entry<ItemStack, Integer>> iter = aAllDrops.entrySet().iterator();
+                Entry<ItemStack, Integer> e = iter.next();
+                int toAdd = e.getValue();
+                int toAddThisSlot = Math.min(toAdd, e.getKey().getMaxStackSize());
+                getBaseMetaTileEntity().setInventorySlotContents(i, GT_Utility.copyAmount(toAddThisSlot, e.getKey()));
+                toAdd -= toAddThisSlot;
+                if (toAdd <= toAddThisSlot) {
+                    iter.remove();
+                } else {
+                    e.setValue(toAdd);
+                }
+            } else {
+                Integer toAddMaybeNull = aAllDrops.get(invStack);
+                if (toAddMaybeNull != null) {
+                    int toAdd = toAddMaybeNull;
+                    int space = Math.min(invStack.getMaxStackSize(), getInventoryStackLimit()) - invStack.stackSize;
+                    if (toAdd <= space) {
+                        getBaseMetaTileEntity().addStackToSlot(i, invStack, toAdd);
+                        aAllDrops.remove(invStack);
+                    } else {
+                        getBaseMetaTileEntity().addStackToSlot(i, invStack, space);
+                        aAllDrops.put(invStack, toAdd - space);
+                    }
+                }
             }
         }
     }
