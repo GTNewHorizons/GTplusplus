@@ -42,13 +42,13 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
     
     private final static int MAX_PARALLELS = 256;
     private static final double log4 = Math.log(4);
-    private static final double log2_40 = Math.log(Math.pow(2,40));
     private HeatingCoilLevel coilLevel;
     private byte glassTier = -1;
     private boolean separateBusses = false;
     private long EU_per_tick = 0L;
     private int currentParallels;
     private boolean hasNormalCoils;
+    
     private static final IStructureDefinition<GregTechMetaTileEntity_MegaAlloyBlastSmelter> STRUCTURE_DEFINITION =
             StructureDefinition.<GregTechMetaTileEntity_MegaAlloyBlastSmelter>builder()
                     .addShape("main", new String[][]{{
@@ -380,7 +380,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
         EU_per_tick = (long) -(recipe.mEUt * Math.pow(4,overclock_count)*currentParallels);
         
         Pair<ArrayList<FluidStack>, ArrayList<ItemStack>> outputs = RecipeFinderForParallel.getMultiOutput(recipe, currentParallels);
-    
+        
         int progressTime = (int) (recipe.mDuration / Math.pow(2, overclock_count));
         progressTime -= coilLevel.getTier() < 0 ? 0 : progressTime*getCoilDiscount(coilLevel);
         
@@ -449,8 +449,11 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
     }
     
     public double getCoilDiscount(HeatingCoilLevel lvl) {
-        if (lvl.getTier() <= 0) return 0;
-        return Math.min(0.1, (double)Math.round(((Math.log(lvl.getTier() + 3)) / log2_40)*1000)/1000);
+        // Since there are only 14 tiers (starting from 0), this is what the function is.
+        double unRounded = lvl.getTier() / 130.0D;
+        double rounded = Math.floor(unRounded*1000)/1000;
+        
+        return Math.max(0, rounded);
     }
     
     @Override
@@ -486,7 +489,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
         .addInfo("Controller block for the Mega Alloy Blast Smelter")
         .addInfo("Runs the same recipes as the normal ABS, except with up to "+EnumChatFormatting.BOLD+EnumChatFormatting.UNDERLINE+MAX_PARALLELS+EnumChatFormatting.RESET+EnumChatFormatting.GRAY+" parallels.")
                 .addInfo("Every coil tier above cupronickel grants a speed bonus, based on this function:")
-                .addInfo("log(TIER - 3) / log(2^40), rounded to the nearest 10-thousandth. This caps out at 10%.")
+                .addInfo("Bonus = TIER / 150, rounded to the nearest thousandth.")
                 .addInfo(EnumChatFormatting.ITALIC+"Can also use normal ABS coils in their place instead, if you don't like the bonuses :)"+EnumChatFormatting.RESET+EnumChatFormatting.GRAY)
                 .addInfo("The glass limits the tier of the energy hatch. UEV glass unlocks all tiers.")
                 .addInfo("UV glass required for TecTech laser hatches.")
