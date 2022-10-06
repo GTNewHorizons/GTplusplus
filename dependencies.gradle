@@ -23,5 +23,5 @@ dependencies {
     compileOnly('thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev') {transitive=false}
     compileOnly('com.github.GTNewHorizons:Chisel:2.10.15-GTNH:dev') {transitive=false}
 
-    runtime("com.github.GTNewHorizons:bartworks:0.5.67:dev") {transitive = false}
+    runtime("com.github.GTNewHorizons:bartworks:0.5.67:dev")
 }

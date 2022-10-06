@@ -41,15 +41,14 @@ import java.util.*;
 public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEntity_EnhancedMultiBlockBase<GregTechMetaTileEntity_MegaAlloyBlastSmelter> implements ISurvivalConstructable {
     
     private final static int MAX_PARALLELS = 256;
-    private final static float COIL_DISCOUNT = 0.05F;
     private static final double log4 = Math.log(4);
-    
+    private static final double log2_40 = Math.log(Math.pow(2,40));
     private HeatingCoilLevel coilLevel;
     private byte glassTier = -1;
     private boolean separateBusses = false;
     private long EU_per_tick = 0L;
     private int currentParallels;
-    
+    private boolean hasNormalCoils;
     private static final IStructureDefinition<GregTechMetaTileEntity_MegaAlloyBlastSmelter> STRUCTURE_DEFINITION =
             StructureDefinition.<GregTechMetaTileEntity_MegaAlloyBlastSmelter>builder()
                     .addShape("main", new String[][]{{
@@ -285,10 +284,15 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
                             "   ZZZZZ   "
                     }})
                     .addElement(
-                            'B',
+                            
+                            'B', ofChain(
+                                    onElementPass(te -> te.hasNormalCoils = false,
                             ofCoil(
                                     GregTechMetaTileEntity_MegaAlloyBlastSmelter::setCoilLevel,
-                                    GregTechMetaTileEntity_MegaAlloyBlastSmelter::getCoilLevel))
+                                    GregTechMetaTileEntity_MegaAlloyBlastSmelter::getCoilLevel
+                                    )),
+                            onElementPass(te -> te.hasNormalCoils = true, ofBlock(ModBlocks.blockCasingsMisc, 14))
+                    ))
                     .addElement(
                             
                             'Z',
@@ -296,6 +300,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
                                     .atLeast(InputHatch, OutputHatch, InputBus, OutputBus, Energy, ExoticEnergy)
                                     .casingIndex(TAE.GTPP_INDEX(15))
                                     .dot(1)
+                                    
                                     .buildAndChain(ofBlock(ModBlocks.blockCasingsMisc, 15)))
                     .addElement(
                             'E',
@@ -329,7 +334,6 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
     
     @Override
     public boolean checkRecipe(ItemStack aStack) {
-        
         ItemStack[] tInputs;
         FluidStack[] tFluids = this.getStoredFluids().toArray(new FluidStack[0]);
         
@@ -373,12 +377,12 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
         double EU_input_tier = Math.log(tTotalEU) / log4;
         double EU_recipe_tier = Math.log(recipe.mEUt*currentParallels) / log4;
         long overclock_count = (long) Math.floor(EU_input_tier - EU_recipe_tier);
-        EU_per_tick = (long) -(recipe.mEUt * Math.pow(4,overclock_count));
+        EU_per_tick = (long) -(recipe.mEUt * Math.pow(4,overclock_count)*currentParallels);
         
         Pair<ArrayList<FluidStack>, ArrayList<ItemStack>> outputs = RecipeFinderForParallel.getMultiOutput(recipe, currentParallels);
     
         int progressTime = (int) (recipe.mDuration / Math.pow(2, overclock_count));
-        progressTime -= progressTime*COIL_DISCOUNT*coilLevel.getTier();
+        progressTime -= coilLevel.getTier() < 0 ? 0 : progressTime*getCoilDiscount(coilLevel);
         
         mMaxProgresstime = Math.max(1, progressTime);
         
@@ -409,12 +413,17 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         if(!checkPiece("main", 5, 16, 0)) return false;
+        if (hasNormalCoils) coilLevel = HeatingCoilLevel.None;
         if (mMaintenanceHatches.size() != 1) return false;
         if (mMufflerHatches.size() != 45) return false;
-        if (this.glassTier < 8 && !this.mEnergyHatches.isEmpty())
-            for (GT_MetaTileEntity_Hatch_Energy hatchEnergy : this.mEnergyHatches)
-                if (this.glassTier < hatchEnergy.mTier) return false;
-        return true;
+        if (this.glassTier < 10 && !this.mEnergyHatches.isEmpty()) {
+            for (GT_MetaTileEntity_Hatch_Energy hatchEnergy : this.mEnergyHatches) {
+                if (this.glassTier < hatchEnergy.mTier) {
+                    return false;
+                }
+            }
+        }
+        return this.glassTier >= 8 || this.getExoticEnergyHatches().size() <= 0;
     }
     
     @Override
@@ -437,6 +446,16 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
     public void clearHatches() {
         super.clearHatches();
         mExoticEnergyHatches.clear();
+    }
+    
+    public double getCoilDiscount(HeatingCoilLevel lvl) {
+        if (lvl.getTier() <= 0) return 0;
+        return Math.min(0.1, (double)Math.round(((Math.log(lvl.getTier() + 3)) / log2_40)*1000)/1000);
+    }
+    
+    @Override
+    public void explodeMultiblock() {
+        super.explodeMultiblock();
     }
     
     public List<GT_MetaTileEntity_Hatch> getExoticAndNormalEnergyHatchList() {
@@ -465,11 +484,13 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Fluid Alloy Cooker")
         .addInfo("Controller block for the Mega Alloy Blast Smelter")
-        .addInfo("Runs the same recipes as the normal ABS,")
-                .addInfo("except with up to "+EnumChatFormatting.BOLD+EnumChatFormatting.UNDERLINE+MAX_PARALLELS+EnumChatFormatting.RESET+EnumChatFormatting.GRAY+" parallels.")
-                .addInfo("Every coil tier grants a "+EnumChatFormatting.UNDERLINE+EnumChatFormatting.BOLD+(int)(COIL_DISCOUNT*100)+"%"+EnumChatFormatting.RESET+EnumChatFormatting.GRAY+" speed bonus.")
+        .addInfo("Runs the same recipes as the normal ABS, except with up to "+EnumChatFormatting.BOLD+EnumChatFormatting.UNDERLINE+MAX_PARALLELS+EnumChatFormatting.RESET+EnumChatFormatting.GRAY+" parallels.")
+                .addInfo("Every coil tier above cupronickel grants a speed bonus, based on this function:")
+                .addInfo("log(TIER - 3) / log(2^40), rounded to the nearest 10-thousandth. This caps out at 10%.")
+                .addInfo(EnumChatFormatting.ITALIC+"Can also use normal ABS coils in their place instead, if you don't like the bonuses :)"+EnumChatFormatting.RESET+EnumChatFormatting.GRAY)
                 .addInfo("The glass limits the tier of the energy hatch. UEV glass unlocks all tiers.")
-                .addInfo(EnumChatFormatting.ITALIC+"\"all it does is make metals hot\""+"-MadMan310 2022"+EnumChatFormatting.RESET+EnumChatFormatting.GRAY)
+                .addInfo("UV glass required for TecTech laser hatches.")
+                .addInfo(EnumChatFormatting.ITALIC+"\"all it does is make metals hot\""+EnumChatFormatting.RESET+EnumChatFormatting.GRAY)
                 .beginStructureBlock(11,20,11,false)
                 .addStructureInfo("This structure is too complex! See schematic for details.")
                 .addMaintenanceHatch("Around the controller",2)
@@ -479,14 +500,13 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
         return tt;
     }
     
-    
-    
-    
     @Override
     public String[] getInfoData() {
         long storedEnergy = 0;
         long maxEnergy = 0;
-    
+        int paras = getBaseMetaTileEntity().isActive() ? currentParallels : 0;
+        int discountP = (int)(getCoilDiscount(coilLevel)*1000)/10;
+        
         for (GT_MetaTileEntity_Hatch tHatch : mExoticEnergyHatches) {
             if (isValidMetaTileEntity(tHatch)) {
                 storedEnergy += tHatch.getBaseMetaTileEntity().getStoredEU();
@@ -519,7 +539,8 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter extends GT_MetaTileEnt
                                 getExoticAndNormalEnergyHatchList()))]
                         + EnumChatFormatting.RESET,
                 "Parallels: "
-                        + EnumChatFormatting.BLUE + currentParallels + EnumChatFormatting.RESET,
+                        + EnumChatFormatting.BLUE + paras + EnumChatFormatting.RESET,
+                "Coil Discount: "+EnumChatFormatting.BLUE + discountP+"%" + EnumChatFormatting.RESET,
                 "-----------------------------------------"
                 
         };
