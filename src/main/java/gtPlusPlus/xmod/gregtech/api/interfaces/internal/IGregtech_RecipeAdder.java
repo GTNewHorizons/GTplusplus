@@ -212,11 +212,7 @@ public interface IGregtech_RecipeAdder {
      * @return true if the Recipe got added, otherwise false.
      */
     public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput,
-            FluidStack aOutput,
-            int aChance,
-            int aDuration,
-            int aEUt);
+            ItemStack[] aInput, FluidStack aOutput, int aChance, int aDuration, int aEUt);
 
     /**
      * Adds a Recipe for the Quantum Force Smelter. (up to 9 Inputs)
@@ -230,12 +226,7 @@ public interface IGregtech_RecipeAdder {
      * @return true if the Recipe got added, otherwise false.
      */
     public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput,
-            FluidStack aInputFluid,
-            FluidStack aOutput,
-            int aChance,
-            int aDuration,
-            int aEUt);
+            ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance, int aDuration, int aEUt);
 
     /**
      * Adds a Recipe for the Quantum Force Smelter. (up to 9 Inputs)

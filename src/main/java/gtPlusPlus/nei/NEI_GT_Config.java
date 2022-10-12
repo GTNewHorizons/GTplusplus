@@ -79,10 +79,9 @@ public class NEI_GT_Config implements IConfigureNEI {
         Logger.INFO(
                 "NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mNEIName);
         new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sAlloyBlastSmelterRecipes);
-        Logger.INFO("NEI Registration: Registering NEI handler for "+GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mNEIName);
+        Logger.INFO("NEI Registration: Registering NEI handler for "
+                + GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mNEIName);
         new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sQuantumForceTransformerRecipes);
-
-
 
         Logger.INFO("NEI Registration: Registering NEI handler for " + DecayableRecipeHandler.mNEIName);
         API.registerRecipeHandler(new DecayableRecipeHandler());

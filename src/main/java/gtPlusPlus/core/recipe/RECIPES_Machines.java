@@ -2134,29 +2134,27 @@ public class RECIPES_Machines {
 
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
-                            ItemList.Casing_Coil_HSSG.get(1),
-                            ItemList.Reactor_Coolant_NaK_3.get(4),
-                            ALLOY.LAURENIUM.getPlateDouble(2),
-                            GregtechItemList.Casing_Coil_BlastSmelter.get(1)
+                        ItemList.Casing_Coil_HSSG.get(1),
+                        ItemList.Reactor_Coolant_NaK_3.get(4),
+                        ALLOY.LAURENIUM.getPlateDouble(2),
+                        GregtechItemList.Casing_Coil_BlastSmelter.get(1)
                     },
                     CI.getTieredFluid(6, 144 * 8),
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                     60 * 30,
-                    MaterialUtils.getVoltageForTier(6)
-            );
+                    MaterialUtils.getVoltageForTier(6));
 
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
-                            ItemList.Casing_Coil_HSSS.get(2),
-                            ItemList.Reactor_Coolant_NaK_6.get(4),
-                            ALLOY.LAURENIUM.getPlateDouble(4),
-                            GregtechItemList.Industrial_AlloyBlastSmelter.get(1)
+                        ItemList.Casing_Coil_HSSS.get(2),
+                        ItemList.Reactor_Coolant_NaK_6.get(4),
+                        ALLOY.LAURENIUM.getPlateDouble(4),
+                        GregtechItemList.Industrial_AlloyBlastSmelter.get(1)
                     },
                     CI.getTieredFluid(7, 144 * 8),
                     GregtechItemList.QuantumForceTransformer.get(1),
                     60 * 60,
-                    MaterialUtils.getVoltageForTier(6)
-            );
+                    MaterialUtils.getVoltageForTier(6));
 
             if (CORE.ConfigSwitches.enableMultiblock_MatterFabricator) {
                 // Industrial Matter Fabricator
