@@ -107,7 +107,8 @@ public class BaseItemComponent extends Item {
         this.componentMaterial = aTempMaterial;
         this.unlocalName = "itemCell" + aFormattedNameForFluids;
         this.materialName = localName;
-        this.translatedMaterialName = GT_LanguageManager.addStringLocalization("gtplusplus.fluid." + this.unlocalName, this.materialName);
+        this.translatedMaterialName =
+                GT_LanguageManager.addStringLocalization("gtplusplus.fluid." + this.unlocalName, this.materialName);
         this.componentType = ComponentTypes.CELL;
         this.setCreativeTab(AddToCreativeTab.tabMisc);
         this.setUnlocalizedName(aFormattedNameForFluids);
@@ -208,7 +209,10 @@ public class BaseItemComponent extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return GT_LanguageManager.getTranslation("gtplusplus.item." + unlocalName + ".name").replace("%s", "%temp").replace("%material", translatedMaterialName).replace("%temp", "%s");
+        return GT_LanguageManager.getTranslation("gtplusplus.item." + unlocalName + ".name")
+                .replace("%s", "%temp")
+                .replace("%material", translatedMaterialName)
+                .replace("%temp", "%s");
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

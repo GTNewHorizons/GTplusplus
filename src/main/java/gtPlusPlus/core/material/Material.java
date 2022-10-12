@@ -516,7 +516,8 @@ public class Material {
         try {
             this.unlocalizedName = Utils.sanitizeString(materialName);
             this.localizedName = materialName;
-            this.translatedName = GT_LanguageManager.addStringLocalization("gtplusplus.material." + unlocalizedName, localizedName);
+            this.translatedName =
+                    GT_LanguageManager.addStringLocalization("gtplusplus.material." + unlocalizedName, localizedName);
             mMaterialCache.put(getLocalizedName().toLowerCase(), this);
             Logger.INFO("Stored " + getLocalizedName() + " to cache with key: "
                     + getLocalizedName().toLowerCase());
