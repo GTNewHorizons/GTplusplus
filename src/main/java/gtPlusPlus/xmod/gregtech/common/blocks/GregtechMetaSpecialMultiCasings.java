@@ -60,7 +60,7 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".14.name", "Reinforced Heat Exchanger Casing");
         TAE.registerTexture(1, 12, TextureFactory.of(this, 14));
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", ""); // Unused
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", "Quantum Force Container");
 
         GregtechItemList.Casing_Turbine_Shaft.set(new ItemStack(this, 1, 0));
         GregtechItemList.Casing_Turbine_LP.set(new ItemStack(this, 1, 1));
@@ -77,6 +77,7 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
         GregtechItemList.Casing_Molecular_Transformer_2.set(new ItemStack(this, 1, 12));
         GregtechItemList.Casing_Molecular_Transformer_3.set(new ItemStack(this, 1, 13));
         GregtechItemList.Casing_XL_HeatExchanger.set(new ItemStack(this, 1, 14));
+        GregtechItemList.Casing_Coil_QuantumForceTransformer.set(new ItemStack(this, 1, 15));
     }
 
     @Override
@@ -123,6 +124,8 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
                 return TexturesGtBlock.TEXTURE_MAGIC_PANEL_B.getIcon();
             case 14:
                 return TexturesGtBlock.Casing_Material_Talonite.getIcon();
+            case 15:
+                return TexturesGtBlock.Casing_Coil_QFT.getIcon();
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();
     }
