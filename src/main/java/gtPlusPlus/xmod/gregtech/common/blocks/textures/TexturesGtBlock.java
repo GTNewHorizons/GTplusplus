@@ -287,7 +287,7 @@ public class TexturesGtBlock {
             new CustomIcon("TileEntities/MACHINE_CASING_CENTRIFUGE");
     public static final CustomIcon Casing_Material_Centrifuge = Internal_Casing_Centrifuge;
 
-    //Quantum Force Transformer Casing
+    // Quantum Force Transformer Casing
     private static final CustomIcon Internal_Casing_QFT = new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL");
     public static final CustomIcon Casing_Coil_QFT = Internal_Casing_QFT;
 
