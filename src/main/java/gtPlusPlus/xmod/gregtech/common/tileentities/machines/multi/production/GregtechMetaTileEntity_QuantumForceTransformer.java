@@ -56,16 +56,15 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public String getMachineType() {
-        return "Fluid Alloy Cooker";
+        return "Quantum Force Transformer";
     }
 
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType())
-                .addInfo("Controller Block for the Quantum Force Smelter")
-                .addInfo("Can perform a maximum of " + getMaxParallelRecipes() + " recipes in parallel")
-                .addInfo("Allows Complex GT++ alloys to be created")
+                .addInfo("Controller Block for the Quantum Force Transformer")
+                .addInfo("Allows Complex chemical lines to be performed instantly")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
                 .addInfo("Each input bus can support a unique Circuit")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")

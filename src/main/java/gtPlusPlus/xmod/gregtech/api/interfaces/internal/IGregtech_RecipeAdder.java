@@ -202,63 +202,6 @@ public interface IGregtech_RecipeAdder {
             int aSpecialValue);
 
     /**
-     * Adds a Recipe for the Quantum Force Smelter. (up to 9 Inputs)
-     *
-     * @param aInput   = ItemStack[] (not null, and respects StackSize)
-     * @param aFluidOutput   = Output of the Molten Metal (not null, and respects StackSize)
-     * @param aChances 	= Output Chance (can be == 0)
-     * @param aDuration 	= Duration (must be >= 0)
-     * @param aEUt			= EU per tick needed for heating up (must be >= 0)
-     * @return true if the Recipe got added, otherwise false.
-     */
-    public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput, FluidStack aOutput, int aChance, int aDuration, int aEUt);
-
-    /**
-     * Adds a Recipe for the Quantum Force Smelter. (up to 9 Inputs)
-     *
-     * @param aInput   = ItemStack[] (not null, and respects StackSize)
-     * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
-     * @param aFluidOutput   = Output of the Molten Metal (not null, and respects StackSize)
-     * @param aChances 	= Output Chance (can be == 0)
-     * @param aDuration 	= Duration (must be >= 0)
-     * @param aEUt			= EU per tick needed for heating up (must be >= 0)
-     * @return true if the Recipe got added, otherwise false.
-     */
-    public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance, int aDuration, int aEUt);
-
-    /**
-     * Adds a Recipe for the Quantum Force Smelter. (up to 9 Inputs)
-     *
-     * @param aInput   = ItemStack[] (not null, and respects StackSize)
-     * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
-     * @param aFluidOutput   = Output of the Molten Metal (not null, and respects StackSize)
-     * @param aOutputStack  = Item Output (Can be null)
-     * @param aChances 	= Output Chance (can be == 0)
-     * @param aDuration 	= Duration (must be >= 0)
-     * @param aEUt			= EU per tick needed for heating up (must be >= 0)
-     * @return true if the Recipe got added, otherwise false.
-     */
-    public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput,
-            FluidStack aInputFluid,
-            FluidStack aOutput,
-            ItemStack[] aOutputStack,
-            int[] aChance,
-            int aDuration,
-            int aEUt);
-
-    public boolean addQuantumTransformerRecipe(
-            ItemStack[] aInput,
-            FluidStack aInputFluid,
-            FluidStack aOutput,
-            int aChance,
-            int aDuration,
-            int aEUt,
-            int aSpecialValue);
-
-    /**
      * Adds a Recipe for the Quantum Force Smelter (up to 9 Inputs)
      *
      * @param aInput   = ItemStack[] (not null, and respects StackSize)
@@ -273,10 +216,10 @@ public interface IGregtech_RecipeAdder {
      */
     public boolean addQuantumTransformerRecipe(
             ItemStack[] aInput,
-            FluidStack aInputFluid,
-            FluidStack aOutput,
+            FluidStack[] aFluidInput,
+            FluidStack[] aFluidOutput,
             ItemStack[] aOutputStack,
-            int[] aChance,
+            int[] aChances,
             int aDuration,
             int aEUt,
             int aSpecialValue);

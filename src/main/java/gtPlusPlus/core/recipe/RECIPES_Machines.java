@@ -35,6 +35,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 public class RECIPES_Machines {
@@ -1254,7 +1256,9 @@ public class RECIPES_Machines {
 
     private static void runModRecipes() {
         if (LoadedMods.Gregtech) {
-
+            Fluid solderIndalloy = FluidRegistry.getFluid("molten.indalloy140") != null
+                    ? FluidRegistry.getFluid("molten.indalloy140")
+                    : FluidRegistry.getFluid("molten.solderingalloy");
             // Computer Cube
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
@@ -2144,17 +2148,21 @@ public class RECIPES_Machines {
                     60 * 30,
                     MaterialUtils.getVoltageForTier(6));
 
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] {
-                        ItemList.Casing_Coil_HSSS.get(2),
-                        ItemList.Reactor_Coolant_NaK_6.get(4),
-                        ALLOY.LAURENIUM.getPlateDouble(4),
-                        GregtechItemList.Industrial_AlloyBlastSmelter.get(1)
+            CORE.RA.addAssemblylineRecipe(
+                    GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
+                    40 * 60 * 30,
+                    new Object[] {
+                            GT_ModHandler.getModItem("eternalsingularity", "eternalsingularity", 1),
+                            new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
+                            ItemList.Electric_Pump_UEV.get(4),
+                            ItemList.Field_Generator_UEV.get(2)
                     },
-                    CI.getTieredFluid(7, 144 * 8),
+                    new FluidStack[]{
+                            new FluidStack(solderIndalloy, 1440)
+                    },
                     GregtechItemList.QuantumForceTransformer.get(1),
-                    60 * 60,
-                    MaterialUtils.getVoltageForTier(6));
+                    1200,
+                    8000000);
 
             if (CORE.ConfigSwitches.enableMultiblock_MatterFabricator) {
                 // Industrial Matter Fabricator
