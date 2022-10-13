@@ -598,6 +598,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
         return aSize > aSize2;
     }
+
     @Override
     public boolean addQuantumTransformerRecipe(
             ItemStack[] aInput,
@@ -612,7 +613,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             Logger.WARNING("Fail - Input or Output was null.");
             return false;
         }
-        for (int i = 0; i<aFluidOutput.length; i++) {
+        for (int i = 0; i < aFluidOutput.length; i++) {
             if (aFluidOutput[i].isFluidEqual(Materials.PhasedGold.getMolten(1))) {
                 aFluidOutput[i] = Materials.VibrantAlloy.getMolten(aFluidOutput[i].amount);
             }
@@ -620,7 +621,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aFluidOutput[i] = Materials.PulsatingIron.getMolten(aFluidOutput[i].amount);
             }
             if ((aDuration = GregTech_API.sRecipeFile.get(
-                    "quantumsmelter", aFluidOutput[i].getFluid().getName(), aDuration))
+                            "quantumsmelter", aFluidOutput[i].getFluid().getName(), aDuration))
                     <= 0) {
                 Logger.WARNING("Recipe did not register.");
                 return false;

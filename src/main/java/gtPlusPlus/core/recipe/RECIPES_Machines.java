@@ -2152,14 +2152,12 @@ public class RECIPES_Machines {
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                     40 * 60 * 30,
                     new Object[] {
-                            GT_ModHandler.getModItem("eternalsingularity", "eternalsingularity", 1),
-                            new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
-                            ItemList.Electric_Pump_UEV.get(4),
-                            ItemList.Field_Generator_UEV.get(2)
+                        GT_ModHandler.getModItem("eternalsingularity", "eternalsingularity", 1),
+                        new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
+                        ItemList.Electric_Pump_UEV.get(4),
+                        ItemList.Field_Generator_UEV.get(2)
                     },
-                    new FluidStack[]{
-                            new FluidStack(solderIndalloy, 1440)
-                    },
+                    new FluidStack[] {new FluidStack(solderIndalloy, 1440)},
                     GregtechItemList.QuantumForceTransformer.get(1),
                     1200,
                     8000000);
