@@ -19,6 +19,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.*;
@@ -2143,7 +2144,7 @@ public class RECIPES_Machines {
                         ALLOY.LAURENIUM.getPlateDouble(2),
                         GregtechItemList.Casing_Coil_BlastSmelter.get(1)
                     },
-                    CI.getTieredFluid(6, 144 * 8),
+                    CI.getTieredFluid(10, 144 * 4),
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                     60 * 30,
                     MaterialUtils.getVoltageForTier(6));
@@ -2152,12 +2153,16 @@ public class RECIPES_Machines {
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                     40 * 60 * 30,
                     new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternalsingularity", 1),
+                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
                         new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
                         ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(2)
+                        ItemList.Field_Generator_UEV.get(4),
+                        GregtechItemList.Laser_Lens_Special.get(1)
                     },
-                    new FluidStack[] {new FluidStack(solderIndalloy, 1440)},
+                    new FluidStack[] {
+                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    },
                     GregtechItemList.QuantumForceTransformer.get(1),
                     1200,
                     8000000);

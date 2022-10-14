@@ -206,7 +206,7 @@ public interface IGregtech_RecipeAdder {
      *
      * @param aInput   = ItemStack[] (not null, and respects StackSize)
      * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
-     * @param aFluidOutput   = Output of the Molten Salts (not null, and respects StackSize)
+     * @param aFluidOutput   = Output of the Molten Salts (can be null, and respects StackSize)
      * @param aOutputStack  = Item Output (Can be null)
      * @param aChances 	= Output Chance (can be == 0)
      * @param aDuration 	= Duration (must be >= 0)

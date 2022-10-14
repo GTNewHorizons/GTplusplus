@@ -609,8 +609,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue) {
-        if ((aInput == null) || (aFluidOutput == null)) {
-            Logger.WARNING("Fail - Input or Output was null.");
+        if ((aInput == null)) {
+            Logger.WARNING("Fail - Input was null.");
             return false;
         }
         for (int i = 0; i < aFluidOutput.length; i++) {
@@ -643,7 +643,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         int aSize = GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mRecipeList.size();
         int aSize2 = aSize;
         GTPP_Recipe_Map.sQuantumForceTransformerRecipes.addRecipe(
-                true,
+                false,
                 aInput,
                 aOutputStack,
                 null,
