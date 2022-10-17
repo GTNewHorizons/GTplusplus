@@ -2,7 +2,6 @@ package gtPlusPlus.core.item.base.rods;
 
 import gtPlusPlus.core.item.base.BaseItemComponent;
 import gtPlusPlus.core.material.Material;
-import net.minecraft.item.ItemStack;
 
 public class BaseItemRodLong extends BaseItemComponent {
 
