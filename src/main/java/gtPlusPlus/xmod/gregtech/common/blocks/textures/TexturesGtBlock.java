@@ -290,6 +290,14 @@ public class TexturesGtBlock {
     // Quantum Force Transformer Casing
     private static final CustomIcon Internal_Casing_QFT = new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL");
     public static final CustomIcon Casing_Coil_QFT = Internal_Casing_QFT;
+    public static final CustomIcon NeutronPulseManipulator = new CustomIcon("NeutronPulseManipulator");
+    public static final CustomIcon CosmicFabricManipulator = new CustomIcon("CosmicFabricManipulator");
+    public static final CustomIcon InfinityInfusedManipulator = new CustomIcon("InfinityInfusedManipulator");
+    public static final CustomIcon SpaceTimeContinuumRipper = new CustomIcon("SpaceTimeContinuumRipper");
+    public static final CustomIcon Tier1FocusingCasing = new CustomIcon("Tier1FocusingCasing");
+    public static final CustomIcon Tier2FocusingCasing = new CustomIcon("Tier2FocusingCasing");
+    public static final CustomIcon Tier3FocusingCasing = new CustomIcon("Tier3FocusingCasing");
+    public static final CustomIcon Tier4FocusingCasing = new CustomIcon("Tier4FocusingCasing");
 
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
     // Farm Manager Casings
