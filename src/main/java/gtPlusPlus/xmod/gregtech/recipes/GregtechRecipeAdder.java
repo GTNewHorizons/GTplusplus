@@ -600,6 +600,65 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     }
 
     @Override
+    public boolean addQuantumTransformerRecipe(
+            ItemStack[] aInput,
+            FluidStack[] aFluidInput,
+            FluidStack[] aFluidOutput,
+            ItemStack[] aOutputStack,
+            int[] aChances,
+            int aDuration,
+            int aEUt,
+            int aSpecialValue) {
+        if ((aInput == null)) {
+            Logger.WARNING("Fail - Input was null.");
+            return false;
+        }
+        for (int i = 0; i < aFluidOutput.length; i++) {
+            if (aFluidOutput[i].isFluidEqual(Materials.PhasedGold.getMolten(1))) {
+                aFluidOutput[i] = Materials.VibrantAlloy.getMolten(aFluidOutput[i].amount);
+            }
+            if (aFluidOutput[i].isFluidEqual(Materials.PhasedIron.getMolten(1))) {
+                aFluidOutput[i] = Materials.PulsatingIron.getMolten(aFluidOutput[i].amount);
+            }
+            if ((aDuration = GregTech_API.sRecipeFile.get(
+                            "quantumsmelter", aFluidOutput[i].getFluid().getName(), aDuration))
+                    <= 0) {
+                Logger.WARNING("Recipe did not register.");
+                return false;
+            }
+        }
+
+        for (int das = 0; das < aInput.length; das++) {
+            if (aInput[das] != null) {
+                Logger.WARNING("tMaterial[" + das + "]: " + aInput[das].getDisplayName() + ", Amount: "
+                        + aInput[das].stackSize);
+            }
+        }
+
+        ArrayUtils.removeNulls(aInput);
+        if (aInput.length <= 1) {
+            return false;
+        }
+
+        int aSize = GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mRecipeList.size();
+        int aSize2 = aSize;
+        GTPP_Recipe_Map.sQuantumForceTransformerRecipes.addRecipe(
+                false,
+                aInput,
+                aOutputStack,
+                null,
+                aChances,
+                aFluidInput,
+                aFluidOutput,
+                Math.max(1, aDuration),
+                Math.max(1, aEUt),
+                aSpecialValue);
+        aSize = GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mRecipeList.size();
+
+        return aSize > aSize2;
+    }
+
+    @Override
     public boolean addLFTRRecipe(
             final ItemStack aInput1,
             final FluidStack aInput2,
