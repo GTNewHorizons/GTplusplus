@@ -614,12 +614,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
         for (int i = 0; i < aFluidOutput.length; i++) {
-            if (aFluidOutput[i].isFluidEqual(Materials.PhasedGold.getMolten(1))) {
-                aFluidOutput[i] = Materials.VibrantAlloy.getMolten(aFluidOutput[i].amount);
-            }
-            if (aFluidOutput[i].isFluidEqual(Materials.PhasedIron.getMolten(1))) {
-                aFluidOutput[i] = Materials.PulsatingIron.getMolten(aFluidOutput[i].amount);
-            }
             if ((aDuration = GregTech_API.sRecipeFile.get(
                             "quantumsmelter", aFluidOutput[i].getFluid().getName(), aDuration))
                     <= 0) {

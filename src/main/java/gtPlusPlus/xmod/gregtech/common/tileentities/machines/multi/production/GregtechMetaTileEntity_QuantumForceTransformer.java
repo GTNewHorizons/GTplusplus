@@ -17,12 +17,16 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
+import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
 import java.util.List;
+
+import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.chemplant.GregtechMTE_ChemicalPlant;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -39,6 +43,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mGlassTier = 0;
     protected int mMinimumMufflerTier = 0;
     private IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION = null;
+
+    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
+            new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
 
     public GregtechMetaTileEntity_QuantumForceTransformer(
             final int aID, final String aName, final String aNameRegional) {
@@ -65,6 +72,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         tt.addMachineType(getMachineType())
                 .addInfo("Controller Block for the Quantum Force Transformer")
                 .addInfo("Allows Complex chemical lines to be performed instantly")
+                .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
                 .addInfo("Each input bus can support a unique Circuit")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")
@@ -86,6 +94,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addOutputHatch("Bottom Layer", 4)
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
+                .addStructureHint("Catalyst Housing", 4)
                 .addMufflerHatch("Top Layer (except edges), x21", 5)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
@@ -470,12 +479,19 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     GregtechMetaTileEntity_QuantumForceTransformer::getGlassTier))
                     .addElement(
                             'H',
-                            buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                    .atLeast(InputBus, InputHatch, OutputHatch, Maintenance, Energy)
-                                    .casingIndex(TAE.getIndexFromPage(0, 10))
-                                    .dot(4)
-                                    .buildAndChain(
-                                            onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
+                            ofChain(
+                                    buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
+                                            .hatchClass(GT_MetaTileEntity_Hatch_Catalysts.class)
+                                            .adder(GregtechMetaTileEntity_QuantumForceTransformer::addCatalystHousing)
+                                            .casingIndex(TAE.getIndexFromPage(0, 10))
+                                            .dot(4)
+                                            .build(),
+                                    buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
+                                            .atLeast(InputBus, InputHatch, OutputHatch, Maintenance, Energy)
+                                            .casingIndex(TAE.getIndexFromPage(0, 10))
+                                            .dot(4)
+                                            .buildAndChain(
+                                                    onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))))
                     .addElement(
                             'M',
                             buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
@@ -489,10 +505,36 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return this.STRUCTURE_DEFINITION;
     }
 
+    public final boolean addCatalystHousing(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        if (aTileEntity == null) {
+            return false;
+        } else {
+            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
+                return addToMachineList(aTileEntity, aBaseCasingIndex);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+        if (aMetaTileEntity == null) {
+            return false;
+        }
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
+            log("Found GT_MetaTileEntity_Hatch_Catalysts");
+            return addToMachineListInternal(mCatalystBuses, aMetaTileEntity, aBaseCasingIndex);
+        }
+        return super.addToMachineList(aTileEntity, aBaseCasingIndex);
+    }
+
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
         this.mMinimumMufflerTier = 0;
+        mCatalystBuses.clear();
         if (checkPiece(this.mName, 7, 20, 4)
                 && checkHatch()
                 && mMufflerHatches.size() == 21
@@ -683,6 +725,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
+        if (mCatalystBuses.size() != 1) {
+            log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size()
+                    + ")");
+            return false;
+        }
+
         for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
             ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
             tBus.mRecipeMap = getRecipeMap();
@@ -692,6 +740,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         tBusItems.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
                 }
             }
+
             ItemStack[] inputs = new ItemStack[tBusItems.size()];
             int slot = 0;
             for (ItemStack g : tBusItems) {
@@ -709,7 +758,22 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 }
             }
         }
+
+        for (GT_MetaTileEntity_Hatch_Catalysts h : mCatalystBuses) {
+            h.updateSlots();
+            h.tryFillUsageSlots();
+        }
         return false;
+    }
+
+    @Override
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+        if (aBaseMetaTileEntity.isServerSide()) {
+            if (this.mUpdate == 1 || this.mStartUpCheck == 1) {
+                this.mCatalystBuses.clear();
+            }
+        }
+        super.onPostTick(aBaseMetaTileEntity, aTick);
     }
 
     @Override
@@ -748,5 +812,23 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
+    }
+
+    @Override
+    public ArrayList<ItemStack> getStoredInputs() {
+        ArrayList<ItemStack> tItems = super.getStoredInputs();
+        if (this.hasSlotInGUI() && this.getGUIItemStack() != null) {
+            tItems.add(this.getGUIItemStack());
+        }
+        for (GT_MetaTileEntity_Hatch_Catalysts tHatch : mCatalystBuses) {
+            tHatch.mRecipeMap = getRecipeMap();
+            if (isValidMetaTileEntity(tHatch)) {
+                AutoMap<ItemStack> aHatchContent = tHatch.getContentUsageSlots();
+                if (!aHatchContent.isEmpty()) {
+                    tItems.addAll(aHatchContent);
+                }
+            }
+        }
+        return tItems;
     }
 }
