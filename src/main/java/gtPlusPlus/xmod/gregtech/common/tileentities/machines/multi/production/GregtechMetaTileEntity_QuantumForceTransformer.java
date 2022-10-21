@@ -17,9 +17,14 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.recipe.common.CI;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
@@ -487,7 +492,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                             .dot(4)
                                             .build(),
                                     buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .atLeast(InputBus, InputHatch, OutputHatch, Maintenance, Energy)
+                                            .atLeast(InputBus, InputHatch, OutputBus, OutputHatch, Maintenance, Energy)
                                             .casingIndex(TAE.getIndexFromPage(0, 10))
                                             .dot(4)
                                             .buildAndChain(
@@ -809,9 +814,56 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return 2;
     }
 
+    public int getMaxCatalystDurability() {
+        return 50;
+    }
+
+    private int getDamage(ItemStack aStack) {
+        return ItemGenericChemBase.getCatalystDamage(aStack);
+    }
+
+    private void setDamage(ItemStack aStack, int aAmount) {
+        ItemGenericChemBase.setCatalystDamage(aStack, aAmount);
+    }
+
     @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
+    }
+
+    private int getCatalysts(
+            ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParallel, ArrayList<ItemStack> aOutPut) {
+        int allowedParallel = 0;
+        for (final ItemStack aInput : aItemInputs) {
+            if (aRecipeCatalyst.isItemEqual(aInput)) {
+                int aDurabilityRemaining = getMaxCatalystDurability() - getDamage(aInput);
+                return Math.min(aMaxParallel, aDurabilityRemaining);
+            }
+        }
+        return allowedParallel;
+    }
+
+    private ItemStack findCatalyst(ItemStack[] aItemInputs, ItemStack[] aRecipeInputs) {
+        if (aItemInputs != null) {
+            for (final ItemStack aInput : aItemInputs) {
+                if (aInput != null) {
+                    if (ItemUtils.isCatalyst(aInput)) {
+                        for (ItemStack aRecipeInput : aRecipeInputs) {
+                            if (GT_Utility.areStacksEqual(aRecipeInput, aInput, true)) {
+                                return aInput;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
+        // For now, catalysts don't get damaged
+        // The current intended method of using catalysts in recipes is to
+        // require 1 very expensive catalyst, but never damage it
     }
 
     @Override
