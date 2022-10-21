@@ -74,6 +74,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Controller Block for the Quantum Force Transformer")
                 .addInfo("Allows Complex chemical lines to be performed instantly")
                 .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
+                .addInfo("All inputs go on the bottom, all outputs go on the top")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
                 .addInfo("Each input bus can support a unique Circuit")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")
@@ -199,7 +200,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "B             B"
                         },
                         {
-                            "      DDD      ",
+                            "      TTT      ",
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
@@ -222,7 +223,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      H~H      "
                         },
                         {
-                            "     DMMMD     ",
+                            "     TTTTT     ",
                             "     ECCCE     ",
                             "     ECCCE     ",
                             "     ECCCE     ",
@@ -245,7 +246,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "     HHHHH     "
                         },
                         {
-                            "    DMMMMMD    ",
+                            "    TTTTTTT    ",
                             "    ECCCCCE    ",
                             "    EC   CE    ",
                             "    EC   CE    ",
@@ -268,7 +269,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "    HHHHHHH    "
                         },
                         {
-                            "    DMMMMMD    ",
+                            "    TTTTTTT    ",
                             "    ECCCCCE    ",
                             "    EC   CE    ",
                             "    EC   CE    ",
@@ -291,7 +292,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "    HHHHHHH    "
                         },
                         {
-                            "    DMMMMMD    ",
+                            "    TTTTTTT    ",
                             "    ECCCCCE    ",
                             "    EC   CE    ",
                             "    EC   CE    ",
@@ -314,7 +315,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "    HHHHHHH    "
                         },
                         {
-                            "     DMMMD     ",
+                            "     TTTTT     ",
                             "     ECCCE     ",
                             "     ECCCE     ",
                             "     ECCCE     ",
@@ -337,7 +338,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "     HHHHH     "
                         },
                         {
-                            "      DDD      ",
+                            "      TTT      ",
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
@@ -488,19 +489,19 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                             .dot(4)
                                             .build(),
                                     buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .atLeast(InputBus, InputHatch, OutputBus, OutputHatch, Maintenance, Energy)
+                                            .atLeast(InputBus, InputHatch, Maintenance, Energy)
                                             .casingIndex(TAE.getIndexFromPage(0, 10))
                                             .dot(4)
                                             .buildAndChain(onElementPass(
                                                     x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))))
                     .addElement(
-                            'M',
+                            'T',
                             buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                    .atLeast(Muffler)
-                                    .adder(GregtechMetaTileEntity_QuantumForceTransformer::addMufflerToMachineList)
+                                    .atLeast(OutputBus, OutputHatch, Maintenance)
                                     .casingIndex(TAE.getIndexFromPage(0, 10))
                                     .dot(5)
-                                    .build())
+                                    .buildAndChain(
+                                            onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
                     .build();
         }
         return this.STRUCTURE_DEFINITION;
@@ -538,7 +539,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         mCatalystBuses.clear();
         if (checkPiece(this.mName, 7, 20, 4)
                 && checkHatch()
-                && mMufflerHatches.size() == 21
                 && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)) {
             return true;
         }
@@ -796,7 +796,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public int getPollutionPerSecond(final ItemStack aStack) {
-        return CORE.ConfigSwitches.pollutionPerSecondMultiABS * 4;
+        return 0;
     }
 
     @Override
