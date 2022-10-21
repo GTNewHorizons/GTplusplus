@@ -30,8 +30,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.G
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
 import java.util.List;
-
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.chemplant.GregtechMTE_ChemicalPlant;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -495,8 +493,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                             .atLeast(InputBus, InputHatch, OutputBus, OutputHatch, Maintenance, Energy)
                                             .casingIndex(TAE.getIndexFromPage(0, 10))
                                             .dot(4)
-                                            .buildAndChain(
-                                                    onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))))
+                                            .buildAndChain(onElementPass(
+                                                    x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))))
                     .addElement(
                             'M',
                             buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
@@ -731,8 +729,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
         if (mCatalystBuses.size() != 1) {
-            log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size()
-                    + ")");
+            log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size() + ")");
             return false;
         }
 
