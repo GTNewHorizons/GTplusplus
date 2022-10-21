@@ -42,14 +42,14 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".6.name", "Forge Casing"); // Forge Hammer Casing
         TAE.registerTexture(1, 11, TextureFactory.of(this, 6));
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".7.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".9.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".10.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".12.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".13.name", ""); // Unused
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", ""); // Unused
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".7.name", "Neutron Pulse Manipulator");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", "Cosmic Fabric Manipulator");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".9.name", "Infinity Infused Manipulator");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".10.name", "SpaceTime Continuum Ripper");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", "Tier 1 Focusing Casing");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".12.name", "Tier 2 Focusing Casing");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".13.name", "Tier 3 Focusing Casing");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", "Tier 4 Focusing Casing");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", ""); // Unused
 
         GregtechItemList.Casing_IsaMill_Casing.set(new ItemStack(this, 1, 0));
@@ -59,6 +59,14 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GregtechItemList.Casing_Sparge_Tower_Exterior.set(new ItemStack(this, 1, 4));
         GregtechItemList.Casing_IndustrialAutoChisel.set(new ItemStack(this, 1, 5));
         GregtechItemList.Casing_IndustrialForgeHammer.set(new ItemStack(this, 1, 6));
+        GregtechItemList.NeutronPulseManipulator.set(new ItemStack(this, 1, 7));
+        GregtechItemList.CosmicFabricManipulator.set(new ItemStack(this, 1, 8));
+        GregtechItemList.InfinityInfusedManipulator.set(new ItemStack(this, 1, 9));
+        GregtechItemList.SpaceTimeContinuumRipper.set(new ItemStack(this, 1, 10));
+        GregtechItemList.Tier1FocusingCasing.set(new ItemStack(this, 1, 11));
+        GregtechItemList.Tier2FocusingCasing.set(new ItemStack(this, 1, 12));
+        GregtechItemList.Tier3FocusingCasing.set(new ItemStack(this, 1, 13));
+        GregtechItemList.Tier4FocusingCasing.set(new ItemStack(this, 1, 4));
     }
 
     @Override
@@ -83,6 +91,22 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                     return TexturesGtBlock.Casing_Machine_Metal_Sheet_I.getIcon();
                 case 6:
                     return TexturesGtBlock.TEXTURE_TECH_PANEL_H.getIcon();
+                case 7:
+                    return TexturesGtBlock.NeutronPulseManipulator.getIcon();
+                case 8:
+                    return TexturesGtBlock.CosmicFabricManipulator.getIcon();
+                case 9:
+                    return TexturesGtBlock.InfinityInfusedManipulator.getIcon();
+                case 10:
+                    return TexturesGtBlock.SpaceTimeContinuumRipper.getIcon();
+                case 11:
+                    return TexturesGtBlock.Tier1FocusingCasing.getIcon();
+                case 12:
+                    return TexturesGtBlock.Tier2FocusingCasing.getIcon();
+                case 13:
+                    return TexturesGtBlock.Tier3FocusingCasing.getIcon();
+                case 14:
+                    return TexturesGtBlock.Tier4FocusingCasing.getIcon();
             }
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();
