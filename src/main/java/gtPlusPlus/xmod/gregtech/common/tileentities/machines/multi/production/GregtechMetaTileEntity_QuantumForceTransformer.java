@@ -576,8 +576,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     public static List<Pair<Block, Integer>> getAllChamberTiers() {
         return new ArrayList<Pair<Block, Integer>>() {
             {
-                add(Pair.of(ModBlocks.blockSpecialMultiCasings2, 2));
-                add(Pair.of(ModBlocks.blockSpecialMultiCasings2, 3));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 7));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 8));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 9));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 10));
             }
         };
     }
@@ -585,8 +587,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     public static List<Pair<Block, Integer>> getAllFabCoilTiers() {
         return new ArrayList<Pair<Block, Integer>>() {
             {
-                add(Pair.of(ModBlocks.blockCasings4Misc, 2));
-                add(Pair.of(ModBlocks.blockCasingsMisc, 8));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 11));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 12));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 13));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 14));
             }
         };
     }
@@ -604,12 +608,16 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return (block, meta) -> {
             if (block == null) {
                 return -1;
-            } else if (block == ModBlocks.blockSpecialMultiCasings2) { // Resonance Chambers
+            } else if (block == ModBlocks.blockCasings5Misc) { // Resonance Chambers
                 switch (meta) {
-                    case 2:
+                    case 7:
                         return 1;
-                    case 3:
+                    case 8:
                         return 2;
+                    case 9:
+                        return 3;
+                    case 10:
+                        return 4;
                 }
             }
             return -1;
@@ -620,13 +628,16 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return (block, meta) -> {
             if (block == null) {
                 return -1;
-            } else if (block == ModBlocks.blockCasingsMisc
-                    || block == ModBlocks.blockCasings4Misc) { // Generation Coils
+            } else if (block == ModBlocks.blockCasings5Misc) { // Generation Coils
                 switch (meta) {
-                    case 2:
+                    case 11:
                         return 1;
-                    case 8:
+                    case 12:
                         return 2;
+                    case 13:
+                        return 3;
+                    case 14:
+                        return 4;
                 }
             }
             return -1;

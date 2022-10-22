@@ -274,10 +274,10 @@ public enum GregtechItemList implements GregtechItemContainer {
     CosmicFabricManipulator,
     InfinityInfusedManipulator,
     SpaceTimeContinuumRipper,
-    Tier1FocusingCasing,
-    Tier2FocusingCasing,
-    Tier3FocusingCasing,
-    Tier4FocusingCasing,
+    NeutronShieldingCore,
+    CosmicFabricShieldingCore,
+    InfinityInfusedShieldingCore,
+    SpaceTimeBendingCore,
 
     // Industrial Electrolyzer
     Industrial_Electrolyzer,

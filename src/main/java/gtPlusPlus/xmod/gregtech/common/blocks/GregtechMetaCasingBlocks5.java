@@ -46,10 +46,12 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", "Cosmic Fabric Manipulator");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".9.name", "Infinity Infused Manipulator");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".10.name", "SpaceTime Continuum Ripper");
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", "Tier 1 Focusing Casing");
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".12.name", "Tier 2 Focusing Casing");
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".13.name", "Tier 3 Focusing Casing");
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", "Tier 4 Focusing Casing");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", "Neutron Shielding Core");
+        GT_LanguageManager.addStringLocalization(
+                this.getUnlocalizedName() + ".12.name", "Cosmic Fabric Shielding Core");
+        GT_LanguageManager.addStringLocalization(
+                this.getUnlocalizedName() + ".13.name", "Infinity Infused Shielding Core");
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", "SpaceTime Bending Core");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", ""); // Unused
 
         GregtechItemList.Casing_IsaMill_Casing.set(new ItemStack(this, 1, 0));
@@ -63,10 +65,10 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GregtechItemList.CosmicFabricManipulator.set(new ItemStack(this, 1, 8));
         GregtechItemList.InfinityInfusedManipulator.set(new ItemStack(this, 1, 9));
         GregtechItemList.SpaceTimeContinuumRipper.set(new ItemStack(this, 1, 10));
-        GregtechItemList.Tier1FocusingCasing.set(new ItemStack(this, 1, 11));
-        GregtechItemList.Tier2FocusingCasing.set(new ItemStack(this, 1, 12));
-        GregtechItemList.Tier3FocusingCasing.set(new ItemStack(this, 1, 13));
-        GregtechItemList.Tier4FocusingCasing.set(new ItemStack(this, 1, 4));
+        GregtechItemList.NeutronShieldingCore.set(new ItemStack(this, 1, 11));
+        GregtechItemList.CosmicFabricShieldingCore.set(new ItemStack(this, 1, 12));
+        GregtechItemList.InfinityInfusedShieldingCore.set(new ItemStack(this, 1, 13));
+        GregtechItemList.SpaceTimeBendingCore.set(new ItemStack(this, 1, 14));
     }
 
     @Override
@@ -100,13 +102,13 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                 case 10:
                     return TexturesGtBlock.SpaceTimeContinuumRipper.getIcon();
                 case 11:
-                    return TexturesGtBlock.Tier1FocusingCasing.getIcon();
+                    return TexturesGtBlock.NeutronShieldingCore.getIcon();
                 case 12:
-                    return TexturesGtBlock.Tier2FocusingCasing.getIcon();
+                    return TexturesGtBlock.CosmicFabricShieldingCore.getIcon();
                 case 13:
-                    return TexturesGtBlock.Tier3FocusingCasing.getIcon();
+                    return TexturesGtBlock.InfinityInfusedShieldingCore.getIcon();
                 case 14:
-                    return TexturesGtBlock.Tier4FocusingCasing.getIcon();
+                    return TexturesGtBlock.SpaceTimeBendingCore.getIcon();
             }
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();

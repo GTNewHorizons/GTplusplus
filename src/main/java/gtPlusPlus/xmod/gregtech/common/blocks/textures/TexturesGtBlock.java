@@ -294,10 +294,10 @@ public class TexturesGtBlock {
     public static final CustomIcon CosmicFabricManipulator = new CustomIcon("CosmicFabricManipulator");
     public static final CustomIcon InfinityInfusedManipulator = new CustomIcon("InfinityInfusedManipulator");
     public static final CustomIcon SpaceTimeContinuumRipper = new CustomIcon("SpaceTimeContinuumRipper");
-    public static final CustomIcon Tier1FocusingCasing = new CustomIcon("Tier1FocusingCasing");
-    public static final CustomIcon Tier2FocusingCasing = new CustomIcon("Tier2FocusingCasing");
-    public static final CustomIcon Tier3FocusingCasing = new CustomIcon("Tier3FocusingCasing");
-    public static final CustomIcon Tier4FocusingCasing = new CustomIcon("Tier4FocusingCasing");
+    public static final CustomIcon NeutronShieldingCore = new CustomIcon("NeutronShieldingCore");
+    public static final CustomIcon CosmicFabricShieldingCore = new CustomIcon("CosmicFabricShieldingCore");
+    public static final CustomIcon InfinityInfusedShieldingCore = new CustomIcon("InfinityInfusedShieldingCore");
+    public static final CustomIcon SpaceTimeBendingCore = new CustomIcon("SpaceTimeBendingCore");
 
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
     // Farm Manager Casings
