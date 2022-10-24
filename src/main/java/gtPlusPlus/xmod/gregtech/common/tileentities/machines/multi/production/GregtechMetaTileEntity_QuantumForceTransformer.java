@@ -2,11 +2,13 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.*;
+import static gregtech.api.util.GT_OreDictUnificator.getAssociation;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.*;
 import gregtech.api.GregTech_API;
+import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -14,10 +16,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
-import gregtech.api.util.GTPP_Recipe;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.*;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
@@ -27,10 +26,14 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -43,6 +46,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mFabCoilTier = 0;
     protected int mGlassTier = 0;
     protected int mMinimumMufflerTier = 0;
+    private boolean mSeparateInputBusses = false;
+    private boolean mFluidMode = false;
     private IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION = null;
 
     private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
@@ -76,12 +81,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
                 .addInfo("All inputs go on the bottom, all outputs go on the top")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
-                .addInfo("Each input bus can support a unique Circuit")
+                .addInfo("Put a circuit in the controller to specify the focused output.")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")
-                .addInfo("Switch these casings with these replacements to get bonuses:")
-                .addInfo("Particle Containment Casing (pink) -> Containment Casing (blue)")
-                .addInfo("Naquadah Containment Casing -> Matter Fabrication Casing ")
-                .addInfo("Resonance Chamber III -> Resonance Chamber IV")
+                .addInfo("Casing functions:")
+                .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
+                .addInfo("Neutron Shielding Cores: Focusing Tier")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .beginStructureBlock(15, 21, 15, true) // @Steelux TODO
@@ -89,11 +93,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addCasingInfo("Bulk Production Frame", 96)
                 .addCasingInfo("Quantum Force Conductor", 177)
                 .addCasingInfo("Particle Containment Casing", 224)
-                .addCasingInfo("Naquadah Containment Casing", 234)
-                .addCasingInfo("Resonance Chamber III", 142)
+                .addCasingInfo("Neutron Shielding Cores", 234)
+                .addCasingInfo("Neutron Pulse Manipulators", 142)
                 .addInputBus("Bottom Layer", 4)
                 .addInputHatch("Bottom Layer", 4)
-                .addOutputHatch("Bottom Layer", 4)
+                .addOutputHatch("Top Layer", 5)
+                .addOutputBus("Top Layer", 5)
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
                 .addStructureHint("Catalyst Housing", 4)
@@ -660,27 +665,27 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public void setChamberTier(int tier) {
+    private void setChamberTier(int tier) {
         mChamberTier = tier;
     }
 
-    public void setFabCoilTier(int tier) {
+    private void setFabCoilTier(int tier) {
         mFabCoilTier = tier;
     }
 
-    public void setGlassTier(int tier) {
+    private void setGlassTier(int tier) {
         mGlassTier = tier;
     }
 
-    public int getChamberTier() {
+    private int getChamberTier() {
         return mChamberTier;
     }
 
-    public int getFabCoilTier() {
+    private int getFabCoilTier() {
         return mFabCoilTier;
     }
 
-    public int getGlassTier() {
+    private int getGlassTier() {
         return mGlassTier;
     }
 
@@ -741,38 +746,106 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size() + ")");
             return false;
         }
-
-        for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
-            ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
-            tBus.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tBus)) {
-                for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
-                    if (tBus.getBaseMetaTileEntity().getStackInSlot(i) != null)
-                        tBusItems.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
-                }
-            }
-
-            ItemStack[] inputs = new ItemStack[tBusItems.size()];
-            int slot = 0;
-            for (ItemStack g : tBusItems) {
-                inputs[slot++] = g;
-            }
-            if (inputs.length > 0) {
-                if (mChamberTier == 2) { // 2x bonus to multi speed with upgraded Resonance Chambers
-                    if (checkRecipeGeneric(inputs, new FluidStack[] {}, getMaxParallelRecipes(), 100, 200, 10000)) {
-                        return true;
-                    }
-                } else {
-                    if (checkRecipeGeneric(inputs, new FluidStack[] {}, getMaxParallelRecipes(), 100, 100, 10000)) {
-                        return true;
-                    }
-                }
-            }
-        }
-
         for (GT_MetaTileEntity_Hatch_Catalysts h : mCatalystBuses) {
             h.updateSlots();
             h.tryFillUsageSlots();
+        }
+        this.mEUt = 0;
+        this.mMaxProgresstime = 0;
+        this.mOutputItems = null;
+        this.mOutputFluids = null;
+        FluidStack[] tFluidList = getCompactedFluids();
+        ItemStack[] tCatalysts = mCatalystBuses.get(0).mInventory;
+        if (mSeparateInputBusses) {
+            for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
+
+                ItemStack[] tItemInput = new ItemStack[tBus.mInventory.length + tCatalysts.length];
+                int counter = 0;
+                for (ItemStack tItem : tBus.mInventory) {
+                    if (tItem != null) {
+                        tItemInput[counter++] = tItem;
+                    }
+                }
+
+                for (ItemStack tItem : tCatalysts) {
+                    if (tItem != null) {
+                        tItemInput[counter++] = tItem;
+                    }
+                }
+                return processRecipe(tItemInput, tFluidList, getRecipeMap(), aStack);
+            }
+        } else {
+            ItemStack[] tInputList = getCompactedInputs();
+            return processRecipe(tInputList, tFluidList, getRecipeMap(), aStack);
+        }
+
+        return false;
+    }
+
+    private boolean processRecipe(
+            ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
+        long tVoltage = getMaxInputVoltage();
+        byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
+        GT_Recipe tRecipe = aRecipeMap
+                .findRecipe(
+                        getBaseMetaTileEntity(),
+                        false,
+                        gregtech.api.enums.GT_Values.V[tTier],
+                        aFluidInputs,
+                        aItemInputs)
+                .copy();
+        if (tRecipe != null && tRecipe.mSpecialValue <= getChamberTier()) {
+            if (tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
+                this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+                this.mEfficiencyIncrease = 10000;
+
+                calculateOverclockedNessMulti(tRecipe.mEUt, tRecipe.mDuration, 1, tVoltage);
+
+                if (mMaxProgresstime == Integer.MAX_VALUE - 1 && mEUt == Integer.MAX_VALUE - 1) return false;
+
+                if (this.mEUt > 0) {
+                    this.mEUt = (-this.mEUt);
+                }
+
+                int[] tChances;
+                if (aStack == null || aStack.getItemDamage() == 0) {
+                    tChances = new int[tRecipe.mOutputs.length];
+                    Arrays.fill(tChances, 10000 / tChances.length);
+                } else {
+                    tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
+                }
+
+                if (mFluidMode) {
+                    FluidStack[] tFluidOutputs = new FluidStack[tRecipe.mOutputs.length];
+                    for (int i = 0; i < tRecipe.mOutputs.length; i++) {
+                        if (tRecipe.mOutputs[i] != null) {
+                            Materials mat = getAssociation(tRecipe.mOutputs[i]).mMaterial.mMaterial;
+                            tFluidOutputs[i] = mat.getMolten(0L);
+                            if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
+                                tFluidOutputs[i].amount += mat.getMolten(144L * tRecipe.mOutputs[i].stackSize).amount;
+                        }
+                    }
+
+                    this.mOutputFluids = tFluidOutputs;
+                } else {
+                    ItemStack[] tOutputs = new ItemStack[tRecipe.mOutputs.length];
+                    for (int i = 0; i < tRecipe.mOutputs.length; i++) {
+                        if (tRecipe.mOutputs[i] != null) {
+                            tOutputs[i] = tRecipe.mOutputs[i].copy();
+                            tOutputs[i].stackSize = 0;
+                            if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
+                                tOutputs[i].stackSize += tRecipe.getOutput(i).stackSize;
+                        }
+                    }
+
+                    this.mOutputItems = tOutputs;
+                }
+
+                this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+                updateSlots();
+
+                return true;
+            }
         }
         return false;
     }
@@ -888,5 +961,75 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
         }
         return tItems;
+    }
+
+    private int[] GetChanceOutputs(GT_Recipe tRecipe, int aChanceIncreased) {
+        int difference = getFabCoilTier() - tRecipe.mSpecialValue;
+        int[] tChances = new int[tRecipe.mChances.length];
+        Arrays.fill(tChances, 10000 / tChances.length);
+        int percentileDecrease = 10000 / tChances.length / (tChances.length - 1);
+        int percentileIncrease = 10000 / tChances.length + percentileDecrease * (tChances.length - 1);
+        switch (difference) {
+            case 1:
+                for (int i = 0; i < tRecipe.mChances.length; i++) {
+                    if (i == aChanceIncreased) {
+                        tChances[i] += percentileIncrease;
+                    } else {
+                        tChances[i] -= percentileDecrease;
+                    }
+                }
+
+                break;
+            case 2:
+                for (int i = 0; i < tRecipe.mChances.length; i++) {
+                    if (i == aChanceIncreased) {
+                        tChances[i] += percentileIncrease * 3;
+                    } else {
+                        tChances[i] -= percentileDecrease * 3;
+                    }
+                }
+
+                break;
+            case 3:
+                for (int i = 0; i < tRecipe.mChances.length; i++) {
+                    if (i == aChanceIncreased) {
+                        tChances[i] = 10000;
+                    } else {
+                        tChances[i] = 0;
+                    }
+                }
+
+                break;
+        }
+        return tChances;
+    }
+
+    @Override
+    public boolean onWireCutterRightClick(
+            byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        mSeparateInputBusses = !mSeparateInputBusses;
+        GT_Utility.sendChatToPlayer(
+                aPlayer, StatCollector.translateToLocal("GT5U.machines.separatebus") + " " + mSeparateInputBusses);
+        return true;
+    }
+
+    public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        mFluidMode = !mFluidMode;
+        GT_Utility.sendChatToPlayer(
+                aPlayer, StatCollector.translateToLocal("miscutils.machines.QFTFluidMode") + " " + mFluidMode);
+    }
+
+    @Override
+    public void saveNBTData(NBTTagCompound aNBT) {
+        aNBT.setBoolean("mSeparateInputBusses", mSeparateInputBusses);
+        aNBT.setBoolean("mFluidMode", mFluidMode);
+        super.saveNBTData(aNBT);
+    }
+
+    @Override
+    public void loadNBTData(NBTTagCompound aNBT) {
+        this.mSeparateInputBusses = aNBT.getBoolean("mSeparateInputBusses");
+        this.mFluidMode = aNBT.getBoolean("mFluidMode");
+        super.loadNBTData(aNBT);
     }
 }

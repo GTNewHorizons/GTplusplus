@@ -27,12 +27,12 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                    Materials.Platinum.getDust(1),
-                    Materials.Palladium.getDust(1),
-                    Materials.Iridium.getDust(1),
-                    Materials.Osmium.getDust(1)
+                    Materials.Platinum.getDust(32),
+                    Materials.Palladium.getDust(32),
+                    Materials.Iridium.getDust(32),
+                    Materials.Osmium.getDust(32)
                 },
-                new int[] {100, 100, 100, 100},
+                new int[] {2500, 2500, 2500, 2500},
                 50 * 20,
                 8000,
                 1);
@@ -41,31 +41,14 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                    Materials.Platinum.getDust(1),
-                    Materials.Palladium.getDust(1),
-                    Materials.Iridium.getDust(1),
-                    Materials.Osmium.getDust(1)
+                    Materials.Platinum.getDust(32),
+                    Materials.Palladium.getDust(32),
+                    Materials.Iridium.getDust(32),
+                    Materials.Osmium.getDust(32)
                 },
-                new int[] {100, 100, 100, 100},
+                new int[] {2500, 2500, 2500, 2500},
                 50 * 20,
                 8000,
-                0);
-        CORE.RA.addQuantumTransformerRecipe(
-                new ItemStack[] {
-                    MISC_MATERIALS.SODIUM_HYDROXIDE.getDust(1),
-                    ItemUtils.getSimpleStack(GenericChem.mSolidAcidCatalyst, 0)
-                },
-                new FluidStack[] {},
-                new FluidStack[] {},
-                new ItemStack[] {
-                    Materials.Platinum.getDust(1),
-                    Materials.Palladium.getDust(1),
-                    Materials.Iridium.getDust(1),
-                    Materials.Osmium.getDust(1)
-                },
-                new int[] {10000, 10000, 10000, 10000},
-                50 * 20,
-                8000,
-                0);
+                2);
     }
 }
