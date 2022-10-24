@@ -759,11 +759,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (mSeparateInputBusses) {
             for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
 
-                ItemStack[] tItemInput = new ItemStack[tBus.mInventory.length + tCatalysts.length];
+                ItemStack[] tItemInput = new ItemStack[tBus.getInputSlot() + tCatalysts.length];
                 int counter = 0;
-                for (ItemStack tItem : tBus.mInventory) {
-                    if (tItem != null) {
-                        tItemInput[counter++] = tItem;
+                for (int i = tBus.getInputSlot() - 1; i >= 0; i--) {
+                    if (tBus.getStackInSlot(i) != null) {
+                        tItemInput[counter++] = tBus.getStackInSlot(i);
                     }
                 }
 
