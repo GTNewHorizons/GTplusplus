@@ -298,6 +298,7 @@ public class TexturesGtBlock {
     public static final CustomIcon CosmicFabricShieldingCore = new CustomIcon("CosmicFabricShieldingCore");
     public static final CustomIcon InfinityInfusedShieldingCore = new CustomIcon("InfinityInfusedShieldingCore");
     public static final CustomIcon SpaceTimeBendingCore = new CustomIcon("SpaceTimeBendingCore");
+    public static final CustomIcon ForceFieldGlass = new CustomIcon("ForceFieldGlass");
 
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
     // Farm Manager Casings

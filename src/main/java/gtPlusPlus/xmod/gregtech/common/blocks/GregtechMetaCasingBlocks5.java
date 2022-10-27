@@ -52,7 +52,7 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".13.name", "Infinity Infused Shielding Core");
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", "SpaceTime Bending Core");
-        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", ""); // Unused
+        GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", "Force Field Glass");
 
         GregtechItemList.Casing_IsaMill_Casing.set(new ItemStack(this, 1, 0));
         GregtechItemList.Casing_IsaMill_Pipe.set(new ItemStack(this, 1, 1));
@@ -69,6 +69,7 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
         GregtechItemList.CosmicFabricShieldingCore.set(new ItemStack(this, 1, 12));
         GregtechItemList.InfinityInfusedShieldingCore.set(new ItemStack(this, 1, 13));
         GregtechItemList.SpaceTimeBendingCore.set(new ItemStack(this, 1, 14));
+        GregtechItemList.ForceFieldGlass.set(new ItemStack(this, 1, 15));
     }
 
     @Override
@@ -109,6 +110,8 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                     return TexturesGtBlock.InfinityInfusedShieldingCore.getIcon();
                 case 14:
                     return TexturesGtBlock.SpaceTimeBendingCore.getIcon();
+                case 15:
+                    return TexturesGtBlock.ForceFieldGlass.getIcon();
             }
         }
         return Textures.BlockIcons.RENDERING_ERROR.getIcon();

@@ -278,6 +278,7 @@ public enum GregtechItemList implements GregtechItemContainer {
     CosmicFabricShieldingCore,
     InfinityInfusedShieldingCore,
     SpaceTimeBendingCore,
+    ForceFieldGlass,
 
     // Industrial Electrolyzer
     Industrial_Electrolyzer,

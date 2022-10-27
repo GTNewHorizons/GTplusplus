@@ -603,8 +603,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     public static List<Pair<Block, Integer>> getAllGlassTiers() {
         return new ArrayList<Pair<Block, Integer>>() {
             {
-                add(Pair.of(ModBlocks.blockSpecialMultiCasings, 13));
-                add(Pair.of(ModBlocks.blockCasings3Misc, 15));
+                add(Pair.of(ModBlocks.blockCasings5Misc, 15));
             }
         };
     }
@@ -653,13 +652,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return (block, meta) -> {
             if (block == null) {
                 return -1;
-            } else if (block == ModBlocks.blockSpecialMultiCasings || block == ModBlocks.blockCasings3Misc) { // Glass
-                switch (meta) {
-                    case 13:
-                        return 1;
-                    case 15:
-                        return 2;
-                }
+            } else if (block == ModBlocks.blockCasings5Misc) { // Glass
+                return 1;
             }
             return -1;
         };
