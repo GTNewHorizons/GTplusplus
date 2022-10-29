@@ -751,22 +751,19 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         FluidStack[] tFluidList = getCompactedFluids();
         ItemStack[] tCatalysts = mCatalystBuses.get(0).mInventory;
         if (mSeparateInputBusses) {
-            for (GT_MetaTileEntity_Hatch_InputBus tBus : this.mInputBusses) {
-
-                ItemStack[] tItemInput = new ItemStack[tBus.getInputSlot() + tCatalysts.length];
-                int counter = 0;
-                for (int i = tBus.getInputSlot() - 1; i >= 0; i--) {
-                    if (tBus.getStackInSlot(i) != null) {
-                        tItemInput[counter++] = tBus.getStackInSlot(i);
-                    }
+            ArrayList<ItemStack> tInputList = new ArrayList<ItemStack>();
+            for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses){
+                for (int i = tBus.getSizeInventory() - 1; i >= 0; i--) {
+                    if (tBus.getStackInSlot(i) != null && !ItemUtils.isCatalyst(tBus.getStackInSlot(i))) tInputList.add(tBus.getStackInSlot(i));
                 }
-
                 for (ItemStack tItem : tCatalysts) {
-                    if (tItem != null) {
-                        tItemInput[counter++] = tItem;
+                    if (tItem != null && ItemUtils.isCatalyst(tItem)) {
+                        tInputList.add(tItem);
                     }
                 }
-                return processRecipe(tItemInput, tFluidList, getRecipeMap(), aStack);
+                ItemStack[] tInputs = tInputList.toArray(new ItemStack[0]);
+                if (processRecipe(tInputs, tFluidList, getRecipeMap(), aStack)) return true;
+                else tInputList.clear();
             }
         } else {
             ItemStack[] tInputList = getCompactedInputs();
