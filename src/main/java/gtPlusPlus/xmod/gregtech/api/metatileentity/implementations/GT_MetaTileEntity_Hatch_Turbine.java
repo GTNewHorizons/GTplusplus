@@ -278,8 +278,8 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
     private ITexture getFrontFacingTurbineTexture() {
         if (!mHasController) {
             return this.getBaseMetaTileEntity().isActive()
-                    ? new GT_RenderedTexture(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE_ACTIVE[4])
-                    : new GT_RenderedTexture(LargeTurbineTextureHandler.OVERLAY_LP_TURBINE[4]);
+                    ? new GT_RenderedTexture(LARGETURBINE_ST_ACTIVE5)
+                    : new GT_RenderedTexture(LARGETURBINE_ST5);
         } else {
             if (usingAnimations()) {
                 if (isControllerActive()) {

@@ -61,8 +61,8 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
                 this.getUnlocalizedName() + ".14.name", "Reinforced Heat Exchanger Casing");
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".15.name", "Reinforced SC Turbine Casing");
-        TAE.registerTexture(1, 12, TextureFactory.of(this, 15));
-        
+        TAE.registerTexture(1, 12, new GTPP_CopiedBlockTexture(this, 6, 14));
+
         GregtechItemList.Casing_Turbine_Shaft.set(new ItemStack(this, 1, 0));
         GregtechItemList.Casing_Turbine_LP.set(new ItemStack(this, 1, 1));
         GregtechItemList.Casing_Turbine_HP.set(new ItemStack(this, 1, 2));

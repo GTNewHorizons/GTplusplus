@@ -90,7 +90,7 @@ public class GT_MTE_LargeTurbine_SCSteam extends GregtechMetaTileEntity_LargerTu
 
     @Override
     public int getDamageToComponent(ItemStack aStack) {
-        return 6;
+        return 8;
     }
 
     @Override
