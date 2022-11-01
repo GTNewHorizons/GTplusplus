@@ -1,8 +1,5 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST5;
-import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST_ACTIVE5;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.interfaces.ITexture;
