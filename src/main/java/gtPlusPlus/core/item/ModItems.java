@@ -633,7 +633,7 @@ public final class ModItems {
             MaterialGenerator.generate(ALLOY.MARAGING350);
             MaterialGenerator.generate(ALLOY.AQUATIC_STEEL);
 
-            MaterialGenerator.generate(ALLOY.NITINOL_60, true, false);
+            MaterialGenerator.generate(ALLOY.NITINOL_60, true);
 
             // Composite Alloys
             MaterialGenerator.generate(ALLOY.STELLITE);
@@ -673,7 +673,10 @@ public final class ModItems {
             MaterialGenerator.generate(ALLOY.PIKYONIUM);
             MaterialGenerator.generate(ALLOY.ABYSSAL);
             MaterialGenerator.generate(ALLOY.LAURENIUM);
-            MaterialGenerator.generate(ALLOY.BOTMIUM);
+
+            // abs recipe in RECIPES_GREGTECH.java
+            MaterialGenerator.generate(ALLOY.BOTMIUM, true, false);
+
             MaterialGenerator.generate(ALLOY.HS188A);
 
             MaterialGenerator.generate(ALLOY.TITANSTEEL);
@@ -1209,18 +1212,6 @@ public final class ModItems {
             GT_OreDictUnificator.registerOre("platePhasedIron", ItemUtils.getSimpleStack(itemPlatePulsatingIron));
             GT_OreDictUnificator.registerOre(
                     "blockVibrantAlloy", ItemUtils.getItemStackOfAmountFromOreDict("blockPhasedGold", 1));
-
-            CORE.RA.addFluidExtractionRecipe(
-                    MaterialEIO.REDSTONE_ALLOY.getPlate(1), MaterialEIO.REDSTONE_ALLOY.getFluidStack(144), 16, 4 * 9);
-            CORE.RA.addFluidExtractionRecipe(
-                    MaterialEIO.REDSTONE_ALLOY.getIngot(1), MaterialEIO.REDSTONE_ALLOY.getFluidStack(144), 16, 4 * 9);
-            CORE.RA.addFluidExtractionRecipe(
-                    MaterialEIO.REDSTONE_ALLOY.getNugget(1), MaterialEIO.REDSTONE_ALLOY.getFluidStack(16), 16, 4);
-            CORE.RA.addFluidExtractionRecipe(
-                    MaterialEIO.REDSTONE_ALLOY.getBlock(1),
-                    MaterialEIO.REDSTONE_ALLOY.getFluidStack(1294),
-                    16,
-                    4 * 9 * 9);
 
         } else {
             /*Logger.WARNING("EnderIO not Found - Generating our own Resources.");

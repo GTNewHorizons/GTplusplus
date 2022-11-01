@@ -107,8 +107,10 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                         || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()
                         || this.getBaseMetaTileEntity().hasInventoryBeenModified()) {
                     counter = 0;
+
                     float aTotalBaseEff = 0;
                     float aTotalOptimalFlow = 0;
+
                     ItemStack aStack = getFullTurbineAssemblies().get(0).getTurbine();
                     for (int i = 0; i < getSpeedMultiplier(); i++) {
                         if (i == 0) {
@@ -123,8 +125,15 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                                                 .getSpeedMultiplier()
                                         * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mToolSpeed
                                         * 50));
+                        if (aTotalOptimalFlow < 0) {
+                            log("Int overflow, report to issue tracker");
+                            aTotalOptimalFlow = 100;
+                        }
                     }
 
+                    flowMultipliers[0] = GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mSteamMultiplier;
+                    flowMultipliers[1] = GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mGasMultiplier;
+                    flowMultipliers[2] = GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mPlasmaMultiplier;
                     baseEff = MathUtils.roundToClosestInt(aTotalBaseEff);
                     optFlow = MathUtils.roundToClosestInt(aTotalOptimalFlow);
                     if (optFlow <= 0 || baseEff <= 0) {
@@ -138,13 +147,12 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             }
 
             // How much the turbine should be producing with this flow
-            int newPower = fluidIntoPower(tFluids, optFlow, baseEff);
+            int newPower = fluidIntoPower(tFluids, optFlow, baseEff, flowMultipliers);
             int difference = newPower - this.mEUt; // difference between current output and new output
-
             // Magic numbers: can always change by at least 10 eu/t, but otherwise by at most 1 percent of the
             // difference in power level (per tick)
             // This is how much the turbine can actually change during this tick
-            int maxChangeAllowed = Math.max(200, GT_Utility.safeInt((long) Math.abs(difference) / 5));
+            int maxChangeAllowed = Math.max(10, GT_Utility.safeInt((long) Math.abs(difference) / 100));
 
             if (Math.abs(difference)
                     > maxChangeAllowed) { // If this difference is too big, use the maximum allowed change
@@ -160,11 +168,10 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                 return false;
             } else {
                 this.mMaxProgresstime = 20;
-                this.mEfficiencyIncrease = 200;
+                this.mEfficiencyIncrease = 10;
                 // Overvoltage is handled inside the MultiBlockBase when pushing out to dynamos.  no need to do it here.
                 // Play sounds (GT++ addition - GT multiblocks play no sounds)
                 startProcess();
-                // log("GOOD RETURN - Making: "+this.mEUt+" EU/t");
                 return true;
             }
         } catch (Throwable t) {
@@ -174,7 +181,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
     }
 
     @Override
-    int fluidIntoPower(ArrayList<FluidStack> aFluids, int aOptFlow, int aBaseEff) {
+    int fluidIntoPower(ArrayList<FluidStack> aFluids, long aOptFlow, int aBaseEff, float[] flowMultipliers) {
         if (aFluids.size() >= 1) {
             aOptFlow *= 800; // CHANGED THINGS HERE, check recipe runs once per 20 ticks
             int tEU = 0;
@@ -185,7 +192,8 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                     aFluids.get(0),
                     0); // Identify a SINGLE type of fluid to process.  Doesn't matter which one. Ignore the rest!
             int fuelValue = getFuelValue(firstFuelType);
-            actualOptimalFlow = GT_Utility.safeInt((long) Math.ceil((double) aOptFlow / (double) fuelValue));
+            actualOptimalFlow = GT_Utility.safeInt(
+                    (long) Math.ceil((double) aOptFlow * (double) flowMultipliers[2] / (double) fuelValue));
             this.realOptFlow = actualOptimalFlow; // For scanner info
 
             int remainingFlow = GT_Utility.safeInt((long) (actualOptimalFlow
@@ -218,8 +226,6 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             }
             if (totalFlow <= 0) return 0;
             tEU = GT_Utility.safeInt((long) ((fuelValue / 20D) * (double) totalFlow));
-
-            // GT_FML_LOGGER.info(totalFlow+" : "+fuelValue+" : "+aOptFlow+" : "+actualOptimalFlow+" : "+tEU);
 
             if (totalFlow == actualOptimalFlow) {
                 tEU = GT_Utility.safeInt((long) (aBaseEff / 10000D * tEU));

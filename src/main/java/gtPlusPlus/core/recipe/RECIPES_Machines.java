@@ -1026,13 +1026,13 @@ public class RECIPES_Machines {
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
                     CI.getNumberedBioCircuit(19),
-                    CI.getTieredGTPPMachineCasing(1, 6),
-                    CI.getTieredComponentOfMaterial(Materials.Steel, OrePrefixes.gearGt, 6),
-                    CI.getTieredComponentOfMaterial(Materials.Aluminium, OrePrefixes.plate, 32),
-                    CI.getTieredComponentOfMaterial(Materials.CobaltBrass, OrePrefixes.dust, 16),
+                    CI.getTieredGTPPMachineCasing(2, 4),
+                    CI.getTieredComponentOfMaterial(Materials.Aluminium, OrePrefixes.gearGt, 4),
+                    CI.getTieredComponentOfMaterial(Materials.AnnealedCopper, OrePrefixes.plate, 16),
+                    CI.getTieredComponentOfMaterial(Materials.Plastic, OrePrefixes.pipeLarge, 4),
                     CI.getTieredComponent(OrePrefixes.frameGt, 2, 4),
                 },
-                ALLOY.STEEL.getFluidStack(2 * (144 * 4)),
+                ALLOY.STEEL_BLACK.getFluidStack(2 * (144 * 4)),
                 GregtechItemList.ChemicalPlant_Controller.get(1),
                 120 * 20,
                 MaterialUtils.getVoltageForTier(2));
@@ -1068,15 +1068,15 @@ public class RECIPES_Machines {
                 new ItemStack[] {
                     CI.getNumberedBioCircuit(21),
                     CI.getTieredGTPPMachineCasing(0, 4),
-                    CI.getTieredComponentOfMaterial(Materials.Iron, OrePrefixes.rod, 12),
+                    CI.getTieredComponentOfMaterial(Materials.Aluminium, OrePrefixes.rod, 12),
                     CI.getTieredComponentOfMaterial(Materials.Wood, OrePrefixes.plate, 32),
-                    CI.getTieredComponentOfMaterial(Materials.Bronze, OrePrefixes.bolt, 16),
+                    CI.getTieredComponentOfMaterial(Materials.Steel, OrePrefixes.bolt, 16),
                     CI.getTieredComponentOfMaterial(Materials.Redstone, OrePrefixes.dust, 32),
                 },
                 ALLOY.POTIN.getFluidStack(2 * (144 * 4)),
                 GregtechItemList.AlgaeFarm_Controller.get(1),
                 60 * 20,
-                MaterialUtils.getVoltageForTier(1));
+                MaterialUtils.getVoltageForTier(2));
     }
 
     private static void distillus() {
@@ -2046,30 +2046,30 @@ public class RECIPES_Machines {
             aSemiFluidInputs[0] = new ItemStack[] {
                 CI.getNumberedBioCircuit(14),
                 CI.getTieredMachineHull(1, 1),
-                CI.getElectricPiston(1, GTNH ? 4 : 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 1, GTNH ? 4 : 2),
-                CI.getPlate(1, GTNH ? 8 : 4),
-                CI.getGear(1, GTNH ? 4 : 2)
+                CI.getElectricPiston(1, 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 1, 2),
+                CI.getPlate(1, 4),
+                CI.getGear(1, 2)
             };
             aSemiFluidInputs[1] = new ItemStack[] {
                 CI.getNumberedCircuit(14),
                 CI.getTieredMachineHull(2, 1),
-                CI.getElectricPiston(2, GTNH ? 4 : 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 2, GTNH ? 4 : 2),
-                CI.getPlate(2, GTNH ? 8 : 4),
-                CI.getGear(2, GTNH ? 4 : 2)
+                CI.getElectricPiston(2, 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 2, 2),
+                CI.getPlate(2, 4),
+                CI.getGear(2, 2)
             };
             aSemiFluidInputs[2] = new ItemStack[] {
                 CI.getNumberedAdvancedCircuit(14),
                 CI.getTieredMachineHull(3, 1),
-                CI.getElectricPiston(3, GTNH ? 4 : 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 3, GTNH ? 4 : 2),
-                CI.getPlate(3, GTNH ? 8 : 4),
-                CI.getGear(3, GTNH ? 4 : 2)
+                CI.getElectricPiston(3, 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 3, 2),
+                CI.getPlate(3, 4),
+                CI.getGear(3, 2)
             };
             FluidStack[] aSemiFluidFluidInputs = new FluidStack[] {
-                ALLOY.BRONZE.getFluidStack(144 * 8),
-                ALLOY.STEEL.getFluidStack(144 * 8),
+                ELEMENT.getInstance().TIN.getFluidStack(144 * 4),
+                ALLOY.STEEL.getFluidStack(144 * 6),
                 ELEMENT.getInstance().ALUMINIUM.getFluidStack(144 * 8),
             };
 
@@ -2254,17 +2254,16 @@ public class RECIPES_Machines {
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
                             GT_Utility.getIntegratedCircuit(2),
-                            ALLOY.INCONEL_625.getFrameBox(1),
-                            ALLOY.HASTELLOY_X.getComponentByPrefix(OrePrefixes.pipeTiny, 1),
-                            ItemList.Electric_Pump_EV.get(2),
-                            ItemList.HV_Coil.get(4),
-                            ItemList.IC2_Plantball.get(8),
-                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 6),
+                            ALLOY.TUMBAGA.getFrameBox(1),
+                            ItemUtils.getItemStackOfAmountFromOreDict("pipeTinySteel", 1),
+                            ItemList.MV_Coil.get(1),
+                            ItemList.IC2_Plantball.get(4),
+                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 8),
                         },
-                        GT_ModHandler.getDistilledWater(8000),
+                        GT_ModHandler.getDistilledWater(2000),
                         RECIPE_TreeFarmFrame,
-                        60,
-                        1960);
+                        200,
+                        64);
             }
 
             if (CORE.ConfigSwitches.enableMachine_Tesseracts) {
@@ -4253,7 +4252,7 @@ public class RECIPES_Machines {
                     },
                     CI.getAlternativeTieredFluid(i, 144 * 8),
                     mSuperBusesInput[i].get(1),
-                    20 * 30 * 2 * i,
+                    20 * 30 * 2,
                     (int) GT_Values.V[i]);
         }
         // Output Buses
@@ -4269,7 +4268,7 @@ public class RECIPES_Machines {
                     },
                     CI.getTertiaryTieredFluid(i, 144 * 8),
                     mSuperBusesOutput[i].get(1),
-                    20 * 30 * 2 * i,
+                    20 * 30 * 2,
                     (int) GT_Values.V[i]);
         }
     }

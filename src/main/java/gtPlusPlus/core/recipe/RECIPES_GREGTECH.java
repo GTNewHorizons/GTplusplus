@@ -698,6 +698,30 @@ public class RECIPES_GREGTECH {
                     20 * 60 * 30 * (GTNH ? 2 : 1),
                     (int) MaterialUtils.getVoltageForTier(8));
         }
+        GT_Values.RA.addAssemblylineRecipe(
+                GregtechItemList.Industrial_AlloyBlastSmelter.get(1, new Object() {}),
+                20 * 60 * 30,
+                new Object[] {
+                    GregtechItemList.Industrial_AlloyBlastSmelter.get(64L, new Object() {}),
+                    GregtechItemList.Industrial_AlloyBlastSmelter.get(64L, new Object() {}),
+                    GregtechItemList.Industrial_AlloyBlastSmelter.get(64L, new Object() {}),
+                    GregtechItemList.Industrial_AlloyBlastSmelter.get(64L, new Object() {}),
+                    ItemList.UV_Coil.get(16L, new Object() {}),
+                    ItemList.Conveyor_Module_UV.get(4L, new Object() {}),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Superconductor), 8},
+                    new Object[] {OrePrefixes.circuit.get(Materials.Ultimate), 16},
+                    ItemList.Circuit_Chip_PPIC.get(16, new Object() {}),
+                    ALLOY.PIKYONIUM.getPlate(16),
+                    ALLOY.CINOBITE.getScrew(32)
+                },
+                new FluidStack[] {
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 8),
+                    ALLOY.INDALLOY_140.getFluidStack(144 * 9),
+                    Materials.SolderingAlloy.getMolten(144 * 10)
+                },
+                GregtechItemList.Mega_AlloyBlastSmelter.get(1L),
+                60 * 20,
+                1000000);
     }
 
     private static void laserEngraverRecipes() {
@@ -1034,15 +1058,18 @@ public class RECIPES_GREGTECH {
         CORE.RA.addBlastSmelterRecipe(
                 new ItemStack[] {
                     ItemUtils.getGregtechCircuit(21),
-                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedIron", 12),
-                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 16),
-                    ELEMENT.getInstance().CARBON.getDust(64),
+                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedZinc", 3),
+                    ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPyrite", 4),
+                    ELEMENT.getInstance().CARBON.getDust(16),
                 },
-                Materials.SulfuricAcid.getFluid(5000),
-                ELEMENT.getInstance().THALLIUM.getFluidStack(288 + 144),
-                0,
-                20 * 300,
-                8000);
+                Materials.SulfuricAcid.getFluid(1250),
+                ELEMENT.getInstance().THALLIUM.getFluidStack(288),
+                new ItemStack[] {},
+                new int[] {0},
+                20 * 75,
+                8000,
+                3700,
+                false);
 
         // Strontium processing
         CORE.RA.addBlastSmelterRecipe(
@@ -1060,6 +1087,21 @@ public class RECIPES_GREGTECH {
                 new int[] {10000, 10000}, // Output Chance
                 20 * 120,
                 480 * 4);
+
+        // molten botmium
+        CORE.RA.addBlastSmelterRecipe(
+                new ItemStack[] {
+                    ItemUtils.getGregtechCircuit(4),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustNitinol60", 1),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 6),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 6),
+                    ItemUtils.getItemStackOfAmountFromOreDict("dustThallium", 3)
+                },
+                GT_Values.NF,
+                ALLOY.BOTMIUM.getFluidStack(2304),
+                0,
+                20 * 120,
+                491520);
     }
 
     private static void fluidcannerRecipes() {
@@ -1497,7 +1539,7 @@ public class RECIPES_GREGTECH {
                     ItemUtils.getItemStackOfAmountFromOreDict("stickBlackSteel", 8)
                 },
                 null,
-                ItemUtils.getSimpleStack(ModBlocks.blockWitherGuard, 32),
+                ItemUtils.getSimpleStack(ModBlocks.blockWitherGuard, 64),
                 30 * 20,
                 500);
 
@@ -1710,7 +1752,7 @@ public class RECIPES_GREGTECH {
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
                         ItemUtils.getGregtechCircuit(17),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateRefinedTrinium", GTNH ? 64 : 32),
+                        ItemUtils.getItemStackOfAmountFromOreDict("plateTrinium", GTNH ? 64 : 32),
                         CI.getSensor(6, GTNH ? 6 : 3),
                         CI.getBolt(7, GTNH ? 64 : 32),
                         ItemUtils.getItemStackOfAmountFromOreDict("wireFinePlatinum", GTNH ? 64 : 32),

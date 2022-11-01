@@ -41,6 +41,7 @@ public class BaseItemComponent extends Item {
     public final Material componentMaterial;
     public final String materialName;
     public final String unlocalName;
+    public final String translatedMaterialName;
     public final ComponentTypes componentType;
     public final int componentColour;
     public Object extraData;
@@ -52,6 +53,7 @@ public class BaseItemComponent extends Item {
         this.componentMaterial = material;
         this.unlocalName = "item" + componentType.COMPONENT_NAME + material.getUnlocalizedName();
         this.materialName = material.getLocalizedName();
+        this.translatedMaterialName = material.getTranslatedName();
         this.componentType = componentType;
         this.setCreativeTab(AddToCreativeTab.tabMisc);
         this.setUnlocalizedName(this.unlocalName);
@@ -76,6 +78,18 @@ public class BaseItemComponent extends Item {
             }
         }
         registerComponent();
+
+        String aFormattedLangName = componentType.getName();
+        if (!aFormattedLangName.startsWith(" ")) {
+            if (aFormattedLangName.contains("@")) {
+                String[] aSplit = aFormattedLangName.split("@");
+                aFormattedLangName = aSplit[0] + " %material " + aSplit[1];
+            }
+        }
+        if (aFormattedLangName.equals(componentType.getName())) {
+            aFormattedLangName = "%material" + aFormattedLangName;
+        }
+        GT_LanguageManager.addStringLocalization("gtplusplus.item." + unlocalName + ".name", aFormattedLangName);
     }
 
     // For Cell Generation
@@ -93,6 +107,8 @@ public class BaseItemComponent extends Item {
         this.componentMaterial = aTempMaterial;
         this.unlocalName = "itemCell" + aFormattedNameForFluids;
         this.materialName = localName;
+        this.translatedMaterialName =
+                getFluidName("fluid." + this.materialName.toLowerCase().replace(" ", ""));
         this.componentType = ComponentTypes.CELL;
         this.setCreativeTab(AddToCreativeTab.tabMisc);
         this.setUnlocalizedName(aFormattedNameForFluids);
@@ -106,6 +122,18 @@ public class BaseItemComponent extends Item {
                 ComponentTypes.CELL.getOreDictName() + Utils.sanitizeStringKeepBrackets(localName),
                 ItemUtils.getSimpleStack(this));
         registerComponent();
+
+        String aFormattedLangName = componentType.getName();
+        if (!aFormattedLangName.startsWith(" ")) {
+            if (aFormattedLangName.contains("@")) {
+                String[] aSplit = aFormattedLangName.split("@");
+                aFormattedLangName = aSplit[0] + " %material " + aSplit[1];
+            }
+        }
+        if (aFormattedLangName.equals(componentType.getName())) {
+            aFormattedLangName = "%material" + aFormattedLangName;
+        }
+        GT_LanguageManager.addStringLocalization("gtplusplus.item." + unlocalName + ".name", aFormattedLangName);
     }
 
     public boolean registerComponent() {
@@ -179,32 +207,23 @@ public class BaseItemComponent extends Item {
         return this.materialName;
     }
 
+    public String getFluidName(String aKey) {
+        String trans;
+        trans = GT_LanguageManager.getTranslation(aKey);
+        if (!trans.equals(aKey)) return trans;
+        aKey = "fluid." + aKey;
+        trans = GT_LanguageManager.getTranslation(aKey);
+        if (!trans.equals(aKey)) return trans;
+        return GT_LanguageManager.addStringLocalization(
+                "gtplusplus.fluid." + this.materialName.toLowerCase().replace(" ", ""), this.materialName);
+    }
+
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        if (componentMaterial == null) {
-            String aFormattedLangName = componentType.getName();
-            if (!aFormattedLangName.startsWith(" ")) {
-                if (aFormattedLangName.contains("@")) {
-                    String[] aSplit = aFormattedLangName.split("@");
-                    aFormattedLangName = aSplit[0] + " " + getMaterialName() + " " + aSplit[1];
-                }
-            }
-            if (aFormattedLangName.equals(componentType.getName())) {
-                aFormattedLangName = getMaterialName() + aFormattedLangName;
-            }
-            return GT_LanguageManager.addStringLocalization(unlocalName, aFormattedLangName);
-        }
-        String aFormattedLangName = componentType.getName();
-        if (!aFormattedLangName.startsWith(" ")) {
-            if (aFormattedLangName.contains("@")) {
-                String[] aSplit = aFormattedLangName.split("@");
-                aFormattedLangName = aSplit[0] + " " + componentMaterial.getLocalizedName() + " " + aSplit[1];
-            }
-        }
-        if (aFormattedLangName.equals(componentType.getName())) {
-            aFormattedLangName = componentMaterial.getLocalizedName() + aFormattedLangName;
-        }
-        return GT_LanguageManager.addStringLocalization(unlocalName, aFormattedLangName);
+        return GT_LanguageManager.getTranslation("gtplusplus.item." + unlocalName + ".name")
+                .replace("%s", "%temp")
+                .replace("%material", translatedMaterialName)
+                .replace("%temp", "%s");
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
@@ -1003,11 +1022,11 @@ public class BaseItemComponent extends Item {
         INGOT("Ingot", " Ingot", "ingot", OrePrefixes.ingot),
         HOTINGOT("HotIngot", "Hot@Ingot", "ingotHot", OrePrefixes.ingotHot),
         PLATE("Plate", " Plate", "plate", OrePrefixes.plate),
-        PLATEDOUBLE("PlateDouble", " Double Plate", "plateDouble", OrePrefixes.plateDouble),
+        PLATEDOUBLE("PlateDouble", "Double@Plate", "plateDouble", OrePrefixes.plateDouble),
         ROD("Rod", " Rod", "stick", OrePrefixes.stick),
-        RODLONG("RodLong", " Long Rod", "stickLong", OrePrefixes.stickLong),
+        RODLONG("RodLong", "Long@Rod", "stickLong", OrePrefixes.stickLong),
         GEAR("Gear", " Gear", "gearGt", OrePrefixes.gearGt),
-        SMALLGEAR("SmallGear", " Gear", "gearGtSmall", OrePrefixes.gearGtSmall), // TODO
+        SMALLGEAR("SmallGear", "Small@Gear", "gearGtSmall", OrePrefixes.gearGtSmall), // TODO
         SCREW("Screw", " Screw", "screw", OrePrefixes.screw),
         BOLT("Bolt", " Bolt", "bolt", OrePrefixes.bolt),
         ROTOR("Rotor", " Rotor", "rotor", OrePrefixes.rotor),
