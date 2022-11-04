@@ -800,6 +800,32 @@ public class RECIPES_Machines {
                 GregtechItemList.Large_Plasma_Turbine.get(1),
                 20 * 60,
                 MaterialUtils.getVoltageForTier(7));
+        if (LoadedMods.GoodGenerator) {
+            GT_Values.RA.addAssemblerRecipe(
+                    new ItemStack[] {
+                        CI.getNumberedAdvancedCircuit(18),
+                        GT_ModHandler.getModItem("GoodGenerator", "supercriticalFluidTurbineCasing", 1),
+                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedplate", 4, 10101),
+                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedscrew", 8, 10101)
+                    },
+                    FluidRegistry.getFluidStack("molten.adamantium alloy", 144 * 2),
+                    GregtechItemList.Casing_Turbine_SC.get(1),
+                    20 * 5,
+                    MaterialUtils.getVoltageForTier(6));
+            GT_Values.RA.addAssemblerRecipe(
+                    new ItemStack[] {
+                        CI.getNumberedAdvancedCircuit(18),
+                        GT_ModHandler.getModItem("gregtech", "gt.blockmachines", 1, 32016),
+                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedplate", 8, 10104),
+                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedscrew", 16, 10104),
+                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedgearGt", 4, 10104),
+                        CI.getCircuit(7, 8)
+                    },
+                    FluidRegistry.getFluidStack("molten.hikarium", 144 * 8),
+                    GregtechItemList.Large_SCSteam_Turbine.get(1),
+                    20 * 60,
+                    MaterialUtils.getVoltageForTier(7));
+        }
     }
 
     private static void multiSolarTower() {
@@ -1071,15 +1097,15 @@ public class RECIPES_Machines {
                 new ItemStack[] {
                     CI.getNumberedBioCircuit(21),
                     CI.getTieredGTPPMachineCasing(0, 4),
-                    CI.getTieredComponentOfMaterial(Materials.Aluminium, OrePrefixes.rod, 12),
+                    CI.getTieredComponentOfMaterial(Materials.Iron, OrePrefixes.rod, 12),
                     CI.getTieredComponentOfMaterial(Materials.Wood, OrePrefixes.plate, 32),
-                    CI.getTieredComponentOfMaterial(Materials.Steel, OrePrefixes.bolt, 16),
+                    CI.getTieredComponentOfMaterial(Materials.Bronze, OrePrefixes.bolt, 16),
                     CI.getTieredComponentOfMaterial(Materials.Redstone, OrePrefixes.dust, 32),
                 },
                 ALLOY.POTIN.getFluidStack(2 * (144 * 4)),
                 GregtechItemList.AlgaeFarm_Controller.get(1),
                 60 * 20,
-                MaterialUtils.getVoltageForTier(2));
+                MaterialUtils.getVoltageForTier(1));
     }
 
     private static void distillus() {
@@ -2051,30 +2077,30 @@ public class RECIPES_Machines {
             aSemiFluidInputs[0] = new ItemStack[] {
                 CI.getNumberedBioCircuit(14),
                 CI.getTieredMachineHull(1, 1),
-                CI.getElectricPiston(1, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 1, 2),
-                CI.getPlate(1, 4),
-                CI.getGear(1, 2)
+                CI.getElectricPiston(1, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 1, GTNH ? 4 : 2),
+                CI.getPlate(1, GTNH ? 8 : 4),
+                CI.getGear(1, GTNH ? 4 : 2)
             };
             aSemiFluidInputs[1] = new ItemStack[] {
                 CI.getNumberedCircuit(14),
                 CI.getTieredMachineHull(2, 1),
-                CI.getElectricPiston(2, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 2, 2),
-                CI.getPlate(2, 4),
-                CI.getGear(2, 2)
+                CI.getElectricPiston(2, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 2, GTNH ? 4 : 2),
+                CI.getPlate(2, GTNH ? 8 : 4),
+                CI.getGear(2, GTNH ? 4 : 2)
             };
             aSemiFluidInputs[2] = new ItemStack[] {
                 CI.getNumberedAdvancedCircuit(14),
                 CI.getTieredMachineHull(3, 1),
-                CI.getElectricPiston(3, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 3, 2),
-                CI.getPlate(3, 4),
-                CI.getGear(3, 2)
+                CI.getElectricPiston(3, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 3, GTNH ? 4 : 2),
+                CI.getPlate(3, GTNH ? 8 : 4),
+                CI.getGear(3, GTNH ? 4 : 2)
             };
             FluidStack[] aSemiFluidFluidInputs = new FluidStack[] {
-                ELEMENT.getInstance().TIN.getFluidStack(144 * 4),
-                ALLOY.STEEL.getFluidStack(144 * 6),
+                ALLOY.BRONZE.getFluidStack(144 * 8),
+                ALLOY.STEEL.getFluidStack(144 * 8),
                 ELEMENT.getInstance().ALUMINIUM.getFluidStack(144 * 8),
             };
 
@@ -2289,16 +2315,17 @@ public class RECIPES_Machines {
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
                             GT_Utility.getIntegratedCircuit(2),
-                            ALLOY.TUMBAGA.getFrameBox(1),
-                            ItemUtils.getItemStackOfAmountFromOreDict("pipeTinySteel", 1),
-                            ItemList.MV_Coil.get(1),
-                            ItemList.IC2_Plantball.get(4),
-                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 8),
+                            ALLOY.INCONEL_625.getFrameBox(1),
+                            ALLOY.HASTELLOY_X.getComponentByPrefix(OrePrefixes.pipeTiny, 1),
+                            ItemList.Electric_Pump_EV.get(2),
+                            ItemList.HV_Coil.get(4),
+                            ItemList.IC2_Plantball.get(8),
+                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 6),
                         },
-                        GT_ModHandler.getDistilledWater(2000),
+                        GT_ModHandler.getDistilledWater(8000),
                         RECIPE_TreeFarmFrame,
-                        200,
-                        64);
+                        60,
+                        1960);
             }
 
             if (CORE.ConfigSwitches.enableMachine_Tesseracts) {

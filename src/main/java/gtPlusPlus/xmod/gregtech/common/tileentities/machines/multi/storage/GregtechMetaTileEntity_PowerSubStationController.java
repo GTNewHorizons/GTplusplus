@@ -24,7 +24,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Dynamo;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
-import gregtech.api.render.TextureFactory;
+import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
@@ -123,7 +123,7 @@ public class GregtechMetaTileEntity_PowerSubStationController
         if (aSide == aFacing) {
             return new ITexture[] {
                 Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(24)),
-                TextureFactory.of(
+                new GT_RenderedTexture(
                         aActive
                                 ? Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE
                                 : Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER)
@@ -638,8 +638,9 @@ public class GregtechMetaTileEntity_PowerSubStationController
     private long computeEnergyTax() {
         float mTax = mAverageEuUsage * (ENERGY_TAX / 100f);
 
-        // Increase tax up to 2x if machine is not fully repaired
-        mTax = mTax * (1f + (10000f - mEfficiency) / 10000f);
+        // Increase tax up to 2x if machine is not fully repaired (does not actually work at the moment, mEfficiency is
+        // always 0)
+        // mTax = mTax * (1f + (10000f - mEfficiency) / 10000f);
 
         return MathUtils.roundToClosestLong(mTax);
     }
