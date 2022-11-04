@@ -552,7 +552,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 "thaumicbases:goldenOakSapling:3", GT_ModHandler.getModItem("thaumicbases", "genLogs", 1, 2)); // Ender
 
         // Forbidden Magic
-        mapSaplingToLog("ForbiddenMagic:TaintSapling:0", GT_ModHandler.getModItem("ForbiddenMagic", "TaintLog", 1)); // Tainted
+        mapSaplingToLog(
+                "ForbiddenMagic:TaintSapling:0", GT_ModHandler.getModItem("ForbiddenMagic", "TaintLog", 1)); // Tainted
     }
 
     @Override
