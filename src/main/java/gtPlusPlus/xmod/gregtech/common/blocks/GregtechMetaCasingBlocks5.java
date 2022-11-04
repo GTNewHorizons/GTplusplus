@@ -43,16 +43,25 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                 this.getUnlocalizedName() + ".6.name", "Forge Casing"); // Forge Hammer Casing
         TAE.registerTexture(1, 11, new GTPP_CopiedBlockTexture(this, 6, 6));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".7.name", "Neutron Pulse Manipulator");
+        TAE.registerTexture(1, 12, new GTPP_CopiedBlockTexture(this, 6, 7));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".8.name", "Cosmic Fabric Manipulator");
+        TAE.registerTexture(1, 13, new GTPP_CopiedBlockTexture(this, 6, 8));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".9.name", "Infinity Infused Manipulator");
+        TAE.registerTexture(1, 14, new GTPP_CopiedBlockTexture(this, 6, 9));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".10.name", "SpaceTime Continuum Ripper");
+        TAE.registerTexture(1, 15, new GTPP_CopiedBlockTexture(this, 6, 10));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".11.name", "Neutron Shielding Core");
+        TAE.registerTexture(1, 16, new GTPP_CopiedBlockTexture(this, 6, 11));
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".12.name", "Cosmic Fabric Shielding Core");
+        TAE.registerTexture(1, 17, new GTPP_CopiedBlockTexture(this, 6, 12));
         GT_LanguageManager.addStringLocalization(
                 this.getUnlocalizedName() + ".13.name", "Infinity Infused Shielding Core");
+        TAE.registerTexture(1, 18, new GTPP_CopiedBlockTexture(this, 6, 13));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".14.name", "SpaceTime Bending Core");
+        TAE.registerTexture(1, 19, new GTPP_CopiedBlockTexture(this, 6, 14));
         GT_LanguageManager.addStringLocalization(this.getUnlocalizedName() + ".15.name", "Force Field Glass");
+        TAE.registerTexture(1, 20, new GTPP_CopiedBlockTexture(this, 6, 15));
 
         GregtechItemList.Casing_IsaMill_Casing.set(new ItemStack(this, 1, 0));
         GregtechItemList.Casing_IsaMill_Pipe.set(new ItemStack(this, 1, 1));

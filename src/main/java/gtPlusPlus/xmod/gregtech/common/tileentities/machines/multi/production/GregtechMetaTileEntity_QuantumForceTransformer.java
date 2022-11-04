@@ -474,7 +474,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     0,
                                     GregtechMetaTileEntity_QuantumForceTransformer::setFabCoilTier,
                                     GregtechMetaTileEntity_QuantumForceTransformer::getFabCoilTier))
-                    .addElement('C', ofBlock(ModBlocks.blockSpecialMultiCasings, 15))
+                    .addElement('C', ofBlock(ModBlocks.blockCasings4Misc, 4))
                     .addElement('D', ofBlock(ModBlocks.blockCasings2Misc, 12))
                     .addElement(
                             'E',
