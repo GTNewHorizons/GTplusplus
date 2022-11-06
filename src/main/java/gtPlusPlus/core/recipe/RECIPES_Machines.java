@@ -182,7 +182,7 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_OreWasher;
     public static ItemStack EV_MACHINE_AlloySmelter;
     public static ItemStack EV_MACHINE_Mixer;
-    public static ItemStack EV_MACHINE_ChemicalBath;
+    public static ItemStack IV_MACHINE_ChemicalBath;
 
     // Cables
     public static String cableGt02Electrum = "cableGt02Electrum";
@@ -1242,7 +1242,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_EV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
-                EV_MACHINE_ChemicalBath = ItemList.Machine_EV_ChemicalBath.get(1);
             }
             // Balanced opposites
             else {
@@ -1262,7 +1261,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
-                EV_MACHINE_ChemicalBath = ItemList.Machine_IV_ChemicalBath.get(1);
             }
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
@@ -3030,7 +3028,7 @@ public class RECIPES_Machines {
                         "circuitElite",
                         "plateTalonite",
                         "plateGrisium",
-                        EV_MACHINE_ChemicalBath,
+                        IV_MACHINE_ChemicalBath,
                         "plateGrisium",
                         GregtechItemList.Industrial_WashPlant.get(1));
             }
