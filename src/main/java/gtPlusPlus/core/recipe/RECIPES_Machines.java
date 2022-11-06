@@ -1242,7 +1242,6 @@ public class RECIPES_Machines {
                         : ItemList.Machine_IV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
-
             }
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
