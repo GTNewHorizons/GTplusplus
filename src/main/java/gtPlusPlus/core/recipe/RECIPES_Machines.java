@@ -176,7 +176,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
     public static ItemStack IV_MACHINE_Extruder;
-    public static ItemStack IV_MACHINE_Sifter;
+    public static ItemStack HV_MACHINE_Sifter;
     public static ItemStack IV_MACHINE_ThermalCentrifuge;
     public static ItemStack IV_MACHINE_OreWasher;
     public static ItemStack IV_MACHINE_AlloySmelter;
