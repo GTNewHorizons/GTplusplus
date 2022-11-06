@@ -3322,11 +3322,11 @@ public class RECIPES_Machines {
                         plate,
                         GregtechItemList.Casing_Multi_Use.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.STABALLOY.getPlate(4),
-                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 2),
-                                ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.STABALLOY.getPlate(4),
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 2),
+                            ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_Multi_Use.get(1L),
