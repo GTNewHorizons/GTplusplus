@@ -180,7 +180,7 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_ThermalCentrifuge;
     public static ItemStack IV_MACHINE_OreWasher;
     public static ItemStack IV_MACHINE_AlloySmelter;
-    public static ItemStack EV_MACHINE_Mixer;
+    public static ItemStack IV_MACHINE_Mixer;
     public static ItemStack IV_MACHINE_ChemicalBath;
 
     // Cables
@@ -1233,7 +1233,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
-                EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
             }
             // Balanced opposites
             else {
@@ -1245,7 +1244,6 @@ public class RECIPES_Machines {
                         : ItemList.Machine_IV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
-                EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
 
             }
         }
@@ -3362,7 +3360,7 @@ public class RECIPES_Machines {
                         CI.getTieredCircuit(5),
                         "plateStaballoy",
                         "plateZirconiumCarbide",
-                        EV_MACHINE_Mixer,
+                        IV_MACHINE_Mixer,
                         "plateZirconiumCarbide",
                         "plateStaballoy",
                         CI.getTieredCircuit(5),
@@ -3405,6 +3403,17 @@ public class RECIPES_Machines {
                         CI.craftingToolWrench,
                         plate,
                         GregtechItemList.Casing_Multi_Use.get(Casing_Amount));
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            ALLOY.STABALLOY.getPlate(4),
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 2),
+                            ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        GregtechItemList.Casing_Multi_Use.get(1L),
+                        50,
+                        16);
 
                 RecipeUtils.addShapedRecipe(
                         o_Compressor,
