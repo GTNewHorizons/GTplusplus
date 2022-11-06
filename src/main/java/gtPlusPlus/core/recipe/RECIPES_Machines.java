@@ -176,7 +176,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Macerator;
     public static ItemStack EV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
-    public static ItemStack EV_MACHINE_Extruder;
+    public static ItemStack IV_MACHINE_Extruder;
     public static ItemStack EV_MACHINE_Sifter;
     public static ItemStack EV_MACHINE_ThermalCentrifuge;
     public static ItemStack IV_MACHINE_OreWasher;
@@ -1237,7 +1237,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
-                EV_MACHINE_Extruder = ItemList.Machine_EV_Extruder.get(1);
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
@@ -1255,7 +1254,6 @@ public class RECIPES_Machines {
                         : ItemList.Machine_IV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
-                EV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
@@ -3133,7 +3131,7 @@ public class RECIPES_Machines {
                         GregtechItemList.Industrial_CuttingFactoryController.get(1));
             }
 
-            // EV_MACHINE_Extruder
+            // IV_MACHINE_Extruder
             if (CORE.ConfigSwitches.enableMultiblock_IndustrialExtrudingMachine) {
                 ItemStack plate = ALLOY.INCONEL_690.getPlate(1);
                 RecipeUtils.addShapedRecipe(
@@ -3147,16 +3145,27 @@ public class RECIPES_Machines {
                         CI.craftingToolWrench,
                         plate,
                         GregtechItemList.Casing_Extruder.get(Casing_Amount));
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            ALLOY.INCONEL_690.getPlate(4),
+                            ALLOY.TALONITE.getPlate(2),
+                            ALLOY.STABALLOY.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        GregtechItemList.Casing_Extruder.get(1L),
+                        50,
+                        16);
 
                 RecipeUtils.addShapedRecipe(
                         plate,
-                        CI.getTieredCircuit(4),
+                        CI.getTieredCircuit(5),
                         plate,
-                        CI.electricPiston_EV,
-                        EV_MACHINE_Extruder,
-                        CI.electricPiston_EV,
+                        CI.electricPiston_IV,
+                        IV_MACHINE_Extruder,
+                        CI.electricPiston_IV,
                         plate,
-                        CI.getTieredCircuit(4),
+                        CI.getTieredCircuit(5),
                         plate,
                         GregtechItemList.Industrial_Extruder.get(1));
             }
