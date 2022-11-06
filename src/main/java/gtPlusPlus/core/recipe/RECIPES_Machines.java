@@ -2124,27 +2124,37 @@ public class RECIPES_Machines {
                 // Blast Smelter
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateZirconiumCarbide",
-                        CI.circuitTier4,
+                        CI.circuitTier6,
                         "plateZirconiumCarbide",
-                        cableTier4,
+                        cableTier6,
                         EV_MACHINE_AlloySmelter,
-                        cableTier4,
+                        cableTier6,
                         "plateZirconiumCarbide",
-                        CI.circuitTier3,
+                        CI.circuitTier6,
                         "plateZirconiumCarbide",
                         RECIPE_IndustrialBlastSmelterController);
                 // Blast Smelter Frame Casing
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateZirconiumCarbide",
-                        CI.component_Rod[5],
+                        CI.craftingToolHammer_Hard,
                         "plateZirconiumCarbide",
-                        CI.component_Rod[5],
-                        "frameGtTumbaga",
-                        CI.component_Rod[5],
                         "plateZirconiumCarbide",
-                        CI.component_Rod[5],
+                        "frameGtZirconiumCarbide",
+                        "plateZirconiumCarbide",
+                        "plateZirconiumCarbide",
+                        CI.craftingToolWrench,
                         "plateZirconiumCarbide",
                         RECIPE_IndustrialBlastSmelterFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[]{
+                                ALLOY.ZIRCONIUM_CARBIDE.getPlate(6),
+                                ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialBlastSmelterFrame,
+                        50,
+                        16);
                 // Blast Smelter Coil
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateStaballoy",
@@ -2157,6 +2167,17 @@ public class RECIPES_Machines {
                         "plateStaballoy",
                         "plateStaballoy",
                         RECIPE_IndustrialBlastSmelterCoil);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[]{
+                                ALLOY.STABALLOY.getPlate(6),
+                                ALLOY.STABALLOY.getFrameBox(2),
+                                CI.gearboxCasing_Tier_3,
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialBlastSmelterCoil,
+                        50,
+                        16);
             }
 
             if (CORE.ConfigSwitches.enableMultiblock_MatterFabricator) {
