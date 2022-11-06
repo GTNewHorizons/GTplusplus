@@ -172,8 +172,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Centrifuge;
     public static ItemStack EV_MACHINE_BendingMachine;
     public static ItemStack EV_MACHINE_Wiremill;
-    public static ItemStack HV_MACHINE_Macerator;
-    public static ItemStack EV_MACHINE_Macerator;
+    public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack EV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
     public static ItemStack EV_MACHINE_Extruder;
@@ -1231,8 +1230,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Electrolyzer = ItemList.Machine_EV_Electrolyzer.get(1);
                 EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
                 EV_MACHINE_Wiremill = ItemList.Machine_EV_Wiremill.get(1);
-                HV_MACHINE_Macerator = ItemList.Machine_HV_Macerator.get(1);
-                EV_MACHINE_Macerator = ItemList.Machine_EV_Macerator.get(1);
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
@@ -1248,8 +1245,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
                 EV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
                 EV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
-                HV_MACHINE_Macerator = ItemList.Machine_EV_Macerator.get(1);
-                EV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
                 EV_MACHINE_MassFabricator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
                         ? ItemUtils.getValueOfItemList("Machine_LuV_Massfab", ItemList.Machine_IV_Massfab)
                                 .get(1)
@@ -1785,16 +1780,28 @@ public class RECIPES_Machines {
                         "stickLongPalladium",
                         "platePalladium",
                         RECIPE_IndustrialMacerationStackFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[]{
+                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Palladium, 5),
+                                GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Platinum, 2),
+                                GT_OreDictUnificator.get(OrePrefixes.stickLong, Materials.Palladium, 1),
+                                ALLOY.INCONEL_625.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialMacerationStackFrame,
+                        50,
+                        16);
                 // Industrial Maceration stack
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateTungstenCarbide",
-                        EV_MACHINE_Macerator,
+                        IV_MACHINE_Macerator,
                         "plateTungstenCarbide",
-                        HV_MACHINE_Macerator,
+                        IV_MACHINE_Macerator,
                         CI.circuitTier7,
-                        HV_MACHINE_Macerator,
+                        IV_MACHINE_Macerator,
                         "plateTungstenCarbide",
-                        CI.machineCasing_IV,
+                        IV_MACHINE_Macerator,
                         "plateTungstenCarbide",
                         RECIPE_IndustrialMacerationStackController);
             }
