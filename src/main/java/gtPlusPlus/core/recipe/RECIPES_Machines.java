@@ -2146,10 +2146,10 @@ public class RECIPES_Machines {
                         "plateZirconiumCarbide",
                         RECIPE_IndustrialBlastSmelterFrame);
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.ZIRCONIUM_CARBIDE.getPlate(6),
-                                ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.ZIRCONIUM_CARBIDE.getPlate(6),
+                            ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialBlastSmelterFrame,
@@ -2168,11 +2168,11 @@ public class RECIPES_Machines {
                         "plateStaballoy",
                         RECIPE_IndustrialBlastSmelterCoil);
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.STABALLOY.getPlate(6),
-                                ALLOY.STABALLOY.getFrameBox(2),
-                                CI.gearboxCasing_Tier_3,
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.STABALLOY.getPlate(6),
+                            ALLOY.STABALLOY.getFrameBox(2),
+                            CI.gearboxCasing_Tier_3,
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialBlastSmelterCoil,
