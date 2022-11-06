@@ -176,7 +176,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
     public static ItemStack IV_MACHINE_Extruder;
-    public static ItemStack EV_MACHINE_Sifter;
+    public static ItemStack IV_MACHINE_Sifter;
     public static ItemStack IV_MACHINE_ThermalCentrifuge;
     public static ItemStack IV_MACHINE_OreWasher;
     public static ItemStack IV_MACHINE_AlloySmelter;
@@ -1234,7 +1234,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
-                EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
             }
             // Balanced opposites
@@ -1248,7 +1247,6 @@ public class RECIPES_Machines {
                         : ItemList.Machine_IV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
-                EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
 
             }
@@ -2237,7 +2235,7 @@ public class RECIPES_Machines {
                         CI.circuitTier3,
                         "plateEglinSteel",
                         cableTier4,
-                        EV_MACHINE_Sifter,
+                        HV_MACHINE_Sifter,
                         cableTier4,
                         "plateEglinSteel",
                         CI.circuitTier3,
@@ -2255,6 +2253,16 @@ public class RECIPES_Machines {
                         "plateEglinSteel",
                         "plateEglinSteel",
                         RECIPE_IndustrialSieveFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            ALLOY.EGLIN_STEEL.getPlate(8),
+                            ALLOY.TUMBAGA.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialSieveFrame,
+                        50,
+                        16);
                 // Industrial Sieve Grate
                 RecipeUtils.addShapedGregtechRecipe(
                         "frameGtEglinSteel",
@@ -2267,6 +2275,16 @@ public class RECIPES_Machines {
                         "wireFineSteel",
                         "frameGtEglinSteel",
                         RECIPE_IndustrialSieveGrate);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            GT_OreDictUnificator.get(OrePrefixes.wireFine, Materials.Steel, 5),
+                            ALLOY.EGLIN_STEEL.getFrameBox(4),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialSieveGrate,
+                        50,
+                        16);
             }
 
             if (CORE.ConfigSwitches.enableMultiblock_TreeFarmer) {
