@@ -168,7 +168,7 @@ public class RECIPES_Machines {
     public static String pipeTier11 = "pipeHuge" + "Europium";
 
     // EV/IV MACHINES
-    public static ItemStack EV_MACHINE_Electrolyzer;
+    public static ItemStack IV_MACHINE_Electrolyzer;
     public static ItemStack EV_MACHINE_Centrifuge;
     public static ItemStack EV_MACHINE_BendingMachine;
     public static ItemStack EV_MACHINE_Wiremill;
@@ -1228,7 +1228,6 @@ public class RECIPES_Machines {
 
             // IV MACHINES
             if (!GTNH) {
-                EV_MACHINE_Electrolyzer = ItemList.Machine_EV_Electrolyzer.get(1);
                 EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
                 EV_MACHINE_Wiremill = ItemList.Machine_EV_Wiremill.get(1);
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
@@ -1238,7 +1237,6 @@ public class RECIPES_Machines {
             }
             // Balanced opposites
             else {
-                EV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
                 EV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
                 EV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
                 EV_MACHINE_MassFabricator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
@@ -1710,14 +1708,26 @@ public class RECIPES_Machines {
                         "stickLongPotin",
                         "platePotin",
                         RECIPE_IndustrialElectrolyzerFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            ALLOY.POTIN.getPlate(4),
+                            ALLOY.POTIN.getLongRod(3),
+                            GT_OreDictUnificator.get(OrePrefixes.stickLong, Materials.Chrome, 1),
+                            ALLOY.POTIN.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialElectrolyzerFrame,
+                        50,
+                        16);
                 // Industrial Electrolyzer
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateStellite",
                         CI.circuitTier5,
                         "plateStellite",
-                        CI.machineCasing_EV,
-                        EV_MACHINE_Electrolyzer,
-                        CI.machineCasing_EV,
+                        CI.machineCasing_IV,
+                        IV_MACHINE_Electrolyzer,
+                        CI.machineCasing_IV,
                         "plateStellite",
                         "rotorStellite",
                         "plateStellite",
