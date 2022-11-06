@@ -3116,11 +3116,11 @@ public class RECIPES_Machines {
                         plate,
                         GregtechItemList.Casing_Extruder.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.INCONEL_690.getPlate(4),
-                                ALLOY.TALONITE.getPlate(2),
-                                ALLOY.STABALLOY.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.INCONEL_690.getPlate(4),
+                            ALLOY.TALONITE.getPlate(2),
+                            ALLOY.STABALLOY.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_Extruder.get(1L),
