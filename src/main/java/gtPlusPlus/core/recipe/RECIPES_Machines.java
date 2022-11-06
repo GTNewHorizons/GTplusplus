@@ -3013,11 +3013,11 @@ public class RECIPES_Machines {
                         "plateGrisium",
                         GregtechItemList.Casing_WashPlant.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.LEAGRISIUM.getPlate(4),
-                                ALLOY.TALONITE.getPlate(2),
-                                ALLOY.LEAGRISIUM.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.LEAGRISIUM.getPlate(4),
+                            ALLOY.TALONITE.getPlate(2),
+                            ALLOY.LEAGRISIUM.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_WashPlant.get(1L),
