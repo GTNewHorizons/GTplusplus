@@ -2232,10 +2232,10 @@ public class RECIPES_Machines {
                         "plateEglinSteel",
                         RECIPE_IndustrialSieveFrame);
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                ALLOY.EGLIN_STEEL.getPlate(8),
-                                ALLOY.TUMBAGA.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            ALLOY.EGLIN_STEEL.getPlate(8),
+                            ALLOY.TUMBAGA.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialSieveFrame,
@@ -2254,10 +2254,10 @@ public class RECIPES_Machines {
                         "frameGtEglinSteel",
                         RECIPE_IndustrialSieveGrate);
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                GT_OreDictUnificator.get(OrePrefixes.wireFine, Materials.Steel, 5),
-                                ALLOY.EGLIN_STEEL.getFrameBox(4),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            GT_OreDictUnificator.get(OrePrefixes.wireFine, Materials.Steel, 5),
+                            ALLOY.EGLIN_STEEL.getFrameBox(4),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialSieveGrate,
