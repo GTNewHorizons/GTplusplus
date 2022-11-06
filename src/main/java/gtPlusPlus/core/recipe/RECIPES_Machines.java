@@ -179,7 +179,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Extruder;
     public static ItemStack EV_MACHINE_Sifter;
     public static ItemStack EV_MACHINE_ThermalCentrifuge;
-    public static ItemStack EV_MACHINE_OreWasher;
+    public static ItemStack IV_MACHINE_OreWasher;
     public static ItemStack EV_MACHINE_AlloySmelter;
     public static ItemStack EV_MACHINE_Mixer;
     public static ItemStack EV_MACHINE_ChemicalBath;
@@ -1240,7 +1240,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Extruder = ItemList.Machine_EV_Extruder.get(1);
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
-                EV_MACHINE_OreWasher = ItemList.Machine_EV_OreWasher.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_EV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
                 EV_MACHINE_ChemicalBath = ItemList.Machine_EV_ChemicalBath.get(1);
@@ -1261,7 +1260,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
-                EV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
                 EV_MACHINE_ChemicalBath = ItemList.Machine_IV_ChemicalBath.get(1);
@@ -3013,11 +3011,11 @@ public class RECIPES_Machines {
                         "plateGrisium",
                         GregtechItemList.Casing_WashPlant.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[] {
-                            ALLOY.LEAGRISIUM.getPlate(4),
-                            ALLOY.TALONITE.getPlate(2),
-                            ALLOY.LEAGRISIUM.getFrameBox(1),
-                            GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[]{
+                                ALLOY.LEAGRISIUM.getPlate(4),
+                                ALLOY.TALONITE.getPlate(2),
+                                ALLOY.LEAGRISIUM.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_WashPlant.get(1L),
@@ -3026,7 +3024,7 @@ public class RECIPES_Machines {
 
                 RecipeUtils.addShapedRecipe(
                         "plateGrisium",
-                        EV_MACHINE_OreWasher,
+                        IV_MACHINE_OreWasher,
                         "plateGrisium",
                         "plateTalonite",
                         "circuitElite",
