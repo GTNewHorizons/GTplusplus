@@ -1781,12 +1781,12 @@ public class RECIPES_Machines {
                         "platePalladium",
                         RECIPE_IndustrialMacerationStackFrame);
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Palladium, 5),
-                                GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Platinum, 2),
-                                GT_OreDictUnificator.get(OrePrefixes.stickLong, Materials.Palladium, 1),
-                                ALLOY.INCONEL_625.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Palladium, 5),
+                            GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Platinum, 2),
+                            GT_OreDictUnificator.get(OrePrefixes.stickLong, Materials.Palladium, 1),
+                            ALLOY.INCONEL_625.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialMacerationStackFrame,
