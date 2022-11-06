@@ -2982,10 +2982,10 @@ public class RECIPES_Machines {
                         "plateRedSteel",
                         GregtechItemList.Casing_ThermalCentrifuge.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
-                        new ItemStack[]{
-                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.RedSteel, 6),
-                                GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlackSteel, 1),
-                                GT_Utility.getIntegratedCircuit(1),
+                        new ItemStack[] {
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.RedSteel, 6),
+                            GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlackSteel, 1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_ThermalCentrifuge.get(1L),
