@@ -181,7 +181,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_ThermalCentrifuge;
     public static ItemStack EV_MACHINE_OreWasher;
     public static ItemStack EV_MACHINE_AlloySmelter;
-    public static ItemStack EV_MACHINE_Mixer;
+    public static ItemStack IV_MACHINE_Mixer;
 
     // Cables
     public static String cableGt02Electrum = "cableGt02Electrum";
@@ -1241,7 +1241,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
                 EV_MACHINE_OreWasher = ItemList.Machine_EV_OreWasher.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_EV_AlloySmelter.get(1);
-                EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
             }
             // Balanced opposites
             else {
@@ -1261,7 +1260,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
                 EV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
                 EV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
-                EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
             }
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
@@ -3280,7 +3278,7 @@ public class RECIPES_Machines {
                         CI.getTieredCircuit(5),
                         "plateStaballoy",
                         "plateZirconiumCarbide",
-                        EV_MACHINE_Mixer,
+                        IV_MACHINE_Mixer,
                         "plateZirconiumCarbide",
                         "plateStaballoy",
                         CI.getTieredCircuit(5),
@@ -3323,6 +3321,17 @@ public class RECIPES_Machines {
                         CI.craftingToolWrench,
                         plate,
                         GregtechItemList.Casing_Multi_Use.get(Casing_Amount));
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[]{
+                                ALLOY.STABALLOY.getPlate(4),
+                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 2),
+                                ALLOY.ZIRCONIUM_CARBIDE.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        GregtechItemList.Casing_Multi_Use.get(1L),
+                        50,
+                        16);
 
                 RecipeUtils.addShapedRecipe(
                         o_Compressor,
