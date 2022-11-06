@@ -180,7 +180,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Sifter;
     public static ItemStack EV_MACHINE_ThermalCentrifuge;
     public static ItemStack EV_MACHINE_OreWasher;
-    public static ItemStack EV_MACHINE_AlloySmelter;
+    public static ItemStack IV_MACHINE_AlloySmelter;
     public static ItemStack EV_MACHINE_Mixer;
 
     // Cables
@@ -1240,7 +1240,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
                 EV_MACHINE_OreWasher = ItemList.Machine_EV_OreWasher.get(1);
-                EV_MACHINE_AlloySmelter = ItemList.Machine_EV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_EV_Mixer.get(1);
             }
             // Balanced opposites
@@ -1260,7 +1259,6 @@ public class RECIPES_Machines {
                 EV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
                 EV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
                 EV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
-                EV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
                 EV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
             }
         }
@@ -2127,7 +2125,7 @@ public class RECIPES_Machines {
                         CI.circuitTier6,
                         "plateZirconiumCarbide",
                         cableTier6,
-                        EV_MACHINE_AlloySmelter,
+                        IV_MACHINE_AlloySmelter,
                         cableTier6,
                         "plateZirconiumCarbide",
                         CI.circuitTier6,
