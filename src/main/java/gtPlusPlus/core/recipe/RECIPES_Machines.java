@@ -171,7 +171,7 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_Electrolyzer;
     public static ItemStack EV_MACHINE_Centrifuge;
     public static ItemStack EV_MACHINE_BendingMachine;
-    public static ItemStack EV_MACHINE_Wiremill;
+    public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack EV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
@@ -1229,7 +1229,6 @@ public class RECIPES_Machines {
             // IV MACHINES
             if (!GTNH) {
                 EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
-                EV_MACHINE_Wiremill = ItemList.Machine_EV_Wiremill.get(1);
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
                 EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
@@ -1237,7 +1236,6 @@ public class RECIPES_Machines {
             // Balanced opposites
             else {
                 EV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
-                EV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
                 EV_MACHINE_MassFabricator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
                         ? ItemUtils.getValueOfItemList("Machine_LuV_Massfab", ItemList.Machine_IV_Massfab)
                                 .get(1)
@@ -1834,13 +1832,24 @@ public class RECIPES_Machines {
                         "stickBlueSteel",
                         "plateBlueSteel",
                         RECIPE_IndustrialWireFactoryFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.BlueSteel, 4),
+                            GT_OreDictUnificator.get(OrePrefixes.stick, Materials.BlueSteel, 4),
+                            GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlueSteel, 1),
+                            GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialWireFactoryFrame,
+                        50,
+                        16);
                 // Industrial Wire Factory
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateZeron100",
                         CI.machineCasing_IV,
                         "plateZeron100",
                         CI.circuitTier5,
-                        EV_MACHINE_Wiremill,
+                        IV_MACHINE_Wiremill,
                         CI.circuitTier5,
                         "plateZeron100",
                         CI.machineCasing_IV,
