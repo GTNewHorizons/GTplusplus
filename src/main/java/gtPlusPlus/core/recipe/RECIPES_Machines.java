@@ -2256,10 +2256,10 @@ public class RECIPES_Machines {
                         RECIPE_IndustrialMatterFabFrame);
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
-                                ALLOY.NIOBIUM_CARBIDE.getPlate(4),
-                                ALLOY.INCONEL_792.getRod(4),
-                                ALLOY.INCONEL_690.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                            ALLOY.NIOBIUM_CARBIDE.getPlate(4),
+                            ALLOY.INCONEL_792.getRod(4),
+                            ALLOY.INCONEL_690.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialMatterFabFrame,
@@ -2279,17 +2279,16 @@ public class RECIPES_Machines {
                         RECIPE_IndustrialMatterFabCoil);
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
-                                CI.machineCasing_UV,
-                                ALLOY.ZERON_100.getPlate(4),
-                                ALLOY.PIKYONIUM.getPlate(2),
-                                ALLOY.STELLITE.getFrameBox(2),
-                                GT_Utility.getIntegratedCircuit(1),
+                            CI.machineCasing_UV,
+                            ALLOY.ZERON_100.getPlate(4),
+                            ALLOY.PIKYONIUM.getPlate(2),
+                            ALLOY.STELLITE.getFrameBox(2),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialMatterFabCoil,
                         50,
                         16);
-
             }
 
             if (CORE.ConfigSwitches.enableMultiblock_IndustrialSifter) {
@@ -3221,10 +3220,10 @@ public class RECIPES_Machines {
                         GregtechItemList.Casing_CuttingFactoryFrame.get(Casing_Amount));
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
-                                ALLOY.MARAGING300.getPlate(4),
-                                ALLOY.STELLITE.getPlate(2),
-                                ALLOY.TALONITE.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                            ALLOY.MARAGING300.getPlate(4),
+                            ALLOY.STELLITE.getPlate(2),
+                            ALLOY.TALONITE.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         GregtechItemList.Casing_CuttingFactoryFrame.get(1L),
