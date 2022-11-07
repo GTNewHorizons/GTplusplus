@@ -174,7 +174,6 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack IV_MACHINE_Cutter;
-    public static ItemStack EV_MACHINE_MassFabricator;
     public static ItemStack IV_MACHINE_Extruder;
     public static ItemStack HV_MACHINE_Sifter;
     public static ItemStack IV_MACHINE_ThermalCentrifuge;
@@ -1231,8 +1230,14 @@ public class RECIPES_Machines {
             IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
             IV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
             IV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
-            EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
             IV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
+            IV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
+            HV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
+            IV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
+            IV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
+            IV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
+            IV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
+            IV_MACHINE_ChemicalBath = ItemList.Machine_IV_ChemicalBath.get(1);
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
             if (LoadedMods.Railcraft) {
