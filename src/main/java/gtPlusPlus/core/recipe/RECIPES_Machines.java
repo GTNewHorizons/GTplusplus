@@ -173,7 +173,7 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_BendingMachine;
     public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
-    public static ItemStack EV_MACHINE_Cutter;
+    public static ItemStack IV_MACHINE_Cutter;
     public static ItemStack EV_MACHINE_MassFabricator;
     public static ItemStack IV_MACHINE_Extruder;
     public static ItemStack HV_MACHINE_Sifter;
@@ -1229,8 +1229,10 @@ public class RECIPES_Machines {
             IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
             IV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
             IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
+            IV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
+            IV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
             EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
-            EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
+            IV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
             if (LoadedMods.Railcraft) {
@@ -3188,13 +3190,24 @@ public class RECIPES_Machines {
                         CI.craftingToolWrench,
                         plate,
                         GregtechItemList.Casing_CuttingFactoryFrame.get(Casing_Amount));
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                                ALLOY.MARAGING300.getPlate(4),
+                                ALLOY.STELLITE.getPlate(2),
+                                ALLOY.TALONITE.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        GregtechItemList.Casing_CuttingFactoryFrame.get(1L),
+                        50,
+                        16);
 
                 RecipeUtils.addShapedRecipe(
                         plate,
-                        CI.getTieredCircuit(3),
+                        CI.getTieredCircuit(4),
                         plate,
                         "wireFinePlatinum",
-                        EV_MACHINE_Cutter,
+                        IV_MACHINE_Cutter,
                         "wireFinePlatinum",
                         plate,
                         CI.getTieredCircuit(4),
