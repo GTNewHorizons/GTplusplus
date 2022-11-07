@@ -1226,13 +1226,11 @@ public class RECIPES_Machines {
             boiler_Coal = ItemList.Machine_Bronze_Boiler.get(1);
 
             // IV/EV/HV MACHINES
-                IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
-                IV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
-                IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
-                EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
-                EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
-
-
+            IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
+            IV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
+            IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
+            EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
+            EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
             if (LoadedMods.Railcraft) {
@@ -1603,10 +1601,10 @@ public class RECIPES_Machines {
                         RECIPE_IndustrialCentrifugeCasing);
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
-                                ALLOY.MARAGING250.getPlate(4),
-                                ALLOY.INCONEL_792.getPlate(2),
-                                ALLOY.TUMBAGA.getRod(3),
-                                GT_Utility.getIntegratedCircuit(1),
+                            ALLOY.MARAGING250.getPlate(4),
+                            ALLOY.INCONEL_792.getPlate(2),
+                            ALLOY.TUMBAGA.getRod(3),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialCentrifugeCasing,
@@ -1760,11 +1758,11 @@ public class RECIPES_Machines {
                         RECIPE_IndustrialMaterialPressFrame);
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
-                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4),
-                                ALLOY.TANTALLOY_60.getRod(2),
-                                ALLOY.TUMBAGA.getLongRod(2),
-                                ALLOY.TUMBAGA.getFrameBox(1),
-                                GT_Utility.getIntegratedCircuit(1),
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4),
+                            ALLOY.TANTALLOY_60.getRod(2),
+                            ALLOY.TUMBAGA.getLongRod(2),
+                            ALLOY.TUMBAGA.getFrameBox(1),
+                            GT_Utility.getIntegratedCircuit(1),
                         },
                         GT_Values.NF,
                         RECIPE_IndustrialMaterialPressFrame,
