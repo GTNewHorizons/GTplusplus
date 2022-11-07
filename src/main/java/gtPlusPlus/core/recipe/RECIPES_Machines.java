@@ -169,8 +169,8 @@ public class RECIPES_Machines {
 
     // EV/IV MACHINES
     public static ItemStack IV_MACHINE_Electrolyzer;
-    public static ItemStack EV_MACHINE_Centrifuge;
-    public static ItemStack EV_MACHINE_BendingMachine;
+    public static ItemStack IV_MACHINE_Centrifuge;
+    public static ItemStack IV_MACHINE_BendingMachine;
     public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack EV_MACHINE_Cutter;
@@ -1225,23 +1225,14 @@ public class RECIPES_Machines {
             // Lava Boiler
             boiler_Coal = ItemList.Machine_Bronze_Boiler.get(1);
 
-            // IV MACHINES
-            if (!GTNH) {
-                EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
+            // IV/EV/HV MACHINES
+                IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
+                IV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
+                IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
                 EV_MACHINE_MassFabricator = ItemList.Machine_EV_Massfab.get(1);
-                EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
                 EV_MACHINE_Cutter = ItemList.Machine_EV_Cutter.get(1);
-            }
-            // Balanced opposites
-            else {
-                EV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
-                EV_MACHINE_MassFabricator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
-                        ? ItemUtils.getValueOfItemList("Machine_LuV_Massfab", ItemList.Machine_IV_Massfab)
-                                .get(1)
-                        : ItemList.Machine_IV_Massfab.get(1);
-                EV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
-                EV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
-            }
+
+
         }
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
             if (LoadedMods.Railcraft) {
@@ -1592,7 +1583,7 @@ public class RECIPES_Machines {
                         pipeHugeStainlessSteel,
                         CI.circuitTier5,
                         CI.component_Plate[6],
-                        EV_MACHINE_Centrifuge,
+                        IV_MACHINE_Centrifuge,
                         CI.component_Plate[6],
                         CI.component_Plate[8],
                         CI.machineCasing_IV,
@@ -1610,6 +1601,17 @@ public class RECIPES_Machines {
                         "stickTumbaga",
                         CI.component_Plate[6],
                         RECIPE_IndustrialCentrifugeCasing);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                                ALLOY.MARAGING250.getPlate(4),
+                                ALLOY.INCONEL_792.getPlate(2),
+                                ALLOY.TUMBAGA.getRod(3),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialCentrifugeCasing,
+                        50,
+                        16);
             }
 
             if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
