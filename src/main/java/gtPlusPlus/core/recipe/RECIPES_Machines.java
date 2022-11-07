@@ -2149,13 +2149,13 @@ public class RECIPES_Machines {
                 // Blast Smelter
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateZirconiumCarbide",
-                        CI.circuitTier6,
+                        CI.circuitTier5,
                         "plateZirconiumCarbide",
                         cableTier6,
                         IV_MACHINE_AlloySmelter,
                         cableTier6,
                         "plateZirconiumCarbide",
-                        CI.circuitTier6,
+                        CI.circuitTier5,
                         "plateZirconiumCarbide",
                         RECIPE_IndustrialBlastSmelterController);
                 // Blast Smelter Frame Casing
