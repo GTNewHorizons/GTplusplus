@@ -2228,13 +2228,13 @@ public class RECIPES_Machines {
                 // Matter Fabricator CPU
                 RecipeUtils.addShapedGregtechRecipe(
                         CI.getDoublePlate(8, 1),
-                        CI.circuitTier5,
+                        GT_OreDictUnificator.get(OrePrefixes.circuit.get(Materials.Superconductor), 1L),
                         CI.getPlate(8, 1),
-                        cableTier8,
-                        CI.machineCasing_LuV,
-                        cableTier8,
+                        GT_OreDictUnificator.get(OrePrefixes.cableGt04.get(Materials.NaquadahAlloy), 1L),
+                        CI.machineCasing_UV,
+                        GT_OreDictUnificator.get(OrePrefixes.cableGt04.get(Materials.NaquadahAlloy), 1L),
                         CI.getPlate(8, 1),
-                        CI.circuitTier5,
+                        GT_OreDictUnificator.get(OrePrefixes.circuit.get(Materials.Superconductor), 1L),
                         CI.getPlate(8, 1),
                         RECIPE_IndustrialMatterFabController);
                 // Matter Fabricator Frame Casing
@@ -2249,6 +2249,17 @@ public class RECIPES_Machines {
                         CI.component_Rod[8],
                         "plateNiobiumCarbide",
                         RECIPE_IndustrialMatterFabFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                                ALLOY.NIOBIUM_CARBIDE.getPlate(4),
+                                ALLOY.INCONEL_792.getRod(4),
+                                ALLOY.INCONEL_690.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialMatterFabFrame,
+                        50,
+                        16);
                 // Matter Fabricator Coil
                 RecipeUtils.addShapedGregtechRecipe(
                         CI.getPlate(6, 1),
@@ -2261,6 +2272,19 @@ public class RECIPES_Machines {
                         CI.getPlate(7, 1),
                         CI.getPlate(6, 1),
                         RECIPE_IndustrialMatterFabCoil);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                                CI.machineCasing_UV,
+                                ALLOY.ZERON_100.getPlate(4),
+                                ALLOY.PIKYONIUM.getPlate(2),
+                                ALLOY.STELLITE.getFrameBox(2),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialMatterFabCoil,
+                        50,
+                        16);
+
             }
 
             if (CORE.ConfigSwitches.enableMultiblock_IndustrialSifter) {
