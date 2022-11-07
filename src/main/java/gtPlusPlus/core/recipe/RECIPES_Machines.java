@@ -1758,14 +1758,26 @@ public class RECIPES_Machines {
                         "stickLongTumbaga",
                         "plateTitanium",
                         RECIPE_IndustrialMaterialPressFrame);
+                GT_Values.RA.addAssemblerRecipe(
+                        new ItemStack[] {
+                                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4),
+                                ALLOY.TANTALLOY_60.getRod(2),
+                                ALLOY.TUMBAGA.getLongRod(2),
+                                ALLOY.TUMBAGA.getFrameBox(1),
+                                GT_Utility.getIntegratedCircuit(1),
+                        },
+                        GT_Values.NF,
+                        RECIPE_IndustrialMaterialPressFrame,
+                        50,
+                        16);
                 // Industrial Material Press
                 RecipeUtils.addShapedGregtechRecipe(
                         "plateTitanium",
                         CI.circuitTier5,
                         "plateTitanium",
-                        CI.machineCasing_EV,
-                        EV_MACHINE_BendingMachine,
-                        CI.machineCasing_EV,
+                        CI.machineCasing_IV,
+                        IV_MACHINE_BendingMachine,
+                        CI.machineCasing_IV,
                         "plateTitanium",
                         CI.circuitTier5,
                         "plateTitanium",
