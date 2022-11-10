@@ -494,7 +494,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                             .dot(4)
                                             .build(),
                                     buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .atLeast(InputBus, InputHatch, Maintenance, Energy)
+                                            .atLeast(InputBus, InputHatch, Maintenance, Energy, ExoticEnergy)
                                             .casingIndex(TAE.getIndexFromPage(0, 10))
                                             .dot(4)
                                             .buildAndChain(onElementPass(
