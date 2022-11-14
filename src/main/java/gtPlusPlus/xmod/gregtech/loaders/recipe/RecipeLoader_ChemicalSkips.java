@@ -54,11 +54,11 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                        Materials.Plastic.getDust(32),
-                        Materials.PolyvinylChloride.getDust(32),
-                        Materials.Polystyrene.getDust(32),
-                        Materials.Epoxid.getDust(32),
-                        Materials.Polybenzimidazole.getDust(32)
+                    Materials.Plastic.getDust(32),
+                    Materials.PolyvinylChloride.getDust(32),
+                    Materials.Polystyrene.getDust(32),
+                    Materials.Epoxid.getDust(32),
+                    Materials.Polybenzimidazole.getDust(32)
                 },
                 new int[] {2000, 2000, 2000, 2000, 2000},
                 5 * 20,
@@ -70,14 +70,12 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {MISC_MATERIALS.SODIUM_CYANIDE.getDust(1)},
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {
-                        MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(4608),
-                        Materials.AdvancedGlue.getFluid(4608L),
-                        ALLOY.INDALLOY_140.getFluidStack(4608),
-                        Materials.SolderingAlloy.getFluid(4608L)
+                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(4608),
+                    Materials.AdvancedGlue.getFluid(4608L),
+                    ALLOY.INDALLOY_140.getFluidStack(4608),
+                    Materials.SolderingAlloy.getFluid(4608L)
                 },
-                new ItemStack[] {
-                        Materials.HSSG.getDust(1)
-                },
+                new ItemStack[] {Materials.HSSG.getDust(1)},
                 new int[] {2000, 2000, 2000, 2000, 2000},
                 5 * 20,
                 8000000,
@@ -89,10 +87,10 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                        Materials.Cerium.getDust(32),
-                        Materials.Gadolinium.getDust(32),
-                        Materials.Samarium.getDust(32),
-                        Materials.Europium.getDust(32)
+                    Materials.Cerium.getDust(32),
+                    Materials.Gadolinium.getDust(32),
+                    Materials.Samarium.getDust(32),
+                    Materials.Europium.getDust(32)
                 },
                 new int[] {2500, 2500, 2500, 2500},
                 5 * 20,
@@ -105,10 +103,10 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                        Materials.Naquadah.getDust(32),
-                        Materials.Adamantium.getDust(32),
-                        Materials.Gallium.getDust(32),
-                        Materials.Titanium.getDust(32)
+                    Materials.Naquadah.getDust(32),
+                    Materials.Adamantium.getDust(32),
+                    Materials.Gallium.getDust(32),
+                    Materials.Titanium.getDust(32)
                 },
                 new int[] {2500, 2500, 2500, 2500},
                 5 * 20,
@@ -121,11 +119,11 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                        Materials.Naquadria.getDust(32),
-                        Materials.EnrichedNaquadria.getDust(32),
-                        Materials.Trinium.getDust(32),
-                        Materials.Indium.getDust(32),
-                        Materials.Barium.getDust(32)
+                    Materials.Naquadria.getDust(32),
+                    Materials.EnrichedNaquadria.getDust(32),
+                    Materials.Trinium.getDust(32),
+                    Materials.Indium.getDust(32),
+                    Materials.Barium.getDust(32)
                 },
                 new int[] {2000, 2000, 2000, 2000, 2000},
                 5 * 20,
@@ -138,7 +136,7 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
                 new ItemStack[] {
-                        MaterialsKevlar.Kevlar.getDust(32),
+                    MaterialsKevlar.Kevlar.getDust(32),
                 },
                 new int[] {2500, 2500, 2500, 2500},
                 5 * 20,
@@ -149,9 +147,7 @@ public class RecipeLoader_ChemicalSkips {
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {MISC_MATERIALS.SODIUM_CYANIDE.getDust(1)},
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
-                new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(4608)
-                },
+                new FluidStack[] {MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(4608)},
                 new ItemStack[] {},
                 new int[] {2500, 2500, 2500, 2500},
                 5 * 20,
