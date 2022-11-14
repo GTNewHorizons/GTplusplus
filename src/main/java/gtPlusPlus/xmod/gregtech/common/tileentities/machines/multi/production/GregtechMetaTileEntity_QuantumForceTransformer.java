@@ -13,7 +13,9 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.util.*;
@@ -34,6 +36,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -47,7 +51,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mGlassTier = 0;
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
-    private boolean mFluidMode = false;
+    private boolean mFluidMode = false, doFermium = false;
+    private static Fluid mNeptunium = FluidRegistry.getFluid("plasma.neptunium");
+    private static Fluid mFermium = FluidRegistry.getFluid("plasma.fermium");
+    private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
+    private GT_MetaTileEntity_Hatch_Input mFermiumHatch;
     private IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION = null;
 
     private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
@@ -363,7 +371,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
-                            "      HHH      "
+                            "      ZHX      "
                         },
                         {
                             "               ",
@@ -503,6 +511,24 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             'T',
                             buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
                                     .atLeast(OutputBus, OutputHatch, Maintenance)
+                                    .casingIndex(TAE.getIndexFromPage(0, 10))
+                                    .dot(5)
+                                    .buildAndChain(
+                                            onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
+                    .addElement(
+                            'Z',
+                            buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
+                                    .hatchClass(GT_MetaTileEntity_Hatch_Input.class)
+                                    .adder(GregtechMetaTileEntity_QuantumForceTransformer::addNeptuniumHatch)
+                                    .casingIndex(TAE.getIndexFromPage(0, 10))
+                                    .dot(5)
+                                    .buildAndChain(
+                                            onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
+                    .addElement(
+                            'X',
+                            buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
+                                    .hatchClass(GT_MetaTileEntity_Hatch_Input.class)
+                                    .adder(GregtechMetaTileEntity_QuantumForceTransformer::addFermiumHatch)
                                     .casingIndex(TAE.getIndexFromPage(0, 10))
                                     .dot(5)
                                     .buildAndChain(
@@ -735,6 +761,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     private int mMaxParallel = 64;
+    private int mCurrentParallel = 0;
 
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
@@ -811,7 +838,13 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 }
             }
 
-            int mCurrentParallel = 0;
+            if (mFermiumHatch != null) {
+                if (mFermiumHatch.getFluid().getFluid() == mFermium) {
+                    doFermium = true;
+                }
+            }
+
+            mCurrentParallel = 0;
             while (mCurrentParallel <= mCurrentMaxParallel
                     && tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                 mCurrentParallel++;
@@ -870,6 +903,36 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return true;
         }
         return false;
+    }
+
+    private byte runningTick = 0;
+
+    @Override
+    public boolean onRunningTick(ItemStack aStack) {
+        if (!super.onRunningTick(aStack)) {
+            return false;
+        }
+
+        if (runningTick % 20 == 0) {
+            if (doFermium) {
+                if (!depleteInput(
+                        new FluidStack(mFermium, (int) (getFabCoilTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                    criticalStopMachine();
+                    return false;
+                }
+            }
+
+            if (!depleteInput(new FluidStack(mNeptunium, (int) (getFabCoilTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                criticalStopMachine();
+                return false;
+            }
+
+            runningTick = 0;
+        } else {
+            runningTick++;
+        }
+
+        return true;
     }
 
     @Override
@@ -987,40 +1050,48 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private int[] GetChanceOutputs(GT_Recipe tRecipe, int aChanceIncreased) {
         int difference = getFabCoilTier() - tRecipe.mSpecialValue;
-        int[] tChances = new int[tRecipe.mChances.length];
-        Arrays.fill(tChances, 10000 / tChances.length);
-        int percentileDecrease = 10000 / tChances.length / (tChances.length - 1);
-        int percentileIncrease = 10000 / tChances.length + percentileDecrease * (tChances.length - 1);
+        int aChancePerOutput = 10000 / tRecipe.mOutputs.length;
+        int aOutputsAmount = tRecipe.mOutputs.length;
+        int[] tChances = new int[aOutputsAmount];
+        Arrays.fill(tChances, 10000 / aOutputsAmount);
+
         switch (difference) {
-            case 1:
-                for (int i = 0; i < tRecipe.mChances.length; i++) {
+            case 0:
+                for (int i = 0; i < tChances.length; i++) {
                     if (i == aChanceIncreased) {
-                        tChances[i] += percentileIncrease;
+                        tChances[i] = aChancePerOutput / 2 * (aOutputsAmount - 1);
                     } else {
-                        tChances[i] -= percentileDecrease;
+                        tChances[i] /= 2;
+                    }
+                    if (doFermium) {
+                        tChances[i] += (10000 - tChances[i]) / 4;
                     }
                 }
-
+                break;
+            case 1:
+                for (int i = 0; i < tChances.length; i++) {
+                    if (i == aChanceIncreased) {
+                        tChances[i] = aChancePerOutput * 3 / 4 * (aOutputsAmount - 1);
+                    } else {
+                        tChances[i] /= 4;
+                    }
+                    if (doFermium) {
+                        tChances[i] += (10000 - tChances[i]) / 3;
+                    }
+                }
                 break;
             case 2:
-                for (int i = 0; i < tRecipe.mChances.length; i++) {
-                    if (i == aChanceIncreased) {
-                        tChances[i] += percentileIncrease * 3;
-                    } else {
-                        tChances[i] -= percentileDecrease * 3;
-                    }
-                }
-
-                break;
             case 3:
-                for (int i = 0; i < tRecipe.mChances.length; i++) {
+                for (int i = 0; i < tChances.length; i++) {
                     if (i == aChanceIncreased) {
                         tChances[i] = 10000;
                     } else {
                         tChances[i] = 0;
                     }
+                    if (doFermium) {
+                        tChances[i] += (10000 - tChances[i]) / 2;
+                    }
                 }
-
                 break;
         }
         return tChances;
@@ -1041,10 +1112,37 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 aPlayer, StatCollector.translateToLocal("miscutils.machines.QFTFluidMode") + " " + mFluidMode);
     }
 
+    public boolean addNeptuniumHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        if (aTileEntity == null) return false;
+        IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+        if (aMetaTileEntity == null) return false;
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+            ((GT_MetaTileEntity_Hatch) aMetaTileEntity).updateTexture(aBaseCasingIndex);
+            ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mRecipeMap = getRecipeMap();
+            mNeptuniumHatch = (GT_MetaTileEntity_Hatch_Input) aMetaTileEntity;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addFermiumHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        if (aTileEntity == null) return false;
+        IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+        if (aMetaTileEntity == null) return false;
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
+            ((GT_MetaTileEntity_Hatch) aMetaTileEntity).updateTexture(aBaseCasingIndex);
+            ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mRecipeMap = getRecipeMap();
+            mFermiumHatch = (GT_MetaTileEntity_Hatch_Input) aMetaTileEntity;
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public void saveNBTData(NBTTagCompound aNBT) {
         aNBT.setBoolean("mSeparateInputBusses", mSeparateInputBusses);
         aNBT.setBoolean("mFluidMode", mFluidMode);
+        aNBT.setBoolean("doFermium", doFermium);
         super.saveNBTData(aNBT);
     }
 
@@ -1052,6 +1150,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     public void loadNBTData(NBTTagCompound aNBT) {
         this.mSeparateInputBusses = aNBT.getBoolean("mSeparateInputBusses");
         this.mFluidMode = aNBT.getBoolean("mFluidMode");
+        this.doFermium = aNBT.getBoolean("doFermium");
         super.loadNBTData(aNBT);
     }
 }
