@@ -734,16 +734,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return rVoltage;
     }
 
+    private int mMaxParallel = 64;
+
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
-        if (mCatalystBuses.size() != 1) {
-            log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size() + ")");
-            return false;
-        }
-        for (GT_MetaTileEntity_Hatch_Catalysts h : mCatalystBuses) {
-            h.updateSlots();
-            h.tryFillUsageSlots();
-        }
+        int mCurrentParallel = 0;
         this.mEUt = 0;
         this.mMaxProgresstime = 0;
         this.mOutputItems = null;
@@ -754,12 +749,16 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             ArrayList<ItemStack> tInputList = new ArrayList<ItemStack>();
             for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
                 for (int i = tBus.getSizeInventory() - 1; i >= 0; i--) {
-                    if (tBus.getStackInSlot(i) != null && !ItemUtils.isCatalyst(tBus.getStackInSlot(i)))
+                    if (tBus.getStackInSlot(i) != null) {
                         tInputList.add(tBus.getStackInSlot(i));
-                }
-                for (ItemStack tItem : tCatalysts) {
-                    if (tItem != null && ItemUtils.isCatalyst(tItem)) {
-                        tInputList.add(tItem);
+                        if (ItemUtils.isCatalyst(tBus.getStackInSlot(i))) {
+                            if (mCurrentParallel < mMaxParallel) {
+                                mCurrentParallel += tBus.getStackInSlot(i).stackSize;
+                                if (mCurrentParallel >= mMaxParallel) {
+                                    mCurrentParallel = mMaxParallel;
+                                }
+                            }
+                        }
                     }
                 }
                 ItemStack[] tInputs = tInputList.toArray(new ItemStack[0]);
@@ -786,58 +785,89 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         aFluidInputs,
                         aItemInputs)
                 .copy();
+
         if (tRecipe != null && tRecipe.mSpecialValue <= getChamberTier()) {
-            if (tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
-                this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-                this.mEfficiencyIncrease = 10000;
-
-                calculateOverclockedNessMulti(tRecipe.mEUt, tRecipe.mDuration, 1, tVoltage);
-
-                if (mMaxProgresstime == Integer.MAX_VALUE - 1 && mEUt == Integer.MAX_VALUE - 1) return false;
-
-                if (this.mEUt > 0) {
-                    this.mEUt = (-this.mEUt);
+            ItemStack aRecipeCatalyst = null;
+            for (ItemStack tItem : tRecipe.mInputs) {
+                if (ItemUtils.isCatalyst(tItem)) {
+                    aRecipeCatalyst = tItem;
+                    break;
                 }
-
-                int[] tChances;
-                if (aStack == null || aStack.getItemDamage() == 0) {
-                    tChances = new int[tRecipe.mOutputs.length];
-                    Arrays.fill(tChances, 10000 / tChances.length);
-                } else {
-                    tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
-                }
-
-                if (mFluidMode) {
-                    FluidStack[] tFluidOutputs = new FluidStack[tRecipe.mOutputs.length];
-                    for (int i = 0; i < tRecipe.mOutputs.length; i++) {
-                        if (tRecipe.mOutputs[i] != null) {
-                            Materials mat = getAssociation(tRecipe.mOutputs[i]).mMaterial.mMaterial;
-                            tFluidOutputs[i] = mat.getMolten(0L);
-                            if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
-                                tFluidOutputs[i].amount += mat.getMolten(144L * tRecipe.mOutputs[i].stackSize).amount;
-                        }
-                    }
-
-                    this.mOutputFluids = tFluidOutputs;
-                } else {
-                    ItemStack[] tOutputs = new ItemStack[tRecipe.mOutputs.length];
-                    for (int i = 0; i < tRecipe.mOutputs.length; i++) {
-                        if (tRecipe.mOutputs[i] != null) {
-                            tOutputs[i] = tRecipe.mOutputs[i].copy();
-                            tOutputs[i].stackSize = 0;
-                            if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
-                                tOutputs[i].stackSize += tRecipe.getOutput(i).stackSize;
-                        }
-                    }
-
-                    this.mOutputItems = tOutputs;
-                }
-
-                this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
-                updateSlots();
-
-                return true;
             }
+
+            if (aRecipeCatalyst == null) {
+                return false;
+            }
+
+            int mCurrentMaxParallel = 0;
+            for (ItemStack tItem : aItemInputs) {
+                if (ItemUtils.isCatalyst(tItem) && tItem.getItem() == aRecipeCatalyst.getItem()) {
+                    mCurrentMaxParallel += tItem.stackSize;
+                }
+
+                if (mCurrentMaxParallel >= mMaxParallel) {
+                    mCurrentMaxParallel = mMaxParallel;
+                    break;
+                }
+            }
+
+            int mCurrentParallel = 0;
+            while (mCurrentParallel <= mCurrentMaxParallel
+                    && tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
+                mCurrentParallel++;
+            }
+
+            this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+            this.mEfficiencyIncrease = 10000;
+
+            calculateOverclockedNessMulti(
+                    tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, mCurrentParallel, tVoltage);
+
+            if (mMaxProgresstime == Integer.MAX_VALUE - 1 && mEUt == Integer.MAX_VALUE - 1) return false;
+
+            if (this.mEUt > 0) {
+                this.mEUt = (-this.mEUt);
+            }
+
+            int[] tChances;
+            if (aStack == null || aStack.getItemDamage() == 0) {
+                tChances = new int[tRecipe.mOutputs.length];
+                Arrays.fill(tChances, 10000 / tChances.length);
+            } else {
+                tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
+            }
+
+            if (mFluidMode) {
+                FluidStack[] tFluidOutputs = new FluidStack[tRecipe.mOutputs.length];
+                for (int i = 0; i < tRecipe.mOutputs.length; i++) {
+                    if (tRecipe.mOutputs[i] != null) {
+                        Materials mat = getAssociation(tRecipe.mOutputs[i]).mMaterial.mMaterial;
+                        tFluidOutputs[i] = mat.getMolten(0L);
+                        if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
+                            tFluidOutputs[i].amount +=
+                                    mat.getMolten(144L * tRecipe.mOutputs[i].stackSize).amount * mCurrentParallel;
+                    }
+                }
+
+                this.mOutputFluids = tFluidOutputs;
+            } else {
+                ItemStack[] tOutputs = new ItemStack[tRecipe.mOutputs.length];
+                for (int i = 0; i < tRecipe.mOutputs.length; i++) {
+                    if (tRecipe.mOutputs[i] != null) {
+                        tOutputs[i] = tRecipe.mOutputs[i].copy();
+                        tOutputs[i].stackSize = 0;
+                        if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
+                            tOutputs[i].stackSize += tRecipe.getOutput(i).stackSize * mCurrentParallel;
+                    }
+                }
+
+                this.mOutputItems = tOutputs;
+            }
+
+            this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+            updateSlots();
+
+            return true;
         }
         return false;
     }
