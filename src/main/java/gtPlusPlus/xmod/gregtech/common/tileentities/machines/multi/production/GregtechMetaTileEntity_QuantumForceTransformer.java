@@ -32,7 +32,6 @@ import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
@@ -54,72 +53,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
     private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
     private GT_MetaTileEntity_Hatch_Input mFermiumHatch;
-    private IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION = null;
-
-    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
-            new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
-
-    public GregtechMetaTileEntity_QuantumForceTransformer(
-            final int aID, final String aName, final String aNameRegional) {
-        super(aID, aName, aNameRegional);
-    }
-
-    public GregtechMetaTileEntity_QuantumForceTransformer(final String aName) {
-        super(aName);
-    }
-
-    @Override
-    public IMetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
-        return new GregtechMetaTileEntity_QuantumForceTransformer(this.mName);
-    }
-
-    @Override
-    public String getMachineType() {
-        return "Quantum Force Transformer";
-    }
-
-    @Override
-    protected GT_Multiblock_Tooltip_Builder createTooltip() {
-        GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType())
-                .addInfo("Controller Block for the Quantum Force Transformer")
-                .addInfo("Allows Complex chemical lines to be performed instantly")
-                .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
-                .addInfo("All inputs go on the bottom, all outputs go on the top")
-                .addInfo("Accepts TecTech Energy and Laser Hatches")
-                .addInfo("Put a circuit in the controller to specify the focused output.")
-                .addInfo("Uses FocusTier*4*sqrt(parallels) Neptunium Plasma for focusing")
-                .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
-                .addInfo("This multi gives bonuses when all casings of some types are upgraded")
-                .addInfo("Casing functions:")
-                .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
-                .addInfo("Neutron Shielding Cores: Focusing Tier")
-                .addPollutionAmount(getPollutionPerSecond(null))
-                .addSeparator()
-                .beginStructureBlock(15, 21, 15, true) // @Steelux TODO
-                .addController("Bottom Center")
-                .addCasingInfo("Bulk Production Frame", 96)
-                .addCasingInfo("Quantum Force Conductor", 177)
-                .addCasingInfo("Particle Containment Casing", 224)
-                .addCasingInfo("Neutron Shielding Cores", 234)
-                .addCasingInfo("Neutron Pulse Manipulators", 142)
-                .addInputBus("Bottom Layer", 4)
-                .addInputHatch("Bottom Layer", 4)
-                .addOutputHatch("Top Layer", 5)
-                .addOutputBus("Top Layer", 5)
-                .addEnergyHatch("Bottom Layer", 4)
-                .addMaintenanceHatch("Bottom Layer", 4)
-                .addStructureHint("Catalyst Housing", 4)
-                .addMufflerHatch("Top Layer (except edges), x21", 5)
-                .toolTipFinisher(CORE.GT_Tooltip_Builder);
-        return tt;
-    }
-
-    @Override
-    public IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> getStructureDefinition() {
-        if (this.STRUCTURE_DEFINITION == null) {
-            this.STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_QuantumForceTransformer>builder()
-                    .addShape(this.mName, new String[][] { // A - 142, B - 234, C - 177, D - 96, E - 224, H - 36, M - 21
+    private static final IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION =
+            StructureDefinition.<GregtechMetaTileEntity_QuantumForceTransformer>builder()
+                    .addShape("main", new String[][] { // A - 142, B - 234, C - 177, D - 96, E - 224, H - 36, M - 21
                         {
                             "               ",
                             "               ",
@@ -484,7 +420,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     GregtechMetaTileEntity_QuantumForceTransformer::getFocusingTier))
                     .addElement('C', ofBlock(ModBlocks.blockCasings4Misc, 4))
                     .addElement('D', ofBlock(ModBlocks.blockCasings2Misc, 12))
-                    .addElement('E', ofBlock(getCasingBlock1(), getCasingMeta1()))
+                    .addElement('E', lazy(t -> ofBlock(t.getCasingBlock1(), t.getCasingMeta1())))
                     .addElement(
                             'H',
                             ofChain(
@@ -495,7 +431,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                             .dot(4)
                                             .build(),
                                     buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .atLeast(InputBus, InputHatch, Maintenance, Energy, ExoticEnergy)
+                                            .atLeast(InputBus, InputHatch, Maintenance, Energy.or(ExoticEnergy))
                                             .casingIndex(TAE.getIndexFromPage(0, 10))
                                             .dot(4)
                                             .buildAndChain(onElementPass(
@@ -527,8 +463,69 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     .buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
                     .build();
-        }
-        return this.STRUCTURE_DEFINITION;
+
+    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
+            new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
+
+    public GregtechMetaTileEntity_QuantumForceTransformer(
+            final int aID, final String aName, final String aNameRegional) {
+        super(aID, aName, aNameRegional);
+    }
+
+    public GregtechMetaTileEntity_QuantumForceTransformer(final String aName) {
+        super(aName);
+    }
+
+    @Override
+    public IMetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity) {
+        return new GregtechMetaTileEntity_QuantumForceTransformer(this.mName);
+    }
+
+    @Override
+    public String getMachineType() {
+        return "Quantum Force Transformer";
+    }
+
+    @Override
+    protected GT_Multiblock_Tooltip_Builder createTooltip() {
+        GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
+        tt.addMachineType(getMachineType())
+                .addInfo("Controller Block for the Quantum Force Transformer")
+                .addInfo("Allows Complex chemical lines to be performed instantly")
+                .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
+                .addInfo("All inputs go on the bottom, all outputs go on the top")
+                .addInfo("Accepts TecTech Energy and Laser Hatches")
+                .addInfo("Put a circuit in the controller to specify the focused output.")
+                .addInfo("Uses FocusTier*4*sqrt(parallels) Neptunium Plasma for focusing")
+                .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
+                .addInfo("This multi gives bonuses when all casings of some types are upgraded")
+                .addInfo("Casing functions:")
+                .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
+                .addInfo("Neutron Shielding Cores: Focusing Tier")
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addSeparator()
+                .beginStructureBlock(15, 21, 15, true) // @Steelux TODO
+                .addController("Bottom Center")
+                .addCasingInfo("Bulk Production Frame", 96)
+                .addCasingInfo("Quantum Force Conductor", 177)
+                .addCasingInfo("Particle Containment Casing", 224)
+                .addCasingInfo("Neutron Shielding Cores", 234)
+                .addCasingInfo("Neutron Pulse Manipulators", 142)
+                .addInputBus("Bottom Layer", 4)
+                .addInputHatch("Bottom Layer", 4)
+                .addOutputHatch("Top Layer", 5)
+                .addOutputBus("Top Layer", 5)
+                .addEnergyHatch("Bottom Layer", 4)
+                .addMaintenanceHatch("Bottom Layer", 4)
+                .addStructureHint("Catalyst Housing", 4)
+                .addMufflerHatch("Top Layer (except edges), x21", 5)
+                .toolTipFinisher(CORE.GT_Tooltip_Builder);
+        return tt;
+    }
+
+    @Override
+    public IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> getStructureDefinition() {
+        return STRUCTURE_DEFINITION;
     }
 
     public final boolean addCatalystHousing(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
@@ -592,9 +589,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
-    public int survivalConstruct(ItemStack stackSize, int elementBudget, IItemSource source, EntityPlayerMP actor) {
-        if (this.mMachine) return -1;
-        return survivialBuildPiece(this.mName, stackSize, 7, 20, 4, elementBudget, source, actor, false, true);
+    public int survivalConstruct(ItemStack stackSize, int elementBudget, ISurvivalBuildEnvironment env) {
+        if (mMachine) return -1;
+        return survivialBuildPiece("main", stackSize, 7, 20, 4, elementBudget, env, false, true);
     }
 
     public static List<Pair<Block, Integer>> getAllCraftingTiers() {
@@ -744,14 +741,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 for (int i = tBus.getSizeInventory() - 1; i >= 0; i--) {
                     if (tBus.getStackInSlot(i) != null) {
                         tInputList.add(tBus.getStackInSlot(i));
-                        if (ItemUtils.isCatalyst(tBus.getStackInSlot(i))) {
-                            if (mCurrentParallel < mMaxParallel) {
-                                mCurrentParallel += tBus.getStackInSlot(i).stackSize;
-                                if (mCurrentParallel >= mMaxParallel) {
-                                    mCurrentParallel = mMaxParallel;
-                                }
-                            }
-                        }
                     }
                 }
                 ItemStack[] tInputs = tInputList.toArray(new ItemStack[0]);
