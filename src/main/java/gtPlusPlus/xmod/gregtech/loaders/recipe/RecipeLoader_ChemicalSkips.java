@@ -1,12 +1,15 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.MaterialsKevlar;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ALLOY;
+import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -18,6 +21,7 @@ public class RecipeLoader_ChemicalSkips {
 
     private static void createRecipes() {
         quantumTransformerRecipes();
+        fusionReactorRecipes();
     }
 
     // All the recipes that the QFT can do. Each recipe has a machine tier.
@@ -153,5 +157,31 @@ public class RecipeLoader_ChemicalSkips {
                 5 * 20,
                 500000000,
                 4);
+    }
+
+    private static void fusionReactorRecipes() {
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] {
+                        Materials.Radon.getPlasma(100),
+                        Materials.Nitrogen.getPlasma(100)
+                },
+                new FluidStack[] {
+                        new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 100)
+                },
+                2048 * 4,
+                MaterialUtils.getVoltageForTier(9),
+                600000000 * 2);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] {
+                        Materials.Americium.getPlasma(100),
+                        Materials.Boron.getPlasma(100)
+                },
+                new FluidStack[] {
+                        new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 100)
+                },
+                2048 * 4,
+                MaterialUtils.getVoltageForTier(9),
+                600000000 * 2);
     }
 }
