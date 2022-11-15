@@ -43,7 +43,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private int mCasing;
     protected int mCraftingTier = 0;
     protected int mFocusingTier = 0;
-    protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
     private boolean mFluidMode = false, doFermium = false, doNeptunium = false;
     private static final Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
@@ -304,7 +303,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
-                            "      BHX      "
+                            "      ZHX      "
                         },
                         {
                             "               ",
@@ -344,7 +343,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      BAB      ",
                             "    AA   AA    ",
                             "  AA       AA  ",
-                            " BAA        AB ",
+                            " BA         AB ",
                             " B           B ",
                             " A           A ",
                             " A           A ",
@@ -491,7 +490,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Neutron Shielding Cores: Focusing Tier")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
-                .beginStructureBlock(15, 21, 15, true) // @Steelux TODO
+                .beginStructureBlock(15, 21, 15, true)
                 .addController("Bottom Center")
                 .addCasingInfo("Bulk Production Frame", 96)
                 .addCasingInfo("Quantum Force Conductor", 177)
@@ -505,7 +504,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
                 .addStructureHint("Catalyst Housing", 4)
-                .addMufflerHatch("Top Layer (except edges), x21", 5)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
@@ -518,7 +516,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
-        this.mMinimumMufflerTier = 0;
         if (checkPiece(this.mName, 7, 20, 4)
                 && checkHatch()
                 && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)
