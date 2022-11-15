@@ -609,47 +609,34 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue) {
-        if ((aInput == null)) {
-            Logger.WARNING("Fail - Input was null.");
-            return false;
-        }
-        for (int i = 0; i < aFluidOutput.length; i++) {
-            if ((aDuration = GregTech_API.sRecipeFile.get(
-                            "quantumsmelter", aFluidOutput[i].getFluid().getName(), aDuration))
-                    <= 0) {
-                Logger.WARNING("Recipe did not register.");
-                return false;
-            }
-        }
-
-        for (int das = 0; das < aInput.length; das++) {
-            if (aInput[das] != null) {
-                Logger.WARNING("tMaterial[" + das + "]: " + aInput[das].getDisplayName() + ", Amount: "
-                        + aInput[das].stackSize);
-            }
-        }
-
-        ArrayUtils.removeNulls(aInput);
-        if (aInput.length <= 1) {
+        if (aInput == null || aFluidInput == null) {
             return false;
         }
 
-        int aSize = GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mRecipeList.size();
-        int aSize2 = aSize;
-        GTPP_Recipe_Map.sQuantumForceTransformerRecipes.addRecipe(
-                false,
+        if (aInput.length + aFluidInput.length < 1) {
+            return false;
+        }
+
+        if (aOutputStack == null || aOutputStack.length < 4) {
+            return false;
+        }
+
+        if (aChances == null || aChances.length != aOutputStack.length + aFluidOutput.length) {
+            return false;
+        }
+
+        GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceTransformerRecipes.add(new GT_Recipe(
                 aInput,
                 aOutputStack,
-                null,
+                aOutputStack,
                 aChances,
                 aFluidInput,
                 aFluidOutput,
-                Math.max(1, aDuration),
-                Math.max(1, aEUt),
-                aSpecialValue);
-        aSize = GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mRecipeList.size();
+                aDuration,
+                aEUt,
+                aSpecialValue));
 
-        return aSize > aSize2;
+        return true;
     }
 
     @Override
