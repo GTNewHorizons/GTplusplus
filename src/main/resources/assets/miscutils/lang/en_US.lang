@@ -3373,3 +3373,6 @@ item.BasicGenericChemItem.14.name=Solid-Acid Catalyst
 
 //Added 30/05/22
 item.BasicGenericChemItem.15.name=Infinite Mutation Catalyst
+
+//Added 23/10/22
+miscutils.machines.QFTFluidMode=Quantum Force Transformer Fluid Output Mode

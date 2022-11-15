@@ -30,6 +30,7 @@ public class NEI_GT_Config implements IConfigureNEI {
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT.mUnlocalizedName);
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sMultiblockMixerRecipes_GT.mUnlocalizedName);
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mUnlocalizedName);
+        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mUnlocalizedName);
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sThermalFuels.mUnlocalizedName);
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sSolarTowerRecipes.mUnlocalizedName);
         mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sTreeSimFakeRecipes.mUnlocalizedName);
@@ -78,6 +79,9 @@ public class NEI_GT_Config implements IConfigureNEI {
         Logger.INFO(
                 "NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mNEIName);
         new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sAlloyBlastSmelterRecipes);
+        Logger.INFO("NEI Registration: Registering NEI handler for "
+                + GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mNEIName);
+        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sQuantumForceTransformerRecipes);
 
         Logger.INFO("NEI Registration: Registering NEI handler for " + DecayableRecipeHandler.mNEIName);
         API.registerRecipeHandler(new DecayableRecipeHandler());
