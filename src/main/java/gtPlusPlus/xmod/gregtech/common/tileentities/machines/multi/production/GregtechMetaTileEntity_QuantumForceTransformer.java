@@ -48,7 +48,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private int mCasing;
     protected int mChamberTier = 0;
     protected int mFabCoilTier = 0;
-    protected int mGlassTier = 0;
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
     private boolean mFluidMode = false, doFermium = false;
@@ -486,14 +485,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     GregtechMetaTileEntity_QuantumForceTransformer::getFabCoilTier))
                     .addElement('C', ofBlock(ModBlocks.blockCasings4Misc, 4))
                     .addElement('D', ofBlock(ModBlocks.blockCasings2Misc, 12))
-                    .addElement(
-                            'E',
-                            StructureUtility.ofBlocksTiered(
-                                    glassTierConverter(),
-                                    getAllGlassTiers(),
-                                    0,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::setGlassTier,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::getGlassTier))
+                    .addElement('E', ofBlock(getCasingBlock1(), getCasingMeta1()))
                     .addElement(
                             'H',
                             ofChain(
@@ -628,14 +620,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public static List<Pair<Block, Integer>> getAllGlassTiers() {
-        return new ArrayList<Pair<Block, Integer>>() {
-            {
-                add(Pair.of(ModBlocks.blockCasings5Misc, 15));
-            }
-        };
-    }
-
     public static ITierConverter<Integer> chamberTierConverter() {
         return (block, meta) -> {
             if (block == null) {
@@ -676,17 +660,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public static ITierConverter<Integer> glassTierConverter() {
-        return (block, meta) -> {
-            if (block == null) {
-                return -1;
-            } else if (block == ModBlocks.blockCasings5Misc) { // Glass
-                return 1;
-            }
-            return -1;
-        };
-    }
-
     private void setChamberTier(int tier) {
         mChamberTier = tier;
     }
@@ -695,20 +668,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         mFabCoilTier = tier;
     }
 
-    private void setGlassTier(int tier) {
-        mGlassTier = tier;
-    }
-
     private int getChamberTier() {
         return mChamberTier;
     }
 
     private int getFabCoilTier() {
         return mFabCoilTier;
-    }
-
-    private int getGlassTier() {
-        return mGlassTier;
     }
 
     @Override
@@ -951,9 +916,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public int getMaxParallelRecipes() {
-        if (mGlassTier == 2) { // 4x bonus to parallel amount with upgraded Containment Chambers (glass)
-            return 256;
-        }
         return 64;
     }
 
@@ -980,18 +942,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public int getAmountOfOutputs() {
         return 2;
-    }
-
-    public int getMaxCatalystDurability() {
-        return 50;
-    }
-
-    private int getDamage(ItemStack aStack) {
-        return ItemGenericChemBase.getCatalystDamage(aStack);
-    }
-
-    private void setDamage(ItemStack aStack, int aAmount) {
-        ItemGenericChemBase.setCatalystDamage(aStack, aAmount);
     }
 
     @Override
@@ -1105,6 +1055,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return true;
         }
         return false;
+    }
+
+    public Block getCasingBlock1() {
+        return ModBlocks.blockCasings5Misc;
+    }
+
+    public byte getCasingMeta1() {
+        return 15;
     }
 
     @Override
