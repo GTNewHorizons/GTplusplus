@@ -999,41 +999,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return false;
     }
 
-    private int getCatalysts(
-            ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParallel, ArrayList<ItemStack> aOutPut) {
-        int allowedParallel = 0;
-        for (final ItemStack aInput : aItemInputs) {
-            if (aRecipeCatalyst.isItemEqual(aInput)) {
-                int aDurabilityRemaining = getMaxCatalystDurability() - getDamage(aInput);
-                return Math.min(aMaxParallel, aDurabilityRemaining);
-            }
-        }
-        return allowedParallel;
-    }
-
-    private ItemStack findCatalyst(ItemStack[] aItemInputs, ItemStack[] aRecipeInputs) {
-        if (aItemInputs != null) {
-            for (final ItemStack aInput : aItemInputs) {
-                if (aInput != null) {
-                    if (ItemUtils.isCatalyst(aInput)) {
-                        for (ItemStack aRecipeInput : aRecipeInputs) {
-                            if (GT_Utility.areStacksEqual(aRecipeInput, aInput, true)) {
-                                return aInput;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
-        // For now, catalysts don't get damaged
-        // The current intended method of using catalysts in recipes is to
-        // require 1 very expensive catalyst, but never damage it
-    }
-
     @Override
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> tItems = super.getStoredInputs();
