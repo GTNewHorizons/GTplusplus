@@ -17,14 +17,12 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -517,27 +515,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return STRUCTURE_DEFINITION;
     }
 
-    public final boolean addCatalystHousing(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        if (aTileEntity == null) {
-            return false;
-        } else {
-            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
-                return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-        if (aMetaTileEntity == null) {
-            return false;
-        }
-        return super.addToMachineList(aTileEntity, aBaseCasingIndex);
-    }
-
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
@@ -547,23 +524,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)
                 && mMaintenanceHatches.size() == 1) {
             return true;
-        }
-        return false;
-    }
-
-    @Override // The lowest tier muffler of the total 21 will decide the muffler tier in the multi
-    public boolean addMufflerToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        if (aTileEntity == null) {
-            return false;
-        } else {
-            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
-                if (mMinimumMufflerTier == 0
-                        || ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier < mMinimumMufflerTier) {
-                    mMinimumMufflerTier = ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier;
-                }
-                return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
         }
         return false;
     }
