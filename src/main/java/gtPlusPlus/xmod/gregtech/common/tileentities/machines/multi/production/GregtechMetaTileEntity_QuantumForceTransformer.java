@@ -809,7 +809,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             } else {
                 tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
             }
-            
+
             int fluidLength = (mFluidMode ? tRecipe.mOutputs.length : 0) + tRecipe.mFluidOutputs.length;
             FluidStack[] tFluidOutputs = new FluidStack[fluidLength];
 
