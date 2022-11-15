@@ -23,6 +23,7 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
@@ -37,7 +38,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -52,8 +52,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
     private boolean mFluidMode = false, doFermium = false;
-    private static Fluid mNeptunium = FluidRegistry.getFluid("plasma.neptunium");
-    private static Fluid mFermium = FluidRegistry.getFluid("plasma.fermium");
+    private Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
+    private Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
     private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
     private GT_MetaTileEntity_Hatch_Input mFermiumHatch;
     private IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION = null;
@@ -90,6 +90,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("All inputs go on the bottom, all outputs go on the top")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
                 .addInfo("Put a circuit in the controller to specify the focused output.")
+                .addInfo("Uses FocusTier*4*sqrt(parallels) Neptunium Plasma for focusing")
+                .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")
                 .addInfo("Casing functions:")
                 .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
@@ -863,7 +865,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
 
             int[] tChances;
-            if (aStack == null || aStack.getItemDamage() == 0) {
+            if (aStack == null
+                    || aStack.getItemDamage() == 0
+                    || mNeptuniumHatch.getFluid().getFluid() != mNeptunium) {
                 tChances = new int[tRecipe.mOutputs.length];
                 Arrays.fill(tChances, 10000 / tChances.length);
             } else {
