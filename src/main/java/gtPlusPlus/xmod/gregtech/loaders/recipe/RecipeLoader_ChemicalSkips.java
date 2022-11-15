@@ -161,25 +161,15 @@ public class RecipeLoader_ChemicalSkips {
 
     private static void fusionReactorRecipes() {
         GT_Values.RA.addFusionReactorRecipe(
-                new FluidStack[] {
-                        Materials.Radon.getPlasma(100),
-                        Materials.Nitrogen.getPlasma(100)
-                },
-                new FluidStack[] {
-                        new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 100)
-                },
+                new FluidStack[] {Materials.Radon.getPlasma(100), Materials.Nitrogen.getPlasma(100)},
+                new FluidStack[] {new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 100)},
                 2048 * 4,
                 MaterialUtils.getVoltageForTier(9),
                 600000000 * 2);
 
         GT_Values.RA.addFusionReactorRecipe(
-                new FluidStack[] {
-                        Materials.Americium.getPlasma(100),
-                        Materials.Boron.getPlasma(100)
-                },
-                new FluidStack[] {
-                        new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 100)
-                },
+                new FluidStack[] {Materials.Americium.getPlasma(100), Materials.Boron.getPlasma(100)},
+                new FluidStack[] {new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 100)},
                 2048 * 4,
                 MaterialUtils.getVoltageForTier(9),
                 600000000 * 2);

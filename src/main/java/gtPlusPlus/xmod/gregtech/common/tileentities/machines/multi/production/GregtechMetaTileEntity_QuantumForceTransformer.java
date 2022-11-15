@@ -21,7 +21,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.util.*;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -46,8 +45,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         implements ISurvivalConstructable {
 
     private int mCasing;
-    protected int mChamberTier = 0;
-    protected int mFabCoilTier = 0;
+    protected int mCraftingTier = 0;
+    protected int mFocusingTier = 0;
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
     private boolean mFluidMode = false, doFermium = false;
@@ -470,19 +469,19 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                     .addElement(
                             'A',
                             StructureUtility.ofBlocksTiered(
-                                    chamberTierConverter(),
-                                    getAllChamberTiers(),
+                                    craftingTierConverter(),
+                                    getAllCraftingTiers(),
                                     0,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::setChamberTier,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::getChamberTier))
+                                    GregtechMetaTileEntity_QuantumForceTransformer::setCraftingTier,
+                                    GregtechMetaTileEntity_QuantumForceTransformer::getCraftingTier))
                     .addElement(
                             'B',
                             StructureUtility.ofBlocksTiered(
-                                    fabCoilTierConverter(),
-                                    getAllFabCoilTiers(),
+                                    focusingTierConverter(),
+                                    getAllFocusingTiers(),
                                     0,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::setFabCoilTier,
-                                    GregtechMetaTileEntity_QuantumForceTransformer::getFabCoilTier))
+                                    GregtechMetaTileEntity_QuantumForceTransformer::setFocusingTier,
+                                    GregtechMetaTileEntity_QuantumForceTransformer::getFocusingTier))
                     .addElement('C', ofBlock(ModBlocks.blockCasings4Misc, 4))
                     .addElement('D', ofBlock(ModBlocks.blockCasings2Misc, 12))
                     .addElement('E', ofBlock(getCasingBlock1(), getCasingMeta1()))
@@ -598,7 +597,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return survivialBuildPiece(this.mName, stackSize, 7, 20, 4, elementBudget, source, actor, false, true);
     }
 
-    public static List<Pair<Block, Integer>> getAllChamberTiers() {
+    public static List<Pair<Block, Integer>> getAllCraftingTiers() {
         return new ArrayList<Pair<Block, Integer>>() {
             {
                 add(Pair.of(ModBlocks.blockCasings5Misc, 7));
@@ -609,7 +608,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public static List<Pair<Block, Integer>> getAllFabCoilTiers() {
+    public static List<Pair<Block, Integer>> getAllFocusingTiers() {
         return new ArrayList<Pair<Block, Integer>>() {
             {
                 add(Pair.of(ModBlocks.blockCasings5Misc, 11));
@@ -620,7 +619,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public static ITierConverter<Integer> chamberTierConverter() {
+    public static ITierConverter<Integer> craftingTierConverter() {
         return (block, meta) -> {
             if (block == null) {
                 return -1;
@@ -640,7 +639,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    public static ITierConverter<Integer> fabCoilTierConverter() {
+    public static ITierConverter<Integer> focusingTierConverter() {
         return (block, meta) -> {
             if (block == null) {
                 return -1;
@@ -660,20 +659,20 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         };
     }
 
-    private void setChamberTier(int tier) {
-        mChamberTier = tier;
+    private void setCraftingTier(int tier) {
+        mCraftingTier = tier;
     }
 
-    private void setFabCoilTier(int tier) {
-        mFabCoilTier = tier;
+    private void setFocusingTier(int tier) {
+        mFocusingTier = tier;
     }
 
-    private int getChamberTier() {
-        return mChamberTier;
+    private int getCraftingTier() {
+        return mCraftingTier;
     }
 
-    private int getFabCoilTier() {
-        return mFabCoilTier;
+    private int getFocusingTier() {
+        return mFocusingTier;
     }
 
     @Override
@@ -780,7 +779,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         aItemInputs)
                 .copy();
 
-        if (tRecipe != null && tRecipe.mSpecialValue <= getChamberTier()) {
+        if (tRecipe != null && tRecipe.mSpecialValue <= getCraftingTier()) {
             ItemStack aRecipeCatalyst = null;
             for (ItemStack tItem : tRecipe.mInputs) {
                 if (ItemUtils.isCatalyst(tItem)) {
@@ -885,13 +884,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (runningTick % 20 == 0) {
             if (doFermium) {
                 if (!depleteInput(
-                        new FluidStack(mFermium, (int) (getFabCoilTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                        new FluidStack(mFermium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
                     criticalStopMachine();
                     return false;
                 }
             }
 
-            if (!depleteInput(new FluidStack(mNeptunium, (int) (getFabCoilTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+            if (!depleteInput(
+                    new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
                 criticalStopMachine();
                 return false;
             }
@@ -968,7 +968,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     private int[] GetChanceOutputs(GT_Recipe tRecipe, int aChanceIncreased) {
-        int difference = getFabCoilTier() - tRecipe.mSpecialValue;
+        int difference = getFocusingTier() - tRecipe.mSpecialValue;
         int aChancePerOutput = 10000 / tRecipe.mOutputs.length;
         int aOutputsAmount = tRecipe.mOutputs.length;
         int[] tChances = new int[aOutputsAmount];
