@@ -45,7 +45,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mFocusingTier = 0;
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
-    private boolean mFluidMode = false, doFermium = false;
+    private boolean mFluidMode = false, doFermium = false, doNeptunium = false;
     private static final Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
     private static final Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
     private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
@@ -678,6 +678,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mMaxProgresstime = 0;
         this.mOutputItems = null;
         this.mOutputFluids = null;
+        doFermium = false;
+        doNeptunium = false;
         FluidStack[] tFluidList = getCompactedFluids();
         if (mSeparateInputBusses) {
             ArrayList<ItemStack> tInputList = new ArrayList<ItemStack>();
@@ -738,7 +740,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
 
             if (mFermiumHatch != null) {
-                if (mFermiumHatch.getFluid().getFluid() == mFermium) {
+                if (mFermiumHatch.getFluid().isFluidEqual(new FluidStack(mFermium, 0))) {
                     doFermium = true;
                 }
             }
@@ -763,11 +765,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             int[] tChances;
             if (aStack == null
                     || aStack.getItemDamage() == 0
-                    || mNeptuniumHatch.getFluid().getFluid() != mNeptunium) {
+                    || !mNeptuniumHatch.getFluid().isFluidEqual(new FluidStack(mNeptunium, 0))) {
                 tChances = new int[tRecipe.mOutputs.length];
                 Arrays.fill(tChances, 10000 / tChances.length);
             } else {
                 tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
+                doNeptunium = true;
             }
 
             int fluidLength = (mFluidMode ? tRecipe.mOutputs.length : 0) + tRecipe.mFluidOutputs.length;
@@ -825,10 +828,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 }
             }
 
-            if (!depleteInput(
-                    new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
-                criticalStopMachine();
-                return false;
+            if (doNeptunium) {
+                if (!depleteInput(
+                        new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                    criticalStopMachine();
+                    return false;
+                }
             }
 
             runningTick = 0;
