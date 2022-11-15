@@ -371,6 +371,22 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 E,
                 true,
                 true);
+        public static final GTPP_Recipe_Map_Internal sQuantumForceTransformerRecipes = new GTPP_Recipe_Map_MultiNoCell(
+                new HashSet<GT_Recipe>(200),
+                "gtpp.recipe.quantumforcesmelter",
+                "Quantum Force Smelter",
+                null,
+                RES_PATH_GUI + "basicmachines/FissionFuel",
+                9,
+                9,
+                1,
+                0,
+                1,
+                E,
+                1,
+                E,
+                true,
+                true);
         public static final GTPP_Recipe_Map_Internal sSteamTurbineFuels = new GTPP_Recipe_Map_Internal(
                 new HashSet<GT_Recipe>(10),
                 "gtpp.recipe.steamturbinefuel",

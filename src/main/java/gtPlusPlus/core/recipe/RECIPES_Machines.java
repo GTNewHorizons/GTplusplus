@@ -19,6 +19,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.*;
@@ -35,6 +36,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -1093,15 +1095,15 @@ public class RECIPES_Machines {
                 new ItemStack[] {
                     CI.getNumberedBioCircuit(21),
                     CI.getTieredGTPPMachineCasing(0, 4),
-                    CI.getTieredComponentOfMaterial(Materials.Aluminium, OrePrefixes.rod, 12),
+                    CI.getTieredComponentOfMaterial(Materials.Iron, OrePrefixes.rod, 12),
                     CI.getTieredComponentOfMaterial(Materials.Wood, OrePrefixes.plate, 32),
-                    CI.getTieredComponentOfMaterial(Materials.Steel, OrePrefixes.bolt, 16),
+                    CI.getTieredComponentOfMaterial(Materials.Bronze, OrePrefixes.bolt, 16),
                     CI.getTieredComponentOfMaterial(Materials.Redstone, OrePrefixes.dust, 32),
                 },
                 ALLOY.POTIN.getFluidStack(2 * (144 * 4)),
                 GregtechItemList.AlgaeFarm_Controller.get(1),
                 60 * 20,
-                MaterialUtils.getVoltageForTier(2));
+                MaterialUtils.getVoltageForTier(1));
     }
 
     private static void distillus() {
@@ -1256,7 +1258,9 @@ public class RECIPES_Machines {
 
     private static void runModRecipes() {
         if (LoadedMods.Gregtech) {
-
+            Fluid solderIndalloy = FluidRegistry.getFluid("molten.indalloy140") != null
+                    ? FluidRegistry.getFluid("molten.indalloy140")
+                    : FluidRegistry.getFluid("molten.solderingalloy");
             // Computer Cube
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
@@ -2117,30 +2121,30 @@ public class RECIPES_Machines {
             aSemiFluidInputs[0] = new ItemStack[] {
                 CI.getNumberedBioCircuit(14),
                 CI.getTieredMachineHull(1, 1),
-                CI.getElectricPiston(1, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 1, 2),
-                CI.getPlate(1, 4),
-                CI.getGear(1, 2)
+                CI.getElectricPiston(1, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 1, GTNH ? 4 : 2),
+                CI.getPlate(1, GTNH ? 8 : 4),
+                CI.getGear(1, GTNH ? 4 : 2)
             };
             aSemiFluidInputs[1] = new ItemStack[] {
                 CI.getNumberedCircuit(14),
                 CI.getTieredMachineHull(2, 1),
-                CI.getElectricPiston(2, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 2, 2),
-                CI.getPlate(2, 4),
-                CI.getGear(2, 2)
+                CI.getElectricPiston(2, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 2, GTNH ? 4 : 2),
+                CI.getPlate(2, GTNH ? 8 : 4),
+                CI.getGear(2, GTNH ? 4 : 2)
             };
             aSemiFluidInputs[2] = new ItemStack[] {
                 CI.getNumberedAdvancedCircuit(14),
                 CI.getTieredMachineHull(3, 1),
-                CI.getElectricPiston(3, 2),
-                CI.getTieredComponent(OrePrefixes.circuit, 3, 2),
-                CI.getPlate(3, 4),
-                CI.getGear(3, 2)
+                CI.getElectricPiston(3, GTNH ? 4 : 2),
+                CI.getTieredComponent(OrePrefixes.circuit, 3, GTNH ? 4 : 2),
+                CI.getPlate(3, GTNH ? 8 : 4),
+                CI.getGear(3, GTNH ? 4 : 2)
             };
             FluidStack[] aSemiFluidFluidInputs = new FluidStack[] {
-                ELEMENT.getInstance().TIN.getFluidStack(144 * 4),
-                ALLOY.STEEL.getFluidStack(144 * 6),
+                ALLOY.BRONZE.getFluidStack(144 * 8),
+                ALLOY.STEEL.getFluidStack(144 * 8),
                 ELEMENT.getInstance().ALUMINIUM.getFluidStack(144 * 8),
             };
 
@@ -2223,6 +2227,36 @@ public class RECIPES_Machines {
                         50,
                         16);
             }
+
+            CORE.RA.addSixSlotAssemblingRecipe(
+                    new ItemStack[] {
+                        ItemList.Casing_Coil_HSSG.get(1),
+                        ItemList.Reactor_Coolant_NaK_3.get(4),
+                        ALLOY.LAURENIUM.getPlateDouble(2),
+                        GregtechItemList.Casing_Coil_BlastSmelter.get(1)
+                    },
+                    CI.getTieredFluid(10, 144 * 4),
+                    GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
+                    60 * 30,
+                    MaterialUtils.getVoltageForTier(6));
+
+            CORE.RA.addAssemblylineRecipe(
+                    GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
+                    40 * 60 * 30,
+                    new Object[] {
+                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                        new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
+                        ItemList.Electric_Pump_UEV.get(4),
+                        ItemList.Field_Generator_UEV.get(4),
+                        GregtechItemList.Laser_Lens_Special.get(1)
+                    },
+                    new FluidStack[] {
+                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    },
+                    GregtechItemList.QuantumForceTransformer.get(1),
+                    1200,
+                    8000000);
 
             if (CORE.ConfigSwitches.enableMultiblock_MatterFabricator) {
                 // Industrial Matter Fabricator
@@ -2389,16 +2423,17 @@ public class RECIPES_Machines {
                 GT_Values.RA.addAssemblerRecipe(
                         new ItemStack[] {
                             GT_Utility.getIntegratedCircuit(2),
-                            ALLOY.TUMBAGA.getFrameBox(1),
-                            ItemUtils.getItemStackOfAmountFromOreDict("pipeTinySteel", 1),
-                            ItemList.MV_Coil.get(1),
-                            ItemList.IC2_Plantball.get(4),
-                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 8),
+                            ALLOY.INCONEL_625.getFrameBox(1),
+                            ALLOY.HASTELLOY_X.getComponentByPrefix(OrePrefixes.pipeTiny, 1),
+                            ItemList.Electric_Pump_EV.get(2),
+                            ItemList.HV_Coil.get(4),
+                            ItemList.IC2_Plantball.get(8),
+                            GT_OreDictUnificator.get(OrePrefixes.plank, Materials.Wood, 6),
                         },
-                        GT_ModHandler.getDistilledWater(2000),
+                        GT_ModHandler.getDistilledWater(8000),
                         RECIPE_TreeFarmFrame,
-                        200,
-                        64);
+                        60,
+                        1960);
             }
 
             if (CORE.ConfigSwitches.enableMachine_Tesseracts) {

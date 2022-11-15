@@ -289,6 +289,19 @@ public class TexturesGtBlock {
             new CustomIcon("TileEntities/MACHINE_CASING_CENTRIFUGE");
     public static final CustomIcon Casing_Material_Centrifuge = Internal_Casing_Centrifuge;
 
+    // Quantum Force Transformer Casing
+    private static final CustomIcon Internal_Casing_QFT = new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL");
+    public static final CustomIcon Casing_Coil_QFT = Internal_Casing_QFT;
+    public static final CustomIcon NeutronPulseManipulator = new CustomIcon("NeutronPulseManipulator");
+    public static final CustomIcon CosmicFabricManipulator = new CustomIcon("CosmicFabricManipulator");
+    public static final CustomIcon InfinityInfusedManipulator = new CustomIcon("InfinityInfusedManipulator");
+    public static final CustomIcon SpaceTimeContinuumRipper = new CustomIcon("SpaceTimeContinuumRipper");
+    public static final CustomIcon NeutronShieldingCore = new CustomIcon("NeutronShieldingCore");
+    public static final CustomIcon CosmicFabricShieldingCore = new CustomIcon("CosmicFabricShieldingCore");
+    public static final CustomIcon InfinityInfusedShieldingCore = new CustomIcon("InfinityInfusedShieldingCore");
+    public static final CustomIcon SpaceTimeBendingCore = new CustomIcon("SpaceTimeBendingCore");
+    public static final CustomIcon ForceFieldGlass = new CustomIcon("ForceFieldGlass");
+
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
     // Farm Manager Casings
     private static final CustomIcon Internal_Casing_Machine_Farm_Manager =
