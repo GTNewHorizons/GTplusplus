@@ -17,15 +17,12 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
 import gregtech.api.util.*;
-import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,8 +46,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected int mMinimumMufflerTier = 0;
     private boolean mSeparateInputBusses = false;
     private boolean mFluidMode = false, doFermium = false;
-    private Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
-    private Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
+    private static final Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
+    private static final Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
     private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
     private GT_MetaTileEntity_Hatch_Input mFermiumHatch;
     private static final IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION =
@@ -423,19 +420,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                     .addElement('E', lazy(t -> ofBlock(t.getCasingBlock1(), t.getCasingMeta1())))
                     .addElement(
                             'H',
-                            ofChain(
-                                    buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .hatchClass(GT_MetaTileEntity_Hatch_Catalysts.class)
-                                            .adder(GregtechMetaTileEntity_QuantumForceTransformer::addCatalystHousing)
-                                            .casingIndex(TAE.getIndexFromPage(0, 10))
-                                            .dot(4)
-                                            .build(),
-                                    buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
-                                            .atLeast(InputBus, InputHatch, Maintenance, Energy.or(ExoticEnergy))
-                                            .casingIndex(TAE.getIndexFromPage(0, 10))
-                                            .dot(4)
-                                            .buildAndChain(onElementPass(
-                                                    x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12)))))
+                            buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
+                                    .atLeast(InputBus, InputHatch, Maintenance, Energy.or(ExoticEnergy))
+                                    .casingIndex(TAE.getIndexFromPage(0, 10))
+                                    .dot(4)
+                                    .buildAndChain(
+                                            onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
                     .addElement(
                             'T',
                             buildHatchAdder(GregtechMetaTileEntity_QuantumForceTransformer.class)
@@ -463,9 +453,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     .buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 12))))
                     .build();
-
-    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses =
-            new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
 
     public GregtechMetaTileEntity_QuantumForceTransformer(
             final int aID, final String aName, final String aNameRegional) {
@@ -528,57 +515,15 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return STRUCTURE_DEFINITION;
     }
 
-    public final boolean addCatalystHousing(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        if (aTileEntity == null) {
-            return false;
-        } else {
-            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
-                return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-        if (aMetaTileEntity == null) {
-            return false;
-        }
-        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
-            log("Found GT_MetaTileEntity_Hatch_Catalysts");
-            return addToMachineListInternal(mCatalystBuses, aMetaTileEntity, aBaseCasingIndex);
-        }
-        return super.addToMachineList(aTileEntity, aBaseCasingIndex);
-    }
-
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
         this.mMinimumMufflerTier = 0;
-        mCatalystBuses.clear();
         if (checkPiece(this.mName, 7, 20, 4)
                 && checkHatch()
-                && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)) {
+                && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)
+                && mMaintenanceHatches.size() == 1) {
             return true;
-        }
-        return false;
-    }
-
-    @Override // The lowest tier muffler of the total 21 will decide the muffler tier in the multi
-    public boolean addMufflerToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        if (aTileEntity == null) {
-            return false;
-        } else {
-            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler) {
-                if (mMinimumMufflerTier == 0
-                        || ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier < mMinimumMufflerTier) {
-                    mMinimumMufflerTier = ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier;
-                }
-                return addToMachineList(aTileEntity, aBaseCasingIndex);
-            }
         }
         return false;
     }
@@ -723,18 +668,17 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return rVoltage;
     }
 
-    private int mMaxParallel = 64;
+    private static int mMaxParallel = 64;
     private int mCurrentParallel = 0;
 
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
-        int mCurrentParallel = 0;
+        mCurrentParallel = 0;
         this.mEUt = 0;
         this.mMaxProgresstime = 0;
         this.mOutputItems = null;
         this.mOutputFluids = null;
         FluidStack[] tFluidList = getCompactedFluids();
-        ItemStack[] tCatalysts = mCatalystBuses.get(0).mInventory;
         if (mSeparateInputBusses) {
             ArrayList<ItemStack> tInputList = new ArrayList<ItemStack>();
             for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
@@ -799,7 +743,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 }
             }
 
-            mCurrentParallel = 0;
             while (mCurrentParallel <= mCurrentMaxParallel
                     && tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                 mCurrentParallel++;
@@ -827,9 +770,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
             }
 
+            int fluidLength = (mFluidMode ? tRecipe.mOutputs.length : 0) + tRecipe.mFluidOutputs.length;
+            FluidStack[] tFluidOutputs = new FluidStack[fluidLength];
+
             if (mFluidMode) {
-                FluidStack[] tFluidOutputs = new FluidStack[tRecipe.mOutputs.length];
-                for (int i = 0; i < tRecipe.mOutputs.length; i++) {
+
+                for (int i = 0; i < fluidLength; i++) {
                     if (tRecipe.mOutputs[i] != null) {
                         Materials mat = getAssociation(tRecipe.mOutputs[i]).mMaterial.mMaterial;
                         tFluidOutputs[i] = mat.getMolten(0L);
@@ -894,16 +840,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
-    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        if (aBaseMetaTileEntity.isServerSide()) {
-            if (this.mUpdate == 1 || this.mStartUpCheck == 1) {
-                this.mCatalystBuses.clear();
-            }
-        }
-        super.onPostTick(aBaseMetaTileEntity, aTick);
-    }
-
-    @Override
     public int getMaxParallelRecipes() {
         return 64;
     }
@@ -936,24 +872,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
-    }
-
-    @Override
-    public ArrayList<ItemStack> getStoredInputs() {
-        ArrayList<ItemStack> tItems = super.getStoredInputs();
-        if (this.hasSlotInGUI() && this.getGUIItemStack() != null) {
-            tItems.add(this.getGUIItemStack());
-        }
-        for (GT_MetaTileEntity_Hatch_Catalysts tHatch : mCatalystBuses) {
-            tHatch.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tHatch)) {
-                AutoMap<ItemStack> aHatchContent = tHatch.getContentUsageSlots();
-                if (!aHatchContent.isEmpty()) {
-                    tItems.addAll(aHatchContent);
-                }
-            }
-        }
-        return tItems;
     }
 
     private int[] GetChanceOutputs(GT_Recipe tRecipe, int aChanceIncreased) {

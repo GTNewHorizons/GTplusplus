@@ -11,15 +11,10 @@ public class GregtechQuantumForceTransformer {
         if (gtPlusPlus.core.lib.LoadedMods.Gregtech) {
             Logger.INFO("Gregtech5u Content | Registering Quantum Force Transformer Multiblock.");
             if (CORE.ConfigSwitches.enableMultiblock_QuantumForceTransformer) {
-                run1();
+                GregtechItemList.QuantumForceTransformer.set(new GregtechMetaTileEntity_QuantumForceTransformer(
+                                31151, "quantumforcetransformer.controller.tier.single", "Quantum Force Transformer")
+                        .getStackForm(1L));
             }
         }
-    }
-
-    private static void run1() {
-        // Quantum Force Transformer Multiblock
-        GregtechItemList.QuantumForceTransformer.set(new GregtechMetaTileEntity_QuantumForceTransformer(
-                        31151, "quantumforcetransformer.controller.tier.single", "Quantum Force Transformer")
-                .getStackForm(1L));
     }
 }
