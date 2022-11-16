@@ -47,11 +47,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private boolean mFluidMode = false, doFermium = false, doNeptunium = false;
     private static final Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
     private static final Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
+    private static final String MAIN_PIECE = "main";
     private GT_MetaTileEntity_Hatch_Input mNeptuniumHatch;
     private GT_MetaTileEntity_Hatch_Input mFermiumHatch;
     private static final IStructureDefinition<GregtechMetaTileEntity_QuantumForceTransformer> STRUCTURE_DEFINITION =
             StructureDefinition.<GregtechMetaTileEntity_QuantumForceTransformer>builder()
-                    .addShape("main", new String[][] { // A - 142, B - 234, C - 177, D - 96, E - 224, H - 36, M - 21
+                    .addShape(MAIN_PIECE, new String[][] { // A - 142, B - 234, C - 177, D - 96, E - 224, H - 36, M - 21
                         {
                             "               ",
                             "               ",
@@ -516,7 +517,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
-        if (checkPiece(this.mName, 7, 20, 4)
+        if (checkPiece(MAIN_PIECE, 7, 20, 4)
                 && checkHatch()
                 && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)
                 && mMaintenanceHatches.size() == 1) {
@@ -527,13 +528,13 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public void construct(ItemStack stackSize, boolean hintsOnly) {
-        buildPiece(this.mName, stackSize, hintsOnly, 7, 20, 4);
+        buildPiece(MAIN_PIECE, stackSize, hintsOnly, 7, 20, 4);
     }
 
     @Override
     public int survivalConstruct(ItemStack stackSize, int elementBudget, ISurvivalBuildEnvironment env) {
         if (mMachine) return -1;
-        return survivialBuildPiece("main", stackSize, 7, 20, 4, elementBudget, env, false, true);
+        return survivialBuildPiece(MAIN_PIECE, stackSize, 7, 20, 4, elementBudget, env, false, true);
     }
 
     public static List<Pair<Block, Integer>> getAllCraftingTiers() {
