@@ -721,8 +721,8 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                         false,
                         true)
                 .setProgressBar(GT_UITextures.PROGRESSBAR_MIXER, ProgressBar.Direction.CIRCULAR_CW)
-                .setUsualFluidInputCount(9)
-                .setUsualFluidOutputCount(9);
+                .setUsualFluidInputCount(6)
+                .setUsualFluidOutputCount(6);
 
         // Semi-Fluid Fuel Map
         public static final GT_Recipe_Map_Fuel sSemiFluidLiquidFuels = (GT_Recipe_Map_Fuel) new GT_Recipe_Map_Fuel(
