@@ -187,7 +187,7 @@ public class RecipeLoader_ChemicalSkips {
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
                     GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 10054), // Naq Oxide
-                    ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
+                        ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
                 },
                 new FluidStack[] {},
                 new FluidStack[] {},

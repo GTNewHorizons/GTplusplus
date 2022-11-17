@@ -13,6 +13,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class TexturesGtBlock {
 
+    private static boolean mAnimated = CORE.ConfigSwitches.enableAnimatedTextures;
+
     private static AutoMap<Runnable> mCustomiconMap = new AutoMap<Runnable>();
 
     static {
@@ -290,17 +292,19 @@ public class TexturesGtBlock {
     public static final CustomIcon Casing_Material_Centrifuge = Internal_Casing_Centrifuge;
 
     // Quantum Force Transformer Casing
-    private static final CustomIcon Internal_Casing_QFT = new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL");
+    // spotless:off
+    private static final CustomIcon Internal_Casing_QFT = mAnimated ? new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL") : new CustomIcon("TileEntites/MACHINE_CASING_QFT_COIL");
     public static final CustomIcon Casing_Coil_QFT = Internal_Casing_QFT;
-    public static final CustomIcon NeutronPulseManipulator = new CustomIcon("NeutronPulseManipulator");
-    public static final CustomIcon CosmicFabricManipulator = new CustomIcon("CosmicFabricManipulator");
-    public static final CustomIcon InfinityInfusedManipulator = new CustomIcon("InfinityInfusedManipulator");
-    public static final CustomIcon SpaceTimeContinuumRipper = new CustomIcon("SpaceTimeContinuumRipper");
-    public static final CustomIcon NeutronShieldingCore = new CustomIcon("NeutronShieldingCore");
-    public static final CustomIcon CosmicFabricShieldingCore = new CustomIcon("CosmicFabricShieldingCore");
-    public static final CustomIcon InfinityInfusedShieldingCore = new CustomIcon("InfinityInfusedShieldingCore");
-    public static final CustomIcon SpaceTimeBendingCore = new CustomIcon("SpaceTimeBendingCore");
+    public static final CustomIcon NeutronPulseManipulator = mAnimated ? new CustomIcon("NeutronPulseManipulator") : new CustomIcon("NeutronPulseManipulatorStatic");
+    public static final CustomIcon CosmicFabricManipulator = mAnimated ? new CustomIcon("CosmicFabricManipulator") : new CustomIcon("CosmicFabricManipulatorStatic");
+    public static final CustomIcon InfinityInfusedManipulator = mAnimated ? new CustomIcon("InfinityInfusedManipulator") : new CustomIcon("InfinityInfusedManipulatorStatic");
+    public static final CustomIcon SpaceTimeContinuumRipper = mAnimated ? new CustomIcon("SpaceTimeContinuumRipper") : new CustomIcon("SpaceTimeContinuumRipperStatic");
+    public static final CustomIcon NeutronShieldingCore = mAnimated ? new CustomIcon("NeutronShieldingCore") : new CustomIcon("NeutronShieldingCoreStatic");
+    public static final CustomIcon CosmicFabricShieldingCore = mAnimated ? new CustomIcon("CosmicFabricShieldingCore") : new CustomIcon("CosmicFabricShieldingCoreStatic");
+    public static final CustomIcon InfinityInfusedShieldingCore = mAnimated ? new CustomIcon("InfinityInfusedShieldingCore") : new CustomIcon("InfinityInfusedShieldingCoreStatic");
+    public static final CustomIcon SpaceTimeBendingCore = mAnimated ? new CustomIcon("SpaceTimeBendingCore") : new CustomIcon("SpaceTimeBendingCoreStatic");
     public static final CustomIcon ForceFieldGlass = new CustomIcon("ForceFieldGlass");
+    //spotless:on
 
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
     // Farm Manager Casings
