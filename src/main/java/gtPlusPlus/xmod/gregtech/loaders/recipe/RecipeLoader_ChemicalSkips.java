@@ -39,8 +39,8 @@ public class RecipeLoader_ChemicalSkips {
         // Platline (Missing Rhodium and Ruthenium)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 47),
-                        ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 0)
+                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 47),
+                    ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 0)
                 },
                 new FluidStack[] {},
                 new FluidStack[] {},
@@ -58,13 +58,12 @@ public class RecipeLoader_ChemicalSkips {
         // Early Plastics
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        Materials.Carbon.getDust(64),
-                        ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 0)
+                    Materials.Carbon.getDust(64), ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 0)
                 },
                 new FluidStack[] {
-                        Materials.Oxygen.getFluid(10000),
-                        Materials.Hydrogen.getFluid(10000),
-                        Materials.Chlorine.getFluid(10000),
+                    Materials.Oxygen.getFluid(10000),
+                    Materials.Hydrogen.getFluid(10000),
+                    Materials.Chlorine.getFluid(10000),
                 },
                 new FluidStack[] {},
                 new ItemStack[] {
@@ -82,23 +81,16 @@ public class RecipeLoader_ChemicalSkips {
         // Glues and Solders
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        Materials.Carbon.getDust(64),
-                        Materials.Bismuth.getDust(64),
-                        ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 0)
+                    Materials.Carbon.getDust(64),
+                    Materials.Bismuth.getDust(64),
+                    ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 0)
                 },
+                new FluidStack[] {Materials.Oxygen.getFluid(10000), Materials.Hydrogen.getFluid(10000)},
                 new FluidStack[] {
-                        Materials.Oxygen.getFluid(10000),
-                        Materials.Hydrogen.getFluid(10000)
-                },
-                new FluidStack[] {
-                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(9216),
-                    Materials.AdvancedGlue.getFluid(9216L),
-
+                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(9216), Materials.AdvancedGlue.getFluid(9216L),
                 },
                 new ItemStack[] {
-                    ALLOY.INDALLOY_140.getDust(64),
-                    Materials.SolderingAlloy.getDust(64),
-                    Materials.HSSG.getDust(1)
+                    ALLOY.INDALLOY_140.getDust(64), Materials.SolderingAlloy.getDust(64), Materials.HSSG.getDust(1)
                 },
                 new int[] {2000, 2000, 2000, 2000, 2000},
                 20 * 20,
@@ -108,8 +100,7 @@ public class RecipeLoader_ChemicalSkips {
         // Monaline (Missing Hafnium and Zirconium - Europium is ZPM)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        Materials.Monazite.getDust(64),
-                        ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 0)
+                    Materials.Monazite.getDust(64), ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 0)
                 },
                 new FluidStack[] {},
                 new FluidStack[] {},
@@ -128,8 +119,8 @@ public class RecipeLoader_ChemicalSkips {
         // Early Naqline (Naquadah should be Naquadahine)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        MISC_MATERIALS.SODIUM_CYANIDE.getDust(1),
-                        ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
+                    MISC_MATERIALS.SODIUM_CYANIDE.getDust(1),
+                    ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
                 },
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
@@ -147,8 +138,8 @@ public class RecipeLoader_ChemicalSkips {
         // Advanced Naqline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        MISC_MATERIALS.SODIUM_CYANIDE.getDust(1),
-                        ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 0)
+                    MISC_MATERIALS.SODIUM_CYANIDE.getDust(1),
+                    ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 0)
                 },
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {},
@@ -167,12 +158,10 @@ public class RecipeLoader_ChemicalSkips {
         // Lategame Plastics (Missing Radox Polymer and Heavy Radox)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        Materials.Carbon.getDust(64),
-                        ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
+                    Materials.Carbon.getDust(64), ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
                 },
                 new FluidStack[] {
-                        Materials.Hydrogen.getFluid(10000),
-                        Materials.Nitrogen.getFluid(10000),
+                    Materials.Hydrogen.getFluid(10000), Materials.Nitrogen.getFluid(10000),
                 },
                 new FluidStack[] {},
                 new ItemStack[] {
@@ -186,14 +175,12 @@ public class RecipeLoader_ChemicalSkips {
         // Mutated Solder
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        ItemList.Circuit_Chip_Stemcell.get(64),
-                        //ItemUtils.getSimpleStack(GenericChem.mSolidAcidCatalyst, 0)
+                    ItemList.Circuit_Chip_Stemcell.get(64),
+                    // ItemUtils.getSimpleStack(GenericChem.mSolidAcidCatalyst, 0)
                 },
                 new FluidStack[] {MISC_MATERIALS.ETHYL_CYANOACETATE.getFluidStack(1000)},
                 new FluidStack[] {MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(9216)},
-                new ItemStack[] {
-                        ItemList.Circuit_Chip_Biocell.get(64)
-                },
+                new ItemStack[] {ItemList.Circuit_Chip_Biocell.get(64)},
                 new int[] {3333, 3333, 3333},
                 20 * 20,
                 500000000,
@@ -219,11 +206,11 @@ public class RecipeLoader_ChemicalSkips {
     private static void catalystRecipes() {
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88),
-                        Materials.Osmiridium.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88),
+                    Materials.Osmiridium.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 1),
@@ -232,11 +219,11 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        Materials.Polybenzimidazole.getDust(64),
-                        Materials.Tetrafluoroethylene.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    Materials.Polybenzimidazole.getDust(64),
+                    Materials.Tetrafluoroethylene.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 1),
@@ -245,10 +232,8 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        //ALLOY.INDALLOY_140.getDust(64)
+                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), Materials.Infinity.getDust(1),
+                    // ALLOY.INDALLOY_140.getDust(64)
                 },
                 new FluidStack(MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluid(), 10000),
                 ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 1),
@@ -257,11 +242,11 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        Materials.Silicone.getDust(64),
-                        Materials.StyreneButadieneRubber.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    Materials.Silicone.getDust(64),
+                    Materials.StyreneButadieneRubber.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mRubberPolymerCatalyst, 1),
@@ -270,11 +255,11 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        Materials.Samarium.getDust(64),
-                        Materials.Gadolinium.getDust(64),
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    Materials.Samarium.getDust(64),
+                    Materials.Gadolinium.getDust(64),
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 1),
@@ -283,11 +268,11 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        Materials.Naquadah.getDust(64),
-                        Materials.Adamantium.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    Materials.Naquadah.getDust(64),
+                    Materials.Adamantium.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 1),
@@ -296,11 +281,11 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        Materials.Naquadria.getDust(64),
-                        Materials.Trinium.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    Materials.Naquadria.getDust(64),
+                    Materials.Trinium.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 1),
@@ -309,10 +294,10 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                        CI.getNumberedCircuit(10),
-                        CI.getEmptyCatalyst(1),
-                        Materials.Infinity.getDust(1),
-                        MaterialsKevlar.Kevlar.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    Materials.Infinity.getDust(1),
+                    MaterialsKevlar.Kevlar.getDust(64)
                 },
                 GT_Values.NF,
                 ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 1),
@@ -325,15 +310,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Bio), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Bio), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.NeutronPulseManipulator.get(1),
                 1200,
@@ -343,15 +328,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Nano), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Nano), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.CosmicFabricManipulator.get(1),
                 1200,
@@ -361,15 +346,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Piko), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Piko), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.InfinityInfusedManipulator.get(1),
                 1200,
@@ -379,15 +364,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Quantum), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Quantum), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.SpaceTimeContinuumRipper.get(1),
                 1200,
@@ -397,15 +382,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Bio), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Bio), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.NeutronShieldingCore.get(1),
                 1200,
@@ -415,15 +400,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Nano), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Nano), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.CosmicFabricShieldingCore.get(1),
                 1200,
@@ -433,15 +418,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Piko), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Piko), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.InfinityInfusedShieldingCore.get(1),
                 1200,
@@ -451,15 +436,15 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
-                        new Object[] {OrePrefixes.circuit.get(Materials.Quantum), 1},
-                        ItemList.Electric_Pump_UEV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                    new Object[] {OrePrefixes.circuit.get(Materials.Quantum), 1},
+                    ItemList.Electric_Pump_UEV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.SpaceTimeBendingCore.get(1),
                 1200,
@@ -469,13 +454,13 @@ public class RecipeLoader_ChemicalSkips {
                 GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                 40 * 60 * 30,
                 new Object[] {
-                        ItemList.Electric_Pump_UV.get(4),
-                        ItemList.Field_Generator_UEV.get(4),
-                        GregtechItemList.Laser_Lens_Special.get(1)
+                    ItemList.Electric_Pump_UV.get(4),
+                    ItemList.Field_Generator_UEV.get(4),
+                    GregtechItemList.Laser_Lens_Special.get(1)
                 },
                 new FluidStack[] {
-                        MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
-                        ALLOY.PIKYONIUM.getFluidStack(144 * 32)
+                    MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
+                    ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                 },
                 GregtechItemList.ForceFieldGlass.get(1),
                 1200,
