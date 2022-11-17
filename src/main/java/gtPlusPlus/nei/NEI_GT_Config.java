@@ -15,36 +15,6 @@ public class NEI_GT_Config implements IConfigureNEI {
     public synchronized void loadConfig() {
         sIsAdded = false;
 
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sFissionFuelProcessing.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sLiquidFluorineThoriumReactorRecipes.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sChemicalPlantRecipes.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sVacuumFurnaceRecipes.mUnlocalizedName);
-
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sAdvFreezerRecipes_GT.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sMultiblockMixerRecipes_GT.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sThermalFuels.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sSolarTowerRecipes.mUnlocalizedName);
-        mUniqueRecipeMapHandling.add(GTPP_Recipe_Map.sTreeSimFakeRecipes.mUnlocalizedName);
-
-        // Standard GT Recipe Maps
-        Logger.INFO("NEI Registration: " + GTPP_Recipe_Map_Internal.sMappingsEx.size() + " sMappingEx");
-        for (final GT_Recipe_Map tMap : GTPP_Recipe_Map_Internal.sMappingsEx) {
-            if (tMap.mNEIAllowed) {
-                if (!mUniqueRecipeMapHandling.contains(tMap.mUnlocalizedName)) {
-                    Logger.INFO("NEI Registration: Registering NEI handler for " + tMap.mNEIName);
-                    new GTPP_NEI_DefaultHandler(tMap);
-                } else {
-                    Logger.INFO("NEI Registration: Not allowed to register NEI handler for " + tMap.mNEIName);
-                }
-            } else {
-                Logger.INFO("NEI Registration: Skipping registration of NEI handler for " + tMap.mNEIName);
-            }
-        }
-
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sChemicalPlantRecipes.mNEIName);
         new GT_NEI_FluidReactor();
         Logger.INFO("NEI Registration: Registering NEI handler for "
@@ -53,28 +23,12 @@ public class NEI_GT_Config implements IConfigureNEI {
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sTreeSimFakeRecipes.mNEIName);
         new GT_NEI_MultiTreeGrowthSimulator();
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sAdvFreezerRecipes_GT.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sAdvFreezerRecipes_GT);
-        Logger.INFO("NEI Registration: Registering NEI handler for "
-                + GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT);
-        Logger.INFO("NEI Registration: Registering NEI handler for "
-                + GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT);
-        Logger.INFO(
-                "NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sMultiblockMixerRecipes_GT.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sMultiblockMixerRecipes_GT);
-        Logger.INFO(
-                "NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sAlloyBlastSmelterRecipes);
-        Logger.INFO("NEI Registration: Registering NEI handler for "
-                + GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sQuantumForceTransformerRecipes);
+        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sOreMillRecipes.mNEIName);
+        new GTPP_NEI_DefaultHandler(GTPP_Recipe_Map.sOreMillRecipes);
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sOreMillRecipes.mNEIName);
         new GTPP_NEI_DefaultHandler(GTPP_Recipe_Map.sOreMillRecipes);
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sSolarTowerRecipes.mNEIName);
         new GT_NEI_MultiSolarTower(GTPP_Recipe_Map.sSolarTowerRecipes);
-
-
         Logger.INFO("NEI Registration: Registering NEI handler for " + DecayableRecipeHandler.mNEIName);
         API.registerRecipeHandler(new DecayableRecipeHandler());
         API.registerUsageHandler(new DecayableRecipeHandler());
