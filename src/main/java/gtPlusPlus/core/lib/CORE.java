@@ -237,6 +237,7 @@ public class CORE {
         // Visuals
         public static boolean enableTreeFarmerParticles = true;
         public static boolean useGregtechTextures = true;
+        public static boolean enableAnimatedTextures = false;
 
         // Pollution
         public static int pollutionPerSecondMultiPackager = 40;
