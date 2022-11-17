@@ -1,46 +1,52 @@
-package gtPlusPlus.plugin.agrichem.item.algae;
+package gtPlusPlus.core.item.circuit;
 
-import cpw.mods.fml.common.FMLCommonHandler;
+import com.gtnewhorizons.modularui.api.UIInfos;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
-import gregtech.api.gui.GT_GUIDialogSelectItem;
 import gregtech.api.interfaces.INetworkUpdatableItem;
 import gregtech.api.net.GT_Packet_UpdateItem;
 import gregtech.api.objects.XSTR;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Utility;
+import gregtech.common.gui.modularui.uifactory.SelectItemUIFactory;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.FakePlayer;
 import org.apache.commons.lang3.tuple.Pair;
 
-public class ItemBioChip extends Item implements INetworkUpdatableItem {
-    private static final List<ItemStack> ALL_VARIANTS = new ArrayList<>();
+public class GTPP_IntegratedCircuit_Item extends Item implements INetworkUpdatableItem {
+    private final List<ItemStack> ALL_VARIANTS = new ArrayList<>();
 
+    private final String iconLocation;
     protected IIcon base;
 
-    public ItemBioChip() {
+    public GTPP_IntegratedCircuit_Item(String unlocalizedName, String iconLocation) {
         this.setHasSubtypes(true);
         this.setNoRepair();
         this.setMaxStackSize(64);
         this.setMaxDamage(0);
-        this.setUnlocalizedName("BioRecipeSelector");
+        this.setUnlocalizedName(unlocalizedName);
+        this.iconLocation = iconLocation;
         GameRegistry.registerItem(this, this.getUnlocalizedName());
         ALL_VARIANTS.add(new ItemStack(this, 0, 0));
         for (int i = 1; i <= 24; i++) {
@@ -52,22 +58,6 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
     @Override
     public boolean isDamageable() {
         return false;
-    }
-
-    @Override
-    public boolean shouldRotateAroundWhenRendering() {
-        return super.shouldRotateAroundWhenRendering();
-    }
-
-    @Override
-    public void onUpdate(
-            ItemStack p_77663_1_, World p_77663_2_, Entity p_77663_3_, int p_77663_4_, boolean p_77663_5_) {
-        super.onUpdate(p_77663_1_, p_77663_2_, p_77663_3_, p_77663_4_, p_77663_5_);
-    }
-
-    @Override
-    public String getItemStackDisplayName(ItemStack aStack) {
-        return super.getItemStackDisplayName(aStack);
     }
 
     @Override
@@ -103,11 +93,6 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
     }
 
     @Override
-    public boolean getIsRepairable(ItemStack p_82789_1_, ItemStack p_82789_2_) {
-        return false;
-    }
-
-    @Override
     public boolean isRepairable() {
         return false;
     }
@@ -118,28 +103,13 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
     }
 
     @Override
-    public int getDisplayDamage(ItemStack stack) {
-        return stack.getItemDamage();
-    }
-
-    @Override
     public boolean showDurabilityBar(ItemStack stack) {
         return false;
     }
 
     @Override
-    public int getItemEnchantability() {
-        return 0;
-    }
-
-    @Override
-    public int getItemEnchantability(ItemStack stack) {
-        return 0;
-    }
-
-    @Override
     public void registerIcons(final IIconRegister u) {
-        this.base = u.registerIcon(CORE.MODID + ":" + "bioscience/BioCircuit");
+        this.base = u.registerIcon(CORE.MODID + ":" + iconLocation);
     }
 
     @Override
@@ -163,11 +133,6 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName();
-    }
-
-    @Override
     public boolean receive(ItemStack stack, EntityPlayerMP player, NBTTagCompound tag) {
         int meta = tag.hasKey("meta", Constants.NBT.TAG_BYTE) ? tag.getByte("meta") : -1;
         if (meta < 0 || meta > 24) return true;
@@ -185,19 +150,9 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
     }
 
     @Override
-    public boolean onItemUse(
-            ItemStack stack,
-            EntityPlayer player,
-            World world,
-            int x,
-            int y,
-            int z,
-            int side,
-            float xOffset,
-            float yOffset,
-            float zOffset) {
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         // nothing on server side or fake player
-        if (player instanceof FakePlayer || !world.isRemote) return false;
+        if (player instanceof FakePlayer || !world.isRemote) return stack;
         // check if any screwdriver
         ItemStack configuratorStack;
         if (player.capabilities.isCreativeMode) {
@@ -217,24 +172,23 @@ public class ItemBioChip extends Item implements INetworkUpdatableItem {
                 }
                 player.addChatComponentMessage(new ChatComponentTranslation(
                         "GT5U.item.programmed_circuit.no_screwdriver." + XSTR.XSTR_INSTANCE.nextInt(count)));
-                return false;
+                return stack;
             }
             configuratorStack = player.inventory.mainInventory[configurator.getKey()];
         }
-        openSelectorGui(configuratorStack, stack.getItemDamage());
-        return true;
+        openSelectorGui(configuratorStack, stack.getItemDamage(), player);
+        return stack;
     }
 
-    private void openSelectorGui(ItemStack configurator, int meta) {
-        FMLCommonHandler.instance()
-                .showGuiScreen(new GT_GUIDialogSelectItem(
+    private void openSelectorGui(ItemStack configurator, int meta, EntityPlayer player) {
+        UIInfos.openClientUI(player, buildContext -> new SelectItemUIFactory(
                         StatCollector.translateToLocal("GT5U.item.programmed_circuit.select.header"),
                         configurator,
-                        null,
-                        ItemBioChip::onConfigured,
+                        GTPP_IntegratedCircuit_Item::onConfigured,
                         ALL_VARIANTS,
                         meta,
-                        true));
+                        true)
+                .createWindow(buildContext));
     }
 
     private static void onConfigured(ItemStack stack) {

@@ -3,18 +3,13 @@ package gtPlusPlus.nei;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map_Internal;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class NEI_GT_Config implements IConfigureNEI {
 
     public static boolean sIsAdded = true;
-
-    private static final AutoMap<String> mUniqueRecipeMapHandling = new AutoMap<String>();
 
     @Override
     public synchronized void loadConfig() {
@@ -55,14 +50,6 @@ public class NEI_GT_Config implements IConfigureNEI {
         Logger.INFO("NEI Registration: Registering NEI handler for "
                 + GTPP_Recipe_Map.sLiquidFluorineThoriumReactorRecipes.mNEIName);
         new GT_NEI_LFTR();
-        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sFissionFuelProcessing.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sFissionFuelProcessing);
-        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sVacuumFurnaceRecipes.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sVacuumFurnaceRecipes);
-        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sThermalFuels.mNEIName);
-        new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sThermalFuels);
-        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sSolarTowerRecipes.mNEIName);
-        new GT_NEI_MultiSolarTower(GTPP_Recipe_Map.sSolarTowerRecipes);
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sTreeSimFakeRecipes.mNEIName);
         new GT_NEI_MultiTreeGrowthSimulator();
         Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sAdvFreezerRecipes_GT.mNEIName);
@@ -82,6 +69,11 @@ public class NEI_GT_Config implements IConfigureNEI {
         Logger.INFO("NEI Registration: Registering NEI handler for "
                 + GTPP_Recipe_Map.sQuantumForceTransformerRecipes.mNEIName);
         new GT_NEI_MultiNoCell(GTPP_Recipe_Map.sQuantumForceTransformerRecipes);
+        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sOreMillRecipes.mNEIName);
+        new GTPP_NEI_DefaultHandler(GTPP_Recipe_Map.sOreMillRecipes);
+        Logger.INFO("NEI Registration: Registering NEI handler for " + GTPP_Recipe_Map.sSolarTowerRecipes.mNEIName);
+        new GT_NEI_MultiSolarTower(GTPP_Recipe_Map.sSolarTowerRecipes);
+
 
         Logger.INFO("NEI Registration: Registering NEI handler for " + DecayableRecipeHandler.mNEIName);
         API.registerRecipeHandler(new DecayableRecipeHandler());
