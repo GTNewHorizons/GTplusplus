@@ -771,36 +771,42 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 doNeptunium = true;
             }
 
-            int fluidLength = (mFluidMode ? tRecipe.mOutputs.length : 0) + tRecipe.mFluidOutputs.length;
-            FluidStack[] tFluidOutputs = new FluidStack[fluidLength];
+            ArrayList<ItemStack> tItemOutputs = new ArrayList<ItemStack>();
+            ArrayList<FluidStack> tFluidOutputs = new ArrayList<FluidStack>();
 
             if (mFluidMode) {
-
-                for (int i = 0; i < fluidLength; i++) {
-                    if (tRecipe.mOutputs[i] != null) {
-                        Materials mat = getAssociation(tRecipe.mOutputs[i]).mMaterial.mMaterial;
-                        tFluidOutputs[i] = mat.getMolten(0L);
-                        if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
-                            tFluidOutputs[i].amount +=
-                                    mat.getMolten(144L * tRecipe.mOutputs[i].stackSize).amount * mCurrentParallel;
+                for (int i = 0; i < tChances.length; i++) {
+                    if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
+                        Materials mat = getAssociation(tRecipe.getOutput(i)).mMaterial.mMaterial;
+                        if (i < tRecipe.mOutputs.length) {
+                            if (mat != null) {
+                                if (mat.getMolten(0) != null) {
+                                    tFluidOutputs.add(mat.getMolten(tRecipe.getOutput(i).stackSize * 144));
+                                } else {
+                                    mat.getFluid(tRecipe.getOutput(i).stackSize * 1000);
+                                }
+                            } else {
+                                tItemOutputs.add(tRecipe.getOutput(i));
+                            }
+                        } else {
+                            tFluidOutputs.add(tRecipe.getFluidOutput(i - tRecipe.mOutputs.length));
+                        }
                     }
                 }
-
-                this.mOutputFluids = tFluidOutputs;
             } else {
-                ItemStack[] tOutputs = new ItemStack[tRecipe.mOutputs.length];
-                for (int i = 0; i < tRecipe.mOutputs.length; i++) {
-                    if (tRecipe.mOutputs[i] != null) {
-                        tOutputs[i] = tRecipe.mOutputs[i].copy();
-                        tOutputs[i].stackSize = 0;
-                        if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i])
-                            tOutputs[i].stackSize += tRecipe.getOutput(i).stackSize * mCurrentParallel;
+                for (int i = 0; i < tChances.length; i++) {
+                    if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
+                        if (i < tRecipe.mOutputs.length) {
+                            tItemOutputs.add(tRecipe.getOutput(i));
+                        } else {
+                            tFluidOutputs.add(tRecipe.getFluidOutput(i - tRecipe.mOutputs.length));
+                        }
                     }
                 }
-
-                this.mOutputItems = tOutputs;
             }
 
+            mOutputItems = tItemOutputs.toArray(new ItemStack[0]);
+            mOutputFluids = tFluidOutputs.toArray(new FluidStack[0]);
             this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
             updateSlots();
 
@@ -879,10 +885,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private int[] GetChanceOutputs(GT_Recipe tRecipe, int aChanceIncreased) {
         int difference = getFocusingTier() - tRecipe.mSpecialValue;
-        int aChancePerOutput = 10000 / tRecipe.mOutputs.length;
-        int aOutputsAmount = tRecipe.mOutputs.length;
+        int aOutputsAmount = tRecipe.mOutputs.length + tRecipe.mFluidOutputs.length;
+        int aChancePerOutput = 10000 / aOutputsAmount;
         int[] tChances = new int[aOutputsAmount];
-        Arrays.fill(tChances, 10000 / aOutputsAmount);
+        Arrays.fill(tChances, aChancePerOutput);
 
         switch (difference) {
             case 0:
