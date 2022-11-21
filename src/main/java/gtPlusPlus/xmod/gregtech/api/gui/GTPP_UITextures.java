@@ -2,9 +2,16 @@ package gtPlusPlus.xmod.gregtech.api.gui;
 
 import static gtPlusPlus.core.lib.CORE.MODID;
 
+import com.gtnewhorizons.modularui.api.drawable.AdaptableUITexture;
 import com.gtnewhorizons.modularui.api.drawable.UITexture;
 
 public class GTPP_UITextures {
+
+    public static final AdaptableUITexture BACKGROUND_YELLOW =
+            AdaptableUITexture.of(MODID, "gui/background/yellow", 176, 166, 4);
+
+    public static final AdaptableUITexture SLOT_ITEM_YELLOW =
+            AdaptableUITexture.of(MODID, "gui/slot/item_yellow", 18, 18, 1);
 
     public static final UITexture BUTTON_STANDARD_BRONZE = UITexture.fullImage(MODID, "gui/button/standard_bronze");
 
@@ -33,6 +40,13 @@ public class GTPP_UITextures {
     public static final UITexture PROGRESSBAR_BOILER_EMPTY = UITexture.fullImage(MODID, "gui/progressbar/boiler_empty");
     public static final UITexture PROGRESSBAR_FUEL = UITexture.fullImage(MODID, "gui/progressbar/fuel");
     public static final UITexture PROGRESSBAR_ARROW_2 = UITexture.fullImage(MODID, "gui/progressbar/arrow_2");
+
+    public static final AdaptableUITexture TAB_TITLE_YELLOW =
+            AdaptableUITexture.of(MODID, "gui/tab/title_yellow", 28, 28, 4);
+    public static final AdaptableUITexture TAB_TITLE_ANGULAR_YELLOW =
+            AdaptableUITexture.of(MODID, "gui/tab/title_angular_yellow", 28, 28, 4);
+    public static final AdaptableUITexture TAB_TITLE_DARK_YELLOW =
+            AdaptableUITexture.of(MODID, "gui/tab/title_dark_yellow", 28, 28, 4);
 
     public static final UITexture OVERLAY_BUTTON_HARVESTER_MODE =
             UITexture.fullImage(MODID, "gui/overlay_button/harvester_mode");
