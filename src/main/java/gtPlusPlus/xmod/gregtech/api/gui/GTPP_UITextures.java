@@ -41,4 +41,5 @@ public class GTPP_UITextures {
             UITexture.fullImage(MODID, "gui/overlay_button/flush_bronze");
     public static final UITexture OVERLAY_BUTTON_AUTOMATION =
             UITexture.fullImage(MODID, "gui/overlay_button/automation");
+    public static final UITexture OVERLAY_BUTTON_LOCK = UITexture.fullImage(MODID, "gui/overlay_button/lock");
 }
