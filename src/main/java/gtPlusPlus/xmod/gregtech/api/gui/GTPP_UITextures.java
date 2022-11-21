@@ -26,11 +26,13 @@ public class GTPP_UITextures {
             UITexture.fullImage(MODID, "gui/overlay_slot/craft_output_bronze");
     public static final UITexture OVERLAY_SLOT_PARK = UITexture.fullImage(MODID, "gui/overlay_slot/park");
     public static final UITexture OVERLAY_SLOT_PARK_BRONZE = UITexture.fullImage(MODID, "gui/overlay_slot/park_bronze");
+    public static final UITexture OVERLAY_SLOT_INGOT = UITexture.fullImage(MODID, "gui/overlay_slot/ingot");
 
     public static final UITexture PROGRESSBAR_FLUID_REACTOR =
             UITexture.fullImage(MODID, "gui/progressbar/fluid_reactor");
     public static final UITexture PROGRESSBAR_BOILER_EMPTY = UITexture.fullImage(MODID, "gui/progressbar/boiler_empty");
     public static final UITexture PROGRESSBAR_FUEL = UITexture.fullImage(MODID, "gui/progressbar/fuel");
+    public static final UITexture PROGRESSBAR_ARROW_2 = UITexture.fullImage(MODID, "gui/progressbar/arrow_2");
 
     public static final UITexture OVERLAY_BUTTON_HARVESTER_MODE =
             UITexture.fullImage(MODID, "gui/overlay_button/harvester_mode");
