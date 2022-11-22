@@ -598,7 +598,7 @@ public class ConfigHandler {
 
         // Visual
         enableAnimatedTextures = config.getBoolean(
-                "enableAnimatedTextures", "visual", false, "Enables Animated GT++ Textures, Requires Restart");
+                "enableAnimatedTextures", "visual", true, "Enables Animated GT++ Textures, Requires Restart");
         config.save();
     }
 }
