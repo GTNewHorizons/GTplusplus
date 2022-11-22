@@ -37,6 +37,7 @@ public class GTPP_UITextures {
     public static final UITexture OVERLAY_SLOT_PARK_BRONZE = UITexture.fullImage(MODID, "gui/overlay_slot/park_bronze");
     public static final UITexture OVERLAY_SLOT_INGOT = UITexture.fullImage(MODID, "gui/overlay_slot/ingot");
     public static final UITexture OVERLAY_SLOT_ARROW_4 = UITexture.fullImage(MODID, "gui/overlay_slot/arrow_4");
+    public static final UITexture OVERLAY_SLOT_TURBINE = UITexture.fullImage(MODID, "gui/overlay_slot/turbine");
 
     public static final UITexture PROGRESSBAR_FLUID_REACTOR =
             UITexture.fullImage(MODID, "gui/progressbar/fluid_reactor");
