@@ -21,7 +21,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
-import gtPlusPlus.xmod.gregtech.api.gui.basic.*;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import ic2.api.crops.*;
 import ic2.core.item.DamageHandler;
