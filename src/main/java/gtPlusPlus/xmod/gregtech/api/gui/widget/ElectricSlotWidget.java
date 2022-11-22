@@ -11,13 +11,6 @@ import net.minecraft.item.ItemStack;
 
 public class ElectricSlotWidget extends SlotWidget {
 
-    private ElectricSlotWidget(BaseSlot slot) {
-        super(slot);
-        setFilter(stack -> (accepts(stack))
-                || (stack.getItem() instanceof GT_MetaGenerated_Tool)
-                || (stack.getItem() instanceof IElectricItem));
-    }
-
     public ElectricSlotWidget(IItemHandlerModifiable handler, int index) {
         this(new BaseSlot(handler, index, false) {
             @Override
@@ -25,6 +18,13 @@ public class ElectricSlotWidget extends SlotWidget {
                 return 1;
             }
         });
+    }
+
+    private ElectricSlotWidget(BaseSlot slot) {
+        super(slot);
+        setFilter(stack -> (accepts(stack))
+                || (stack.getItem() instanceof GT_MetaGenerated_Tool)
+                || (stack.getItem() instanceof IElectricItem));
     }
 
     private boolean accepts(final ItemStack stack) {
