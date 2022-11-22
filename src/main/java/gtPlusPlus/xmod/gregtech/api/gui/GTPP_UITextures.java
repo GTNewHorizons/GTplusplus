@@ -4,6 +4,8 @@ import static gtPlusPlus.core.lib.CORE.MODID;
 
 import com.gtnewhorizons.modularui.api.drawable.AdaptableUITexture;
 import com.gtnewhorizons.modularui.api.drawable.UITexture;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class GTPP_UITextures {
 
@@ -34,6 +36,7 @@ public class GTPP_UITextures {
     public static final UITexture OVERLAY_SLOT_PARK = UITexture.fullImage(MODID, "gui/overlay_slot/park");
     public static final UITexture OVERLAY_SLOT_PARK_BRONZE = UITexture.fullImage(MODID, "gui/overlay_slot/park_bronze");
     public static final UITexture OVERLAY_SLOT_INGOT = UITexture.fullImage(MODID, "gui/overlay_slot/ingot");
+    public static final UITexture OVERLAY_SLOT_ARROW_4 = UITexture.fullImage(MODID, "gui/overlay_slot/arrow_4");
 
     public static final UITexture PROGRESSBAR_FLUID_REACTOR =
             UITexture.fullImage(MODID, "gui/progressbar/fluid_reactor");
@@ -56,4 +59,17 @@ public class GTPP_UITextures {
     public static final UITexture OVERLAY_BUTTON_AUTOMATION =
             UITexture.fullImage(MODID, "gui/overlay_button/automation");
     public static final UITexture OVERLAY_BUTTON_LOCK = UITexture.fullImage(MODID, "gui/overlay_button/lock");
+    public static final UITexture[] OVERLAY_BUTTON_THROUGHPUT = IntStream.range(
+                    0, 4) // GT_MetaTileEntity_ElectricAutoWorkbench#MAX_THROUGHPUT
+            .mapToObj(i -> UITexture.fullImage(MODID, "gui/overlay_button/throughput_" + i))
+            .collect(Collectors.toList())
+            .toArray(new UITexture[0]);
+    public static final UITexture[] OVERLAY_BUTTON_MODE = IntStream.range(
+                    0, 10) // GT_MetaTileEntity_ElectricAutoWorkbench#MAX_MODES
+            .mapToObj(i -> UITexture.fullImage(MODID, "gui/overlay_button/mode_" + i))
+            .collect(Collectors.toList())
+            .toArray(new UITexture[0]);
+
+    public static final UITexture PICTURE_WORKBENCH_CIRCLE = UITexture.fullImage(MODID, "gui/picture/workbench_circle");
+    public static final UITexture PICTURE_ARROW_WHITE_DOWN = UITexture.fullImage(MODID, "gui/picture/arrow_white_down");
 }
