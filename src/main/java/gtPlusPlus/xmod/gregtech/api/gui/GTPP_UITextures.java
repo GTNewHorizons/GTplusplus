@@ -16,6 +16,7 @@ public class GTPP_UITextures {
             AdaptableUITexture.of(MODID, "gui/slot/item_yellow", 18, 18, 1);
 
     public static final UITexture BUTTON_STANDARD_BRONZE = UITexture.fullImage(MODID, "gui/button/standard_bronze");
+    public static final UITexture BUTTON_STANDARD_16x16 = UITexture.fullImage(MODID, "gui/button/standard_16x16");
 
     public static final UITexture OVERLAY_SLOT_COAL = UITexture.fullImage(MODID, "gui/overlay_slot/coal");
     public static final UITexture OVERLAY_SLOT_CANISTER_DARK =
@@ -44,6 +45,8 @@ public class GTPP_UITextures {
     public static final UITexture PROGRESSBAR_BOILER_EMPTY = UITexture.fullImage(MODID, "gui/progressbar/boiler_empty");
     public static final UITexture PROGRESSBAR_FUEL = UITexture.fullImage(MODID, "gui/progressbar/fuel");
     public static final UITexture PROGRESSBAR_ARROW_2 = UITexture.fullImage(MODID, "gui/progressbar/arrow_2");
+    public static final UITexture PROGRESSBAR_COMPUTER_ENERGY =
+            UITexture.fullImage(MODID, "gui/progressbar/computer_energy");
 
     public static final AdaptableUITexture TAB_TITLE_YELLOW =
             AdaptableUITexture.of(MODID, "gui/tab/title_yellow", 28, 28, 4);
@@ -70,7 +73,22 @@ public class GTPP_UITextures {
             .mapToObj(i -> UITexture.fullImage(MODID, "gui/overlay_button/mode_" + i))
             .collect(Collectors.toList())
             .toArray(new UITexture[0]);
+    public static final UITexture OVERLAY_BUTTON_COMPUTER_MODE =
+            UITexture.fullImage(MODID, "gui/overlay_button/computer_mode");
+    public static final UITexture OVERLAY_BUTTON_SAVE = UITexture.fullImage(MODID, "gui/overlay_button/save");
+    public static final UITexture OVERLAY_BUTTON_LOAD = UITexture.fullImage(MODID, "gui/overlay_button/load");
+    public static final UITexture OVERLAY_BUTTON_NUCLEAR_SWITCH =
+            UITexture.fullImage(MODID, "gui/overlay_button/nuclear_switch");
+    public static final UITexture OVERLAY_BUTTON_ARROW_LEFT =
+            UITexture.fullImage(MODID, "gui/overlay_button/arrow_left");
+    public static final UITexture OVERLAY_BUTTON_ARROW_RIGHT =
+            UITexture.fullImage(MODID, "gui/overlay_button/arrow_right");
 
     public static final UITexture PICTURE_WORKBENCH_CIRCLE = UITexture.fullImage(MODID, "gui/picture/workbench_circle");
     public static final UITexture PICTURE_ARROW_WHITE_DOWN = UITexture.fullImage(MODID, "gui/picture/arrow_white_down");
+    public static final UITexture PICTURE_V202 = UITexture.fullImage(MODID, "gui/picture/v202");
+    public static final UITexture PICTURE_COMPUTER_TOP = UITexture.fullImage(MODID, "gui/picture/computer_top");
+    public static final UITexture PICTURE_COMPUTER_GRID = UITexture.fullImage(MODID, "gui/picture/computer_grid");
+    public static final UITexture PICTURE_ARROWS_SEPARATE = UITexture.fullImage(MODID, "gui/picture/arrows_separate");
+    public static final UITexture PICTURE_ARROWS_FUSION = UITexture.fullImage(MODID, "gui/picture/arrows_fusion");
 }
