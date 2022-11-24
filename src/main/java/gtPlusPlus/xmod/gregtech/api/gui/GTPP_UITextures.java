@@ -14,6 +14,14 @@ public class GTPP_UITextures {
 
     public static final AdaptableUITexture SLOT_ITEM_YELLOW =
             AdaptableUITexture.of(MODID, "gui/slot/item_yellow", 18, 18, 1);
+    public static final AdaptableUITexture[] SLOT_INVENTORY_MANAGER = new AdaptableUITexture[] {
+        AdaptableUITexture.of(MODID, "gui/slot/red", 18, 18, 1),
+        AdaptableUITexture.of(MODID, "gui/slot/green", 18, 18, 1),
+        AdaptableUITexture.of(MODID, "gui/slot/blue", 18, 18, 1),
+        AdaptableUITexture.of(MODID, "gui/slot/cyan", 18, 18, 1),
+        AdaptableUITexture.of(MODID, "gui/slot/magenta", 18, 18, 1),
+        AdaptableUITexture.of(MODID, "gui/slot/yellow", 18, 18, 1),
+    };
 
     public static final UITexture BUTTON_STANDARD_BRONZE = UITexture.fullImage(MODID, "gui/button/standard_bronze");
     public static final UITexture BUTTON_STANDARD_16x16 = UITexture.fullImage(MODID, "gui/button/standard_16x16");
@@ -39,6 +47,23 @@ public class GTPP_UITextures {
     public static final UITexture OVERLAY_SLOT_INGOT = UITexture.fullImage(MODID, "gui/overlay_slot/ingot");
     public static final UITexture OVERLAY_SLOT_ARROW_4 = UITexture.fullImage(MODID, "gui/overlay_slot/arrow_4");
     public static final UITexture OVERLAY_SLOT_TURBINE = UITexture.fullImage(MODID, "gui/overlay_slot/turbine");
+    public static final UITexture OVERLAY_SLOT_CHEST = UITexture.fullImage(MODID, "gui/overlay_slot/chest");
+    public static final UITexture[] OVERLAY_SLOT_INVENTORY_MANAGER_COLOR = new UITexture[] {
+        UITexture.fullImage(MODID, "gui/overlay_slot/red"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/green"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/blue"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/cyan"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/magenta"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/yellow"),
+    };
+    public static final UITexture[] OVERLAY_SLOT_INVENTORY_MANAGER_ARROW = new UITexture[] {
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_red"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_green"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_blue"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_cyan"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_magenta"),
+        UITexture.fullImage(MODID, "gui/overlay_slot/arrow_yellow"),
+    };
 
     public static final UITexture PROGRESSBAR_FLUID_REACTOR =
             UITexture.fullImage(MODID, "gui/progressbar/fluid_reactor");
@@ -83,6 +108,24 @@ public class GTPP_UITextures {
             UITexture.fullImage(MODID, "gui/overlay_button/arrow_left");
     public static final UITexture OVERLAY_BUTTON_ARROW_RIGHT =
             UITexture.fullImage(MODID, "gui/overlay_button/arrow_right");
+    public static final UITexture[] OVERLAY_BUTTON_DIRECTION = new UITexture[] {
+        UITexture.fullImage(MODID, "gui/overlay_button/bottom"),
+        UITexture.fullImage(MODID, "gui/overlay_button/top"),
+        UITexture.fullImage(MODID, "gui/overlay_button/north"),
+        UITexture.fullImage(MODID, "gui/overlay_button/south"),
+        UITexture.fullImage(MODID, "gui/overlay_button/west"),
+        UITexture.fullImage(MODID, "gui/overlay_button/east"),
+    };
+    public static final UITexture[] OVERLAY_BUTTON_DIRECTION_GRAY = new UITexture[] {
+        UITexture.fullImage(MODID, "gui/overlay_button/bottom_gray"),
+        UITexture.fullImage(MODID, "gui/overlay_button/top_gray"),
+        UITexture.fullImage(MODID, "gui/overlay_button/north_gray"),
+        UITexture.fullImage(MODID, "gui/overlay_button/south_gray"),
+        UITexture.fullImage(MODID, "gui/overlay_button/west_gray"),
+        UITexture.fullImage(MODID, "gui/overlay_button/east_gray"),
+    };
+    public static final UITexture OVERLAY_BUTTON_TIP_GREEN = UITexture.fullImage(MODID, "gui/overlay_button/tip_green");
+    public static final UITexture OVERLAY_BUTTON_TIP_RED = UITexture.fullImage(MODID, "gui/overlay_button/tip_red");
 
     public static final UITexture PICTURE_WORKBENCH_CIRCLE = UITexture.fullImage(MODID, "gui/picture/workbench_circle");
     public static final UITexture PICTURE_ARROW_WHITE_DOWN = UITexture.fullImage(MODID, "gui/picture/arrow_white_down");
