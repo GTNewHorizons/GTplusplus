@@ -126,6 +126,12 @@ public class GTPP_UITextures {
     };
     public static final UITexture OVERLAY_BUTTON_TIP_GREEN = UITexture.fullImage(MODID, "gui/overlay_button/tip_green");
     public static final UITexture OVERLAY_BUTTON_TIP_RED = UITexture.fullImage(MODID, "gui/overlay_button/tip_red");
+    public static final UITexture OVERLAY_BUTTON_ACTIVE_STATE =
+            UITexture.fullImage(MODID, "gui/overlay_button/active_state");
+    public static final UITexture OVERLAY_BUTTON_CHANGE_MODE =
+            UITexture.fullImage(MODID, "gui/overlay_button/change_mode");
+    public static final UITexture OVERLAY_BUTTON_PLUS_MINUS =
+            UITexture.fullImage(MODID, "gui/overlay_button/plus_minus");
 
     public static final UITexture PICTURE_WORKBENCH_CIRCLE = UITexture.fullImage(MODID, "gui/picture/workbench_circle");
     public static final UITexture PICTURE_ARROW_WHITE_DOWN = UITexture.fullImage(MODID, "gui/picture/arrow_white_down");
@@ -134,4 +140,9 @@ public class GTPP_UITextures {
     public static final UITexture PICTURE_COMPUTER_GRID = UITexture.fullImage(MODID, "gui/picture/computer_grid");
     public static final UITexture PICTURE_ARROWS_SEPARATE = UITexture.fullImage(MODID, "gui/picture/arrows_separate");
     public static final UITexture PICTURE_ARROWS_FUSION = UITexture.fullImage(MODID, "gui/picture/arrows_fusion");
+    public static final UITexture PICTURE_REDSTONE_CIRCUIT_SCREEN =
+            UITexture.fullImage(MODID, "gui/picture/redstone_circuit_screen");
+    public static final UITexture PICTURE_ELECTRICITY_ERROR =
+            UITexture.fullImage(MODID, "gui/picture/electricity_error");
+    public static final UITexture PICTURE_ELECTRICITY_FINE = UITexture.fullImage(MODID, "gui/picture/electricity_fine");
 }
