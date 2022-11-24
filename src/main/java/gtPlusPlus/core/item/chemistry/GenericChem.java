@@ -108,6 +108,14 @@ public class GenericChem extends ItemPackage {
     public static ItemStack mFormaldehydeCatalyst;
     public static ItemStack mSolidAcidCatalyst;
     public static ItemStack mInfiniteMutationCatalyst;
+    public static ItemStack mPlatinumGroupCatalyst;
+    public static ItemStack mPlasticPolymerCatalyst;
+    public static ItemStack mAdhesionPromoterCatalyst;
+    public static ItemStack mRubberPolymerCatalyst;
+    public static ItemStack mRareEarthGroupCatalyst;
+    public static ItemStack mSimpleNaquadahCatalyst;
+    public static ItemStack mAdvancedNaquadahCatalyst;
+    public static ItemStack mUltimatePlasticCatalyst;
 
     public static ItemStack mMillingBallAlumina;
     public static ItemStack mMillingBallSoapstone;
@@ -156,6 +164,14 @@ public class GenericChem extends ItemPackage {
         mFormaldehydeCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 13, 1);
         mSolidAcidCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 14, 1);
         mInfiniteMutationCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 15, 1);
+        mPlatinumGroupCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 16, 1);
+        mPlasticPolymerCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 17, 1);
+        mAdhesionPromoterCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 18, 1);
+        mRubberPolymerCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 19, 1);
+        mRareEarthGroupCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 20, 1);
+        mSimpleNaquadahCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 21, 1);
+        mAdvancedNaquadahCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 22, 1);
+        mUltimatePlasticCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 23, 1);
     }
 
     public void registerOreDict() {
@@ -176,6 +192,14 @@ public class GenericChem extends ItemPackage {
         ItemUtils.addItemToOreDictionary(mFormaldehydeCatalyst, "catalystFormaldehyde");
         ItemUtils.addItemToOreDictionary(mSolidAcidCatalyst, "catalystSolidAcid");
         ItemUtils.addItemToOreDictionary(mInfiniteMutationCatalyst, "catalystInfiniteMutation");
+        ItemUtils.addItemToOreDictionary(mPlatinumGroupCatalyst, "catalystPlatinumGroup");
+        ItemUtils.addItemToOreDictionary(mPlasticPolymerCatalyst, "catalystPlasticPolymer");
+        ItemUtils.addItemToOreDictionary(mAdhesionPromoterCatalyst, "catalystAdhesionPromoter");
+        ItemUtils.addItemToOreDictionary(mRubberPolymerCatalyst, "catalystRubberPolymer");
+        ItemUtils.addItemToOreDictionary(mRareEarthGroupCatalyst, "catalystRareEarthGroup");
+        ItemUtils.addItemToOreDictionary(mSimpleNaquadahCatalyst, "catalystSimpleNaquadah");
+        ItemUtils.addItemToOreDictionary(mAdvancedNaquadahCatalyst, "catalystAdvancedNaquadah");
+        ItemUtils.addItemToOreDictionary(mUltimatePlasticCatalyst, "catalystUltimatePlastic");
     }
 
     @Override

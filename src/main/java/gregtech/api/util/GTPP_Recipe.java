@@ -201,6 +201,23 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                         true)
                 .useModularUI(true);
 
+        public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map(
+                new HashSet<GT_Recipe>(200),
+                "gtpp.recipe.quantumforcesmelter",
+                "Quantum Force Smelter",
+                null,
+                RES_PATH_GUI + "basicmachines/FissionFuel",
+                9,
+                9,
+                1,
+                0,
+                1,
+                E,
+                1,
+                E,
+                true,
+                true);
+
         public static final GT_Recipe_Map sGeoThermalFuels = new GT_Recipe_Map(
                         new HashSet<>(10),
                         "gtpp.recipe.geothermalfuel",

@@ -22,7 +22,7 @@ public class ItemGenericChemBase extends Item {
 
     protected final IIcon base[];
 
-    private final int aMetaSize = 16;
+    private final int aMetaSize = 24;
 
     /*
      * 0 - Red Metal Catalyst //FeCu
@@ -40,6 +40,15 @@ public class ItemGenericChemBase extends Item {
      * 12 - Potassium Hydroxide // KOH
      * 13 - Formaldehyde Catalyst //Fe16V1
      * 14 - Solid Acid Catalyst //H2SO4
+     * 15 - Infinite Mutation Catalyst (for Mutated Living Solder)
+     * 16 - Platinum Group Catalyst (for platline skip)
+     * 17 - Plastic Polymer Catalyst (for early plastics skip)
+     * 18 - Adhesion Promoter Catalyst (for glue/solder skip)
+     * 19 - Rubber Polymer Catalyst (for early rubbers skip)
+     * 20 - Rare-Earth Group Catalyst (for monaline skip)
+     * 21 - Simple Naquadah Catalyst (for early naqline skip)
+     * 22 - Advanced Naquadah Catalyst (for late naqline skip)
+     * 23 - Ultimate Plasticizer Catalyst (for late plastics skip)
      */
 
     public ItemGenericChemBase() {
