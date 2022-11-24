@@ -278,6 +278,7 @@ public interface IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue);
+
     public boolean addLFTRRecipe(ItemStack aInput1, ItemStack aInput2, ItemStack aOutput1, int aDuration, int aEUt);
 
     public boolean addLFTRRecipe(
