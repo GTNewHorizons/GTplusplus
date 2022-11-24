@@ -45,7 +45,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
     private HeatingCoilLevel mHeatingCapacity;
     private boolean mDehydratorMode = false;
     private int mCasing;
-    private IStructureDefinition<GregtechMetaTileEntity_IndustrialDehydrator> STRUCTURE_DEFINITION = null;
+    private static IStructureDefinition<GregtechMetaTileEntity_IndustrialDehydrator> STRUCTURE_DEFINITION = null;
 
     public GregtechMetaTileEntity_IndustrialDehydrator(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -152,7 +152,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
 
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
         return mDehydratorMode
-                ? GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes
+                ? GTPP_Recipe.GTPP_Recipe_Map.sMultiblockChemicalDehydratorRecipes
                 : GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes;
     }
 

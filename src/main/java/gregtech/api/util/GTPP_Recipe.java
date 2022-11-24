@@ -723,6 +723,23 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 .setProgressBar(GT_UITextures.PROGRESSBAR_MIXER, ProgressBar.Direction.CIRCULAR_CW)
                 .setUsualFluidInputCount(6)
                 .setUsualFluidOutputCount(6);
+        public static final GTPP_Recipe_Map_Internal sMultiblockChemicalDehydratorRecipes =
+                new GTPP_Recipe_Map_MultiNoCell(
+                        new HashSet<GT_Recipe>(2000),
+                        "gtpp.recipe.multidehydrator",
+                        "Multiblock Dehydrator",
+                        null,
+                        RES_PATH_GUI + "basicmachines/FissionFuel",
+                        4,
+                        12,
+                        0,
+                        0,
+                        1,
+                        "",
+                        0,
+                        "",
+                        false,
+                        true);
 
         // Semi-Fluid Fuel Map
         public static final GT_Recipe_Map_Fuel sSemiFluidLiquidFuels = (GT_Recipe_Map_Fuel) new GT_Recipe_Map_Fuel(
