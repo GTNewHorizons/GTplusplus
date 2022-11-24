@@ -181,6 +181,16 @@ public interface IGregtech_RecipeAdder {
             int aEUt,
             int aSpecialValue);
 
+    boolean addBlastSmelterRecipe(
+            ItemStack[] aInput,
+            FluidStack[] aInputFluid,
+            FluidStack aOutput,
+            ItemStack[] aOutputStack,
+            int[] aChance,
+            int aDuration,
+            int aEUt,
+            int aSpecialValue);
+
     public boolean addBlastSmelterRecipe(
             ItemStack[] aInput,
             FluidStack aInputFluid,
