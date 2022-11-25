@@ -741,7 +741,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 .setUsualFluidInputCount(6)
                 .setUsualFluidOutputCount(6);
 
-public static final GT_Recipe_Map sMultiblockChemicalDehydratorRecipes = new GT_Recipe_Map_LargeNEI(
+        public static final GT_Recipe_Map sMultiblockChemicalDehydratorRecipes = new GT_Recipe_Map_LargeNEI(
                         new HashSet<>(2000),
                         "gtpp.recipe.multidehydrator",
                         "Multiblock Dehydrator",

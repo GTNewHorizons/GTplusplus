@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.gregtech.api.gui;
 
 import static gtPlusPlus.core.lib.CORE.MODID;
 
-import com.gtnewhorizons.modularui.api.drawable.UITexture;
 import com.gtnewhorizons.modularui.api.drawable.AdaptableUITexture;
 import com.gtnewhorizons.modularui.api.drawable.UITexture;
 import java.util.stream.Collectors;
@@ -31,9 +30,6 @@ public class GTPP_UITextures {
     public static final UITexture BUTTON_STANDARD_BRONZE = UITexture.fullImage(MODID, "gui/button/standard_bronze");
     public static final UITexture BUTTON_STANDARD_16x16 = UITexture.fullImage(MODID, "gui/button/standard_16x16");
 
-    public static final UITexture OVERLAY_SLOT_COAL = UITexture.fullImage(MODID, "gui/overlay_slot/coal");
-    public static final UITexture OVERLAY_SLOT_CANISTER_DARK =
-            UITexture.fullImage(MODID, "gui/overlay_slot/canister_dark");
     public static final UITexture OVERLAY_SLOT_WEED_EX = UITexture.fullImage(MODID, "gui/overlay_slot/weed_ex");
     public static final UITexture OVERLAY_SLOT_FERTILIZER = UITexture.fullImage(MODID, "gui/overlay_slot/fertilizer");
     public static final UITexture OVERLAY_SLOT_ELECTRIC_TOOL =
