@@ -259,18 +259,19 @@ public interface IGregtech_RecipeAdder {
     /**
      * Adds a Recipe for the Quantum Force Smelter (up to 9 Inputs)
      *
-     * @param aInput   = ItemStack[] (not null, and respects StackSize)
-     * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
-     * @param aFluidOutput   = Output of the Molten Salts (can be null, and respects StackSize)
      *
-     * public boolean addQuantumTransformerRecipe(
-     * ItemStack[] aInput,
-     * FluidStack[] aFluidInput,
-     * FluidStack[] aFluidOutput,
-     * ItemStack[] aOutputStack,
-     * int[] aChances,
-     *
-     * Adds a Recipe for the LFTRr. (up to 9 Inputs, More than 1 fluids)
+     **/
+    public boolean addQuantumTransformerRecipe(
+            ItemStack[] aInput,
+            FluidStack[] aFluidInput,
+            FluidStack[] aFluidOutput,
+            ItemStack[] aOutputStack,
+            int[] aChances,
+            int aDuration,
+            int aEUt,
+            int aSpecialValue);
+
+    /** Adds a Recipe for the LFTRr. (up to 9 Inputs, More than 1 fluids)
      *
      * @param aInput   = ItemStack[] (not null, and respects StackSize)
      * @param aFluidInput   = FluidStack[] (can be null, and respects StackSize)

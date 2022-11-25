@@ -636,16 +636,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
         return GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceTransformerRecipes;
     }
