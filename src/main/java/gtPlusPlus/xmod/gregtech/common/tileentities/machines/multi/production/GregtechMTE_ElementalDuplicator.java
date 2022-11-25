@@ -766,4 +766,9 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
         return false;
     }
+
+    @Override
+    public boolean doesBindPlayerInventory() {
+        return false;
+    }
 }

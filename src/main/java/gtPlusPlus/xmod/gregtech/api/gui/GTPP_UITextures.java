@@ -72,6 +72,7 @@ public class GTPP_UITextures {
     public static final UITexture PROGRESSBAR_ARROW_2 = UITexture.fullImage(MODID, "gui/progressbar/arrow_2");
     public static final UITexture PROGRESSBAR_COMPUTER_ENERGY =
             UITexture.fullImage(MODID, "gui/progressbar/computer_energy");
+    public static final UITexture PROGRESSBAR_PSS_ENERGY = UITexture.fullImage(MODID, "gui/progressbar/pss_energy");
 
     public static final AdaptableUITexture TAB_TITLE_YELLOW =
             AdaptableUITexture.of(MODID, "gui/tab/title_yellow", 28, 28, 4);
@@ -145,4 +146,5 @@ public class GTPP_UITextures {
     public static final UITexture PICTURE_ELECTRICITY_ERROR =
             UITexture.fullImage(MODID, "gui/picture/electricity_error");
     public static final UITexture PICTURE_ELECTRICITY_FINE = UITexture.fullImage(MODID, "gui/picture/electricity_fine");
+    public static final UITexture PICTURE_ENERGY_FRAME = UITexture.fullImage(MODID, "gui/picture/energy_frame");
 }

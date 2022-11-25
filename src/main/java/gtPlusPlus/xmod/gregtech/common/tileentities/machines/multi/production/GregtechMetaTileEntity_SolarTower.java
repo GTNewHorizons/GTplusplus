@@ -838,4 +838,9 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
             "Internal Heat Level: " + this.mHeatLevel, "Connected Solar Reflectors: " + this.mSolarHeaters.size()
         };
     }
+
+    @Override
+    public boolean doesBindPlayerInventory() {
+        return false;
+    }
 }

@@ -513,4 +513,9 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public boolean doesBindPlayerInventory() {
+        return false;
+    }
 }
