@@ -372,16 +372,6 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public String getMachineType() {
         return "Heat Exchanger";
     }

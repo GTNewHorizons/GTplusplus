@@ -165,16 +165,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
         return (tStackSize + tMaxStackSize - 1) / tMaxStackSize;
     }
 
-    public abstract boolean hasSlotInGUI();
-
     public long getTotalRuntimeInTicks() {
         return this.mTotalRunTime;
-    }
-
-    public abstract String getCustomGUIResourceName();
-
-    public boolean requiresVanillaGtGUI() {
-        return false;
     }
 
     public abstract String getMachineType();

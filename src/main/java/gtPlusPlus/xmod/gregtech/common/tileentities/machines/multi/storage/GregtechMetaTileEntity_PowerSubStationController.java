@@ -151,16 +151,6 @@ public class GregtechMetaTileEntity_PowerSubStationController
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {
         // if (mBatteryCapacity <= 0) return false;
         GT_UIInfos.openGTTileEntityUI(aBaseMetaTileEntity, aPlayer);

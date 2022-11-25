@@ -605,16 +605,6 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public String getMachineType() {
         return "Miner";
     }

@@ -633,16 +633,6 @@ public class GregtechMetaTileEntity_Adv_AssemblyLine
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return false;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public String getMachineType() {
         return "Assembly Line";
     }

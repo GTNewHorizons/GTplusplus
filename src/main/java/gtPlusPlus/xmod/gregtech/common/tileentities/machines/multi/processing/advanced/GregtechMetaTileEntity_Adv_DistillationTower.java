@@ -386,21 +386,6 @@ public class GregtechMetaTileEntity_Adv_DistillationTower
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
-    public boolean requiresVanillaGtGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return "DistillationTower";
-    }
-
-    @Override
     public String getMachineType() {
         return "Distillery, Distillation Tower";
     }

@@ -268,11 +268,6 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase
         return ModBlocks.blockSpecialMultiCasings;
     }
 
-    @Override
-    public final boolean hasSlotInGUI() {
-        return true;
-    }
-
     public abstract int getCasingMeta();
 
     public byte getTurbineShaftMeta() {

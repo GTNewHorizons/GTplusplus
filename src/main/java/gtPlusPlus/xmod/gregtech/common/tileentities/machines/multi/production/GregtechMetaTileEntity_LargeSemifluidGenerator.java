@@ -314,16 +314,6 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return false;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public String getMachineType() {
         return "Semifluid Generator";
     }

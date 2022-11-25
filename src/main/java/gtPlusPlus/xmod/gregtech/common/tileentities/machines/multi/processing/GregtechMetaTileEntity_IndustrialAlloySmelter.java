@@ -96,16 +96,6 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return false;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return null;
-    }
-
-    @Override
     public String getMachineType() {
         return "Alloy Smelter";
     }

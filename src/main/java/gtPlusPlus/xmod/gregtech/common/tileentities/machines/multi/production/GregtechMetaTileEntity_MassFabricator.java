@@ -134,16 +134,6 @@ public class GregtechMetaTileEntity_MassFabricator
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return false;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return "MatterFabricator";
-    }
-
-    @Override
     public void onConfigLoad(final GT_Config aConfig) {
         super.onConfigLoad(aConfig);
         sDurationMultiplier = aConfig.get(
