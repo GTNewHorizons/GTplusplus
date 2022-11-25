@@ -741,6 +741,25 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 .setUsualFluidInputCount(6)
                 .setUsualFluidOutputCount(6);
 
+public static final GT_Recipe_Map sMultiblockChemicalDehydratorRecipes = new GT_Recipe_Map_LargeNEI(
+                        new HashSet<>(2000),
+                        "gtpp.recipe.multidehydrator",
+                        "Multiblock Dehydrator",
+                        null,
+                        RES_PATH_GUI + "basicmachines/FissionFuel",
+                        6,
+                        9,
+                        0,
+                        0,
+                        1,
+                        "",
+                        0,
+                        "",
+                        false,
+                        true)
+                .setUsualFluidInputCount(3)
+                .setUsualFluidOutputCount(3);
+
         // Semi-Fluid Fuel Map
         public static final GT_Recipe_Map_Fuel sSemiFluidLiquidFuels = (GT_Recipe_Map_Fuel) new GT_Recipe_Map_Fuel(
                         new HashSet<>(10),

@@ -152,7 +152,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
 
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
         return mDehydratorMode
-                ? GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes
+                ? GTPP_Recipe.GTPP_Recipe_Map.sMultiblockChemicalDehydratorRecipes
                 : GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes;
     }
 
@@ -169,11 +169,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
     }
 
     @Override
-    public boolean hasSlotInGUI() {
-        return true;
-    }
-
-    @Override
     public String getMachineType() {
         return "Vacuum Furnace / Dehydrator";
     }
@@ -186,16 +181,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
     @Override
     public int getEuDiscountForParallelism() {
         return 50;
-    }
-
-    @Override
-    public boolean requiresVanillaGtGUI() {
-        return true;
-    }
-
-    @Override
-    public String getCustomGUIResourceName() {
-        return "ElectricBlastFurnace";
     }
 
     public boolean checkRecipe(ItemStack aStack) {
