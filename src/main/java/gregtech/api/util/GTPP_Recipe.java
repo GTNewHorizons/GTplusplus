@@ -4,6 +4,7 @@ import static gregtech.api.enums.GT_Values.*;
 
 import com.gtnewhorizons.modularui.api.math.Pos2d;
 import com.gtnewhorizons.modularui.common.widget.ProgressBar;
+import com.gtnewhorizons.modularui.common.widget.ProgressBar.Direction;
 import gregtech.api.gui.modularui.GT_UITextures;
 import gtPlusPlus.api.interfaces.IComparableRecipe;
 import gtPlusPlus.api.objects.Logger;
@@ -202,21 +203,25 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 .useModularUI(true);
 
         public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map(
-                new HashSet<GT_Recipe>(200),
-                "gtpp.recipe.quantumforcesmelter",
-                "Quantum Force Smelter",
-                null,
-                RES_PATH_GUI + "basicmachines/FissionFuel",
-                9,
-                9,
-                1,
-                0,
-                1,
-                E,
-                1,
-                E,
-                true,
-                true);
+                        new HashSet<GT_Recipe>(20),
+                        "gtpp.recipe.quantumforcesmelter",
+                        "Quantum Force Smelter",
+                        null,
+                        RES_PATH_GUI + "basicmachines/FissionFuel",
+                        6,
+                        6,
+                        1,
+                        0,
+                        1,
+                        "Tier: ",
+                        1,
+                        E,
+                        true,
+                        true)
+                .useModularUI(true)
+                .setProgressBar(GT_UITextures.PROGRESSBAR_ARROW_MULTIPLE, Direction.RIGHT)
+                .setUsualFluidInputCount(3)
+                .setUsualFluidOutputCount(3);
 
         public static final GT_Recipe_Map sGeoThermalFuels = new GT_Recipe_Map(
                         new HashSet<>(10),

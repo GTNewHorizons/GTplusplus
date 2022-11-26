@@ -10,19 +10,21 @@ import com.gtnewhorizon.structurelib.structure.*;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
+import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_ExtendedPowerMultiBlockBase;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.render.TextureFactory;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +39,7 @@ import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class GregtechMetaTileEntity_QuantumForceTransformer
-        extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_QuantumForceTransformer>
+        extends GT_MetaTileEntity_ExtendedPowerMultiBlockBase<GregtechMetaTileEntity_QuantumForceTransformer>
         implements ISurvivalConstructable {
 
     private int mCasing;
@@ -469,14 +471,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
-    public String getMachineType() {
-        return "Quantum Force Transformer";
-    }
-
-    @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType())
+        tt.addMachineType("Quantum Force Transformer")
                 .addInfo("Controller Block for the Quantum Force Transformer")
                 .addInfo("Allows Complex chemical lines to be performed instantly")
                 .addInfo("Requires 1 Catalyst Housing, all recipes need a catalyst")
@@ -493,7 +490,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addSeparator()
                 .beginStructureBlock(15, 21, 15, true)
                 .addController("Bottom Center")
-                .addCasingInfo("Bulk Production Frame", 96)
+                .addCasingInfo("Bulk Production Frame", 80)
                 .addCasingInfo("Quantum Force Conductor", 177)
                 .addCasingInfo("Particle Containment Casing", 224)
                 .addCasingInfo("Neutron Shielding Cores", 234)
@@ -505,7 +502,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
                 .addStructureHint("Catalyst Housing", 4)
-                .toolTipFinisher(CORE.GT_Tooltip_Builder);
+                .toolTipFinisher("Authors: Steelux + BlueWeabo - [GT++]");
         return tt;
     }
 
@@ -517,13 +514,23 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
-        if (checkPiece(MAIN_PIECE, 7, 20, 4)
-                && checkHatch()
-                && (mTecTechEnergyHatches.size() >= 1 || mEnergyHatches.size() >= 1)
-                && mMaintenanceHatches.size() == 1) {
-            return true;
+        if (!checkPiece(MAIN_PIECE, 7, 20, 4)) {
+            return false;
         }
-        return false;
+
+        if (mExoticEnergyHatches.size() != 1 && mEnergyHatches.size() < 1) {
+            return false;
+        }
+
+        if (mMaintenanceHatches.size() != 1
+                || mOutputBusses.size() < 1
+                || mInputBusses.size() < 1
+                || mInputHatches.size() < 1
+                || mOutputHatches.size() < 1) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
@@ -615,22 +622,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return mFocusingTier;
     }
 
-    @Override
     public String getSound() {
         return GregTech_API.sSoundList.get(Integer.valueOf(208));
     }
 
-    @Override
     protected IIconContainer getActiveOverlay() {
         return TexturesGtBlock.Overlay_Machine_Controller_Advanced_Active;
     }
 
-    @Override
     protected IIconContainer getInactiveOverlay() {
         return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
     }
 
-    @Override
     protected int getCasingTextureId() {
         return 70;
     }
@@ -691,7 +694,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        long tVoltage = GT_ExoticEnergyInputHelper.getMaxInputVoltageMulti(mAllEnergyHatches);
+        long tVoltage = GT_ExoticEnergyInputHelper.getMaxInputVoltageMulti(getExoticAndNormalEnergyHatchList());
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
                 .findRecipe(
@@ -717,8 +720,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
             int mCurrentMaxParallel = 0;
             for (ItemStack tItem : aItemInputs) {
-                if (ItemUtils.isCatalyst(tItem) && tItem.getItem() == aRecipeCatalyst.getItem()) {
-                    mCurrentMaxParallel += tItem.stackSize;
+                if (ItemUtils.isCatalyst(tItem) && tItem.equals(aRecipeCatalyst)) {
+                    mCurrentMaxParallel = tItem.stackSize;
                 }
 
                 if (mCurrentMaxParallel >= mMaxParallel) {
@@ -728,9 +731,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
 
             if (mFermiumHatch != null) {
-                if (mFermiumHatch.getFluid().isFluidEqual(new FluidStack(mFermium, 0))) {
+                if (mFermiumHatch.getFluid() != null
+                        && mFermiumHatch.getFluid().isFluidEqual(new FluidStack(mFermium, 1))) {
                     doFermium = true;
+                } else {
+                    doFermium = false;
                 }
+            } else {
+                doFermium = false;
             }
 
             while (mCurrentParallel <= mCurrentMaxParallel
@@ -741,8 +749,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
             this.mEfficiencyIncrease = 10000;
 
-            calculateOverclockedNessMulti(
-                    tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, mCurrentParallel, tVoltage);
+            calculateOverclockedNessMultiInternal(mCurrentMaxParallel, tTier, mCurrentMaxParallel, tVoltage, false);
 
             if (mMaxProgresstime == Integer.MAX_VALUE - 1 && mEUt == Integer.MAX_VALUE - 1) return false;
 
@@ -753,12 +760,13 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             int[] tChances;
             if (aStack == null
                     || aStack.getItemDamage() == 0
-                    || !mNeptuniumHatch.getFluid().isFluidEqual(new FluidStack(mNeptunium, 0))) {
-                tChances = new int[tRecipe.mOutputs.length];
-                Arrays.fill(tChances, 10000 / tChances.length);
+                    || mNeptuniumHatch.getFluid() == null
+                    || !mNeptuniumHatch.getFluid().isFluidEqual(new FluidStack(mNeptunium, 1))) {
+                doNeptunium = false;
+                tChances = GetChanceOutputs(tRecipe, -1);
             } else {
-                tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
                 doNeptunium = true;
+                tChances = GetChanceOutputs(tRecipe, aStack.getItemDamage() - 1);
             }
 
             ArrayList<ItemStack> tItemOutputs = new ArrayList<ItemStack>();
@@ -810,6 +818,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean onRunningTick(ItemStack aStack) {
         if (!super.onRunningTick(aStack)) {
+            criticalStopMachine();
             return false;
         }
 
@@ -830,7 +839,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 }
             }
 
-            runningTick = 0;
+            runningTick = 1;
         } else {
             runningTick++;
         }
@@ -838,12 +847,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return true;
     }
 
-    @Override
     public int getMaxParallelRecipes() {
         return 64;
     }
 
-    @Override
     public int getEuDiscountForParallelism() {
         return 0;
     }
@@ -863,7 +870,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return 0;
     }
 
-    @Override
     public int getAmountOfOutputs() {
         return 2;
     }
@@ -883,11 +889,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         switch (difference) {
             case 0:
                 for (int i = 0; i < tChances.length; i++) {
-                    if (i == aChanceIncreased) {
-                        tChances[i] = aChancePerOutput / 2 * (aOutputsAmount - 1);
-                    } else {
-                        tChances[i] /= 2;
+                    if (doNeptunium) {
+                        if (i == aChanceIncreased) {
+                            tChances[i] = aChancePerOutput / 2 * (aOutputsAmount - 1);
+                        } else {
+                            tChances[i] /= 2;
+                        }
                     }
+
                     if (doFermium) {
                         tChances[i] += (10000 - tChances[i]) / 4;
                     }
@@ -895,11 +904,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 break;
             case 1:
                 for (int i = 0; i < tChances.length; i++) {
-                    if (i == aChanceIncreased) {
-                        tChances[i] = aChancePerOutput * 3 / 4 * (aOutputsAmount - 1);
-                    } else {
-                        tChances[i] /= 4;
+                    if (doNeptunium) {
+                        if (i == aChanceIncreased) {
+                            tChances[i] = aChancePerOutput * 3 / 4 * (aOutputsAmount - 1);
+                        } else {
+                            tChances[i] /= 4;
+                        }
                     }
+
                     if (doFermium) {
                         tChances[i] += (10000 - tChances[i]) / 3;
                     }
@@ -908,11 +920,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             case 2:
             case 3:
                 for (int i = 0; i < tChances.length; i++) {
-                    if (i == aChanceIncreased) {
-                        tChances[i] = 10000;
-                    } else {
-                        tChances[i] = 0;
+                    if (doNeptunium) {
+                        if (i == aChanceIncreased) {
+                            tChances[i] = 10000;
+                        } else {
+                            tChances[i] = 0;
+                        }
                     }
+
                     if (doFermium) {
                         tChances[i] += (10000 - tChances[i]) / 2;
                     }
@@ -985,5 +1000,37 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mFluidMode = aNBT.getBoolean("mFluidMode");
         this.doFermium = aNBT.getBoolean("doFermium");
         super.loadNBTData(aNBT);
+    }
+
+    @Override
+    public ITexture[] getTexture(
+            IGregTechTileEntity aBaseMetaTileEntity,
+            byte aSide,
+            byte aFacing,
+            byte aColorIndex,
+            boolean aActive,
+            boolean aRedstone) {
+        if (aSide == aFacing) {
+            if (aActive)
+                return new ITexture[] {
+                    getCasingTexture(),
+                    TextureFactory.builder()
+                            .addIcon(getActiveOverlay())
+                            .extFacing()
+                            .build()
+                };
+            return new ITexture[] {
+                getCasingTexture(),
+                TextureFactory.builder()
+                        .addIcon(getInactiveOverlay())
+                        .extFacing()
+                        .build()
+            };
+        }
+        return new ITexture[] {getCasingTexture()};
+    }
+
+    private ITexture getCasingTexture() {
+        return Textures.BlockIcons.getCasingTextureForId(getCasingTextureId());
     }
 }

@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import com.github.bartimaeusnek.bartworks.system.material.WerkstoffLoader;
 import gregtech.api.enums.*;
 import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.core.item.chemistry.GenericChem;
@@ -37,10 +38,10 @@ public class RecipeLoader_ChemicalSkips {
     // HSS-G for Tier 2, HSS-S for Tier 3 and HSS-E for Tier 4)
 
     private static void quantumTransformerRecipes() {
-        // Platline (Missing Rhodium and Ruthenium)
+        // Platline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 47),
+                    WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dust, 64),
                     ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -49,9 +50,11 @@ public class RecipeLoader_ChemicalSkips {
                     Materials.Platinum.getDust(64),
                     Materials.Palladium.getDust(64),
                     Materials.Iridium.getDust(64),
-                    Materials.Osmium.getDust(64)
+                    Materials.Osmium.getDust(64),
+                    WerkstoffLoader.Rhodium.get(OrePrefixes.dust, 64),
+                    WerkstoffLoader.Ruthenium.get(OrePrefixes.dust, 64)
                 },
-                new int[] {2500, 2500, 2500, 2500},
+                new int[] {1667, 1667, 1667, 1667, 1667, 1667},
                 20 * 20,
                 8000000,
                 1);

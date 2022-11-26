@@ -683,26 +683,39 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             int aDuration,
             int aEUt,
             int aSpecialValue) {
-        if (aInput == null || aFluidInput == null) {
-            return false;
+        if (aInput == null) {
+            aInput = new ItemStack[0];
         }
 
-        if (aInput.length + aFluidInput.length < 1) {
-            return false;
+        if (aFluidInput == null) {
+            aFluidInput = new FluidStack[0];
         }
 
-        if (aOutputStack == null || aOutputStack.length < 4) {
-            return false;
+        // if (aInput.length + aFluidInput.length < 1) {
+        //    return false;
+        // }
+
+        if (aOutputStack == null) {
+            aOutputStack = new ItemStack[0];
         }
 
-        if (aChances == null || aChances.length != aOutputStack.length + aFluidOutput.length) {
-            return false;
+        if (aFluidOutput == null) {
+            aFluidOutput = new FluidStack[0];
         }
+
+        // if (aOutputStack.length + aFluidOutput.length < 4) {
+        //    return false;
+        // }
+
+        // if (aChances == null || aChances.length != aOutputStack.length + aFluidOutput.length) {
+        //    return false;
+        // }
 
         GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceTransformerRecipes.add(new GT_Recipe(
+                false,
                 aInput,
                 aOutputStack,
-                aOutputStack,
+                null,
                 aChances,
                 aFluidInput,
                 aFluidOutput,
