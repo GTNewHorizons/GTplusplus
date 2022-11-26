@@ -203,7 +203,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 .useModularUI(true);
 
         public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map(
-                        new HashSet<GT_Recipe>(20),
+                        new HashSet<>(20),
                         "gtpp.recipe.quantumforcesmelter",
                         "Quantum Force Smelter",
                         null,
