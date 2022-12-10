@@ -490,7 +490,8 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.Emitter_UEV.get(4),
                     GT_OreDictUnificator.get(OrePrefixes.wireGt16, Materials.SuperconductorUEV, 8),
                     GregtechItemList.Laser_Lens_Special.get(1),
-                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 4)
+                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 4),
+                    ItemList.StableAdhesive.get(4)
                 },
                 new FluidStack[] {
                     Materials.Thulium.getMolten(144 * 10),
@@ -514,7 +515,8 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.Emitter_UIV.get(4),
                     GT_OreDictUnificator.get(OrePrefixes.wireGt16, Materials.SuperconductorUIV, 8),
                     GregtechItemList.Laser_Lens_Special.get(1),
-                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 8)
+                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 8),
+                    ItemList.SuperconductorComposite.get(4)
                 },
                 new FluidStack[] {
                     Materials.Thulium.getMolten(144 * 10),
@@ -537,7 +539,8 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.Emitter_UMV.get(4),
                     GT_OreDictUnificator.get(OrePrefixes.wireGt16, Materials.SuperconductorUMV, 8),
                     GregtechItemList.Laser_Lens_Special.get(1),
-                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 16)
+                    GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 16),
+                    ItemList.NaquadriaSupersolid.get(4)
                 },
                 new FluidStack[] {
                     Materials.Thulium.getMolten(144 * 10),
@@ -580,7 +583,8 @@ public class RecipeLoader_ChemicalSkips {
                     GT_OreDictUnificator.get("plateDenseEnrichedNaquadahAlloy", 4),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 16),
                     ItemList.Field_Generator_UEV.get(1),
-                    GT_OreDictUnificator.get(OrePrefixes.screw, GT_CoreModSupport.RadoxPolymer, 16)
+                    GT_OreDictUnificator.get(OrePrefixes.screw, GT_CoreModSupport.RadoxPolymer, 16),
+                    ItemList.StableAdhesive.get(4)
                 },
                 new FluidStack[] {
                     MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 20),
@@ -600,7 +604,8 @@ public class RecipeLoader_ChemicalSkips {
                     ELEMENT.STANDALONE.HYPOGEN.getPlateDense(4),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.TranscendentMetal, 16),
                     ItemList.Field_Generator_UIV.get(1),
-                    GT_OreDictUnificator.get("screwMetastableOganesson", 16)
+                    GT_OreDictUnificator.get("screwMetastableOganesson", 16),
+                    ItemList.SuperconductorComposite.get(4)
                 },
                 new FluidStack[] {
                     MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 40),
@@ -620,7 +625,8 @@ public class RecipeLoader_ChemicalSkips {
                     GT_OreDictUnificator.get("plateDenseShirabon", 4),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.SpaceTime, 16),
                     ItemList.Field_Generator_UMV.get(1),
-                    GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Dilithium, 16)
+                    GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Dilithium, 16),
+                    ItemList.NaquadriaSupersolid.get(4)
                 },
                 new FluidStack[] {
                     MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 80),
