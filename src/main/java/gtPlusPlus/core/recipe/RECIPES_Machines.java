@@ -1,5 +1,7 @@
 package gtPlusPlus.core.recipe;
 
+import com.github.technus.tectech.recipe.TT_recipeAdder;
+import com.github.technus.tectech.thing.CustomItemList;
 import cpw.mods.fml.common.Loader;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.*;
@@ -2082,20 +2084,24 @@ public class RECIPES_Machines {
 
             CORE.RA.addSixSlotAssemblingRecipe(
                     new ItemStack[] {
-                        ItemList.Casing_Coil_HSSG.get(1),
-                        ItemList.Reactor_Coolant_NaK_3.get(4),
+                        ItemList.Casing_Coil_Infinity.get(1),
+                        ItemList.Reactor_Coolant_Sp_6.get(4),
                         ALLOY.LAURENIUM.getPlateDouble(2),
-                        GregtechItemList.Casing_Coil_BlastSmelter.get(1)
+                        CustomItemList.eM_Coil.get(1)
                     },
-                    CI.getTieredFluid(10, 144 * 4),
+                    ALLOY.QUANTUM.getFluidStack(144 * 4),
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
                     60 * 30,
                     MaterialUtils.getVoltageForTier(6));
 
-            CORE.RA.addAssemblylineRecipe(
+            TT_recipeAdder.addResearchableAssemblylineRecipe(
                     GregtechItemList.Casing_Coil_QuantumForceTransformer.get(1),
-                    40 * 60 * 30,
+                    2048 * 120 * 20,
+                    2048,
+                    (int) GT_Values.VP[11],
+                    16,
                     new Object[] {
+                        GregtechItemList.Controller_MolecularTransformer.get(1),
                         GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
                         new Object[] {OrePrefixes.circuit.get(Materials.Bio), 8},
                         ItemList.Electric_Pump_UEV.get(4),
@@ -2107,8 +2113,8 @@ public class RECIPES_Machines {
                         ALLOY.PIKYONIUM.getFluidStack(144 * 32)
                     },
                     GregtechItemList.QuantumForceTransformer.get(1),
-                    1200,
-                    8000000);
+                    1200 * 20,
+                    (int) GT_Values.VP[11]);
 
             if (CORE.ConfigSwitches.enableMultiblock_MatterFabricator) {
                 // Industrial Matter Fabricator
