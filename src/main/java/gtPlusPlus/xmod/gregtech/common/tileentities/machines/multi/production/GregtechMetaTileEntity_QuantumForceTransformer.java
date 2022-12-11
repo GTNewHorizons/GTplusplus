@@ -170,7 +170,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
-                            "      H~H      "
+                            "      Z~X      "
                         },
                         {
                             "     TTTTT     ",
@@ -308,7 +308,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             "      EEE      ",
                             "      EEE      ",
                             "      EEE      ",
-                            "      ZHX      "
+                            "      HHH      "
                         },
                         {
                             "               ",
@@ -488,6 +488,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Casing functions:")
                 .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
                 .addInfo("Neutron Shielding Cores: Focusing Tier")
+                .addInfo("Fermium and Neptunium plasma input hatches need to be next to the controller.")
+                .addInfo("Not behind it or on top of it")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .beginStructureBlock(15, 21, 15, true)
@@ -531,10 +533,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 || mOutputHatches.size() < 1) {
             return false;
         }
-
-        // This is bullshit. I hate this.
-        mNeptuniumHatch.mRecipeMap = null;
-        mFermiumHatch.mRecipeMap = null;
 
         return true;
     }
