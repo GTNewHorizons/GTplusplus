@@ -202,12 +202,12 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                         true)
                 .useModularUI(true);
 
-        public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map(
+        public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map_LargeNEI(
                         new HashSet<>(20),
                         "gtpp.recipe.quantumforcesmelter",
                         "Quantum Force Smelter",
                         null,
-                        RES_PATH_GUI + "basicmachines/FissionFuel",
+                        RES_PATH_GUI + "basicmachines/LCRNEI",
                         6,
                         6,
                         1,
@@ -220,8 +220,8 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                         true)
                 .useModularUI(true)
                 .setProgressBar(GT_UITextures.PROGRESSBAR_ARROW_MULTIPLE, Direction.RIGHT)
-                .setUsualFluidInputCount(3)
-                .setUsualFluidOutputCount(3);
+                .setUsualFluidInputCount(6)
+                .setUsualFluidOutputCount(6);
 
         public static final GT_Recipe_Map sGeoThermalFuels = new GT_Recipe_Map(
                         new HashSet<>(10),
