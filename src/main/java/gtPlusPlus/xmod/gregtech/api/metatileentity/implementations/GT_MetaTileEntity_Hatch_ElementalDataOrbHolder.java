@@ -211,6 +211,5 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
                         widget -> widget.setFilter(stack -> ItemList.Tool_DataOrb.isStackEqual(stack, false, true)))
                 .build()
                 .setPos(52, 7));
-        ;
     }
 }
