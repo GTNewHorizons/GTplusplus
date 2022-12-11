@@ -532,6 +532,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return false;
         }
 
+        // This is bullshit. I hate this.
+        mNeptuniumHatch.mRecipeMap = null;
+        mFermiumHatch.mRecipeMap = null;
+
         return true;
     }
 
@@ -954,7 +958,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 aPlayer, StatCollector.translateToLocal("miscutils.machines.QFTFluidMode") + " " + mFluidMode);
     }
 
-    public boolean addNeptuniumHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+    public boolean addNeptuniumHatch(IGregTechTileEntity aTileEntity, short aBaseCasingIndex) {
         if (aTileEntity == null) return false;
         IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
         if (aMetaTileEntity == null) return false;
@@ -967,7 +971,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return false;
     }
 
-    public boolean addFermiumHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+    public boolean addFermiumHatch(IGregTechTileEntity aTileEntity, short aBaseCasingIndex) {
         if (aTileEntity == null) return false;
         IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
         if (aMetaTileEntity == null) return false;
