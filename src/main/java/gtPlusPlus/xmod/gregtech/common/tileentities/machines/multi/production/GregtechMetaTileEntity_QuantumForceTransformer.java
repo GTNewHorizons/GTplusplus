@@ -960,6 +960,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (aMetaTileEntity == null) return false;
         if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
             ((GT_MetaTileEntity_Hatch) aMetaTileEntity).updateTexture(aBaseCasingIndex);
+            ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mRecipeMap = null;
             mNeptuniumHatch = (GT_MetaTileEntity_Hatch_Input) aMetaTileEntity;
             return true;
         }
@@ -972,6 +973,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (aMetaTileEntity == null) return false;
         if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input) {
             ((GT_MetaTileEntity_Hatch) aMetaTileEntity).updateTexture(aBaseCasingIndex);
+            ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mRecipeMap = null;
             mFermiumHatch = (GT_MetaTileEntity_Hatch_Input) aMetaTileEntity;
             return true;
         }
