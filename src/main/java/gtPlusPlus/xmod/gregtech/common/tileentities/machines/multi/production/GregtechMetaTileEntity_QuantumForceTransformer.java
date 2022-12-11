@@ -8,6 +8,7 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.*;
 import gregtech.api.GregTech_API;
+import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
@@ -33,6 +34,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
@@ -502,7 +504,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
                 .addStructureHint("Catalyst Housing", 4)
-                .toolTipFinisher("Authors: Steelux + BlueWeabo - [GT++]");
+                .toolTipFinisher(GT_Values.AuthorBlueWeabo + EnumChatFormatting.RESET + " + Steelux - [GT++]");
         return tt;
     }
 

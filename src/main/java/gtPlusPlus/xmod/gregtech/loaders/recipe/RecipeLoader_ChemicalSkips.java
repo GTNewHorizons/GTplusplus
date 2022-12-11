@@ -14,7 +14,6 @@ import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -44,7 +43,7 @@ public class RecipeLoader_ChemicalSkips {
         // Platline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dust, 64),
+                    WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dust, 32),
                     ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -68,19 +67,20 @@ public class RecipeLoader_ChemicalSkips {
                     Materials.Carbon.getDust(64), ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 0)
                 },
                 new FluidStack[] {
-                    Materials.Oxygen.getFluid(10000),
-                    Materials.Hydrogen.getFluid(10000),
-                    Materials.Chlorine.getFluid(10000),
+                    Materials.Oxygen.getGas(1000 * 16),
+                    Materials.Hydrogen.getGas(1000 * 16),
+                    Materials.Chlorine.getGas(1000 * 16),
+                    Materials.Fluorine.getGas(1000 * 16)
                 },
-                new FluidStack[] {},
-                new ItemStack[] {
-                    Materials.Plastic.getDust(64),
-                    Materials.PolyvinylChloride.getDust(64),
-                    Materials.Polystyrene.getDust(64),
-                    Materials.Polytetrafluoroethylene.getDust(64),
-                    Materials.Epoxid.getDust(64),
-                    Materials.Polybenzimidazole.getDust(64)
+                new FluidStack[] {
+                    Materials.Plastic.getMolten(144 * 256),
+                    Materials.PolyvinylChloride.getMolten(144 * 128),
+                    Materials.Polystyrene.getMolten(144 * 64),
+                    Materials.Polytetrafluoroethylene.getMolten(144 * 128),
+                    Materials.Epoxid.getMolten(144 * 64),
+                    Materials.Polybenzimidazole.getMolten(144 * 64)
                 },
+                null,
                 new int[] {2000, 2000, 2000, 2000, 2000, 2000},
                 20 * 20,
                 (int) GT_Values.VP[7],
@@ -92,17 +92,17 @@ public class RecipeLoader_ChemicalSkips {
                     Materials.Carbon.getDust(64), ItemUtils.getSimpleStack(GenericChem.mRubberPolymerCatalyst, 0)
                 },
                 new FluidStack[] {
-                    Materials.Oxygen.getFluid(10000),
-                    Materials.Hydrogen.getFluid(10000),
-                    Materials.Chlorine.getFluid(10000),
+                    Materials.Oxygen.getGas(1000 * 16),
+                    Materials.Hydrogen.getGas(1000 * 16),
+                    Materials.Chlorine.getGas(1000 * 16)
                 },
-                new FluidStack[] {},
-                new ItemStack[] {
-                    Materials.Silicone.getDust(64),
-                    Materials.StyreneButadieneRubber.getDust(64),
-                    Materials.PolyphenyleneSulfide.getDust(64),
-                    Materials.Rubber.getDust(64)
+                new FluidStack[] {
+                    Materials.Silicone.getMolten(144 * 64),
+                    Materials.StyreneButadieneRubber.getMolten(144 * 64),
+                    Materials.PolyphenyleneSulfide.getMolten(144 * 128),
+                    Materials.Rubber.getMolten(144 * 256)
                 },
+                null,
                 new int[] {2500, 2500, 2500, 2500},
                 20 * 20,
                 (int) GT_Values.VP[7],
@@ -111,18 +111,19 @@ public class RecipeLoader_ChemicalSkips {
         // Glues and Solders
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Carbon.getDust(64),
-                    Materials.Bismuth.getDust(64),
+                    Materials.Carbon.getDust(32),
+                    Materials.Bismuth.getDust(32),
                     ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 0)
                 },
                 new FluidStack[] {Materials.Oxygen.getFluid(10000), Materials.Hydrogen.getFluid(10000)},
                 new FluidStack[] {
-                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(9216), Materials.AdvancedGlue.getFluid(9216L),
+                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluidStack(1000 * 32),
+                    Materials.AdvancedGlue.getFluid(1000 * 16),
+                    ALLOY.INDALLOY_140.getFluidStack(144 * 64),
+                    Materials.SolderingAlloy.getMolten(144 * 128)
                 },
-                new ItemStack[] {
-                    ALLOY.INDALLOY_140.getDust(64), Materials.SolderingAlloy.getDust(64), ItemList.StableAdhesive.get(1)
-                },
-                new int[] {2500, 2500, 2500, 2500},
+                new ItemStack[] {ItemList.StableAdhesive.get(1)},
+                new int[] {2000, 2000, 2000, 2000, 2000},
                 20 * 20,
                 (int) GT_Values.VP[8],
                 1);
@@ -130,9 +131,9 @@ public class RecipeLoader_ChemicalSkips {
         // Titanium, Tungsten, Indium
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Lead.getDust(64),
-                    Materials.Bauxite.getDust(64),
-                    Materials.Tungstate.getDust(64),
+                    Materials.Lead.getDust(16),
+                    Materials.Bauxite.getDust(32),
+                    Materials.Tungstate.getDust(16),
                     ItemUtils.getSimpleStack(GenericChem.mTitaTungstenIndiumCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -151,8 +152,8 @@ public class RecipeLoader_ChemicalSkips {
         // Thorium, Uranium, Plutonium
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Thorium.getDust(64),
-                    Materials.Uranium.getDust(64),
+                    Materials.Thorium.getDust(32),
+                    Materials.Uranium.getDust(32),
                     ItemUtils.getSimpleStack(GenericChem.mRadioactivityCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -165,7 +166,7 @@ public class RecipeLoader_ChemicalSkips {
                     Materials.Plutonium.getDust(64),
                     Materials.Plutonium241.getDust(64)
                 },
-                new int[] {2000, 2000, 2000, 2000, 2000, 2000},
+                new int[] {1667, 1667, 1667, 1667, 1667, 1667},
                 20 * 20,
                 (int) GT_Values.VP[8],
                 1);
@@ -173,7 +174,7 @@ public class RecipeLoader_ChemicalSkips {
         // Monaline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Monazite.getDust(64), ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 0)
+                    Materials.Monazite.getDust(32), ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 0)
                 },
                 new FluidStack[] {},
                 new FluidStack[] {},
@@ -183,8 +184,9 @@ public class RecipeLoader_ChemicalSkips {
                     Materials.Samarium.getDust(64),
                     GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 11000), // Hafnium
                     GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 11007), // Zirconium
+                    ItemList.SuperconductorComposite.get(1)
                 },
-                new int[] {2000, 2000, 2000, 2000, 2000},
+                new int[] {1667, 1667, 1667, 1667, 1667, 1667},
                 20 * 20,
                 (int) GT_Values.VP[9],
                 2);
@@ -192,7 +194,7 @@ public class RecipeLoader_ChemicalSkips {
         // Early Naqline (Naquadah should be Naquadahine)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 10054), // Naq Oxide
+                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10054), // Naq Oxide
                     ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -211,30 +213,30 @@ public class RecipeLoader_ChemicalSkips {
         // Advanced Naqline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 10067), // Enriched Naq Oxide
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 10072), // Naquadria Oxide
+                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10067), // Enriched Naq Oxide
+                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10072), // Naquadria Oxide
                     ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 0)
                 },
                 new FluidStack[] {},
                 new FluidStack[] {},
                 new ItemStack[] {
                     Materials.Naquadria.getDust(64),
-                    Materials.EnrichedNaquadria.getDust(64),
+                    Materials.NaquadahEnriched.getDust(64),
                     Materials.Trinium.getDust(64),
                     Materials.Barium.getDust(64),
                     ItemList.NaquadriaSupersolid.get(1)
                 },
                 new int[] {2000, 2000, 2000, 2000, 2000},
                 20 * 20,
-                (int) GT_Values.VP[12],
+                (int) GT_Values.VP[11],
                 3);
 
         // Stem Cells
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Calcium.getDust(64),
-                    Materials.MeatRaw.getDust(64),
-                    GT_ModHandler.getModItem("dreamcraft", "GTNHBioItems", 64, 2),
+                    Materials.Calcium.getDust(32),
+                    Materials.MeatRaw.getDust(32),
+                    GT_ModHandler.getModItem("dreamcraft", "GTNHBioItems", 32, 2),
                     ItemUtils.getSimpleStack(GenericChem.mRawIntelligenceCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -246,21 +248,26 @@ public class RecipeLoader_ChemicalSkips {
                 new int[] {3333, 3333, 3333},
                 20 * 20,
                 (int) GT_Values.VP[11],
-                4);
+                3);
 
         // Lategame Plastics (Missing Radox Polymer and Heavy Radox)
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                    Materials.Carbon.getDust(64), ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
+                    Materials.Carbon.getDust(64),
+                    Materials.Osmium.getDust(24),
+                    ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
                 },
                 new FluidStack[] {
                     Materials.Hydrogen.getFluid(10000), Materials.Nitrogen.getFluid(10000),
                 },
                 new FluidStack[] {
-                    GT_CoreModSupport.RadoxPolymer.getFluid(144 * 64), GT_CoreModSupport.RadoxHeavy.getFluid(1000 * 64)
+                    GT_CoreModSupport.Xenoxene.getFluid(1000 * 16),
+                    GT_CoreModSupport.RadoxPolymer.getMolten(144 * 64),
+                    GT_CoreModSupport.RadoxHeavy.getFluid(1000 * 16),
+                    MaterialsKevlar.Kevlar.getMolten(144 * 64)
                 },
-                new ItemStack[] {MaterialsKevlar.Kevlar.getDust(64)},
-                new int[] {10000},
+                new ItemStack[] {},
+                new int[] {2500, 2500, 2500, 2500},
                 20 * 20,
                 (int) GT_Values.VP[11],
                 4);
@@ -269,7 +276,7 @@ public class RecipeLoader_ChemicalSkips {
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
                     ItemList.Circuit_Chip_Stemcell.get(16),
-                    Materials.InfinityCatalyst.getDust(16),
+                    Materials.InfinityCatalyst.getDust(4),
                     ItemUtils.getSimpleStack(GenericChem.mBiologicalIntelligenceCatalyst, 0)
                 },
                 new FluidStack[] {},
@@ -289,16 +296,16 @@ public class RecipeLoader_ChemicalSkips {
         GT_Values.RA.addFusionReactorRecipe(
                 new FluidStack[] {Materials.Radon.getPlasma(100), Materials.Nitrogen.getPlasma(100)},
                 new FluidStack[] {new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 100)},
-                2048 * 4,
-                MaterialUtils.getVoltageForTier(9),
-                600000000 * 2);
+                30 * 20,
+                (int) GT_Values.VP[8],
+                1000000000);
 
         GT_Values.RA.addFusionReactorRecipe(
                 new FluidStack[] {Materials.Americium.getPlasma(100), Materials.Boron.getPlasma(100)},
                 new FluidStack[] {new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 100)},
-                2048 * 4,
-                MaterialUtils.getVoltageForTier(9),
-                600000000 * 2);
+                30 * 20,
+                (int) GT_Values.VP[8],
+                1000000000);
     }
 
     private static void catalystRecipes() {

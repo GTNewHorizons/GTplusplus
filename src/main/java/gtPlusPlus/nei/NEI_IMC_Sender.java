@@ -53,6 +53,9 @@ public class NEI_IMC_Sender {
         sendHandler("gtpp.recipe.treefarm", "gregtech:gt.blockmachines:836");
         sendCatalyst("gtpp.recipe.treefarm", "gregtech:gt.blockmachines:836");
 
+        sendHandler("gtpp.recipe.quantumforcesmelter", "gregtech:gt.blockmachines:31151");
+        sendCatalyst("gtpp.recipe.quantumforcesmelter", "gregtech:gt.blockmachines:31151");
+
         if (LoadedMods.AdvancedSolarPanel) {
             sendHandler("gtpp.recipe.moleculartransformer", "AdvancedSolarPanel:BlockMolecularTransformer");
             sendCatalyst("gtpp.recipe.moleculartransformer", "gregtech:gt.blockmachines:31072");
@@ -64,7 +67,6 @@ public class NEI_IMC_Sender {
         sendCatalyst("gt.recipe.hammer", "gregtech:gt.blockmachines:31075");
         sendCatalyst("gt.recipe.fluidheater", "gregtech:gt.blockmachines:31077");
         sendCatalyst("gt.recipe.compressor", "gregtech:gt.blockmachines:31078");
-        sendCatalyst("gt.recipe.quantumforcetransformer", "gregtech:gt.blockmachines:31151");
 
         sendCatalyst("crafting", "gregtech:gt.blockmachines:31081", -10);
         sendCatalyst("crafting", "gregtech:gt.blockmachines:31082", -10);
