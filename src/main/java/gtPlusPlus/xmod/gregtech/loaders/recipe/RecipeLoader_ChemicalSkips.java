@@ -272,6 +272,25 @@ public class RecipeLoader_ChemicalSkips {
                 (int) GT_Values.VP[11],
                 4);
 
+        // Lategame Kevlar using Kevlar bee comb
+        CORE.RA.addQuantumTransformerRecipe(
+                new ItemStack[] {
+                        Materials.Carbon.getDust(64),
+                        GT_ModHandler.getModItem("gregtech", "gt.comb", 24L, 161),
+                        ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
+                },
+                new FluidStack[] {
+                        Materials.Hydrogen.getFluid(10000), Materials.Nitrogen.getFluid(10000),
+                },
+                new FluidStack[] {
+                        MaterialsKevlar.Kevlar.getMolten(206 * 64)
+                },
+                new ItemStack[] {},
+                new int[] {2500, 2500, 2500, 2500},
+                20 * 20,
+                (int) GT_Values.VP[11],
+                4);
+
         // Bio Cells and Mutated Solder
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
