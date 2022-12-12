@@ -39,7 +39,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
@@ -840,7 +839,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             if (doFermium) {
                 FluidStack tFluid =
                         new FluidStack(mFermium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
-                FluidStack tLiquid = mFermiumHatch.drain(ForgeDirection.UNKNOWN, tFluid, false);
+                FluidStack tLiquid = mFermiumHatch.drain(tFluid.amount, true);
                 if (tLiquid == null || tLiquid.amount < tFluid.amount) {
                     criticalStopMachine();
                     return false;
@@ -850,7 +849,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             if (doNeptunium) {
                 FluidStack tFluid =
                         new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
-                FluidStack tLiquid = mNeptuniumHatch.drain(ForgeDirection.UNKNOWN, tFluid, false);
+                FluidStack tLiquid = mNeptuniumHatch.drain(tFluid.amount, true);
                 if (tLiquid == null || tLiquid.amount < tFluid.amount) {
                     criticalStopMachine();
                     return false;
