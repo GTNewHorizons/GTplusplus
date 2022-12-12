@@ -34,10 +34,12 @@ import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
@@ -1083,11 +1085,23 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mMaxProgresstime = (int) zTime;
     }
 
-    @SideOnly(Side.CLIENT)
-    private static final Tessellator tes = Tessellator.instance;
+    
+    @Override
+    public void registerIcons(IIconRegister aBlockIconRegister) {
+        super.registerIcons(aBlockIconRegister);
+        generateForceFieldTextures(aBlockIconRegister);
+    }
+
+    private static IIcon textures[];
 
     @SideOnly(Side.CLIENT)
-    private void renderForceField() {}
+    private void renderForceField() {
+        final Tessellator tes = Tessellator.instance;
+    }
 
-    private static void generateForceFieldTextures() {}
+    @SideOnly(Side.CLIENT)
+    private static void generateForceFieldTextures(IIconRegister register) {
+        textures = new IIcon[1];
+        textures[0] = register.registerIcon("miscutils/blocks/InfinityInfusedShieldingCoreStatic.png");
+    }
 }
