@@ -330,11 +330,10 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88),
                     Materials.Osmiridium.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -343,11 +342,10 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     Materials.Polybenzimidazole.getDust(64),
                     Materials.Tetrafluoroethylene.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -356,21 +354,22 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     Materials.Silicone.getDust(64),
                     Materials.StyreneButadieneRubber.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mRubberPolymerCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), Materials.Infinity.getDust(1),
-                    // ALLOY.INDALLOY_140.getDust(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    ALLOY.INDALLOY_140.getDust(64),
+                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getCell(64)
                 },
-                new FluidStack(MISC_MATERIALS.ETHYL_CYANOACRYLATE.getFluid(), 10000),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -381,9 +380,8 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getEmptyCatalyst(1),
                     Materials.TungstenSteel.getDust(64),
                     Materials.Indium.getDust(64)
-                    // ALLOY.INDALLOY_140.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mTitaTungstenIndiumCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -394,9 +392,8 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getEmptyCatalyst(1),
                     ELEMENT.getInstance().URANIUM235.getDust(64),
                     ELEMENT.getInstance().PLUTONIUM241.getDust(64)
-                    // ALLOY.INDALLOY_140.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
                 ItemUtils.getSimpleStack(GenericChem.mRadioactivityCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -405,76 +402,62 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     Materials.Samarium.getDust(64),
                     Materials.Gadolinium.getDust(64),
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(4608),
                 ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[10]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     Materials.Naquadah.getDust(64),
                     Materials.Adamantium.getDust(64)
                 },
-                GT_Values.NF,
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(4608),
                 ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[10]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
                     Materials.Naquadria.getDust(64),
                     Materials.Trinium.getDust(64)
                 },
-                GT_Values.NF,
+                Materials.SpaceTime.getMolten(144L),
                 ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[11]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getNumberedCircuit(10),
-                    CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
-                    ItemList.Circuit_Chip_Stemcell.get(64)
+                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), ItemList.Circuit_Chip_Stemcell.get(64)
                 },
-                GT_Values.NF,
+                Materials.SpaceTime.getMolten(144L),
                 ItemUtils.getSimpleStack(GenericChem.mRawIntelligenceCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[11]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] {
-                    CI.getNumberedCircuit(10),
-                    CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
-                    MaterialsKevlar.Kevlar.getDust(64)
-                },
-                GT_Values.NF,
+                new ItemStack[] {CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), MaterialsKevlar.Kevlar.getDust(64)},
+                Materials.SpaceTime.getMolten(4608L),
                 ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[12]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getNumberedCircuit(10),
-                    CI.getEmptyCatalyst(1),
-                    Materials.Infinity.getDust(1),
-                    ItemList.Circuit_Chip_Biocell.get(64)
+                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), ItemList.Circuit_Chip_Biocell.get(64)
                 },
-                GT_Values.NF,
+                Materials.SpaceTime.getMolten(4608L),
                 ItemUtils.getSimpleStack(GenericChem.mBiologicalIntelligenceCatalyst, 1),
                 60 * 20,
-                (int) GT_Values.VP[9]);
+                (int) GT_Values.VP[12]);
     }
 
     private static void tieredCasingRecipes() {
