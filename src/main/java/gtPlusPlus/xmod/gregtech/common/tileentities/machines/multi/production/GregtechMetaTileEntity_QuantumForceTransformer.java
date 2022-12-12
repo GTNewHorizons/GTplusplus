@@ -639,7 +639,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     protected int getCasingTextureId() {
-        return 70;
+        return TAE.getIndexFromPage(0, 10);
     }
 
     @Override
