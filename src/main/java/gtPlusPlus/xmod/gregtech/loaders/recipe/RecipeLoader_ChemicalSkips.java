@@ -7,6 +7,8 @@ import com.github.technus.tectech.thing.block.QuantumGlassBlock;
 import gregtech.api.enums.*;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.common.items.CombType;
+import gregtech.loaders.misc.GT_Bees;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ALLOY;
@@ -191,46 +193,6 @@ public class RecipeLoader_ChemicalSkips {
                 (int) GT_Values.VP[9],
                 2);
 
-        // Early Naqline (Naquadah should be Naquadahine)
-        CORE.RA.addQuantumTransformerRecipe(
-                new ItemStack[] {
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10054), // Naq Oxide
-                    ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 0)
-                },
-                new FluidStack[] {},
-                new FluidStack[] {},
-                new ItemStack[] {
-                    Materials.Naquadah.getDust(64),
-                    Materials.Adamantium.getDust(64),
-                    Materials.Gallium.getDust(64),
-                    Materials.Titanium.getDust(64)
-                },
-                new int[] {2500, 2500, 2500, 2500},
-                20 * 20,
-                (int) GT_Values.VP[9],
-                2);
-
-        // Advanced Naqline
-        CORE.RA.addQuantumTransformerRecipe(
-                new ItemStack[] {
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10067), // Enriched Naq Oxide
-                    GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 32L, 10072), // Naquadria Oxide
-                    ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 0)
-                },
-                new FluidStack[] {},
-                new FluidStack[] {},
-                new ItemStack[] {
-                    Materials.Naquadria.getDust(64),
-                    Materials.NaquadahEnriched.getDust(64),
-                    Materials.Trinium.getDust(64),
-                    Materials.Barium.getDust(64),
-                    ItemList.NaquadriaSupersolid.get(1)
-                },
-                new int[] {2000, 2000, 2000, 2000, 2000},
-                20 * 20,
-                (int) GT_Values.VP[11],
-                3);
-
         // Stem Cells
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
@@ -258,7 +220,9 @@ public class RecipeLoader_ChemicalSkips {
                     ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
                 },
                 new FluidStack[] {
-                    Materials.Hydrogen.getFluid(10000), Materials.Nitrogen.getFluid(10000),
+                    Materials.Hydrogen.getGas(1000 * 16),
+                    Materials.Nitrogen.getGas(1000 * 16),
+                    Materials.Oil.getFluid(1000 * 16)
                 },
                 new FluidStack[] {
                     GT_CoreModSupport.Xenoxene.getFluid(1000 * 16),
@@ -275,15 +239,15 @@ public class RecipeLoader_ChemicalSkips {
         // Lategame Kevlar using Kevlar bee comb
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
-                        Materials.Carbon.getDust(64),
-                        GT_ModHandler.getModItem("gregtech", "gt.comb", 24L, 161),
-                        ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
+                    GT_Bees.combs.getStackForType(CombType.KEVLAR, 24),
+                    Materials.Carbon.getDust(64),
+                    ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0)
                 },
+                new FluidStack[] {Materials.Nitrogen.getGas(1000 * 16), Materials.Hydrogen.getGas(1000 * 16)},
                 new FluidStack[] {
-                        Materials.Hydrogen.getFluid(10000), Materials.Nitrogen.getFluid(10000),
-                },
-                new FluidStack[] {
-                        MaterialsKevlar.Kevlar.getMolten(206 * 64)
+                    MaterialsKevlar.PolyurethaneResin.getFluid(1000 * 32),
+                    MaterialsKevlar.LiquidCrystalKevlar.getFluid(144 * 32),
+                    MaterialsKevlar.Kevlar.getMolten(144 * 64)
                 },
                 new ItemStack[] {},
                 new int[] {2500, 2500, 2500, 2500},
@@ -587,7 +551,7 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     ALLOY.QUANTUM.getFrameBox(1),
                     GT_OreDictUnificator.get("plateDensePreciousMetalsAlloy", 4),
-                    GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 16),
+                    GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Neutronium, 16),
                     ItemList.Field_Generator_UHV.get(1),
                     ELEMENT.STANDALONE.CHRONOMATIC_GLASS.getScrew(16)
                 },

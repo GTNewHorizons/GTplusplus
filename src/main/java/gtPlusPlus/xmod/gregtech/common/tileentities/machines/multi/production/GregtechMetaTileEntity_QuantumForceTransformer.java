@@ -7,6 +7,8 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
@@ -31,11 +33,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
@@ -486,10 +490,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
                 .addInfo("This multi gives bonuses when all casings of some types are upgraded")
                 .addInfo("Casing functions:")
-                .addInfo("Neutron Pulse Manipulators: Recipe Tier Allowed")
-                .addInfo("Neutron Shielding Cores: Focusing Tier")
-                .addInfo("Fermium and Neptunium plasma input hatches need to be next to the controller.")
-                .addInfo("Not behind it or on top of it")
+                .addInfo("Pulse Manipulators: Recipe Tier Allowed")
+                .addInfo("Shielding Cores: Focusing Tier")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .beginStructureBlock(15, 21, 15, true)
@@ -506,7 +508,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addEnergyHatch("Bottom Layer", 4)
                 .addMaintenanceHatch("Bottom Layer", 4)
                 .addStructureHint("Catalyst Housing", 4)
-                .toolTipFinisher(GT_Values.AuthorBlueWeabo + EnumChatFormatting.RESET + " + Steelux - [GT++]");
+                .addStructureInfo("Neptunium Plasma Hatch: Left side of Controller")
+                .addStructureInfo("Fermium Plasma Hatch: Right side of Controller")
+                .toolTipFinisher(GT_Values.AuthorBlueWeabo + EnumChatFormatting.RESET + EnumChatFormatting.GREEN
+                        + " + Steelux - [GT++]");
         return tt;
     }
 
@@ -522,10 +527,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return false;
         }
 
-        if (mExoticEnergyHatches.size() != 1 && mEnergyHatches.size() < 1) {
-            return false;
-        }
-
         if (mMaintenanceHatches.size() != 1
                 || mOutputBusses.size() < 1
                 || mInputBusses.size() < 1
@@ -534,7 +535,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return false;
         }
 
-        return true;
+        // Makes sure that the multi can accept only 1 TT Energy Hatch OR up to 2 Normal Energy Hatches. Deform if both
+        // present or more than 1 TT Hatch.
+        boolean hatch = mExoticEnergyHatches.size() == 1 ^ (mEnergyHatches.size() <= 2 && !mEnergyHatches.isEmpty());
+
+        return hatch;
     }
 
     @Override
@@ -669,7 +674,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkRecipe(final ItemStack aStack) {
         mCurrentParallel = 0;
-        this.mEUt = 0;
+        this.lEUt = 0;
         this.mMaxProgresstime = 0;
         this.mOutputItems = null;
         this.mOutputFluids = null;
@@ -699,6 +704,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
         long tVoltage = GT_ExoticEnergyInputHelper.getMaxInputVoltageMulti(getExoticAndNormalEnergyHatchList());
+        long tAmps = GT_ExoticEnergyInputHelper.getMaxInputAmpsMulti(getExoticAndNormalEnergyHatchList());
+        long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
                 .findRecipe(
@@ -753,12 +760,15 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
             this.mEfficiencyIncrease = 10000;
 
-            calculateOverclockedNessMultiInternal(mCurrentMaxParallel, tTier, mCurrentMaxParallel, tVoltage, false);
+            mMaxProgresstime = tRecipe.mDuration;
+            lEUt = -tRecipe.mEUt;
 
-            if (mMaxProgresstime == Integer.MAX_VALUE - 1 && mEUt == Integer.MAX_VALUE - 1) return false;
+            calculateOverclockedNessMultiInternal(mCurrentMaxParallel, tTier, mCurrentMaxParallel, tTotalEUt, false);
 
-            if (this.mEUt > 0) {
-                this.mEUt = (-this.mEUt);
+            if (mMaxProgresstime == Integer.MAX_VALUE - 1 || lEUt == Long.MAX_VALUE - 1) return false;
+
+            if (this.lEUt > 0) {
+                this.lEUt = (-this.lEUt);
             }
 
             int[] tChances;
@@ -828,16 +838,20 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
         if (runningTick % 20 == 0) {
             if (doFermium) {
-                if (!depleteInput(
-                        new FluidStack(mFermium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                FluidStack tFluid =
+                        new FluidStack(mFermium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
+                FluidStack tLiquid = mFermiumHatch.drain(ForgeDirection.UNKNOWN, tFluid, false);
+                if (tLiquid == null || tLiquid.amount < tFluid.amount) {
                     criticalStopMachine();
                     return false;
                 }
             }
 
             if (doNeptunium) {
-                if (!depleteInput(
-                        new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel))))) {
+                FluidStack tFluid =
+                        new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
+                FluidStack tLiquid = mNeptuniumHatch.drain(ForgeDirection.UNKNOWN, tFluid, false);
+                if (tLiquid == null || tLiquid.amount < tFluid.amount) {
                     criticalStopMachine();
                     return false;
                 }
@@ -846,6 +860,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             runningTick = 1;
         } else {
             runningTick++;
+        }
+
+        if (getBaseMetaTileEntity().isClientSide()) {
+            renderForceField();
         }
 
         return true;
@@ -1037,4 +1055,39 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private ITexture getCasingTexture() {
         return Textures.BlockIcons.getCasingTextureForId(getCasingTextureId());
     }
+
+    @Override
+    protected void calculateOverclockedNessMultiInternal(
+            long aEUt, int aDuration, int mAmperage, long maxInputVoltage, boolean perfectOC) {
+        // 5% space for cable loss
+        long zMaxInputVoltage = maxInputVoltage / 100L * 95L;
+        long zTime = aDuration;
+        long zEUt = aEUt * mAmperage;
+        while (zEUt < zMaxInputVoltage) {
+            zEUt = zEUt << 2;
+            zTime = zTime >> (perfectOC ? 2 : 1);
+            if (zTime <= 0) {
+                break;
+            }
+        }
+        if (zTime <= 0) {
+            zTime = 1;
+        }
+        if (zEUt > zMaxInputVoltage) {
+            zEUt = zEUt >> 2;
+            zTime = zTime << (perfectOC ? 2 : 1);
+        }
+        if (zTime > Integer.MAX_VALUE - 1) {
+            zTime = Integer.MAX_VALUE - 1;
+        }
+        this.lEUt = zEUt;
+        this.mMaxProgresstime = (int) zTime;
+    }
+
+    private static final Tessellator tes = Tessellator.instance;
+
+    @SideOnly(Side.CLIENT)
+    private void renderForceField() {}
+
+    private static void generateForceFieldTextures() {}
 }
