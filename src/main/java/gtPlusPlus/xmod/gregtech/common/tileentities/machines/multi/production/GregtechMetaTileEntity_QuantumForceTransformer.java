@@ -1083,6 +1083,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mMaxProgresstime = (int) zTime;
     }
 
+    @SideOnly(Side.CLIENT)
     private static final Tessellator tes = Tessellator.instance;
 
     @SideOnly(Side.CLIENT)
