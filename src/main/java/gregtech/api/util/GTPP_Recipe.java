@@ -205,7 +205,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         public static final GT_Recipe_Map sQuantumForceTransformerRecipes = new GT_Recipe_Map_LargeNEI(
                         new HashSet<>(20),
                         "gtpp.recipe.quantumforcesmelter",
-                        "Quantum Force Smelter",
+                        "Quantum Force Transformer",
                         null,
                         RES_PATH_GUI + "basicmachines/LCRNEI",
                         6,
