@@ -1085,7 +1085,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mMaxProgresstime = (int) zTime;
     }
 
-    
     @Override
     public void registerIcons(IIconRegister aBlockIconRegister) {
         super.registerIcons(aBlockIconRegister);
