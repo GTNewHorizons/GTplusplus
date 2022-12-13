@@ -15,6 +15,7 @@ import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.recipe.common.CI;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import net.minecraft.item.ItemStack;
@@ -297,9 +298,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     GT_ModHandler.getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88),
-                    Materials.Osmiridium.getDust(64)
+                    Materials.Osmiridium.getDust(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -309,9 +311,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     Materials.Polybenzimidazole.getDust(64),
-                    Materials.Tetrafluoroethylene.getDust(64)
+                    Materials.Tetrafluoroethylene.getDust(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mPlasticPolymerCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -321,9 +324,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     Materials.Silicone.getDust(64),
-                    Materials.StyreneButadieneRubber.getDust(64)
+                    Materials.StyreneButadieneRubber.getDust(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mRubberPolymerCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -333,9 +337,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     ALLOY.INDALLOY_140.getDust(64),
-                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getCell(64)
+                    MISC_MATERIALS.ETHYL_CYANOACRYLATE.getCell(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mAdhesionPromoterCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -345,9 +350,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     Materials.TungstenSteel.getDust(64),
-                    Materials.Indium.getDust(64)
+                    Materials.Indium.getDust(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mTitaTungstenIndiumCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -357,9 +363,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     ELEMENT.getInstance().URANIUM235.getDust(64),
-                    ELEMENT.getInstance().PLUTONIUM241.getDust(64)
+                    ELEMENT.getInstance().PLUTONIUM241.getDust(64),
+                    Materials.Carbon.getNanite(64)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(144),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(1440),
                 ItemUtils.getSimpleStack(GenericChem.mRadioactivityCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[9]);
@@ -370,8 +377,9 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getEmptyCatalyst(1),
                     Materials.Samarium.getDust(64),
                     Materials.Gadolinium.getDust(64),
+                    Materials.Silver.getNanite(1)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(4608),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(9216),
                 ItemUtils.getSimpleStack(GenericChem.mRareEarthGroupCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[10]);
@@ -381,9 +389,10 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     Materials.Naquadah.getDust(64),
-                    Materials.Adamantium.getDust(64)
+                    Materials.Adamantium.getDust(64),
+                    Materials.Silver.getNanite(1)
                 },
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(4608),
+                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(9216),
                 ItemUtils.getSimpleStack(GenericChem.mSimpleNaquadahCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[10]);
@@ -393,34 +402,46 @@ public class RecipeLoader_ChemicalSkips {
                     CI.getNumberedCircuit(10),
                     CI.getEmptyCatalyst(1),
                     Materials.Naquadria.getDust(64),
-                    Materials.Trinium.getDust(64)
+                    Materials.Trinium.getDust(64),
+                    Materials.Gold.getNanite(1)
                 },
-                Materials.SpaceTime.getMolten(144L),
+                Materials.SpaceTime.getMolten(9216L),
                 ItemUtils.getSimpleStack(GenericChem.mAdvancedNaquadahCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[11]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), ItemList.Circuit_Chip_Stemcell.get(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    ItemList.Circuit_Chip_Stemcell.get(64),
+                    Materials.Gold.getNanite(1)
                 },
-                Materials.SpaceTime.getMolten(144L),
+                Materials.SpaceTime.getMolten(9216L),
                 ItemUtils.getSimpleStack(GenericChem.mRawIntelligenceCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[11]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] {CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), MaterialsKevlar.Kevlar.getDust(64)},
-                Materials.SpaceTime.getMolten(4608L),
+                new ItemStack[] {
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    MaterialsKevlar.Kevlar.getDust(64),
+                    Materials.TranscendentMetal.getNanite(1)
+                },
+                FluidUtils.getFluidStack("molten.shirabon", 92160),
                 ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[12]);
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] {
-                    CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1), ItemList.Circuit_Chip_Biocell.get(64)
+                    CI.getNumberedCircuit(10),
+                    CI.getEmptyCatalyst(1),
+                    ItemList.Circuit_Chip_Biocell.get(64),
+                    Materials.TranscendentMetal.getNanite(1)
                 },
-                Materials.SpaceTime.getMolten(4608L),
+                FluidUtils.getFluidStack("molten.shirabon", 92160),
                 ItemUtils.getSimpleStack(GenericChem.mBiologicalIntelligenceCatalyst, 1),
                 60 * 20,
                 (int) GT_Values.VP[12]);
