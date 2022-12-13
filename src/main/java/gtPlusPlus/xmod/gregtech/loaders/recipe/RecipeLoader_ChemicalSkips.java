@@ -436,7 +436,7 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] {
                     GregtechItemList.ForceFieldGlass.get(1),
                     Materials.Carbon.getNanite(4),
-                    ItemList.Emitter_UHV.get(4),
+                    ItemList.Emitter_UV.get(4),
                     GT_OreDictUnificator.get(OrePrefixes.wireGt16, Materials.SuperconductorUHV, 8),
                     GregtechItemList.Laser_Lens_Special.get(1),
                     GT_ModHandler.getModItem("GoodGenerator", "advancedRadiationProtectionPlate", 2)
@@ -535,7 +535,7 @@ public class RecipeLoader_ChemicalSkips {
                     ALLOY.QUANTUM.getFrameBox(1),
                     GT_OreDictUnificator.get("plateDensePreciousMetalsAlloy", 4),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Neutronium, 16),
-                    ItemList.Field_Generator_UHV.get(1),
+                    ItemList.Field_Generator_UV.get(1),
                     ELEMENT.STANDALONE.CHRONOMATIC_GLASS.getScrew(16)
                 },
                 new FluidStack[] {
@@ -611,7 +611,7 @@ public class RecipeLoader_ChemicalSkips {
         GT_Values.RA.addAssemblerRecipe(
                 new ItemStack[] {
                     new ItemStack(QuantumGlassBlock.INSTANCE, 1),
-                    ItemList.Field_Generator_UV.get(4),
+                    ItemList.Field_Generator_ZPM.get(1),
                     ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getLongRod(6),
                     ELEMENT.STANDALONE.CHRONOMATIC_GLASS.getPlate(6)
                 },
