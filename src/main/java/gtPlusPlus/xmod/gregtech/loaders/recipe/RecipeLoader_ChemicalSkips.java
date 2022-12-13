@@ -467,10 +467,10 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.StableAdhesive.get(4)
                 },
                 new FluidStack[] {
-                    Materials.Thulium.getMolten(144 * 10),
+                    Materials.Thulium.getMolten(144 * 12),
                     Materials.ExcitedDTPC.getFluid(5000),
-                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 1000 * 10),
-                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 1000 * 10)
+                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 1200 * 10),
+                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 1200 * 10)
                 },
                 GregtechItemList.CosmicFabricManipulator.get(1),
                 75 * 20,
@@ -492,10 +492,10 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.SuperconductorComposite.get(4)
                 },
                 new FluidStack[] {
-                    Materials.Thulium.getMolten(144 * 10),
+                    Materials.Thulium.getMolten(144 * 15),
                     Materials.ExcitedDTRC.getFluid(5000),
-                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 1000 * 10),
-                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 1000 * 10)
+                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 1500 * 10),
+                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 1500 * 10)
                 },
                 GregtechItemList.InfinityInfusedManipulator.get(1),
                 90 * 20,
@@ -516,10 +516,10 @@ public class RecipeLoader_ChemicalSkips {
                     ItemList.NaquadriaSupersolid.get(4)
                 },
                 new FluidStack[] {
-                    Materials.Thulium.getMolten(144 * 10),
+                    Materials.Thulium.getMolten(144 * 20),
                     Materials.ExcitedDTEC.getFluid(5000),
-                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 1000 * 10),
-                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 1000 * 10)
+                    new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 2000 * 10),
+                    new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 2000 * 10)
                 },
                 GregtechItemList.SpaceTimeContinuumRipper.get(1),
                 60 * 20,
