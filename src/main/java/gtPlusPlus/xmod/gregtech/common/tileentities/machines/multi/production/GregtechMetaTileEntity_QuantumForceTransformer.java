@@ -538,7 +538,23 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
         // Makes sure that the multi can accept only 1 TT Energy Hatch OR up to 2 Normal Energy Hatches. Deform if both
         // present or more than 1 TT Hatch.
-        boolean hatch = mExoticEnergyHatches.size() == 1 ^ (mEnergyHatches.size() <= 2 && !mEnergyHatches.isEmpty());
+        if (mExoticEnergyHatches.isEmpty() && mEnergyHatches.isEmpty()) {
+            return false;
+        }
+
+        if (mExoticEnergyHatches.size() >= 1) {
+            if (!mEnergyHatches.isEmpty()) {
+                return false;
+            }
+
+            if (mExoticEnergyHatches.size() != 1) {
+                return false;
+            }
+        }
+
+        if (mEnergyHatches.size() > 2) {
+            return false;
+        }
 
         return hatch;
     }
