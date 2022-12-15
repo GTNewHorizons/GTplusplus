@@ -482,18 +482,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Quantum Force Transformer")
                 .addInfo("Controller Block for the Quantum Force Transformer")
-                .addInfo("Allows Complex chemical lines to be performed instantly")
-                .addInfo("Every recipe requires a catalyst, each catalyst adds 1 parallel up to 64")
-                .addInfo("All inputs go on the bottom, all outputs go on the top")
+                .addInfo("Allows Complex chemical lines to be performed instantly in one step")
+                .addInfo("Every recipe requires a catalyst, each catalyst adds 1 parallel and lasts forever")
                 .addInfo("Accepts TecTech Energy and Laser Hatches")
-                .addInfo("Put a circuit in the controller to specify the focused output.")
+                .addInfo("All inputs go on the bottom, all outputs go on the top")
+                .addInfo("Put a circuit in the controller to specify the focused output")
                 .addInfo("Check NEI to see the order of outputs, and which circuit number you need.")
                 .addInfo("Uses FocusTier*4*sqrt(parallels) Neptunium Plasma if focusing")
                 .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
-                .addInfo("This multi gives bonuses when all casings of some types are upgraded")
+                .addInfo("This multi gets improved when all casings of some types are upgraded")
                 .addInfo("Casing functions:")
-                .addInfo("Pulse Manipulators: Recipe Tier Allowed")
-                .addInfo("Shielding Cores: Focusing Tier")
+                .addInfo("Pulse Manipulators: Recipe Tier Allowed (check NEI for the tier of each recipe)")
+                .addInfo("Shielding Cores: Focusing Tier (equal to or higher than recipe tier to allow focus)")
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .beginStructureBlock(15, 21, 15, true)
@@ -501,8 +501,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addCasingInfo("Bulk Production Frame", 80)
                 .addCasingInfo("Quantum Force Conductor", 177)
                 .addCasingInfo("Particle Containment Casing", 224)
-                .addCasingInfo("Neutron Shielding Cores", 234)
-                .addCasingInfo("Neutron Pulse Manipulators", 142)
+                .addCasingInfo("Neutron Pulse Manipulators", 233)
+                .addCasingInfo("Neutron Shielding Cores", 142)
                 .addInputBus("Bottom Layer", 4)
                 .addInputHatch("Bottom Layer", 4)
                 .addOutputHatch("Top Layer", 5)
@@ -512,7 +512,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addStructureInfo("Neptunium Plasma Hatch: Left side of Controller")
                 .addStructureInfo("Fermium Plasma Hatch: Right side of Controller")
                 .toolTipFinisher(GT_Values.AuthorBlueWeabo + EnumChatFormatting.RESET + EnumChatFormatting.GREEN
-                        + " + Steelux - [GT++]");
+                        + " + Steelux" + EnumChatFormatting.RESET + " - [GT++]");
         return tt;
     }
 
@@ -764,7 +764,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             mMaxProgresstime = tRecipe.mDuration;
             lEUt = -tRecipe.mEUt;
 
-            calculateOverclockedNessMultiInternal(mCurrentMaxParallel, tTier, mCurrentMaxParallel, tTotalEUt, false);
+            calculateOverclockedNessMultiInternal(tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
 
             if (mMaxProgresstime == Integer.MAX_VALUE - 1 || lEUt == Long.MAX_VALUE - 1) return false;
 
@@ -843,6 +843,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         new FluidStack(mFermium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
                 FluidStack tLiquid = mFermiumHatch.drain(tFluid.amount, true);
                 if (tLiquid == null || tLiquid.amount < tFluid.amount) {
+                    doFermium = false;
                     criticalStopMachine();
                     return false;
                 }
@@ -853,6 +854,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         new FluidStack(mNeptunium, (int) (getFocusingTier() * 4 * Math.sqrt(mCurrentParallel)));
                 FluidStack tLiquid = mNeptuniumHatch.drain(tFluid.amount, true);
                 if (tLiquid == null || tLiquid.amount < tFluid.amount) {
+                    doNeptunium = false;
                     criticalStopMachine();
                     return false;
                 }
