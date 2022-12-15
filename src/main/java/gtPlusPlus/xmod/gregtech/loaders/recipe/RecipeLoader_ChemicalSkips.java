@@ -222,8 +222,7 @@ public class RecipeLoader_ChemicalSkips {
                 },
                 new FluidStack[] {
                     Materials.Hydrogen.getGas(1000 * 16),
-                    Materials.Nitrogen.getGas(1000 * 16),
-                    Materials.Oil.getFluid(1000 * 16)
+                    Materials.Nitrogen.getGas(1000 * 16)
                 },
                 new FluidStack[] {
                     GT_CoreModSupport.Xenoxene.getFluid(1000 * 16),
