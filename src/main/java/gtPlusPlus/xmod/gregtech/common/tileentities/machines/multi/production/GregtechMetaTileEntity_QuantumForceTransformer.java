@@ -780,7 +780,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             mMaxProgresstime = tRecipe.mDuration;
             lEUt = -tRecipe.mEUt;
 
-            calculateOverclockedNessMultiInternal(tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
+            calculateOverclockedNessMultiInternal(
+                    tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
 
             if (mMaxProgresstime == Integer.MAX_VALUE - 1 || lEUt == Long.MAX_VALUE - 1) return false;
 
