@@ -556,7 +556,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return false;
         }
 
-        return hatch;
+        return true;
     }
 
     @Override
