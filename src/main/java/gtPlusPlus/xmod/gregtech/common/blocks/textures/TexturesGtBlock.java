@@ -299,11 +299,14 @@ public class TexturesGtBlock {
     public static final CustomIcon CosmicFabricManipulator = mAnimated ? new CustomIcon("CosmicFabricManipulator") : new CustomIcon("CosmicFabricManipulatorStatic");
     public static final CustomIcon InfinityInfusedManipulator = mAnimated ? new CustomIcon("InfinityInfusedManipulator") : new CustomIcon("InfinityInfusedManipulatorStatic");
     public static final CustomIcon SpaceTimeContinuumRipper = mAnimated ? new CustomIcon("SpaceTimeContinuumRipper") : new CustomIcon("SpaceTimeContinuumRipperStatic");
+    public static final CustomIcon Manipulator_Top = new CustomIcon("Manipulator_Top");
     public static final CustomIcon NeutronShieldingCore = mAnimated ? new CustomIcon("NeutronShieldingCore") : new CustomIcon("NeutronShieldingCoreStatic");
     public static final CustomIcon CosmicFabricShieldingCore = mAnimated ? new CustomIcon("CosmicFabricShieldingCore") : new CustomIcon("CosmicFabricShieldingCoreStatic");
     public static final CustomIcon InfinityInfusedShieldingCore = mAnimated ? new CustomIcon("InfinityInfusedShieldingCore") : new CustomIcon("InfinityInfusedShieldingCoreStatic");
     public static final CustomIcon SpaceTimeBendingCore = mAnimated ? new CustomIcon("SpaceTimeBendingCore") : new CustomIcon("SpaceTimeBendingCoreStatic");
     public static final CustomIcon ForceFieldGlass = new CustomIcon("ForceFieldGlass");
+    public static final CustomIcon ForceField = new CustomIcon("rendering/ForceField");
+    public static final CustomIcon Blank = new CustomIcon("Blank");
     //spotless:on
 
     // MACHINE_CASING_FARM_MANAGER_STRUCTURAL
