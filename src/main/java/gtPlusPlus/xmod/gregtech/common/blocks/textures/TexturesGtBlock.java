@@ -305,6 +305,7 @@ public class TexturesGtBlock {
     public static final CustomIcon InfinityInfusedShieldingCore = mAnimated ? new CustomIcon("InfinityInfusedShieldingCore") : new CustomIcon("InfinityInfusedShieldingCoreStatic");
     public static final CustomIcon SpaceTimeBendingCore = mAnimated ? new CustomIcon("SpaceTimeBendingCore") : new CustomIcon("SpaceTimeBendingCoreStatic");
     public static final CustomIcon ForceFieldGlass = new CustomIcon("ForceFieldGlass");
+    public static final CustomIcon ForceField = new CustomIcon("rendering/ForceField");
     public static final CustomIcon Blank = new CustomIcon("Blank");
     //spotless:on
 
