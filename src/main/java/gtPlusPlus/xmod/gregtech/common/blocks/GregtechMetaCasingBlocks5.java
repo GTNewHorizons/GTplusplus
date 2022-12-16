@@ -95,12 +95,24 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                 case 6:
                     return TexturesGtBlock.TEXTURE_TECH_PANEL_H.getIcon();
                 case 7:
+                    if (aSide == 0 || aSide == 1) {
+                        return TexturesGtBlock.Manipulator_Top.getIcon();
+                    }
                     return TexturesGtBlock.NeutronPulseManipulator.getIcon();
                 case 8:
+                    if (aSide == 0 || aSide == 1) {
+                        return TexturesGtBlock.Manipulator_Top.getIcon();
+                    }
                     return TexturesGtBlock.CosmicFabricManipulator.getIcon();
                 case 9:
+                    if (aSide == 0 || aSide == 1) {
+                        return TexturesGtBlock.Manipulator_Top.getIcon();
+                    }
                     return TexturesGtBlock.InfinityInfusedManipulator.getIcon();
                 case 10:
+                    if (aSide == 0 || aSide == 1) {
+                        return TexturesGtBlock.Manipulator_Top.getIcon();
+                    }
                     return TexturesGtBlock.SpaceTimeContinuumRipper.getIcon();
                 case 11:
                     return TexturesGtBlock.NeutronShieldingCore.getIcon();
@@ -111,6 +123,9 @@ public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract 
                 case 14:
                     return TexturesGtBlock.SpaceTimeBendingCore.getIcon();
                 case 15:
+                    if (aSide == 0 || aSide == 1) {
+                        return TexturesGtBlock.Blank.getIcon();
+                    }
                     return TexturesGtBlock.ForceFieldGlass.getIcon();
             }
         }
