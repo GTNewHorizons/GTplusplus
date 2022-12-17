@@ -20,7 +20,6 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_ExtendedPowerMultiBlockBase;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.render.TextureFactory;
@@ -33,17 +32,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.opengl.GL11;
 
 public class GregtechMetaTileEntity_QuantumForceTransformer
         extends GT_MetaTileEntity_ExtendedPowerMultiBlockBase<GregtechMetaTileEntity_QuantumForceTransformer>
@@ -674,17 +675,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return true;
     }
 
-    @Override
-    public long getMaxInputVoltage() {
-        long rVoltage = 0;
-        for (GT_MetaTileEntity_Hatch_Energy tHatch : mEnergyHatches)
-            if (isValidMetaTileEntity(tHatch)) {
-                rVoltage += tHatch.getBaseMetaTileEntity().getInputVoltage()
-                        * tHatch.getBaseMetaTileEntity().getInputAmperage();
-            }
-        return rVoltage;
-    }
-
     private static int mMaxParallel = 64;
     private int mCurrentParallel = 0;
 
@@ -714,7 +704,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             ItemStack[] tInputList = getCompactedInputs();
             return processRecipe(tInputList, tFluidList, getRecipeMap(), aStack);
         }
-
+        this.mEfficiency = 0;
+        this.mEfficiencyIncrease = 0;
         return false;
     }
 
@@ -749,7 +740,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             int mCurrentMaxParallel = 0;
             for (ItemStack tItem : aItemInputs) {
                 if (ItemUtils.isCatalyst(tItem) && tItem.equals(aRecipeCatalyst)) {
-                    mCurrentMaxParallel = tItem.stackSize;
+                    mCurrentMaxParallel += tItem.stackSize;
                 }
 
                 if (mCurrentMaxParallel >= mMaxParallel) {
@@ -880,10 +871,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             runningTick = 1;
         } else {
             runningTick++;
-        }
-
-        if (getBaseMetaTileEntity().isClientSide()) {
-            renderForceField();
         }
 
         return true;
@@ -1104,22 +1091,150 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mMaxProgresstime = (int) zTime;
     }
 
+    @SideOnly(Side.CLIENT)
+    private static Tessellator tes;
+
+    @SideOnly(Side.CLIENT)
+    private static IIcon forceField;
+
+    @SideOnly(Side.CLIENT)
+    private void renderForceField(
+            double x, double y, double z, int side, double minU, double maxU, double minV, double maxV) {
+        // spotless:off
+        switch (side) {
+            case 0:
+                tes.addVertexWithUV(x + 3 - 0.5, y    , z + 7, maxU, maxV);
+                tes.addVertexWithUV(x + 3 - 0.5, y + 4, z + 7, maxU, minV);
+                tes.addVertexWithUV(x - 3 + 0.5, y + 4, z + 7, minU, minV);
+                tes.addVertexWithUV(x - 3 + 0.5, y    , z + 7, minU, maxV);
+                tes.addVertexWithUV(x - 3 + 0.5, y    , z + 7, minU, maxV);
+                tes.addVertexWithUV(x - 3 + 0.5, y + 4, z + 7, minU, minV);
+                tes.addVertexWithUV(x + 3 - 0.5, y + 4, z + 7, maxU, minV);
+                tes.addVertexWithUV(x + 3 - 0.5, y    , z + 7, maxU, maxV);
+                break;
+            case 1:
+                tes.addVertexWithUV(x + 7, y    , z + 4 - 0.5, maxU, maxV);
+                tes.addVertexWithUV(x + 7, y + 4, z + 4 - 0.5, maxU, minV);
+                tes.addVertexWithUV(x + 7, y + 4, z - 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x + 7, y    , z - 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7, y    , z - 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7, y + 4, z - 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x + 7, y + 4, z + 4 - 0.5, maxU, minV);
+                tes.addVertexWithUV(x + 7, y    , z + 4 - 0.5, maxU, maxV);
+                break;
+            case 2:
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z - 7, maxU, maxV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z - 7, maxU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z - 7, minU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z - 7, minU, maxV);
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z - 7, minU, maxV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z - 7, minU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z - 7, maxU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z - 7, maxU, maxV);
+                break;
+            case 3:
+                tes.addVertexWithUV(x - 7, y    , z + 4 - 0.5, maxU, maxV);
+                tes.addVertexWithUV(x - 7, y + 4, z + 4 - 0.5, maxU, minV);
+                tes.addVertexWithUV(x - 7, y + 4, z - 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x - 7, y    , z - 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7, y    , z - 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7, y + 4, z - 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x - 7, y + 4, z + 4 - 0.5, maxU, minV);
+                tes.addVertexWithUV(x - 7, y    , z + 4 - 0.5, maxU, maxV); 
+                break;
+            case 4:
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z + 7      , maxU, maxV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z + 7      , maxU, minV);
+                tes.addVertexWithUV(x - 7      , y + 4, z + 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x - 7      , y    , z + 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7      , y    , z + 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7      , y + 4, z + 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z + 7      , maxU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z + 7      , maxU, maxV);
+                break;
+            case 5:
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z - 7      , maxU, maxV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z - 7      , maxU, minV);
+                tes.addVertexWithUV(x - 7      , y + 4, z - 4 - 0.5, minU, minV);
+                tes.addVertexWithUV(x - 7      , y    , z - 4 - 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7      , y    , z - 4 - 0.5, minU, maxV);
+                tes.addVertexWithUV(x - 7      , y + 4, z - 4 - 0.5, minU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y + 4, z - 7      , maxU, minV);
+                tes.addVertexWithUV(x - 3 - 0.5, y    , z - 7      , maxU, maxV);
+                break;
+            case 6:
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z + 7      , maxU, maxV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z + 7      , maxU, minV);
+                tes.addVertexWithUV(x + 7      , y + 4, z + 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x + 7      , y    , z + 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7      , y    , z + 4 + 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7      , y + 4, z + 4 + 0.5, minU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z + 7      , maxU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z + 7      , maxU, maxV);
+                break;
+            case 7:
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z - 7      , maxU, maxV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z - 7      , maxU, minV);
+                tes.addVertexWithUV(x + 7      , y + 4, z - 4 - 0.5, minU, minV);
+                tes.addVertexWithUV(x + 7      , y    , z - 4 - 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7      , y    , z - 4 - 0.5, minU, maxV);
+                tes.addVertexWithUV(x + 7      , y + 4, z - 4 - 0.5, minU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y + 4, z - 7      , maxU, minV);
+                tes.addVertexWithUV(x + 3 + 0.5, y    , z - 7      , maxU, maxV);
+                break;
+        }
+    }
+
+    private void loadTexture() {
+        forceField = TexturesGtBlock.ForceField.getIcon();
+    }
+
     @Override
-    public void registerIcons(IIconRegister aBlockIconRegister) {
-        super.registerIcons(aBlockIconRegister);
-        generateForceFieldTextures(aBlockIconRegister);
-    }
-
-    private static IIcon textures[];
-
-    @SideOnly(Side.CLIENT)
-    private void renderForceField() {
-        final Tessellator tes = Tessellator.instance;
-    }
-
-    @SideOnly(Side.CLIENT)
-    private static void generateForceFieldTextures(IIconRegister register) {
-        textures = new IIcon[1];
-        textures[0] = register.registerIcon("miscutils/blocks/InfinityInfusedShieldingCoreStatic.png");
+    public boolean renderInWorld(IBlockAccess aWorld, int x, int y, int z, Block block, RenderBlocks renderer) {
+        if (tes == null) {
+            tes = Tessellator.instance;
+        }
+        if (forceField == null) {
+            loadTexture();
+        }
+        if (getBaseMetaTileEntity().isActive()) {
+            double minU = forceField.getMinU();
+            double maxU = forceField.getMaxU();
+            double minV = forceField.getMinV();
+            double maxV = forceField.getMaxV();
+            double xBaseOffset = 3 * getExtendedFacing().getRelativeBackInWorld().offsetX;
+            double zBaseOffset = 3 * getExtendedFacing().getRelativeBackInWorld().offsetZ;
+            GL11.glPushMatrix();
+            GL11.glDisable(GL11.GL_CULL_FACE);
+            GL11.glDisable(GL11.GL_ALPHA_TEST);
+            GL11.glEnable(GL11.GL_BLEND);
+            tes.setColorOpaque_F(1f, 1f, 1f);
+            tes.setBrightness(15728880);
+            //Center O:  0,  0         1 ------- 8
+            //Corner 1:  7, -2        /           \
+            //Corner 2:  3, -6     2 /             \ 7
+            //Corner 3: -2, -6      |               |
+            //Corner 4: -6, -2      |       O       |
+            //Corner 5: -6,  3      |               |
+            //Corner 6: -2,  7     3 \             / 6
+            //Corner 7:  3,  7        \           /
+            //Corner 8:  7,  3         4 ------- 5
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 0, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 1, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 2, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 3, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 4, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 5, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 6, minU, maxU, minV, maxV);
+            renderForceField(x + xBaseOffset + 0.5, y, z + zBaseOffset + 0.5, 7, minU, maxU, minV, maxV);
+            GL11.glDisable(GL11.GL_BLEND);
+            GL11.glEnable(GL11.GL_ALPHA_TEST);
+            GL11.glEnable(GL11.GL_CULL_FACE);
+            GL11.glPopMatrix();
+            
+        }
+        // Needs to be false to render the controller
+        return false;
+        //spotless:on
     }
 }
