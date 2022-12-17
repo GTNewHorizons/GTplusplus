@@ -35,6 +35,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
@@ -687,7 +688,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         this.mOutputFluids = null;
         doFermium = false;
         doNeptunium = false;
-        FluidStack[] tFluidList = getCompactedFluids();
+        FluidStack[] tFluidList = getStoredFluids().toArray(new FluidStack[0]);
         if (mSeparateInputBusses) {
             ArrayList<ItemStack> tInputList = new ArrayList<ItemStack>();
             for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
@@ -701,7 +702,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 else tInputList.clear();
             }
         } else {
-            ItemStack[] tInputList = getCompactedInputs();
+            ItemStack[] tInputList = getStoredInputs().toArray(new ItemStack[0]);
             return processRecipe(tInputList, tFluidList, getRecipeMap(), aStack);
         }
         this.mEfficiency = 0;
@@ -771,8 +772,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             mMaxProgresstime = tRecipe.mDuration;
             lEUt = -tRecipe.mEUt;
 
-            calculateOverclockedNessMultiInternal(
-                    tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
+            calculateOverclockedNessMultiInternal(tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
 
             if (mMaxProgresstime == Integer.MAX_VALUE - 1 || lEUt == Long.MAX_VALUE - 1) return false;
 
@@ -807,10 +807,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     mat.getFluid(tRecipe.getOutput(i).stackSize * 1000);
                                 }
                             } else {
-                                tItemOutputs.add(tRecipe.getOutput(i));
+                                Item aItem = tRecipe.getOutput(i).getItem();
+                                int aStackSize = tRecipe.getOutput(i).stackSize;
+                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
                             }
                         } else {
-                            tFluidOutputs.add(tRecipe.getFluidOutput(i - tRecipe.mOutputs.length));
+                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).getFluid();
+                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
+                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
                         }
                     }
                 }
@@ -818,9 +822,13 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 for (int i = 0; i < tChances.length; i++) {
                     if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
                         if (i < tRecipe.mOutputs.length) {
-                            tItemOutputs.add(tRecipe.getOutput(i));
+                            Item aItem = tRecipe.getOutput(i).getItem();
+                            int aStackSize = tRecipe.getOutput(i).stackSize;
+                            tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
                         } else {
-                            tFluidOutputs.add(tRecipe.getFluidOutput(i - tRecipe.mOutputs.length));
+                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).getFluid();
+                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
+                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
                         }
                     }
                 }
