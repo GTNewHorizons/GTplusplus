@@ -1092,15 +1092,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @SideOnly(Side.CLIENT)
-    private static Tessellator tes;
-
-    @SideOnly(Side.CLIENT)
-    private static IIcon forceField;
-
-    @SideOnly(Side.CLIENT)
     private void renderForceField(
             double x, double y, double z, int side, double minU, double maxU, double minV, double maxV) {
         // spotless:off
+        Tessellator tes = Tessellator.instance;
         switch (side) {
             case 0:
                 tes.addVertexWithUV(x + 3 - 0.5, y    , z + 7, maxU, maxV);
@@ -1186,19 +1181,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @SideOnly(Side.CLIENT)
-    private void loadTexture() {
-        forceField = TexturesGtBlock.ForceField.getIcon();
-    }
-
-    @SideOnly(Side.CLIENT)
     @Override
     public boolean renderInWorld(IBlockAccess aWorld, int x, int y, int z, Block block, RenderBlocks renderer) {
-        if (tes == null) {
-            tes = Tessellator.instance;
-        }
-        if (forceField == null) {
-            loadTexture();
-        }
+        Tessellator tes = Tessellator.instance;
+        IIcon forceField = TexturesGtBlock.ForceField.getIcon();
         if (getBaseMetaTileEntity().isActive()) {
             double minU = forceField.getMinU();
             double maxU = forceField.getMaxU();
