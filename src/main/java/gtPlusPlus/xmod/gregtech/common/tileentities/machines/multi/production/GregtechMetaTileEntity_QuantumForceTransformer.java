@@ -1185,10 +1185,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         }
     }
 
+    @SideOnly(Side.CLIENT)
     private void loadTexture() {
         forceField = TexturesGtBlock.ForceField.getIcon();
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public boolean renderInWorld(IBlockAccess aWorld, int x, int y, int z, Block block, RenderBlocks renderer) {
         if (tes == null) {
