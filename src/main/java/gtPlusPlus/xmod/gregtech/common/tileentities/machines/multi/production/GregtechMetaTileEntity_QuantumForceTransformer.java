@@ -1197,7 +1197,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (forceField == null) {
             loadTexture();
         }
-        if (true) {
+        if (getBaseMetaTileEntity().isActive()) {
             double minU = forceField.getMinU();
             double maxU = forceField.getMaxU();
             double minV = forceField.getMinV();
