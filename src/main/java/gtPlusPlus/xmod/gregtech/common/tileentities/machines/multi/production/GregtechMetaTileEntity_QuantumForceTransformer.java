@@ -22,6 +22,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_ExtendedPow
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.objects.ItemData;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.*;
 import gtPlusPlus.core.block.ModBlocks;
@@ -799,13 +800,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             if (mFluidMode) {
                 for (int i = 0; i < tChances.length; i++) {
                     if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
-                        Materials mat = getAssociation(tRecipe.getOutput(i)).mMaterial.mMaterial;
+                        ItemData data = getAssociation(tRecipe.getOutput(i));
+                        Materials mat = data == null ? null : data.mMaterial.mMaterial;
                         if (i < tRecipe.mOutputs.length) {
                             if (mat != null) {
                                 if (mat.getMolten(0) != null) {
                                     tFluidOutputs.add(mat.getMolten(tRecipe.getOutput(i).stackSize * 144));
-                                } else {
+                                } else if (mat.getFluid(0) != null) {
                                     mat.getFluid(tRecipe.getOutput(i).stackSize * 1000);
+                                } else {
+                                    Item aItem = tRecipe.getOutput(i).getItem();
+                                    int aStackSize = tRecipe.getOutput(i).stackSize;
+                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
                                 }
                             } else {
                                 Item aItem = tRecipe.getOutput(i).getItem();
