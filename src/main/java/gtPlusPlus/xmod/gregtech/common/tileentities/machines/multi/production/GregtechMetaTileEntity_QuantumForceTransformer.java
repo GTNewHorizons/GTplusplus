@@ -740,7 +740,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
             int mCurrentMaxParallel = 0;
             for (ItemStack tItem : aItemInputs) {
-                if (ItemUtils.isCatalyst(tItem) && tItem.equals(aRecipeCatalyst)) {
+                if (ItemUtils.isCatalyst(tItem) && tItem.isItemEqual(aRecipeCatalyst)) {
                     mCurrentMaxParallel += tItem.stackSize;
                 }
 
@@ -761,7 +761,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 doFermium = false;
             }
 
-            while (mCurrentParallel <= mCurrentMaxParallel
+            while (mCurrentParallel < mCurrentMaxParallel
                     && tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                 mCurrentParallel++;
             }
