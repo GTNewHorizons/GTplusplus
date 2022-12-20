@@ -810,13 +810,15 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     mat.getFluid(tRecipe.getOutput(i).stackSize * 1000);
                                 } else {
                                     Item aItem = tRecipe.getOutput(i).getItem();
+                                    int aDamage = tRecipe.getOutput(i).getItemDamage();
                                     int aStackSize = tRecipe.getOutput(i).stackSize;
-                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
+                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
                                 }
                             } else {
                                 Item aItem = tRecipe.getOutput(i).getItem();
+                                int aDamage = tRecipe.getOutput(i).getItemDamage();
                                 int aStackSize = tRecipe.getOutput(i).stackSize;
-                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
+                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
                             }
                         } else {
                             Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
@@ -831,8 +833,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                     if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
                         if (i < tRecipe.mOutputs.length) {
                             Item aItem = tRecipe.getOutput(i).getItem();
+                            int aDamage = tRecipe.getOutput(i).getItemDamage();
                             int aStackSize = tRecipe.getOutput(i).stackSize;
-                            tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel));
+                            tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
                         } else {
                             Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
                                     .getFluid();
