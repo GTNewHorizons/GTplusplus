@@ -993,7 +993,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return true;
     }
 
-    public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    @Override
+    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         mFluidMode = !mFluidMode;
         GT_Utility.sendChatToPlayer(
                 aPlayer, StatCollector.translateToLocal("miscutils.machines.QFTFluidMode") + " " + mFluidMode);
@@ -1085,9 +1086,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected void calculateOverclockedNessMultiInternal(
             long aEUt, int aDuration, int mAmperage, long maxInputVoltage, boolean perfectOC) {
         // 5% space for cable loss
+        long aAmps = getMaxInputAmps();
         long zMaxInputVoltage = maxInputVoltage / 100L * 95L;
         long zTime = aDuration;
-        long zEUt = aEUt * mAmperage;
+        long zEUt = aEUt;
         while (zEUt < zMaxInputVoltage) {
             zEUt = zEUt << 2;
             zTime = zTime >> (perfectOC ? 2 : 1);
@@ -1098,10 +1100,12 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (zTime <= 0) {
             zTime = 1;
         }
-        if (zEUt > zMaxInputVoltage) {
+        while (zEUt * mAmperage
+                > zMaxInputVoltage * aAmps / getExoticAndNormalEnergyHatchList().size()) {
             zEUt = zEUt >> 2;
             zTime = zTime << (perfectOC ? 2 : 1);
         }
+
         if (zTime > Integer.MAX_VALUE - 1) {
             zTime = Integer.MAX_VALUE - 1;
         }
