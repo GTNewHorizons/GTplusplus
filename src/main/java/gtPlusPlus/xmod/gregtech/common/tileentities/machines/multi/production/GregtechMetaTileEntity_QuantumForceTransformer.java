@@ -36,7 +36,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
@@ -805,26 +804,26 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         if (i < tRecipe.mOutputs.length) {
                             if (mat != null) {
                                 if (mat.getMolten(0) != null) {
-                                    tFluidOutputs.add(mat.getMolten(tRecipe.getOutput(i).stackSize * 144));
+                                    tFluidOutputs.add(
+                                            mat.getMolten(tRecipe.getOutput(i).stackSize * 144 * mCurrentParallel));
                                 } else if (mat.getFluid(0) != null) {
-                                    mat.getFluid(tRecipe.getOutput(i).stackSize * 1000);
+                                    tFluidOutputs.add(
+                                            mat.getFluid(tRecipe.getOutput(i).stackSize * 1000 * mCurrentParallel));
                                 } else {
-                                    Item aItem = tRecipe.getOutput(i).getItem();
-                                    int aDamage = tRecipe.getOutput(i).getItemDamage();
-                                    int aStackSize = tRecipe.getOutput(i).stackSize;
-                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
+                                    ItemStack aItem = tRecipe.getOutput(i);
+                                    tItemOutputs.add(
+                                            GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
                                 }
                             } else {
-                                Item aItem = tRecipe.getOutput(i).getItem();
-                                int aDamage = tRecipe.getOutput(i).getItemDamage();
-                                int aStackSize = tRecipe.getOutput(i).stackSize;
-                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
+                                ItemStack aItem = tRecipe.getOutput(i);
+                                tItemOutputs.add(
+                                        GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
                             }
                         } else {
-                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
-                                    .getFluid();
-                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
-                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
+                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
+                                    .copy();
+                            aFluid.amount *= mCurrentParallel;
+                            tFluidOutputs.add(aFluid);
                         }
                     }
                 }
@@ -832,15 +831,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 for (int i = 0; i < tChances.length; i++) {
                     if (getBaseMetaTileEntity().getRandomNumber(10000) < tChances[i]) {
                         if (i < tRecipe.mOutputs.length) {
-                            Item aItem = tRecipe.getOutput(i).getItem();
-                            int aDamage = tRecipe.getOutput(i).getItemDamage();
-                            int aStackSize = tRecipe.getOutput(i).stackSize;
-                            tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aDamage));
+                            ItemStack aItem = tRecipe.getOutput(i).copy();
+                            aItem.stackSize *= mCurrentParallel;
+                            tItemOutputs.add(aItem);
                         } else {
-                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
-                                    .getFluid();
-                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
-                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
+                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
+                                    .copy();
+                            aFluid.amount *= mCurrentParallel;
+                            tFluidOutputs.add(aFluid);
                         }
                     }
                 }
