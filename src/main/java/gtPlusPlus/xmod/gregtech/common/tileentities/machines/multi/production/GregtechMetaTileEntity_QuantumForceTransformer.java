@@ -712,8 +712,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        long tVoltage = GT_ExoticEnergyInputHelper.getMaxInputVoltageMulti(getExoticAndNormalEnergyHatchList());
-        long tAmps = GT_ExoticEnergyInputHelper.getMaxInputAmpsMulti(getExoticAndNormalEnergyHatchList());
+        long tVoltage =
+                getMaxInputVoltage() / getExoticAndNormalEnergyHatchList().size();
+        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.95);
         long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
@@ -770,7 +771,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             this.mEfficiencyIncrease = 10000;
 
             mMaxProgresstime = tRecipe.mDuration;
-            lEUt = -tRecipe.mEUt;
+            lEUt = -tRecipe.mEUt * mCurrentParallel;
 
             calculateOverclockedNessMultiInternal(
                     tRecipe.mEUt * mCurrentParallel, tRecipe.mDuration, 1, tTotalEUt, false);
@@ -1086,11 +1087,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     protected void calculateOverclockedNessMultiInternal(
             long aEUt, int aDuration, int mAmperage, long maxInputVoltage, boolean perfectOC) {
         // 5% space for cable loss
-        long aAmps = getMaxInputAmps();
         long zMaxInputVoltage = maxInputVoltage / 100L * 95L;
         long zTime = aDuration;
         long zEUt = aEUt;
-        while (zEUt < zMaxInputVoltage) {
+        while (zEUt << 2 < zMaxInputVoltage) {
             zEUt = zEUt << 2;
             zTime = zTime >> (perfectOC ? 2 : 1);
             if (zTime <= 0) {
@@ -1099,11 +1099,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         }
         if (zTime <= 0) {
             zTime = 1;
-        }
-        while (zEUt * mAmperage
-                > zMaxInputVoltage * aAmps / getExoticAndNormalEnergyHatchList().size()) {
-            zEUt = zEUt >> 2;
-            zTime = zTime << (perfectOC ? 2 : 1);
         }
 
         if (zTime > Integer.MAX_VALUE - 1) {
