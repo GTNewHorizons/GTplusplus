@@ -36,7 +36,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
@@ -713,9 +712,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        long tVoltage =
-                getMaxInputVoltage() / getExoticAndNormalEnergyHatchList().size();
-        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80);
+        int hatches = getExoticAndNormalEnergyHatchList().size();
+        long tVoltage = getMaxInputVoltage();
+        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80) / hatches;
         long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
@@ -812,22 +811,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     tFluidOutputs.add(
                                             mat.getFluid(tRecipe.getOutput(i).stackSize * 1000 * mCurrentParallel));
                                 } else {
-                                    Item aItem = tRecipe.getOutput(i).getItem();
-                                    int aItemDamage = tRecipe.getOutput(i).getItemDamage();
-                                    int aStackSize = tRecipe.getOutput(i).stackSize;
-                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aItemDamage));
+                                    ItemStack aItem = tRecipe.getOutput(i);
+                                    tItemOutputs.add(
+                                            GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
                                 }
                             } else {
-                                Item aItem = tRecipe.getOutput(i).getItem();
-                                int aItemDamage = tRecipe.getOutput(i).getItemDamage();
-                                int aStackSize = tRecipe.getOutput(i).stackSize;
-                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aItemDamage));
+                                ItemStack aItem = tRecipe.getOutput(i);
+                                tItemOutputs.add(
+                                        GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
                             }
                         } else {
-                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
-                                    .getFluid();
-                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
-                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
+                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length);
+                            tFluidOutputs.add(new FluidStack(aFluid, aFluid.amount * mCurrentParallel));
                         }
                     }
                 }
