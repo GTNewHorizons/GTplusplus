@@ -26,7 +26,7 @@ dependencies {
     compileOnly('com.github.GTNewHorizons:Chisel:2.10.15-GTNH:dev') {transitive=false}
     compileOnly("com.github.GTNewHorizons:ProjectRed:4.7.7-GTNH:dev") {transitive = false}
 
-    compile("com.github.GTNewHorizons:TecTech:5.0.54:dev")
+    compile("com.github.GTNewHorizons:TecTech:5.0.61:dev")
 
     runtimeOnly('com.github.GTNewHorizons:ForestryMC:4.5.3:dev')
 }
