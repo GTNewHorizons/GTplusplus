@@ -712,8 +712,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        long tVoltage =
-                getMaxInputVoltage() / getExoticAndNormalEnergyHatchList().size();
+        long tVoltage = getMaxInputVoltage();
         long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80);
         long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
@@ -821,10 +820,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                         GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
                             }
                         } else {
-                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
-                                    .copy();
-                            aFluid.amount *= mCurrentParallel;
-                            tFluidOutputs.add(aFluid);
+                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length);
+                            tFluidOutputs.add(new FluidStack(aFluid, aFluid.amount * mCurrentParallel));
                         }
                     }
                 }
