@@ -712,8 +712,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        long tVoltage = getMaxInputVoltage();
-        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80);
+        int hatches = getExoticAndNormalEnergyHatchList().size();
+        long tVoltage = getMaxInputVoltage() / hatches;
+        // Need to check weather the hatches used are TT ones or not as TT hatches can request 20% more amps
+        long tAmps = (long) Math.floor(mExoticEnergyHatches.isEmpty() ? getMaxInputAmps() : getMaxInputAmps() * 0.80);
         long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
@@ -1087,12 +1089,21 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         long zMaxInputVoltage = maxInputVoltage / 100L * 95L;
         long zTime = aDuration;
         long zEUt = aEUt;
+        if (zEUt > zMaxInputVoltage) {
+            zTime = Integer.MAX_VALUE - 1;
+            zEUt = Long.MAX_VALUE - 1;
+            return;
+        }
         while (zEUt << 2 < zMaxInputVoltage) {
             zEUt = zEUt << 2;
             zTime = zTime >> (perfectOC ? 2 : 1);
             if (zTime <= 0) {
                 break;
             }
+        }
+        if (zEUt > zMaxInputVoltage) {
+            zEUt = zEUt >> 2;
+            zTime = zTime << (perfectOC ? 2 : 1);
         }
         if (zTime <= 0) {
             zTime = 1;
