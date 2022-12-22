@@ -712,9 +712,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     private boolean processRecipe(
             ItemStack[] aItemInputs, FluidStack[] aFluidInputs, GT_Recipe.GT_Recipe_Map aRecipeMap, ItemStack aStack) {
-        int hatches = getExoticAndNormalEnergyHatchList().size();
         long tVoltage = getMaxInputVoltage();
-        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80) / hatches;
+        long tAmps = (long) Math.floor(getMaxInputAmps() * 0.80);
         long tTotalEUt = tVoltage * tAmps;
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         GT_Recipe tRecipe = aRecipeMap
