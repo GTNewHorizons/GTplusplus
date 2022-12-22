@@ -36,6 +36,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
@@ -811,20 +812,22 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                     tFluidOutputs.add(
                                             mat.getFluid(tRecipe.getOutput(i).stackSize * 1000 * mCurrentParallel));
                                 } else {
-                                    ItemStack aItem = tRecipe.getOutput(i);
-                                    tItemOutputs.add(
-                                            GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
+                                    Item aItem = tRecipe.getOutput(i).getItem();
+                                    int aItemDamage = tRecipe.getOutput(i).getItemDamage();
+                                    int aStackSize = tRecipe.getOutput(i).stackSize;
+                                    tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aItemDamage));
                                 }
                             } else {
-                                ItemStack aItem = tRecipe.getOutput(i);
-                                tItemOutputs.add(
-                                        GT_Utility.copyAmountUnsafe(aItem.stackSize * mCurrentParallel, aItem));
+                                Item aItem = tRecipe.getOutput(i).getItem();
+                                int aItemDamage = tRecipe.getOutput(i).getItemDamage();
+                                int aStackSize = tRecipe.getOutput(i).stackSize;
+                                tItemOutputs.add(new ItemStack(aItem, aStackSize * mCurrentParallel, aItemDamage));
                             }
                         } else {
-                            FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
-                                    .copy();
-                            aFluid.amount *= mCurrentParallel;
-                            tFluidOutputs.add(aFluid);
+                            Fluid aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length)
+                                    .getFluid();
+                            int aAmount = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length).amount;
+                            tFluidOutputs.add(new FluidStack(aFluid, aAmount * mCurrentParallel));
                         }
                     }
                 }
