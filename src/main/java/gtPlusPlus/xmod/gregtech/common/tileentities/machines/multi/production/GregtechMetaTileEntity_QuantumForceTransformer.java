@@ -1092,7 +1092,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (zEUt > zMaxInputVoltage) {
             zTime = Integer.MAX_VALUE - 1;
             zEUt = Long.MAX_VALUE - 1;
-            return;
         }
         while (zEUt << 2 < zMaxInputVoltage) {
             zEUt = zEUt << 2;
