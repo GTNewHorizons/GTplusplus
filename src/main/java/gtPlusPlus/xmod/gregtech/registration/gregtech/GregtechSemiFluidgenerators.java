@@ -17,10 +17,10 @@ public class GregtechSemiFluidgenerators {
                         839, "basicgenerator.semifluid.tier.03", "Turbo Semi-Fluid Generator", 3)
                 .getStackForm(1L));
         GregtechItemList.Generator_SemiFluid_EV.set(new GT_MetaTileEntity_SemiFluidGenerator(
-                993, "basicgenerator.semifluid.tier.04", "Turbo Semi-Fluid Generator II", 4)
+                        993, "basicgenerator.semifluid.tier.04", "Turbo Semi-Fluid Generator II", 4)
                 .getStackForm(1L));
         GregtechItemList.Generator_SemiFluid_IV.set(new GT_MetaTileEntity_SemiFluidGenerator(
-                994, "basicgenerator.semifluid.tier.05", "Turbo Semi-Fluid Generator III", 5)
+                        994, "basicgenerator.semifluid.tier.05", "Turbo Semi-Fluid Generator III", 5)
                 .getStackForm(1L));
         GregtechItemList.Controller_LargeSemifluidGenerator.set(new GregtechMetaTileEntity_LargeSemifluidGenerator(
                         31026, "gtpp.multimachine.semifluidgenerator", "Large Semifluid Burner")
