@@ -27,12 +27,15 @@ import gtPlusPlus.core.util.minecraft.EnchantingUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
+import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import java.util.ArrayList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RECIPES_GREGTECH {
 
@@ -513,8 +516,7 @@ public class RECIPES_GREGTECH {
                     CI.getTieredFluid(8, 144 * 32),
                     CI.getAlternativeTieredFluid(7, 144 * 16),
                     CI.getTertiaryTieredFluid(7, 144 * 16),
-                    ALLOY.BABBIT_ALLOY.getFluidStack(128 * 144),
-                    ALLOY.ZERON_100.getFluidStack(144 * 64)
+                    ALLOY.BABBIT_ALLOY.getFluidStack(128 * 144)
                 },
                 GregtechItemList.Hatch_Input_TurbineHousing.get(4),
                 20 * 60 * 60 * (GTNH ? 2 : 1),
@@ -1168,6 +1170,29 @@ public class RECIPES_GREGTECH {
 
     private static void cokeOvenRecipes() {
         Logger.INFO("Loading Recipes for Industrial Coking Oven.");
+        // Wood to Charcoal
+        // Try use all woods found
+        ArrayList<ItemStack> aLogData = OreDictionary.getOres("logWood");
+        for (ItemStack stack : aLogData) {
+            AddGregtechRecipe.addCokeAndPyrolyseRecipes(
+                    ItemUtils.getSimpleStack(stack, 20),
+                    20,
+                    GT_ModHandler.getSteam(1000),
+                    GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 24L),
+                    FluidUtils.getFluidStack("fluid.coalgas", 1440),
+                    60,
+                    30);
+        }
+
+        // Coal to Coke
+        AddGregtechRecipe.addCokeAndPyrolyseRecipes(
+                GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Coal, 16L),
+                22,
+                GT_ModHandler.getSteam(1000),
+                ItemUtils.getItemStackOfAmountFromOreDict("fuelCoke", 10),
+                FluidUtils.getFluidStack("fluid.coalgas", 2880),
+                30,
+                120);
 
         // Coke & Coal
         CORE.RA.addCokeOvenRecipe(
