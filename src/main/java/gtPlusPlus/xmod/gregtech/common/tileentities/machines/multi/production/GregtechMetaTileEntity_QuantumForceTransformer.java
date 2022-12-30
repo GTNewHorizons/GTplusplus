@@ -698,10 +698,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         tInputList.add(tBus.getStackInSlot(i));
                     }
                 }
-                
+
                 ItemStack[] tInputs = tInputList.toArray(new ItemStack[0]);
-                if (processRecipe(tInputs, tFluidList, getRecipeMap(), tBus.mInventory[tBus.getCircuitSlot()])) return true;
-                else tInputList.clear();
+                if (processRecipe(tInputs, tFluidList, getRecipeMap(), tBus.mInventory[tBus.getCircuitSlot()])) {
+                    return true;
+                } else tInputList.clear();
             }
         } else {
             ItemStack[] tInputList = getStoredInputs().toArray(new ItemStack[0]);

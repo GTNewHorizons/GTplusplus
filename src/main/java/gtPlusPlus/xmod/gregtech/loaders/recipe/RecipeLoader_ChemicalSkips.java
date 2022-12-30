@@ -45,7 +45,7 @@ public class RecipeLoader_ChemicalSkips {
 
     private static void quantumTransformerRecipes() {
         ItemStack stemcells = GT_Utility.copyAmountUnsafe(64 * 32, ItemList.Circuit_Chip_Stemcell.get(1));
-        ItemStack biocells = GT_Utility.copyAmountUnsafe(64 *32, ItemList.Circuit_Chip_Biocell.get(1));
+        ItemStack biocells = GT_Utility.copyAmountUnsafe(64 * 32, ItemList.Circuit_Chip_Biocell.get(1));
         // Platline
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] {
