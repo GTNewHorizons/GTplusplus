@@ -182,7 +182,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
     @Override
     public String[] getInfoData() {
         ArrayList<String> mInfo = new ArrayList<>();
-        // try {
         if (!this.getMetaName().equals("")) {
             mInfo.add(this.getMetaName());
         }
@@ -283,10 +282,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_En
 
         String[] mInfo2 = mInfo.toArray(new String[mInfo.size()]);
         return mInfo2;
-        // } catch (Throwable t) {
-        //    t.printStackTrace();
-        // }
-        // return new String[] {};
     }
 
     public int getPollutionReductionForAllMufflers() {
