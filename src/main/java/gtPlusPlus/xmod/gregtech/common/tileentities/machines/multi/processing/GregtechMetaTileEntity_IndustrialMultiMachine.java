@@ -506,7 +506,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
     }
 
     @Override
-    public String[] getInfoData(){
+    public String[] getInfoData() {
         String[] data = super.getInfoData();
         ArrayList<String> mInfo = new ArrayList<>(Arrays.asList(data));
         String mode;
