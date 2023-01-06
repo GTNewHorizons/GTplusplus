@@ -176,8 +176,13 @@ public class RecipeGen_Plates extends RecipeGen_Base {
             final ItemStack aInput1, final ItemStack aOutput1, int aDuration, final int aEUt) {
         return GT_Values.RA.addBenderRecipe(aInput1, aOutput1, aDuration, aEUt);
     }
+
     public static boolean addBenderRecipe(
-            final ItemStack aInput1, final ItemStack aCircuit, final ItemStack aOutput1, int aDuration, final int aEUt) {
+            final ItemStack aInput1,
+            final ItemStack aCircuit,
+            final ItemStack aOutput1,
+            int aDuration,
+            final int aEUt) {
         return GT_Values.RA.addBenderRecipe(aInput1, aCircuit, aOutput1, aDuration, aEUt);
     }
 
