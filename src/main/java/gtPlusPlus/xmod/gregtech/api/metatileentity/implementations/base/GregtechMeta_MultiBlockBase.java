@@ -870,7 +870,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         this.mOutputFluids = new FluidStack[] {};
 
         long tVoltage = getMaxInputVoltage();
-        byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
+        byte tTier = GT_Utility.getTier(tVoltage);
         long tEnergy = getMaxInputEnergy();
         log("Running checkRecipeGeneric(0)");
 
@@ -935,16 +935,40 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             }
         }
 
+        // EU discount
+        long tRecipeEUt = (long) ((tRecipe.mEUt * aEUPercent) / 100.0f);
+        long tTotalEUt = 0;
+
+        // Convert speed bonus to duration multiplier
+        // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
+        aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
+        float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
+        int tTotalTime = (int) (tRecipe.mDuration * tTimeFactor);
+
+        // Overclock
+        // Determine max number of OCs based on machine tier vs. recipe tier and processing time
+        int tPerfectOcMultiplier = hasPerfectOverclock() ? 2 : 1;
+        byte tOverclockAmount = (byte) Math.max(0, Math.min(
+                tTier - GT_Utility.getTier(tRecipeEUt),
+                // Stop overclocking once time reaches 1 tick, even if that leads to lower power draw
+                // log base 2 of tTotalTime returns the power of 2 that forms this number,
+                // aka the number of times we can shift right before the number is 1.
+                // We right shift twice per OC on perfect OCs so account for that as well
+                Math.log(tTotalTime) / Math.log(2) / tPerfectOcMultiplier));
+
+        // For faster math, bit shifts are used; each shift multiplies or divides by 2
+        tRecipeEUt <<= 2 * tOverclockAmount;
+        tTotalTime >>= tPerfectOcMultiplier * tOverclockAmount;
+
+        // Determine max parallelism for this specific recipe, then check if we can buffer outputs
+        aMaxParallelRecipes = (int) Math.min(aMaxParallelRecipes, tEnergy / tRecipeEUt);
         aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
         if (aMaxParallelRecipes == 0) {
             log("BAD RETURN - 2");
             return false;
         }
 
-        // EU discount
-        float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
-        float tTotalEUt = 0.0f;
-
+        // Parallelism
         int parallelRecipes = 0;
 
         log("parallelRecipes: " + parallelRecipes);
@@ -969,37 +993,16 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         // -- Try not to fail after this point - inputs have already been consumed! --
 
-        // Convert speed bonus to duration multiplier
-        // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
-        aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
-        float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
-        this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
-
         this.lEUt = (long) Math.ceil(tTotalEUt);
 
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
         this.mEfficiencyIncrease = 10000;
 
-        // Overclock
-        if (this.lEUt <= 16) {
-            this.lEUt = (this.lEUt * (1L << tTier - 1) * (1L << tTier - 1));
-            this.mMaxProgresstime = (this.mMaxProgresstime / (1 << tTier - 1));
-        } else {
-            while (this.lEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
-                this.lEUt *= 4;
-                if (hasPerfectOverclock()) {
-                    this.mMaxProgresstime /= 4;
-                } else {
-                    this.mMaxProgresstime /= 2;
-                }
-            }
-        }
-
         if (this.lEUt > 0) {
             this.lEUt = (-this.lEUt);
         }
 
-        this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+        this.mMaxProgresstime = Math.max(1, tTotalTime);
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
