@@ -81,7 +81,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
                 .addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator()
                 .addController("Bottom center")
-                .addCasingInfo(mCasingName, 9)
+                .addCasingInfo(mCasingName, 8)
                 .addInputHatch("Any Casing", 1)
                 .addInputBus("Any Casing", 1)
                 .addOutputBus("Any Casing", 1)
@@ -152,7 +152,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         mCasing = 0;
         mPyrotheumHatches.clear();
         setCoilLevel(HeatingCoilLevel.None);
-        return checkPiece(mName, 1, 3, 0) && mCasing >= 9 && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
+        return checkPiece(mName, 1, 3, 0) && mCasing >= 8 && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
     }
 
     @Override
@@ -272,7 +272,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         // Based on the Processing Array. A bit overkill, but very flexible.
 
         // Reset outputs and progress stats
-        this.mEUt = 0;
+        this.lEUt = 0;
         this.mMaxProgresstime = 0;
         this.mOutputItems = new ItemStack[] {};
         this.mOutputFluids = new FluidStack[] {};
@@ -338,18 +338,18 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
         int tHalfHeatCapacityDivTiers = tHeatCapacityDivTiers / 2;
 
-        this.mEUt = (int) Math.ceil(tTotalEUt);
+        this.lEUt = (long) Math.ceil(tTotalEUt);
 
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
         this.mEfficiencyIncrease = 10000;
 
         // Overclock
-        if (this.mEUt <= 16) {
-            this.mEUt = (this.mEUt * (1 << tTier - 1) * (1 << tTier - 1));
+        if (this.lEUt <= 16) {
+            this.lEUt = (this.lEUt * (1 << tTier - 1) * (1 << tTier - 1));
             this.mMaxProgresstime = (this.mMaxProgresstime / (1 << tTier - 1));
         } else {
-            while (this.mEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
-                this.mEUt *= 4;
+            while (this.lEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
+                this.lEUt *= 4;
                 if (tHalfHeatCapacityDivTiers > 0) {
                     this.mMaxProgresstime = mMaxProgresstime / 4;
                     tHalfHeatCapacityDivTiers--;
@@ -361,8 +361,8 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
                 }
             }
         }
-        if (this.mEUt > 0) {
-            this.mEUt = (-this.mEUt);
+        if (this.lEUt > 0) {
+            this.lEUt = (-this.lEUt);
         }
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
