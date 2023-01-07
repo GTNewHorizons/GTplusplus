@@ -237,14 +237,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                     + EnumChatFormatting.RESET + " EU"));
         }
 
-        if (-mEUt > 0) {
+        if (-lEUt > 0) {
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.usage") + ":");
             mInfo.add(StatCollector.translateToLocal(
-                    "" + EnumChatFormatting.RED + Integer.toString(-mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                    "" + EnumChatFormatting.RED + (-lEUt) + EnumChatFormatting.RESET + " EU/t"));
         } else {
             mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.generation") + ":");
             mInfo.add(StatCollector.translateToLocal(
-                    "" + EnumChatFormatting.GREEN + Integer.toString(mEUt) + EnumChatFormatting.RESET + " EU/t"));
+                    "" + EnumChatFormatting.GREEN + lEUt + EnumChatFormatting.RESET + " EU/t"));
         }
 
         mInfo.add(StatCollector.translateToLocal("GTPP.multiblock.problems") + ": " + EnumChatFormatting.RED
@@ -776,7 +776,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
      * tTimeFactor * 10000);
      *
      * int aTempEu = (int) Math.floor(tTotalEUt); log("EU4: "+aTempEu);
-     * this.lEUt = (int) aTempEu;
+     * this.lEUt = (long) aTempEu;
      *
      *
      * this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
@@ -975,7 +975,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
-        this.lEUt = (int) Math.ceil(tTotalEUt);
+        this.lEUt = (long) Math.ceil(tTotalEUt);
 
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
         this.mEfficiencyIncrease = 10000;
@@ -1285,7 +1285,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
-        this.lEUt = (int) Math.ceil(tTotalEUt);
+        this.lEUt = (long) Math.ceil(tTotalEUt);
 
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
         this.mEfficiencyIncrease = 10000;
