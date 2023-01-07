@@ -78,6 +78,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.MutableTriple;
 
 // Glee8e - 11/12/21 - 2:15pm
 // Yeah, now I see what's wrong. Someone inherited from GregtechMeta_MultiBlockBase instead of
@@ -397,17 +399,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         // Null recipe or a recipe with lots of outputs?
         // E.G. Gendustry custom comb with a billion centrifuge outputs?
         // Do it anyway, provided the multi allows it. Default behaviour is aAllow16SlotWithoutCheck = true.
-        if (aRecipe == null || aRecipe.mOutputs.length > 16) {
-            if (aRecipe == null) {
-                return 0;
-            } else if (aRecipe.mOutputs.length > 16) {
-                if (aAllow16SlotWithoutCheck) {
-                    return aParallelRecipes;
-                } else {
-                    // Do nothing, we want to check this recipe properly.
-                }
-            }
+        if (aRecipe == null) {
+            return 0;
+        } else if (aRecipe.mOutputs.length > 16 && aAllow16SlotWithoutCheck) {
+            return aParallelRecipes;
         }
+
         return canBufferOutputs(aRecipe.mOutputs, aRecipe.mFluidOutputs, aParallelRecipes);
     }
 
@@ -446,8 +443,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     }
 
     private int canBufferOutputs(ItemStack[] aItemOutputs, int aParallelRecipes) {
-        // the basic idea is to merge stacks as much as we can, and see how many vacant slots do we have left compared
-        // with the count of stacks to put.
+        // the basic idea is to merge stacks as much as we can, and then fill up vacant slots using stacks with the
+        // least number of "successful" parallel crafts completed up to that point.
         // How many slots are free across all the output buses?
         int aInputBusSlotsFree = 0;
 
@@ -455,12 +452,18 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         // recipe outputs.
         Map<ItemStack, Integer> aInputMap = new ItemStackMap<>();
 
+        // Map that keeps track of the number of parallel crafts we can accommodate for each item output.
+        // In the pair, we keep track of number of full crafts plus number of items in a partial craft, to avoid
+        // issues with floating point math not being completely accurate when summing.
+        Map<ItemStack, MutablePair<Integer, Integer>> aParallels = new ItemStackMap<>();
+
         // Iterate over the outputs, calculating require stack spacing they will require.
         for (ItemStack aY : aItemOutputs) {
             if (GT_Utility.isStackInvalid(aY)) {
                 continue;
             }
-            aInputMap.merge(aY, aY.stackSize * aParallelRecipes, Integer::sum);
+            aInputMap.merge(aY, aY.stackSize, Integer::sum);
+            aParallels.put(aY, new MutablePair<>(0, 0));
         }
 
         if (aInputMap.isEmpty()) {
@@ -487,69 +490,84 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                         // this bus stack is full. no checking
                         continue;
                     int tSpaceLeft = tMaxBusStackSize - tBusStack.stackSize;
-                    Integer tOutputCountBoxed = aInputMap.get(tBusStack);
-                    if (tOutputCountBoxed == null)
+                    Integer tCraftSize = aInputMap.get(tBusStack);
+                    if (tCraftSize == null)
                         // we don't have a matching stack to output, ignore this bus stack
                         continue;
-                    int tOutputCount = tOutputCountBoxed;
-                    if (tOutputCount <= tSpaceLeft) {
-                        // completely fits in this bus stack, remove this input stack
-                        aInputMap.remove(tBusStack);
-                    } else {
-                        // have left over
-                        aInputMap.put(tBusStack, tOutputCount - tSpaceLeft);
-                    }
+
+                    MutablePair<Integer, Integer> tParallel = aParallels.get(tBusStack);
+                    tParallel.left += (tParallel.right + tSpaceLeft) / tCraftSize;
+                    tParallel.right = (tParallel.right + tSpaceLeft) % tCraftSize;
                 }
             }
         }
 
-        // We have stacks that did not merge, do we have space for them?
-        if (aInputMap.size() > 0) {
-            int tTotalLeftStacks = aInputMap.entrySet().stream()
-                    .mapToInt(GregtechMeta_MultiBlockBase::toStackCount)
-                    .sum();
-            if (tTotalLeftStacks > aInputBusSlotsFree) {
-                aParallelRecipes = (int) Math.floor((double) aInputBusSlotsFree / tTotalLeftStacks * aParallelRecipes);
-                // We do not have enough free slots in total to accommodate the remaining managed stacks.
-                log(" Free: " + aInputBusSlotsFree + ", Required: " + aInputMap.size());
-            }
+        // now that all partial stacks have been counted, create a priority queue for our outputs
+        // the lowest priority item is the number of complete parallel crafts we can support
+        PriorityQueue<MutableTriple<Integer, Integer, ItemStack>> aParallelQueue =
+                new PriorityQueue<>(Comparator.comparing(MutableTriple::getLeft));
+        for (Entry<ItemStack, MutablePair<Integer, Integer>> entry : aParallels.entrySet()) {
+            aParallelQueue.add(new MutableTriple<>(entry.getValue().left, entry.getValue().right, entry.getKey()));
         }
-        return aParallelRecipes;
+
+        // add extra parallels for open slots as well
+        while (aInputBusSlotsFree > 0) {
+            MutableTriple<Integer, Integer, ItemStack> tParallel = aParallelQueue.poll();
+            assert tParallel != null; // will always be true, specifying assert here to avoid IDE/compiler warnings
+            Integer tCraftSize = aInputMap.get(tParallel.right);
+            int tStackSize = tParallel.right.getMaxStackSize();
+            tParallel.left += (tParallel.middle + tStackSize) / tCraftSize;
+            tParallel.middle = (tParallel.middle + tStackSize) % tCraftSize;
+            aParallelQueue.add(tParallel);
+            --aInputBusSlotsFree;
+        }
+
+        return Math.min(aParallelRecipes, aParallelQueue.element().left);
     }
 
     private int canBufferOutputs(FluidStack[] aFluidOutputs, int aParallelRecipes) {
         // the basic idea is to iterate over each output hatch one by one, prioritizing the locked hatches,
         // and try to fill them with each of the fluid we have.
 
-        // this algorithm can only determine if it works under current parallel
-        // it cannot figure out if a reduced parallel will not overflow
+        // A map to hold the items we will be 'inputting' into the output buses. These itemstacks are actually the
+        // recipe outputs.
+        Map<FluidStack, Integer> aInputMap = new HashMap<>();
 
-        // make a copy of fluid left to output, since we cannot modify the original FluidStack[]
-        // use ArrayList as we will usually have less than 12 fluid to output (hopefully)
-        List<FluidStack> tFluidsLeft = new ArrayList<>(aFluidOutputs.length);
-        for (FluidStack aFluidOutput : aFluidOutputs) {
-            if (aFluidOutput == null) continue;
-            FluidStack copy = aFluidOutput.copy();
-            copy.amount *= aParallelRecipes;
-            tFluidsLeft.add(copy);
+        // Map that keeps track of the number of parallel crafts we can accommodate for each fluid output.
+        // In the pair, we keep track of number of full crafts plus mb of fluid in a partial craft, to avoid
+        // issues with floating point math not being completely accurate when summing.
+        Map<FluidStack, MutablePair<Integer, Integer>> aParallels = new HashMap<>();
+
+        // Iterate over the outputs, calculating require stack spacing they will require.
+        for (FluidStack aY : aFluidOutputs) {
+            if (aY == null) {
+                continue;
+            }
+            aInputMap.merge(aY, aY.amount, Integer::sum);
+            aParallels.put(aY, new MutablePair<>(0, 0));
         }
-        if (tFluidsLeft.isEmpty()) return aParallelRecipes;
+
+        if (aInputMap.isEmpty()) {
+            // nothing to output, bail early
+            return aParallelRecipes;
+        }
 
         log("We have Fluids to output.");
 
-        // go over restrictive hatches first
+        // go over restrictive and partially filled hatches first
         for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
             int tSpaceLeft = tHatch.getCapacity() - tHatch.getFluidAmount();
 
             // check if hatch filled
             if (tSpaceLeft <= 0) continue;
 
-            String tLockedFluidName = tHatch.getLockedFluidName();
-            // not restrictive hatch. leave for next pass
-            if (tHatch.mMode == 0) continue;
+            // check if hatch is empty and unrestricted
+            if (tHatch.mMode == 0 && tHatch.getFluidAmount() == 0) continue;
 
-            for (Iterator<FluidStack> iterator = tFluidsLeft.iterator(); iterator.hasNext(); ) {
-                FluidStack tFluidOutput = iterator.next();
+            String tLockedFluidName = tHatch.getLockedFluidName();
+
+            for (Entry<FluidStack, MutablePair<Integer, Integer>> entry : aParallels.entrySet()) {
+                FluidStack tFluidOutput = entry.getKey();
                 if (GT_ModHandler.isSteam(tFluidOutput)) {
                     if (!tHatch.outputsSteam()) {
                         continue;
@@ -566,64 +584,40 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                 }
                 // this fluid is not prevented by restrictions on output hatch
                 if (tHatch.getFluidAmount() == 0 || GT_Utility.areFluidsEqual(tHatch.getFluid(), tFluidOutput)) {
-                    // empty or same fluid - in any case, can accept
-                    if (tSpaceLeft >= tFluidOutput.amount) {
-                        // enough to hold all fluid
-                        tSpaceLeft -= tFluidOutput.amount;
-                        iterator.remove();
-                    } else {
-                        tFluidOutput.amount -= tSpaceLeft;
-                        break;
-                    }
+                    MutablePair<Integer, Integer> tParallel = entry.getValue();
+                    Integer tCraftSize = aInputMap.get(tFluidOutput);
+                    tParallel.left += (tParallel.right + tSpaceLeft) / tCraftSize;
+                    tParallel.right = (tParallel.right + tSpaceLeft) % tCraftSize;
                 }
             }
-            // at this point we have either visited all output or is completed empty, so we can go over to next
-            // before that, check if we have handled all fluid, if yes, bail out for early exit.
-            if (tFluidsLeft.isEmpty()) break;
         }
 
-        // check non-restrictive hatches
+        // now that all partial/restricted hatches have been counted, create a priority queue for our outputs
+        // the lowest priority fluid is the number of complete parallel crafts we can support
+        PriorityQueue<MutableTriple<Integer, Integer, FluidStack>> aParallelQueue =
+                new PriorityQueue<>(Comparator.comparing(MutableTriple::getLeft));
+        for (Entry<FluidStack, MutablePair<Integer, Integer>> entry : aParallels.entrySet()) {
+            aParallelQueue.add(new MutableTriple<>(entry.getValue().left, entry.getValue().right, entry.getKey()));
+        }
+
+        // add extra parallels for open slots as well
         for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
-            int tSpaceLeft = tHatch.getCapacity() - tHatch.getFluidAmount();
+            // partially filled or restricted hatch. done in last pass
+            if (tHatch.getFluidAmount() > 0 || tHatch.mMode != 0) continue;
 
-            // check if hatch filled
-            if (tSpaceLeft <= 0) continue;
-
-            // restrictive hatch. done in last pass
-            if (tHatch.mMode != 0) continue;
-
-            for (Iterator<FluidStack> iterator = tFluidsLeft.iterator(); iterator.hasNext(); ) {
-                FluidStack tFluidOutput = iterator.next();
-                // these are not restrictive hatches, so no need to check other stuff
-                if (tHatch.getFluidAmount() == 0 || GT_Utility.areFluidsEqual(tHatch.getFluid(), tFluidOutput)) {
-                    // empty or same fluid - in any case, can accept
-                    if (tSpaceLeft >= tFluidOutput.amount) {
-                        // enough to hold all fluid
-                        tSpaceLeft -= tFluidOutput.amount;
-                        iterator.remove();
-                    } else {
-                        tFluidOutput.amount -= tSpaceLeft;
-                        break;
-                    }
-                }
-            }
-            // at this point we have either visited all output or is completed empty, so go over to next
-            // before that, check if we have handled all fluid, if yes, bail out for early exit.
-            if (tFluidsLeft.isEmpty()) break;
-        }
-
-        // We have Fluid Stacks we did not merge. Do we have space?
-        log("fluids to output " + tFluidsLeft.size());
-        if (!tFluidsLeft.isEmpty()) {
-            // Not enough space to add fluids.
-            log("Failed to find enough space for all fluid outputs. Fluids left: " + tFluidsLeft.size());
-            return 0;
+            MutableTriple<Integer, Integer, FluidStack> tParallel = aParallelQueue.poll();
+            assert tParallel != null; // will always be true, specifying assert here to avoid IDE/compiler warnings
+            Integer tCraftSize = aInputMap.get(tParallel.right);
+            int tSpaceLeft = tHatch.getCapacity();
+            tParallel.left += (tParallel.middle + tSpaceLeft) / tCraftSize;
+            tParallel.middle = (tParallel.middle + tSpaceLeft) % tCraftSize;
+            aParallelQueue.add(tParallel);
         }
 
         /*
          * End Fluid Management
          */
-        return aParallelRecipes;
+        return Math.min(aParallelRecipes, aParallelQueue.element().left);
     }
 
     /**
@@ -948,19 +942,19 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         // Overclock
         // Determine max number of OCs based on machine tier vs. recipe tier and processing time
         int tPerfectOcMultiplier = hasPerfectOverclock() ? 2 : 1;
-        byte tOverclockAmount = (byte) Math.max(0, Math.min(
-                tTier - GT_Utility.getTier(tRecipeEUt),
+        byte tOverclockAmount = (byte) Math.min(
+                Math.max(0, tTier - GT_Utility.getTier(tRecipeEUt)),
                 // Stop overclocking once time reaches 1 tick, even if that leads to lower power draw
                 // log base 2 of tTotalTime returns the power of 2 that forms this number,
                 // aka the number of times we can shift right before the number is 1.
                 // We right shift twice per OC on perfect OCs so account for that as well
-                Math.log(tTotalTime) / Math.log(2) / tPerfectOcMultiplier));
+                Math.log(tTotalTime) / Math.log(2) / tPerfectOcMultiplier);
 
         // For faster math, bit shifts are used; each shift multiplies or divides by 2
         tRecipeEUt <<= 2 * tOverclockAmount;
         tTotalTime >>= tPerfectOcMultiplier * tOverclockAmount;
 
-        // Determine max parallelism for this specific recipe, then check if we can buffer outputs
+        // Determine max parallelism for this specific recipe
         aMaxParallelRecipes = (int) Math.min(aMaxParallelRecipes, tEnergy / tRecipeEUt);
         aMaxParallelRecipes = this.canBufferOutputs(tRecipe, aMaxParallelRecipes);
         if (aMaxParallelRecipes == 0) {
