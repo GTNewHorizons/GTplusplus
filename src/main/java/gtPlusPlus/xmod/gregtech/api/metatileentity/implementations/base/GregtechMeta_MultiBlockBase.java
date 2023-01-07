@@ -973,6 +973,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
+        if (mUseMultiparallelMode){
+            parallelRecipes *= 128;
+            tTimeFactor *= 128;
+        }
+        int batchMultiplier = 128;
+
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
         this.lEUt = (long) Math.ceil(tTotalEUt);
@@ -1000,6 +1006,10 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+        if (this.mMaxProgresstime <= batchMultiplier && mUseMultiparallelMode){
+            this.mMaxProgresstime = batchMultiplier;
+        }
+
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
@@ -2449,6 +2459,22 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         mVoidExcess = !mVoidExcess;
         aPlayer.addChatMessage(new ChatComponentTranslation(
                 mVoidExcess ? "interaction.voidexcess.enabled" : "interaction.voidexcess.disabled"));
+        return true;
+    }
+
+    public boolean mUseMultiparallelMode = false;
+    @Override
+    public boolean onWireCutterRightClick(
+            byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        if (aPlayer.isSneaking()) {
+            mUseMultiparallelMode = !mUseMultiparallelMode;
+            if (mUseMultiparallelMode) {
+                GT_Utility.sendChatToPlayer(aPlayer, StatCollector.translateToLocal("misc.BatchModeTextOn"));
+            } else {
+                GT_Utility.sendChatToPlayer(aPlayer, StatCollector.translateToLocal("misc.BatchModeTextOff"));
+            }
+            return true;
+        }
         return true;
     }
 
