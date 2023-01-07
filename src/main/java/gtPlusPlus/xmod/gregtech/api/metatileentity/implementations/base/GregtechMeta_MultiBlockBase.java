@@ -982,7 +982,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         // Overclock
         if (this.lEUt <= 16) {
-            this.lEUt = (this.lEUt * (1 << tTier - 1) * (1 << tTier - 1));
+            this.lEUt = (this.lEUt * (1L << tTier - 1) * (1L << tTier - 1));
             this.mMaxProgresstime = (this.mMaxProgresstime / (1 << tTier - 1));
         } else {
             while (this.lEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
@@ -1292,7 +1292,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         // Overclock
         if (this.lEUt <= 16) {
-            this.lEUt = (this.lEUt * (1 << tTier - 1) * (1 << tTier - 1));
+            this.lEUt = (this.lEUt * (1L << tTier - 1) * (1L << tTier - 1));
             this.mMaxProgresstime = (this.mMaxProgresstime / (1 << tTier - 1));
         } else {
             while (this.lEUt <= gregtech.api.enums.GT_Values.V[(tTier - 1)]) {
