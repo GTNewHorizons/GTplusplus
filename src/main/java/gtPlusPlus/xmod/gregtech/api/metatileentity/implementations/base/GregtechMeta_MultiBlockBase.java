@@ -943,9 +943,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         int batchMultiplier = 1;
 
-         if (mUseMultiparallelMode){
-             batchMultiplier = 128;
-         }
+        if (mUseMultiparallelMode) {
+            batchMultiplier = 128;
+        }
 
         // EU discount
         float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
@@ -981,8 +981,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
 
         if (mUseMultiparallelMode) {
-            tTimeFactor *= 128;
-            parallelRecipes *= 128;
+            tTimeFactor *= batchMultiplier;
+            parallelRecipes *= batchMultiplier;
         }
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
@@ -1011,10 +1011,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
-        if (this.mMaxProgresstime <= batchMultiplier && mUseMultiparallelMode){
+        if (this.mMaxProgresstime <= batchMultiplier && mUseMultiparallelMode) {
             this.mMaxProgresstime = batchMultiplier;
         }
-
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
@@ -2470,6 +2469,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     }
 
     public boolean mUseMultiparallelMode = false;
+
     @Override
     public boolean onWireCutterRightClick(
             byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
