@@ -941,6 +941,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
+        int batchMultiplier = 1;
+
+         if (mUseMultiparallelMode){
+             batchMultiplier = 128;
+         }
+
         // EU discount
         float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
         float tTotalEUt = 0.0f;
@@ -954,7 +960,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         log("tRecipeEUt: " + tRecipeEUt);
         // Count recipes to do in parallel, consuming input items and fluids and considering input voltage limits
         for (; parallelRecipes < aMaxParallelRecipes && tTotalEUt < (tEnergy - tRecipeEUt); parallelRecipes++) {
-            if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
+            if (!tRecipe.isRecipeInputEqual(true, false, batchMultiplier, aFluidInputs, aItemInputs)) {
                 log("Broke at " + parallelRecipes + ".");
                 break;
             }
@@ -973,12 +979,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
-        if (mUseMultiparallelMode){
-            parallelRecipes *= 128;
-            tTimeFactor *= 128;
-        }
-        int batchMultiplier = 128;
 
+        if (mUseMultiparallelMode) {
+            tTimeFactor *= 128;
+            parallelRecipes *= 128;
+        }
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
         this.lEUt = (long) Math.ceil(tTotalEUt);
@@ -2156,6 +2161,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     public void saveNBTData(NBTTagCompound aNBT) {
         aNBT.setLong("mTotalRunTime", this.mTotalRunTime);
         aNBT.setBoolean("mVoidExcess", this.mVoidExcess);
+        aNBT.setBoolean("mUseMultiparallelMode", mUseMultiparallelMode);
         super.saveNBTData(aNBT);
     }
 
@@ -2163,6 +2169,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     public void loadNBTData(NBTTagCompound aNBT) {
         this.mTotalRunTime = aNBT.getLong("mTotalRunTime");
         this.mVoidExcess = aNBT.getBoolean("mVoidExcess");
+        this.mUseMultiparallelMode = aNBT.getBoolean("mUseMultiparallelMode");
         super.loadNBTData(aNBT);
     }
 
