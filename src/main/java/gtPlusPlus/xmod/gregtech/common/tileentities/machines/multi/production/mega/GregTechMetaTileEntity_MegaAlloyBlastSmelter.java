@@ -361,8 +361,11 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
 
     protected boolean processRecipe(ItemStack[] tItems, FluidStack[] tFluids) {
         if (tItems.length <= 0 && tFluids.length <= 0) return false;
-        long tVoltage = this.getMaxInputVoltage();
-        long tAmps = (long) (this.getMaxInputAmps() * 0.8D); // Use 80% of the available amps to get working amps
+        long tVoltage = this.getMaxInputVoltage()
+                / this.getExoticAndNormalEnergyHatchList().size();
+        long tAmps = (long) (GT_ExoticEnergyInputHelper.getMaxInputAmpsMulti(this.getExoticEnergyHatches()) * 0.8D
+                + GT_ExoticEnergyInputHelper.getMaxInputAmpsMulti(
+                        this.mEnergyHatches)); // Use 80% of the available amps for exotic hatches to get working amps
         long tTotalEU = tVoltage * tAmps;
 
         GT_Recipe recipe = getRecipeMap().findRecipe(getBaseMetaTileEntity(), false, tTotalEU, tFluids, tItems);
