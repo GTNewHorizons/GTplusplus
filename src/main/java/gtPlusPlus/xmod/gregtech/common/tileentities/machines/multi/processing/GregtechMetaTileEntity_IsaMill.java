@@ -213,7 +213,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
                 this.mMillingBallBuses.clear();
             }
         }
-        if (aTick % 20 == 0) {
+        if (aTick % 20 == 0 && isMachineRunning()) {
             checkForEntities(aBaseMetaTileEntity, aTick);
         }
         super.onPostTick(aBaseMetaTileEntity, aTick);
