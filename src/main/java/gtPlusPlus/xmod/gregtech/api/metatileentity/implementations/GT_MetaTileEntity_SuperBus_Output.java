@@ -1,5 +1,9 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
+import com.gtnewhorizons.modularui.api.screen.ModularWindow.Builder;
+import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
+import com.gtnewhorizons.modularui.common.widget.Scrollable;
+import com.gtnewhorizons.modularui.common.widget.SlotWidget;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -7,9 +11,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Outpu
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.extensions.ArrayExt;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -97,42 +98,6 @@ public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_O
         return aDesc;
     }
 
-    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {
-        if (aBaseMetaTileEntity.isClientSide()) {
-            return true;
-        } else {
-            displayBusContents(aPlayer);
-            return true;
-        }
-    }
-
-    public void displayBusContents(EntityPlayer aPlayer) {
-        String STRIP = "Item Array: ";
-        String aNameString = ItemUtils.getArrayStackNames(getRealInventory());
-        aNameString = aNameString.replace(STRIP, "");
-
-        String[] aNames;
-        if (aNameString.length() < 1) {
-            aNames = null;
-        } else {
-            aNames = aNameString.split(",");
-        }
-
-        if (aNames == null || aNames.length <= 0) {
-            PlayerUtils.messagePlayer(aPlayer, "This Super Bus (O) is Empty. Total Slots: " + getSlots(this.mTier));
-            return;
-        }
-
-        PlayerUtils.messagePlayer(aPlayer, "This Super Bus (O) contains:");
-        for (String s : aNames) {
-            if (s.startsWith(" ")) {
-                s = s.substring(1);
-            }
-            // Logger.INFO("Trying to display Super Output Bus contents. "+s);
-            PlayerUtils.messagePlayer(aPlayer, s);
-        }
-    }
-
     @Override
     public int getMaxItemCount() {
         // TODO Auto-generated method stub
@@ -167,5 +132,19 @@ public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_O
     public ItemStack[] getRealInventory() {
         // TODO Auto-generated method stub
         return super.getRealInventory();
+    }
+
+    @Override
+    public void addUIWidgets(Builder builder, UIBuildContext buildContext) {
+        final Scrollable scrollable = new Scrollable().setVerticalScroll();
+        for (int rows = 0; rows * 4 < inventoryHandler.getSlots() - 1; rows++) {
+            int columnsToMake = Math.min(inventoryHandler.getSlots() - rows * 4, 4);
+            for (int column = 0; column < columnsToMake; column++) {
+                scrollable.widget(new SlotWidget(inventoryHandler, rows * 4 + column)
+                        .setPos(column * 18, rows * 18)
+                        .setSize(18, 18));
+            }
+        }
+        builder.widget(scrollable.setSize(18 * 4 + 4, 18 * 4).setPos(52, 7));
     }
 }
