@@ -54,11 +54,11 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
     @Override
     public void addUIWidgets(Builder builder, UIBuildContext buildContext) {
         final Scrollable scrollable = new Scrollable().setVerticalScroll();
-        for (int rows = 0; rows * 4 < inventoryHandler.getSlots() - 1; rows++) {
-            int columnsToMake = Math.min(inventoryHandler.getSlots() - rows * 4, 4);
+        for (int row = 0; row * 4 < inventoryHandler.getSlots() - 1; row++) {
+            int columnsToMake = Math.min(inventoryHandler.getSlots() - row * 4, 4);
             for (int column = 0; column < columnsToMake; column++) {
-                scrollable.widget(new SlotWidget(inventoryHandler, rows * 4 + column)
-                        .setPos(column * 18, rows * 18)
+                scrollable.widget(new SlotWidget(inventoryHandler, row * 4 + column)
+                        .setPos(column * 18, row * 18)
                         .setSize(18, 18));
             }
         }
