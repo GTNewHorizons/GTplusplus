@@ -81,56 +81,10 @@ public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_O
     }
 
     @Override
-    public void saveNBTData(NBTTagCompound aNBT) {
-        super.saveNBTData(aNBT);
-    }
-
-    @Override
-    public void loadNBTData(NBTTagCompound aNBT) {
-        super.loadNBTData(aNBT);
-    }
-
-    @Override
     public String[] getDescription() {
         String[] aDesc =
                 new String[] {"Item Output for Multiblocks", "" + getSlots(this.mTier) + " Slots", CORE.GT_Tooltip};
         return aDesc;
-    }
-
-    @Override
-    public int getMaxItemCount() {
-        // TODO Auto-generated method stub
-        return super.getMaxItemCount();
-    }
-
-    @Override
-    public int getSizeInventory() {
-        // TODO Auto-generated method stub
-        return super.getSizeInventory();
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int aIndex) {
-        // TODO Auto-generated method stub
-        return super.getStackInSlot(aIndex);
-    }
-
-    @Override
-    public boolean canInsertItem(int aIndex, ItemStack aStack, int aSide) {
-        // TODO Auto-generated method stub
-        return super.canInsertItem(aIndex, aStack, aSide);
-    }
-
-    @Override
-    public boolean canExtractItem(int aIndex, ItemStack aStack, int aSide) {
-        // TODO Auto-generated method stub
-        return super.canExtractItem(aIndex, aStack, aSide);
-    }
-
-    @Override
-    public ItemStack[] getRealInventory() {
-        // TODO Auto-generated method stub
-        return super.getRealInventory();
     }
 
     @Override

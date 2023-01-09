@@ -37,12 +37,7 @@ public class GT_MetaTileEntity_SuperBus_Input extends GT_MetaTileEntity_Hatch_In
 
     @Override
     public String[] getDescription() {
-        return new String[] {
-            "Item Input for Multiblocks",
-            "" + (getSlots(this.mTier) + 1) + " Slots",
-            "To set circuit slot, left click with empty hand",
-            CORE.GT_Tooltip
-        };
+        return new String[] {"Item Input for Multiblocks", "" + getSlots(this.mTier) + " Slots", CORE.GT_Tooltip};
     }
 
     @Override
