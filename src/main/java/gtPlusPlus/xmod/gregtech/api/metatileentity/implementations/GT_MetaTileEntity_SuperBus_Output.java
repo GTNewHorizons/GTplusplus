@@ -92,9 +92,8 @@ public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_O
 
     @Override
     public String[] getDescription() {
-        String[] aDesc = new String[] {
-            "Item Output for Multiblocks", "This bus has no GUI", "" + getSlots(this.mTier) + " Slots", CORE.GT_Tooltip
-        };
+        String[] aDesc =
+                new String[] {"Item Output for Multiblocks", "" + getSlots(this.mTier) + " Slots", CORE.GT_Tooltip};
         return aDesc;
     }
 
