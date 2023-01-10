@@ -941,11 +941,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
-        int batchMultiplier = 1;
-
-        if (mUseMultiparallelMode) {
-            batchMultiplier = 128;
-        }
 
         // EU discount
         float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
@@ -960,7 +955,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         log("tRecipeEUt: " + tRecipeEUt);
         // Count recipes to do in parallel, consuming input items and fluids and considering input voltage limits
         for (; parallelRecipes < aMaxParallelRecipes && tTotalEUt < (tEnergy - tRecipeEUt); parallelRecipes++) {
-            if (!tRecipe.isRecipeInputEqual(true, false, batchMultiplier, aFluidInputs, aItemInputs)) {
+            if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                 log("Broke at " + parallelRecipes + ".");
                 break;
             }
@@ -973,6 +968,19 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
+        float batchMultiplier = 1.0f;
+        if (mUseMultiparallelMode) {
+            int extraParallelRecipes = 0;
+            for (; extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * 128; extraParallelRecipes++) {
+                if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
+                    break;
+                }
+            }
+            batchMultiplier = 1.0f + (float) extraParallelRecipes / aMaxParallelRecipes;
+            parallelRecipes += extraParallelRecipes;
+        }
+
+
         // -- Try not to fail after this point - inputs have already been consumed! --
 
         // Convert speed bonus to duration multiplier
@@ -980,10 +988,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
 
-        if (mUseMultiparallelMode) {
-            tTimeFactor *= batchMultiplier;
-            parallelRecipes *= batchMultiplier;
-        }
+if (mUseMultiparallelMode){
+    tTimeFactor *= batchMultiplier;
+}
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
         this.lEUt = (long) Math.ceil(tTotalEUt);
