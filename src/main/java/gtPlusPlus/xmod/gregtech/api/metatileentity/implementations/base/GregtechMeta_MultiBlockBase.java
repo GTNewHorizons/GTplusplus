@@ -941,7 +941,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
-
         // EU discount
         float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
         float tTotalEUt = 0.0f;
@@ -980,7 +979,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             parallelRecipes += extraParallelRecipes;
         }
 
-
         // -- Try not to fail after this point - inputs have already been consumed! --
 
         // Convert speed bonus to duration multiplier
@@ -988,9 +986,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
 
-if (mUseMultiparallelMode){
-    tTimeFactor *= batchMultiplier;
-}
+        if (mUseMultiparallelMode) {
+            tTimeFactor *= batchMultiplier;
+        }
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
         this.lEUt = (long) Math.ceil(tTotalEUt);
