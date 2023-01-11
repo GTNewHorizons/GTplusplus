@@ -310,14 +310,29 @@ public class GMTE_AmazonPackager extends GregtechMeta_MultiBlockBase<GMTE_Amazon
             return false;
         }
 
+        float batchMultiplier = 1.0f;
+        if (mUseMultiparallelMode) {
+            int extraParallelRecipes = 0;
+            for (; extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * 128; extraParallelRecipes++) {
+                if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
+                    break;
+                }
+            }
+            batchMultiplier = 1.0f + (float) extraParallelRecipes / aMaxParallelRecipes;
+            parallelRecipes += extraParallelRecipes;
+        }
+
         // -- Try not to fail after this point - inputs have already been consumed! --
 
         // Convert speed bonus to duration multiplier
         // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
-        this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
+        if (mUseMultiparallelMode) {
+            tTimeFactor *= batchMultiplier;
+        }
+        this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
         this.lEUt = (long) Math.ceil(tTotalEUt);
 
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
