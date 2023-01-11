@@ -396,10 +396,11 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
             return false;
         }
 
-        float batchMultiplier = 1.0f;
         if (mUseMultiparallelMode) {
             int extraParallelRecipes = 0;
-            for (; extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * 128; extraParallelRecipes++) {
+            for (;
+                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * maxBatchSize;
+                    extraParallelRecipes++) {
                 if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                     break;
                 }
@@ -441,6 +442,10 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         }
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+
+        if (mUseMultiparallelMode && mMaxProgresstime <= maxBatchSize / 2) {
+            mMaxProgresstime = maxBatchSize / 2;
+        }
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];

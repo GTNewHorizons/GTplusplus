@@ -169,6 +169,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         return this.mTotalRunTime;
     }
 
+    protected float batchMultiplier = 1.0f;
+    protected int maxBatchSize = 128;
+
     public abstract String getMachineType();
 
     public String getMachineTooltip() {
@@ -967,10 +970,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
-        float batchMultiplier = 1.0f;
         if (mUseMultiparallelMode) {
             int extraParallelRecipes = 0;
-            for (; extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * 128; extraParallelRecipes++) {
+            for (;
+                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * maxBatchSize;
+                    extraParallelRecipes++) {
                 if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                     break;
                 }
@@ -1016,6 +1020,10 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
+
+        if (mUseMultiparallelMode && mMaxProgresstime <= maxBatchSize / 2) {
+            mMaxProgresstime = maxBatchSize / 2;
+        }
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
@@ -2470,7 +2478,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         return true;
     }
 
-    public boolean mUseMultiparallelMode = false;
+    protected boolean mUseMultiparallelMode = false;
 
     @Override
     public boolean onWireCutterRightClick(
