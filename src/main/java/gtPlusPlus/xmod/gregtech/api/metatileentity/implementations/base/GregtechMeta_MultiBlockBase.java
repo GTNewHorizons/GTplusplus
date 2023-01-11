@@ -170,7 +170,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     }
 
     protected float batchMultiplier = 1.0f;
-    protected int maxBatchSize = 128;
+    protected static final int MAX_BATCH_SIZE = 128;
 
     public abstract String getMachineType();
 
@@ -973,7 +973,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         if (mUseMultiparallelMode) {
             int extraParallelRecipes = 0;
             for (;
-                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * maxBatchSize;
+                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * MAX_BATCH_SIZE;
                     extraParallelRecipes++) {
                 if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                     break;
@@ -1021,8 +1021,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
-        if (mUseMultiparallelMode && mMaxProgresstime <= maxBatchSize / 2) {
-            mMaxProgresstime = maxBatchSize / 2;
+        if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
+            mMaxProgresstime = MAX_BATCH_SIZE;
         }
 
         // Collect fluid outputs

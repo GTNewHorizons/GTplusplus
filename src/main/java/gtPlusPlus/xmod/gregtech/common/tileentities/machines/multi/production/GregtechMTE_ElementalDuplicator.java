@@ -448,7 +448,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         if (mUseMultiparallelMode) {
             int extraParallelRecipes = 0;
             for (;
-                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * maxBatchSize;
+                    extraParallelRecipes + parallelRecipes < aMaxParallelRecipes * MAX_BATCH_SIZE;
                     extraParallelRecipes++) {
                 if (!tRecipe.isRecipeInputEqual(true, aFluidInputs, aItemInputs)) {
                     break;
@@ -491,8 +491,8 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
-        if (mUseMultiparallelMode && mMaxProgresstime <= maxBatchSize / 2) {
-            mMaxProgresstime = maxBatchSize / 2;
+        if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
+            mMaxProgresstime = MAX_BATCH_SIZE;
         }
 
         // Collect fluid outputs
