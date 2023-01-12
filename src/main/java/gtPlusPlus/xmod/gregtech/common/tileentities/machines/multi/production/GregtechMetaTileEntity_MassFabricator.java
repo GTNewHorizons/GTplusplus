@@ -515,9 +515,7 @@ public class GregtechMetaTileEntity_MassFabricator
         // e.g. 100% speed bonus = 200% speed = 100%/200% = 50% recipe duration.
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
-        if (mUseMultiparallelMode) {
-            tTimeFactor *= batchMultiplier;
-        }
+
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
 
         this.lEUt = (long) Math.ceil(tTotalEUt);
@@ -542,8 +540,8 @@ public class GregtechMetaTileEntity_MassFabricator
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
-        if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
-            mMaxProgresstime = (int) batchMultiplier;
+        if (mUseMultiparallelMode) {
+            mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * batchMultiplier);
         }
 
         // Collect fluid outputs

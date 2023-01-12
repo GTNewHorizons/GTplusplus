@@ -465,9 +465,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         aSpeedBonusPercent = Math.max(-99, aSpeedBonusPercent);
         float tTimeFactor = 100.0f / (100.0f + aSpeedBonusPercent);
 
-        if (mUseMultiparallelMode) {
-            tTimeFactor *= batchMultiplier;
-        }
         this.mMaxProgresstime = (int) (tRecipe.mDuration * tTimeFactor);
         this.lEUt = (long) Math.ceil(tTotalEUt);
 
@@ -491,8 +488,8 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
-        if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
-            mMaxProgresstime = (int) batchMultiplier;
+        if (mUseMultiparallelMode) {
+            mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * batchMultiplier);
         }
 
         // Collect fluid outputs
