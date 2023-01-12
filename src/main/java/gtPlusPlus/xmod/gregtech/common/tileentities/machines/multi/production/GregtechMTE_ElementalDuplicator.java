@@ -492,7 +492,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
         if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
-            mMaxProgresstime = MAX_BATCH_SIZE;
+            mMaxProgresstime = (int) batchMultiplier;
         }
 
         // Collect fluid outputs

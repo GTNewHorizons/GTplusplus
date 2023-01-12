@@ -1022,8 +1022,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
         if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
-            mMaxProgresstime = MAX_BATCH_SIZE;
+            mMaxProgresstime = (int) batchMultiplier;
         }
+
 
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
@@ -2492,7 +2493,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             }
             return true;
         }
-        return true;
+        return false;
     }
 
     public boolean isValidBlockForStructure(

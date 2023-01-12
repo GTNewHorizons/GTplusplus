@@ -543,7 +543,7 @@ public class GregtechMetaTileEntity_MassFabricator
         this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
 
         if (mUseMultiparallelMode && mMaxProgresstime <= MAX_BATCH_SIZE) {
-            mMaxProgresstime = MAX_BATCH_SIZE;
+            mMaxProgresstime = (int) batchMultiplier;
         }
 
         // Collect fluid outputs
