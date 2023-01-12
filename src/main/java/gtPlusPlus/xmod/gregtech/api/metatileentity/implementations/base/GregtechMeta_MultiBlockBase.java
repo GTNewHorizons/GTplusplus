@@ -1022,7 +1022,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * batchMultiplier);
         }
 
-
         // Collect fluid outputs
         FluidStack[] tOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
         for (int h = 0; h < tRecipe.mFluidOutputs.length; h++) {
