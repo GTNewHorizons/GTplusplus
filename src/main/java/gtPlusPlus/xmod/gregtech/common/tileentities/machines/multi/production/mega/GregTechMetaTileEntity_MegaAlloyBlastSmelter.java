@@ -542,8 +542,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
                     + GT_Utility.formatNumbers(getMaxInputAmps())
                     + EnumChatFormatting.RESET + "A) " + StatCollector.translateToLocal("GT5U.machines.tier")
                     + ": " + EnumChatFormatting.YELLOW
-                    + GT_Values.VN[
-                            GT_Utility.getTier(getAverageInputVoltage())]
+                    + GT_Values.VN[GT_Utility.getTier(getAverageInputVoltage())]
                     + EnumChatFormatting.RESET,
             "Parallels: " + EnumChatFormatting.BLUE + paras + EnumChatFormatting.RESET,
             "Coil Discount: " + EnumChatFormatting.BLUE + discountP + "%" + EnumChatFormatting.RESET,
