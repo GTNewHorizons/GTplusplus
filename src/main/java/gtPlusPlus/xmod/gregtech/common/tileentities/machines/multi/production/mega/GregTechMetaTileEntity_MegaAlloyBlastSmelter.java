@@ -415,8 +415,8 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
         if (hasNormalCoils) coilLevel = HeatingCoilLevel.None;
         if (mMaintenanceHatches.size() != 1) return false;
         if (mMufflerHatches.size() != 45) return false;
-        if (this.glassTier < 10 && !this.mEnergyHatches.isEmpty()) {
-            for (GT_MetaTileEntity_Hatch_Energy hatchEnergy : this.mEnergyHatches) {
+        if (this.glassTier < 10 && !getExoticAndNormalEnergyHatchList().isEmpty()) {
+            for (GT_MetaTileEntity_Hatch hatchEnergy : getExoticAndNormalEnergyHatchList()) {
                 if (this.glassTier < hatchEnergy.mTier) {
                     return false;
                 }
