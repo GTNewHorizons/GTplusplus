@@ -423,7 +423,15 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
                 }
             }
         }
-        return this.glassTier >= 8 || this.getExoticEnergyHatches().size() <= 0;
+        // Disallow lasers if the glass is below UV tier
+        if (glassTier < 8) {
+            for (GT_MetaTileEntity_Hatch hatchEnergy : getExoticEnergyHatches()) {
+                if (hatchEnergy.getConnectionType() == GT_MetaTileEntity_Hatch.ConnectionType.LASER) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override
