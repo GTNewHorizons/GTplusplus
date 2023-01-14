@@ -409,6 +409,8 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
 
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
+        glassTier = -1;
+        coilLevel = HeatingCoilLevel.None;
         if (!checkPiece("main", 5, 16, 0)) return false;
         if (hasNormalCoils) coilLevel = HeatingCoilLevel.None;
         if (mMaintenanceHatches.size() != 1) return false;
