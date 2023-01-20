@@ -614,6 +614,20 @@ public class RecipeLoader_Nuclear {
 
         // Radium
         GT_Values.RA.addSifterRecipe(
+                ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedThorium", 1),
+                new ItemStack[] {
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustThorium", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustLead", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRadium226", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRadium226", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRadium226", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRadium226", 1)
+                },
+                new int[] {10000, 500, 300, 200, 100, 100},
+                20 * 30,
+                500);
+
+        GT_Values.RA.addSifterRecipe(
                 ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedUranium", 1),
                 new ItemStack[] {
                     ItemUtils.getItemStackOfAmountFromOreDict("dustUranium", 1),
@@ -626,6 +640,7 @@ public class RecipeLoader_Nuclear {
                 new int[] {10000, 556, 1000, 500, 500, 500},
                 20 * 30,
                 500);
+
         GT_Values.RA.addSifterRecipe(
                 ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedUraninite", 1),
                 new ItemStack[] {
@@ -639,6 +654,7 @@ public class RecipeLoader_Nuclear {
                 new int[] {10000, 556, 500, 250, 250, 250},
                 20 * 30,
                 500);
+        
         GT_Values.RA.addSifterRecipe(
                 ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPitchblende", 1),
                 new ItemStack[] {
