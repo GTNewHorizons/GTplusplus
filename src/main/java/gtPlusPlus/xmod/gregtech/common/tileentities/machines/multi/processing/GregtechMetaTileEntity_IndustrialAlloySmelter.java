@@ -288,7 +288,7 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter
                 .setMultiHeat((int) getCoilLevel().getHeat() * 2)
                 .calculate();
         lEUt = -calculator.getConsumption();
-        mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());
+        mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
         mOutputFluids = helper.getFluidOutputs();

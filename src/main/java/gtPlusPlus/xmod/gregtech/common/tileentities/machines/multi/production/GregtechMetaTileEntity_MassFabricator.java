@@ -335,7 +335,7 @@ public class GregtechMetaTileEntity_MassFabricator
                 .setParallel(helper.getCurrentParallel())
                 .calculate();
         lEUt = -calculator.getConsumption();
-        mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());
+        mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
         mOutputFluids = helper.getFluidOutputs();

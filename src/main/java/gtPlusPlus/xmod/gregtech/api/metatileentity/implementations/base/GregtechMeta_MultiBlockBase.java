@@ -732,7 +732,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                 .setParallel(helper.getCurrentParallel())
                 .calculate();
         lEUt = -calculator.getConsumption();
-        mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());
+        mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
         mOutputFluids = helper.getFluidOutputs();

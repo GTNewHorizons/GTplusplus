@@ -338,7 +338,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
                 .setMultiHeat((int) getCoilLevel().getHeat())
                 .calculate();
         lEUt = -calculator.getConsumption();
-        mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());
+        mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
         mOutputFluids = helper.getFluidOutputs();
