@@ -720,6 +720,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             return false;
         }
 
+        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+        this.mEfficiencyIncrease = 10000;
+
         GT_OverclockCalculator calculator = new GT_OverclockCalculator()
                 .setRecipeEUt(tRecipe.mEUt)
                 .setEUt(tEnergy)
@@ -949,7 +952,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                 .setDuration(tRecipe.mDuration)
                 .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel(helper.getCurrentParallel())
+                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
                 .calculate();
         lEUt = -calculator.getConsumption();
         mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());

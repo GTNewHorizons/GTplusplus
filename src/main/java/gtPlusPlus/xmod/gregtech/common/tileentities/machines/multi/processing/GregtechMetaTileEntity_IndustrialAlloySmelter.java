@@ -271,13 +271,16 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter
             return false;
         }
 
+        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+        this.mEfficiencyIncrease = 10000;
+
         GT_OverclockCalculator calculator = new GT_OverclockCalculator()
                 .setRecipeEUt(tRecipe.mEUt)
                 .setEUt(tEnergy)
                 .setDuration(tRecipe.mDuration)
                 .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel(helper.getCurrentParallel())
+                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
                 .enableHeatOC()
                 .setRecipeHeat(0)
                 // Need to multiple by 2 because heat OC is done only once every 1800 and this one does it once every

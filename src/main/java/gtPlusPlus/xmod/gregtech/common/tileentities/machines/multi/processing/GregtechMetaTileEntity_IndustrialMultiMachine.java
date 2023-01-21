@@ -384,13 +384,16 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
             return false;
         }
 
+        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+        this.mEfficiencyIncrease = 10000;
+
         GT_OverclockCalculator calculator = new GT_OverclockCalculator()
                 .setRecipeEUt(tRecipe.mEUt)
                 .setEUt(tEnergy)
                 .setDuration(tRecipe.mDuration)
                 .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel(helper.getCurrentParallel())
+                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
                 .calculate();
         lEUt = -calculator.getConsumption();
         mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());

@@ -778,7 +778,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                     .setEUt(getAverageInputVoltage())
                     .setAmperage(getMaxInputAmps())
                     .setDuration(tRecipe.mDuration)
-                    .setParallel(helper.getCurrentParallel())
+                    .setParallel(Math.min(mMaxParallel, helper.getCurrentParallel()))
                     .calculate();
             lEUt = -calculator.getConsumption();
             mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());

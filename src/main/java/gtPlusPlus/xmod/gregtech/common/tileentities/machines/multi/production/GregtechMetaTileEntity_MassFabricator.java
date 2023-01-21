@@ -304,10 +304,6 @@ public class GregtechMetaTileEntity_MassFabricator
                 MaterialUtils.getVoltageForTier(1),
                 0);
 
-        // EU discount
-        float tRecipeEUt = (tRecipe.mEUt * aEUPercent) / 100.0f;
-        float tTotalEUt = 0.0f;
-
         GT_ParallelHelper helper = new GT_ParallelHelper()
                 .setRecipe(tRecipe)
                 .setItemInputs(aItemInputs)
@@ -406,8 +402,12 @@ public class GregtechMetaTileEntity_MassFabricator
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
+            log("BAD RETURN - 2");
             return false;
         }
+
+        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+        this.mEfficiencyIncrease = 10000;
 
         GT_OverclockCalculator calculator = new GT_OverclockCalculator()
                 .setRecipeEUt(tRecipe.mEUt)
@@ -415,14 +415,13 @@ public class GregtechMetaTileEntity_MassFabricator
                 .setDuration(tRecipe.mDuration)
                 .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel(helper.getCurrentParallel())
+                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
                 .calculate();
         lEUt = -calculator.getConsumption();
         mMaxProgresstime = (int) Math.ceil(mMaxProgresstime * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
         mOutputFluids = helper.getFluidOutputs();
-        updateSlots();
 
         int aMatterProduced = 0;
         int aAmplifierProduced = 0;
@@ -459,7 +458,7 @@ public class GregtechMetaTileEntity_MassFabricator
         this.mAmplifierProduced += aAmplifierProduced;
         this.mScrapUsed += aScrapUsed;
         this.mAmplifierUsed += aAmplifierUsed;
-
+        updateSlots();
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
 

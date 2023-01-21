@@ -411,6 +411,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
             return false;
         }
 
+        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
+        this.mEfficiencyIncrease = 10000;
         mMaxProgresstime = (int) Math.ceil(tRecipe.mDuration * helper.getDurationMultiplier());
 
         mOutputItems = helper.getItemOutputs();
