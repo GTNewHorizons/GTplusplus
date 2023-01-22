@@ -416,6 +416,7 @@ public class GregtechMetaTileEntity_MassFabricator
                 .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
                 .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
+                .enablePerfectOC()
                 .calculate();
         lEUt = -calculator.getConsumption();
         mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
