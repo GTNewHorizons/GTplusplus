@@ -350,14 +350,6 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         this.mLastRecipeExtended[tCircuitID] = tRecipe;
 
         if (tRecipe == null) {
-            Logger.MACHINE_INFO("BAD RETURN - 1|" + tCircuitID);
-
-            if (aItemInputs.length > 0) {
-                Logger.MACHINE_INFO("Input Items: " + ItemUtils.getArrayStackNames(aItemInputs));
-            }
-            if (aFluidInputs.length > 0) {
-                Logger.MACHINE_INFO("Input Fluids: " + ItemUtils.getFluidArrayStackNames(aFluidInputs));
-            }
             return false;
         }
 
@@ -380,7 +372,6 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2|" + tCircuitID);
             return false;
         }
 

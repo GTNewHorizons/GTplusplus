@@ -264,12 +264,10 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
             }
 
             if (!aHasWater || !aHasLava) {
-                log("BAD RETURN - 0-1");
                 return false;
             }
             ItemStack aGuiCircuit = this.getGUIItemStack();
             if (aGuiCircuit == null || !ItemUtils.isControlCircuit(aGuiCircuit)) {
-                log("BAD RETURN - 0-2");
                 return false;
             }
 
@@ -295,7 +293,6 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
             }
 
             if (tRecipe == null) {
-                log("BAD RETURN - 0-3");
                 return false;
             }
 
@@ -310,11 +307,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
             this.mOutputFluids = new FluidStack[] {};
 
             long tVoltage = getMaxInputVoltage();
-            byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
             long tEnergy = getMaxInputEnergy();
-            log("Running checkRecipeGeneric(0)");
-
-            log("Running checkRecipeGeneric(1)");
             // Remember last recipe - an optimization for findRecipe()
             this.mLastRecipe = tRecipe;
 
@@ -364,8 +357,6 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker
 
             // Play sounds (GT++ addition - GT multiblocks play no sounds)
             startProcess();
-
-            log("GOOD RETURN - 1");
             return true;
         }
 

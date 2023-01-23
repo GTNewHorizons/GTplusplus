@@ -364,7 +364,6 @@ public class GregtechMetaTileEntity_MassFabricator
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         GT_Recipe tRecipe = findRecipe(
                 getBaseMetaTileEntity(),
@@ -374,12 +373,10 @@ public class GregtechMetaTileEntity_MassFabricator
                 aFluidInputs,
                 aItemInputs);
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 
@@ -402,7 +399,6 @@ public class GregtechMetaTileEntity_MassFabricator
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            log("BAD RETURN - 2");
             return false;
         }
 
@@ -434,23 +430,19 @@ public class GregtechMetaTileEntity_MassFabricator
             for (ItemStack aInput : tRecipe.mInputs) {
                 if (aInput != null && GT_Utility.areStacksEqual(aInput, mScrap[0], true)) {
                     aScrapUsed += aInput.stackSize;
-                    // Logger.INFO("Found Scrap to use.");
                 }
             }
             for (FluidStack aInput : tRecipe.mFluidInputs) {
                 if (aInput != null && GT_Utility.areFluidsEqual(aInput, mUU[0], true)) {
                     aAmplifierUsed += aInput.amount;
-                    // Logger.INFO("Found UU-A to use.");
                 }
             }
             for (FluidStack aOutput : tRecipe.mFluidOutputs) {
                 if (aOutput != null && GT_Utility.areFluidsEqual(aOutput, mUU[0], true)) {
                     aAmplifierProduced += aOutput.amount;
-                    // Logger.INFO("Found UU-A as Output.");
                 }
                 if (aOutput != null && GT_Utility.areFluidsEqual(aOutput, mUU[1], true)) {
                     aMatterProduced += aOutput.amount;
-                    // Logger.INFO("Found UU-M as Output.");
                 }
             }
         }
@@ -462,8 +454,6 @@ public class GregtechMetaTileEntity_MassFabricator
         updateSlots();
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
-
-        log("GOOD RETURN - 1");
         return true;
     }
 

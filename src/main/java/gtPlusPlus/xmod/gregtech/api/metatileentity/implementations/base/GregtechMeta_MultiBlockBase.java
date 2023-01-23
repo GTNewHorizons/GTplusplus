@@ -634,7 +634,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         GT_Recipe tRecipe = findRecipe(
                 getBaseMetaTileEntity(),
@@ -645,12 +644,10 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                 aFluidInputs,
                 aItemInputs);
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 
@@ -716,7 +713,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2");
             return false;
         }
 
@@ -740,8 +736,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
-
-        log("GOOD RETURN - 1");
         return true;
     }
 

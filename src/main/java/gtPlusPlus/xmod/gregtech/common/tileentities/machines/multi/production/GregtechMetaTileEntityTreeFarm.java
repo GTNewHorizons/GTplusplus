@@ -197,7 +197,6 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
         helper.build();
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2");
             return false;
         }
 

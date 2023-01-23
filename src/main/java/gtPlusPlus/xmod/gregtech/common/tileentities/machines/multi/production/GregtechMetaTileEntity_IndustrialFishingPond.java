@@ -495,7 +495,6 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
 
         // If no core, return false;
         if (aControlCoreTier == 0 && CORE.ConfigSwitches.requireControlCores) {
-            log("Invalid/No Control Core");
             return false;
         }
 
@@ -508,7 +507,6 @@ public class GregtechMetaTileEntity_IndustrialFishingPond
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         // Check to see if Voltage Tier > Control Core Tier
         if (tTier > aControlCoreTier && CORE.ConfigSwitches.requireControlCores) {

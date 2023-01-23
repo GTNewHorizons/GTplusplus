@@ -634,7 +634,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         // GT_Recipe tRecipe = findRecipe(getBaseMetaTileEntity(), mLastRecipe, false,
         //	gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
@@ -642,7 +641,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 mLastRecipe, gregtech.api.enums.GT_Values.V[tTier], getSolidCasingTier(), aItemInputs, aFluidInputs);
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 
@@ -658,22 +656,17 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         if (aDoesRecipeNeedCatalyst) {
             tCatalystRecipe = findCatalyst(aItemInputs, tRecipe.mInputs);
             if (tCatalystRecipe == null) {
-                log("does not have catalyst");
                 return false;
             }
             if (mCatalystBuses.size() != 1) {
-                log("does not have correct number of catalyst hatches. (Required 1, found " + mCatalystBuses.size()
-                        + ")");
                 return false;
             }
         }
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe.mSpecialValue > this.mSolidCasingTier) {
-            log("solid tier is too low");
             return false;
         }
 
@@ -683,12 +676,9 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         if (tCatalystRecipe != null) {
             tCatalysts = new ArrayList<ItemStack>();
             tMaxParallelCatalyst = getCatalysts(aItemInputs, tCatalystRecipe, aMaxParallelRecipes, tCatalysts);
-            log("Can process " + tMaxParallelCatalyst + " recipes. If less than " + aMaxParallelRecipes
-                    + ", catalyst does not have enough durability.");
         }
 
         if (tMaxParallelCatalyst == 0) {
-            log("found not enough catalysts");
             return false;
         }
 
@@ -711,7 +701,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2");
             return false;
         }
 
@@ -740,7 +729,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
 
-        log("GOOD RETURN - 1");
         return true;
     }
 

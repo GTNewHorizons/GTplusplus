@@ -363,12 +363,10 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
             GT_Recipe aRecipe) {
 
         if (this.mLevel < 0) {
-            Logger.INFO("Bad Tier.");
             return false;
         }
 
         if (!checkForWater()) {
-            Logger.INFO("Not enough Water.");
             return false;
         }
 
@@ -377,8 +375,6 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         this.mMaxProgresstime = 0;
         this.mOutputItems = new ItemStack[] {};
         this.mOutputFluids = new FluidStack[] {};
-
-        Logger.INFO("Running checkRecipeGeneric(0)");
 
         GT_Recipe tRecipe = RecipeLoader_AlgaeFarm.getTieredRecipeFromCache(this.mLevel, isUsingCompost(aItemInputs));
 
@@ -407,7 +403,6 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2");
             return false;
         }
 
@@ -421,8 +416,6 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
-
-        Logger.INFO("GOOD RETURN - 1");
         return true;
     }
 

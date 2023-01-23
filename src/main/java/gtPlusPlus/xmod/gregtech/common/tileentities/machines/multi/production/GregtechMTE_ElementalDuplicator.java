@@ -342,18 +342,9 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
-        long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
-
         GT_Recipe tRecipe = null;
 
         try {
-            log("Checking " + aItemInputs.length + " Data Orbs");
-
-            for (int i = 0; i < aItemInputs.length; i++) {
-                ItemStack aItem = aItemInputs[i];
-                log("Found: " + aItem.getDisplayName());
-            }
             ItemStack aDataOrbStack = null;
             recipe:
             for (GT_Recipe nRecipe : this.getRecipeMap().mRecipeList) {
@@ -364,10 +355,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
                     for (ItemStack aItem : aItemInputs) {
                         if (nRecipe.mSpecialItems != null) {
                             if (GT_Utility.areStacksEqual(aTempStack, aItem, false)) {
-                                Materials tMaterial = Element.get(Behaviour_DataOrb.getDataName(aTempStack))
-                                        .mLinkedMaterials
-                                        .get(0);
-                                log("Found: " + aTempStack.getDisplayName() + " for " + tMaterial.name());
                                 aDataOrbStack = aTempStack;
                                 break recipe;
                             }
@@ -385,28 +372,15 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
                         aFluidInputs,
                         aDataOrbStack,
                         aItemInputs);
-                if (tRecipe != null) {
-                    Materials tMaterial = Element.get(Behaviour_DataOrb.getDataName(aDataOrbStack))
-                            .mLinkedMaterials
-                            .get(0);
-                    log("Found recipe for " + tMaterial.name());
-                } else {
-                    log("No Recipe Found");
-                }
-            } else {
-                log("Null DO");
             }
-
         } catch (Throwable t) {
             t.printStackTrace();
         }
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 

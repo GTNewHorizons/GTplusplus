@@ -234,7 +234,6 @@ public class GregtechMetaTileEntity_IndustrialChisel
             GT_Recipe tRecipe = generateChiselRecipe(aItems.get(0), this.getGUIItemStack());
 
             if (tRecipe == null) {
-                log("BAD RETURN - 0");
                 return false;
             }
 
@@ -249,11 +248,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
             this.mOutputFluids = new FluidStack[] {};
 
             long tVoltage = getMaxInputVoltage();
-            byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
             long tEnergy = getMaxInputEnergy();
-            log("Running checkRecipeGeneric(0)");
-
-            log("Running checkRecipeGeneric(1)");
             // Remember last recipe - an optimization for findRecipe()
             this.mLastRecipe = tRecipe;
 
@@ -303,8 +298,6 @@ public class GregtechMetaTileEntity_IndustrialChisel
 
             // Play sounds (GT++ addition - GT multiblocks play no sounds)
             startProcess();
-
-            log("GOOD RETURN - 1");
             return true;
         }
 

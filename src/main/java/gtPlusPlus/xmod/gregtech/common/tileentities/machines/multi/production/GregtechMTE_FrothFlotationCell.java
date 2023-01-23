@@ -216,8 +216,6 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
-        long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         GT_Recipe tRecipe = findRecipe(
                 getBaseMetaTileEntity(),
@@ -227,12 +225,10 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
                 aFluidInputs,
                 aItemInputs);
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 
@@ -252,11 +248,6 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
         }
 
         if (foundMaterialName == null) {
-            log("Did not find material from Milled Ore.");
-            ItemStack milledStack = FlotationRecipeHandler.findMilledStack(tRecipe);
-            if (milledStack != null) {
-                log("Found stack: " + milledStack.getDisplayName());
-            }
             return false;
         }
 
@@ -267,9 +258,6 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
         // Check material match
         if (!Objects.equals(lockedMaterialName, foundMaterialName)) {
-            log("Did not find the correct milled type.");
-            log("Found: " + foundMaterialName);
-            log("Expected: " + lockedMaterialName);
             return false;
         }
 

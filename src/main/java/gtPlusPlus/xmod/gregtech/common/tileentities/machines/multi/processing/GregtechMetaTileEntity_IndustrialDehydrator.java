@@ -204,7 +204,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
         long tEnergy = getMaxInputEnergy();
-        Logger.WARNING("Running checkRecipeGeneric(0)");
 
         GT_Recipe tRecipe = this.getRecipeMap()
                 .findRecipe(
@@ -215,12 +214,10 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
                         aFluidInputs,
                         aItemInputs);
 
-        Logger.WARNING("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null || this.mHeatingCapacity.getHeat() < tRecipe.mSpecialValue) {
-            Logger.WARNING("BAD RETURN - 1");
             return false;
         }
 
@@ -243,7 +240,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
         helper.build();
 
         if (helper.getCurrentParallel() == 0) {
-            Logger.MACHINE_INFO("BAD RETURN - 2");
             return false;
         }
 
@@ -271,8 +267,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator
 
         // Play sounds (GT++ addition - GT multiblocks play no sounds)
         startProcess();
-
-        Logger.WARNING("GOOD RETURN - 1");
         return true;
     }
 

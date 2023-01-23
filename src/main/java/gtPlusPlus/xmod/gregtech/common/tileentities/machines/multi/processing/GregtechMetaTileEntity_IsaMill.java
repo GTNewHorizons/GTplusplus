@@ -520,13 +520,10 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
-        long tEnergy = getMaxInputEnergy();
-        log("Running checkRecipeGeneric(0)");
 
         // checks if it has a milling ball with enough durability
         ItemStack tMillingBallRecipe = findMillingBall(aItemInputs);
         if (tMillingBallRecipe == null) {
-            log("does not have milling ball");
             return false;
         }
 
@@ -538,12 +535,10 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
                 aFluidInputs,
                 aItemInputs);
 
-        log("Running checkRecipeGeneric(1)");
         // Remember last recipe - an optimization for findRecipe()
         this.mLastRecipe = tRecipe;
 
         if (tRecipe == null) {
-            log("BAD RETURN - 1");
             return false;
         }
 
@@ -558,7 +553,6 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
         // Damage Milling ball once all is said and done.
         if (tSuccess) {
-            log("damaging milling ball");
             damageMillingBall(tMillingBallRecipe);
         }
 
