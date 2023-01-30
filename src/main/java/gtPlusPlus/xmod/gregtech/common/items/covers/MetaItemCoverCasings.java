@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.items.covers;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
 import gtPlusPlus.core.lib.CORE;

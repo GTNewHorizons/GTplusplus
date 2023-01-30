@@ -1,5 +1,17 @@
 package gtPlusPlus.core.item.general;
 
+import java.util.List;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
+
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import cpw.mods.fml.common.Optional;
@@ -11,22 +23,10 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import ic2.api.item.IElectricItemManager;
-import java.util.List;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 
 @Optional.InterfaceList(
-        value = {
-            @Optional.Interface(iface = "baubles.api.IBauble", modid = "Baubles"),
-            @Optional.Interface(iface = "baubles.api.BaubleType", modid = "Baubles")
-        })
+        value = { @Optional.Interface(iface = "baubles.api.IBauble", modid = "Baubles"),
+                @Optional.Interface(iface = "baubles.api.BaubleType", modid = "Baubles") })
 public class ItemCloakingDevice extends Item implements IElectricItem, IElectricItemManager, IBauble {
 
     private final String unlocalizedName = "personalCloakingDevice";
@@ -49,11 +49,7 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
     }
 
     @Override
-    public void onUpdate(
-            final ItemStack itemStack,
-            final World worldObj,
-            final Entity player,
-            final int p_77663_4_,
+    public void onUpdate(final ItemStack itemStack, final World worldObj, final Entity player, final int p_77663_4_,
             final boolean p_77663_5_) {
         if (worldObj.isRemote) {
             return;
@@ -147,35 +143,22 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
         super.addInformation(stack, aPlayer, list, bool);
     }
 
-    /*@Override
-    public ItemStack getContainerItem(ItemStack itemStack)
-    {
-    	ItemStack newItem = itemStack.copy();
-    	newItem.stackSize = 1;
-    	extractEnergy(newItem, 150000, false);
-    	return newItem;
-    }*/
+    /*
+     * @Override public ItemStack getContainerItem(ItemStack itemStack) { ItemStack newItem = itemStack.copy();
+     * newItem.stackSize = 1; extractEnergy(newItem, 150000, false); return newItem; }
+     */
 
-    /*@Override
-    public boolean hasContainerItem(ItemStack stack)
-    {
-    	return true;
-    }*/
+    /*
+     * @Override public boolean hasContainerItem(ItemStack stack) { return true; }
+     */
 
-    /*@Override
-    public int getBurnTime(ItemStack fuel) {
-    	if ((fuel == null) || (fuel.getItem() != this)) {
-    		return 0;
-    	}
-    	return extractEnergy(fuel, 150000, true) / 50 / 100;
-    }*/
+    /*
+     * @Override public int getBurnTime(ItemStack fuel) { if ((fuel == null) || (fuel.getItem() != this)) { return 0; }
+     * return extractEnergy(fuel, 150000, true) / 50 / 100; }
+     */
 
     @Override
-    public double charge(
-            final ItemStack stack,
-            final double amount,
-            final int tier,
-            final boolean ignoreTransferLimit,
+    public double charge(final ItemStack stack, final double amount, final int tier, final boolean ignoreTransferLimit,
             final boolean simulate) {
 
         if (!simulate) {
@@ -185,13 +168,8 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
     }
 
     @Override
-    public double discharge(
-            final ItemStack stack,
-            final double amount,
-            final int tier,
-            final boolean ignoreTransferLimit,
-            final boolean externally,
-            final boolean simulate) {
+    public double discharge(final ItemStack stack, final double amount, final int tier,
+            final boolean ignoreTransferLimit, final boolean externally, final boolean simulate) {
         if (!simulate) {
             ElectricItem.manager.discharge(stack, amount, tier, ignoreTransferLimit, externally, simulate);
         }

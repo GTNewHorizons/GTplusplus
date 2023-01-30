@@ -1,10 +1,7 @@
 package gtPlusPlus.core.item.base.foods;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,6 +11,11 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+
 public class BaseItemHotFood extends BaseItemFood {
 
     protected String materialName;
@@ -21,13 +23,8 @@ public class BaseItemHotFood extends BaseItemFood {
     protected int cooldownTime;
     protected Item output;
 
-    public BaseItemHotFood(
-            final String unlocalizedName,
-            final int healAmount,
-            final float healSaturation,
-            final String foodName,
-            final int timeToCoolInSeconds,
-            final Item cooledFood) {
+    public BaseItemHotFood(final String unlocalizedName, final int healAmount, final float healSaturation,
+            final String foodName, final int timeToCoolInSeconds, final Item cooledFood) {
         super(unlocalizedName, "Hot " + foodName, healAmount, healSaturation, false);
         this.unlocalName = unlocalizedName;
         this.cooldownTime = timeToCoolInSeconds * 20;
@@ -42,19 +39,15 @@ public class BaseItemHotFood extends BaseItemFood {
     }
 
     @Override
-    public void onUpdate(
-            final ItemStack iStack,
-            final World world,
-            final Entity entityHolding,
-            final int p_77663_4_,
+    public void onUpdate(final ItemStack iStack, final World world, final Entity entityHolding, final int p_77663_4_,
             final boolean p_77663_5_) {
         // Utils.LOG_INFO("Item Damage: "+iStack.getItemDamage()+" Max Damage: "+iStack.getMaxDamage());
         if (!world.isRemote) {
             if (iStack.getItemDamage() == this.cooldownTime) {
                 if (entityHolding instanceof EntityPlayer) {
                     Logger.INFO("Foods Done.");
-                    ((EntityPlayer) entityHolding)
-                            .inventory.addItemStackToInventory(ItemUtils.getSimpleStack(this.output));
+                    ((EntityPlayer) entityHolding).inventory
+                            .addItemStackToInventory(ItemUtils.getSimpleStack(this.output));
                     ((EntityPlayer) entityHolding).inventory.consumeInventoryItem(this);
                 }
             } else if (iStack.getItemDamage() < this.cooldownTime) {
@@ -67,7 +60,7 @@ public class BaseItemHotFood extends BaseItemFood {
         super.onUpdate(iStack, world, entityHolding, p_77663_4_, p_77663_5_);
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         if ((this.materialName != null) && (this.materialName != "") && !this.materialName.equals("")) {

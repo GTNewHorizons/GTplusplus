@@ -1,17 +1,18 @@
 package gtPlusPlus.core.item.base.cell;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.item.base.BaseItemComponent;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.material.Material;
-import gtPlusPlus.core.util.Utils;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.item.base.BaseItemComponent;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.material.Material;
+import gtPlusPlus.core.util.Utils;
 
 public class BaseItemPlasmaCell extends BaseItemComponent {
 

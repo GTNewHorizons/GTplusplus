@@ -1,15 +1,5 @@
 package gtPlusPlus.core.block.machine;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -20,7 +10,19 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
+
 public class Machine_ModularityTable extends BlockContainer implements ITileTooltip {
+
     @SideOnly(Side.CLIENT)
     private IIcon textureTop;
 
@@ -54,10 +56,8 @@ public class Machine_ModularityTable extends BlockContainer implements ITileTool
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final int p_149691_1_, final int p_149691_2_) {
-        return p_149691_1_ == 1
-                ? this.textureTop
-                : (p_149691_1_ == 0
-                        ? this.textureBottom
+        return p_149691_1_ == 1 ? this.textureTop
+                : (p_149691_1_ == 0 ? this.textureBottom
                         : ((p_149691_1_ != 2) && (p_149691_1_ != 4) ? this.blockIcon : this.textureFront));
     }
 
@@ -74,16 +74,8 @@ public class Machine_ModularityTable extends BlockContainer implements ITileTool
      * Called upon block activation (right click on the block.)
      */
     @Override
-    public boolean onBlockActivated(
-            final World world,
-            final int x,
-            final int y,
-            final int z,
-            final EntityPlayer player,
-            final int side,
-            final float lx,
-            final float ly,
-            final float lz) {
+    public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player,
+            final int side, final float lx, final float ly, final float lz) {
         if (world.isRemote) {
             return true;
         }
@@ -102,8 +94,8 @@ public class Machine_ModularityTable extends BlockContainer implements ITileTool
     }
 
     @Override
-    public boolean canCreatureSpawn(
-            final EnumCreatureType type, final IBlockAccess world, final int x, final int y, final int z) {
+    public boolean canCreatureSpawn(final EnumCreatureType type, final IBlockAccess world, final int x, final int y,
+            final int z) {
         return false;
     }
 }

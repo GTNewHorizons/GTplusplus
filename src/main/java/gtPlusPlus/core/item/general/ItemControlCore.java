@@ -1,10 +1,7 @@
 package gtPlusPlus.core.item.general;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.GT_Values;
-import gtPlusPlus.core.lib.CORE;
 import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.GT_Values;
+import gtPlusPlus.core.lib.CORE;
 
 public class ItemControlCore extends Item {
 
@@ -47,7 +49,7 @@ public class ItemControlCore extends Item {
         return this.icons[meta];
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list) {
         for (int i = 0; i < 10; i++) {
@@ -60,7 +62,7 @@ public class ItemControlCore extends Item {
         return this.getUnlocalizedName() + "_" + stack.getItemDamage();
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         list.add(EnumChatFormatting.GRAY

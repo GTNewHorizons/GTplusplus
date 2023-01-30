@@ -2,7 +2,6 @@ package gtPlusPlus.everglades.block;
 
 import gtPlusPlus.api.interfaces.ITileTooltip;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import net.minecraft.block.BlockGrass;
 
 public class BlockDarkWorldGround extends BlockGrass implements ITileTooltip {
 
