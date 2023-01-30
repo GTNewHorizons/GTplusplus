@@ -1,13 +1,12 @@
 package gtPlusPlus.core.util.debug;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class DEBUG_ScreenOverlay extends Gui {
 
@@ -30,16 +29,17 @@ public class DEBUG_ScreenOverlay extends Gui {
             heldItem = this.mc.thePlayer.getHeldItem().getItem();
 
             if (heldItem != null) {
-                /*
-                 * if (heldItem instanceof StaballoyPickaxe){ int dmg =((StaballoyPickaxe)
-                 * heldItem).getDamage(((StaballoyPickaxe) heldItem).thisPickaxe); ((StaballoyPickaxe)
-                 * heldItem).checkFacing(((StaballoyPickaxe) heldItem).localWorld); str = "DAMAGE: "+ dmg
-                 * +" | FACING: "+((StaballoyPickaxe) heldItem).FACING+" | FACING_HORIZONTAL: "+((StaballoyPickaxe)
-                 * heldItem).FACING_HORIZONTAL+" | LOOKING DIRECTION: "+((StaballoyPickaxe) heldItem).lookingDirection;
-                 * drawString(fontRender, str, (this.width - fontRender.getStringWidth(str)) / 2, this.height / 10,
-                 * 0xFFAA00); }
-                 */
+                /*if (heldItem instanceof StaballoyPickaxe){
+
+                	int dmg =((StaballoyPickaxe) heldItem).getDamage(((StaballoyPickaxe) heldItem).thisPickaxe);
+
+                	((StaballoyPickaxe) heldItem).checkFacing(((StaballoyPickaxe) heldItem).localWorld);
+                	str = "DAMAGE: "+ dmg +" | FACING: "+((StaballoyPickaxe) heldItem).FACING+" | FACING_HORIZONTAL: "+((StaballoyPickaxe) heldItem).FACING_HORIZONTAL+" | LOOKING DIRECTION: "+((StaballoyPickaxe) heldItem).lookingDirection;
+
+                	drawString(fontRender, str, (this.width - fontRender.getStringWidth(str)) / 2, this.height / 10, 0xFFAA00);
+                }*/
             }
-        } catch (final NullPointerException e) {}
+        } catch (final NullPointerException e) {
+        }
     }
 }

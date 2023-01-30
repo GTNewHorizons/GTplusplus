@@ -1,13 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tools;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.AchievementList;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IChatComponent;
-
 import gregtech.GT_Mod;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Textures.ItemIcons;
@@ -15,6 +7,13 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.common.tools.GT_Tool_WireCutter;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtTools;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 
 public class TOOL_Gregtech_ElectricSnips extends GT_Tool_WireCutter {
 
@@ -78,17 +77,14 @@ public class TOOL_Gregtech_ElectricSnips extends GT_Tool_WireCutter {
         try {
             GT_Mod.achievements.issueAchievement(aPlayer, "tools");
             GT_Mod.achievements.issueAchievement(aPlayer, "unitool");
-        } catch (final Exception e) {}
+        } catch (final Exception e) {
+        }
     }
 
     @Override
     public IChatComponent getDeathMessage(final EntityLivingBase aPlayer, final EntityLivingBase aEntity) {
-        return new ChatComponentText(
-                EnumChatFormatting.RED + aEntity.getCommandSenderName()
-                        + EnumChatFormatting.WHITE
-                        + " has been Snipped out of existence by "
-                        + EnumChatFormatting.GREEN
-                        + aPlayer.getCommandSenderName()
-                        + EnumChatFormatting.WHITE);
+        return new ChatComponentText(EnumChatFormatting.RED + aEntity.getCommandSenderName() + EnumChatFormatting.WHITE
+                + " has been Snipped out of existence by " + EnumChatFormatting.GREEN + aPlayer.getCommandSenderName()
+                + EnumChatFormatting.WHITE);
     }
 }

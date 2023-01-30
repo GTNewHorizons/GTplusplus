@@ -1,14 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.covers;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_CoverBehavior;
@@ -17,6 +8,13 @@ import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.api.objects.random.XSTR;
 import gtPlusPlus.core.util.minecraft.LangUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
 
 public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
 
@@ -32,20 +30,35 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
             ForgeDirection aDir = ForgeDirection.getOrientation(aSide);
             String s = aEntity.getInventoryName() + "." + aPos.getUniqueIdentifier() + aDir.name();
             return s;
-        } catch (Throwable t) {}
+        } catch (Throwable t) {
+        }
         XSTR x = new XSTR();
         return "ERROR." + x.getSeed() + x.hashCode() + x.nextDouble() + ".ID";
     }
 
-    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        PlayerUtils
-                .messagePlayer(aPlayer, LangUtils.trans("756", "Connectable: ") + getConnectionState(aCoverVariable));
+    public boolean onCoverRightclick(
+            byte aSide,
+            int aCoverID,
+            int aCoverVariable,
+            ICoverable aTileEntity,
+            EntityPlayer aPlayer,
+            float aX,
+            float aY,
+            float aZ) {
+        PlayerUtils.messagePlayer(
+                aPlayer, LangUtils.trans("756", "Connectable: ") + getConnectionState(aCoverVariable));
         return super.onCoverRightclick(aSide, aCoverID, aCoverVariable, aTileEntity, aPlayer, aX, aY, aZ);
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public int onCoverScrewdriverclick(
+            byte aSide,
+            int aCoverID,
+            int aCoverVariable,
+            ICoverable aTileEntity,
+            EntityPlayer aPlayer,
+            float aX,
+            float aY,
+            float aZ) {
         return super.onCoverScrewdriverclick(aSide, aCoverID, aCoverVariable, aTileEntity, aPlayer, aX, aY, aZ);
     }
 
@@ -82,8 +95,8 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
     }
 
     @Override
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            long aTimer) {
+    public int doCoverThings(
+            byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
         try {
             String aKey = generateUniqueKey(aSide, aTileEntity);
             Integer b = sConnectionStateForEntityMap.get(aKey);
@@ -118,8 +131,8 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
     }
 
     @Override
-    public byte getRedstoneInput(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable,
-            ICoverable aTileEntity) {
+    public byte getRedstoneInput(
+            byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
         if (!getConnectionState(aCoverVariable)) {
             return 0;
         }
@@ -140,8 +153,8 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
     }
 
     @Override
-    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            boolean aForced) {
+    public boolean onCoverRemoval(
+            byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, boolean aForced) {
         String aKey = generateUniqueKey(aSide, aTileEntity);
         sConnectionStateForEntityMap.remove(aKey);
         // Logger.INFO("Unmapping key "+aKey+".");

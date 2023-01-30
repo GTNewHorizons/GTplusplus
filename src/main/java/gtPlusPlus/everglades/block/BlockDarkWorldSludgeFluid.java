@@ -48,13 +48,29 @@ public class BlockDarkWorldSludgeFluid extends Fluid {
         return this;
     }
 
-    /*
-     * public blockDarkWorldSludgeFluid setEmptySound(SoundEvent parSound) { emptySound = parSound; return this; }
-     * public SoundEvent getEmptySound() { return emptySound; }
-     * @Override public blockDarkWorldSludgeFluid setFillSound(SoundEvent parSound) { fillSound = parSound; return this;
-     * }
-     * @Override public SoundEvent getFillSound() { return fillSound; }
-     */
+    /*public blockDarkWorldSludgeFluid setEmptySound(SoundEvent parSound)
+    {
+    	emptySound = parSound;
+    	return this;
+    }
+
+    public SoundEvent getEmptySound()
+    {
+    	return emptySound;
+    }
+
+    @Override
+    public blockDarkWorldSludgeFluid setFillSound(SoundEvent parSound)
+    {
+    	fillSound = parSound;
+    	return this;
+    }
+
+    @Override
+    public SoundEvent getFillSound()
+    {
+    	return fillSound;
+    }*/
 
     public BlockDarkWorldSludgeFluid setMaterial(Material parMaterial) {
         material = parMaterial;
@@ -65,8 +81,11 @@ public class BlockDarkWorldSludgeFluid extends Fluid {
         return material;
     }
 
-    /*
-     * @Override public boolean doesVaporize(FluidStack fluidStack) { if (block == null) return false; return
-     * block.getDefaultState().getMaterial() == getMaterial(); }
-     */
+    /*@Override
+    public boolean doesVaporize(FluidStack fluidStack)
+    {
+    	if (block == null)
+    		return false;
+    	return block.getDefaultState().getMaterial() == getMaterial();
+    }*/
 }

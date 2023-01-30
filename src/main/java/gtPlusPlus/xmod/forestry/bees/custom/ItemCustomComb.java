@@ -1,16 +1,5 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
-import java.lang.reflect.Field;
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
-import org.apache.commons.lang3.reflect.FieldUtils;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,9 +10,16 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import java.lang.reflect.Field;
+import java.util.List;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import org.apache.commons.lang3.reflect.FieldUtils;
 
 public class ItemCustomComb extends Item {
-
     @SideOnly(Side.CLIENT)
     private IIcon secondIcon;
 
@@ -43,7 +39,7 @@ public class ItemCustomComb extends Item {
         return new ItemStack(this, count, type.ordinal());
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs tabs, List list) {
@@ -140,7 +136,7 @@ public class ItemCustomComb extends Item {
                 GT_Values.NI,
                 GT_Values.NI,
                 GT_Values.NI,
-                new int[] { chance * 100, 3000 },
+                new int[] {chance * 100, 3000},
                 128,
                 5);
         // RecipeManagers.centrifugeManager.addRecipe(40, tComb, ImmutableMap.of(aOutput, chance * 0.01f,
@@ -159,15 +155,21 @@ public class ItemCustomComb extends Item {
                 GT_Values.NI,
                 GT_Values.NI,
                 GT_Values.NI,
-                new int[] { chance * 100, 3000, chance2 * 100 },
+                new int[] {chance * 100, 3000, chance2 * 100},
                 128,
                 5);
         // RecipeManagers.centrifugeManager.addRecipe(40, tComb, ImmutableMap.of(aOutput, chance * 0.01f,
         // ItemList.FR_Wax.get(1, new Object[0]), 0.3f,aOutput2,chance2 * 0.01f));
     }
 
-    public void addSpecialCent(ItemStack tComb, ItemStack aOutput, int chance, ItemStack aOutput2, int chance2,
-            ItemStack aOutput3, int chance3) {
+    public void addSpecialCent(
+            ItemStack tComb,
+            ItemStack aOutput,
+            int chance,
+            ItemStack aOutput2,
+            int chance2,
+            ItemStack aOutput3,
+            int chance3) {
         GT_Values.RA.addCentrifugeRecipe(
                 tComb,
                 GT_Values.NI,
@@ -179,7 +181,7 @@ public class ItemCustomComb extends Item {
                 aOutput3,
                 GT_Values.NI,
                 GT_Values.NI,
-                new int[] { chance * 100, 3000, chance2 * 100, chance3 * 100 },
+                new int[] {chance * 100, 3000, chance2 * 100, chance3 * 100},
                 128,
                 5);
         // RecipeManagers.centrifugeManager.addRecipe(40, tComb, ImmutableMap.of(aOutput, chance * 0.01f,
@@ -192,7 +194,9 @@ public class ItemCustomComb extends Item {
                     GT_Utility.copyAmount(9, tComb),
                     GT_OreDictUnificator.get(OrePrefixes.crushed, aMaterial, 1),
                     Materials.Water.getFluid(1000),
-                    aMaterial.mOreByProducts.isEmpty() ? null : aMaterial.mOreByProducts.get(0).getMolten(144),
+                    aMaterial.mOreByProducts.isEmpty()
+                            ? null
+                            : aMaterial.mOreByProducts.get(0).getMolten(144),
                     GT_OreDictUnificator.get(OrePrefixes.crushedPurified, aMaterial, 4),
                     96);
             GT_Values.RA.addAutoclaveRecipe(
@@ -214,7 +218,7 @@ public class ItemCustomComb extends Item {
                     GT_Values.NI,
                     GT_Values.NI,
                     GT_Values.NI,
-                    new int[] { chance * 100, 3000 },
+                    new int[] {chance * 100, 3000},
                     128,
                     5);
             // RecipeManagers.centrifugeManager.addRecipe(40, tComb,
@@ -229,7 +233,9 @@ public class ItemCustomComb extends Item {
                     GT_Utility.copyAmount(9, tComb),
                     GT_OreDictUnificator.get(OrePrefixes.crushed, aInMaterial, 1),
                     Materials.Water.getFluid(1000),
-                    aInMaterial.mOreByProducts.isEmpty() ? null : aInMaterial.mOreByProducts.get(0).getMolten(144),
+                    aInMaterial.mOreByProducts.isEmpty()
+                            ? null
+                            : aInMaterial.mOreByProducts.get(0).getMolten(144),
                     GT_OreDictUnificator.get(OrePrefixes.crushedPurified, aOutMaterial, 4),
                     96);
             GT_Values.RA.addAutoclaveRecipe(
@@ -251,7 +257,7 @@ public class ItemCustomComb extends Item {
                     GT_Values.NI,
                     GT_Values.NI,
                     GT_Values.NI,
-                    new int[] { chance * 100, 3000 },
+                    new int[] {chance * 100, 3000},
                     128,
                     5);
             // RecipeManagers.centrifugeManager.addRecipe(40, tComb,

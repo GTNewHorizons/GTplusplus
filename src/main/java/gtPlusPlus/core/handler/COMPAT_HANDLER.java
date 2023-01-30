@@ -2,12 +2,6 @@ package gtPlusPlus.core.handler;
 
 import static gtPlusPlus.core.lib.LoadedMods.Gregtech;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -50,6 +44,10 @@ import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GTNH;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GlueLine;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_Nuclear;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+import net.minecraft.item.ItemStack;
 
 public class COMPAT_HANDLER {
 
@@ -76,15 +74,22 @@ public class COMPAT_HANDLER {
         if (Gregtech) {
 
             // Debug
-            GregtechItemList.Garbage_Collector_Debug_Machine.set(
-                    new GregtechMetaGarbageCollector(
+            GregtechItemList.Garbage_Collector_Debug_Machine.set(new GregtechMetaGarbageCollector(
                             "garbagecollector.01.tier.single",
                             "JVM Garbage Collector",
-                            "Useful for debugging or smoother performance on local servers").getStackForm(1L));
+                            "Useful for debugging or smoother performance on local servers")
+                    .getStackForm(1L));
 
             // Free IDs
             /*
-             * --- 859 to 868 --- 911 to 940
+            ---
+            859
+            to
+            868
+            ---
+            911
+            to
+            940
              */
 
             new RECIPES_LaserEngraver();
@@ -260,9 +265,11 @@ public class COMPAT_HANDLER {
     }
 
     public static final AutoMap<RunnableWithInfo<String>> mRecipesToGenerate = new AutoMap<RunnableWithInfo<String>>();
-    public static final AutoMap<RunnableWithInfo<String>> mGtRecipesToGenerate = new AutoMap<RunnableWithInfo<String>>();
+    public static final AutoMap<RunnableWithInfo<String>> mGtRecipesToGenerate =
+            new AutoMap<RunnableWithInfo<String>>();
 
-    public static final AutoMap<RunnableWithInfo<String>> mObjectsToRunInPostInit = new AutoMap<RunnableWithInfo<String>>();
+    public static final AutoMap<RunnableWithInfo<String>> mObjectsToRunInPostInit =
+            new AutoMap<RunnableWithInfo<String>>();
     public static final AutoMap<ItemPackage> mObjectsToRunInOnLoadComplete = new AutoMap<ItemPackage>();
 
     public static void runQueuedRecipes() {

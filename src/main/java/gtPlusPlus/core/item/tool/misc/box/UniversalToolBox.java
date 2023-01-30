@@ -9,8 +9,10 @@ public class UniversalToolBox extends BaseBoxItem {
     public UniversalToolBox(String displayName) {
         super(
                 displayName,
-                new String[] { "Can store tools from Gregtech, IC2, BC, Forestry",
-                        "Please ask for additional mod support on Github" },
+                new String[] {
+                    "Can store tools from Gregtech, IC2, BC, Forestry",
+                    "Please ask for additional mod support on Github"
+                },
                 GuiHandler.GUI10);
     }
 }

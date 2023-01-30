@@ -1,10 +1,9 @@
 package gtPlusPlus.plugin.villagers;
 
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.common.registry.VillagerRegistry.IVillageTradeHandler;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.util.ResourceLocation;
 
 public class VillagerObject {
 
@@ -12,7 +11,12 @@ public class VillagerObject {
     public final String mName;
     public final IVillageTradeHandler mCustomTrade;
 
-    public VillagerObject(int aID, String aName, Object aProfession, Object aCareer, Object aSkin,
+    public VillagerObject(
+            int aID,
+            String aName,
+            Object aProfession,
+            Object aCareer,
+            Object aSkin,
             IVillageTradeHandler aCustomTrade) {
 
         mID = aID;
@@ -21,8 +25,8 @@ public class VillagerObject {
 
         // Register Custom Trade to Registry.
         if (aCustomTrade != null) {
-            Core_VillagerAdditions.mVillagerTrades
-                    .put(new Pair<Integer, IVillageTradeHandler>(7735 + aID, aCustomTrade));
+            Core_VillagerAdditions.mVillagerTrades.put(
+                    new Pair<Integer, IVillageTradeHandler>(7735 + aID, aCustomTrade));
         }
         // Register Skin to Registry.
         if (aSkin != null) {

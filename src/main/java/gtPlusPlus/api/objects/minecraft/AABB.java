@@ -1,14 +1,12 @@
 package gtPlusPlus.api.objects.minecraft;
 
+import gtPlusPlus.core.util.minecraft.EntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import gtPlusPlus.core.util.minecraft.EntityUtils;
-
 /**
  * Generates an AABB around an entity.
- * 
  * @author Alkalus
  *
  */
@@ -19,11 +17,10 @@ public class AABB {
 
     /**
      * Creates a AxisAlignedBB based around an Entity.
-     * 
      * @param aEntity - The Entity to work with.
-     * @param x       - Maximum X from origin.
-     * @param y       - Maximum Y from origin.
-     * @param z       - Maximum Z from origin.
+     * @param x - Maximum X from origin.
+     * @param y - Maximum Y from origin.
+     * @param z - Maximum Z from origin.
      */
     public AABB(Entity aEntity, int x, int y, int z) {
         if (aEntity == null) {
@@ -45,7 +42,6 @@ public class AABB {
 
     /**
      * Used to get the AxisAlignedBB from this class.
-     * 
      * @return
      */
     public AxisAlignedBB get() {
@@ -54,7 +50,6 @@ public class AABB {
 
     /**
      * Used to determine if this object is valid or not.
-     * 
      * @return
      */
     public boolean valid() {

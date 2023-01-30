@@ -1,14 +1,5 @@
 package gtPlusPlus.plugin.fixes.vanilla.music;
 
-import java.lang.reflect.Field;
-import java.util.Random;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.MusicTicker;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.util.MathHelper;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.interfaces.IPlugin;
@@ -16,6 +7,13 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.random.XSTR;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
+import java.lang.reflect.Field;
+import java.util.Random;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
+import net.minecraft.client.audio.MusicTicker;
+import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class MusicTocker extends MusicTicker implements Runnable {
@@ -56,7 +54,8 @@ public class MusicTocker extends MusicTicker implements Runnable {
                     return true;
                 }
             }
-        } catch (IllegalArgumentException | IllegalAccessException e) {}
+        } catch (IllegalArgumentException | IllegalAccessException e) {
+        }
 
         mPlugin.log("[BGM] Failed.");
         return false;
@@ -113,13 +112,17 @@ public class MusicTocker extends MusicTicker implements Runnable {
         }
 
         /*
-         * try { // Get Value stored in underlying object. Integer aRealDelay = (Integer)
-         * ReflectionUtils.getField(getClass(), "field_147676_d").get(this); if (aRealDelay == null) { return; } else {
-         * if (aRealDelay > getDelay() || aRealDelay <= 0) { this.mTimeUntilNextTrack = getDelay();
-         * updateInternalNumber(); } else { this.mTimeUntilNextTrack -= 5 * 20; updateInternalNumber(); } aRealDelay =
+         * try { // Get Value stored in underlying object. Integer aRealDelay =
          * (Integer) ReflectionUtils.getField(getClass(), "field_147676_d").get(this);
-         * Logger.INFO("[BGM] Adjusted BGM - "+aRealDelay); } } catch (IllegalArgumentException | IllegalAccessException
-         * e) { }
+         *
+         * if (aRealDelay == null) { return; } else { if (aRealDelay > getDelay() ||
+         * aRealDelay <= 0) { this.mTimeUntilNextTrack = getDelay();
+         * updateInternalNumber(); } else { this.mTimeUntilNextTrack -= 5 * 20;
+         * updateInternalNumber(); } aRealDelay = (Integer)
+         * ReflectionUtils.getField(getClass(), "field_147676_d").get(this);
+         * Logger.INFO("[BGM] Adjusted BGM - "+aRealDelay); }
+         *
+         * } catch (IllegalArgumentException | IllegalAccessException e) { }
          */
     }
 }

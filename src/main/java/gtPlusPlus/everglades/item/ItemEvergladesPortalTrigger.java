@@ -1,7 +1,10 @@
 package gtPlusPlus.everglades.item;
 
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,13 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.everglades.dimension.Dimension_Everglades;
-
 public class ItemEvergladesPortalTrigger extends Item {
-
     public ItemEvergladesPortalTrigger() {
         super();
         this.maxStackSize = 1;
@@ -44,20 +41,16 @@ public class ItemEvergladesPortalTrigger extends Item {
 
     @Override
     public String getItemStackDisplayName(final ItemStack p_77653_1_) {
-        return EnumChatFormatting.GOLD + "Alkalus Disk ["
-                + EnumChatFormatting.RED
-                + "Activated"
-                + EnumChatFormatting.GOLD
-                + "]";
+        return EnumChatFormatting.GOLD + "Alkalus Disk [" + EnumChatFormatting.RED + "Activated"
+                + EnumChatFormatting.GOLD + "]";
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         list.add(EnumChatFormatting.GREEN + "Shines the way, towards the far away Everglades.");
-        list.add(
-                EnumChatFormatting.GREEN
-                        + "This item produces such a temperature, that you'd hate to use it incorrectly.");
+        list.add(EnumChatFormatting.GREEN
+                + "This item produces such a temperature, that you'd hate to use it incorrectly.");
         super.addInformation(stack, aPlayer, list, bool);
     }
 
@@ -67,8 +60,17 @@ public class ItemEvergladesPortalTrigger extends Item {
     }
 
     @Override
-    public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4,
-            int par5, int par6, int par7, float par8, float par9, float par10) {
+    public boolean onItemUse(
+            ItemStack par1ItemStack,
+            EntityPlayer par2EntityPlayer,
+            World par3World,
+            int par4,
+            int par5,
+            int par6,
+            int par7,
+            float par8,
+            float par9,
+            float par10) {
         if (par7 == 0) {
             par5--;
         }
@@ -93,12 +95,7 @@ public class ItemEvergladesPortalTrigger extends Item {
         Block i1 = par3World.getBlock(par4, par5, par6);
         if (i1 == Blocks.air) {
             par3World.playSoundEffect(
-                    par4 + 0.5D,
-                    par5 + 0.5D,
-                    par6 + 0.5D,
-                    "fire.ignite",
-                    1.0F,
-                    itemRand.nextFloat() * 0.4F + 0.8F);
+                    par4 + 0.5D, par5 + 0.5D, par6 + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             if (Dimension_Everglades.portalBlock.tryToCreatePortal(par3World, par4, par5, par6)) {
                 // Make a Portal
             } else {

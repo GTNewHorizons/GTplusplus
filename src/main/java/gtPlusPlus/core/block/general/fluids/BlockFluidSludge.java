@@ -1,5 +1,9 @@
 package gtPlusPlus.core.block.general.fluids;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.lib.CORE;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
@@ -8,11 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.lib.CORE;
 
 public class BlockFluidSludge extends BlockFluidClassic {
 
@@ -56,8 +55,8 @@ public class BlockFluidSludge extends BlockFluidClassic {
     }
 
     @Override
-    public boolean canCreatureSpawn(final EnumCreatureType type, final IBlockAccess world, final int x, final int y,
-            final int z) {
+    public boolean canCreatureSpawn(
+            final EnumCreatureType type, final IBlockAccess world, final int x, final int y, final int z) {
         return false;
     }
 }

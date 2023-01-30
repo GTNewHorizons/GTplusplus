@@ -1,18 +1,5 @@
 package gtPlusPlus.core.item.general;
 
-import java.util.List;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
-
 import cofh.api.energy.ItemEnergyContainer;
 import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,6 +12,17 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import ic2.api.item.IElectricItemManager;
+import java.util.List;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
 public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem, IElectricItemManager, IFuelHandler {
 
@@ -49,7 +47,11 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     }
 
     @Override
-    public void onUpdate(final ItemStack itemStack, final World worldObj, final Entity player, final int p_77663_4_,
+    public void onUpdate(
+            final ItemStack itemStack,
+            final World worldObj,
+            final Entity player,
+            final int p_77663_4_,
             final boolean p_77663_5_) {
         this.getEnergyStored(itemStack);
         if (worldObj.isRemote) {
@@ -108,12 +110,6 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     }
 
     @Override
-    public String getItemStackDisplayName(final ItemStack p_77653_1_) {
-
-        return ("Universally Chargeable Battery");
-    }
-
-    @Override
     public double getDurabilityForDisplay(final ItemStack stack) {
         // return 1.0D - getEnergyStored(stack) / this.capacity;
         return MathUtils.findPercentage(this.getEnergyStored(stack), this.getMaxEnergyStored(stack));
@@ -146,53 +142,20 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
 
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        list.add(EnumChatFormatting.YELLOW + "IC2/EU Information" + EnumChatFormatting.GRAY);
-        list.add(
-                EnumChatFormatting.GRAY + "Tier: ["
-                        + EnumChatFormatting.YELLOW
-                        + this.getTier(this.thisStack)
-                        + EnumChatFormatting.GRAY
-                        + "] Current Power: ["
-                        + EnumChatFormatting.YELLOW
-                        + (long) this.getCharge(stack)
-                        + EnumChatFormatting.GRAY
-                        + "/EU]");
-        list.add(
-                EnumChatFormatting.GRAY + "Transfer Limit: ["
-                        + EnumChatFormatting.YELLOW
-                        + this.getTransferLimit(this.thisStack)
-                        + EnumChatFormatting.GRAY
-                        + "Eu/t]"
-                        + "Burn Time: ["
-                        + EnumChatFormatting.YELLOW
-                        + (this.getBurnTime(stack) / 20)
-                        + EnumChatFormatting.GRAY
-                        + "s]");
+        list.add(StatCollector.translateToLocal("item.rfEUBattery.tooltip.0"));
+        list.add(StatCollector.translateToLocalFormatted(
+                "item.rfEUBattery.tooltip.1", this.getTier(this.thisStack), (long) this.getCharge(stack)));
+        list.add(StatCollector.translateToLocalFormatted(
+                "item.rfEUBattery.tooltip.2", this.getTransferLimit(this.thisStack), (this.getBurnTime(stack) / 20)));
         list.add("");
-        list.add(EnumChatFormatting.RED + "RF Information");
-        list.add(
-                EnumChatFormatting.GRAY + "Extraction Rate: ["
-                        + EnumChatFormatting.RED
-                        + this.maxExtract
-                        + EnumChatFormatting.GRAY
-                        + "Rf/t]"
-                        + " Insert Rate: ["
-                        + EnumChatFormatting.RED
-                        + this.maxReceive
-                        + EnumChatFormatting.GRAY
-                        + "Rf/t]");
-        list.add(
-                EnumChatFormatting.GRAY + "Current Charge: ["
-                        + EnumChatFormatting.RED
-                        + this.getEnergyStored(stack)
-                        + EnumChatFormatting.GRAY
-                        + "Rf / "
-                        + this.getMaxEnergyStored(stack)
-                        + "Rf] "
-                        + EnumChatFormatting.RED
-                        + MathUtils.findPercentage(this.getEnergyStored(stack), this.getMaxEnergyStored(stack))
-                        + EnumChatFormatting.GRAY
-                        + "%");
+        list.add(StatCollector.translateToLocal("item.rfEUBattery.tooltip.3"));
+        list.add(StatCollector.translateToLocalFormatted(
+                "item.rfEUBattery.tooltip.4", this.maxExtract, this.maxReceive));
+        list.add(StatCollector.translateToLocalFormatted(
+                "item.rfEUBattery.tooltip.5",
+                this.getEnergyStored(stack),
+                this.getMaxEnergyStored(stack),
+                MathUtils.findPercentage(this.getEnergyStored(stack), this.getMaxEnergyStored(stack))));
         super.addInformation(stack, aPlayer, list, bool);
     }
 
@@ -218,7 +181,11 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     }
 
     @Override
-    public double charge(final ItemStack stack, final double amount, final int tier, final boolean ignoreTransferLimit,
+    public double charge(
+            final ItemStack stack,
+            final double amount,
+            final int tier,
+            final boolean ignoreTransferLimit,
             final boolean simulate) {
         if (stack.stackTagCompound == null) {
             stack.stackTagCompound = new NBTTagCompound();
@@ -235,8 +202,13 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     }
 
     @Override
-    public double discharge(final ItemStack stack, final double amount, final int tier,
-            final boolean ignoreTransferLimit, final boolean externally, final boolean simulate) {
+    public double discharge(
+            final ItemStack stack,
+            final double amount,
+            final int tier,
+            final boolean ignoreTransferLimit,
+            final boolean externally,
+            final boolean simulate) {
         if ((stack.stackTagCompound == null) || (!stack.stackTagCompound.hasKey("Energy"))) {
             final double euCharge = this.getCharge(ItemUtils.getSimpleStack(this));
             if ((euCharge != 0) && (euCharge >= 1)) {

@@ -1,12 +1,11 @@
 package gtPlusPlus.plugin.fixes.vanilla;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-
 import gtPlusPlus.api.interfaces.IPlugin;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.plugin.manager.Core_Manager;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class Core_VanillaFixes implements IPlugin {
 
@@ -88,11 +87,8 @@ public class Core_VanillaFixes implements IPlugin {
             mInstance.log(
                     "Registering " + aStack.getDisplayName() + " to OreDictionary under the tag '" + aString + "'.");
         } else {
-            mInstance.log(
-                    "Registering " + aStack.getDisplayName()
-                            + " to OreDictionary under the tag '"
-                            + aString
-                            + "'. (Added to Forge in 1.8.9)");
+            mInstance.log("Registering " + aStack.getDisplayName() + " to OreDictionary under the tag '" + aString
+                    + "'. (Added to Forge in 1.8.9)");
         }
         ItemUtils.addItemToOreDictionary(aStack, aString);
     }

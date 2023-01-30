@@ -1,10 +1,9 @@
 package gtPlusPlus.core.slots;
 
+import ic2.core.Ic2Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-
-import ic2.core.Ic2Items;
 
 public class SlotRTG extends Slot {
 

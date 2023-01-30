@@ -1,12 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
-import java.util.ArrayList;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.GT_Mod;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -17,6 +10,11 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import java.util.ArrayList;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.FluidStack;
 
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTurbineBase {
@@ -79,8 +77,8 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
         int tEU = 0;
         int totalFlow = 0; // Byproducts are based on actual flow
         int flow = 0;
-        int remainingFlow = MathUtils.safeInt((long) (aOptFlow * 1.25f)); // Allowed to use up to 125% of optimal flow.
-                                                                          // Variable required outside of loop for
+        int remainingFlow = MathUtils.safeInt((long) (aOptFlow
+                * 1.25f)); // Allowed to use up to 125% of optimal flow.  Variable required outside of loop for
         // multi-hatch scenarios.
         this.realOptFlow = (double) aOptFlow * (double) flowMultipliers[0];
 
@@ -96,16 +94,20 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
                 if (!achievement) {
                     try {
                         GT_Mod.achievements.issueAchievement(
-                                this.getBaseMetaTileEntity().getWorld()
-                                        .getPlayerEntityByName(this.getBaseMetaTileEntity().getOwnerName()),
+                                this.getBaseMetaTileEntity()
+                                        .getWorld()
+                                        .getPlayerEntityByName(
+                                                this.getBaseMetaTileEntity().getOwnerName()),
                                 "efficientsteam");
-                    } catch (Exception e) {}
+                    } catch (Exception e) {
+                    }
                     achievement = true;
                 }
-            } else if (fluidName.equals("fluid.steam") || fluidName.equals("ic2.fluidSteam")
+            } else if (fluidName.equals("fluid.steam")
+                    || fluidName.equals("ic2.fluidSteam")
                     || fluidName.equals("fluid.mfr.steam.still.name")) {
-                        depleteInput(new FluidStack(aFluids.get(i), aFluids.get(i).amount));
-                    }
+                depleteInput(new FluidStack(aFluids.get(i), aFluids.get(i).amount));
+            }
         }
         if (totalFlow <= 0) return 0;
         tEU = totalFlow;
@@ -131,8 +133,7 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
         if (aSide == getBaseMetaTileEntity().getFrontFacing()) {
             looseFit ^= true;
             GT_Utility.sendChatToPlayer(
-                    aPlayer,
-                    looseFit ? "Fitting is Loose (Higher Flow)" : "Fitting is Tight (Higher Efficiency)");
+                    aPlayer, looseFit ? "Fitting is Loose (Higher Flow)" : "Fitting is Tight (Higher Efficiency)");
         }
 
         if (looseFit) {

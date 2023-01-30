@@ -34,7 +34,8 @@ public class SystemUtils {
     }
 
     public static boolean isUnix() {
-        return (getOSString().indexOf("nix") >= 0 || getOSString().indexOf("nux") >= 0
+        return (getOSString().indexOf("nix") >= 0
+                || getOSString().indexOf("nux") >= 0
                 || getOSString().indexOf("aix") > 0);
     }
 
@@ -65,7 +66,6 @@ public class SystemUtils {
     }
 
     public static enum OS {
-
         MAC(1),
         WINDOWS(2),
         UNIX(3),

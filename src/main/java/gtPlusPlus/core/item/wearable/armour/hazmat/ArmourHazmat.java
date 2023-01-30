@@ -1,7 +1,11 @@
 package gtPlusPlus.core.item.wearable.armour.hazmat;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.item.wearable.armour.ArmourLoader;
+import gtPlusPlus.core.item.wearable.armour.base.BaseArmourHelm;
+import gtPlusPlus.core.lib.CORE;
 import java.util.List;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,12 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.item.wearable.armour.ArmourLoader;
-import gtPlusPlus.core.item.wearable.armour.base.BaseArmourHelm;
-import gtPlusPlus.core.lib.CORE;
 
 public class ArmourHazmat extends BaseArmourHelm {
 
@@ -62,7 +60,7 @@ public class ArmourHazmat extends BaseArmourHelm {
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {}
 
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List aList, boolean p_77624_4_) {
         aList.add("DoomSquirter's protection against cosmic radiation!");
@@ -72,8 +70,8 @@ public class ArmourHazmat extends BaseArmourHelm {
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage,
-            int slot) {
+    public ArmorProperties getProperties(
+            EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
         return new ArmorProperties(0, 0, 0);
     }
 
@@ -83,8 +81,8 @@ public class ArmourHazmat extends BaseArmourHelm {
     }
 
     @Override
-    public boolean itemInteractionForEntity(ItemStack p_111207_1_, EntityPlayer p_111207_2_,
-            EntityLivingBase p_111207_3_) {
+    public boolean itemInteractionForEntity(
+            ItemStack p_111207_1_, EntityPlayer p_111207_2_, EntityLivingBase p_111207_3_) {
         return super.itemInteractionForEntity(p_111207_1_, p_111207_2_, p_111207_3_);
     }
 

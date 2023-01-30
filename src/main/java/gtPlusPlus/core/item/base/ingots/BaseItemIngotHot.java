@@ -1,12 +1,5 @@
 package gtPlusPlus.core.item.base.ingots;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
@@ -16,6 +9,12 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class BaseItemIngotHot extends BaseItemIngot {
 
@@ -56,7 +55,11 @@ public class BaseItemIngotHot extends BaseItemIngot {
     }
 
     @Override
-    public void onUpdate(final ItemStack iStack, final World world, final Entity entityHolding, final int p_77663_4_,
+    public void onUpdate(
+            final ItemStack iStack,
+            final World world,
+            final Entity entityHolding,
+            final int p_77663_4_,
             final boolean p_77663_5_) {
         if (this.componentMaterial != null) {
             if (entityHolding != null && entityHolding instanceof EntityPlayer) {
@@ -85,8 +88,8 @@ public class BaseItemIngotHot extends BaseItemIngot {
             this.base = i.registerIcon("gregtech" + ":" + "materialicons/METALLIC/" + "ingotHot");
             this.overlay = i.registerIcon("gregtech" + ":" + "materialicons/METALLIC/" + "ingotHot_OVERLAY");
         } else {
-            this.base = i
-                    .registerIcon(CORE.MODID + ":" + "item" + BaseItemComponent.ComponentTypes.HOTINGOT.getComponent());
+            this.base = i.registerIcon(
+                    CORE.MODID + ":" + "item" + BaseItemComponent.ComponentTypes.HOTINGOT.getComponent());
             // this.overlay = i.registerIcon(CORE.MODID + ":" +
             // "item"+BaseItemComponent.ComponentTypes.HOTINGOT.getComponent()+"_Overlay");
         }

@@ -1,12 +1,11 @@
 package gtPlusPlus.xmod.thaumcraft.objects.wrapper.research;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-
 import gtPlusPlus.xmod.thaumcraft.objects.wrapper.aspect.TC_AspectList_Wrapper;
 import gtPlusPlus.xmod.thaumcraft.objects.wrapper.aspect.TC_Aspect_Wrapper;
 import gtPlusPlus.xmod.thaumcraft.util.ThaumcraftUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class TC_ResearchItem_Wrapper {
 
@@ -46,8 +45,14 @@ public class TC_ResearchItem_Wrapper {
         this.setVirtual();
     }
 
-    public TC_ResearchItem_Wrapper(String key, String category, TC_AspectList_Wrapper tags, int col, int row,
-            int complex, ResourceLocation icon) {
+    public TC_ResearchItem_Wrapper(
+            String key,
+            String category,
+            TC_AspectList_Wrapper tags,
+            int col,
+            int row,
+            int complex,
+            ResourceLocation icon) {
         this.key = key;
         this.category = category;
         this.tags = tags;
@@ -65,8 +70,8 @@ public class TC_ResearchItem_Wrapper {
         }
     }
 
-    public TC_ResearchItem_Wrapper(String key, String category, TC_AspectList_Wrapper tags, int col, int row,
-            int complex, ItemStack icon) {
+    public TC_ResearchItem_Wrapper(
+            String key, String category, TC_AspectList_Wrapper tags, int col, int row, int complex, ItemStack icon) {
         this.key = key;
         this.category = category;
         this.tags = tags;

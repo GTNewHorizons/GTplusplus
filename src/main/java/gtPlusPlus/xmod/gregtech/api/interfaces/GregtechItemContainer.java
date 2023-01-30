@@ -5,7 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public interface GregtechItemContainer {
-
     public Item getItem();
 
     public Block getBlock();

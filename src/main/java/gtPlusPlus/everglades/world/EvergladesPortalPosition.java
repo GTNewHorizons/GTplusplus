@@ -3,7 +3,6 @@ package gtPlusPlus.everglades.world;
 import net.minecraft.util.ChunkCoordinates;
 
 public class EvergladesPortalPosition extends ChunkCoordinates {
-
     public long field_85087_d;
     final TeleporterDimensionMod field_85088_e;
 

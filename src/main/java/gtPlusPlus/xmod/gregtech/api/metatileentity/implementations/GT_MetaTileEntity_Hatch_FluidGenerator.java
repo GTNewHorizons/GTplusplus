@@ -1,15 +1,5 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import java.lang.reflect.Field;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
@@ -22,19 +12,27 @@ import gtPlusPlus.api.objects.random.XSTR;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.lang.reflect.Field;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 
 public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTileEntity_Hatch_Input {
 
     protected static XSTR floatGen = new XSTR();
     public int mProgresstime = 0, mMaxProgresstime = 0;
 
-    public GT_MetaTileEntity_Hatch_FluidGenerator(final int aID, final String aName, final String aNameRegional,
-            final int aTier) {
+    public GT_MetaTileEntity_Hatch_FluidGenerator(
+            final int aID, final String aName, final String aNameRegional, final int aTier) {
         super(aID, aName, aNameRegional, aTier);
     }
 
-    public GT_MetaTileEntity_Hatch_FluidGenerator(final String aName, final int aTier, final String aDescription,
-            final ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_Hatch_FluidGenerator(
+            final String aName, final int aTier, final String aDescription, final ITexture[][][] aTextures) {
         super(aName, aTier, aDescription, aTextures);
     }
 
@@ -63,7 +61,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
                     if (o instanceof String[]) {
                         S = (String[]) o;
                     } else if (o instanceof String) {
-                        S = new String[] { (String) o };
+                        S = new String[] {(String) o};
                     }
                 }
             }
@@ -87,17 +85,19 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
             t.printStackTrace();
         }
 
-        return new String[] { "Broken Tooltip - Report on Github" };
+        return new String[] {"Broken Tooltip - Report on Github"};
     }
 
     public ITexture[] getTexturesActive(final ITexture aBaseTexture) {
-        return new ITexture[] { aBaseTexture,
-                new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER) };
+        return new ITexture[] {
+            aBaseTexture, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)
+        };
     }
 
     public ITexture[] getTexturesInactive(final ITexture aBaseTexture) {
-        return new ITexture[] { aBaseTexture,
-                new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER) };
+        return new ITexture[] {
+            aBaseTexture, new GT_RenderedTexture((IIconContainer) Textures.BlockIcons.OVERLAY_MUFFLER)
+        };
     }
 
     public boolean isSimpleMachine() {
@@ -118,13 +118,13 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
 
     public abstract MetaTileEntity newMetaEntity(final IGregTechTileEntity aTileEntity);
 
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
-            final ItemStack aStack) {
+    public boolean allowPullStack(
+            final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide, final ItemStack aStack) {
         return false;
     }
 
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
-            final ItemStack aStack) {
+    public boolean allowPutStack(
+            final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide, final ItemStack aStack) {
         return false;
     }
 
@@ -198,8 +198,9 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
             // Logger.INFO("To add: "+this.getAmountOfFluidToGenerate());
             // Logger.INFO("Space Free: "+(this.getCapacity()-this.getFluidAmount()));
         }
-        if (this.mFluid == null || (this.mFluid != null
-                && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()))) {
+        if (this.mFluid == null
+                || (this.mFluid != null
+                        && (this.getCapacity() - this.getFluidAmount() >= this.getAmountOfFluidToGenerate()))) {
             return true;
         }
         return false;
@@ -217,7 +218,8 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
 
     @Override
     public int fill(FluidStack aFluid, boolean doFill) {
-        if (aFluid == null || aFluid.getFluid().getID() <= 0
+        if (aFluid == null
+                || aFluid.getFluid().getID() <= 0
                 || aFluid.amount <= 0
                 || aFluid.getFluid() != getFluidToGenerate()
                 || !canTankBeFilled()) {

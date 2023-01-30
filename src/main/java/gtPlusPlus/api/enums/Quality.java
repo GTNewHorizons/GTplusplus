@@ -1,8 +1,7 @@
 package gtPlusPlus.api.enums;
 
-import net.minecraft.util.EnumChatFormatting;
-
 import gtPlusPlus.core.util.math.MathUtils;
+import net.minecraft.util.EnumChatFormatting;
 
 public enum Quality {
 

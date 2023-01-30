@@ -8,23 +8,20 @@ import static org.objectweb.asm.Opcodes.ASM5;
 import static org.objectweb.asm.Opcodes.ILOAD;
 import static org.objectweb.asm.Opcodes.INVOKESTATIC;
 
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.util.HashMap;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
-
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
-
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class ClassTransformer_LWJGL_Keyboard {
 
@@ -38,7 +35,8 @@ public class ClassTransformer_LWJGL_Keyboard {
      * Gets a key's name
      *
      * @param key The key
-     * @return a String with the key's human readable name in it or null if the key is unnamed
+     * @return a String with the key's human readable name in it or null if the key
+     *         is unnamed
      */
     public static synchronized String getKeyName(int key) {
         if (init()) {
@@ -117,7 +115,8 @@ public class ClassTransformer_LWJGL_Keyboard {
                     String[] y = (String[]) o;
                     return y;
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {}
+            } catch (IllegalArgumentException | IllegalAccessException e) {
+            }
         }
         return new String[] {};
     }
@@ -141,8 +140,8 @@ public class ClassTransformer_LWJGL_Keyboard {
         } else {
             isValid = false;
         }
-        FMLRelaunchLog
-                .log("[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Valid? " + isValid + ".");
+        FMLRelaunchLog.log(
+                "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Valid? " + isValid + ".");
         reader = aTempReader;
         writer = aTempWriter;
     }
@@ -165,15 +164,9 @@ public class ClassTransformer_LWJGL_Keyboard {
         MethodVisitor mv;
         boolean didInject = false;
         FMLRelaunchLog.log(
-                "[GT++ ASM] LWJGL Keybinding index out of bounds fix",
-                Level.INFO,
-                "Injecting " + "getKeyName" + ".");
+                "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Injecting " + "getKeyName" + ".");
         mv = cw.visitMethod(
-                ACC_PUBLIC + ACC_STATIC + ACC_SYNCHRONIZED,
-                "getKeyName",
-                "(I)Ljava/lang/String;",
-                null,
-                null);
+                ACC_PUBLIC + ACC_STATIC + ACC_SYNCHRONIZED, "getKeyName", "(I)Ljava/lang/String;", null, null);
         mv.visitCode();
         Label l0 = new Label();
         mv.visitLabel(l0);
@@ -193,8 +186,8 @@ public class ClassTransformer_LWJGL_Keyboard {
         mv.visitEnd();
         didInject = true;
 
-        FMLRelaunchLog
-                .log("[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Method injection complete.");
+        FMLRelaunchLog.log(
+                "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Method injection complete.");
         return didInject;
     }
 
@@ -203,9 +196,7 @@ public class ClassTransformer_LWJGL_Keyboard {
         boolean didInject = false;
         String aMethodName = this.isClientSettingsObfuscated ? "func_74298_c" : "getKeyDisplayString";
         FMLRelaunchLog.log(
-                "[GT++ ASM] LWJGL Keybinding index out of bounds fix",
-                Level.INFO,
-                "Injecting " + aMethodName + ".");
+                "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Injecting " + aMethodName + ".");
         mv = cw.visitMethod(ACC_PUBLIC + ACC_STATIC, aMethodName, "(I)Ljava/lang/String;", null, null);
         mv.visitCode();
         Label l0 = new Label();
@@ -225,8 +216,8 @@ public class ClassTransformer_LWJGL_Keyboard {
         mv.visitMaxs(1, 1);
         mv.visitEnd();
         didInject = true;
-        FMLRelaunchLog
-                .log("[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Method injection complete.");
+        FMLRelaunchLog.log(
+                "[GT++ ASM] LWJGL Keybinding index out of bounds fix", Level.INFO, "Method injection complete.");
         return didInject;
     }
 
@@ -237,7 +228,7 @@ public class ClassTransformer_LWJGL_Keyboard {
             this.cv = cv;
         }
 
-        private final String[] aMethodsToStrip = new String[] { "func_74298_c", "getKeyDisplayString" };
+        private final String[] aMethodsToStrip = new String[] {"func_74298_c", "getKeyDisplayString"};
 
         @Override
         public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
@@ -277,7 +268,7 @@ public class ClassTransformer_LWJGL_Keyboard {
             this.cv = cv;
         }
 
-        private final String[] aMethodsToStrip = new String[] { "getKeyName" };
+        private final String[] aMethodsToStrip = new String[] {"getKeyName"};
 
         @Override
         public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {

@@ -2,15 +2,13 @@ package gtPlusPlus.core.handler.events;
 
 import static gtPlusPlus.core.item.base.dusts.BaseItemDustEx.mCachedPileLinkages;
 
-import net.minecraft.item.ItemStack;
-
-import org.apache.commons.lang3.StringUtils;
-
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.StringUtils;
 
 public class MissingMappingsEvent {
 
@@ -23,7 +21,7 @@ public class MissingMappingsEvent {
 
                 // Example
                 // if(mapping.name.equals("PneumaticCraft:etchingAcid")) {
-                // mapping.remap(Fluids.etchingAcid.getBlock());
+                //	mapping.remap(Fluids.etchingAcid.getBlock());
                 // }
 
             }
@@ -33,7 +31,7 @@ public class MissingMappingsEvent {
 
                 // Example
                 // if(mapping.name.equals("PneumaticCraft:etchingAcidBucket")) {
-                // mapping.remap(Fluids.getBucket(Fluids.etchingAcid));
+                //	mapping.remap(Fluids.getBucket(Fluids.etchingAcid));
                 // }
 
                 if (mapping.name.contains("miscutils:itemDustTiny")) {

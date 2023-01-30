@@ -1,18 +1,5 @@
 package gtPlusPlus.core.item.bauble;
 
-import java.util.List;
-
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-
 import baubles.api.BaubleType;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -24,6 +11,17 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
+import java.util.List;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
 public class BatteryPackBaseBauble extends ElectricBaseBauble {
 
@@ -54,7 +52,11 @@ public class BatteryPackBaseBauble extends ElectricBaseBauble {
     }
 
     @Override
-    public void onUpdate(final ItemStack itemStack, final World worldObj, final Entity player, final int p_77663_4_,
+    public void onUpdate(
+            final ItemStack itemStack,
+            final World worldObj,
+            final Entity player,
+            final int p_77663_4_,
             final boolean p_77663_5_) {
         super.onUpdate(itemStack, worldObj, player, p_77663_4_, p_77663_5_);
     }
@@ -94,14 +96,8 @@ public class BatteryPackBaseBauble extends ElectricBaseBauble {
         String aEUT = aEU + "/t";
 
         list.add(EnumChatFormatting.GREEN + aString1 + EnumChatFormatting.GRAY);
-        list.add(
-                EnumChatFormatting.GREEN + aString2
-                        + " "
-                        + (int) getTransferLimit(stack)
-                        + aEUT
-                        + " "
-                        + aString3
-                        + EnumChatFormatting.GRAY);
+        list.add(EnumChatFormatting.GREEN + aString2 + " " + (int) getTransferLimit(stack) + aEUT + " " + aString3
+                + EnumChatFormatting.GRAY);
         list.add(EnumChatFormatting.GREEN + aString4 + EnumChatFormatting.GRAY);
         super.addInformation(stack, aPlayer, list, bool);
     }
@@ -155,27 +151,14 @@ public class BatteryPackBaseBauble extends ElectricBaseBauble {
                                                     if (ElectricItem.manager.getCharge(aInvStack)
                                                             <= (electricItem.getMaxCharge(aInvStack) - aTransferRate)) {
                                                         double d = ElectricItem.manager.charge(
-                                                                aInvStack,
-                                                                aTransferRate * 16,
-                                                                mTier,
-                                                                false,
-                                                                true);
+                                                                aInvStack, aTransferRate * 16, mTier, false, true);
                                                         if (d > 0) {
                                                             d = ElectricItem.manager.charge(
-                                                                    aInvStack,
-                                                                    aTransferRate * 16,
-                                                                    mTier,
-                                                                    false,
-                                                                    false);
+                                                                    aInvStack, aTransferRate * 16, mTier, false, false);
                                                             ElectricItem.manager.discharge(
-                                                                    aBaubleStack,
-                                                                    d,
-                                                                    mTier,
-                                                                    false,
-                                                                    true,
-                                                                    false);
+                                                                    aBaubleStack, d, mTier, false, true, false);
                                                             // Logger.INFO("Charging " + aInvStack.getDisplayName() + "
-                                                            // | " + d + " | "+electricItem.getMaxCharge(aInvStack));
+                                                            // | " + d	 + " | "+electricItem.getMaxCharge(aInvStack));
                                                         }
                                                     } else {
                                                         // Logger.INFO("5");
@@ -222,24 +205,15 @@ public class BatteryPackBaseBauble extends ElectricBaseBauble {
                                                 if (ElectricItem.manager.getCharge(aBaubleStack) >= aTransferRate) {
                                                     if (ElectricItem.manager.getCharge(aInvStack)
                                                             <= (electricItem.getMaxCharge(aInvStack) - aTransferRate)) {
-                                                        double d = ElectricItem.manager
-                                                                .charge(aInvStack, aTransferRate, mTier, false, true);
+                                                        double d = ElectricItem.manager.charge(
+                                                                aInvStack, aTransferRate, mTier, false, true);
                                                         if (d > 0) {
                                                             d = ElectricItem.manager.charge(
-                                                                    aInvStack,
-                                                                    aTransferRate,
-                                                                    mTier,
-                                                                    false,
-                                                                    false);
+                                                                    aInvStack, aTransferRate, mTier, false, false);
                                                             ElectricItem.manager.discharge(
-                                                                    aBaubleStack,
-                                                                    d,
-                                                                    mTier,
-                                                                    false,
-                                                                    true,
-                                                                    false);
+                                                                    aBaubleStack, d, mTier, false, true, false);
                                                             // Logger.INFO("Charging " + aInvStack.getDisplayName() + "
-                                                            // | " + d + " | "+electricItem.getMaxCharge(aInvStack));
+                                                            // | " + d	 + " | "+electricItem.getMaxCharge(aInvStack));
                                                         }
                                                     } else {
                                                         // Logger.INFO("5");

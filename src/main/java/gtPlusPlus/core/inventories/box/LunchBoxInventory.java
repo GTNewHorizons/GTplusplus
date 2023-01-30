@@ -1,12 +1,10 @@
 package gtPlusPlus.core.inventories.box;
 
-import net.minecraft.item.ItemStack;
-
 import gtPlusPlus.core.item.tool.misc.box.CustomBoxInventory;
 import gtPlusPlus.core.slots.SlotLunchBox;
+import net.minecraft.item.ItemStack;
 
 public class LunchBoxInventory extends CustomBoxInventory {
-
     public LunchBoxInventory(ItemStack stack) {
         super(stack, "Lunch Box", gtPlusPlus.core.item.tool.misc.box.AutoLunchBox.SLOTS);
     }

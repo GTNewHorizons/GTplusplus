@@ -1,16 +1,17 @@
 package gtPlusPlus.core.item.general.chassis;
 
-import java.util.List;
+import static gregtech.api.enums.GT_Values.VN;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.lib.CORE;
+import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.lib.CORE;
+import net.minecraft.util.StatCollector;
 
 public class ItemDehydratorCoil extends Item {
 
@@ -52,26 +53,25 @@ public class ItemDehydratorCoil extends Item {
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        String itemName = "Dehydrator Coil";
-        String suffixName = "";
-        if (tItem.getItemDamage() == 0) {
-            suffixName = " [EV]";
-        } else if (tItem.getItemDamage() == 1) {
-            suffixName = " [IV]";
-        } else if (tItem.getItemDamage() == 2) {
-            suffixName = " [LuV]";
-        } else if (tItem.getItemDamage() == 3) {
-            suffixName = " [ZPM]";
-        }
-        return (itemName + suffixName);
+        return StatCollector.translateToLocalFormatted("item.itemDehydratorCoil.name", VN[tItem.getItemDamage() + 4]);
     }
 
-    /*
-     * @Override public int getColorFromItemStack(final ItemStack stack, int HEX_OxFFFFFF) { int meta =
-     * stack.getItemDamage(); if (meta == 0){ HEX_OxFFFFFF = Utils.rgbtoHexValue(10,110,30); } else if (meta == 1){
-     * HEX_OxFFFFFF = Utils.rgbtoHexValue(150,180,35); } else if (meta == 2){ HEX_OxFFFFFF =
-     * Utils.rgbtoHexValue(200,85,40); } else if (meta == 3){ HEX_OxFFFFFF = Utils.rgbtoHexValue(255,150,50); } return
-     * HEX_OxFFFFFF; }
-     */
+    /*@Override
+    public int getColorFromItemStack(final ItemStack stack, int HEX_OxFFFFFF) {
+    	int meta = stack.getItemDamage();
+    	if (meta == 0){
+    		HEX_OxFFFFFF = Utils.rgbtoHexValue(10,110,30);
+    	}
+    	else if (meta == 1){
+    		HEX_OxFFFFFF = Utils.rgbtoHexValue(150,180,35);
+    	}
+    	else if (meta == 2){
+    		HEX_OxFFFFFF = Utils.rgbtoHexValue(200,85,40);
+    	}
+    	else if (meta == 3){
+    		HEX_OxFFFFFF = Utils.rgbtoHexValue(255,150,50);
+    	}
+    	return HEX_OxFFFFFF;
+    }*/
 
 }

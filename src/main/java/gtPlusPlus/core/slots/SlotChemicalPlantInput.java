@@ -1,13 +1,12 @@
 package gtPlusPlus.core.slots;
 
+import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
+import gregtech.api.util.GT_Recipe;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
-
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
-import gregtech.api.util.GT_Recipe;
 
 public class SlotChemicalPlantInput extends Slot {
 

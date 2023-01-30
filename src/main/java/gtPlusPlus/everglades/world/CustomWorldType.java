@@ -3,7 +3,6 @@ package gtPlusPlus.everglades.world;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import net.minecraft.world.WorldType;
 
 public class CustomWorldType extends WorldType {

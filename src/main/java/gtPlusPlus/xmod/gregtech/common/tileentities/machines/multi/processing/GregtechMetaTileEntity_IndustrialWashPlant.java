@@ -4,20 +4,11 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.*;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -35,9 +26,17 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import ic2.core.init.BlocksItems;
 import ic2.core.init.InternalName;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
 
-public class GregtechMetaTileEntity_IndustrialWashPlant extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialWashPlant> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialWashPlant
+        extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialWashPlant>
+        implements ISurvivalConstructable {
 
     private int mMode = 0;
     private int mCasing;
@@ -64,16 +63,26 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType()).addInfo("Controller Block for the Industrial Wash Plant")
+        tt.addMachineType(getMachineType())
+                .addInfo("Controller Block for the Industrial Wash Plant")
                 .addInfo("Can be configured with a screwdriver to also do Simple Washer and process Chemical Bathing")
                 .addInfo("400% faster than using single block machines of the same voltage")
                 .addInfo("Processes four item per voltage tier")
                 .addInfo("Always requires an Input Hatch full of water to refill structure")
-                .addInfo("Need to be filled with water.").addInfo("Will automatically fill water from input hatch.")
-                .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(5, 3, 7, true)
-                .addController("Front Center").addCasingInfo("Wash Plant Casings", 40).addInputBus("Any Casing", 1)
-                .addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1).addOutputHatch("Any Casing", 1)
-                .addEnergyHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1).addMufflerHatch("Any Casing", 1)
+                .addInfo("Need to be filled with water.")
+                .addInfo("Will automatically fill water from input hatch.")
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addSeparator()
+                .beginStructureBlock(5, 3, 7, true)
+                .addController("Front Center")
+                .addCasingInfo("Wash Plant Casings", 40)
+                .addInputBus("Any Casing", 1)
+                .addOutputBus("Any Casing", 1)
+                .addInputHatch("Any Casing", 1)
+                .addOutputHatch("Any Casing", 1)
+                .addEnergyHatch("Any Casing", 1)
+                .addMaintenanceHatch("Any Casing", 1)
+                .addMufflerHatch("Any Casing", 1)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
@@ -82,23 +91,21 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     public IStructureDefinition<GregtechMetaTileEntity_IndustrialWashPlant> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialWashPlant>builder()
-                    .addShape(
-                            mName,
-                            transpose(
-                                    new String[][] { { "CCCCC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CCCCC" },
-                                            { "CC~CC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CCCCC" },
-                                            { "CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC" }, }))
+                    .addShape(mName, transpose(new String[][] {
+                        {"CCCCC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CCCCC"},
+                        {"CC~CC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CwwwC", "CCCCC"},
+                        {"CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC"},
+                    }))
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialWashPlant.class)
                                     .atLeast(InputBus, InputHatch, OutputHatch, OutputBus, Maintenance, Energy, Muffler)
-                                    .casingIndex(getCasingTextureIndex()).dot(1).buildAndChain(
-                                            onElementPass(
-                                                    x -> ++x.mCasing,
-                                                    ofBlock(getCasingBlock(), getCasingMeta()))))
+                                    .casingIndex(getCasingTextureIndex())
+                                    .dot(1)
+                                    .buildAndChain(onElementPass(
+                                            x -> ++x.mCasing, ofBlock(getCasingBlock(), getCasingMeta()))))
                     .addElement(
-                            'w',
-                            ofChain(isAir(), ofBlockAnyMeta(Blocks.water), ofBlockAnyMeta(Blocks.flowing_water)))
+                            'w', ofChain(isAir(), ofBlockAnyMeta(Blocks.water), ofBlockAnyMeta(Blocks.flowing_water)))
                     .build();
         }
         return STRUCTURE_DEFINITION;
@@ -144,7 +151,8 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return mMode == 0 ? GT_Recipe.GT_Recipe_Map.sOreWasherRecipes
+        return mMode == 0
+                ? GT_Recipe.GT_Recipe_Map.sOreWasherRecipes
                 : mMode == 1 ? GTPP_Recipe_Map.sSimpleWasherRecipes : GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
     }
 
@@ -229,10 +237,10 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
 
         // if (aBaseMetaTileEntity.fac)
 
-        final int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX
-                * mCurrentDirectionX;
-        final int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ
-                * mCurrentDirectionZ;
+        final int xDir =
+                ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX * mCurrentDirectionX;
+        final int zDir =
+                ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ * mCurrentDirectionZ;
 
         int tAmount = 0;
         for (int i = mOffsetX_Lower + 1; i <= mOffsetX_Upper - 1; ++i) {
@@ -254,11 +262,13 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
                                         if (tBlock == Blocks.water) {
                                             fluidUsed = BlocksItems.getFluidBlock(InternalName.fluidDistilledWater);
                                         }
-                                        aBaseMetaTileEntity.getWorld().setBlock(
-                                                aBaseMetaTileEntity.getXCoord() + xDir + i,
-                                                aBaseMetaTileEntity.getYCoord() + h,
-                                                aBaseMetaTileEntity.getZCoord() + zDir + j,
-                                                fluidUsed);
+                                        aBaseMetaTileEntity
+                                                .getWorld()
+                                                .setBlock(
+                                                        aBaseMetaTileEntity.getXCoord() + xDir + i,
+                                                        aBaseMetaTileEntity.getYCoord() + h,
+                                                        aBaseMetaTileEntity.getZCoord() + zDir + j,
+                                                        fluidUsed);
                                     }
                                 }
                             }

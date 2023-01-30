@@ -1,14 +1,12 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
 import gtPlusPlus.api.objects.Logger;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public enum GTPP_Branch_Definition {
-
     ORGANIC("ORGANIC"),
     GEM("GEM"),
     METAL("METAL"),
@@ -35,8 +33,12 @@ public enum GTPP_Branch_Definition {
             Logger.INFO("[Bees] methodMyMethod: " + (methodMyMethod != null));
 
             return (IAllele[]) methodMyMethod.invoke(enumA);
-        } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException
-                | IllegalArgumentException | InvocationTargetException e) {
+        } catch (ClassNotFoundException
+                | NoSuchMethodException
+                | SecurityException
+                | IllegalAccessException
+                | IllegalArgumentException
+                | InvocationTargetException e) {
             Logger.INFO("[Bees] Bad Reflection. getTemplate()");
             e.printStackTrace();
             // gregtech.loaders.misc.GT_BranchDefinition.getTemplate()
@@ -56,8 +58,12 @@ public enum GTPP_Branch_Definition {
             Logger.INFO("[Bees] methodMyMethod: " + (methodMyMethod != null));
 
             return (IClassification) methodMyMethod.invoke(enum_MY_SAMPLE_ENUM);
-        } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException
-                | IllegalArgumentException | InvocationTargetException e) {
+        } catch (ClassNotFoundException
+                | NoSuchMethodException
+                | SecurityException
+                | IllegalAccessException
+                | IllegalArgumentException
+                | InvocationTargetException e) {
             Logger.INFO("[Bees] Bad Reflection. getBranch()");
             e.printStackTrace();
             return null;

@@ -1,11 +1,5 @@
 package gtPlusPlus.core.item.base;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,6 +10,11 @@ import gtPlusPlus.core.handler.GuiHandler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class BaseItemBackpack extends Item {
 
@@ -49,8 +48,8 @@ public class BaseItemBackpack extends Item {
 
             // Otherwise, stealthily place some diamonds in there for a nice surprise next time you open it up :)
             else {
-                // Utils.LOG_INFO("Player is Sneaking, giving them sneaky diamonds.");
-                // new BaseInventoryBackpack(player.getHeldItem()).setInventorySlotContents(0, new
+                //	Utils.LOG_INFO("Player is Sneaking, giving them sneaky diamonds.");
+                //	new BaseInventoryBackpack(player.getHeldItem()).setInventorySlotContents(0, new
                 // ItemStack(Items.diamond,4));
             }
         }

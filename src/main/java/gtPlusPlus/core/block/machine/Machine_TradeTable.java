@@ -1,5 +1,13 @@
 package gtPlusPlus.core.block.machine;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.block.base.BlockBaseNBT;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
@@ -9,17 +17,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.block.base.BlockBaseNBT;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
-
 public class Machine_TradeTable extends BlockBaseNBT implements ITileTooltip {
-
     @SideOnly(Side.CLIENT)
     private IIcon textureTop;
 
@@ -56,8 +54,16 @@ public class Machine_TradeTable extends BlockBaseNBT implements ITileTooltip {
      * Called upon block activation (right click on the block.)
      */
     @Override
-    public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player,
-            final int side, final float lx, final float ly, final float lz) {
+    public boolean onBlockActivated(
+            final World world,
+            final int x,
+            final int y,
+            final int z,
+            final EntityPlayer player,
+            final int side,
+            final float lx,
+            final float ly,
+            final float lz) {
         if (world.isRemote) {
             return true;
         }
@@ -79,8 +85,8 @@ public class Machine_TradeTable extends BlockBaseNBT implements ITileTooltip {
     }
 
     @Override
-    public boolean canCreatureSpawn(final EnumCreatureType type, final IBlockAccess world, final int x, final int y,
-            final int z) {
+    public boolean canCreatureSpawn(
+            final EnumCreatureType type, final IBlockAccess world, final int x, final int y, final int z) {
         return false;
     }
 }

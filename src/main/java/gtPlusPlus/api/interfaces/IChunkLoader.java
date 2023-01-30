@@ -1,7 +1,6 @@
 package gtPlusPlus.api.interfaces;
 
 import java.util.Set;
-
 import net.minecraft.world.ChunkCoordIntPair;
 
 public interface IChunkLoader {

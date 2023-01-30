@@ -3,7 +3,6 @@ package gtPlusPlus.xmod.gregtech.api.objects;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 
 public class GregtechMaterialStack implements Cloneable {
-
     public long mAmount;
     public GT_Materials mMaterial;
 
@@ -34,7 +33,8 @@ public class GregtechMaterialStack implements Cloneable {
         }
         if (aObject instanceof GregtechMaterialStack) {
             return (((GregtechMaterialStack) aObject).mMaterial == this.mMaterial)
-                    && ((this.mAmount < 0) || (((GregtechMaterialStack) aObject).mAmount < 0)
+                    && ((this.mAmount < 0)
+                            || (((GregtechMaterialStack) aObject).mAmount < 0)
                             || (((GregtechMaterialStack) aObject).mAmount == this.mAmount));
         }
         return false;

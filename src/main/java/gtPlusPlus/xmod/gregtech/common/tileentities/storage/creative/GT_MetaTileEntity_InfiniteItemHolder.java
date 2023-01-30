@@ -1,8 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.storage.creative;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -10,6 +7,8 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_TieredChest {
 
@@ -17,14 +16,14 @@ public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_Tier
         super(aID, aName, aNameRegional, aTier);
     }
 
-    public GT_MetaTileEntity_InfiniteItemHolder(String aName, int aTier, String aDescription,
-            ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_InfiniteItemHolder(
+            String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
         super(aName, aTier, aDescription, aTextures);
     }
 
     @Override
     public String[] getDescription() {
-        return new String[] { this.mDescription, CORE.GT_Tooltip };
+        return new String[] {this.mDescription, CORE.GT_Tooltip};
     }
 
     @Override
@@ -40,8 +39,7 @@ public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_Tier
                     this.mItemCount = Short.MAX_VALUE;
                     aPlayer.setCurrentItemOrArmor(0, null);
                     PlayerUtils.messagePlayer(
-                            aPlayer,
-                            "Now holding " + this.mItemStack.getDisplayName() + " x" + Short.MAX_VALUE + ".");
+                            aPlayer, "Now holding " + this.mItemStack.getDisplayName() + " x" + Short.MAX_VALUE + ".");
                     return true;
                 }
             } else {
@@ -57,8 +55,7 @@ public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_Tier
 
         PlayerUtils.messagePlayer(
                 aPlayer,
-                "Currently holding: " + (this.mItemStack != null ? this.mItemStack.getDisplayName() : "Nothing")
-                        + " x"
+                "Currently holding: " + (this.mItemStack != null ? this.mItemStack.getDisplayName() : "Nothing") + " x"
                         + this.mItemCount);
         return true;
         // return super.onRightclick(aBaseMetaTileEntity, aPlayer);

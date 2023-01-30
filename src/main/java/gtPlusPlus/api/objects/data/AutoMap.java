@@ -34,7 +34,6 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
 
     /**
      * Generates an AutoMap from the List.
-     * 
      * @param aList - Data to be inserted into the AutoMap.
      */
     public AutoMap(List<V> aList) {
@@ -46,10 +45,8 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
             }
         }
     }
-
     /**
      * Generates an AutoMap from a Set.
-     * 
      * @param aList - Data to be inserted into the AutoMap.
      */
     public AutoMap(Set<V> aList) {
@@ -61,10 +58,8 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
             }
         }
     }
-
     /**
      * Generates an AutoMap from a Collection.
-     * 
      * @param aList - Data to be inserted into the AutoMap.
      */
     public AutoMap(Collection<V> aList) {
@@ -79,7 +74,6 @@ public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collect
 
     /**
      * Generates an AutoMap from a Array.
-     * 
      * @param aArray - Data to be inserted into the AutoMap.
      */
     public AutoMap(V[] aArray) {

@@ -1,18 +1,5 @@
 package gtPlusPlus.core.item.general.throwables;
 
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-
 import gregtech.api.enums.ItemList;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
@@ -23,6 +10,17 @@ import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
+import java.util.List;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class ItemThrowableBomb extends CoreItem {
 
@@ -36,7 +34,7 @@ public class ItemThrowableBomb extends CoreItem {
                 AddToCreativeTab.tabMisc,
                 16,
                 0,
-                new String[] { "Just like Bomberman", "Have a fire source in inventory to prime" },
+                new String[] {"Just like Bomberman", "Have a fire source in inventory to prime"},
                 EnumRarity.uncommon,
                 EnumChatFormatting.GRAY,
                 false,
@@ -84,9 +82,9 @@ public class ItemThrowableBomb extends CoreItem {
             if (!world.isRemote) {
                 world.spawnEntityInWorld(new EntityThrowableBomb(world, player));
             }
-            /*
-             * if (item.stackSize <= 0) { item = null; }
-             */
+            /*if (item.stackSize <= 0) {
+            	item = null;
+            }*/
         }
         return item;
     }
@@ -102,7 +100,7 @@ public class ItemThrowableBomb extends CoreItem {
         return this.icons[meta];
     }
 
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list) {
         for (int i = 0; i < 2; i++) {

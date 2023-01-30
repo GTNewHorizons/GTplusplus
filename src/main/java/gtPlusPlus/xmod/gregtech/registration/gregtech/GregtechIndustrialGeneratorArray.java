@@ -17,10 +17,8 @@ public class GregtechIndustrialGeneratorArray {
 
     private static void run1() {
         // Industrial Maceration Stack Multiblock
-        GregtechItemList.Generator_Array_Controller.set(
-                new GregtechMetaTileEntityGeneratorArray(
-                        990,
-                        "generatorarray.controller.tier.01",
-                        "Large Generator Array").getStackForm(1L));
+        GregtechItemList.Generator_Array_Controller.set(new GregtechMetaTileEntityGeneratorArray(
+                        990, "generatorarray.controller.tier.01", "Large Generator Array")
+                .getStackForm(1L));
     }
 }

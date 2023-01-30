@@ -1,18 +1,5 @@
 package gtPlusPlus.core.item.bauble;
 
-import java.util.List;
-
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-
 import baubles.api.BaubleType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,6 +10,17 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import ic2.api.item.ElectricItem;
+import java.util.List;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
 public class MonsterKillerBaseBauble extends ElectricBaseBauble {
 
@@ -55,7 +53,11 @@ public class MonsterKillerBaseBauble extends ElectricBaseBauble {
     }
 
     @Override
-    public void onUpdate(final ItemStack itemStack, final World worldObj, final Entity player, final int p_77663_4_,
+    public void onUpdate(
+            final ItemStack itemStack,
+            final World worldObj,
+            final Entity player,
+            final int p_77663_4_,
             final boolean p_77663_5_) {
         super.onUpdate(itemStack, worldObj, player, p_77663_4_, p_77663_5_);
     }
@@ -88,21 +90,13 @@ public class MonsterKillerBaseBauble extends ElectricBaseBauble {
         String aEUT = aEU + "/t";
 
         list.add(EnumChatFormatting.GREEN + aString1 + EnumChatFormatting.GRAY);
-        list.add(
-                EnumChatFormatting.GREEN + aString2
-                        + " "
-                        + (int) getTransferLimit(stack)
-                        + aEUT
-                        + " "
-                        + aString3
-                        + EnumChatFormatting.GRAY);
+        list.add(EnumChatFormatting.GREEN + aString2 + " " + (int) getTransferLimit(stack) + aEUT + " " + aString3
+                + EnumChatFormatting.GRAY);
         list.add("");
         list.add("" + EnumChatFormatting.GREEN + aString4 + " " + EnumChatFormatting.GRAY);
         for (Class cz : mTargets) {
-            list.add(
-                    "- " + EnumChatFormatting.DARK_GREEN
-                            + cz.getSimpleName().replace("Entity", "")
-                            + EnumChatFormatting.GRAY);
+            list.add("- " + EnumChatFormatting.DARK_GREEN + cz.getSimpleName().replace("Entity", "")
+                    + EnumChatFormatting.GRAY);
         }
 
         super.addInformation(stack, aPlayer, list, bool);

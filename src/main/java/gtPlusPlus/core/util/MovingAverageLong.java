@@ -4,11 +4,9 @@ import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-
 import net.minecraft.nbt.NBTTagCompound;
 
 public class MovingAverageLong {
-
     private final long[] storage;
     private int ptr;
 
@@ -41,7 +39,6 @@ public class MovingAverageLong {
 
     /**
      * if read failed, the internal states would not be changed.
-     * 
      * @return true if successful, false otherwise.
      */
     public boolean read(NBTTagCompound tagCompound, String key) {

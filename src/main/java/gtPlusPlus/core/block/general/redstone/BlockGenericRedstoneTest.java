@@ -1,10 +1,15 @@
 package gtPlusPlus.core.block.general.redstone;
 
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.tileentities.general.redstone.TileEntityRedstoneHandler;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.world.explosions.ExplosionHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -14,13 +19,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.tileentities.general.redstone.TileEntityRedstoneHandler;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.world.explosions.ExplosionHandler;
 
 public class BlockGenericRedstoneTest extends BlockGenericRedstone {
 
@@ -35,7 +33,6 @@ public class BlockGenericRedstoneTest extends BlockGenericRedstone {
     }
 
     public class TileEntityRedstoneTest extends TileEntityRedstoneHandler {
-
         public TileEntityRedstoneTest() {
             super(2);
         }
@@ -144,7 +141,8 @@ public class BlockGenericRedstoneTest extends BlockGenericRedstone {
     }
 
     public void generateTextureArray(final IIconRegister iicon) {
-        HashMap<Integer, HashMap<ForgeDirection, IIcon>> aTextures = new HashMap<Integer, HashMap<ForgeDirection, IIcon>>();
+        HashMap<Integer, HashMap<ForgeDirection, IIcon>> aTextures =
+                new HashMap<Integer, HashMap<ForgeDirection, IIcon>>();
 
         // New Block for Each Meta
         int aMeta = 0;
@@ -152,20 +150,15 @@ public class BlockGenericRedstoneTest extends BlockGenericRedstone {
             HashMap<ForgeDirection, IIcon> aTempMap = new HashMap<ForgeDirection, IIcon>();
             aTempMap.put(ForgeDirection.UP, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
-                    ForgeDirection.DOWN,
-                    iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
+                    ForgeDirection.DOWN, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
-                    ForgeDirection.NORTH,
-                    iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
+                    ForgeDirection.NORTH, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
-                    ForgeDirection.SOUTH,
-                    iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
+                    ForgeDirection.SOUTH, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
-                    ForgeDirection.EAST,
-                    iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
+                    ForgeDirection.EAST, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTempMap.put(
-                    ForgeDirection.WEST,
-                    iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
+                    ForgeDirection.WEST, iicon.registerIcon(CORE.MODID + ":" + "redstone/redstone_meter/" + "top"));
             aTextures.put(aMeta++, aTempMap);
         }
     }

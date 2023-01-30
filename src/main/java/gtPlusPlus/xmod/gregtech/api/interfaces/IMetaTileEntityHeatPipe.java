@@ -1,10 +1,8 @@
 package gtPlusPlus.xmod.gregtech.api.interfaces;
 
-import java.util.ArrayList;
-
-import net.minecraft.tileentity.TileEntity;
-
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import java.util.ArrayList;
+import net.minecraft.tileentity.TileEntity;
 
 public interface IMetaTileEntityHeatPipe extends IMetaTileEntity {
 

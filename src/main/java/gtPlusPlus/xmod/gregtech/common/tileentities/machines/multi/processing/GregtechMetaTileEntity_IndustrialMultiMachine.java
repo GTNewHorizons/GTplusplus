@@ -6,21 +6,10 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose
 import static gregtech.api.enums.GT_HatchElement.*;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.StatCollector;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -35,9 +24,18 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import java.util.ArrayList;
+import java.util.Arrays;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
+import net.minecraftforge.fluids.FluidStack;
 
-public class GregtechMetaTileEntity_IndustrialMultiMachine extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialMultiMachine
+        extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMultiMachine>
+        implements ISurvivalConstructable {
 
     protected int mInternalMode = 0;
     protected GT_Recipe[] mLastRecipeExtended = new GT_Recipe[9];
@@ -50,7 +48,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
     private static final int MODE_LASER = 6;
     private static final int MODE_AUTOCLAVE = 7;
     private static final int MODE_FLUIDSOLIDIFY = 8;
-    private static final int[][] MODE_MAP = new int[][] { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 } };
+    private static final int[][] MODE_MAP = new int[][] {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
     public static final String[] aToolTipNames = new String[9];
     private int mCasing;
     private static IStructureDefinition<GregtechMetaTileEntity_IndustrialMultiMachine> STRUCTURE_DEFINITION = null;
@@ -65,8 +63,8 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         }
     }
 
-    public GregtechMetaTileEntity_IndustrialMultiMachine(final int aID, final String aName,
-            final String aNameRegional) {
+    public GregtechMetaTileEntity_IndustrialMultiMachine(
+            final int aID, final String aName, final String aNameRegional) {
         super(aID, aName, aNameRegional);
     }
 
@@ -92,26 +90,30 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         aBuiltStrings[2] = aToolTipNames[6] + ", " + aToolTipNames[7] + ", " + aToolTipNames[8];
 
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType()).addInfo("Controller Block for the Industrial Multi-Machine")
+        tt.addMachineType(getMachineType())
+                .addInfo("Controller Block for the Industrial Multi-Machine")
                 .addInfo("250% faster than using single block machines of the same voltage")
-                .addInfo("Only uses 80% of the EU/t normally required").addInfo("Processes two items per voltage tier")
-                .addInfo(
-                        "Machine Type: [A] - " + EnumChatFormatting.YELLOW
-                                + aBuiltStrings[0]
-                                + EnumChatFormatting.RESET)
-                .addInfo(
-                        "Machine Type: [B] - " + EnumChatFormatting.YELLOW
-                                + aBuiltStrings[1]
-                                + EnumChatFormatting.RESET)
-                .addInfo(
-                        "Machine Type: [C] - " + EnumChatFormatting.YELLOW
-                                + aBuiltStrings[2]
-                                + EnumChatFormatting.RESET)
+                .addInfo("Only uses 80% of the EU/t normally required")
+                .addInfo("Processes two items per voltage tier")
+                .addInfo("Machine Type: [A] - " + EnumChatFormatting.YELLOW + aBuiltStrings[0]
+                        + EnumChatFormatting.RESET)
+                .addInfo("Machine Type: [B] - " + EnumChatFormatting.YELLOW + aBuiltStrings[1]
+                        + EnumChatFormatting.RESET)
+                .addInfo("Machine Type: [C] - " + EnumChatFormatting.YELLOW + aBuiltStrings[2]
+                        + EnumChatFormatting.RESET)
                 .addInfo("Read Multi-Machine Manual for extra information")
-                .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
-                .addController("Front Center").addCasingInfo("Multi-Use Casings", 6).addInputBus("Any Casing", 1)
-                .addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1).addOutputHatch("Any Casing", 1)
-                .addEnergyHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1).addMufflerHatch("Any Casing", 1)
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addSeparator()
+                .beginStructureBlock(3, 3, 3, true)
+                .addController("Front Center")
+                .addCasingInfo("Multi-Use Casings", 6)
+                .addInputBus("Any Casing", 1)
+                .addOutputBus("Any Casing", 1)
+                .addInputHatch("Any Casing", 1)
+                .addOutputHatch("Any Casing", 1)
+                .addEnergyHatch("Any Casing", 1)
+                .addMaintenanceHatch("Any Casing", 1)
+                .addMufflerHatch("Any Casing", 1)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
@@ -120,16 +122,18 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
     public IStructureDefinition<GregtechMetaTileEntity_IndustrialMultiMachine> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialMultiMachine>builder()
-                    .addShape(
-                            mName,
-                            transpose(
-                                    new String[][] { { "CCC", "CCC", "CCC" }, { "C~C", "C-C", "CCC" },
-                                            { "CCC", "CCC", "CCC" }, }))
+                    .addShape(mName, transpose(new String[][] {
+                        {"CCC", "CCC", "CCC"},
+                        {"C~C", "C-C", "CCC"},
+                        {"CCC", "CCC", "CCC"},
+                    }))
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialMultiMachine.class)
                                     .atLeast(InputBus, OutputBus, Maintenance, Energy, Muffler, InputHatch, OutputHatch)
-                                    .casingIndex(getTextureIndex()).dot(1).buildAndChain(
+                                    .casingIndex(getTextureIndex())
+                                    .dot(1)
+                                    .buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 2))))
                     .build();
         }
@@ -196,8 +200,8 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
 
             Object[] tempArray = tFluids.toArray(new FluidStack[] {});
             FluidStack[] properArray;
-            properArray = ((tempArray != null && tempArray.length > 0) ? (FluidStack[]) tempArray
-                    : new FluidStack[] {});
+            properArray =
+                    ((tempArray != null && tempArray.length > 0) ? (FluidStack[]) tempArray : new FluidStack[] {});
 
             // Logger.MACHINE_INFO("4");
             if (checkRecipeGeneric(
@@ -206,8 +210,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                     (2 * GT_Utility.getTier(this.getMaxInputVoltage())),
                     80,
                     250,
-                    10000))
-                return true;
+                    10000)) return true;
         }
         return false;
 
@@ -305,8 +308,13 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
     }
 
     @Override
-    public boolean checkRecipeGeneric(ItemStack[] aItemInputs, FluidStack[] aFluidInputs, int aMaxParallelRecipes,
-            long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll) {
+    public boolean checkRecipeGeneric(
+            ItemStack[] aItemInputs,
+            FluidStack[] aFluidInputs,
+            int aMaxParallelRecipes,
+            long aEUPercent,
+            int aSpeedBonusPercent,
+            int aOutputChanceRoll) {
 
         // Based on the Processing Array. A bit overkill, but very flexible.
 
@@ -345,9 +353,14 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
             return false;
         }
 
-        GT_ParallelHelper helper = new GT_ParallelHelper().setRecipe(tRecipe).setItemInputs(aItemInputs)
-                .setFluidInputs(aFluidInputs).setAvailableEUt(tEnergy).setMaxParallel(aMaxParallelRecipes)
-                .enableConsumption().enableOutputCalculation();
+        GT_ParallelHelper helper = new GT_ParallelHelper()
+                .setRecipe(tRecipe)
+                .setItemInputs(aItemInputs)
+                .setFluidInputs(aFluidInputs)
+                .setAvailableEUt(tEnergy)
+                .setMaxParallel(aMaxParallelRecipes)
+                .enableConsumption()
+                .enableOutputCalculation();
         if (!mVoidExcess) {
             helper.enableVoidProtection(this);
         }
@@ -365,10 +378,14 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
         this.mEfficiencyIncrease = 10000;
 
-        GT_OverclockCalculator calculator = new GT_OverclockCalculator().setRecipeEUt(tRecipe.mEUt).setEUt(tEnergy)
-                .setDuration(tRecipe.mDuration).setEUtDiscount(aEUPercent / 100.0f)
+        GT_OverclockCalculator calculator = new GT_OverclockCalculator()
+                .setRecipeEUt(tRecipe.mEUt)
+                .setEUt(tEnergy)
+                .setDuration(tRecipe.mDuration)
+                .setEUtDiscount(aEUPercent / 100.0f)
                 .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel())).calculate();
+                .setParallel(Math.min(aMaxParallelRecipes, helper.getCurrentParallel()))
+                .calculate();
         lEUt = -calculator.getConsumption();
         mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
 
@@ -388,8 +405,8 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         } else {
             mInternalMode = 0;
         }
-        String mModeString = (mInternalMode == 0 ? "Metal"
-                : mInternalMode == 1 ? "Fluid" : mInternalMode == 2 ? "Misc." : "null");
+        String mModeString =
+                (mInternalMode == 0 ? "Metal" : mInternalMode == 1 ? "Fluid" : mInternalMode == 2 ? "Misc." : "null");
         PlayerUtils.messagePlayer(aPlayer, "Multi-Machine is now in " + mModeString + " mode.");
         mLastRecipe = null;
     }

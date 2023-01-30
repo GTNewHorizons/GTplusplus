@@ -1,5 +1,11 @@
 package gtPlusPlus.core.container;
 
+import gregtech.api.gui.GT_Slot_Render;
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.inventories.InventoryPestKiller;
+import gtPlusPlus.core.slots.SlotGeneric;
+import gtPlusPlus.core.slots.SlotNoInput;
+import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -7,13 +13,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
-
-import gregtech.api.gui.GT_Slot_Render;
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.inventories.InventoryPestKiller;
-import gtPlusPlus.core.slots.SlotGeneric;
-import gtPlusPlus.core.slots.SlotNoInput;
-import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 
 public class Container_PestKiller extends Container {
 
@@ -77,8 +76,8 @@ public class Container_PestKiller extends Container {
     }
 
     @Override
-    public ItemStack slotClick(final int aSlotIndex, final int aMouseclick, final int aShifthold,
-            final EntityPlayer aPlayer) {
+    public ItemStack slotClick(
+            final int aSlotIndex, final int aMouseclick, final int aShifthold, final EntityPlayer aPlayer) {
         boolean fluid = false;
         if (aSlotIndex == 2) {
             fluid = true;
@@ -114,12 +113,18 @@ public class Container_PestKiller extends Container {
             var3 = var5.copy();
 
             /*
-             * if (par2 == 0) { if (!this.mergeItemStack(var5, InOutputSlotNumber, FullSlotNumber, true)) { return null;
-             * } var4.onSlotChange(var5, var3); } else if (par2 >= InOutputSlotNumber && par2 < InventoryOutSlotNumber)
-             * { if (!this.mergeItemStack(var5, InventoryOutSlotNumber, FullSlotNumber, false)) { return null; } } else
-             * if (par2 >= InventoryOutSlotNumber && par2 < FullSlotNumber) { if (!this.mergeItemStack(var5,
-             * InOutputSlotNumber, InventoryOutSlotNumber, false)) { return null; } } else if
-             * (!this.mergeItemStack(var5, InOutputSlotNumber, FullSlotNumber, false)) { return null; }
+             * if (par2 == 0) { if (!this.mergeItemStack(var5,
+             * InOutputSlotNumber, FullSlotNumber, true)) { return null; }
+             *
+             * var4.onSlotChange(var5, var3); } else if (par2 >=
+             * InOutputSlotNumber && par2 < InventoryOutSlotNumber) { if
+             * (!this.mergeItemStack(var5, InventoryOutSlotNumber,
+             * FullSlotNumber, false)) { return null; } } else if (par2 >=
+             * InventoryOutSlotNumber && par2 < FullSlotNumber) { if
+             * (!this.mergeItemStack(var5, InOutputSlotNumber,
+             * InventoryOutSlotNumber, false)) { return null; } } else if
+             * (!this.mergeItemStack(var5, InOutputSlotNumber, FullSlotNumber,
+             * false)) { return null; }
              */
 
             if (var5.stackSize == 0) {

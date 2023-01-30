@@ -1,16 +1,5 @@
 package gtPlusPlus.core.handler.events;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.potion.GtPotionEffect;
@@ -19,11 +8,20 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.DevHelper;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 public class PlayerSleepEventHandler {
 
-    private static Field sEffectDuration = ReflectionUtils
-            .getField(PotionEffect.class, DevHelper.isObfuscatedEnvironment() ? "field_76460_b" : "duration");
+    private static Field sEffectDuration = ReflectionUtils.getField(
+            PotionEffect.class, DevHelper.isObfuscatedEnvironment() ? "field_76460_b" : "duration");
     private static ArrayList<Potion> sPositiveEffects = new ArrayList<Potion>();
     private static ArrayList<Potion> sNegativeEffects = new ArrayList<Potion>();
 
@@ -93,11 +91,8 @@ public class PlayerSleepEventHandler {
                     int aRandomBuff = MathUtils.randInt(0, sPositiveEffects.size() - 1);
                     Potion aPotionToApply = sPositiveEffects.get(aRandomBuff);
                     if (aPotionToApply != null) {
-                        aPlayer.addPotionEffect(
-                                new GtPotionEffect(
-                                        aPotionToApply.id,
-                                        MathUtils.randInt(60, 180),
-                                        MathUtils.randInt(0, 2)));
+                        aPlayer.addPotionEffect(new GtPotionEffect(
+                                aPotionToApply.id, MathUtils.randInt(60, 180), MathUtils.randInt(0, 2)));
                         messagePlayer(aPlayer, "sleep.event.wellrested");
                     }
                 }

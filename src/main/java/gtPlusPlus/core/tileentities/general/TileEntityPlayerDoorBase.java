@@ -1,8 +1,10 @@
 package gtPlusPlus.core.tileentities.general;
 
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.util.minecraft.EntityUtils;
 import java.util.ArrayList;
 import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.entity.Entity;
@@ -11,10 +13,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.util.minecraft.EntityUtils;
 
 public class TileEntityPlayerDoorBase extends TileEntity {
 
@@ -63,10 +61,7 @@ public class TileEntityPlayerDoorBase extends TileEntity {
                     BlockDoor aDoor = (aBlock instanceof BlockDoor ? (BlockDoor) aBlock : null);
                     if (aDoor != null) {
                         int i1 = aDoor.func_150012_g(
-                                mNeighbourDoor.world,
-                                mNeighbourDoor.xPos,
-                                mNeighbourDoor.yPos,
-                                mNeighbourDoor.zPos);
+                                mNeighbourDoor.world, mNeighbourDoor.xPos, mNeighbourDoor.yPos, mNeighbourDoor.zPos);
                         if ((i1 & 4) != 0) {
                             return 100;
                         } else {

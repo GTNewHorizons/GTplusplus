@@ -1,12 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
-import java.util.HashMap;
-
-import net.minecraft.block.Block;
-import net.minecraftforge.event.world.BlockEvent;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gregtech.api.GregTech_API;
+import java.util.HashMap;
+import net.minecraft.block.Block;
+import net.minecraftforge.event.world.BlockEvent;
 
 public class MachineUpdateHandler {
 

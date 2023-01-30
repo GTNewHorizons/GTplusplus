@@ -2,12 +2,6 @@ package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_ComponentAssemblers;
 
-import java.util.ArrayList;
-
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import gregtech.api.enums.*;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe;
 import gregtech.api.util.GTPP_Recipe;
@@ -16,6 +10,10 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import java.util.ArrayList;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class GregtechComponentAssembler {
 
@@ -31,8 +29,7 @@ public class GregtechComponentAssembler {
             return;
         }
 
-        GregtechItemList.Machine_LV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+        GregtechItemList.Machine_LV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         985,
                         "basicmachine.componentmaker.tier.01",
                         "Basic Component Maker",
@@ -50,13 +47,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_MV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_MV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         986,
                         "basicmachine.componentmaker.tier.02",
                         "Advanced Component Maker",
@@ -74,13 +81,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_HV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_HV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         987,
                         "basicmachine.componentmaker.tier.03",
                         "Advanced Component Maker II",
@@ -98,13 +115,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_EV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_EV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         988,
                         "basicmachine.componentmaker.tier.04",
                         "Advanced Component Maker III",
@@ -122,13 +149,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_IV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_IV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         989,
                         "basicmachine.componentmaker.tier.05",
                         "Advanced Component Maker IV",
@@ -146,13 +183,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_LuV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_LuV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         31012,
                         "basicmachine.componentmaker.tier.06",
                         "Advanced Component Maker V",
@@ -170,13 +217,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_ZPM_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_ZPM_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         31013,
                         "basicmachine.componentmaker.tier.07",
                         "Advanced Component Maker VI",
@@ -194,13 +251,23 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
-        GregtechItemList.Machine_UV_Component_Maker.set(
-                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
+        GregtechItemList.Machine_UV_Component_Maker.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                         31014,
                         "basicmachine.componentmaker.tier.08",
                         "Advanced Component Maker VII",
@@ -218,11 +285,22 @@ public class GregtechComponentAssembler {
                         false,
                         0,
                         "ASSEMBLER",
-                        new Object[] { "ACA", "VMV", "WCW", 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'A',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON, 'C',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W',
-                                GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4 }).getStackForm(1L));
+                        new Object[] {
+                            "ACA",
+                            "VMV",
+                            "WCW",
+                            'M',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL,
+                            'V',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM,
+                            'A',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.PISTON,
+                            'C',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT,
+                            'W',
+                            GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE4
+                        })
+                .getStackForm(1L));
 
         // Motors
         // addRecipeMotor(0, Materials.Lead, 1, Materials.RedAlloy, 1,
@@ -232,13 +310,7 @@ public class GregtechComponentAssembler {
         addRecipeMotor(3, Materials.Copper, 4, Materials.Gold, 1, Materials.StainlessSteel, Materials.SteelMagnetic);
         addRecipeMotor(4, Materials.Copper, 8, Materials.Aluminium, 1, Materials.Titanium, Materials.NeodymiumMagnetic);
         addRecipeMotor(
-                5,
-                Materials.Copper,
-                16,
-                Materials.Tungsten,
-                1,
-                Materials.TungstenSteel,
-                Materials.NeodymiumMagnetic);
+                5, Materials.Copper, 16, Materials.Tungsten, 1, Materials.TungstenSteel, Materials.NeodymiumMagnetic);
 
         // Pistons
         // addRecipePiston(0, Materials.Lead, Materials.Lead);
@@ -298,8 +370,14 @@ public class GregtechComponentAssembler {
         addRecipeSensor(5, Materials.TungstenSteel, Materials.Osmium, Materials.EnderEye);
     }
 
-    private static boolean addRecipeMotor(int tier, Materials wire, int wirethickness, Materials cable,
-            int cablethickness, Materials stick, Materials magstick) {
+    private static boolean addRecipeMotor(
+            int tier,
+            Materials wire,
+            int wirethickness,
+            Materials cable,
+            int cablethickness,
+            Materials stick,
+            Materials magstick) {
         try {
             String mWT = "" + wirethickness;
             String mCT = "" + cablethickness;
@@ -319,7 +397,7 @@ public class GregtechComponentAssembler {
             ItemStack rodStack = ItemUtils.getGregtechOreStack(OrePrefixes.stick, stick, 2);
             ItemStack magrodStack = ItemUtils.getGregtechOreStack(OrePrefixes.stick, magstick, 1);
 
-            ItemStack Input[] = { wireStack, cableStack, rodStack, magrodStack };
+            ItemStack Input[] = {wireStack, cableStack, rodStack, magrodStack};
 
             return CORE.RA.addComponentMakerRecipe(
                     Input,
@@ -342,7 +420,7 @@ public class GregtechComponentAssembler {
             ItemStack gearStack = ItemUtils.getGregtechOreStack(OrePrefixes.gearGtSmall, mat, 1);
             ItemStack motorStack = CI.getElectricMotor(tier, 1);
 
-            ItemStack Input[] = { plateStack, cableStack, rodStack, gearStack, motorStack };
+            ItemStack Input[] = {plateStack, cableStack, rodStack, gearStack, motorStack};
 
             return CORE.RA.addComponentMakerRecipe(
                     Input,
@@ -368,7 +446,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mRubberType : oreDictList) {
                     final ItemStack returnValue = mRubberType.copy();
                     returnValue.stackSize = 6;
-                    ItemStack Input[] = { cableStack, motorStack, returnValue };
+                    ItemStack Input[] = {cableStack, motorStack, returnValue};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -388,14 +466,11 @@ public class GregtechComponentAssembler {
                     return false;
                 }
             } else {
-                ItemStack Input[] = { cableStack, motorStack,
-                        ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateRubber", 6) };
+                ItemStack Input[] = {
+                    cableStack, motorStack, ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateRubber", 6)
+                };
                 return CORE.RA.addComponentMakerRecipe(
-                        Input,
-                        GT_Values.NF,
-                        CI.getConveyor(tier, 1),
-                        (tier * 40),
-                        ((int) GT_Values.V[tier] / 16) * 15);
+                        Input, GT_Values.NF, CI.getConveyor(tier, 1), (tier * 40), ((int) GT_Values.V[tier] / 16) * 15);
             }
 
         } catch (Throwable t) {
@@ -418,7 +493,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mRubberType : oreDictList) {
                     final ItemStack returnValue = mRubberType.copy();
                     returnValue.stackSize = 2;
-                    ItemStack Input[] = { cableStack, screwStack, rotorStack, pipeStack, motorStack, returnValue };
+                    ItemStack Input[] = {cableStack, screwStack, rotorStack, pipeStack, motorStack, returnValue};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -438,8 +513,14 @@ public class GregtechComponentAssembler {
                     return false;
                 }
             } else {
-                ItemStack Input[] = { cableStack, screwStack, rotorStack, pipeStack, motorStack,
-                        ItemUtils.getItemStackOfAmountFromOreDictNoBroken("ringRubber", 2) };
+                ItemStack Input[] = {
+                    cableStack,
+                    screwStack,
+                    rotorStack,
+                    pipeStack,
+                    motorStack,
+                    ItemUtils.getItemStackOfAmountFromOreDictNoBroken("ringRubber", 2)
+                };
                 return CORE.RA.addComponentMakerRecipe(
                         Input,
                         GT_Values.NF,
@@ -468,7 +549,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mCircuitType : oreDictList) {
                     final ItemStack returnValue = mCircuitType.copy();
                     returnValue.stackSize = 1;
-                    ItemStack Input[] = { returnValue, cableStack, rodStack, pistonStack, motorStack };
+                    ItemStack Input[] = {returnValue, cableStack, rodStack, pistonStack, motorStack};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -488,14 +569,14 @@ public class GregtechComponentAssembler {
                 }
             } else {
                 ItemStack Input[] = {
-                        ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 1), cableStack,
-                        rodStack, pistonStack, motorStack };
+                    ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 1),
+                    cableStack,
+                    rodStack,
+                    pistonStack,
+                    motorStack
+                };
                 return CORE.RA.addComponentMakerRecipe(
-                        Input,
-                        GT_Values.NF,
-                        CI.getRobotArm(tier, 1),
-                        (tier * 40),
-                        ((int) GT_Values.V[tier] / 16) * 15);
+                        Input, GT_Values.NF, CI.getRobotArm(tier, 1), (tier * 40), ((int) GT_Values.V[tier] / 16) * 15);
             }
 
         } catch (Throwable t) {
@@ -514,10 +595,10 @@ public class GregtechComponentAssembler {
             else if (tier == 5) mWT = "16";
             else mWT = "01";
 
-            ItemStack eyeQuantum = ItemUtils
-                    .getValueOfItemList("QuantumEye", 1, ItemUtils.getSimpleStack(Items.ender_eye, 4));
-            ItemStack starQuantum = ItemUtils
-                    .getValueOfItemList("QuantumStar", 1, ItemUtils.getSimpleStack(Items.nether_star, 4));
+            ItemStack eyeQuantum =
+                    ItemUtils.getValueOfItemList("QuantumEye", 1, ItemUtils.getSimpleStack(Items.ender_eye, 4));
+            ItemStack starQuantum =
+                    ItemUtils.getValueOfItemList("QuantumStar", 1, ItemUtils.getSimpleStack(Items.nether_star, 4));
 
             if (tier == 1) gem = ItemUtils.getSimpleStack(Items.ender_pearl);
             else if (tier == 2) gem = ItemUtils.getSimpleStack(Items.ender_eye);
@@ -537,7 +618,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mCircuitType : oreDictList) {
                     final ItemStack returnValue = mCircuitType.copy();
                     returnValue.stackSize = 4;
-                    ItemStack Input[] = { returnValue, wireStack, gem };
+                    ItemStack Input[] = {returnValue, wireStack, gem};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -557,8 +638,8 @@ public class GregtechComponentAssembler {
                 }
             } else {
                 ItemStack Input[] = {
-                        ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 4), wireStack,
-                        gem };
+                    ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 4), wireStack, gem
+                };
                 return CORE.RA.addComponentMakerRecipe(
                         Input,
                         GT_Values.NF,
@@ -586,7 +667,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mCircuitType : oreDictList) {
                     final ItemStack returnValue = mCircuitType.copy();
                     returnValue.stackSize = 2;
-                    ItemStack Input[] = { returnValue, cableStack, gemstack, magrodStack };
+                    ItemStack Input[] = {returnValue, cableStack, gemstack, magrodStack};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -606,14 +687,13 @@ public class GregtechComponentAssembler {
                 }
             } else {
                 ItemStack Input[] = {
-                        ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 2), cableStack,
-                        gemstack, magrodStack };
+                    ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 2),
+                    cableStack,
+                    gemstack,
+                    magrodStack
+                };
                 return CORE.RA.addComponentMakerRecipe(
-                        Input,
-                        GT_Values.NF,
-                        CI.getEmitter(tier, 1),
-                        (tier * 40),
-                        ((int) GT_Values.V[tier] / 16) * 15);
+                        Input, GT_Values.NF, CI.getEmitter(tier, 1), (tier * 40), ((int) GT_Values.V[tier] / 16) * 15);
             }
 
         } catch (Throwable t) {
@@ -635,7 +715,7 @@ public class GregtechComponentAssembler {
                 for (ItemStack mCircuitType : oreDictList) {
                     final ItemStack returnValue = mCircuitType.copy();
                     returnValue.stackSize = 1;
-                    ItemStack Input[] = { gemStack, cableStack, returnValue, magrodStack };
+                    ItemStack Input[] = {gemStack, cableStack, returnValue, magrodStack};
                     mAdd[mcount++] = CORE.RA.addComponentMakerRecipe(
                             Input,
                             GT_Values.NF,
@@ -654,14 +734,14 @@ public class GregtechComponentAssembler {
                     return false;
                 }
             } else {
-                ItemStack Input[] = { gemStack, cableStack, magrodStack,
-                        ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 1) };
+                ItemStack Input[] = {
+                    gemStack,
+                    cableStack,
+                    magrodStack,
+                    ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(tier), 1)
+                };
                 return CORE.RA.addComponentMakerRecipe(
-                        Input,
-                        GT_Values.NF,
-                        CI.getSensor(tier, 1),
-                        (tier * 40),
-                        ((int) GT_Values.V[tier] / 16) * 15);
+                        Input, GT_Values.NF, CI.getSensor(tier, 1), (tier * 40), ((int) GT_Values.V[tier] / 16) * 15);
             }
 
         } catch (Throwable t) {

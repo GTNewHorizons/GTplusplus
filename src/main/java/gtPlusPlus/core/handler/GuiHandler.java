@@ -1,10 +1,5 @@
 package gtPlusPlus.core.handler;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import gtPlusPlus.GTplusplus;
@@ -61,6 +56,10 @@ import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
 import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.world.World;
 
 public class GuiHandler implements IGuiHandler {
 
@@ -93,8 +92,8 @@ public class GuiHandler implements IGuiHandler {
     }
 
     @Override // ContainerModTileEntity
-    public Object getServerGuiElement(final int ID, final EntityPlayer player, final World world, final int x,
-            final int y, final int z) {
+    public Object getServerGuiElement(
+            final int ID, final EntityPlayer player, final World world, final int x, final int y, final int z) {
         final TileEntity te = world.getTileEntity(x, y, z);
 
         if (te != null) {
@@ -108,9 +107,7 @@ public class GuiHandler implements IGuiHandler {
         if (ID == GUI3) {
             // Use the player's held item to create the inventory
             return new Container_BackpackBase(
-                    player,
-                    player.inventory,
-                    new BaseInventoryBackpack(player.getHeldItem()));
+                    player, player.inventory, new BaseInventoryBackpack(player.getHeldItem()));
         }
 
         if (te != null) {
@@ -158,19 +155,10 @@ public class GuiHandler implements IGuiHandler {
     }
 
     @Override // GuiModTileEntity
-    public Object getClientGuiElement(final int ID, final EntityPlayer player, final World world, final int x,
-            final int y, final int z) {
-        Logger.WARNING(
-                "getClientGuiElement Called by: " + player
-                        + ", in world: "
-                        + player.dimension
-                        + " at x:"
-                        + x
-                        + ", y:"
-                        + y
-                        + ", z:"
-                        + z
-                        + ".");
+    public Object getClientGuiElement(
+            final int ID, final EntityPlayer player, final World world, final int x, final int y, final int z) {
+        Logger.WARNING("getClientGuiElement Called by: " + player + ", in world: " + player.dimension + " at x:" + x
+                + ", y:" + y + ", z:" + z + ".");
         final TileEntity te = world.getTileEntity(x, y, z);
         if (te != null) {
             if (ID == GUI1) {
@@ -183,11 +171,8 @@ public class GuiHandler implements IGuiHandler {
         if (ID == GUI3) {
             // We have to cast the new container as our custom class
             // and pass in currently held item for the inventory
-            return new GuiBaseBackpack(
-                    new Container_BackpackBase(
-                            player,
-                            player.inventory,
-                            new BaseInventoryBackpack(player.getHeldItem())));
+            return new GuiBaseBackpack(new Container_BackpackBase(
+                    player, player.inventory, new BaseInventoryBackpack(player.getHeldItem())));
         }
 
         if (te != null) {
@@ -200,9 +185,7 @@ public class GuiHandler implements IGuiHandler {
                 return new GUI_FishTrap(player.inventory, (TileEntityFishTrap) te);
             } else if (ID == GUI7) {
                 return new GUI_TradeTable(
-                        player.inventory,
-                        (TileEntityTradeTable) te,
-                        ((TileEntityBase) te).getOwner());
+                        player.inventory, (TileEntityTradeTable) te, ((TileEntityBase) te).getOwner());
             } else if (ID == GUI8) {
                 return new GUI_CircuitProgrammer(player.inventory, (TileEntityCircuitProgrammer) te);
             } else if (ID == GUI13) {

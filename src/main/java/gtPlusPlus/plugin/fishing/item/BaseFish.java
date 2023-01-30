@@ -1,7 +1,9 @@
 package gtPlusPlus.plugin.fishing.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.plugin.fishing.misc.BaseFishTypes;
 import java.util.List;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,12 +16,7 @@ import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.plugin.fishing.misc.BaseFishTypes;
-
 public class BaseFish extends ItemFood {
-
     private final boolean isCooked;
 
     public BaseFish(boolean cooked) {
@@ -101,9 +98,7 @@ public class BaseFish extends ItemFood {
      */
     public String getUnlocalizedName(ItemStack p_77667_1_) {
         BaseFishTypes fishtype = BaseFishTypes.getFishTypeFromStackDamage(p_77667_1_);
-        return this.getUnlocalizedName() + "."
-                + fishtype.getFishName()
-                + "."
+        return this.getUnlocalizedName() + "." + fishtype.getFishName() + "."
                 + (this.isCooked && fishtype.isCooked() ? "cooked" : "raw");
     }
 }

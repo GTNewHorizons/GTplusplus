@@ -1,12 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.covers;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -15,6 +8,11 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.LangUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 
 public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
 
@@ -29,11 +27,11 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
 
     static {
         sQuantumChest = ReflectionUtils.getClass("gregtech.common.tileentities.storage.GT_MetaTileEntity_QuantumChest");
-        sSuperChestGTPP = ReflectionUtils
-                .getClass("gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest");
+        sSuperChestGTPP = ReflectionUtils.getClass(
+                "gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest");
         if (CORE.GTNH) {
-            sSuperChestGTNH = ReflectionUtils
-                    .getClass("gregtech.common.tileentities.storage.GT_MetaTileEntity_SuperChest");
+            sSuperChestGTNH =
+                    ReflectionUtils.getClass("gregtech.common.tileentities.storage.GT_MetaTileEntity_SuperChest");
         } else {
             sSuperChestGTNH = null;
         }
@@ -56,15 +54,15 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
         this.mMaxItemCapacity = aCapacity * 1000;
     }
 
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            long aTimer) {
+    public int doCoverThings(
+            byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
         if (aCoverVariable == 0) {
             return aCoverVariable;
         }
 
         // Get the IGTTile
-        IGregTechTileEntity aGtTileEntity = aTileEntity
-                .getIGregTechTileEntity(aTileEntity.getXCoord(), aTileEntity.getYCoord(), aTileEntity.getZCoord());
+        IGregTechTileEntity aGtTileEntity = aTileEntity.getIGregTechTileEntity(
+                aTileEntity.getXCoord(), aTileEntity.getYCoord(), aTileEntity.getZCoord());
         if (aGtTileEntity == null) {
             return aCoverVariable;
         }
@@ -103,8 +101,15 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
         return true;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public int onCoverScrewdriverclick(
+            byte aSide,
+            int aCoverID,
+            int aCoverVariable,
+            ICoverable aTileEntity,
+            EntityPlayer aPlayer,
+            float aX,
+            float aY,
+            float aZ) {
         if (GT_Utility.getClickedFacingCoords(aSide, aX, aY, aZ)[0] >= 0.5F) {
             aCoverVariable += (mMaxItemCapacity * (aPlayer.isSneaking() ? 0.1f : 0.01f));
         } else {
@@ -117,13 +122,19 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
             aCoverVariable = mMaxItemCapacity;
         }
         GT_Utility.sendChatToPlayer(
-                aPlayer,
-                LangUtils.trans("322", "Overflow point: ") + aCoverVariable + trans("323", "L"));
+                aPlayer, LangUtils.trans("322", "Overflow point: ") + aCoverVariable + trans("323", "L"));
         return aCoverVariable;
     }
 
-    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onCoverRightclick(
+            byte aSide,
+            int aCoverID,
+            int aCoverVariable,
+            ICoverable aTileEntity,
+            EntityPlayer aPlayer,
+            float aX,
+            float aY,
+            float aZ) {
         boolean aShift = aPlayer.isSneaking();
         int aAmount = aShift ? 128 : 8;
         if (GT_Utility.getClickedFacingCoords(aSide, aX, aY, aZ)[0] >= 0.5F) {
@@ -138,8 +149,7 @@ public class GTPP_Cover_Overflow_Item extends GT_CoverBehavior {
             aCoverVariable = mMaxItemCapacity;
         }
         GT_Utility.sendChatToPlayer(
-                aPlayer,
-                LangUtils.trans("322", "Overflow point: ") + aCoverVariable + trans("323", "L"));
+                aPlayer, LangUtils.trans("322", "Overflow point: ") + aCoverVariable + trans("323", "L"));
         aTileEntity.setCoverDataAtSide(aSide, aCoverVariable);
         return true;
     }

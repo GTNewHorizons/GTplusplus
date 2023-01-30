@@ -1,8 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.computer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import Ic2ExpReactorPlanner.AutomationSimulator;
 import Ic2ExpReactorPlanner.Reactor;
 import Ic2ExpReactorPlanner.SimulationData;
@@ -12,10 +9,13 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.misc.GT_TileEntity_ComputerCube;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GT_Computercube_Simulator {
 
-    private static final HashMap<Integer, Pair<Integer, Integer>> sSlotPositions = new HashMap<Integer, Pair<Integer, Integer>>();
+    private static final HashMap<Integer, Pair<Integer, Integer>> sSlotPositions =
+            new HashMap<Integer, Pair<Integer, Integer>>();
 
     static {
         int aSlot = 4;
@@ -48,13 +48,14 @@ public class GT_Computercube_Simulator {
 
     public void slotClick(int aSlot, GT_ItemStack aStack) {
 
-        /*
-         * if (selection != null) { componentToPlace = ComponentFactory.createComponent(selection.getActionCommand());
-         * if (componentToPlace != null) {
-         * componentToPlace.setInitialHeat(((Number)componentHeatSpinner.getValue()).intValue());
-         * componentToPlace.setAutomationThreshold(((Number)placingThresholdSpinner.getValue()).intValue());
-         * componentToPlace.setReactorPause(((Number)placingReactorPauseSpinner.getValue()).intValue()); } }
-         */
+        /*if (selection != null) {
+            componentToPlace = ComponentFactory.createComponent(selection.getActionCommand());
+            if (componentToPlace != null) {
+                componentToPlace.setInitialHeat(((Number)componentHeatSpinner.getValue()).intValue());
+                componentToPlace.setAutomationThreshold(((Number)placingThresholdSpinner.getValue()).intValue());
+                componentToPlace.setReactorPause(((Number)placingReactorPauseSpinner.getValue()).intValue());
+            }
+        }*/
         if (aSlot >= 4 && aSlot < 58) {
             Pair<Integer, Integer> aSpot = sSlotPositions.get(aSlot);
             ReactorItem aItem;
@@ -62,14 +63,10 @@ public class GT_Computercube_Simulator {
                 aItem = null;
             } else {
 
-                Logger.INFO(
-                        "Using lookup key: " + ItemUtils.getModId(
-                                aStack.toStack()) + "." + aStack.mItem.getUnlocalizedName() + "." + aStack.mMetaData);
-                aItem = ReactorItem.sComponentMap.get(
-                        ItemUtils.getModId(aStack.toStack()) + "."
-                                + aStack.mItem.getUnlocalizedName()
-                                + "."
-                                + aStack.mMetaData);
+                Logger.INFO("Using lookup key: " + ItemUtils.getModId(aStack.toStack()) + "."
+                        + aStack.mItem.getUnlocalizedName() + "." + aStack.mMetaData);
+                aItem = ReactorItem.sComponentMap.get(ItemUtils.getModId(aStack.toStack()) + "."
+                        + aStack.mItem.getUnlocalizedName() + "." + aStack.mMetaData);
             }
             int aRow = aSpot.getKey();
             int aColumn = aSpot.getValue();
@@ -89,9 +86,9 @@ public class GT_Computercube_Simulator {
     }
 
     public void simulate() {
-        /*
-         * if (Utils.isClient()) { return; }
-         */
+        /*if (Utils.isClient()) {
+        	return;
+        }*/
         if (simulator != null && simulator.isRunning()) {
             Logger.INFO("Simulator Running, Stopping.");
             simulator.cancel();
@@ -132,21 +129,22 @@ public class GT_Computercube_Simulator {
 
     private void clearGrid() {
         reactor.clearGrid();
-        /*
-         * for (int i = 0; i < reactorButtons.length; i++) { for (int j = 0; j < reactorButtons[i].length; j++) {
-         * reactorButtons[i][j].setIcon(null); reactorButtons[i][j].setToolTipText(null);
-         * reactorButtonPanels[i][j].setBackground(Color.LIGHT_GRAY); } }
-         */
+        /*for (int i = 0; i < reactorButtons.length; i++) {
+            for (int j = 0; j < reactorButtons[i].length; j++) {
+                reactorButtons[i][j].setIcon(null);
+                reactorButtons[i][j].setToolTipText(null);
+                reactorButtonPanels[i][j].setBackground(Color.LIGHT_GRAY);
+            }
+        }*/
         output.clear();
-        /*
-         * materialsArea.setText(reactor.getMaterials().toString());
-         * componentListArea.setText(reactor.getComponentList().toString());
-         * maxHeatLabel.setText(formatI18n("UI.MaxHeatSpecific", reactor.getMaxHeat()));
-         * heatSpinnerModel.setMaximum(reactor.getMaxHeat() - 1); heatSpinnerModel.setValue(Math.min(((Number)
-         * heatSpinnerModel.getValue()).intValue(), reactor.getMaxHeat() - 1));
-         * temperatureEffectsLabel.setText(formatI18n("UI.TemperatureEffectsSpecific", (int)(reactor.getMaxHeat() *
-         * 0.4), (int)(reactor.getMaxHeat() * 0.5), (int)(reactor.getMaxHeat() * 0.7), (int)(reactor.getMaxHeat() *
-         * 0.85), (int)(reactor.getMaxHeat() * 1.0))); lockCode = true; codeField.setText(null); lockCode = false;
-         */
+        /*materialsArea.setText(reactor.getMaterials().toString());
+        componentListArea.setText(reactor.getComponentList().toString());
+        maxHeatLabel.setText(formatI18n("UI.MaxHeatSpecific", reactor.getMaxHeat()));
+        heatSpinnerModel.setMaximum(reactor.getMaxHeat() - 1);
+        heatSpinnerModel.setValue(Math.min(((Number) heatSpinnerModel.getValue()).intValue(), reactor.getMaxHeat() - 1));
+        temperatureEffectsLabel.setText(formatI18n("UI.TemperatureEffectsSpecific", (int)(reactor.getMaxHeat() * 0.4), (int)(reactor.getMaxHeat() * 0.5), (int)(reactor.getMaxHeat() * 0.7), (int)(reactor.getMaxHeat() * 0.85), (int)(reactor.getMaxHeat() * 1.0)));
+        lockCode = true;
+        codeField.setText(null);
+        lockCode = false;*/
     }
 }

@@ -9,18 +9,11 @@ import static gregtech.api.enums.GT_HatchElement.InputHatch;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
@@ -42,6 +35,11 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_AlgaeFarm;
 import ic2.core.init.BlocksItems;
 import ic2.core.init.InternalName;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
 
 public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<GregtechMTE_AlgaePondBase>
         implements ISurvivalConstructable {
@@ -78,16 +76,24 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType()).addInfo("Grows Algae!").addInfo("Controller Block for the Algae Farm")
+        tt.addMachineType(getMachineType())
+                .addInfo("Grows Algae!")
+                .addInfo("Controller Block for the Algae Farm")
                 .addInfo("Provide compost to boost production by one tier")
                 .addInfo("Does not require power or maintenance")
                 .addInfo("All Machine Casings must be the same tier, this dictates machine speed.")
                 .addInfo("All Buses/Hatches must, at least, match the tier of the Casings")
                 .addInfo("Fill Input Hatch with Water to fill the inside of the multiblock.")
-                .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(9, 3, 9, true)
-                .addController("Front Center").addCasingInfo("Machine Casings", 64)
-                .addCasingInfo("Sterile Farm Casings", 34).addInputBus("Any Casing", 1).addOutputBus("Any Casing", 1)
-                .addInputHatch("Any Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder);
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addSeparator()
+                .beginStructureBlock(9, 3, 9, true)
+                .addController("Front Center")
+                .addCasingInfo("Machine Casings", 64)
+                .addCasingInfo("Sterile Farm Casings", 34)
+                .addInputBus("Any Casing", 1)
+                .addOutputBus("Any Casing", 1)
+                .addInputHatch("Any Casing", 1)
+                .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
 
@@ -103,22 +109,49 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
     public IStructureDefinition<GregtechMTE_AlgaePondBase> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_AlgaePondBase>builder()
-                    .addShape(
-                            mName,
-                            transpose(
-                                    new String[][] {
-                                            { "XXXXXXXXX", "X       X", "X       X", "X       X", "X       X",
-                                                    "X       X", "X       X", "X       X", "XXXXXXXXX" },
-                                            { "XXXXXXXXX", "X       X", "X       X", "X       X", "X       X",
-                                                    "X       X", "X       X", "X       X", "XXXXXXXXX" },
-                                            { "CCCC~CCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC",
-                                                    "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC" }, }))
+                    .addShape(mName, transpose(new String[][] {
+                        {
+                            "XXXXXXXXX",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "XXXXXXXXX"
+                        },
+                        {
+                            "XXXXXXXXX",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "X       X",
+                            "XXXXXXXXX"
+                        },
+                        {
+                            "CCCC~CCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC",
+                            "CCCCCCCCC"
+                        },
+                    }))
                     .addElement(
                             'C',
                             ofChain(
                                     buildHatchAdder(GregtechMTE_AlgaePondBase.class)
                                             .atLeast(InputHatch, InputBus, OutputBus)
-                                            .casingIndex(TAE.getIndexFromPage(1, 15)).dot(1).build(),
+                                            .casingIndex(TAE.getIndexFromPage(1, 15))
+                                            .dot(1)
+                                            .build(),
                                     onElementPass(
                                             x -> ++x.mCasing,
                                             addTieredBlock(
@@ -126,7 +159,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
                                                     GregtechMTE_AlgaePondBase::setMeta,
                                                     GregtechMTE_AlgaePondBase::getMeta,
                                                     10))))
-                    .addElement('X', ofBlock(ModBlocks.blockCasings2Misc, 15)).build();
+                    .addElement('X', ofBlock(ModBlocks.blockCasings2Misc, 15))
+                    .build();
         }
         return STRUCTURE_DEFINITION;
     }
@@ -222,10 +256,10 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
         // if (aBaseMetaTileEntity.fac)
 
-        final int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX
-                * mCurrentDirectionX;
-        final int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ
-                * mCurrentDirectionZ;
+        final int xDir =
+                ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX * mCurrentDirectionX;
+        final int zDir =
+                ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ * mCurrentDirectionZ;
 
         int tAmount = 0;
         for (int i = mOffsetX_Lower + 1; i <= mOffsetX_Upper - 1; ++i) {
@@ -241,11 +275,13 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
                                         // Utils.LOG_WARNING("Going to try swap an air block for water from inut bus.");
                                         stored.amount -= 1000;
                                         Block fluidUsed = Blocks.water;
-                                        aBaseMetaTileEntity.getWorld().setBlock(
-                                                aBaseMetaTileEntity.getXCoord() + xDir + i,
-                                                aBaseMetaTileEntity.getYCoord() + h,
-                                                aBaseMetaTileEntity.getZCoord() + zDir + j,
-                                                fluidUsed);
+                                        aBaseMetaTileEntity
+                                                .getWorld()
+                                                .setBlock(
+                                                        aBaseMetaTileEntity.getXCoord() + xDir + i,
+                                                        aBaseMetaTileEntity.getYCoord() + h,
+                                                        aBaseMetaTileEntity.getZCoord() + zDir + j,
+                                                        fluidUsed);
                                     }
                                 }
                             }
@@ -271,7 +307,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     private boolean isNotStaticWater(Block block, byte meta) {
-        return block == Blocks.air || block == Blocks.flowing_water
+        return block == Blocks.air
+                || block == Blocks.flowing_water
                 || block == BlocksItems.getFluidBlock(InternalName.fluidDistilledWater)
                 || (cofhWater != null && cofhWater.isAssignableFrom(block.getClass()) && meta != 0);
     }
@@ -316,8 +353,14 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 0);
     }
 
-    public boolean checkRecipeGeneric(ItemStack[] aItemInputs, FluidStack[] aFluidInputs, int aMaxParallelRecipes,
-            long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
+    public boolean checkRecipeGeneric(
+            ItemStack[] aItemInputs,
+            FluidStack[] aFluidInputs,
+            int aMaxParallelRecipes,
+            long aEUPercent,
+            int aSpeedBonusPercent,
+            int aOutputChanceRoll,
+            GT_Recipe aRecipe) {
 
         if (this.mLevel < 0) {
             return false;
@@ -341,9 +384,14 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
             return false;
         }
 
-        GT_ParallelHelper helper = new GT_ParallelHelper().setRecipe(tRecipe).setItemInputs(aItemInputs)
-                .setFluidInputs(aFluidInputs).setAvailableEUt(120).setMaxParallel(aMaxParallelRecipes)
-                .enableConsumption().enableOutputCalculation();
+        GT_ParallelHelper helper = new GT_ParallelHelper()
+                .setRecipe(tRecipe)
+                .setItemInputs(aItemInputs)
+                .setFluidInputs(aFluidInputs)
+                .setAvailableEUt(120)
+                .setMaxParallel(aMaxParallelRecipes)
+                .enableConsumption()
+                .enableOutputCalculation();
         if (!mVoidExcess) {
             helper.enableVoidProtection(this);
         }

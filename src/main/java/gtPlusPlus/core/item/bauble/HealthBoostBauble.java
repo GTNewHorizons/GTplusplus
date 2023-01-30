@@ -1,7 +1,9 @@
 package gtPlusPlus.core.item.bauble;
 
+import baubles.api.BaubleType;
+import com.google.common.collect.Multimap;
+import gtPlusPlus.core.lib.CORE;
 import java.util.List;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,11 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-
-import baubles.api.BaubleType;
-
-import com.google.common.collect.Multimap;
-import gtPlusPlus.core.lib.CORE;
 
 public class HealthBoostBauble extends BaseBauble {
 

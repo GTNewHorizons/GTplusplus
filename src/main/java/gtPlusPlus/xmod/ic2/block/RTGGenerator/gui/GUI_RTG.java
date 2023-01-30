@@ -1,20 +1,17 @@
 package gtPlusPlus.xmod.ic2.block.RTGGenerator.gui;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.xmod.ic2.block.RTGGenerator.TileEntityRTG;
 import ic2.core.IC2;
 import ic2.core.block.generator.gui.GuiRTGenerator;
 import ic2.core.util.GuiTooltipHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GUI_RTG extends GuiRTGenerator {
-
     public CONTAINER_RTG container;
 
     public GUI_RTG(final CONTAINER_RTG container1) {
@@ -26,15 +23,15 @@ public class GUI_RTG extends GuiRTGenerator {
 
     @Override
     protected void drawGuiContainerForegroundLayer(final int par1, final int par2) {
-        this.fontRendererObj
-                .drawString(this.name, (this.xSize - this.fontRendererObj.getStringWidth(this.name)) / 2, 4, 4210752);
+        this.fontRendererObj.drawString(
+                this.name, (this.xSize - this.fontRendererObj.getStringWidth(this.name)) / 2, 4, 4210752);
 
         GuiTooltipHelper.drawAreaTooltip(
                 par1 - this.guiLeft,
                 par2 - this.guiTop,
                 StatCollector.translateToLocalFormatted(
                         "ic2.generic.text.bufferEU",
-                        new Object[] { Double.valueOf(((TileEntityRTG) this.container.base).storage) }),
+                        new Object[] {Double.valueOf(((TileEntityRTG) this.container.base).storage)}),
                 117,
                 38,
                 150,
@@ -53,7 +50,6 @@ public class GUI_RTG extends GuiRTGenerator {
         this.drawTexturedModalRect(j + 119, k + 40, 179, 3, i1, 8);
     }
 
-    private static final ResourceLocation background = new ResourceLocation(
-            IC2.textureDomain,
-            "textures/gui/GUIRTGenerator.png");
+    private static final ResourceLocation background =
+            new ResourceLocation(IC2.textureDomain, "textures/gui/GUIRTGenerator.png");
 }

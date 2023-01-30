@@ -6,7 +6,6 @@ import gtPlusPlus.core.common.BasePlayer;
 public class COMPAT_PlayerAPI {
 
     public static class commonProxy {
-
         public static void initPre() {}
 
         public static void Init() {}
@@ -15,7 +14,6 @@ public class COMPAT_PlayerAPI {
     }
 
     public static class clientProxy {
-
         public static void initPre() {
             // Utils.registerEvent(SneakManager.instance);
         }
@@ -28,7 +26,6 @@ public class COMPAT_PlayerAPI {
     }
 
     public static class serverProxy {
-
         public static void initPre() {}
 
         public static void Init() {}

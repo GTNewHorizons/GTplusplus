@@ -1,12 +1,10 @@
 package gtPlusPlus.xmod.gregtech.api.objects;
 
-import net.minecraftforge.fluids.Fluid;
-
 import gregtech.api.GregTech_API;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.fluids.Fluid;
 
 public class GregtechFluid extends Fluid implements Runnable {
-
     public final String mTextureName;
     private final short[] mRGBa;
 
@@ -19,7 +17,8 @@ public class GregtechFluid extends Fluid implements Runnable {
 
     @Override
     public int getColor() {
-        return (Math.max(0, Math.min(255, this.mRGBa[0])) << 16) | (Math.max(0, Math.min(255, this.mRGBa[1])) << 8)
+        return (Math.max(0, Math.min(255, this.mRGBa[0])) << 16)
+                | (Math.max(0, Math.min(255, this.mRGBa[1])) << 8)
                 | Math.max(0, Math.min(255, this.mRGBa[2]));
     }
 

@@ -1,11 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
-import java.util.ArrayList;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -13,6 +7,10 @@ import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.util.math.MathUtils;
+import java.util.ArrayList;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 public class GT_MTE_LargeTurbine_SCSteam extends GregtechMetaTileEntity_LargerTurbineBase {
 
@@ -59,8 +57,8 @@ public class GT_MTE_LargeTurbine_SCSteam extends GregtechMetaTileEntity_LargerTu
         int tEU = 0;
         int totalFlow = 0; // Byproducts are based on actual flow
         int flow = 0;
-        int remainingFlow = MathUtils.safeInt((long) (aOptFlow * 1.25f)); // Allowed to use up to 125% of optimal flow.
-                                                                          // Variable required outside of loop for
+        int remainingFlow = MathUtils.safeInt((long) (aOptFlow
+                * 1.25f)); // Allowed to use up to 125% of optimal flow.  Variable required outside of loop for
         // multi-hatch scenarios.
         this.realOptFlow = (double) aOptFlow * (double) flowMultipliers[0];
 

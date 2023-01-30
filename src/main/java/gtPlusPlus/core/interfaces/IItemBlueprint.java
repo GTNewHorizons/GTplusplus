@@ -12,7 +12,6 @@ public interface IItemBlueprint {
 
     /**
      * Meta Compatible function to allow meta items to be blueprints
-     * 
      * @param stack yourMetaItem
      * @return true if it is a Blueprint
      */
@@ -20,7 +19,6 @@ public interface IItemBlueprint {
 
     /**
      * Sets the blueprint for this itemstack.
-     * 
      * @param stack yourMetaItem
      * @return true if blueprint is set successfully
      */
@@ -28,7 +26,6 @@ public interface IItemBlueprint {
 
     /**
      * Sets the name of the recipe/blueprint
-     * 
      * @param String Blueprint Name
      * @return N/A
      */
@@ -36,7 +33,6 @@ public interface IItemBlueprint {
 
     /**
      * Does this itemstack hold a blueprint?
-     * 
      * @param stack yourMetaItem
      * @return true if is holding a Blueprint
      */
@@ -44,7 +40,6 @@ public interface IItemBlueprint {
 
     /**
      * Gets the recipe held by the item
-     * 
      * @param stack yourMetaItem
      * @return the blueprints contents
      */

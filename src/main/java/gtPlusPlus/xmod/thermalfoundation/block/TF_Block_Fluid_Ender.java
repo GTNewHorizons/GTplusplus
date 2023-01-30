@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.thermalfoundation.block;
 
+import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.util.CoreUtils;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -7,14 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
-import cofh.core.util.CoreUtils;
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
-
 public class TF_Block_Fluid_Ender extends BlockFluidCoFHBase {
-
     public static final int LEVELS = 4;
     public static final Material materialFluidEnder = new MaterialLiquid(MapColor.greenColor);
     private static boolean effect = true;
@@ -40,8 +38,8 @@ public class TF_Block_Fluid_Ender extends BlockFluidCoFHBase {
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World paramWorld, int paramInt1, int paramInt2, int paramInt3,
-            Entity paramEntity) {
+    public void onEntityCollidedWithBlock(
+            World paramWorld, int paramInt1, int paramInt2, int paramInt3, Entity paramEntity) {
         if ((!effect) || (paramWorld.isRemote)) {
             return;
         }

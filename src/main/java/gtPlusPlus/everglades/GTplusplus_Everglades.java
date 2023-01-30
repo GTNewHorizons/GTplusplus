@@ -1,12 +1,5 @@
 package gtPlusPlus.everglades;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.config.Configuration;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -30,13 +23,19 @@ import gtPlusPlus.everglades.gen.gt.WorldGen_Ores;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.xmod.gregtech.HANDLER_GT;
 import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.config.Configuration;
 
 @MCVersion(value = "1.7.10")
 @Mod(
         modid = Everglades.MODID,
         name = Everglades.NAME,
         version = Everglades.VERSION,
-        dependencies = "required-after:Forge; after:dreamcraft; after:IC2; after:ihl; required-after:gregtech; required-after:miscutils;")
+        dependencies =
+                "required-after:Forge; after:dreamcraft; after:IC2; after:ihl; required-after:gregtech; required-after:miscutils;")
 public class GTplusplus_Everglades implements ActionListener {
 
     // Mod Instance
@@ -65,9 +64,8 @@ public class GTplusplus_Everglades implements ActionListener {
         getEvergladesBiome().preInit(event);
 
         // Load/Set Custom Ore Gen
-        HANDLER_GT.sCustomWorldgenFile = new GTPP_Config(
-                new Configuration(
-                        new File(new File(event.getModConfigurationDirectory(), "GTplusplus"), "WorldGeneration.cfg")));
+        HANDLER_GT.sCustomWorldgenFile = new GTPP_Config(new Configuration(
+                new File(new File(event.getModConfigurationDirectory(), "GTplusplus"), "WorldGeneration.cfg")));
     }
 
     @EventHandler
@@ -130,19 +128,14 @@ public class GTplusplus_Everglades implements ActionListener {
         // Custom Ores
         if (LoadedMods.Big_Reactors) {
             MaterialGenerator.generateOreMaterial(
-                    ELEMENT.getInstance().YELLORIUM,
-                    false,
-                    false,
-                    true,
-                    new short[] { 255, 242, 10 });
+                    ELEMENT.getInstance().YELLORIUM, false, false, true, new short[] {255, 242, 10});
         }
     }
 
     protected synchronized void setVars(FMLPreInitializationEvent event) {
         // Init WorldGen config.
-        HANDLER_GT.sCustomWorldgenFile = new GTPP_Config(
-                new Configuration(
-                        new File(new File(event.getModConfigurationDirectory(), "GTplusplus"), "WorldGeneration.cfg")));
+        HANDLER_GT.sCustomWorldgenFile = new GTPP_Config(new Configuration(
+                new File(new File(event.getModConfigurationDirectory(), "GTplusplus"), "WorldGeneration.cfg")));
 
         if (DimensionManager.isDimensionRegistered(Dimension_Everglades.DIMID)) {
             Dimension_Everglades.DIMID = DimensionManager.getNextFreeDimId();
@@ -166,19 +159,33 @@ public class GTplusplus_Everglades implements ActionListener {
         getEvergladesBiome().serverLoad(event);
     }
 
-    /*
-     * @Override public int getBurnTime(ItemStack fuel) { if (DarkWorld_Biome.addFuel(fuel) != 0) return
-     * DarkWorld_Biome.addFuel(fuel); if (DarkWorld_Dimension.addFuel(fuel) != 0) return
-     * DarkWorld_Dimension.addFuel(fuel); return 0; }
-     */
+    /*@Override
+    public int getBurnTime(ItemStack fuel) {
+    	if (DarkWorld_Biome.addFuel(fuel) != 0)
+    		return DarkWorld_Biome.addFuel(fuel);
+    	if (DarkWorld_Dimension.addFuel(fuel) != 0)
+    		return DarkWorld_Dimension.addFuel(fuel);
+    	return 0;
+    }*/
 
-    /*
-     * @Override public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-     * IChunkProvider chunkProvider) { chunkX = chunkX * 16; chunkZ = chunkZ * 16; if (world.provider.dimensionId ==
-     * Dimension_DarkWorld.DIMID) { DarkWorld_Biome.generateSurface(world, random, chunkX, chunkZ); } //What does this
-     * even do? if (world.provider.dimensionId == -1) { DarkWorld_Biome.generateNether(world, random, chunkX, chunkZ); }
-     * if (world.provider.dimensionId == 0) { DarkWorld_Biome.generateSurface(world, random, chunkX, chunkZ); } }
-     */
+    /*@Override
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+    	chunkX = chunkX * 16;
+    	chunkZ = chunkZ * 16;
+
+    	if (world.provider.dimensionId == Dimension_DarkWorld.DIMID) {
+    		DarkWorld_Biome.generateSurface(world, random, chunkX, chunkZ);
+    	}
+
+    	//What does this even do?
+    	if (world.provider.dimensionId == -1) {
+    		DarkWorld_Biome.generateNether(world, random, chunkX, chunkZ);
+    	}
+    	if (world.provider.dimensionId == 0) {
+    		DarkWorld_Biome.generateSurface(world, random, chunkX, chunkZ);
+    	}
+
+    }*/
 
     @EventHandler
     public static void postInit(final FMLPostInitializationEvent e) {

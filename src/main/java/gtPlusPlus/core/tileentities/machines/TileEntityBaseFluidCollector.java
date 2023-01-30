@@ -1,7 +1,13 @@
 package gtPlusPlus.core.tileentities.machines;
 
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.objects.minecraft.BTF_FluidTank;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.tileentities.base.TileEntityBase;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import java.util.List;
-
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,14 +24,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
-
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.minecraft.BTF_FluidTank;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.tileentities.base.TileEntityBase;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public abstract class TileEntityBaseFluidCollector extends TileEntityBase implements IFluidHandler {
 
@@ -74,15 +72,8 @@ public abstract class TileEntityBaseFluidCollector extends TileEntityBase implem
             }
 
             if (this != null) {
-                FluidEvent.fireEvent(
-                        new FluidEvent.FluidDrainingEvent(
-                                fluid,
-                                this.getWorldObj(),
-                                this.xCoord,
-                                this.yCoord,
-                                this.zCoord,
-                                this.tank,
-                                0));
+                FluidEvent.fireEvent(new FluidEvent.FluidDrainingEvent(
+                        fluid, this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord, this.tank, 0));
             }
         }
         return stack;
@@ -100,7 +91,7 @@ public abstract class TileEntityBaseFluidCollector extends TileEntityBase implem
 
     @Override
     public final FluidTankInfo[] getTankInfo(ForgeDirection from) {
-        return new FluidTankInfo[] { this.tank.getInfo() };
+        return new FluidTankInfo[] {this.tank.getInfo()};
     }
 
     @Override
@@ -209,8 +200,8 @@ public abstract class TileEntityBaseFluidCollector extends TileEntityBase implem
             addDrop(aEntity);
             if (this.tank.getFluidAmount() < this.tank.getCapacity()) {
                 int aFluidAmount = onPostTick(aEntity);
-                aFluidAmount = Math
-                        .max(Math.min(this.tank.getCapacity() - this.tank.getFluidAmount(), aFluidAmount), 1);
+                aFluidAmount =
+                        Math.max(Math.min(this.tank.getCapacity() - this.tank.getFluidAmount(), aFluidAmount), 1);
                 this.tank.fill(FluidUtils.getFluidStack(fluidToProvide(), aFluidAmount), true);
             } else {
                 ItemStack aDirtStack = ItemUtils.getSimpleStack(itemToSpawnInWorldIfTankIsFull(), 1);
@@ -227,7 +218,6 @@ public abstract class TileEntityBaseFluidCollector extends TileEntityBase implem
 
     /**
      * Return the amount of fluid for this entity type
-     * 
      * @param aEntity
      * @return
      */

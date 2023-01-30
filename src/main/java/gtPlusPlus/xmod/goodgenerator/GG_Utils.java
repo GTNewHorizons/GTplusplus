@@ -1,13 +1,11 @@
 package gtPlusPlus.xmod.goodgenerator;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class GG_Utils {
 
@@ -31,7 +29,8 @@ public class GG_Utils {
         rodCompressedUraniumDepleted_4,
         rodCompressedPlutoniumDepleted,
         rodCompressedPlutoniumDepleted_2,
-        rodCompressedPlutoniumDepleted_4,;
+        rodCompressedPlutoniumDepleted_4,
+        ;
     }
 
     public static ItemStack getGG_Fuel_Rod(GG_Fuel_Rod aItem, int aAmount) {

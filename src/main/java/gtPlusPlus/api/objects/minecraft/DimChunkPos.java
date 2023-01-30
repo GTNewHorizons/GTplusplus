@@ -30,7 +30,9 @@ public class DimChunkPos {
         this.dimension = dim;
         this.xPos = x;
         this.zPos = z;
-        Chunk h = Minecraft.getMinecraft().getIntegratedServer().worldServerForDimension(dim)
+        Chunk h = Minecraft.getMinecraft()
+                .getIntegratedServer()
+                .worldServerForDimension(dim)
                 .getChunkFromChunkCoords(xPos, zPos);
         if (h == null) {
             this.mainChunk = null;
@@ -43,7 +45,9 @@ public class DimChunkPos {
         if (this.mainChunk != null) {
             return this.mainChunk;
         }
-        Chunk h = Minecraft.getMinecraft().getIntegratedServer().worldServerForDimension(this.dimension)
+        Chunk h = Minecraft.getMinecraft()
+                .getIntegratedServer()
+                .worldServerForDimension(this.dimension)
                 .getChunkFromChunkCoords(xPos, zPos);
         return h;
     }

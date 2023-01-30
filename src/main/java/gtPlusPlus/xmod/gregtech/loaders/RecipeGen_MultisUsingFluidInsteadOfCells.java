@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
-import java.util.ArrayList;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
@@ -13,6 +8,9 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import java.util.ArrayList;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeGen_MultisUsingFluidInsteadOfCells {
 
@@ -73,7 +71,8 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
         int aInvalidRecipesToConvert = 0;
         int aOriginalCount = aInputs.mRecipeList.size();
 
-        recipe: for (GT_Recipe x : aInputs.mRecipeList) {
+        recipe:
+        for (GT_Recipe x : aInputs.mRecipeList) {
             if (x != null) {
 
                 ItemStack[] aInputItems = x.mInputs.clone();
@@ -87,7 +86,8 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                 AutoMap<FluidStack> aOutputFluidsMap = new AutoMap<FluidStack>();
 
                 // Iterate Inputs, Convert valid items into fluids
-                inputs: for (ItemStack aInputStack : aInputItems) {
+                inputs:
+                for (ItemStack aInputStack : aInputItems) {
                     FluidStack aFoundFluid = getFluidFromItemStack(aInputStack);
                     if (aFoundFluid == null) {
                         for (ItemStack aBadStack : mItemsToIgnore) {
@@ -104,7 +104,8 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                     }
                 }
                 // Iterate Outputs, Convert valid items into fluids
-                outputs: for (ItemStack aOutputStack : aOutputItems) {
+                outputs:
+                for (ItemStack aOutputStack : aOutputItems) {
                     FluidStack aFoundFluid = getFluidFromItemStack(aOutputStack);
                     if (aFoundFluid == null) {
                         for (ItemStack aBadStack : mItemsToIgnore) {

@@ -7,16 +7,10 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose
 import static gregtech.api.enums.GT_HatchElement.*;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import java.util.ArrayList;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -30,9 +24,13 @@ import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GT_MetaTileEntity_Hatch_CustomFluidBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import java.util.ArrayList;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
-public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialVacuumFreezer> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialVacuumFreezer
+        extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialVacuumFreezer>
+        implements ISurvivalConstructable {
 
     public static int CASING_TEXTURE_ID;
     public static String mCryoFuelName = "Gelid Cryotheum";
@@ -44,8 +42,8 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
 
     private final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mCryotheumHatches = new ArrayList<>();
 
-    public GregtechMetaTileEntity_IndustrialVacuumFreezer(final int aID, final String aName,
-            final String aNameRegional) {
+    public GregtechMetaTileEntity_IndustrialVacuumFreezer(
+            final int aID, final String aName, final String aNameRegional) {
         super(aID, aName, aNameRegional);
         mFuelStack = FluidUtils.getFluidStack("cryotheum", 1);
         CASING_TEXTURE_ID = TAE.getIndexFromPage(2, 10);
@@ -69,15 +67,25 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType()).addInfo("Factory Grade Advanced Vacuum Freezer")
+        tt.addMachineType(getMachineType())
+                .addInfo("Factory Grade Advanced Vacuum Freezer")
                 .addInfo("Speed: +100% | EU Usage: 100% | Parallel: 4")
                 .addInfo("Consumes 1L of " + mCryoFuelName + "/t during operation")
                 .addInfo("Constructed exactly the same as a normal Vacuum Freezer")
-                .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
-                .addController("Front Center").addCasingInfo(mCasingName, 10).addStructureHint(mHatchName, 1)
-                .addInputBus("Any Casing", 1).addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1)
-                .addOutputHatch("Any Casing", 1).addEnergyHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1)
-                .addMufflerHatch("Any Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder);
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addSeparator()
+                .beginStructureBlock(3, 3, 3, true)
+                .addController("Front Center")
+                .addCasingInfo(mCasingName, 10)
+                .addStructureHint(mHatchName, 1)
+                .addInputBus("Any Casing", 1)
+                .addOutputBus("Any Casing", 1)
+                .addInputHatch("Any Casing", 1)
+                .addOutputHatch("Any Casing", 1)
+                .addEnergyHatch("Any Casing", 1)
+                .addMaintenanceHatch("Any Casing", 1)
+                .addMufflerHatch("Any Casing", 1)
+                .toolTipFinisher(CORE.GT_Tooltip_Builder);
         return tt;
     }
 
@@ -85,26 +93,33 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
     public IStructureDefinition<GregtechMetaTileEntity_IndustrialVacuumFreezer> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialVacuumFreezer>builder()
-                    .addShape(
-                            mName,
-                            transpose(
-                                    new String[][] { { "CCC", "CCC", "CCC" }, { "C~C", "C-C", "CCC" },
-                                            { "CCC", "CCC", "CCC" }, }))
+                    .addShape(mName, transpose(new String[][] {
+                        {"CCC", "CCC", "CCC"},
+                        {"C~C", "C-C", "CCC"},
+                        {"CCC", "CCC", "CCC"},
+                    }))
                     .addElement(
                             'C',
                             ofChain(
                                     buildHatchAdder(GregtechMetaTileEntity_IndustrialVacuumFreezer.class)
                                             .adder(GregtechMetaTileEntity_IndustrialVacuumFreezer::addCryotheumHatch)
-                                            .hatchId(967).shouldReject(t -> !t.mCryotheumHatches.isEmpty())
-                                            .casingIndex(CASING_TEXTURE_ID).dot(1).build(),
-                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialVacuumFreezer.class).atLeast(
-                                            InputBus,
-                                            OutputBus,
-                                            Maintenance,
-                                            Energy,
-                                            Muffler,
-                                            InputHatch,
-                                            OutputHatch).casingIndex(CASING_TEXTURE_ID).dot(1).build(),
+                                            .hatchId(967)
+                                            .shouldReject(t -> !t.mCryotheumHatches.isEmpty())
+                                            .casingIndex(CASING_TEXTURE_ID)
+                                            .dot(1)
+                                            .build(),
+                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialVacuumFreezer.class)
+                                            .atLeast(
+                                                    InputBus,
+                                                    OutputBus,
+                                                    Maintenance,
+                                                    Energy,
+                                                    Muffler,
+                                                    InputHatch,
+                                                    OutputHatch)
+                                            .casingIndex(CASING_TEXTURE_ID)
+                                            .dot(1)
+                                            .build(),
                                     onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 10))))
                     .build();
         }
@@ -211,10 +226,11 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
 
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        /*
-         * if (this.getBaseMetaTileEntity().isActive()) { if (!this.depleteInput(mFuelStack.copy())) {
-         * this.getBaseMetaTileEntity().setActive(false); } }
-         */
+        /*if (this.getBaseMetaTileEntity().isActive()) {
+        	if (!this.depleteInput(mFuelStack.copy())) {
+        		this.getBaseMetaTileEntity().setActive(false);
+        	}
+        }	*/
         super.onPostTick(aBaseMetaTileEntity, aTick);
 
         if (this.mStartUpCheck < 0) {
