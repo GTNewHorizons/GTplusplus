@@ -65,9 +65,10 @@ public class BaseItemHotFood extends BaseItemFood {
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         if ((this.materialName != null) && (this.materialName != "") && !this.materialName.equals("")) {
             list.add(StatCollector.translateToLocal("item.itemBaseItemHotFood.tooltip.0"));
-            list.add(EnumChatFormatting.GRAY
-                    + StatCollector.translateToLocalFormatted(
-                            "item.itemBaseItemHotFood.tooltip.1", (this.cooldownTime - stack.getItemDamage()) / 20));
+            list.add(
+                    EnumChatFormatting.GRAY + StatCollector.translateToLocalFormatted(
+                            "item.itemBaseItemHotFood.tooltip.1",
+                            (this.cooldownTime - stack.getItemDamage()) / 20));
         }
         super.addInformation(stack, aPlayer, list, bool);
     }

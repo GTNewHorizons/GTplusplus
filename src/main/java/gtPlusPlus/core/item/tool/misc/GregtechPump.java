@@ -21,6 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
@@ -110,13 +111,9 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
                 aPumpName, // Name
                 aEuMax, // Eu Storage
                 (short) aTier, // Tier/ Tooltip
-                aTier <= 0
-                        ? EnumRarity.common
-                        : aTier == 1
-                                ? EnumRarity.uncommon
-                                : aTier == 2
-                                        ? EnumRarity.rare
-                                        : aTier == 3 ? EnumRarity.epic : EnumRarity.common, // Rarity
+                aTier <= 0 ? EnumRarity.common
+                        : aTier == 1 ? EnumRarity.uncommon
+                                : aTier == 2 ? EnumRarity.rare : aTier == 3 ? EnumRarity.epic : EnumRarity.common, // Rarity
                 false // Effect?
         );
     }
@@ -145,19 +142,14 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
         this.registerItem(id, localizedName, euStorage, (short) tier, EnumRarity.common, false);
     }
 
-    public void registerItem(
-            final int id, final String localizedName, final long euStorage, final int tier, final int burnTime) {
+    public void registerItem(final int id, final String localizedName, final long euStorage, final int tier,
+            final int burnTime) {
         this.registerItem(id, localizedName, euStorage, (short) tier, EnumRarity.common, false);
         this.setBurnValue(id, burnTime);
     }
 
-    public void registerItem(
-            final int id,
-            final String localizedName,
-            final long euStorage,
-            final short tier,
-            final EnumRarity regRarity,
-            final boolean Effect) {
+    public void registerItem(final int id, final String localizedName, final long euStorage, final short tier,
+            final EnumRarity regRarity, final boolean Effect) {
         this.addItem(
                 id,
                 localizedName,
@@ -193,45 +185,48 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
     public void addInformation(final ItemStack aStack, final EntityPlayer aPlayer, List aList, final boolean aF3_H) {
         // aList.add("Meta: "+(aStack.getItemDamage()-mOffset));
         int aOffsetMeta = getCorrectMetaForItemstack(aStack);
-        aList.add(GT_LanguageManager.getTranslation(
-                "gtplusplus." + this.getUnlocalizedName(aStack) + "." + aOffsetMeta + ".tooltip"));
+        aList.add(
+                GT_LanguageManager.getTranslation(
+                        "gtplusplus." + this.getUnlocalizedName(aStack) + "." + aOffsetMeta + ".tooltip"));
 
         if (aOffsetMeta <= 3) {
             FluidStack f = getFluid(aStack);
             aList.add(StatCollector.translateToLocal("item.itemGregtechPump.tooltip.0"));
             aList.add(StatCollector.translateToLocal("item.itemGregtechPump.tooltip.1"));
             aList.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.itemGregtechPump.tooltip.2"));
-            aList.add(EnumChatFormatting.BLUE
-                    + (f != null
-                            ? f.getLocalizedName()
+            aList.add(
+                    EnumChatFormatting.BLUE + (f != null ? f.getLocalizedName()
                             : StatCollector.translateToLocal("item.itemGregtechPump.tooltip.3")));
-            aList.add(EnumChatFormatting.BLUE + (f != null ? "" + f.amount : "" + 0) + "L" + " / " + getCapacity(aStack)
-                    + "L");
+            aList.add(
+                    EnumChatFormatting.BLUE + (f != null ? "" + f.amount : "" + 0)
+                            + "L"
+                            + " / "
+                            + getCapacity(aStack)
+                            + "L");
         }
 
         final Long[] tStats = this.getElectricStats(aStack);
         if (tStats != null) {
             if (tStats[3] > 0) {
-                aList.add(EnumChatFormatting.AQUA
-                        + StatCollector.translateToLocalFormatted(
+                aList.add(
+                        EnumChatFormatting.AQUA + StatCollector.translateToLocalFormatted(
                                 "item.itemBaseEuItem.tooltip.1",
                                 GT_Utility.formatNumbers(tStats[3]),
-                                (tStats[2] >= 0 ? tStats[2] : 0))
-                        + EnumChatFormatting.GRAY);
+                                (tStats[2] >= 0 ? tStats[2] : 0)) + EnumChatFormatting.GRAY);
             } else {
                 final long tCharge = this.getRealCharge(aStack);
                 if ((tStats[3] == -2) && (tCharge <= 0)) {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.2")
-                            + EnumChatFormatting.GRAY);
+                    aList.add(
+                            EnumChatFormatting.AQUA + StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.2")
+                                    + EnumChatFormatting.GRAY);
                 } else {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocalFormatted(
+                    aList.add(
+                            EnumChatFormatting.AQUA + StatCollector.translateToLocalFormatted(
                                     "item.itemBaseEuItem.tooltip.3",
                                     GT_Utility.formatNumbers(tCharge),
                                     GT_Utility.formatNumbers(Math.abs(tStats[0])) + " EU - Voltage: ",
                                     V[(int) (tStats[2] >= 0 ? tStats[2] < V.length ? tStats[2] : V.length - 1 : 1)])
-                            + EnumChatFormatting.GRAY);
+                                    + EnumChatFormatting.GRAY);
                 }
             }
         }
@@ -634,9 +629,11 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             this.mEnabledItems.set(aID);
             this.mVisibleItems.set(aID);
             GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".name", aEnglish);
+                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".name",
+                    aEnglish);
             GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".tooltip", aToolTip);
+                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".tooltip",
+                    aToolTip);
             final List<TC_AspectStack> tAspects = new ArrayList<>();
             // Important Stuff to do first
             for (final Object tRandomData : aRandomData) {
@@ -698,8 +695,8 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
         if (keyValue < 0 || keyValue > 3) {
             keyValue = 0;
         }
-        return GT_LanguageManager.getTranslation(
-                "gtplusplus." + this.getUnlocalizedName(aStack) + "." + keyValue + ".name");
+        return GT_LanguageManager
+                .getTranslation("gtplusplus." + this.getUnlocalizedName(aStack) + "." + keyValue + ".name");
     }
 
     /**

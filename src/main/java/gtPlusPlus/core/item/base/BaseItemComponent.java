@@ -403,6 +403,7 @@ public class BaseItemComponent extends Item {
     }
 
     public static enum ComponentTypes {
+
         DUST("Dust", "@ Dust", "dust", OrePrefixes.dust),
         DUSTSMALL("DustSmall", "Small Pile of @ Dust", "dustSmall", OrePrefixes.dustSmall),
         DUSTTINY("DustTiny", "Tiny Pile of @ Dust", "dustTiny", OrePrefixes.dustTiny),
@@ -426,8 +427,7 @@ public class BaseItemComponent extends Item {
         SPRING("Spring", "@ Spring", "spring", OrePrefixes.spring),
         SMALLSPRING("SmallSpring", "Small @ Spring", "springSmall", OrePrefixes.springSmall),
         FINEWIRE("FineWire", "Fine @ Wire", "wireFine", OrePrefixes.wireFine),
-        PLATEDENSE("PlateDense", "Dense @ Plate", "plateDense", OrePrefixes.plateDense),
-        ;
+        PLATEDENSE("PlateDense", "Dense @ Plate", "plateDense", OrePrefixes.plateDense),;
 
         private String COMPONENT_NAME;
         private String DISPLAY_NAME;

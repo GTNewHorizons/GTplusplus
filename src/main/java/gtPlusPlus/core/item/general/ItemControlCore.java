@@ -65,16 +65,17 @@ public class ItemControlCore extends Item {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        list.add(EnumChatFormatting.GRAY
-                + StatCollector.translateToLocalFormatted(
-                        "item.itemControlCore.tooltip.0", GT_Values.VN[stack.getItemDamage()]));
+        list.add(
+                EnumChatFormatting.GRAY + StatCollector.translateToLocalFormatted(
+                        "item.itemControlCore.tooltip.0",
+                        GT_Values.VN[stack.getItemDamage()]));
         list.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("item.itemControlCore.tooltip.1"));
         list.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("item.itemControlCore.tooltip.2"));
     }
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        return StatCollector.translateToLocalFormatted(
-                "item.itemControlCore.name", GT_Values.VN[tItem.getItemDamage()]);
+        return StatCollector
+                .translateToLocalFormatted("item.itemControlCore.name", GT_Values.VN[tItem.getItemDamage()]);
     }
 }

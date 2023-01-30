@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
@@ -47,7 +48,8 @@ public class BaseItemMisc extends Item {
         if (description != null) {
             for (int i = 0; i < description.length; i++) {
                 GT_LanguageManager.addStringLocalization(
-                        "gtplusplus." + this.getUnlocalizedName() + ".tooltip." + i, description[i]);
+                        "gtplusplus." + this.getUnlocalizedName() + ".tooltip." + i,
+                        description[i]);
             }
         }
         GameRegistry.registerItem(this, this.unlocalName);
@@ -90,11 +92,11 @@ public class BaseItemMisc extends Item {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public final void addInformation(
-            final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        for (int i = 0; ; i++) {
-            String tooltip =
-                    GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
+    public final void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list,
+            final boolean bool) {
+        for (int i = 0;; i++) {
+            String tooltip = GT_LanguageManager
+                    .getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
             if (!("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i).equals(tooltip)) {
                 list.add(tooltip);
             } else break;

@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_LanguageManager;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -212,9 +213,9 @@ public class CoreItem extends Item {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        for (int i = 0; ; i++) {
-            String tooltip =
-                    GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
+        for (int i = 0;; i++) {
+            String tooltip = GT_LanguageManager
+                    .getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
             if (!("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i).equals(tooltip)) {
                 list.add(tooltip);
             } else break;
@@ -275,14 +276,12 @@ public class CoreItem extends Item {
     public void setItemDescription(String[] description) {
         for (int i = 0; i < description.length; i++) {
             GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i, description[i]);
+                    "gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i,
+                    description[i]);
         }
     }
-    /*	@Override
-    public String getItemStackDisplayName(final ItemStack tItem) {
-    	if ((this.itemName == null) || this.itemName.equals("")) {
-    		return super.getItemStackDisplayName(tItem);
-    	}
-    	return this.itemName;
-    }*/
+    /*
+     * @Override public String getItemStackDisplayName(final ItemStack tItem) { if ((this.itemName == null) ||
+     * this.itemName.equals("")) { return super.getItemStackDisplayName(tItem); } return this.itemName; }
+     */
 }

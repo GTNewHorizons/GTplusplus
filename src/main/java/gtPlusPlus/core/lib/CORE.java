@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.config.Configuration;
@@ -71,8 +71,8 @@ public class CORE {
     // Tooltips;
     public static final String GT_Tooltip = StatCollector.translateToLocal("GTPP.core.GT_Tooltip");
     public static final String GT_Tooltip_Builder = StatCollector.translateToLocal("GTPP.core.GT_Tooltip_Builder");
-    public static final String GT_Tooltip_Radioactive =
-            StatCollector.translateToLocal("GTPP.core.GT_Tooltip_Radioactive");
+    public static final String GT_Tooltip_Radioactive = StatCollector
+            .translateToLocal("GTPP.core.GT_Tooltip_Radioactive");
     public static final String noItem = "";
 
     // Because I want to be lazy Gregtech New Horizons Var.

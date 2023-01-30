@@ -242,8 +242,8 @@ public class ItemCustomSpawnEgg extends ItemMonsterPlacer {
     public String getItemStackDisplayName(ItemStack par1ItemStack) {
         return StatCollector.translateToLocalFormatted(
                 "item.ItemCustomSpawnEgg.name",
-                StatCollector.translateToLocal(
-                        "entity." + mEntityNameMap.get(par1ItemStack.getItemDamage()) + ".name"));
+                StatCollector
+                        .translateToLocal("entity." + mEntityNameMap.get(par1ItemStack.getItemDamage()) + ".name"));
     }
 
     @Override

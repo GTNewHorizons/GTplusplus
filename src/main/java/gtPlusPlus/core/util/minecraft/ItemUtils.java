@@ -429,8 +429,8 @@ public class ItemUtils {
         return generateSpecialUseDusts(unlocalizedName, materialName, "NullFormula", Colour);
     }
 
-    public static Item[] generateSpecialUseDusts(
-            final String unlocalizedName, final String materialName, String mChemForm, final int Colour) {
+    public static Item[] generateSpecialUseDusts(final String unlocalizedName, final String materialName,
+            String mChemForm, final int Colour) {
         GT_LanguageManager.addStringLocalization("gtplusplus.material." + materialName, materialName);
         final Item[] output = {
                 new BaseItemDustUnique("itemDust" + unlocalizedName, materialName, mChemForm, Colour, "Dust"),
@@ -548,8 +548,8 @@ public class ItemUtils {
         return generateSpecialUseDusts(material, onlyLargeDust, false);
     }
 
-    public static Item[] generateSpecialUseDusts(
-            final Material material, final boolean onlyLargeDust, final boolean disableExtraRecipes) {
+    public static Item[] generateSpecialUseDusts(final Material material, final boolean onlyLargeDust,
+            final boolean disableExtraRecipes) {
         final String materialName = material.getUnlocalizedName();
         final String unlocalizedName = Utils.sanitizeString(materialName);
         final int Colour = material.getRgbAsHex();

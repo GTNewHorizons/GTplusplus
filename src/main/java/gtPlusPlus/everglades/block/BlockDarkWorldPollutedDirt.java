@@ -1,5 +1,9 @@
 package gtPlusPlus.everglades.block;
 
+import net.minecraft.block.BlockDirt;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.interfaces.ITileTooltip;

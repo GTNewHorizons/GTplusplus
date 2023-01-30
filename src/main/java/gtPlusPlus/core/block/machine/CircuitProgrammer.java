@@ -11,7 +11,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.minecraft.CubicObject;

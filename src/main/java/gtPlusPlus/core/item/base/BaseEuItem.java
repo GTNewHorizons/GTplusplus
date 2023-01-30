@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -138,26 +139,25 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         final Long[] tStats = this.getElectricStats(aStack);
         if (tStats != null) {
             if (tStats[3] > 0) {
-                aList.add(EnumChatFormatting.AQUA
-                        + StatCollector.translateToLocalFormatted(
+                aList.add(
+                        EnumChatFormatting.AQUA + StatCollector.translateToLocalFormatted(
                                 "item.itemBaseEuItem.tooltip.1",
                                 GT_Utility.formatNumbers(tStats[3]),
-                                (tStats[2] >= 0 ? tStats[2] : 0))
-                        + EnumChatFormatting.GRAY);
+                                (tStats[2] >= 0 ? tStats[2] : 0)) + EnumChatFormatting.GRAY);
             } else {
                 final long tCharge = this.getRealCharge(aStack);
                 if ((tStats[3] == -2) && (tCharge <= 0)) {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.2")
-                            + EnumChatFormatting.GRAY);
+                    aList.add(
+                            EnumChatFormatting.AQUA + StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.2")
+                                    + EnumChatFormatting.GRAY);
                 } else {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocalFormatted(
+                    aList.add(
+                            EnumChatFormatting.AQUA + StatCollector.translateToLocalFormatted(
                                     "item.itemBaseEuItem.tooltip.3",
                                     GT_Utility.formatNumbers(tCharge),
                                     GT_Utility.formatNumbers(Math.abs(tStats[0])),
                                     V[(int) (tStats[2] >= 0 ? tStats[2] < V.length ? tStats[2] : V.length - 1 : 1)])
-                            + EnumChatFormatting.GRAY);
+                                    + EnumChatFormatting.GRAY);
                 }
             }
         }
@@ -554,9 +554,11 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
             this.mEnabledItems.set(aID);
             this.mVisibleItems.set(aID);
             GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".name", aEnglish);
+                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".name",
+                    aEnglish);
             GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".tooltip", aToolTip);
+                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".tooltip",
+                    aToolTip);
             final List<TC_AspectStack> tAspects = new ArrayList<>();
             // Important Stuff to do first
             for (final Object tRandomData : aRandomData) {
@@ -618,7 +620,7 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         if (keyValue < 0 || keyValue > 5) {
             keyValue = 0;
         }
-        return GT_LanguageManager.getTranslation(
-                "gtplusplus." + this.getUnlocalizedName(par1ItemStack) + "." + keyValue + ".name");
+        return GT_LanguageManager
+                .getTranslation("gtplusplus." + this.getUnlocalizedName(par1ItemStack) + "." + keyValue + ".name");
     }
 }

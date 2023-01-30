@@ -12,6 +12,7 @@ import net.minecraft.util.EnumChatFormatting;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_LanguageManager;
 import gtPlusPlus.core.lib.CORE;
 
 public class BaseItemColourable extends Item {
@@ -71,8 +72,9 @@ public class BaseItemColourable extends Item {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        list.add(this.descColour
-                + GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip"));
+        list.add(
+                this.descColour
+                        + GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip"));
         // super.addInformation(stack, aPlayer, list, bool);
     }
 

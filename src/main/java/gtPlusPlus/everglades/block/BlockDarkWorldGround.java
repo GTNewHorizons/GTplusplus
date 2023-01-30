@@ -1,5 +1,7 @@
 package gtPlusPlus.everglades.block;
 
+import net.minecraft.block.BlockGrass;
+
 import gtPlusPlus.api.interfaces.ITileTooltip;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 

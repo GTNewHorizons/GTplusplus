@@ -21,7 +21,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import com.google.common.collect.Maps;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.random.XSTR;

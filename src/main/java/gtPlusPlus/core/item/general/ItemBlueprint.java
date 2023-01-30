@@ -55,14 +55,16 @@ public class ItemBlueprint extends Item implements IItemBlueprint {
         // Write to tooltip list for each viable setting.
         if (itemStack.hasTagCompound()) {
             if (id != -1) {
-                list.add(EnumChatFormatting.GRAY
-                        + StatCollector.translateToLocalFormatted(
-                                StatCollector.translateToLocal("item.itemBlueprint.tooltip.0"), id));
+                list.add(
+                        EnumChatFormatting.GRAY + StatCollector.translateToLocalFormatted(
+                                StatCollector.translateToLocal("item.itemBlueprint.tooltip.0"),
+                                id));
             }
             if (blueprint) {
-                list.add(EnumChatFormatting.BLUE
-                        + StatCollector.translateToLocalFormatted(
-                                StatCollector.translateToLocal("item.itemBlueprint.tooltip.1"), name));
+                list.add(
+                        EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted(
+                                StatCollector.translateToLocal("item.itemBlueprint.tooltip.1"),
+                                name));
             } else {
                 list.add(EnumChatFormatting.RED + StatCollector.translateToLocal("item.itemBlueprint.tooltip.2"));
             }

@@ -48,8 +48,8 @@ public class ItemGemShards extends BaseItemColourable {
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        return StatCollector.translateToLocal(
-                getUnlocalizedNameInefficiently(tItem) + "." + tItem.getItemDamage() + ".name");
+        return StatCollector
+                .translateToLocal(getUnlocalizedNameInefficiently(tItem) + "." + tItem.getItemDamage() + ".name");
     }
 
     @Override

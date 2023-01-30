@@ -9,8 +9,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import cofh.api.energy.ItemEnergyContainer;
@@ -141,19 +141,27 @@ public class RF2EU_Battery extends ItemEnergyContainer implements IElectricItem,
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         list.add(StatCollector.translateToLocal("item.rfEUBattery.tooltip.0"));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.rfEUBattery.tooltip.1", this.getTier(this.thisStack), (long) this.getCharge(stack)));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.rfEUBattery.tooltip.2", this.getTransferLimit(this.thisStack), (this.getBurnTime(stack) / 20)));
+        list.add(
+                StatCollector.translateToLocalFormatted(
+                        "item.rfEUBattery.tooltip.1",
+                        this.getTier(this.thisStack),
+                        (long) this.getCharge(stack)));
+        list.add(
+                StatCollector.translateToLocalFormatted(
+                        "item.rfEUBattery.tooltip.2",
+                        this.getTransferLimit(this.thisStack),
+                        (this.getBurnTime(stack) / 20)));
         list.add("");
         list.add(StatCollector.translateToLocal("item.rfEUBattery.tooltip.3"));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.rfEUBattery.tooltip.4", this.maxExtract, this.maxReceive));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.rfEUBattery.tooltip.5",
-                this.getEnergyStored(stack),
-                this.getMaxEnergyStored(stack),
-                MathUtils.findPercentage(this.getEnergyStored(stack), this.getMaxEnergyStored(stack))));
+        list.add(
+                StatCollector
+                        .translateToLocalFormatted("item.rfEUBattery.tooltip.4", this.maxExtract, this.maxReceive));
+        list.add(
+                StatCollector.translateToLocalFormatted(
+                        "item.rfEUBattery.tooltip.5",
+                        this.getEnergyStored(stack),
+                        this.getMaxEnergyStored(stack),
+                        MathUtils.findPercentage(this.getEnergyStored(stack), this.getMaxEnergyStored(stack))));
         super.addInformation(stack, aPlayer, list, bool);
     }
 

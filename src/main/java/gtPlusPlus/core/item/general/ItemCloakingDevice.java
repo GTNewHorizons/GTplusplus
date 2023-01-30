@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import baubles.api.BaubleType;
@@ -130,16 +130,19 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
         list.add(StatCollector.translateToLocal("item.personalCloakingDevice.tooltip.1"));
         list.add("");
         list.add(StatCollector.translateToLocal("item.personalCloakingDevice.tooltip.2"));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.personalCloakingDevice.tooltip.3",
-                this.getTier(this.thisStack),
-                this.getTransferLimit(this.thisStack)));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.personalCloakingDevice.tooltip.4",
-                (long) this.getCharge(stack),
-                MathUtils.findPercentage(this.getCharge(stack), this.getMaxCharge(stack))));
-        list.add(StatCollector.translateToLocalFormatted(
-                "item.personalCloakingDevice.tooltip.5", this.secondsLeft(stack)));
+        list.add(
+                StatCollector.translateToLocalFormatted(
+                        "item.personalCloakingDevice.tooltip.3",
+                        this.getTier(this.thisStack),
+                        this.getTransferLimit(this.thisStack)));
+        list.add(
+                StatCollector.translateToLocalFormatted(
+                        "item.personalCloakingDevice.tooltip.4",
+                        (long) this.getCharge(stack),
+                        MathUtils.findPercentage(this.getCharge(stack), this.getMaxCharge(stack))));
+        list.add(
+                StatCollector
+                        .translateToLocalFormatted("item.personalCloakingDevice.tooltip.5", this.secondsLeft(stack)));
         super.addInformation(stack, aPlayer, list, bool);
     }
 

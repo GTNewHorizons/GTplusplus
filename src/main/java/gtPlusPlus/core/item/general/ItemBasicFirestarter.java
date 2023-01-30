@@ -3,6 +3,7 @@ package gtPlusPlus.core.item.general;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import gtPlusPlus.core.block.general.FirePit;
@@ -53,7 +54,8 @@ public class ItemBasicFirestarter extends CoreItem {
             // Explode, lol.
             if (random == 0) {
                 PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.1"));
+                        thisPlayer,
+                        StatCollector.translateToLocal("item.itemSimpleFiremaker.message.1"));
                 thisWorld.playSoundEffect(
                         thisPlayer.posX + 0.5D,
                         thisPlayer.posY + 0.5D,
@@ -68,7 +70,8 @@ public class ItemBasicFirestarter extends CoreItem {
             // Create a fire
             else if (random == 2) {
                 PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.2"));
+                        thisPlayer,
+                        StatCollector.translateToLocal("item.itemSimpleFiremaker.message.2"));
                 thisWorld.playSoundEffect(
                         blockX + 0.5D,
                         blockY + 0.5D,
@@ -82,7 +85,8 @@ public class ItemBasicFirestarter extends CoreItem {
             // Do nothing
             else {
                 PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.3"));
+                        thisPlayer,
+                        StatCollector.translateToLocal("item.itemSimpleFiremaker.message.3"));
                 thisItem.damageItem(1, thisPlayer);
                 return false;
             }

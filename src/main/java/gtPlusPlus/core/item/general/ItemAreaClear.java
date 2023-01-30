@@ -67,8 +67,10 @@ public class ItemAreaClear extends CoreItem {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-        list.add(EnumChatFormatting.GRAY + ""
-                + StatCollector.translateToLocal("item.itemDebugClearing." + stack.getItemDamage() + ".tooltip"));
+        list.add(
+                EnumChatFormatting.GRAY + ""
+                        + StatCollector
+                                .translateToLocal("item.itemDebugClearing." + stack.getItemDamage() + ".tooltip"));
         super.addInformation(stack, player, list, bool);
     }
 

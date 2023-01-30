@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
@@ -33,8 +34,8 @@ public class BaseItemTCShard extends Item {
         this.setUnlocalizedName(this.unlocalName);
         if (Description != null) {
             for (int i = 0; i < Description.length; i++) {
-                GT_LanguageManager.addStringLocalization(
-                        "gtplusplus." + getUnlocalizedName() + ".tooltip." + i, Description[i]);
+                GT_LanguageManager
+                        .addStringLocalization("gtplusplus." + getUnlocalizedName() + ".tooltip." + i, Description[i]);
             }
         }
         this.setMaxStackSize(64);
@@ -44,12 +45,12 @@ public class BaseItemTCShard extends Item {
         GT_OreDictUnificator.registerOre("gemInfused" + DisplayName, ItemUtils.getSimpleStack(this));
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        for (int i = 0; ; i++) {
-            String tooltip =
-                    GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
+        for (int i = 0;; i++) {
+            String tooltip = GT_LanguageManager
+                    .getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
             if (!("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i).equals(tooltip)) {
                 list.add(tooltip);
             } else break;
