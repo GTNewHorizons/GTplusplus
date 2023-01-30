@@ -1,13 +1,8 @@
 package gtPlusPlus.core.item.general;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.util.GT_LanguageManager;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.CoreItem;
-import gtPlusPlus.core.lib.CORE;
 import java.util.HashMap;
 import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +11,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.CoreItem;
+import gtPlusPlus.core.lib.CORE;
 
 public class ItemGenericToken extends CoreItem {
 
@@ -28,7 +29,7 @@ public class ItemGenericToken extends CoreItem {
     private final String mTextureDir;
 
     public ItemGenericToken() {
-        this("itemGenericToken", "Token", new String[] {"Can be reclaimed in some way, shape or form"}, "token");
+        this("itemGenericToken", "Token", new String[] { "Can be reclaimed in some way, shape or form" }, "token");
     }
 
     public ItemGenericToken(String aUnlocalName, String aInternalName, String[] aBaseTooltip, String aTextureDir) {
@@ -53,19 +54,14 @@ public class ItemGenericToken extends CoreItem {
     }
 
     public boolean register(int id, String aLocalName, int aMaxStack, String aDescript) {
-        return register(id, aLocalName, aMaxStack, new String[] {aDescript});
+        return register(id, aLocalName, aMaxStack, new String[] { aDescript });
     }
 
     public boolean register(int id, String aLocalName, int aMaxStack, String[] aDescript) {
         return register(id, aLocalName, aMaxStack, aDescript, EnumRarity.common, EnumChatFormatting.RESET);
     }
 
-    public boolean register(
-            int id,
-            String aLocalName,
-            int aMaxStack,
-            String[] aDescript,
-            EnumRarity aRarity,
+    public boolean register(int id, String aLocalName, int aMaxStack, String[] aDescript, EnumRarity aRarity,
             EnumChatFormatting aCustomNameColour) {
         int[][] sizes = new int[2][6];
         sizes[0][0] = mLocalNames.size();
@@ -75,14 +71,8 @@ public class ItemGenericToken extends CoreItem {
         sizes[0][4] = mCustomNameColours.size();
         // sizes[0][5] = mIcons.size();
         mLocalNames.put(id, aLocalName);
-        GT_LanguageManager.addStringLocalization(
-                "gtplusplus." + this.getUnlocalizedName() + "." + id + ".name", aLocalName);
         mMaxStackSizes.put(id, aMaxStack);
         mDescriptionArrays.put(id, aDescript);
-        for (int i = 0; i < aDescript.length; i++) {
-            GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName() + "." + id + ".tooltip." + i, aDescript[0]);
-        }
         mRarities.put(id, aRarity);
         mCustomNameColours.put(id, aCustomNameColour);
         sizes[1][0] = mLocalNames.size();
@@ -91,8 +81,7 @@ public class ItemGenericToken extends CoreItem {
         sizes[1][3] = mRarities.size();
         sizes[1][4] = mCustomNameColours.size();
         // sizes[1][5] = mIcons.size();
-        boolean b = sizes[0][0] > sizes[1][0]
-                && sizes[0][1] > sizes[1][1]
+        boolean b = sizes[0][0] > sizes[1][0] && sizes[0][1] > sizes[1][1]
                 && sizes[0][2] > sizes[1][2]
                 && sizes[0][3] > sizes[1][3]
                 && sizes[0][4] > sizes[1][4];
@@ -100,7 +89,7 @@ public class ItemGenericToken extends CoreItem {
     }
 
     // Handle Sub items
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(final Item var1, final CreativeTabs aCreativeTab, final List aList) {
@@ -113,21 +102,22 @@ public class ItemGenericToken extends CoreItem {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer aPlayer, List list, boolean bool) {
         super.addInformation(stack, aPlayer, list, bool);
-        for (int i = 0; ; i++) {
-            String tooltip = GT_LanguageManager.getTranslation("gtplusplus."
-                    + this.getUnlocalizedNameInefficiently(stack) + "." + stack.getItemDamage() + ".tooltip." + i);
-            if (!("gtplusplus." + this.getUnlocalizedNameInefficiently(stack) + "." + stack.getItemDamage()
-                            + ".tooltip." + i)
-                    .equals(tooltip)) {
-                list.add(tooltip);
-            } else break;
+        for (String s : mDescriptionArrays.get(stack.getItemDamage())) {
+            list.add(s);
         }
     }
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        return GT_LanguageManager.getTranslation(
-                "gtplusplus." + this.getUnlocalizedNameInefficiently(tItem) + "." + tItem.getItemDamage() + ".name");
+
+        String s = "" + mCustomNameColours.get(tItem.getItemDamage());
+        String parent = super.getItemStackDisplayName(tItem);
+        if (mLocalNames.get(tItem.getItemDamage()).length() > 0 && parent.toLowerCase().contains(".name")) {
+            s = s + mLocalNames.get(tItem.getItemDamage());
+        } else {
+            s = s + parent;
+        }
+        return s;
     }
 
     @Override

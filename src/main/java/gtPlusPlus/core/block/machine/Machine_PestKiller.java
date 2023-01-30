@@ -1,16 +1,5 @@
 package gtPlusPlus.core.block.machine;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.handler.GuiHandler;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
-import gtPlusPlus.core.util.minecraft.InventoryUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -24,7 +13,21 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.handler.GuiHandler;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
+import gtPlusPlus.core.util.minecraft.InventoryUtils;
+
 public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
+
     @SideOnly(Side.CLIENT)
     private IIcon textureTop;
 
@@ -52,6 +55,7 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
         this.setResistance(1f);
         this.setCreativeTab(AddToCreativeTab.tabMachines);
         GameRegistry.registerBlock(this, ItemBlockBasicTile.class, "blockPestKiller");
+        LanguageRegistry.addName(this, "Pest Killer");
     }
 
     /**
@@ -66,28 +70,20 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister p_149651_1_) {
-        this.blockIcon =
-                p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "MACHINE_CASING_FARM_MANAGER_STRUCTURAL");
+        this.blockIcon = p_149651_1_
+                .registerIcon(CORE.MODID + ":" + "TileEntities/" + "MACHINE_CASING_FARM_MANAGER_STRUCTURAL");
         this.textureTop = p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "MACHINE_PESTKILLER_TOP");
         this.textureBottom = p_149651_1_.registerIcon("planks_acacia");
-        this.textureFront =
-                p_149651_1_.registerIcon(CORE.MODID + ":" + "TileEntities/" + "MACHINE_CASING_FARM_MANAGER_STRUCTURAL");
+        this.textureFront = p_149651_1_
+                .registerIcon(CORE.MODID + ":" + "TileEntities/" + "MACHINE_CASING_FARM_MANAGER_STRUCTURAL");
     }
 
     /**
      * Called upon block activation (right click on the block.)
      */
     @Override
-    public boolean onBlockActivated(
-            final World world,
-            final int x,
-            final int y,
-            final int z,
-            final EntityPlayer player,
-            final int side,
-            final float lx,
-            final float ly,
-            final float lz) {
+    public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player,
+            final int side, final float lx, final float ly, final float lz) {
         if (world.isRemote) {
             return true;
         }
@@ -121,19 +117,14 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
     }
 
     @Override
-    public void breakBlock(
-            final World world, final int x, final int y, final int z, final Block block, final int number) {
+    public void breakBlock(final World world, final int x, final int y, final int z, final Block block,
+            final int number) {
         InventoryUtils.dropInventoryItems(world, x, y, z, block);
         super.breakBlock(world, x, y, z, block, number);
     }
 
     @Override
-    public void onBlockPlacedBy(
-            final World world,
-            final int x,
-            final int y,
-            final int z,
-            final EntityLivingBase entity,
+    public void onBlockPlacedBy(final World world, final int x, final int y, final int z, final EntityLivingBase entity,
             final ItemStack stack) {
         if (stack.hasDisplayName()) {
             ((TileEntityPestKiller) world.getTileEntity(x, y, z)).setCustomName(stack.getDisplayName());
@@ -141,8 +132,8 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
     }
 
     @Override
-    public boolean canCreatureSpawn(
-            final EnumCreatureType type, final IBlockAccess world, final int x, final int y, final int z) {
+    public boolean canCreatureSpawn(final EnumCreatureType type, final IBlockAccess world, final int x, final int y,
+            final int z) {
         return false;
     }
 }

@@ -1,11 +1,7 @@
 package gtPlusPlus.core.item.base;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.util.GT_LanguageManager;
-import gtPlusPlus.core.lib.CORE;
 import java.util.List;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -13,10 +9,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.lib.CORE;
+
 public class BaseItemColourable extends Item {
 
     private final EnumRarity rarity;
     private final EnumChatFormatting descColour;
+    private final String itemDescription;
+    protected String itemName;
     private final boolean hasEffect;
     public final int componentColour;
 
@@ -29,16 +32,9 @@ public class BaseItemColourable extends Item {
     /*
      * Name, Tab, Stack, Dmg, Description, Rarity, Text Colour, Effect
      */
-    public BaseItemColourable(
-            final String unlocalizedName,
-            final CreativeTabs creativeTab,
-            final int stackSize,
-            final int maxDmg,
-            final String description,
-            final EnumRarity regRarity,
-            final EnumChatFormatting colour,
-            final boolean Effect,
-            int rgb) {
+    public BaseItemColourable(final String unlocalizedName, final CreativeTabs creativeTab, final int stackSize,
+            final int maxDmg, final String description, final EnumRarity regRarity, final EnumChatFormatting colour,
+            final boolean Effect, int rgb) {
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(CORE.MODID + ":" + unlocalizedName);
         this.setCreativeTab(creativeTab);
@@ -46,7 +42,7 @@ public class BaseItemColourable extends Item {
         this.setMaxDamage(maxDmg);
         this.setHasSubtypes(true);
         this.rarity = regRarity;
-        GT_LanguageManager.addStringLocalization("gtplusplus." + this.getUnlocalizedName() + ".tooltip", description);
+        this.itemDescription = description;
         this.descColour = colour;
         this.hasEffect = Effect;
         this.componentColour = rgb;
@@ -57,36 +53,27 @@ public class BaseItemColourable extends Item {
     /*
      * Name, Tab, Stack, Dmg, Description, Rarity, Text Colour, Effect
      */
-    public BaseItemColourable(
-            final String unlocalizedName,
-            final String displayName,
-            final CreativeTabs creativeTab,
-            final int stackSize,
-            final int maxDmg,
-            final String description,
-            final EnumRarity regRarity,
-            final EnumChatFormatting colour,
-            final boolean Effect,
-            int rgb) {
+    public BaseItemColourable(final String unlocalizedName, final String displayName, final CreativeTabs creativeTab,
+            final int stackSize, final int maxDmg, final String description, final EnumRarity regRarity,
+            final EnumChatFormatting colour, final boolean Effect, int rgb) {
         this.setUnlocalizedName(unlocalizedName);
-        GT_LanguageManager.addStringLocalization("gtplusplus." + this.getUnlocalizedName() + ".name", displayName);
+        this.itemName = displayName;
         this.setTextureName(CORE.MODID + ":" + unlocalizedName);
         this.setCreativeTab(creativeTab);
         this.setMaxStackSize(stackSize);
         this.setMaxDamage(maxDmg);
         this.rarity = regRarity;
-        GT_LanguageManager.addStringLocalization("gtplusplus." + this.getUnlocalizedName() + ".tooltip", description);
+        this.itemDescription = description;
         this.descColour = colour;
         this.hasEffect = Effect;
         this.componentColour = rgb;
         GameRegistry.registerItem(this, unlocalizedName);
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        list.add(this.descColour
-                + GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip"));
+        list.add(this.descColour + this.itemDescription);
         // super.addInformation(stack, aPlayer, list, bool);
     }
 
@@ -103,9 +90,9 @@ public class BaseItemColourable extends Item {
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        if (!("gtplusplus." + this.getUnlocalizedName() + ".name")
-                .equals(GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".name"))) {
-            return GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".name");
-        } else return super.getItemStackDisplayName(tItem);
+        if ((this.itemName == null) || this.itemName.equals("")) {
+            return super.getItemStackDisplayName(tItem);
+        }
+        return this.itemName;
     }
 }

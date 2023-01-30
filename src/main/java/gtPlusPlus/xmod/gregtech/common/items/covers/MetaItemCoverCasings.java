@@ -1,15 +1,15 @@
 package gtPlusPlus.xmod.gregtech.common.items.covers;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.StatCollector;
 
 public class MetaItemCoverCasings extends MetaCustomCoverItem {
 
@@ -41,12 +41,8 @@ public class MetaItemCoverCasings extends MetaCustomCoverItem {
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
         return EnumChatFormatting.LIGHT_PURPLE
-                + StatCollector.translateToLocalFormatted(
-                        "item.itemCustomMetaCover.miscutils.GtMachineCasings",
-                        GT_Values.VOLTAGE_NAMES[
-                                MathUtils.balance(
-                                        tItem.getItemDamage(),
-                                        0,
-                                        GT_Values.VOLTAGE_NAMES.length - 1)]); // super.getItemStackDisplayName(tItem);
+                + GT_Values.VOLTAGE_NAMES[MathUtils
+                        .balance(tItem.getItemDamage(), 0, GT_Values.VOLTAGE_NAMES.length - 1)]
+                + " Machine Plate Cover"; // super.getItemStackDisplayName(tItem);
     }
 }

@@ -2,6 +2,20 @@ package gtPlusPlus.core.item.base;
 
 import static gregtech.api.enums.GT_Values.*;
 
+import java.util.*;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,19 +31,6 @@ import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
 import ic2.api.item.*;
-import java.util.*;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.StatCollector;
 
 public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricItemManager {
 
@@ -55,10 +56,7 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         this("MU-metaitem.02", AddToCreativeTab.tabOther, (short) 1000, (short) 31766);
     }
 
-    public BaseEuItem(
-            final String unlocalizedName,
-            final CreativeTabs creativeTab,
-            final short aOffset,
+    public BaseEuItem(final String unlocalizedName, final CreativeTabs creativeTab, final short aOffset,
             final short aItemAmount) {
         this.mEnabledItems = new BitSet(aItemAmount);
         this.mVisibleItems = new BitSet(aItemAmount);
@@ -73,8 +71,8 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         GameRegistry.registerItem(this, unlocalizedName);
     }
 
-    public void registerItem(
-            final int id, final String localizedName, final long euStorage, final int tier, final String description) {
+    public void registerItem(final int id, final String localizedName, final long euStorage, final int tier,
+            final String description) {
         this.registerItem(
                 id,
                 localizedName,
@@ -86,13 +84,8 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
                 false);
     }
 
-    public void registerItem(
-            final int id,
-            final String localizedName,
-            final long euStorage,
-            final int tier,
-            final String description,
-            final int burnTime) {
+    public void registerItem(final int id, final String localizedName, final long euStorage, final int tier,
+            final String description, final int burnTime) {
         this.registerItem(
                 id,
                 localizedName,
@@ -105,18 +98,15 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         this.setBurnValue(id, burnTime);
     }
 
-    public void registerItem(
-            final int id,
-            final String localizedName,
-            final long euStorage,
-            final short tier,
-            final String description,
-            final EnumRarity regRarity,
-            final EnumChatFormatting colour,
+    public void registerItem(final int id, final String localizedName, final long euStorage, final short tier,
+            final String description, final EnumRarity regRarity, final EnumChatFormatting colour,
             final boolean Effect) {
-        this.addItem(id, localizedName, colour + description, new Object[] {});
+        this.addItem(id, localizedName, EnumChatFormatting.YELLOW + "Electric", new Object[] {});
         this.setElectricStats(this.mOffset + id, euStorage, GT_Values.V[tier], tier, -3L, true);
         this.rarity.add(new Pair<>(id, regRarity));
+        this.itemName.add(new Pair<>(id, localizedName));
+        this.itemDescription.add(new Pair<>(id, description));
+        this.descColour.add(new Pair<>(id, colour));
         this.hasEffect.add(new Pair<>(id, Effect));
     }
 
@@ -132,47 +122,50 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
     @Override
     public boolean hasEffect(final ItemStack par1ItemStack) {
         if (this.hasEffect.get(par1ItemStack.getItemDamage() - this.mOffset) != null) {
-            return this.hasEffect
-                    .get(par1ItemStack.getItemDamage() - this.mOffset)
-                    .getValue();
+            return this.hasEffect.get(par1ItemStack.getItemDamage() - this.mOffset).getValue();
         }
         return false;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void addInformation(final ItemStack aStack, final EntityPlayer aPlayer, List aList, final boolean aF3_H) {
         // aList.add("Meta: "+(aStack.getItemDamage()-mOffset));
-        int keyValue = aStack.getItemDamage() - this.mOffset;
-        final String tKey = "gtplusplus." + this.getUnlocalizedName(aStack) + "." + keyValue + ".tooltip",
+        if ((this.descColour.get(aStack.getItemDamage() - this.mOffset) != null)
+                && (this.itemDescription.get(aStack.getItemDamage() - this.mOffset) != null)) {
+            aList.add(
+                    this.descColour.get(aStack.getItemDamage() - this.mOffset).getValue()
+                            + this.itemDescription.get(aStack.getItemDamage() - this.mOffset).getValue());
+        }
+        final String tKey = this.getUnlocalizedName(aStack) + ".tooltip",
                 tString = GT_LanguageManager.getTranslation(tKey);
         if (GT_Utility.isStringValid(tString) && !tKey.equals(tString)) {
             aList.add(tString);
         }
-        aList.add(StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.0"));
         final Long[] tStats = this.getElectricStats(aStack);
         if (tStats != null) {
             if (tStats[3] > 0) {
-                aList.add(EnumChatFormatting.AQUA
-                        + StatCollector.translateToLocalFormatted(
-                                "item.itemBaseEuItem.tooltip.1",
-                                GT_Utility.formatNumbers(tStats[3]),
-                                (tStats[2] >= 0 ? tStats[2] : 0))
-                        + EnumChatFormatting.GRAY);
+                aList.add(
+                        EnumChatFormatting.AQUA + "Contains "
+                                + GT_Utility.formatNumbers(tStats[3])
+                                + " EU   Tier: "
+                                + (tStats[2] >= 0 ? tStats[2] : 0)
+                                + EnumChatFormatting.GRAY);
             } else {
                 final long tCharge = this.getRealCharge(aStack);
                 if ((tStats[3] == -2) && (tCharge <= 0)) {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocal("item.itemBaseEuItem.tooltip.2")
-                            + EnumChatFormatting.GRAY);
+                    aList.add(
+                            EnumChatFormatting.AQUA + "Empty. You should recycle it properly."
+                                    + EnumChatFormatting.GRAY);
                 } else {
-                    aList.add(EnumChatFormatting.AQUA
-                            + StatCollector.translateToLocalFormatted(
-                                    "item.itemBaseEuItem.tooltip.3",
-                                    GT_Utility.formatNumbers(tCharge),
-                                    GT_Utility.formatNumbers(Math.abs(tStats[0])),
-                                    V[(int) (tStats[2] >= 0 ? tStats[2] < V.length ? tStats[2] : V.length - 1 : 1)])
-                            + EnumChatFormatting.GRAY);
+                    aList.add(
+                            EnumChatFormatting.AQUA + ""
+                                    + GT_Utility.formatNumbers(tCharge)
+                                    + " / "
+                                    + GT_Utility.formatNumbers(Math.abs(tStats[0]))
+                                    + " EU - Voltage: "
+                                    + V[(int) (tStats[2] >= 0 ? tStats[2] < V.length ? tStats[2] : V.length - 1 : 1)]
+                                    + EnumChatFormatting.GRAY);
                 }
             }
         }
@@ -219,29 +212,19 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
     }
 
     @Override
-    public final double charge(
-            final ItemStack aStack,
-            final double aCharge,
-            final int aTier,
-            final boolean aIgnoreTransferLimit,
-            final boolean aSimulate) {
+    public final double charge(final ItemStack aStack, final double aCharge, final int aTier,
+            final boolean aIgnoreTransferLimit, final boolean aSimulate) {
         final Long[] tStats = this.getElectricStats(aStack);
-        if ((tStats == null)
-                || (tStats[2] > aTier)
+        if ((tStats == null) || (tStats[2] > aTier)
                 || !((tStats[3] == -1) || (tStats[3] == -3) || ((tStats[3] < 0) && (aCharge == Integer.MAX_VALUE)))
                 || (aStack.stackSize != 1)) {
             return 0;
         }
-        final long tChargeBefore = this.getRealCharge(aStack),
-                tNewCharge =
-                        aCharge == Integer.MAX_VALUE
-                                ? Long.MAX_VALUE
-                                : Math.min(
-                                        Math.abs(tStats[0]),
-                                        tChargeBefore
-                                                + (aIgnoreTransferLimit
-                                                        ? (long) aCharge
-                                                        : Math.min(tStats[1], (long) aCharge)));
+        final long tChargeBefore = this.getRealCharge(aStack), tNewCharge = aCharge == Integer.MAX_VALUE
+                ? Long.MAX_VALUE
+                : Math.min(
+                        Math.abs(tStats[0]),
+                        tChargeBefore + (aIgnoreTransferLimit ? (long) aCharge : Math.min(tStats[1], (long) aCharge)));
         if (!aSimulate) {
             this.setCharge(aStack, tNewCharge);
         }
@@ -249,13 +232,8 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
     }
 
     @Override
-    public final double discharge(
-            final ItemStack aStack,
-            final double aCharge,
-            final int aTier,
-            final boolean aIgnoreTransferLimit,
-            final boolean aBatteryAlike,
-            final boolean aSimulate) {
+    public final double discharge(final ItemStack aStack, final double aCharge, final int aTier,
+            final boolean aIgnoreTransferLimit, final boolean aBatteryAlike, final boolean aSimulate) {
         final Long[] tStats = this.getElectricStats(aStack);
         if ((tStats == null) || (tStats[2] > aTier)) {
             return 0;
@@ -272,14 +250,8 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
             }
             return tStats[3];
         }
-        final long tChargeBefore = this.getRealCharge(aStack),
-                tNewCharge =
-                        Math.max(
-                                0,
-                                tChargeBefore
-                                        - (aIgnoreTransferLimit
-                                                ? (long) aCharge
-                                                : Math.min(tStats[1], (long) aCharge)));
+        final long tChargeBefore = this.getRealCharge(aStack), tNewCharge = Math
+                .max(0, tChargeBefore - (aIgnoreTransferLimit ? (long) aCharge : Math.min(tStats[1], (long) aCharge)));
         if (!aSimulate) {
             this.setCharge(aStack, tNewCharge);
         }
@@ -445,19 +417,14 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
      * @param aMaxCharge     Maximum Charge. (if this is == 0 it will remove the Electric Behavior)
      * @param aTransferLimit Transfer Limit.
      * @param aTier          The electric Tier.
-     * @param aSpecialData   If this Item has a Fixed Charge, like a SingleUse Battery (if > 0).
-     *                       Use -1 if you want to make this Battery chargeable (the use and canUse Functions will still discharge if you just use this)
-     *                       Use -2 if you want to make this Battery dischargeable.
-     *                       Use -3 if you want to make this Battery charge/discharge-able.
+     * @param aSpecialData   If this Item has a Fixed Charge, like a SingleUse Battery (if > 0). Use -1 if you want to
+     *                       make this Battery chargeable (the use and canUse Functions will still discharge if you just
+     *                       use this) Use -2 if you want to make this Battery dischargeable. Use -3 if you want to make
+     *                       this Battery charge/discharge-able.
      * @return the Item itself for convenience in constructing.
      */
-    public final BaseEuItem setElectricStats(
-            final int aMetaValue,
-            final long aMaxCharge,
-            final long aTransferLimit,
-            final long aTier,
-            final long aSpecialData,
-            final boolean aUseAnimations) {
+    public final BaseEuItem setElectricStats(final int aMetaValue, final long aMaxCharge, final long aTransferLimit,
+            final long aTier, final long aSpecialData, final boolean aUseAnimations) {
         if (aMetaValue < 0) {
             return this;
         }
@@ -466,12 +433,12 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         } else {
             this.mElectricStats.put(
                     (short) aMetaValue,
-                    new Long[] {aMaxCharge, Math.max(0, aTransferLimit), Math.max(-1, aTier), aSpecialData});
+                    new Long[] { aMaxCharge, Math.max(0, aTransferLimit), Math.max(-1, aTier), aSpecialData });
         }
         return this;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(final Item var1, final CreativeTabs aCreativeTab, final List aList) {
@@ -499,11 +466,11 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
         for (short i = 0, j = (short) this.mEnabledItems.length(); i < j; i++) {
             if (this.mEnabledItems.get(i)) {
                 for (byte k = 1; k < this.mIconList[i].length; k++) {
-                    this.mIconList[i][k] = aIconRegister.registerIcon(
-                            CORE.MODID + ":" + (this.getUnlocalizedName() + "/" + i + "/" + k));
+                    this.mIconList[i][k] = aIconRegister
+                            .registerIcon(CORE.MODID + ":" + (this.getUnlocalizedName() + "/" + i + "/" + k));
                 }
-                this.mIconList[i][0] =
-                        aIconRegister.registerIcon(CORE.MODID + ":" + (this.getUnlocalizedName() + "/" + i));
+                this.mIconList[i][0] = aIconRegister
+                        .registerIcon(CORE.MODID + ":" + (this.getUnlocalizedName() + "/" + i));
             }
         }
     }
@@ -594,10 +561,8 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
             final ItemStack rStack = new ItemStack(this, 1, this.mOffset + aID);
             this.mEnabledItems.set(aID);
             this.mVisibleItems.set(aID);
-            GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".name", aEnglish);
-            GT_LanguageManager.addStringLocalization(
-                    "gtplusplus." + this.getUnlocalizedName(rStack) + "." + aID + ".tooltip", aToolTip);
+            GT_LanguageManager.addStringLocalization(this.getUnlocalizedName(rStack) + ".name", aEnglish);
+            GT_LanguageManager.addStringLocalization(this.getUnlocalizedName(rStack) + ".tooltip", aToolTip);
             final List<TC_AspectStack> tAspects = new ArrayList<>();
             // Important Stuff to do first
             for (final Object tRandomData : aRandomData) {
@@ -656,10 +621,9 @@ public class BaseEuItem extends Item implements ISpecialElectricItem, IElectricI
     @Override
     public String getItemStackDisplayName(final ItemStack par1ItemStack) {
         int keyValue = (par1ItemStack.getItemDamage() - this.mOffset);
-        if (keyValue < 0 || keyValue > 5) {
+        if (keyValue < 0 || keyValue > 3) {
             keyValue = 0;
         }
-        return GT_LanguageManager.getTranslation(
-                "gtplusplus." + this.getUnlocalizedName(par1ItemStack) + "." + keyValue + ".name");
+        return this.itemName.get(keyValue).getValue();
     }
 }

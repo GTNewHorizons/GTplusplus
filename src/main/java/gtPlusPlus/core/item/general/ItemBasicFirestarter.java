@@ -1,16 +1,16 @@
 package gtPlusPlus.core.item.general;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
 import gtPlusPlus.core.block.general.FirePit;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 
 public class ItemBasicFirestarter extends CoreItem {
 
@@ -20,16 +20,8 @@ public class ItemBasicFirestarter extends CoreItem {
     }
 
     @Override
-    public boolean onItemUse(
-            final ItemStack thisItem,
-            final EntityPlayer thisPlayer,
-            final World thisWorld,
-            int blockX,
-            int blockY,
-            int blockZ,
-            final int p_77648_7_,
-            final float p_77648_8_,
-            final float p_77648_9_,
+    public boolean onItemUse(final ItemStack thisItem, final EntityPlayer thisPlayer, final World thisWorld, int blockX,
+            int blockY, int blockZ, final int p_77648_7_, final float p_77648_8_, final float p_77648_9_,
             final float p_77648_10_) {
         if (p_77648_7_ == 0) {
             --blockY;
@@ -54,14 +46,13 @@ public class ItemBasicFirestarter extends CoreItem {
         }
         if (thisWorld.getBlock(blockX, blockY, blockZ) instanceof FirePit) {
             thisWorld.setBlockMetadataWithNotify(blockX, blockY, blockZ, 2, 4);
-            PlayerUtils.messagePlayer(thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.0"));
+            PlayerUtils.messagePlayer(thisPlayer, "You light the fire pit. ");
         }
         if (thisWorld.isAirBlock(blockX, blockY, blockZ)) {
             final int random = MathUtils.randInt(0, 3);
             // Explode, lol.
             if (random == 0) {
-                PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.1"));
+                PlayerUtils.messagePlayer(thisPlayer, "You somehow managed to set yourself on fire... ");
                 thisWorld.playSoundEffect(
                         thisPlayer.posX + 0.5D,
                         thisPlayer.posY + 0.5D,
@@ -75,8 +66,7 @@ public class ItemBasicFirestarter extends CoreItem {
 
             // Create a fire
             else if (random == 2) {
-                PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.2"));
+                PlayerUtils.messagePlayer(thisPlayer, "You created a fire!");
                 thisWorld.playSoundEffect(
                         blockX + 0.5D,
                         blockY + 0.5D,
@@ -89,13 +79,17 @@ public class ItemBasicFirestarter extends CoreItem {
 
             // Do nothing
             else {
-                PlayerUtils.messagePlayer(
-                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.3"));
+                PlayerUtils.messagePlayer(thisPlayer, "Your attemp does nothing.");
                 thisItem.damageItem(1, thisPlayer);
                 return false;
             }
         }
         thisItem.damageItem(1, thisPlayer);
         return true;
+    }
+
+    @Override
+    public String getItemStackDisplayName(final ItemStack thisItem) {
+        return "Basic Firemaker";
     }
 }
