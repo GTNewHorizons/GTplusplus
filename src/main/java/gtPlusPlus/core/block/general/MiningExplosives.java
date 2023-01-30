@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block.general;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.creative.AddToCreativeTab;
@@ -30,7 +29,6 @@ public class MiningExplosives extends BlockTNT {
     public MiningExplosives() {
         this.setBlockName("blockMiningExplosives");
         GameRegistry.registerBlock(this, "blockMiningExplosives");
-        LanguageRegistry.addName(this, "Earth Blasting Explosives");
         this.setCreativeTab(AddToCreativeTab.tabMachines);
     }
 

@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 
 public class ItemBoilerChassis extends Item {
 
@@ -48,16 +49,7 @@ public class ItemBoilerChassis extends Item {
 
     @Override
     public String getItemStackDisplayName(final ItemStack tItem) {
-        String itemName = "Advanced Boiler Chassis";
-        String suffixName = "";
-        if (tItem.getItemDamage() == 0) {
-            suffixName = " [Tier 1]";
-        } else if (tItem.getItemDamage() == 1) {
-            suffixName = " [Tier 2]";
-        } else if (tItem.getItemDamage() == 2) {
-            suffixName = " [Tier 3]";
-        }
-        return (itemName + suffixName);
+        return StatCollector.translateToLocalFormatted("item.itemBoilerChassis.name", tItem.getItemDamage());
     }
 
     @Override // TODO

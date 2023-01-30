@@ -3,6 +3,7 @@ package gtPlusPlus.core.item.base.misc;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
@@ -15,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -25,7 +25,6 @@ public class BaseItemMisc extends Item {
     public final String unlocalName;
     public final MiscTypes miscType;
     public final Object componentColour;
-    public final String[] description;
 
     public BaseItemMisc(
             final String displayName,
@@ -48,14 +47,14 @@ public class BaseItemMisc extends Item {
         } else {
             this.componentColour = null;
         }
-        this.description = description;
+        if (description != null) {
+            for (int i = 0; i < description.length; i++) {
+                GT_LanguageManager.addStringLocalization(
+                        "gtplusplus." + this.getUnlocalizedName() + ".tooltip." + i, description[i]);
+            }
+        }
         GameRegistry.registerItem(this, this.unlocalName);
         GT_OreDictUnificator.registerOre(miscType.getOreDictPrefix() + unlocalName, ItemUtils.getSimpleStack(this));
-    }
-
-    @Override
-    public String getItemStackDisplayName(final ItemStack p_77653_1_) {
-        return this.displayName + miscType.DISPLAY_NAME_SUFFIX;
     }
 
     private String getCorrectTextures() {
@@ -96,14 +95,13 @@ public class BaseItemMisc extends Item {
     @Override
     public final void addInformation(
             final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
-        if (this.description != null) { // Incase I don't add one
-            if (this.description.length > 0) { // Incase I somehow add a blank one
-                for (int x = 0; x < this.description.length; x++) {
-                    list.add(EnumChatFormatting.GRAY + description[x]);
-                }
-            }
+        for (int i = 0; ; i++) {
+            String tooltip =
+                    GT_LanguageManager.getTranslation("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i);
+            if (!("gtplusplus." + this.getUnlocalizedName() + ".tooltip" + "." + i).equals(tooltip)) {
+                list.add(tooltip);
+            } else break;
         }
-        super.addInformation(stack, aPlayer, list, bool);
     }
 
     @Override

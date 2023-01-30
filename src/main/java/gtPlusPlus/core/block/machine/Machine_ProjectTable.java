@@ -2,7 +2,6 @@ package gtPlusPlus.core.block.machine;
 
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.GTplusplus;
@@ -54,7 +53,6 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         this.setBlockName("blockProjectBench");
         this.setCreativeTab(AddToCreativeTab.tabMachines);
         GameRegistry.registerBlock(this, ItemBlockBasicTile.class, "blockProjectBench");
-        LanguageRegistry.addName(this, "Project Workbench");
     }
 
     /**

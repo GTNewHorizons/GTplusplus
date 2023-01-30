@@ -57,11 +57,6 @@ public class BaseItemPlasmaCell extends BaseItemComponent {
     }
 
     @Override
-    public String getItemStackDisplayName(final ItemStack cell) {
-        return this.materialName + " Plasma Cell";
-    }
-
-    @Override
     public void onUpdate(
             final ItemStack iStack,
             final World world,

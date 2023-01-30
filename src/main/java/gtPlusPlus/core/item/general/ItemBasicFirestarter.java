@@ -9,6 +9,7 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class ItemBasicFirestarter extends CoreItem {
@@ -53,13 +54,14 @@ public class ItemBasicFirestarter extends CoreItem {
         }
         if (thisWorld.getBlock(blockX, blockY, blockZ) instanceof FirePit) {
             thisWorld.setBlockMetadataWithNotify(blockX, blockY, blockZ, 2, 4);
-            PlayerUtils.messagePlayer(thisPlayer, "You light the fire pit. ");
+            PlayerUtils.messagePlayer(thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.0"));
         }
         if (thisWorld.isAirBlock(blockX, blockY, blockZ)) {
             final int random = MathUtils.randInt(0, 3);
             // Explode, lol.
             if (random == 0) {
-                PlayerUtils.messagePlayer(thisPlayer, "You somehow managed to set yourself on fire... ");
+                PlayerUtils.messagePlayer(
+                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.1"));
                 thisWorld.playSoundEffect(
                         thisPlayer.posX + 0.5D,
                         thisPlayer.posY + 0.5D,
@@ -73,7 +75,8 @@ public class ItemBasicFirestarter extends CoreItem {
 
             // Create a fire
             else if (random == 2) {
-                PlayerUtils.messagePlayer(thisPlayer, "You created a fire!");
+                PlayerUtils.messagePlayer(
+                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.2"));
                 thisWorld.playSoundEffect(
                         blockX + 0.5D,
                         blockY + 0.5D,
@@ -86,17 +89,13 @@ public class ItemBasicFirestarter extends CoreItem {
 
             // Do nothing
             else {
-                PlayerUtils.messagePlayer(thisPlayer, "Your attemp does nothing.");
+                PlayerUtils.messagePlayer(
+                        thisPlayer, StatCollector.translateToLocal("item.itemSimpleFiremaker.message.3"));
                 thisItem.damageItem(1, thisPlayer);
                 return false;
             }
         }
         thisItem.damageItem(1, thisPlayer);
         return true;
-    }
-
-    @Override
-    public String getItemStackDisplayName(final ItemStack thisItem) {
-        return "Basic Firemaker";
     }
 }

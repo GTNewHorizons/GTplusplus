@@ -18,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class ItemEntityCatcher extends Item implements IEntityCatcher {
@@ -178,10 +179,11 @@ public class ItemEntityCatcher extends Item implements IEntityCatcher {
         if (hasEntity(p_77624_1_)) {
             String mName = NBTUtils.getString(p_77624_1_, "mEntityName");
             if (mName != null && !mName.equals("")) {
-                p_77624_3_.add(EnumChatFormatting.GRAY + "Contains a " + mName + ".");
+                p_77624_3_.add(EnumChatFormatting.GRAY
+                        + StatCollector.translateToLocalFormatted("item.itemDragonJar.1.tooltip", mName));
             }
         } else {
-            p_77624_3_.add(EnumChatFormatting.GRAY + "Does not contain anything.");
+            p_77624_3_.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("item.itemDragonJar.0.tooltip"));
         }
     }
 
@@ -242,8 +244,8 @@ public class ItemEntityCatcher extends Item implements IEntityCatcher {
     @Override
     public String getItemStackDisplayName(ItemStack aStack) {
         if (hasEntity(aStack)) {
-            return "Captured Dragon Jar";
+            return StatCollector.translateToLocal("item.itemDragonJar.1.name");
         }
-        return "Dragon Capture Jar";
+        return StatCollector.translateToLocal("item.itemDragonJar.0.name");
     }
 }

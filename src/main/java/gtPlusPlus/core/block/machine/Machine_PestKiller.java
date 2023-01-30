@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block.machine;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.GTplusplus;
@@ -53,7 +52,6 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
         this.setResistance(1f);
         this.setCreativeTab(AddToCreativeTab.tabMachines);
         GameRegistry.registerBlock(this, ItemBlockBasicTile.class, "blockPestKiller");
-        LanguageRegistry.addName(this, "Pest Killer");
     }
 
     /**

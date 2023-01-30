@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.bop.blocks.base;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.creative.AddToCreativeTab;
@@ -33,7 +32,6 @@ public abstract class LogBase extends BlockLog {
                 ItemUtils.getSimpleStack(this), "log" + Utils.sanitizeString(blockNameLocalized), true);
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(this), "logWood", true);
         this.setCreativeTab(AddToCreativeTab.tabBOP);
-        LanguageRegistry.addName(this, blockNameLocalized);
         Blocks.fire.setFireInfo(this, 20, 100);
     }
 

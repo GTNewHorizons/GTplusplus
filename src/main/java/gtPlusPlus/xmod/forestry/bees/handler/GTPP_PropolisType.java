@@ -35,6 +35,7 @@ public enum GTPP_PropolisType {
         this.mColour = aColour;
         map(aID, this);
         this.mMaterial = GTPP_Bees.sMaterialMappings.get(aName.toLowerCase().replaceAll(" ", ""));
+        GT_LanguageManager.addStringLocalization("gtplusplus.propolis." + this.mNameUnlocal, this.mName + " Propolis");
     }
 
     public void setHidden() {
@@ -42,7 +43,7 @@ public enum GTPP_PropolisType {
     }
 
     public String getName() {
-        return GT_LanguageManager.addStringLocalization("propolis." + this.mNameUnlocal, this.mName + " Propolis");
+        return GT_LanguageManager.getTranslation("gtplusplus.propolis." + this.mNameUnlocal);
     }
 
     public int getColours() {

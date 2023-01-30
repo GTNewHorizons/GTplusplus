@@ -6,6 +6,7 @@ import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
@@ -429,6 +430,7 @@ public class ItemUtils {
 
     public static Item[] generateSpecialUseDusts(
             final String unlocalizedName, final String materialName, String mChemForm, final int Colour) {
+        GT_LanguageManager.addStringLocalization("gtplusplus.material." + materialName, materialName);
         final Item[] output = {
             new BaseItemDustUnique("itemDust" + unlocalizedName, materialName, mChemForm, Colour, "Dust"),
             new BaseItemDustUnique("itemDustSmall" + unlocalizedName, materialName, mChemForm, Colour, "Small"),
@@ -540,7 +542,7 @@ public class ItemUtils {
 
     public static Item[] generateSpecialUseDusts(
             final Material material, final boolean onlyLargeDust, final boolean disableExtraRecipes) {
-        final String materialName = material.getLocalizedName();
+        final String materialName = material.getUnlocalizedName();
         final String unlocalizedName = Utils.sanitizeString(materialName);
         final int Colour = material.getRgbAsHex();
         final String aChemForm = material.vChemicalFormula;

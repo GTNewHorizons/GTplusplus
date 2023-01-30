@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block.machine;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.GTplusplus;
@@ -32,7 +31,6 @@ public class HeliumGenerator extends BlockContainer {
         this.setBlockName("blockHeliumGenerator");
         this.setCreativeTab(AddToCreativeTab.tabMachines);
         GameRegistry.registerBlock(this, "blockHeliumGenerator");
-        LanguageRegistry.addName(this, "Helium Generator");
     }
 
     /**

@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.bop.blocks.base;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
@@ -43,7 +42,6 @@ public class SaplingBase extends BlockSapling {
         this.setBlockName(blockName);
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(this), "treeSapling", true);
         this.setCreativeTab(AddToCreativeTab.tabBOP);
-        LanguageRegistry.addName(this, blockNameLocalized);
     }
 
     private final void setVanillaVariable(Object toSet, Object value) {

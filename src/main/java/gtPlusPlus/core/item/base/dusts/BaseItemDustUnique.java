@@ -4,6 +4,7 @@ import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.OrePrefixes;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
@@ -23,7 +24,6 @@ public class BaseItemDustUnique extends Item {
     protected final int colour;
     protected final int sRadiation;
     protected final String materialName;
-    protected final String name;
     protected final String chemicalNotation;
 
     public BaseItemDustUnique(
@@ -51,13 +51,15 @@ public class BaseItemDustUnique extends Item {
         this.sRadiation = ItemUtils.getRadioactivityLevel(materialName);
         GameRegistry.registerItem(this, unlocalizedName);
 
+        String type;
         if (this.getUnlocalizedName().contains("DustTiny")) {
-            this.name = "Tiny Pile of " + this.materialName + " Dust";
+            type = "Tiny Pile of %material Dust";
         } else if (this.getUnlocalizedName().contains("DustSmall")) {
-            this.name = "Small Pile of " + this.materialName + " Dust";
+            type = "Small Pile of %material Dust";
         } else {
-            this.name = this.materialName + " Dust";
+            type = "%material Dust";
         }
+        GT_LanguageManager.addStringLocalization("gtplusplus." + this.getUnlocalizedName() + ".name", type);
 
         String temp = "";
         Logger.WARNING("Unlocalized name for OreDict nameGen: " + this.getUnlocalizedName());
@@ -109,7 +111,8 @@ public class BaseItemDustUnique extends Item {
 
     @Override
     public String getItemStackDisplayName(final ItemStack iStack) {
-        return this.name;
+        return GT_LanguageManager.getTranslation("gtplusplus." + getUnlocalizedName() + ".name")
+                .replace("%material", GT_LanguageManager.getTranslation("gtplusplus.material." + materialName));
     }
 
     private String getCorrectTexture(final String pileSize) {

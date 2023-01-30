@@ -36,6 +36,7 @@ public enum GTPP_CombType {
         this.mColour = aColour;
         map(aID, this);
         this.mMaterial = GTPP_Bees.sMaterialMappings.get(aName.toLowerCase().replaceAll(" ", ""));
+        GT_LanguageManager.addStringLocalization("gtplusplus.comb." + this.mNameUnlocal, this.mName + " Comb");
     }
 
     public void setHidden() {
@@ -43,7 +44,7 @@ public enum GTPP_CombType {
     }
 
     public String getName() {
-        return GT_LanguageManager.addStringLocalization("comb." + this.mNameUnlocal, this.mName + " Comb");
+        return GT_LanguageManager.getTranslation("gtplusplus.comb." + this.mNameUnlocal);
     }
 
     public int[] getColours() {

@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block.general;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
@@ -33,7 +32,6 @@ public class BlockSuperLight extends BlockContainer {
         this.setBlockName("blockSuperLight");
         this.setCreativeTab(CreativeTabs.tabRedstone);
         GameRegistry.registerBlock(this, "blockSuperLight");
-        LanguageRegistry.addName(this, "Shining Star");
     }
 
     /**

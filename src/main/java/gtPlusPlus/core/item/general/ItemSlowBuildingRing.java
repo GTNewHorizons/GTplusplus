@@ -15,7 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 @Optional.InterfaceList(
@@ -51,11 +51,6 @@ public class ItemSlowBuildingRing extends Item implements IBauble {
     }
 
     @Override
-    public String getItemStackDisplayName(final ItemStack p_77653_1_) {
-        return (EnumChatFormatting.YELLOW + "Slow Building Ring" + EnumChatFormatting.GRAY);
-    }
-
-    @Override
     public boolean showDurabilityBar(final ItemStack stack) {
         return false;
     }
@@ -64,11 +59,9 @@ public class ItemSlowBuildingRing extends Item implements IBauble {
     @Override
     public void addInformation(final ItemStack stack, final EntityPlayer aPlayer, final List list, final boolean bool) {
         list.add("");
-        list.add(EnumChatFormatting.GREEN + "Worn as a Ring within Baubles. Prevents you from sprinting."
-                + EnumChatFormatting.GRAY);
-        list.add(EnumChatFormatting.GREEN + "Movement speed reduced to crouch speed." + EnumChatFormatting.GRAY);
-        list.add(
-                EnumChatFormatting.GREEN + "Press shift while worn to toggle crouch on/off." + EnumChatFormatting.GRAY);
+        list.add(StatCollector.translateToLocal("item.SlowBuildingRing.tooltip.0"));
+        list.add(StatCollector.translateToLocal("item.SlowBuildingRing.tooltip.1"));
+        list.add(StatCollector.translateToLocal("item.SlowBuildingRing.tooltip.2"));
         list.add("");
         super.addInformation(stack, aPlayer, list, bool);
     }

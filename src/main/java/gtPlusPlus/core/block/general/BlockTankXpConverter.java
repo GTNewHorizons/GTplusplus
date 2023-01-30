@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block.general;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.creative.AddToCreativeTab;
@@ -35,7 +34,6 @@ public class BlockTankXpConverter extends BlockContainer {
         this.setBlockName("blockTankXpConverter");
         this.setCreativeTab(AddToCreativeTab.tabMachines);
         GameRegistry.registerBlock(this, ItemBlockEntityBase.class, "blockTankXpConverter");
-        LanguageRegistry.addName(this, "Xp Converter");
         this.generateRainbowMap();
         if (!this.getTickRandomly()) {
             this.setTickRandomly(true);

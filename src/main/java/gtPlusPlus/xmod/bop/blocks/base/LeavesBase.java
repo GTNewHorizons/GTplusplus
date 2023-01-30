@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.bop.blocks.base;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
@@ -36,7 +35,6 @@ public class LeavesBase extends BlockLeaves {
         this.setBlockName(blockName);
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(this), "treeLeaves", true);
         this.setCreativeTab(AddToCreativeTab.tabBOP);
-        LanguageRegistry.addName(this, blockNameLocalized + " Leaves");
         Blocks.fire.setFireInfo(this, 80, 150);
     }
 
