@@ -121,11 +121,7 @@ public class BaseItemComponent extends Item {
     }
 
     private String getFormattedLangName() {
-        String aFormattedLangName = componentType.getName();
-        if (!aFormattedLangName.startsWith(" ")) {
-            return aFormattedLangName.replace("@", "%material");
-        }
-        return "%material" + aFormattedLangName;
+        return componentType.getName().replace("@", "%material");
     }
 
     public boolean registerComponent() {
