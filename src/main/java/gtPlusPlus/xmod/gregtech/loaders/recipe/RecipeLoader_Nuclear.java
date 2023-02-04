@@ -18,7 +18,6 @@ import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.material.nuclear.NUCLIDE;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
@@ -379,18 +378,15 @@ public class RecipeLoader_Nuclear {
                 500); // EU
 
         // Zirconium Chloride -> TetraFluoride
-        FluidStack aGregtechHydro = FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 1);
-        if (aGregtechHydro != null || Utils.getGregtechVersionAsInt() >= 50929) {
-            CORE.RA.addDehydratorRecipe(
-                    new ItemStack[] { CI.getNumberedAdvancedCircuit(10),
-                            ItemUtils.getItemStackOfAmountFromOreDict("dustCookedZrCl4", 9) },
-                    FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 18 * 144),
-                    aHydrogenChloride,
-                    new ItemStack[] { FLUORIDES.ZIRCONIUM_TETRAFLUORIDE.getDust(9) },
-                    new int[] { 10000 },
-                    240 * 20, // Time in ticks
-                    500); // EU
-        }
+        CORE.RA.addDehydratorRecipe(
+                new ItemStack[] { CI.getNumberedAdvancedCircuit(10),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustCookedZrCl4", 9) },
+                FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 18 * 144),
+                aHydrogenChloride,
+                new ItemStack[] { FLUORIDES.ZIRCONIUM_TETRAFLUORIDE.getDust(9) },
+                new int[] { 10000 },
+                240 * 20, // Time in ticks
+                500); // EU
 
         // Be(OH)2 + 2 (NH4)HF2 → (NH4)2BeF4 + 2 H2O
         CORE.RA.addDehydratorRecipe(

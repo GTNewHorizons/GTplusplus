@@ -145,7 +145,6 @@ public class GTplusplus implements ActionListener {
     @Mod.EventHandler
     public void preInit(final FMLPreInitializationEvent event) {
         INIT_PHASE.PRE_INIT.setPhaseActive(true);
-        Logger.INFO("Loading " + CORE.name + " " + CORE.VERSION + " on Gregtech " + Utils.getGregtechVersionAsString());
         // Load all class objects within the plugin package.
         Core_Manager.veryEarlyInit();
         PacketHandler.init();

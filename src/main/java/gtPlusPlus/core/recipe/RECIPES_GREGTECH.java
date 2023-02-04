@@ -28,7 +28,6 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.*;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.EnchantingUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -883,19 +882,17 @@ public class RECIPES_GREGTECH {
         // Hydrofluoric Acid
         boolean addedGtExtraction = false;
         // Try use Internal GT Fluid first
-        if (Utils.getGregtechVersionAsInt() >= 50929) {
-            // Hydrofluoric Acid
-            CORE.RA.addFluidCannerRecipe(
-                    ItemUtils.getSimpleStack(Items.glass_bottle),
-                    ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                    FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250),
-                    null);
-            addedGtExtraction = CORE.RA.addFluidCannerRecipe(
-                    ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                    ItemUtils.getSimpleStack(Items.glass_bottle),
-                    null,
-                    FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250));
-        }
+        // Hydrofluoric Acid
+        CORE.RA.addFluidCannerRecipe(
+                ItemUtils.getSimpleStack(Items.glass_bottle),
+                ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
+                FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250),
+                null);
+        addedGtExtraction = CORE.RA.addFluidCannerRecipe(
+                ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
+                ItemUtils.getSimpleStack(Items.glass_bottle),
+                null,
+                FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250));
         // Add a Fill recipe for GT++ Acid
         CORE.RA.addFluidCannerRecipe(
                 ItemUtils.getSimpleStack(Items.glass_bottle),
