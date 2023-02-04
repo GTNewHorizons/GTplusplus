@@ -890,12 +890,9 @@ public final class ModItems {
             dustFertUN32 = ItemUtils
                     .generateSpecialUseDusts("UN32Fertiliser", "UN-32 Fertiliser", Utils.rgbtoHexValue(55, 190, 55))[0];
 
-            ItemStack temp1 = null;
+            ItemStack temp1 = ItemUtils.getCorrectStacktype("IC2:itemFertilizer", 1);
             ItemStack temp2 = null;
 
-            if (LoadedMods.IndustrialCraft2) {
-                temp1 = ItemUtils.getCorrectStacktype("IC2:itemFertilizer", 1);
-            }
             if (LoadedMods.Forestry) {
                 temp2 = ItemUtils.getCorrectStacktype("Forestry:fertilizerCompound", 1);
             }
@@ -1287,22 +1284,18 @@ public final class ModItems {
         }
 
         // IC2 Exp
-        if (LoadedMods.IndustrialCraft2 || LOAD_ALL_CONTENT) {
-            Logger.INFO("IndustrialCraft2 Found - Loading Resources.");
+        Logger.INFO("IndustrialCraft2 Found - Loading Resources.");
 
-            // Baubles Mod Test
-            try {
-                final Class<?> baublesTest = ReflectionUtils.getClass("baubles.api.IBauble");
-                if (baublesTest != null) {
-                    COMPAT_Baubles.run();
-                } else {
-                    Logger.INFO("Baubles Not Found - Skipping Resources.");
-                }
-            } catch (final Throwable T) {
+        // Baubles Mod Test
+        try {
+            final Class<?> baublesTest = ReflectionUtils.getClass("baubles.api.IBauble");
+            if (baublesTest != null) {
+                COMPAT_Baubles.run();
+            } else {
                 Logger.INFO("Baubles Not Found - Skipping Resources.");
             }
-        } else {
-            Logger.WARNING("IndustrialCraft2 not Found - Skipping Resources.");
+        } catch (final Throwable T) {
+            Logger.INFO("Baubles Not Found - Skipping Resources.");
         }
 
         // Special Item Handling Case

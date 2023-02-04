@@ -192,9 +192,7 @@ public class COMPAT_HANDLER {
         if (LoadedMods.CompactWindmills) {
             COMPAT_CompactWindmills.OreDict();
         }
-        if (LoadedMods.IndustrialCraft2) {
-            COMPAT_IC2.OreDict();
-        }
+        COMPAT_IC2.OreDict();
         if (LoadedMods.PamsHarvestcraft) {
             COMPAT_HarvestCraft.OreDict();
         }

@@ -965,11 +965,8 @@ public class RECIPES_Machines {
     }
 
     private static void initModItems() {
-        if (LoadedMods.IndustrialCraft2) {
-            IC2MFE = ItemUtils.getItemStackWithMeta(LoadedMods.IndustrialCraft2, "IC2:blockElectric", "IC2_MFE", 1, 1);
-            IC2MFSU = ItemUtils
-                    .getItemStackWithMeta(LoadedMods.IndustrialCraft2, "IC2:blockElectric", "IC2_MFSU", 2, 1);
-        }
+        IC2MFE = ItemUtils.getItemStackWithMeta(true, "IC2:blockElectric", "IC2_MFE", 1, 1);
+        IC2MFSU = ItemUtils.getItemStackWithMeta(true, "IC2:blockElectric", "IC2_MFSU", 2, 1);
 
         // Lava Boiler
         boiler_Coal = ItemList.Machine_Bronze_Boiler.get(1);
@@ -2277,12 +2274,7 @@ public class RECIPES_Machines {
                             ItemUtils.getItemStackOfAmountFromOreDict("wireFineSteel", 32),
                             ItemUtils.getItemStackOfAmountFromOreDict("ringTumbaga", 16),
                             ItemUtils.getItemStackOfAmountFromOreDict("foilCopper", 4),
-                            ItemUtils.getItemStackWithMeta(
-                                    LoadedMods.IndustrialCraft2,
-                                    "IC2:itemPartCarbonMesh",
-                                    "RawCarbonMesh",
-                                    0,
-                                    64), },
+                            ItemUtils.getItemStackWithMeta(true, "IC2:itemPartCarbonMesh", "RawCarbonMesh", 0, 64), },
                     CI.getTieredFluid(3, 144),
                     ItemUtils.getSimpleStack(ModItems.itemLavaFilter, 16),
                     1600,
