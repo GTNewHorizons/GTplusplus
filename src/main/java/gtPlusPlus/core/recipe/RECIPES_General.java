@@ -46,21 +46,19 @@ public class RECIPES_General {
     static ItemStack RECIPE_HydrogenDust;
 
     public static void loadRecipes() {
-        if (LoadedMods.Gregtech) {
-            RECIPE_Paper = ItemUtils.getSimpleStack(Items.paper);
-            RECIPE_Dirt = ItemUtils.getSimpleStack(Blocks.dirt);
-            RECIPE_Snow = ItemUtils.getSimpleStack(Blocks.snow);
-            RECIPE_Obsidian = ItemUtils.getSimpleStack(Blocks.obsidian);
-            RECIPE_CraftingTable = ItemUtils.getSimpleStack(Blocks.crafting_table);
-            RECIPE_HydrogenDust = ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob);
-            RECIPE_BasicCasingIC2 = ItemUtils.getItemStackFromFQRN("IC2:blockMachine", 1);
-            OUTPUT_Workbench_Bronze = GregtechItemList.GT4_Workbench_Bronze.get(1);
-            OUTPUT_Workbench_Advanced = GregtechItemList.GT4_Workbench_Advanced.get(1);
-            OUTPUT_Blueprint = ItemUtils.getSimpleStack(ModItems.itemBlueprintBase, 2);
-            run();
-            addCompressedObsidian();
-            migratedRecipes();
-        }
+        RECIPE_Paper = ItemUtils.getSimpleStack(Items.paper);
+        RECIPE_Dirt = ItemUtils.getSimpleStack(Blocks.dirt);
+        RECIPE_Snow = ItemUtils.getSimpleStack(Blocks.snow);
+        RECIPE_Obsidian = ItemUtils.getSimpleStack(Blocks.obsidian);
+        RECIPE_CraftingTable = ItemUtils.getSimpleStack(Blocks.crafting_table);
+        RECIPE_HydrogenDust = ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob);
+        RECIPE_BasicCasingIC2 = ItemUtils.getItemStackFromFQRN("IC2:blockMachine", 1);
+        OUTPUT_Workbench_Bronze = GregtechItemList.GT4_Workbench_Bronze.get(1);
+        OUTPUT_Workbench_Advanced = GregtechItemList.GT4_Workbench_Advanced.get(1);
+        OUTPUT_Blueprint = ItemUtils.getSimpleStack(ModItems.itemBlueprintBase, 2);
+        run();
+        addCompressedObsidian();
+        migratedRecipes();
     }
 
     private static void run() {

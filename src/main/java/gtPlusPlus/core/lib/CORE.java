@@ -99,9 +99,6 @@ public class CORE {
     /**
      * Some Gregtech Material and Recipe Variables
      */
-    @Deprecated
-    public static IGregtech_RecipeAdder sRecipeAdder;
-
     public static IGregtech_RecipeAdder RA;
 
     public static final GT_Materials[] sMU_GeneratedMaterials = new GT_Materials[1000];

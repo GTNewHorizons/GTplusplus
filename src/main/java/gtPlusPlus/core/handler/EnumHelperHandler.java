@@ -12,8 +12,6 @@ public class EnumHelperHandler {
             CustomInternalName.init();
         }
 
-        if (LoadedMods.Gregtech) {
-            HANDLER_GT.addNewOrePrefixes();
-        }
+        HANDLER_GT.addNewOrePrefixes();
     }
 }

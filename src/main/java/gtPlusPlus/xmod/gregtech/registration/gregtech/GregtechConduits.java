@@ -1,7 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import static gtPlusPlus.core.lib.LoadedMods.Gregtech;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -41,15 +39,13 @@ public class GregtechConduits {
     private static int BasePipeHexadecupleID = 30100;
 
     public static void run() {
-        if (Gregtech) {
-            Logger.INFO("Gregtech5u Content | Registering Custom Cables/Wires/Pipes.");
-            if (CORE.ConfigSwitches.enableCustom_Cables) {
-                run1();
-            }
-            if (CORE.ConfigSwitches.enableCustom_Pipes) {
-                run2();
-                run3();
-            }
+        Logger.INFO("Gregtech5u Content | Registering Custom Cables/Wires/Pipes.");
+        if (CORE.ConfigSwitches.enableCustom_Cables) {
+            run1();
+        }
+        if (CORE.ConfigSwitches.enableCustom_Pipes) {
+            run2();
+            run3();
         }
     }
 

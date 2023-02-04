@@ -173,37 +173,31 @@ public class FishTrapHandler {
     }
 
     private static void addGregtechCentrifugeRecipe(final ItemStack input) {
-        if (LoadedMods.Gregtech) {
-            GT_Values.RA.addCentrifugeRecipe(
-                    input,
-                    null,
-                    null,
-                    FluidUtils.getFluidStack("methane", 96),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    19 * 20,
-                    5);
-        }
+        GT_Values.RA.addCentrifugeRecipe(
+                input,
+                null,
+                null,
+                FluidUtils.getFluidStack("methane", 96),
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                19 * 20,
+                5);
     }
 
     private static void addGregtechMaceratorRecipe(final ItemStack input) {
-        if (LoadedMods.Gregtech) {
-            GT_ModHandler.addPulverisationRecipe(
-                    input,
-                    ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 1),
-                    ItemUtils.getItemStackOfAmountFromOreDict("dustTinyBone", 1),
-                    0);
-        }
+        GT_ModHandler.addPulverisationRecipe(
+                input,
+                ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 1),
+                ItemUtils.getItemStackOfAmountFromOreDict("dustTinyBone", 1),
+                0);
     }
 
     private static void addGregtechFluidRecipe(final ItemStack input) {
-        if (LoadedMods.Gregtech) {
-            CORE.RA.addFluidExtractionRecipe(input, FluidUtils.getFluidStack("fishoil", 50), 16, 4);
-        }
+        CORE.RA.addFluidExtractionRecipe(input, FluidUtils.getFluidStack("fishoil", 50), 16, 4);
     }
 }

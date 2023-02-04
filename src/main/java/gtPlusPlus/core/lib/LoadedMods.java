@@ -13,7 +13,6 @@ import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 public class LoadedMods {
 
     // Initialize Variables
-    public static boolean Gregtech = false;
     public static boolean PlayerAPI = false;
     public static boolean BuildCraft = false;
     public static boolean EnderIO = false;
@@ -71,23 +70,18 @@ public class LoadedMods {
     @SuppressWarnings("deprecation")
     public static void checkLoaded() {
         Logger.INFO("Looking for optional mod prereqs.");
-        if (isModLoaded("gregtech")) {
-            Gregtech = true;
-            Logger.INFO("Components enabled for: Gregtech");
-            if (Gregtech) {
-                try {
-                    CORE.sRecipeAdder = CORE.RA = new GregtechRecipeAdder();
-                    Logger.INFO("Created Gregtech recipe handler.");
-                    GregtechTextures.BlockIcons.VOID.name();
-                    GregtechTextures.ItemIcons.VOID.name();
-                    Logger.INFO("Created Gregtech texture handler.");
-                } catch (final NullPointerException e) {
-                    Logger.INFO("Could NOT create a Gregtech recipe handler.");
-                }
-            }
-
-            totalMods++;
+        Logger.INFO("Components enabled for: Gregtech");
+        try {
+            CORE.RA = new GregtechRecipeAdder();
+            Logger.INFO("Created Gregtech recipe handler.");
+            GregtechTextures.BlockIcons.VOID.name();
+            GregtechTextures.ItemIcons.VOID.name();
+            Logger.INFO("Created Gregtech texture handler.");
+        } catch (final NullPointerException e) {
+            Logger.INFO("Could NOT create a Gregtech recipe handler.");
         }
+
+        totalMods++;
         if (isModLoaded("dreamcraft")) {
             DreamCraft = true;
             Logger.INFO("Components enabled for: DreamCraft");

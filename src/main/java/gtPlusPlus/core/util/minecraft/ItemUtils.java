@@ -873,12 +873,7 @@ public class ItemUtils {
     }
 
     public static ItemStack getGregtechCircuit(final int Meta) {
-        return ItemUtils.getItemStackWithMeta(
-                LoadedMods.Gregtech,
-                "gregtech:gt.integrated_circuit",
-                "Gregtech Circuit",
-                Meta,
-                0);
+        return ItemUtils.getItemStackWithMeta(true, "gregtech:gt.integrated_circuit", "Gregtech Circuit", Meta, 0);
     }
 
     public static ItemStack[] getBlockDrops(final ArrayList<ItemStack> blockDrops) {
