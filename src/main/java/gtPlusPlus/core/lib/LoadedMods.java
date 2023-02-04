@@ -36,7 +36,6 @@ public class LoadedMods {
     public static boolean MagicBees = false;
     public static boolean ExtraBees = false;
     public static boolean Psychedelicraft = false;
-    public static boolean MiscUtils = true; // Dummy For MetaData Lookups in MT Wrapper
     public static boolean ThermalFoundation = false;
     public static boolean IHL = false;
     public static boolean AdvancedSolarPanel = false;

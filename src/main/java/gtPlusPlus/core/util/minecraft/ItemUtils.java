@@ -269,7 +269,7 @@ public class ItemUtils {
         } else {
             temp2 = fqrnSplit[2];
         }
-        temp = ItemUtils.getItemStackWithMeta(LoadedMods.MiscUtils, fqrn, temp1, Integer.parseInt(temp2), stackSize);
+        temp = ItemUtils.getItemStackWithMeta(true, fqrn, temp1, Integer.parseInt(temp2), stackSize);
         return temp;
     }
 
