@@ -10,13 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.FakePlayerFactory;
 
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import gregtech.api.GregTech_API;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.api.objects.random.XSTR;
@@ -29,19 +27,11 @@ import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity
 
 public class CORE {
 
-    // import cpw.mods.fml.common.Optional;
-
-    // Analytics handler
-    // public static SegmentAnalytics mHelper;
-
     public static Map PlayerCache;
 
     // Math Related
     public static final float PI = (float) Math.PI;
     public static volatile Random RANDOM = new XSTR();
-
-    // Env. Variables
-    public static Configuration Config;
 
     public static boolean DEVENV = false;
     // Only can be set in Dev, no config or setting elsewhere.
@@ -57,9 +47,6 @@ public class CORE {
     public static int EVERGLADES_ID = 227;
     public static int EVERGLADESBIOME_ID = 238;
 
-    // GT Vars;
-    public static final int GREG_FIRST_ID = 760;
-    public static final int GREGTECH_API_VERSION = GregTech_API.VERSION;
     public static int turbineCutoffBase = 75000;
 
     // GT++ Fake Player Profile
@@ -316,9 +303,5 @@ public class CORE {
             t.printStackTrace();
         }
         FMLCommonHandler.instance().exitJava(0, true);
-    }
-
-    public static final void gc() {
-        System.gc();
     }
 }
