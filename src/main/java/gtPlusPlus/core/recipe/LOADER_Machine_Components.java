@@ -9,18 +9,9 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 public class LOADER_Machine_Components {
 
     public static void initialise() {
-
         registerDefaultComponents();
 
-        if (!CORE.GTNH) {
-            if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-                registerGTExperimentalComponents();
-            } else {
-                registerGTStandardComponents();
-            }
-        } else {
-            registerGTNHComponents();
-        }
+        registerGTNHComponents();
     }
 
     private static void registerDefaultComponents() {

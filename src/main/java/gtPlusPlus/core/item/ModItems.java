@@ -94,8 +94,6 @@ public final class ModItems {
     public static Item itemPlateBlutonium;
     public static Item itemPlateCyanite;
     public static Item itemPlateLudicrite;
-    // Thaumcraft
-    public static Item itemPlateVoidMetal;
     // Pneumaticraft
     public static Item itemPlateCompressedIron;
     // SimplyJetpacks
@@ -544,10 +542,6 @@ public final class ModItems {
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().POLONIUM210, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().AMERICIUM241, false);
 
-            if (!CORE.GTNH) {
-                MaterialGenerator.generateOreMaterialWithAllExcessComponents(ELEMENT.getInstance().TRINIUM);
-            }
-
             // Custom Materials that will have standalone refinery processes
             MaterialGenerator.generate(ELEMENT.STANDALONE.ADVANCED_NITINOL, false);
             MaterialGenerator.generate(ELEMENT.STANDALONE.ASTRAL_TITANIUM);
@@ -656,10 +650,6 @@ public final class ModItems {
             MaterialGenerator.generate(ALLOY.HG1223, false, false);
 
             // Generate Fictional Materials
-            if (!CORE.GTNH) {
-                MaterialGenerator.generate(ELEMENT.getInstance().TRINIUM, false);
-                MaterialGenerator.generate(ELEMENT.getInstance().TRINIUM_REFINED, false);
-            }
             MaterialGenerator.generate(ALLOY.TRINIUM_TITANIUM);
             MaterialGenerator.generate(ALLOY.TRINIUM_NAQUADAH, false);
             MaterialGenerator.generate(ALLOY.TRINIUM_NAQUADAH_CARBON);
@@ -1262,20 +1252,6 @@ public final class ModItems {
                     .generateSpecialUsePlate("Ludicrite", "Ludicrite", new short[] { 167, 5, 179 }, 0);
         } else {
             Logger.WARNING("BigReactors not Found - Skipping Resources.");
-        }
-
-        // Thaumcraft
-        if ((LoadedMods.Thaumcraft || LOAD_ALL_CONTENT) && !CORE.GTNH) {
-            Logger.INFO("Thaumcraft Found - Loading Resources.");
-            // Item Init
-            try {
-                ItemUtils.getItemForOreDict("Thaumcraft:ItemResource", "ingotVoidMetal", "Void Metal Ingot", 16);
-                itemPlateVoidMetal = ItemUtils.generateSpecialUsePlate("Void", "Void", new short[] { 82, 17, 82 }, 0);
-                GT_OreDictUnificator.registerOre("plateVoidMetal", new ItemStack(ModItems.itemPlateVoidMetal));
-            } catch (final NullPointerException e) {}
-
-        } else {
-            Logger.WARNING("Thaumcraft not Found - Skipping Resources.");
         }
 
         // Pneumaticraft

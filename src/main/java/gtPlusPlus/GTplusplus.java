@@ -384,12 +384,6 @@ public class GTplusplus implements ActionListener {
 
         mGregMatLoader = new GT_Material_Loader();
 
-        // Non GTNH Materials
-        if (!CORE.GTNH) {
-            // Mithril - Random Dungeon Loot
-            mGregMatLoader.enableMaterial(Materials.Mithril);
-        }
-
         // Force - Alloying
         mGregMatLoader.enableMaterial(Materials.Force);
     }

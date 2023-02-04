@@ -293,7 +293,7 @@ public class StaticFields59 {
                 Logger.INFO("Heating Coils are bad.");
                 mHeatingCapacity = 0;
         }
-        if (CORE.GTNH && aCoilTier <= 10) {
+        if (aCoilTier <= 10) {
             mHeatingCapacity += 1;
         }
         return mHeatingCapacity;

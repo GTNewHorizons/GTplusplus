@@ -1,12 +1,10 @@
 package gtPlusPlus.core.recipe;
 
 import gregtech.api.enums.*;
-import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class RECIPES_MachineComponents {
 
@@ -99,11 +97,7 @@ public class RECIPES_MachineComponents {
             run();
         } else {
             onlyULVComponents();
-            if (!CORE.GTNH) {
-                onlyMaxComponents();
-            }
         }
-        gregtechMachinePhase();
     }
 
     private static void run() {
@@ -576,180 +570,5 @@ public class RECIPES_MachineComponents {
                 plateTier0,
                 plateTier0,
                 CI.sensor_ULV);
-    }
-
-    private static void onlyMaxComponents() {
-        RecipeUtils.addShapedGregtechRecipe(
-                cableTier10,
-                wireTier10,
-                rodTier10a,
-                wireTier10,
-                rodTier10b,
-                wireTier10,
-                rodTier10a,
-                wireTier10,
-                cableTier10,
-                CI.electricMotor_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                cableTier10,
-                rotorTier10,
-                itemRubberRing,
-                CI.craftingToolScrewdriver,
-                pipeTier10,
-                CI.craftingToolWrench,
-                itemRubberRing,
-                CI.electricMotor_MAX,
-                cableTier10,
-                CI.electricPump_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                plateTier10,
-                plateTier10,
-                plateTier10,
-                cableTier10,
-                rodTier10a,
-                rodTier10a,
-                cableTier10,
-                CI.electricMotor_MAX,
-                smallGearTier10,
-                CI.electricPiston_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                cableTier10,
-                cableTier10,
-                cableTier10,
-                CI.electricMotor_MAX,
-                rodTier10a,
-                CI.electricMotor_MAX,
-                CI.electricPiston_MAX,
-                circuitTier10,
-                rodTier10a,
-                CI.robotArm_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                plateRubber,
-                plateRubber,
-                plateRubber,
-                CI.electricMotor_MAX,
-                cableTier10,
-                CI.electricMotor_MAX,
-                plateRubber,
-                plateRubber,
-                plateRubber,
-                CI.conveyorModule_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                rodTier10c,
-                rodTier10c,
-                circuitTier10,
-                cableTier10,
-                circuitTier9,
-                rodTier10c,
-                circuitTier10,
-                cableTier10,
-                rodTier10c,
-                CI.emitter_MAX);
-        RecipeUtils.addShapedGregtechRecipe(
-                wireTier10,
-                circuitTier10,
-                wireTier10,
-                circuitTier10,
-                circuitTier9,
-                circuitTier10,
-                wireTier10,
-                circuitTier10,
-                wireTier10,
-                CI.fieldGenerator_MAX);
-        RecipeUtils.addShapedRecipe(
-                plateTier10,
-                null,
-                circuitTier9,
-                plateTier10,
-                rodTier10c,
-                null,
-                circuitTier10,
-                plateTier10,
-                plateTier10,
-                CI.sensor_MAX);
-    }
-
-    private static void gregtechMachinePhase() {
-        if (CORE.ConfigSwitches.enableCustomCircuits && !CORE.GTNH) {
-            Logger.INFO("Adding Gregtech machine recipes for the circuits.");
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 1L),
-                    GregtechItemList.Circuit_Parts_Wiring_IV.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_IV.get(1L, new Object[0]),
-                    30,
-                    240);
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 1L),
-                    GregtechItemList.Circuit_Parts_Wiring_LuV.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_LuV.get(1L, new Object[0]),
-                    60,
-                    480);
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicon, 2L),
-                    GregtechItemList.Circuit_Parts_Wiring_ZPM.get(4L, new Object[0]),
-                    GregtechItemList.Circuit_Board_ZPM.get(1L, new Object[0]),
-                    90,
-                    1000);
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_IV.get(1L, new Object[0]),
-                    30,
-                    480);
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_LuV.get(1L, new Object[0]),
-                    60,
-                    1000);
-            GT_Values.RA.addFormingPressRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Lazurite, 1L),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(3L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_ZPM.get(1L, new Object[0]),
-                    90,
-                    2000);
-            GT_Values.RA.addForgeHammerRecipe(
-                    ItemList.Circuit_Master.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_IV.get(5L, new Object[0]),
-                    30,
-                    256);
-            GT_Values.RA.addForgeHammerRecipe(
-                    GregtechItemList.Circuit_IV.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_LuV.get(5L, new Object[0]),
-                    60,
-                    512);
-            GT_Values.RA.addForgeHammerRecipe(
-                    GregtechItemList.Circuit_LuV.get(1L, new Object[0]),
-                    GregtechItemList.Circuit_Parts_Crystal_Chip_ZPM.get(5L, new Object[0]),
-                    120,
-                    1024);
-            for (final Materials tMat : Materials.values()) {
-                if ((tMat.mStandardMoltenFluid != null) && (tMat.contains(SubTag.SOLDERING_MATERIAL))) {
-                    final int tMultiplier = tMat.contains(SubTag.SOLDERING_MATERIAL_GOOD) ? 1
-                            : tMat.contains(SubTag.SOLDERING_MATERIAL_BAD) ? 4 : 2;
-                    GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_IV.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_IV.get(1L, new Object[0]),
-                            tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_IV.get(1L, new Object[0]),
-                            30,
-                            480);
-                    GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_LuV.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_LuV.get(1L, new Object[0]),
-                            tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_LuV.get(1L, new Object[0]),
-                            60,
-                            1000);
-                    GT_Values.RA.addAssemblerRecipe(
-                            GregtechItemList.Circuit_Board_ZPM.get(1L, new Object[0]),
-                            GregtechItemList.Circuit_Parts_ZPM.get(1L, new Object[0]),
-                            tMat.getMolten((144L * tMultiplier) / 4L),
-                            GregtechItemList.Circuit_ZPM.get(1L, new Object[0]),
-                            90,
-                            2000);
-                }
-            }
-        }
     }
 }

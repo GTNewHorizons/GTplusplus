@@ -34,15 +34,13 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
     @Override
     public void onConfigLoad(GT_Config aConfig) {
         super.onConfigLoad(aConfig);
-        if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK || CORE.GTNH) {
-            try {
-                Integer a1 = (int) StaticFields59.getFieldFromGregtechProxy("mPollutionSmogLimit");
-                if (a1 != null && a1 > 0) {
-                    mPollutionSmogLimit = a1;
-                }
-            } catch (Throwable t) {
-                mPollutionSmogLimit = 500000;
+        try {
+            Integer a1 = (int) StaticFields59.getFieldFromGregtechProxy("mPollutionSmogLimit");
+            if (a1 != null && a1 > 0) {
+                mPollutionSmogLimit = a1;
             }
+        } catch (Throwable t) {
+            mPollutionSmogLimit = 500000;
         }
     }
 

@@ -1,6 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import static gtPlusPlus.core.lib.CORE.GTNH;
 import static gtPlusPlus.core.lib.LoadedMods.Gregtech;
 
 import java.lang.reflect.Constructor;
@@ -34,26 +33,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaP
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaPipeEntity_Cable;
 
 public class GregtechConduits {
-
-    /**
-     *
-     * The Voltage Tiers. Use this Array instead of the old named Voltage Variables public static final long[] V = new
-     * long[] {0=8, 1=32, 2=128, 3=512, 4=2048, 5=8192, 6=32768, 7=131072, 8=524288, 9=Integer.MAX_VALUE,
-     * Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE,
-     * Integer.MAX_VALUE};
-     *
-     */
-    public static OrePrefixes cableGt16;
-
-    static {
-        if (GTNH) {
-            try {
-                cableGt16 = (OrePrefixes) GT_Utility.getField(OrePrefixes.class, "cableGt16").get(null);
-            } catch (IllegalAccessException | NullPointerException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     // 30000-30999
 
@@ -227,13 +206,6 @@ public class GregtechConduits {
             wireFactory("RedstoneAlloy", 32, BaseWireID + 45, 0, 2, 1, new short[] { 178, 34, 34, 0 });
         }
 
-        if (!GTNH) {
-            customWireFactory(ALLOY.LEAGRISIUM, 512, BaseWireID + 56, 1, 2, 2);
-            customWireFactory(ELEMENT.getInstance().ZIRCONIUM, 128, BaseWireID + 67, 1, 2, 2);
-            customWireFactory(ALLOY.HG1223, 32768, BaseWireID + 78, 2, 8, 4);
-            customWireFactory(ALLOY.TRINIUM_TITANIUM, 2048, BaseWireID + 89, 1, 2, 16);
-        }
-
         // need to go back id because fluid pipes already occupy
         makeCustomWires(ELEMENT.STANDALONE.HYPOGEN, BaseWireID - 15, 0, 0, 8, GT_Values.V[11], false, true);
 
@@ -359,7 +331,7 @@ public class GregtechConduits {
                         aStartID + 4,
                         "wire." + aMaterial.name().toLowerCase() + ".12",
                         "12x " + aMaterial.mDefaultLocalName + " Wire",
-                        GTNH ? 0.625F : 0.75F,
+                        0.625F,
                         aMaterial,
                         aLoss,
                         12L * aAmperage,
@@ -374,7 +346,7 @@ public class GregtechConduits {
                         aStartID + 5,
                         "wire." + aMaterial.name().toLowerCase() + ".16",
                         "16x " + aMaterial.mDefaultLocalName + " Wire",
-                        GTNH ? 0.75F : 1.0F,
+                        0.75F,
                         aMaterial,
                         aLoss,
                         16L * aAmperage,
@@ -450,7 +422,7 @@ public class GregtechConduits {
                             aStartID + 10,
                             "cable." + aMaterial.name().toLowerCase() + ".12",
                             "12x " + aMaterial.mDefaultLocalName + " Cable",
-                            GTNH ? 0.75F : 0.875F,
+                            0.75F,
                             aMaterial,
                             aLossInsulated,
                             12L * aAmperage,
@@ -458,23 +430,21 @@ public class GregtechConduits {
                             true,
                             false,
                             aRGB).getStackForm(1L));
-            if (GTNH) {
-                GT_OreDictUnificator.registerOre(
-                        cableGt16,
-                        aMaterial,
-                        new GregtechMetaPipeEntity_Cable(
-                                aStartID + 11,
-                                "cable." + aMaterial.name().toLowerCase() + ".16",
-                                "16x " + aMaterial.mDefaultLocalName + " Cable",
-                                0.875f,
-                                aMaterial,
-                                aLossInsulated,
-                                16L * aAmperage,
-                                aVoltage,
-                                true,
-                                false,
-                                aRGB).getStackForm(1L));
-            }
+            GT_OreDictUnificator.registerOre(
+                    OrePrefixes.cableGt16,
+                    aMaterial,
+                    new GregtechMetaPipeEntity_Cable(
+                            aStartID + 11,
+                            "cable." + aMaterial.name().toLowerCase() + ".16",
+                            "16x " + aMaterial.mDefaultLocalName + " Cable",
+                            0.875f,
+                            aMaterial,
+                            aLossInsulated,
+                            16L * aAmperage,
+                            aVoltage,
+                            true,
+                            false,
+                            aRGB).getStackForm(1L));
         }
     }
 
@@ -558,7 +528,7 @@ public class GregtechConduits {
                         aStartID + 4,
                         "wire." + aMaterial.getLocalizedName().toLowerCase() + ".12",
                         "12x " + aMaterial.getLocalizedName() + " Wire",
-                        GTNH ? 0.625F : 0.75F,
+                        0.625F,
                         aLoss,
                         12L * aAmperage,
                         aVoltage,
@@ -572,7 +542,7 @@ public class GregtechConduits {
                         aStartID + 5,
                         "wire." + aMaterial.getLocalizedName().toLowerCase() + ".16",
                         "16x " + aMaterial.getLocalizedName() + " Wire",
-                        GTNH ? 0.75F : 1.0F,
+                        0.75F,
                         aLoss,
                         16L * aAmperage,
                         aVoltage,
@@ -643,29 +613,27 @@ public class GregtechConduits {
                             aStartID + 10,
                             "cable." + aMaterial.getLocalizedName().toLowerCase() + ".12",
                             "12x " + aMaterial.getLocalizedName() + " Cable",
-                            GTNH ? 0.75F : 0.875F,
+                            0.75F,
                             aLossInsulated,
                             12L * aAmperage,
                             aVoltage,
                             true,
                             false,
                             aMaterial.getRGBA()).getStackForm(1L));
-            if (GTNH) {
-                registerOre(
-                        cableGt16,
-                        aMaterial,
-                        new GregtechMetaPipeEntity_Cable(
-                                aStartID + 11,
-                                "cable." + aMaterial.getLocalizedName().toLowerCase() + ".16",
-                                "16x " + aMaterial.getLocalizedName() + " Cable",
-                                0.875f,
-                                aLossInsulated,
-                                16L * aAmperage,
-                                aVoltage,
-                                true,
-                                false,
-                                aMaterial.getRGBA()).getStackForm(1L));
-            }
+            registerOre(
+                    OrePrefixes.cableGt16,
+                    aMaterial,
+                    new GregtechMetaPipeEntity_Cable(
+                            aStartID + 11,
+                            "cable." + aMaterial.getLocalizedName().toLowerCase() + ".16",
+                            "16x " + aMaterial.getLocalizedName() + " Cable",
+                            0.875f,
+                            aLossInsulated,
+                            16L * aAmperage,
+                            aVoltage,
+                            true,
+                            false,
+                            aMaterial.getRGBA()).getStackForm(1L));
         }
     }
 
@@ -758,7 +726,7 @@ public class GregtechConduits {
                         startID + 4,
                         "GT_Pipe_" + material.mDefaultLocalName + "_Huge",
                         "Huge " + material.mDefaultLocalName + " Fluid Pipe",
-                        GTNH ? 0.875F : 1.0F,
+                        0.875F,
                         material,
                         transferRatePerTick * 48,
                         heatResistance,
@@ -828,7 +796,7 @@ public class GregtechConduits {
                         startID + 4,
                         "GT_Pipe_" + material.mDefaultLocalName + "_Huge",
                         "Huge " + material.mDefaultLocalName + " Fluid Pipe",
-                        GTNH ? 0.875F : 1.0F,
+                        0.875F,
                         material,
                         transferRatePerTick * 48,
                         heatResistance,

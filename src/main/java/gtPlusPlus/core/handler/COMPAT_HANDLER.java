@@ -35,7 +35,6 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
-import gtPlusPlus.core.recipe.RECIPES_Extruder;
 import gtPlusPlus.core.recipe.RECIPES_GREGTECH;
 import gtPlusPlus.core.recipe.RECIPES_LaserEngraver;
 import gtPlusPlus.core.recipe.ShapedRecipeObject;
@@ -88,7 +87,6 @@ public class COMPAT_HANDLER {
              */
 
             new RECIPES_LaserEngraver();
-            new RECIPES_Extruder();
             GregtechGeneratorsULV.run();
             GregtechEnergyBuffer.run();
             GregtechLFTR.run();
@@ -161,9 +159,6 @@ public class COMPAT_HANDLER {
             GregtechIndustrialRockBreaker.run();
             GregtechIndustrialChisel.run();
             GregtechIndustrialFluidHeater.run();
-
-            // New Horizons Content
-            NewHorizonsAccelerator.run();
         }
     }
 

@@ -42,7 +42,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.BaseCustomTileEntity;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.custom.power.BaseCustomPower_MTE;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.MachineUpdateHandler;
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_WorldAccelerator;
 import ic2.core.init.BlocksItems;
 import ic2.core.init.InternalName;
 
@@ -364,28 +363,22 @@ public class Meta_GT_Proxy {
     }
 
     public static boolean setTileEntityClassAsBlacklistedInWorldAccelerator(String aClassName) {
-        if (CORE.GTNH) {
-            Class aMainModClass = ReflectionUtils.getClass("com.dreammaster.main.MainRegistry");
-            Class aCoreModConfig = ReflectionUtils.getClass("com.dreammaster.config");
-            if (aMainModClass != null && aCoreModConfig != null) {
-                Field aCoreConfig = ReflectionUtils.getField(aMainModClass, "CoreConfig");
-                if (aCoreConfig != null) {
-                    Field aBlackList = ReflectionUtils.getField(aCoreModConfig, "BlacklistedTileEntiyClassNames");
-                    Object aInstance = ReflectionUtils.getFieldValue(aCoreConfig);
-                    if (aBlackList != null && aInstance != null) {
-                        String[] aBlackListValue = (String[]) ReflectionUtils.getFieldValue(aBlackList, aInstance);
-                        if (aBlackListValue != null) {
-                            aBlackListValue = ArrayUtils.add(aBlackListValue, aClassName);
-                            ReflectionUtils.setField(aInstance, aBlackList, aBlackListValue);
-                            return true;
-                        }
+        Class aMainModClass = ReflectionUtils.getClass("com.dreammaster.main.MainRegistry");
+        Class aCoreModConfig = ReflectionUtils.getClass("com.dreammaster.config");
+        if (aMainModClass != null && aCoreModConfig != null) {
+            Field aCoreConfig = ReflectionUtils.getField(aMainModClass, "CoreConfig");
+            if (aCoreConfig != null) {
+                Field aBlackList = ReflectionUtils.getField(aCoreModConfig, "BlacklistedTileEntiyClassNames");
+                Object aInstance = ReflectionUtils.getFieldValue(aCoreConfig);
+                if (aBlackList != null && aInstance != null) {
+                    String[] aBlackListValue = (String[]) ReflectionUtils.getFieldValue(aBlackList, aInstance);
+                    if (aBlackListValue != null) {
+                        aBlackListValue = ArrayUtils.add(aBlackListValue, aClassName);
+                        ReflectionUtils.setField(aInstance, aBlackList, aBlackListValue);
+                        return true;
                     }
                 }
             }
-        } else {
-            GT_MetaTileEntity_WorldAccelerator.BlacklistedTileEntiyClassNames = ArrayUtils
-                    .add(GT_MetaTileEntity_WorldAccelerator.BlacklistedTileEntiyClassNames, aClassName);
-            return true;
         }
         return false;
     }
@@ -394,10 +387,8 @@ public class Meta_GT_Proxy {
         for (int i = 0; i <= 6; i++) {
             GT_ValidHeatingCoilMetas.put(i);
         }
-        if (CORE.GTNH) {
-            for (int i = 7; i <= 8; i++) {
-                GT_ValidHeatingCoilMetas.put(i);
-            }
+        for (int i = 7; i <= 8; i++) {
+            GT_ValidHeatingCoilMetas.put(i);
         }
     }
 

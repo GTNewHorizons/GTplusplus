@@ -77,8 +77,6 @@ public class CORE {
             .translateToLocal("GTPP.core.GT_Tooltip_Radioactive");
     public static final String noItem = "";
 
-    // Because I want to be lazy Gregtech New Horizons Var.
-    public static boolean GTNH = false;
     // Because I want to be lazy. Beyond Reality Classic Var.
     public static boolean BRC = false;
 

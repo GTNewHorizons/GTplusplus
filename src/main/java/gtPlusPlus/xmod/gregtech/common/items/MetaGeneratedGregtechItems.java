@@ -14,8 +14,6 @@ import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.objects.GT_MultiTexture;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.objects.ItemData;
-import gregtech.api.objects.MaterialStack;
 import gregtech.api.util.GT_FoodStat;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.common.covers.GT_Cover_Arm;
@@ -24,7 +22,6 @@ import gregtech.common.covers.GT_Cover_Pump;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gregtech.common.items.behaviors.Behaviour_DataStick;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.handler.OldCircuitHandler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;
@@ -54,7 +51,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         int tLastID = 0;
 
         registerCustomCircuits();
-        OldCircuitHandler.addCircuitItems();
 
         if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
             Logger.INFO(
@@ -614,12 +610,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         GregtechItemList.Shape_Extruder_WindmillShaft
                 .set(this.addItem(tLastID = 40, "Extruder Shape (Shaft)", "Extruder Shape for making Windmill Shafts"));
 
-        // GTNH Already adds this.
-        if (!CORE.GTNH) {
-            GregtechItemList.Shape_Extruder_SmallGear
-                    .set(this.addItem(221, "Extruder Shape (Small Gear)", "Extruder Shape for making small gears"));
-        }
-
         // Batteries
         GregtechItemList.Battery_RE_EV_Sodium.set(
                 this.addItem(
@@ -755,64 +745,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         new Object[] { new GT_FoodStat(5, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
                                 getTcAspectStack(TC_Aspects.CORPUS, 1L), getTcAspectStack(TC_Aspects.FAMES, 1L),
                                 getTcAspectStack(TC_Aspects.IGNIS, 1L) }));
-
-        if (!CORE.GTNH) {
-            GregtechItemList.Fluid_Cell_144L.set(
-                    this.addItem(
-                            tLastID = 61,
-                            "144L Invar Fluid Cell",
-                            "Holds exactly one dust worth of liquid.",
-                            new Object[] {
-                                    new ItemData(
-                                            Materials.Invar,
-                                            (OrePrefixes.plate.mMaterialAmount * 8L)
-                                                    + (4L * OrePrefixes.ring.mMaterialAmount),
-                                            new MaterialStack[0]),
-                                    getTcAspectStack(TC_Aspects.VACUOS, 2L), getTcAspectStack(TC_Aspects.AQUA, 1L) }));
-            this.setFluidContainerStats(32000 + tLastID, 144L, 64L);
-
-            GregtechItemList.Fluid_Cell_36L.set(
-                    this.addItem(
-                            tLastID = 62,
-                            "36L Brass Fluid Cell",
-                            "Holds exactly one small dust worth of liquid.",
-                            new Object[] {
-                                    new ItemData(
-                                            Materials.Brass,
-                                            (OrePrefixes.plate.mMaterialAmount * 8L)
-                                                    + (4L * OrePrefixes.ring.mMaterialAmount),
-                                            new MaterialStack[0]),
-                                    getTcAspectStack(TC_Aspects.VACUOS, 2L), getTcAspectStack(TC_Aspects.AQUA, 1L) }));
-            this.setFluidContainerStats(32000 + tLastID, 36L, 64L);
-
-            GregtechItemList.Fluid_Cell_16L.set(
-                    this.addItem(
-                            tLastID = 63,
-                            "16L Bronze Fluid Cell",
-                            "Holds exactly one tiny dust / nugget worth of liquid.",
-                            new Object[] {
-                                    new ItemData(
-                                            Materials.Bronze,
-                                            (OrePrefixes.plate.mMaterialAmount * 8L)
-                                                    + (4L * OrePrefixes.ring.mMaterialAmount),
-                                            new MaterialStack[0]),
-                                    getTcAspectStack(TC_Aspects.VACUOS, 2L), getTcAspectStack(TC_Aspects.AQUA, 1L) }));
-            this.setFluidContainerStats(32000 + tLastID, 16L, 64L);
-
-            GregtechItemList.Fluid_Cell_1L.set(
-                    this.addItem(
-                            tLastID = 64,
-                            "1L Wrought Iron Fluid Cell",
-                            "Holds exactly one litre worth of liquid.",
-                            new Object[] {
-                                    new ItemData(
-                                            Materials.WroughtIron,
-                                            (OrePrefixes.plate.mMaterialAmount * 8L)
-                                                    + (4L * OrePrefixes.ring.mMaterialAmount),
-                                            new MaterialStack[0]),
-                                    getTcAspectStack(TC_Aspects.VACUOS, 2L), getTcAspectStack(TC_Aspects.AQUA, 1L) }));
-            this.setFluidContainerStats(32000 + tLastID, 1L, 64L);
-        }
 
         GregtechItemList.Cover_Overflow_ULV.set(
                 this.addItem(
