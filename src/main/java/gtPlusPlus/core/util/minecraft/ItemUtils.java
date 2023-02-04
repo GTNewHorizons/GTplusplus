@@ -46,7 +46,6 @@ import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.item.tool.staballoy.MultiPickaxeBase;
 import gtPlusPlus.core.item.tool.staballoy.MultiSpadeBase;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.Utils;
@@ -350,14 +349,6 @@ public class ItemUtils {
             return getSimpleStack(Items.clay_ball, amount);
         }
 
-        if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            if (oredictName.toLowerCase().contains("rutile")) {
-                mTemp = oredictName.replace("Rutile", "Titanium");
-            }
-            if (oredictName.toLowerCase().contains("vanadiumsteel")) {
-                mTemp = oredictName.replace("VanadiumSteel", "StainlessSteel");
-            }
-        }
         final ArrayList<ItemStack> oreDictList = OreDictionary.getOres(mTemp);
         if (!oreDictList.isEmpty()) {
             final ItemStack returnValue = oreDictList.get(0).copy();

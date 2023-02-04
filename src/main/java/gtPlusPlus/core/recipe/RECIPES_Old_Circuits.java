@@ -285,7 +285,7 @@ public class RECIPES_Old_Circuits implements IOreRecipeRegistrator {
         Logger.INFO(
                 "[Old Feature - Circuits] Overriding .28+ circuit values in the GT5u Itemlist with values from GT++.");
 
-        boolean newVersion = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() >= 30;
+        boolean newVersion = Utils.getGregtechSubVersion() >= 30;
 
         setItemList(ItemList.Circuit_Primitive, GregtechItemList.Old_Circuit_Primitive);
         setItemList(ItemList.Circuit_Basic, GregtechItemList.Old_Circuit_Basic);

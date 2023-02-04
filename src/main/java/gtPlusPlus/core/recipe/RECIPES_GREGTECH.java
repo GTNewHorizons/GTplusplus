@@ -57,10 +57,8 @@ public class RECIPES_GREGTECH {
         dehydratorRecipes();
         blastFurnaceRecipes();
 
-        if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            largeChemReactorRecipes();
-            fusionRecipes();
-        }
+        largeChemReactorRecipes();
+        fusionRecipes();
 
         fissionFuelRecipes();
         autoclaveRecipes();

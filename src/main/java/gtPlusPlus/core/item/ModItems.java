@@ -559,10 +559,6 @@ public final class ModItems {
 
             MISC_MATERIALS.run();
 
-            // Carbides - Tungsten Carbide exists in .09 so don't generate it. - Should still come before alloys though
-            if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-                MaterialGenerator.generate(ALLOY.TUNGSTEN_CARBIDE);
-            }
             MaterialGenerator.generate(ALLOY.SILICON_CARBIDE);
             MaterialGenerator.generate(ALLOY.ZIRCONIUM_CARBIDE);
             MaterialGenerator.generate(ALLOY.TANTALUM_CARBIDE);

@@ -84,7 +84,7 @@ public class TAE {
             // Handle page 2.
             Logger.INFO("[TAE} Registering Texture, Last used casing ID is " + gtPPLastUsedIndex + ".");
             if (gtPPLastUsedIndex >= 128) {
-                if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() > 30) {
+                if (Utils.getGregtechSubVersion() > 30) {
                     Field x = ReflectionUtils.getField(Textures.BlockIcons.class, "casingTexturePages");
                     if (x != null) {
                         ITexture[][] h = (ITexture[][]) x.get(null);
@@ -116,7 +116,7 @@ public class TAE {
 
     public static ITexture getTexture(int index) {
         if (gtPPLastUsedIndex >= 128) {
-            if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() > 30) {
+            if (Utils.getGregtechSubVersion() > 30) {
                 return Textures.BlockIcons.getCasingTextureForId(((64 * 128) + index));
             }
         }
@@ -127,7 +127,7 @@ public class TAE {
 
         if (ID >= 64) {
             if (gtPPLastUsedIndex >= 128) {
-                if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() > 30) {
+                if (Utils.getGregtechSubVersion() > 30) {
                     return (128 + ID);
                 }
             }

@@ -81,7 +81,7 @@ public class ItemGiantEgg extends BaseItemTickable {
 
     private static ItemStack getStemCellStack() {
         if (mCorrectStemCells == null) {
-            if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK && Utils.getGregtechSubVersion() > 28) {
+            if (Utils.getGregtechSubVersion() > 28) {
                 ItemStack xl = ItemUtils
                         .getValueOfItemList("Circuit_Chip_Stemcell", 1, ItemUtils.getSimpleStack(Items.egg, 2));
                 if (xl != null) {

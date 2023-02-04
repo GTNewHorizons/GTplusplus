@@ -392,17 +392,6 @@ public class Meta_GT_Proxy {
         }
     }
 
-    public static boolean areWeUsingGregtech5uExperimental() {
-        final int version = GregTech_API.VERSION;
-        if ((version == 508) || (version == 507)) {
-            return false;
-        } else if (version == 509) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     static GT_Proxy[] mProxies = new GT_Proxy[2];
 
     /**

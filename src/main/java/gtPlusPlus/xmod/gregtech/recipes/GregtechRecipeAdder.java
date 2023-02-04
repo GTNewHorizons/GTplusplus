@@ -1269,13 +1269,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
             ItemStack output, Object object, int time, int eu) {
         try {
-            if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-                return (boolean) mChemicalRecipe[0]
-                        .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, time);
-            } else {
-                return (boolean) mChemicalRecipe[1]
-                        .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, time, eu);
-            }
+            return (boolean) mChemicalRecipe[1]
+                    .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, time, eu);
         } catch (Throwable t) {
             return false;
         }
@@ -1285,13 +1280,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
             ItemStack output, ItemStack output2, int time) {
         try {
-            if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-                return (boolean) mChemicalRecipe[0]
-                        .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, time);
-            } else {
-                return (boolean) mChemicalRecipe[2]
-                        .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, output2, time);
-            }
+            return (boolean) mChemicalRecipe[2]
+                    .invoke(GT_Values.RA, input1, input2, inputFluid, outputFluid, output, output2, time);
         } catch (Throwable t) {
             return false;
         }
@@ -1320,7 +1310,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addMultiblockChemicalRecipe(ItemStack[] itemStacks, FluidStack[] fluidStacks,
             FluidStack[] fluidStacks2, ItemStack[] outputs, int time, int eu) {
-        if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK || mLargeChemReactor == null) {
+        if (mLargeChemReactor == null) {
             return false;
         }
         try {
@@ -1411,18 +1401,10 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addSmeltingAndAlloySmeltingRecipe(ItemStack aDust, ItemStack aOutput) {
         Method m = StaticFields59.mAddFurnaceRecipe;
-        if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-            try {
-                return (boolean) m.invoke(null, aDust, aOutput);
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                return false;
-            }
-        } else {
-            try {
-                return (boolean) m.invoke(null, aDust, aOutput, true);
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                return false;
-            }
+        try {
+            return (boolean) m.invoke(null, aDust, aOutput, true);
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            return false;
         }
     }
 
@@ -1701,7 +1683,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addPyrolyseRecipe(ItemStack aInput, FluidStack aFluidInput, int intCircuit, ItemStack aOutput,
             FluidStack aFluidOutput, int aDuration, int aEUt) {
-        if (!CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK || mPyroOven == null) {
+        if (mPyroOven == null) {
             return false;
         }
         try {

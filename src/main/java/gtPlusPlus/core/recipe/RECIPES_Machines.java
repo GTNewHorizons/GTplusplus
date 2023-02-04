@@ -2283,8 +2283,7 @@ public class RECIPES_Machines {
 
         // Air Intake Hatch
         ItemList FluidRegulator_IV = ItemUtils.getValueOfItemList("FluidRegulator_IV", ItemList.Pump_IV);
-        ItemStack aTieredFluidRegulator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK ? FluidRegulator_IV.get(1)
-                : ItemList.Pump_IV.get(1);
+        ItemStack aTieredFluidRegulator = FluidRegulator_IV.get(1);
         RecipeUtils.addShapedGregtechRecipe(
                 CI.component_Plate[6],
                 ItemList.Casing_Grate.get(1),
@@ -2637,12 +2636,10 @@ public class RECIPES_Machines {
 
         if (CORE.ConfigSwitches.enableMultiblock_LargeAutoCrafter) {
 
-            ItemStack aCoreBlock = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
-                    ? ItemUtils.getValueOfItemList(
-                            "Block_IridiumTungstensteel",
-                            1,
-                            ItemUtils.getItemStackOfAmountFromOreDict("blockOsmiridium", 1))
-                    : ItemUtils.getItemStackOfAmountFromOreDict("blockOsmiridium", 1);
+            ItemStack aCoreBlock = ItemUtils.getValueOfItemList(
+                    "Block_IridiumTungstensteel",
+                    1,
+                    ItemUtils.getItemStackOfAmountFromOreDict("blockOsmiridium", 1));
 
             aCoreBlock.stackSize = 1;
 
@@ -2890,9 +2887,8 @@ public class RECIPES_Machines {
             cell1 = CI.conveyorModule_LuV;
             cell2 = CI.electricMotor_LuV;
             ItemStack casingAmazon = GregtechItemList.Casing_AmazonWarehouse.get(1);
-            ItemStack aTieredUnboxinator = CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK
-                    ? ItemUtils.getValueOfItemList("Machine_LuV_Unboxinator", 1, ItemList.Machine_IV_Unboxinator.get(1))
-                    : ItemList.Machine_IV_Unboxinator.get(1);
+            ItemStack aTieredUnboxinator = ItemUtils
+                    .getValueOfItemList("Machine_LuV_Unboxinator", 1, ItemList.Machine_IV_Unboxinator.get(1));
 
             RecipeUtils.addShapedRecipe(
                     plate,
@@ -2988,22 +2984,17 @@ public class RECIPES_Machines {
          * 6/1/19 - Content additions
          */
 
-        if (CORE.MAIN_GREGTECH_5U_EXPERIMENTAL_FORK) {
-
-            ItemStack aDrillController = ItemUtils.getValueOfItemList("OreDrill4", ItemList.Hull_UV).get(1);
-
-            // Drilling Platform Casings
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("frameGtTriniumNaquadahCarbonite", 4),
-                            ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleTriniumTitaniumAlloy", 1 * (1)),
-                            ItemUtils.getItemStackOfAmountFromOreDict("gearGtPikyonium64B", 2 * (1)),
-                            ALLOY.TRINIUM_REINFORCED_STEEL.getPlateDouble(4 * (1)),
-                            ItemUtils.getSimpleStack((CI.machineHull_LuV), 1 * (1)), },
-                    ALLOY.MARAGING350.getFluidStack(144 * 16 * (1)),
-                    GregtechItemList.Casing_BedrockMiner.get(1),
-                    (int) GT_Values.V[4],
-                    (int) GT_Values.V[6]);
-        }
+        // Drilling Platform Casings
+        CORE.RA.addSixSlotAssemblingRecipe(
+                new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("frameGtTriniumNaquadahCarbonite", 4),
+                        ItemUtils.getItemStackOfAmountFromOreDict("plateDoubleTriniumTitaniumAlloy", 1 * (1)),
+                        ItemUtils.getItemStackOfAmountFromOreDict("gearGtPikyonium64B", 2 * (1)),
+                        ALLOY.TRINIUM_REINFORCED_STEEL.getPlateDouble(4 * 1),
+                        ItemUtils.getSimpleStack((CI.machineHull_LuV), 1 * 1), },
+                ALLOY.MARAGING350.getFluidStack(144 * 16 * 1),
+                GregtechItemList.Casing_BedrockMiner.get(1),
+                (int) GT_Values.V[4],
+                (int) GT_Values.V[6]);
 
         int aCostMultiplier = 1;
 
