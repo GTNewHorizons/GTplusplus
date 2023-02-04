@@ -52,9 +52,9 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
 
     public enum MODE {
 
-        CRAFTING("CIRCUIT", "ASSEMBLY"),
+        CRAFTING("DISASSEMBLY", "ASSEMBLY"),
         ASSEMBLY("CRAFTING", "DISASSEMBLY"),
-        DISASSEMBLY("ASSEMBLY", "CIRCUIT");
+        DISASSEMBLY("ASSEMBLY", "CRAFTING");
 
         private final String lastMode;
         private final String nextMode;
