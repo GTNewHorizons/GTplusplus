@@ -21,13 +21,13 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt         = EU needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
-            FluidStack aFluidOutput, ItemStack aOutput, int aDuration, int aEUt);
+    boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput, FluidStack aFluidOutput,
+            ItemStack aOutput, int aDuration, int aEUt);
 
-    public boolean addCokeOvenRecipe(int aCircuit, ItemStack aInput2, FluidStack[] aFluidInputs,
-            FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUt);
+    boolean addCokeOvenRecipe(int aCircuit, ItemStack aInput2, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs,
+            ItemStack[] aOutputs, int aDuration, int aEUt);
 
-    public boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack[] aFluidInputs,
+    boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack[] aFluidInputs,
             FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUt);
 
     /**
@@ -39,7 +39,7 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt         = EU needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addMatterFabricatorRecipe(FluidStack aFluidInput, FluidStack aFluidOutput, int aDuration, int aEUt);
+    boolean addMatterFabricatorRecipe(FluidStack aFluidInput, FluidStack aFluidOutput, int aDuration, int aEUt);
 
     /**
      * Adds a Recipe for the Dehydrator. (up to 9 Outputs)
@@ -53,7 +53,7 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt         = EU needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addDehydratorRecipe(ItemStack[] aInput, FluidStack aFluidInput, FluidStack aFluidOutput,
+    boolean addDehydratorRecipe(ItemStack[] aInput, FluidStack aFluidInput, FluidStack aFluidOutput,
             ItemStack[] aOutputItems, int[] aChances, int aDuration, int aEUt);
 
     /**
@@ -66,7 +66,7 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt      = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aOutput, int aChance, int aDuration, int aEUt);
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aOutput, int aChance, int aDuration, int aEUt);
 
     /**
      * Adds a Recipe for the Alloy Blast Smelter. (up to 9 Inputs)
@@ -79,7 +79,7 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt        = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
             int aDuration, int aEUt);
 
     /**
@@ -93,7 +93,7 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt        = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput, int aChance,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput, int aChance,
             int aDuration, int aEUt);
 
     /**
@@ -108,13 +108,13 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt         = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt);
 
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput, int aChance,
             int aDuration, int aEUt, int aSpecialValue);
 
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt, int aSpecialValue,
             boolean aOptimizeRecipe);
 
@@ -130,13 +130,13 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt         = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt);
 
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput, int aChance,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput, int aChance,
             int aDuration, int aEUt, int aSpecialValue);
 
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt, int aSpecialValue,
             boolean aOptimizeRecipe);
 
@@ -153,7 +153,7 @@ public interface IGregtech_RecipeAdder {
      * @param aSpecialValue = Power produced in EU/t per dynamo
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt, int aSpecialValue);
 
     /**
@@ -161,7 +161,7 @@ public interface IGregtech_RecipeAdder {
      *
      *
      **/
-    public boolean addQuantumTransformerRecipe(ItemStack[] aInput, FluidStack[] aFluidInput, FluidStack[] aFluidOutput,
+    boolean addQuantumTransformerRecipe(ItemStack[] aInput, FluidStack[] aFluidInput, FluidStack[] aFluidOutput,
             ItemStack[] aOutputStack, int[] aChances, int aDuration, int aEUt, int aSpecialValue);
 
     /**
@@ -177,7 +177,7 @@ public interface IGregtech_RecipeAdder {
      * @param aSpecialValue = Power produced in EU/t per dynamo
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
+    boolean addBlastSmelterRecipe(ItemStack[] aInput, FluidStack[] aInputFluid, FluidStack aOutput,
             ItemStack[] aOutputStack, int[] aChance, int aDuration, int aEUt, int aSpecialValue);
 
     /**
@@ -187,7 +187,7 @@ public interface IGregtech_RecipeAdder {
      * @param aFuelValue - Fuel value in thousands (1 = 1000)
      * @return - Was the Fuel added?
      */
-    public boolean addSemifluidFuel(FluidStack aFuelItem, int aFuelValue);
+    boolean addSemifluidFuel(FluidStack aFuelItem, int aFuelValue);
 
     /**
      * Adds a custom Semifluid fuel for the GT++ SemiFluid Generators.
@@ -196,23 +196,23 @@ public interface IGregtech_RecipeAdder {
      * @param aFuelValue - Fuel value in thousands (1 = 1000)
      * @return - Was the Fuel added?
      */
-    public boolean addSemifluidFuel(ItemStack aFuelItem, int aFuelValue);
+    boolean addSemifluidFuel(ItemStack aFuelItem, int aFuelValue);
 
-    public boolean addFissionFuel(FluidStack aInput1, FluidStack aInput2, FluidStack aInput3, FluidStack aInput4,
+    boolean addFissionFuel(FluidStack aInput1, FluidStack aInput2, FluidStack aInput3, FluidStack aInput4,
             FluidStack aInput5, FluidStack aInput6, FluidStack aInput7, FluidStack aInput8, FluidStack aInput9,
             FluidStack aOutput1, FluidStack aOutput2, int aDuration, int aEUt);
 
-    public boolean addFissionFuel(boolean aOptimise, FluidStack aInput1, FluidStack aInput2, FluidStack aInput3,
+    boolean addFissionFuel(boolean aOptimise, FluidStack aInput1, FluidStack aInput2, FluidStack aInput3,
             FluidStack aInput4, FluidStack aInput5, FluidStack aInput6, FluidStack aInput7, FluidStack aInput8,
             FluidStack aInput9, FluidStack aOutput1, FluidStack aOutput2, int aDuration, int aEUt);
 
-    public boolean addCyclotronRecipe(ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs,
-            FluidStack aFluidOutput, int[] aChances, int aDuration, int aEUt, int aSpecialValue);
+    boolean addCyclotronRecipe(ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs, FluidStack aFluidOutput,
+            int[] aChances, int aDuration, int aEUt, int aSpecialValue);
 
     boolean addCyclotronRecipe(ItemStack[] aInputs, FluidStack aFluidInput, ItemStack[] aOutput,
             FluidStack aFluidOutput, int[] aChances, int aDuration, int aEUt, int aSpecialValue);
 
-    public boolean addMixerRecipe(ItemStack aInput1, ItemStack aInput2, ItemStack aInput3, ItemStack aInput4,
+    boolean addMixerRecipe(ItemStack aInput1, ItemStack aInput2, ItemStack aInput3, ItemStack aInput4,
             FluidStack aFluidInput, FluidStack aFluidOutput, ItemStack aOutput1, ItemStack aOutput2, ItemStack aOutput3,
             ItemStack aOutput4, int aDuration, int aEUt);
 
@@ -226,20 +226,20 @@ public interface IGregtech_RecipeAdder {
      * @param aEUt        = EU per tick needed for heating up (must be >= 0)
      * @return true if the Recipe got added, otherwise false.
      */
-    public boolean addComponentMakerRecipe(ItemStack[] aInputs, FluidStack aFluidInput, ItemStack aOutput1,
-            int aDuration, int aEUt);
+    boolean addComponentMakerRecipe(ItemStack[] aInputs, FluidStack aFluidInput, ItemStack aOutput1, int aDuration,
+            int aEUt);
 
-    public boolean addMultiblockCentrifugeRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs,
-            FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUtick, int aSpecial);
-
-    public boolean addMultiblockElectrolyzerRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs,
-            FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUtick, int aSpecial);
-
-    public boolean addAdvancedFreezerRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs,
+    boolean addMultiblockCentrifugeRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs,
             ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUtick, int aSpecial);
 
-    public boolean addSixSlotAssemblingRecipe(ItemStack[] aInputs, FluidStack aInputFluid, ItemStack aOutput1,
-            int aDuration, int aEUt);
+    boolean addMultiblockElectrolyzerRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs,
+            ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUtick, int aSpecial);
+
+    boolean addAdvancedFreezerRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs,
+            ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUtick, int aSpecial);
+
+    boolean addSixSlotAssemblingRecipe(ItemStack[] aInputs, FluidStack aInputFluid, ItemStack aOutput1, int aDuration,
+            int aEUt);
 
     /**
      * Adds an Assemblyline Recipe
@@ -250,7 +250,7 @@ public interface IGregtech_RecipeAdder {
      * @param aDuration    must be > 0
      * @param aEUt         should be > 0
      */
-    public boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, ItemStack[] aInputs,
+    boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, ItemStack[] aInputs,
             FluidStack[] aFluidInputs, ItemStack aOutput, int aDuration, int aEUt);
 
     /**
@@ -262,102 +262,98 @@ public interface IGregtech_RecipeAdder {
     boolean addAssemblylineRecipe(ItemStack aResearchItem, int aResearchTime, Object[] aInputs,
             FluidStack[] aFluidInputs, ItemStack aOutput1, int aDuration, int aEUt);
 
-    public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
+    boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
             ItemStack output, int time, int eu);
 
-    public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
+    boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
             ItemStack output, Object object, int time, int eu);
 
-    public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
+    boolean addChemicalRecipe(ItemStack input1, ItemStack input2, FluidStack inputFluid, FluidStack outputFluid,
             ItemStack output, ItemStack object, int time);
 
-    public boolean addChemicalRecipe(ItemStack input1, ItemStack input2, int aCircuit, FluidStack inputFluid,
+    boolean addChemicalRecipe(ItemStack input1, ItemStack input2, int aCircuit, FluidStack inputFluid,
             FluidStack outputFluid, ItemStack output, ItemStack output2, int time, int eu);
 
-    public boolean addMultiblockChemicalRecipe(ItemStack[] itemStacks, FluidStack[] fluidStacks,
-            FluidStack[] fluidStacks2, ItemStack[] outputs, int time, int eu);
+    boolean addMultiblockChemicalRecipe(ItemStack[] itemStacks, FluidStack[] fluidStacks, FluidStack[] fluidStacks2,
+            ItemStack[] outputs, int time, int eu);
 
-    public boolean addCompressorRecipe(ItemStack aInput1, ItemStack aOutput1, int aDuration, int aEUt);
+    boolean addCompressorRecipe(ItemStack aInput1, ItemStack aOutput1, int aDuration, int aEUt);
 
-    public boolean addBrewingRecipe(ItemStack aIngredient, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,
+    boolean addBrewingRecipe(ItemStack aIngredient, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,
             boolean aHidden);
 
-    public boolean addBrewingRecipe(int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu,
-            boolean aHidden);
+    boolean addBrewingRecipe(int aCircuit, FluidStack aInput, FluidStack aOutput, int aTime, int aEu, boolean aHidden);
 
-    public boolean addSmeltingAndAlloySmeltingRecipe(ItemStack aDust, ItemStack aOutput);
+    boolean addSmeltingAndAlloySmeltingRecipe(ItemStack aDust, ItemStack aOutput);
 
-    public boolean addFluidExtractionRecipe(ItemStack input, FluidStack output, int aTime, int aEu);
+    boolean addFluidExtractionRecipe(ItemStack input, FluidStack output, int aTime, int aEu);
 
-    public boolean addFluidExtractionRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidOut,
-            int aTime, int aEu);
+    boolean addFluidExtractionRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidOut, int aTime,
+            int aEu);
 
-    public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn);
+    boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn);
 
-    public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn,
+    boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn,
             FluidStack rFluidOut);
 
-    public boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn,
+    boolean addFluidCannerRecipe(ItemStack aContainer, ItemStack aFullContainer, FluidStack rFluidIn,
             FluidStack rFluidOut, int aTime, int aEu);
 
-    public boolean addVacuumFurnaceRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
+    boolean addVacuumFurnaceRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
             FluidStack aFluidOutput, ItemStack aOutput1, ItemStack aOutput2, int aDuration, int aEUt, int aLevel);
 
-    public boolean addVacuumFurnaceRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack[] aOutputs,
+    boolean addVacuumFurnaceRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aLevel);
 
-    public boolean addUvLaserRecipe(ItemStack aInput1, ItemStack aOutput, int time, long eu);
+    boolean addUvLaserRecipe(ItemStack aInput1, ItemStack aOutput, int time, long eu);
 
-    public boolean addChemicalPlantRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
+    boolean addChemicalPlantRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int time, long eu, int aTier);
 
-    public boolean addChemicalPlantRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
+    boolean addChemicalPlantRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int[] aChances, int time, long eu, int aTier);
 
-    public boolean addBlastRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
+    boolean addBlastRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int time, long eu, int aHeat);
 
-    public boolean addPyrolyseRecipe(ItemStack aInput, FluidStack aFluidInput, int intCircuit, ItemStack aOutput,
+    boolean addPyrolyseRecipe(ItemStack aInput, FluidStack aFluidInput, int intCircuit, ItemStack aOutput,
             FluidStack aFluidOutput, int aDuration, int aEUt);
 
-    public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
+    boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
 
-    public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aChance, int aDuration, int aEUt);
+    boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aChance, int aDuration, int aEUt);
 
-    public boolean addDistilleryRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput,
-            ItemStack aSolidOutput, int aDuration, int aEUt, boolean aHidden);
+    boolean addDistilleryRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, ItemStack aSolidOutput,
+            int aDuration, int aEUt, boolean aHidden);
 
-    public boolean addPulverisationRecipe(final ItemStack aInput, ItemStack aOutput1, ItemStack aOutput2,
+    boolean addPulverisationRecipe(final ItemStack aInput, ItemStack aOutput1, ItemStack aOutput2,
             final ItemStack aOutput3);
 
-    public boolean addMillingRecipe(Materials aMat, int aEU);
+    boolean addMillingRecipe(Materials aMat, int aEU);
 
-    public boolean addMillingRecipe(Material aMat, int aEU);
+    boolean addMillingRecipe(Material aMat, int aEU);
 
-    public boolean addFlotationRecipe(Materials aMat, ItemStack aXanthate, FluidStack[] aInputFluids,
+    boolean addFlotationRecipe(Materials aMat, ItemStack aXanthate, FluidStack[] aInputFluids,
             FluidStack[] aOutputFluids, int aTime, int aEU);
 
-    public boolean addFlotationRecipe(Material aMat, ItemStack aXanthate, FluidStack[] aInputFluids,
+    boolean addFlotationRecipe(Material aMat, ItemStack aXanthate, FluidStack[] aInputFluids,
             FluidStack[] aOutputFluids, int aTime, int aEU);
 
-    public boolean addpackagerRecipe(ItemStack aRecipeType, ItemStack aInput1, ItemStack aInput2,
-            ItemStack aOutputStack1);
+    boolean addpackagerRecipe(ItemStack aRecipeType, ItemStack aInput1, ItemStack aInput2, ItemStack aOutputStack1);
 
-    public boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage);
+    boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage);
 
-    public boolean addColdTrapRecipe(int aCircuit, ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs,
+    boolean addColdTrapRecipe(int aCircuit, ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs,
             int[] aChances, FluidStack aFluidOutput, int aTime, int aEU);
 
-    public boolean addReactorProcessingUnitRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
+    boolean addReactorProcessingUnitRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
             ItemStack[] aOutputs, int[] aChances, FluidStack aFluidOutput, int aTime, int aEU);
 
-    public boolean addFluidHeaterRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration,
-            int aEUt);
+    boolean addFluidHeaterRecipe(ItemStack aCircuit, FluidStack aInput, FluidStack aOutput, int aDuration, int aEUt);
 
-    public boolean addVacuumFreezerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
+    boolean addVacuumFreezerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
 
-    public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
+    boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU);
 
-    public boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU,
-            int aAmps);
+    boolean addMolecularTransformerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEU, int aAmps);
 }
