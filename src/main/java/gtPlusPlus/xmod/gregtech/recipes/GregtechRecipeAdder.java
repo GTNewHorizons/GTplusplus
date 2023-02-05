@@ -61,9 +61,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 Math.max(1, aEUt),
                 0);
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.add(aSpecialRecipe);
-        return GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -93,9 +92,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.add(aSpecialRecipe);
-        return GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -141,9 +139,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes.add(aSpecialRecipe);
-        return GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -298,7 +295,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.addRecipe(
                 aOptimizeRecipe,
                 aInput,
@@ -310,7 +306,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 Math.max(1, aEUt),
                 aSpecialValue);
-        return GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -377,7 +373,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         final FluidStack[] inputs = { aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9 };
         final FluidStack[] outputs = { aOutput1, aOutput2 };
 
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sFissionFuelProcessing.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sFissionFuelProcessing.addRecipe(
                 aOptimise,
                 new ItemStack[] {},
@@ -389,7 +384,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUt,
                 0);
-        return GTPP_Recipe_Map.sFissionFuelProcessing.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -425,9 +420,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 aSpecialValue);
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sCyclotronRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sCyclotronRecipes.add(aSpecialRecipe);
-        return GTPP_Recipe.GTPP_Recipe_Map.sCyclotronRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -449,9 +443,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        int aSize = GT_Recipe_Map.sMixerRecipes.mRecipeList.size();
         GT_Recipe_Map.sMixerRecipes.add(aSpecialRecipe);
-        return GT_Recipe_Map.sMixerRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     // Machine Component Assembler
@@ -829,7 +822,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     public boolean addVacuumFurnaceRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aLevel) {
         if (aInputs != null && aOutputs != null) {
-            int aSize = GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes.mRecipeList.size();
             GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes.addRecipe(
                     false,
                     aInputs,
@@ -841,7 +833,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     aDuration,
                     aEUt,
                     aLevel);
-            return GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes.mRecipeList.size() > aSize;
+            return true;
         } else {
             return false;
         }
@@ -881,7 +873,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             CORE.crash();
         }
 
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sChemicalPlantRecipes.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sChemicalPlantRecipes.addRecipe(
                 false,
                 aInputs,
@@ -893,7 +884,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 time,
                 (int) eu,
                 aTier);
-        return GTPP_Recipe.GTPP_Recipe_Map.sChemicalPlantRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -911,9 +902,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 (int) eu,
                 aHeat);
 
-        int aSize = GT_Recipe.GT_Recipe_Map.sBlastRecipes.mRecipeList.size();
         GT_Recipe.GT_Recipe_Map.sBlastRecipes.add(aSpecialRecipe);
-        return GT_Recipe.GT_Recipe_Map.sBlastRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -969,9 +959,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     aDuration,
                     aEUt,
                     0);
-            int aSize = GT_Recipe_Map.sExtractorRecipes.mRecipeList.size();
             GT_Recipe_Map.sExtractorRecipes.add(aRecipe);
-            return GT_Recipe_Map.sExtractorRecipes.mRecipeList.size() > aSize;
+            return true;
         } else {
             return false;
         }
@@ -1045,7 +1034,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aOutputsCrushed2 };
         int[] aTime = new int[] { 2400, 3000, 1200, 1500 };
 
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes.mRecipeList.size();
         for (int i = 0; i < 4; i++) {
             GTPP_Recipe aOreRecipe = new GTPP_Recipe(
                     false,
@@ -1060,7 +1048,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     0);
             GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes.add(aOreRecipe);
         }
-        return GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -1081,7 +1069,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
         FlotationRecipeHandler.registerOreType(aMat);
 
-        int aSize = GTPP_Recipe.GTPP_Recipe_Map.sFlotationCellRecipes.mRecipeList.size();
         GT_Recipe aRecipe = new GTPP_Recipe(
                 false,
                 new ItemStack[] { ItemUtils.getSimpleStack(aXanthate, 32), aMat.getMilled(64), aMat.getMilled(64),
@@ -1095,7 +1082,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEU,
                 0);
         GTPP_Recipe.GTPP_Recipe_Map.sFlotationCellRecipes.add(aRecipe);
-        return GTPP_Recipe.GTPP_Recipe_Map.sFlotationCellRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -1119,7 +1106,6 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
     @Override
     public boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage) {
-        int aSize1 = GTPP_Recipe.GTPP_Recipe_Map.sRTGFuels.mRecipeList.size();
         GTPP_Recipe.GTPP_Recipe_Map.sRTGFuels.addRecipe(
                 true,
                 new ItemStack[] { aFuelPellet },
@@ -1130,14 +1116,10 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 0,
                 aVoltage,
                 aFuelDays);
-        if (GTPP_Recipe.GTPP_Recipe_Map.sRTGFuels.mRecipeList.size() > aSize1) {
-            long eu = GregtechMetaTileEntity_RTG
-                    .getTotalEUGenerated(GregtechMetaTileEntity_RTG.convertDaysToTicks(aFuelDays), aVoltage);
-            GT_MetaTileEntity_Hatch_Energy_RTG.registerPelletForHatch(aFuelPellet, eu);
-            return true;
-        } else {
-            return false;
-        }
+        long eu = GregtechMetaTileEntity_RTG
+                .getTotalEUGenerated(GregtechMetaTileEntity_RTG.convertDaysToTicks(aFuelDays), aVoltage);
+        GT_MetaTileEntity_Hatch_Energy_RTG.registerPelletForHatch(aFuelPellet, eu);
+        return true;
     }
 
     @Override
@@ -1155,9 +1137,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEU,
                 0);
 
-        int aSize = GTPP_Recipe_Map.sColdTrapRecipes.mRecipeList.size();
         GTPP_Recipe_Map.sColdTrapRecipes.add(aRecipe);
-        return GTPP_Recipe_Map.sColdTrapRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -1175,9 +1156,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEU,
                 0);
 
-        int aSize = GTPP_Recipe_Map.sReactorProcessingUnitRecipes.mRecipeList.size();
         GTPP_Recipe_Map.sReactorProcessingUnitRecipes.add(aRecipe);
-        return GTPP_Recipe_Map.sReactorProcessingUnitRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -1216,9 +1196,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEUt,
                 0);
 
-        int aSize = GT_Recipe_Map.sVacuumRecipes.mRecipeList.size();
         GT_Recipe_Map.sVacuumRecipes.add(aRecipe);
-        return GT_Recipe_Map.sVacuumRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
@@ -1238,9 +1217,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEUt,
                 0);
 
-        int aSize = GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size();
         GTPP_Recipe_Map.sMolecularTransformerRecipes.add(aRecipe);
-        return GTPP_Recipe_Map.sMolecularTransformerRecipes.mRecipeList.size() > aSize;
+        return true;
     }
 
     @Override
