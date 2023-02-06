@@ -23,7 +23,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.xmod.gregtech.common.StaticFields59;
 
 public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileEntity_Hatch
         implements IAddGregtechLogo {
@@ -90,9 +89,8 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
         Constructor<?> aConstructor = ReflectionUtils.getConstructor(
                 getHatchEntityClass(),
                 new Class[] { String.class, String[].class, ITexture[][][].class });
-        GT_MetaTileEntity_Hatch_NbtConsumable aInstance = ReflectionUtils.createNewInstanceFromConstructor(
-                aConstructor,
-                new Object[] { mName, StaticFields59.getDescriptionArray(this), mTextures });
+        GT_MetaTileEntity_Hatch_NbtConsumable aInstance = ReflectionUtils
+                .createNewInstanceFromConstructor(aConstructor, new Object[] { mName, mDescriptionArray, mTextures });
         if (aInstance instanceof GT_MetaTileEntity_Hatch_NbtConsumable) {
             GT_MetaTileEntity_Hatch_NbtConsumable aMetaTile = (GT_MetaTileEntity_Hatch_NbtConsumable) aInstance;
             return aMetaTile;
