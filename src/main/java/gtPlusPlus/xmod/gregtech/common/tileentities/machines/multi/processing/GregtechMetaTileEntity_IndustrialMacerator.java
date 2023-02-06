@@ -60,7 +60,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType()).addInfo("Controller block for the Industrial Maceration Stack")
                 .addInfo("60% faster than using single block machines of the same voltage")
-                .addInfo("Maximum of 8*tier parallels").addInfo("LV = Tier 1, MV = Tier 2, etc.")
+                .addInfo("Maximum of 8*tier parallels, LV = Tier 1, MV = Tier 2, etc.")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 6, 3, true)
                 .addController("Bottom center").addCasingInfo("Maceration Stack Casings", 26)
                 .addInputBus("Bottom casing", 1).addEnergyHatch("Bottom casing", 1)
