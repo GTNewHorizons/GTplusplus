@@ -26,7 +26,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
-import gtPlusPlus.api.objects.random.XSTR;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
