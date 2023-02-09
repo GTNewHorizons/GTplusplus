@@ -2048,12 +2048,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
      * 
      * @param maxMeta exclusive
      */
-    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiConsumer<T, Integer> aSetTheFuckingMeta,
-            Function<T, Integer> aGetTheFuckingMeta, int maxMeta) {
+    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiConsumer<T, Integer> aSetTheMeta,
+            Function<T, Integer> aGetTheMeta, int maxMeta) {
         return addTieredBlock(aBlock, (t, i) -> {
-            aSetTheFuckingMeta.accept(t, i);
+            aSetTheMeta.accept(t, i);
             return true;
-        }, aGetTheFuckingMeta, 0, maxMeta);
+        }, aGetTheMeta, 0, maxMeta);
     }
 
     /**
@@ -2061,12 +2061,12 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
      * @param minMeta inclusive
      * @param maxMeta exclusive
      */
-    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiConsumer<T, Integer> aSetTheFuckingMeta,
-            Function<T, Integer> aGetTheFuckingMeta, int minMeta, int maxMeta) {
+    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiConsumer<T, Integer> aSetTheMeta,
+            Function<T, Integer> aGetTheMeta, int minMeta, int maxMeta) {
         return addTieredBlock(aBlock, (t, i) -> {
-            aSetTheFuckingMeta.accept(t, i);
+            aSetTheMeta.accept(t, i);
             return true;
-        }, aGetTheFuckingMeta, minMeta, maxMeta);
+        }, aGetTheMeta, minMeta, maxMeta);
     }
 
     /**
@@ -2074,8 +2074,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
      * @param minMeta inclusive
      * @param maxMeta exclusive
      */
-    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiPredicate<T, Integer> aSetTheFuckingMeta,
-            Function<T, Integer> aGetTheFuckingMeta, int minMeta, int maxMeta) {
+    public static <T> IStructureElement<T> addTieredBlock(Block aBlock, BiPredicate<T, Integer> aSetTheMeta,
+            Function<T, Integer> aGetTheMeta, int minMeta, int maxMeta) {
 
         return new IStructureElement<T>() {
 
@@ -2083,11 +2083,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             public boolean check(T t, World world, int x, int y, int z) {
                 Block tBlock = world.getBlock(x, y, z);
                 if (aBlock == tBlock) {
-                    Integer currentMeta = aGetTheFuckingMeta.apply(t);
+                    Integer currentMeta = aGetTheMeta.apply(t);
                     int newMeta = tBlock.getDamageValue(world, x, y, z) + 1;
                     if (newMeta > maxMeta || newMeta < minMeta + 1) return false;
                     if (currentMeta == 0) {
-                        return aSetTheFuckingMeta.test(t, newMeta);
+                        return aSetTheMeta.test(t, newMeta);
                     } else {
                         return currentMeta == newMeta;
                     }
