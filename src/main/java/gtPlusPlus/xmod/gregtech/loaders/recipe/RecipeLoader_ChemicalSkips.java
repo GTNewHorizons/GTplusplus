@@ -440,9 +440,9 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] { ALLOY.QUANTUM.getFrameBox(2),
                         GT_OreDictUnificator.get("plateDenseEnrichedNaquadahAlloy", 4),
                         GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 16),
-                        ItemList.Field_Generator_UEV.get(1), getModItem("gregtech", "gt.metaitem.01", 16, 27979), // Radox
-                                                                                                                  // polymer
-                                                                                                                  // screw.
+                        ItemList.Field_Generator_UEV.get(1),
+                        // Radox polymer screw.
+                        GT_OreDictUnificator.get(OrePrefixes.screw, Materials.get("RadoxPoly"), 16),
                         ItemList.StableAdhesive.get(4) },
                 new FluidStack[] { MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 20), },
                 GregtechItemList.CosmicFabricShieldingCore.get(1),
