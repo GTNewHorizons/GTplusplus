@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import static gregtech.api.util.GT_ModHandler.getModItem;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -8,7 +10,6 @@ import com.github.technus.tectech.recipe.TT_recipeAdder;
 import com.github.technus.tectech.thing.block.QuantumGlassBlock;
 
 import gregtech.api.enums.*;
-import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.CombType;
@@ -22,8 +23,6 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-
-import static gregtech.api.util.GT_ModHandler.getModItem;
 
 public class RecipeLoader_ChemicalSkips {
 
@@ -145,8 +144,7 @@ public class RecipeLoader_ChemicalSkips {
                 new FluidStack[] {},
                 new FluidStack[] {},
                 new ItemStack[] { Materials.Cerium.getDust(64), Materials.Gadolinium.getDust(64),
-                        Materials.Samarium.getDust(64),
-                        getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 11002), // Hafnia
+                        Materials.Samarium.getDust(64), getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 11002), // Hafnia
                         getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 11007), // Zirconium
                         ItemList.SuperconductorComposite.get(1) },
                 new int[] { 1667, 1667, 1667, 1667, 1667, 1667 },
@@ -187,11 +185,9 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] { Materials.Carbon.getDust(64), Materials.Osmium.getDust(24),
                         ItemUtils.getSimpleStack(GenericChem.mUltimatePlasticCatalyst, 0) },
                 new FluidStack[] { Materials.Hydrogen.getGas(1000 * 16), Materials.Nitrogen.getGas(1000 * 16) },
-                new FluidStack[] {
-                        FluidUtils.getFluidStack("xenoxene", 1000 * 16),
+                new FluidStack[] { FluidUtils.getFluidStack("xenoxene", 1000 * 16),
                         FluidUtils.getFluidStack("molten.radoxpoly", 144 * 64),
-                        FluidUtils.getFluidStack("heavyradox", 1000 * 16),
-                        MaterialsKevlar.Kevlar.getMolten(144 * 64) },
+                        FluidUtils.getFluidStack("heavyradox", 1000 * 16), MaterialsKevlar.Kevlar.getMolten(144 * 64) },
                 new ItemStack[] {},
                 new int[] { 2500, 2500, 2500, 2500 },
                 20 * 20,
@@ -246,8 +242,8 @@ public class RecipeLoader_ChemicalSkips {
     private static void catalystRecipes() {
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1),
-                        getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88),
-                        Materials.Osmiridium.getDust(64), Materials.Carbon.getNanite(64) },
+                        getModItem("bartworks", "gt.bwMetaGenerateddust", 64L, 88), Materials.Osmiridium.getDust(64),
+                        Materials.Carbon.getNanite(64) },
                 ELEMENT.STANDALONE.HYPOGEN.getFluidStack(360),
                 ItemUtils.getSimpleStack(GenericChem.mPlatinumGroupCatalyst, 1),
                 60 * 20,
@@ -441,14 +437,13 @@ public class RecipeLoader_ChemicalSkips {
                 2048,
                 (int) TierEU.RECIPE_UV,
                 32,
-                new ItemStack[] {
-                        ALLOY.QUANTUM.getFrameBox(2),
+                new ItemStack[] { ALLOY.QUANTUM.getFrameBox(2),
                         GT_OreDictUnificator.get("plateDenseEnrichedNaquadahAlloy", 4),
                         GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 16),
-                        ItemList.Field_Generator_UEV.get(1),
-                        getModItem("gregtech","gt.metaitem.01",16, 27979), // Radox polymer screw.
-                        ItemList.StableAdhesive.get(4)
-                },
+                        ItemList.Field_Generator_UEV.get(1), getModItem("gregtech", "gt.metaitem.01", 16, 27979), // Radox
+                                                                                                                  // polymer
+                                                                                                                  // screw.
+                        ItemList.StableAdhesive.get(4) },
                 new FluidStack[] { MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 20), },
                 GregtechItemList.CosmicFabricShieldingCore.get(1),
                 75 * 20,
