@@ -9,14 +9,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.gtnewhorizon.structurelib.structure.ITierConverter;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
+import com.gtnewhorizon.structurelib.structure.ITierConverter;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -33,7 +35,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import org.apache.commons.lang3.tuple.Pair;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class GregtechMetaTileEntity_IndustrialForgeHammer extends
@@ -119,13 +120,15 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
                                     .atLeast(InputBus, OutputBus, Maintenance, Energy, Muffler, InputHatch, OutputHatch)
                                     .casingIndex(TAE.getIndexFromPage(1, 11)).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings5Misc, 6))))
-                    .addElement('A', ofBlocksTiered(
-                            anvilTierConverter(anvilTiers),
-                            getAllAnvilTiers(anvilTiers),
-                            0,
-                                GregtechMetaTileEntity_IndustrialForgeHammer::setAnvilTier,
-                            GregtechMetaTileEntity_IndustrialForgeHammer::getAnvilTier
-                            )).build();
+                    .addElement(
+                            'A',
+                            ofBlocksTiered(
+                                    anvilTierConverter(anvilTiers),
+                                    getAllAnvilTiers(anvilTiers),
+                                    0,
+                                    GregtechMetaTileEntity_IndustrialForgeHammer::setAnvilTier,
+                                    GregtechMetaTileEntity_IndustrialForgeHammer::getAnvilTier))
+                    .build();
         }
         return STRUCTURE_DEFINITION;
     }
@@ -230,7 +233,11 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
         return false;
     }
 
-    private void setAnvilTier(int tier) { mAnvilTier = tier; }
+    private void setAnvilTier(int tier) {
+        mAnvilTier = tier;
+    }
 
-    private int getAnvilTier() { return mAnvilTier; }
+    private int getAnvilTier() {
+        return mAnvilTier;
+    }
 }
