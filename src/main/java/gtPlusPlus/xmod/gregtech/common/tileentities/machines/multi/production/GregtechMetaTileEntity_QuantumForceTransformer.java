@@ -548,12 +548,14 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                 } else {
                                     ItemStack aItem = tRecipe.getOutput(i);
                                     tItemOutputs.add(
-                                            GT_Utility.copyAmountUnsafe((long) aItem.stackSize * mCurrentParallel, aItem));
+                                            GT_Utility.copyAmountUnsafe(
+                                                    (long) aItem.stackSize * mCurrentParallel,
+                                                    aItem));
                                 }
                             } else {
                                 ItemStack aItem = tRecipe.getOutput(i);
-                                tItemOutputs
-                                        .add(GT_Utility.copyAmountUnsafe((long) aItem.stackSize * mCurrentParallel, aItem));
+                                tItemOutputs.add(
+                                        GT_Utility.copyAmountUnsafe((long) aItem.stackSize * mCurrentParallel, aItem));
                             }
                         } else {
                             FluidStack aFluid = tRecipe.getFluidOutput(i - tRecipe.mOutputs.length);
