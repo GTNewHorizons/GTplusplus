@@ -537,6 +537,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
             ArrayList<ItemStack> tItemOutputs = new ArrayList<ItemStack>();
             ArrayList<FluidStack> tFluidOutputs = new ArrayList<FluidStack>();
+            mCurrentParallel = helper.getCurrentParallel();
 
             if (mFluidMode) {
                 for (int i = 0; i < tChances.length; i++) {
