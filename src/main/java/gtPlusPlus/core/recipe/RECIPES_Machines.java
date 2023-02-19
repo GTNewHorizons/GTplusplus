@@ -2528,6 +2528,13 @@ public class RECIPES_Machines {
                         ItemList.Electric_Pump_EV, 'C', OrePrefixes.circuit.get(Materials.Data), 'W',
                         OrePrefixes.cableGt08.get(Materials.Electrum), 'G', ALLOY.INCONEL_792.getGear(1) });
 
+        // Explosion Generator
+        GT_ModHandler.addCraftingRecipe(
+                GregtechItemList.Controller_ExplosionGenerator.get(1L),
+                CI.bitsd,
+                new Object[] { "PCP", "AMA", "PCP", 'M', ItemList.Casing_HeatProof, 'P', ItemList.Electric_Piston_EV,
+                        'C', OrePrefixes.circuit.get(Materials.Elite), 'A', ALLOY.INCONEL_792.getPlateDense(1) });
+
         if (CORE.ConfigSwitches.enableMultiblock_PowerSubstation) {
             RecipeUtils.addShapedRecipe(
                     "screwTitanium",
