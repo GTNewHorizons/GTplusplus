@@ -453,6 +453,9 @@ public enum GregtechItemList implements GregtechItemContainer {
     // Large Semi-Fluid
     Controller_LargeSemifluidGenerator,
 
+    // Explosion Generator
+    Controller_ExplosionGenerator,
+
     // IsaMill
     Controller_IsaMill,
     Casing_IsaMill_Casing,
