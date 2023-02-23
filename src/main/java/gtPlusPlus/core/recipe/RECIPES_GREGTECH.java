@@ -1502,7 +1502,7 @@ public class RECIPES_GREGTECH {
         // S + 2O = SO2
         GT_Values.RA.addMixerRecipe(
                 ItemUtils.getItemStackOfAmountFromOreDict("dustSulfur", 1),
-                GT_Utility.getIntegratedCircuit(1),
+                GT_Utility.getIntegratedCircuit(3),
                 null,
                 null,
                 FluidUtils.getFluidStack("oxygen", 2000),
