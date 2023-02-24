@@ -2130,7 +2130,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     private static final ConcurrentHashMap<String, ItemStack> mToolStacks = new ConcurrentHashMap<>();
 
     @Override
-    protected boolean isVoidProtectionButtonEnabled() {
+    protected boolean isVoidExcessButtonEnabled() {
         return true;
     }
 
