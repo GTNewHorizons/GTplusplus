@@ -2,10 +2,10 @@ package gtPlusPlus.xmod.gregtech.common.helpers;
 
 import java.util.HashMap;
 
-import gregtech.api.enums.OrePrefixes;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.material.Material;
