@@ -2,6 +2,7 @@ package gtPlusPlus.xmod.gregtech.common.helpers;
 
 import java.util.HashMap;
 
+import gregtech.api.enums.OrePrefixes;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -9,7 +10,6 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.sys.Log;
-import gtPlusPlus.xmod.gregtech.api.enums.CustomOrePrefix;
 
 public class FlotationRecipeHandler {
 
@@ -52,7 +52,7 @@ public class FlotationRecipeHandler {
         for (ItemStack aStack : aInputs) {
             for (int oredictID : OreDictionary.getOreIDs(aStack)) {
                 String oredict = OreDictionary.getOreName(oredictID);
-                if (oredict.startsWith(CustomOrePrefix.milled.toString())) {
+                if (oredict.startsWith(OrePrefixes.milled.toString())) {
                     return aStack;
                 }
             }
