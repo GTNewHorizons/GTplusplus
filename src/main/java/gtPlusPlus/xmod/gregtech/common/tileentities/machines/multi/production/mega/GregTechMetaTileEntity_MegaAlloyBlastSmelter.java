@@ -309,7 +309,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
                         "Input Bus, Output Bus, Input Hatch, Output Bus, Energy Hatch",
                         "Bottom Casing",
                         1)
-                .addMufflerHatch("At least 45", 3).toolTipFinisher(
+                .addMufflerHatch("1 in the center of the top layer", 3).toolTipFinisher(
                         EnumChatFormatting.AQUA + "MadMan310 "
                                 + EnumChatFormatting.GRAY
                                 + "via "
