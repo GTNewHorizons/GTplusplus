@@ -143,10 +143,10 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                                 this.mOutputItems = new ItemStack[] { GT_Utility.copy(tRecipe.getOutput(5)) };
                             }
                         }
+                        this.mOutputFluids = new FluidStack[tRecipe.mFluidOutputs.length];
                         if (tRecipe.mFluidOutputs.length != 0) {
-                            for (FluidStack aOutput : tRecipe.mFluidOutputs) {
-                                this.mOutputFluids = new FluidStack[] {
-                                        FluidUtils.getFluidStack(aOutput, aOutput.amount) };
+                            for (int i = 0; i < mOutputFluids.length; i++) {
+                                mOutputFluids[i] = FluidUtils.getFluidStack(tRecipe.mFluidOutputs[i], tRecipe.mFluidOutputs[i].amount);
                             }
                         }
                         // Give Obsidian without Lava Filter
