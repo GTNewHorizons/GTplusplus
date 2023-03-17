@@ -90,34 +90,34 @@ public class GregtechIndustrialMassFabricator {
                 40 * 20,
                 4096,
                 0);
-        
-        // Advanced UUM
-        GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(
-            new GTPP_Recipe(
-                false,
-                new ItemStack[] { CI.getNumberedCircuit(3) },
-                new ItemStack[] { GT_Values.NI },
-                null,
-                null,
-                new FluidStack[] { GT_Values.NF },
-                new FluidStack[] { Materials.UUMatter.getFluid(256) },
-                160 * 20,
-                65536,
-                0));
 
         // Advanced UUM
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(
-            new GTPP_Recipe(
-                false,
-                new ItemStack[] { CI.getNumberedCircuit(4) },
-                new ItemStack[] { GT_Values.NI },
-                null,
-                null,
-                new FluidStack[] { Materials.UUAmplifier.getFluid(256) },
-                new FluidStack[] { Materials.UUMatter.getFluid(256) },
-                40 * 20,
-                65536,
-                0));
+                new GTPP_Recipe(
+                        false,
+                        new ItemStack[] { CI.getNumberedCircuit(3) },
+                        new ItemStack[] { GT_Values.NI },
+                        null,
+                        null,
+                        new FluidStack[] { GT_Values.NF },
+                        new FluidStack[] { Materials.UUMatter.getFluid(256) },
+                        160 * 20,
+                        65536,
+                        0));
+
+        // Advanced UUM
+        GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(
+                new GTPP_Recipe(
+                        false,
+                        new ItemStack[] { CI.getNumberedCircuit(4) },
+                        new ItemStack[] { GT_Values.NI },
+                        null,
+                        null,
+                        new FluidStack[] { Materials.UUAmplifier.getFluid(256) },
+                        new FluidStack[] { Materials.UUMatter.getFluid(256) },
+                        40 * 20,
+                        65536,
+                        0));
 
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(generateUUM_LV);
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(generateUUMFromUUA_LV);
