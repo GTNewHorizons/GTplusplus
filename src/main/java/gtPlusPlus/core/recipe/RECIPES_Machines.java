@@ -179,7 +179,7 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_Cutter;
     public static ItemStack IV_MACHINE_Extruder;
     public static ItemStack HV_MACHINE_Sifter;
-    public static ItemStack IV_MACHINE_ThermalCentrifuge;
+    public static ItemStack EV_MACHINE_ThermalCentrifuge;
     public static ItemStack EV_MACHINE_OreWasher;
     public static ItemStack IV_MACHINE_AlloySmelter;
     public static ItemStack IV_MACHINE_Mixer;
@@ -979,7 +979,7 @@ public class RECIPES_Machines {
         IV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
         IV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
         HV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
-        IV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
+        EV_MACHINE_ThermalCentrifuge = ItemList.Machine_EV_ThermalCentrifuge.get(1);
         EV_MACHINE_OreWasher = ItemList.Machine_EV_OreWasher.get(1);
         IV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
         IV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
@@ -2579,10 +2579,10 @@ public class RECIPES_Machines {
 
             RecipeUtils.addShapedRecipe(
                     "plateRedSteel",
-                    "circuitElite",
+                    "circuitData",
                     "plateRedSteel",
                     "stickTalonite",
-                    IV_MACHINE_ThermalCentrifuge,
+                    EV_MACHINE_ThermalCentrifuge,
                     "stickTalonite",
                     "plateRedSteel",
                     "gearGtTalonite",
