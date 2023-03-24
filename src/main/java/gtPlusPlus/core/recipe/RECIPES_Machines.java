@@ -1517,7 +1517,7 @@ public class RECIPES_Machines {
                     EV_MACHINE_Macerator,
                     "plateTitanium",
                     RECIPE_IndustrialMacerationStackController);
-            //T2-Upgrade Card
+            // T2-Upgrade Card
             RecipeUtils.addShapedGregtechRecipe(
                     "plateTungstenCarbide",
                     IV_MACHINE_Macerator,
