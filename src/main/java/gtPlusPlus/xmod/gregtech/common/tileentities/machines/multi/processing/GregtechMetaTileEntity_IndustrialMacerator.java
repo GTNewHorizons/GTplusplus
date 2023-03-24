@@ -80,18 +80,18 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     public IStructureDefinition<GregtechMetaTileEntity_IndustrialMacerator> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialMacerator>builder()
-                    .addShape(mName + "top1", transpose(new String[][] { { "CCC", "CCC", "CCC" }, }))
-                    .addShape(mName + "mid1", transpose(new String[][] { { "CCC", "C-C", "CCC" }, }))
-                    .addShape(mName + "bottom1", transpose(new String[][] { { "B~B", "BBB", "BBB" }, }))
-                    .addShape(mName + "top2", transpose(new String[][] { { "ccc", "ccc", "ccc" }, }))
+                    .addShape(mName + "top1", transpose(new String[][] { { "ccc", "ccc", "ccc" }, }))
+                    .addShape(mName + "mid1", transpose(new String[][] { { "ccc", "c-c", "ccc" }, }))
+                    .addShape(mName + "bottom1", transpose(new String[][] { { "b~b", "bbb", "bbb" }, }))
+                    .addShape(mName + "top2", transpose(new String[][] { { "CCC", "CCC", "CCC" }, }))
                     .addShape(
                             mName + "mid2",
-                            transpose(new String[][] { { "ccc", "c-c", "ccc" }, }))
-                    .addShape(mName + "bottom2", transpose(new String[][] { { "b~b", "bbb", "bbb" }, }))
+                            transpose(new String[][] { { "CCC", "C-C", "CCC" }, }))
+                    .addShape(mName + "bottom2", transpose(new String[][] { { "B~B", "BBB", "BBB" }, }))
                     .addElement(
                             'C',
                             ofChain(
-                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class).atLeast(OutputBus)
+                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class).anyOf(OutputBus)
                                             .shouldReject(t -> t.mPerLayer + 1 == t.mOutputBusses.size())
                                             .disallowOnly(ForgeDirection.UP, ForgeDirection.DOWN)
                                             .casingIndex(TAE.GTPP_INDEX(7)).dot(2).build(),
@@ -108,9 +108,9 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
                                             .casingIndex(TAE.GTPP_INDEX(7)).dot(2).build(),
                                     onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasingsMisc, 7))))
                     .addElement(
-                            'C',
+                            'c',
                             ofChain(
-                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class).atLeast(OutputBus)
+                                    buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class).anyOf(OutputBus)
                                             .shouldReject(t -> t.mPerLayer + 1 == t.mOutputBusses.size())
                                             .disallowOnly(ForgeDirection.UP, ForgeDirection.DOWN)
                                             .casingIndex(
@@ -124,11 +124,13 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
                                             .dot(2).build(),
                                     onElementPass(x -> ++x.mCasing, ofBlock(GregTech_API.sBlockCasings4, 2))))
                     .addElement(
-                            'B',
+                            'b',
                             ofChain(
                                     buildHatchAdder(GregtechMetaTileEntity_IndustrialMacerator.class)
                                             .atLeast(Energy, Maintenance, InputBus).disallowOnly(ForgeDirection.UP)
-                                            .casingIndex(TAE.GTPP_INDEX(7)).dot(2).build(),
+                                            .casingIndex(
+                                                    GT_Utility.getCasingTextureIndex(GregTech_API.sBlockCasings4, 2))
+                                            .dot(2).build(),
                                     onElementPass(x -> ++x.mCasing, ofBlock(GregTech_API.sBlockCasings4, 2))))
                     .build();
         }
@@ -208,6 +210,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
                 false,
                 true);
         if (built >= 0) return built;
+        mPerLayer = 4;
         return survivialBuildPiece(mName + "top" + controllerTier, stackSize, 1, 5, 0, elementBudget, env, false, true);
     }
 
@@ -248,9 +251,9 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     protected int getCasingTextureId() {
         switch (controllerTier) {
             case 2:
-                return GT_Utility.getCasingTextureIndex(GregTech_API.sBlockCasings4, 2);
-            default:
                 return TAE.GTPP_INDEX(7);
+            default:
+                return GT_Utility.getCasingTextureIndex(GregTech_API.sBlockCasings4, 2);
         }
     }
 
@@ -286,10 +289,22 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
             if (aGuiStack != null) {
                 if (GT_Utility.areStacksEqual(aGuiStack, GregtechItemList.Maceration_Upgrade_Chip.get(1))) {
                     controllerTier = 2;
-                    ItemUtils.depleteStack(aGuiStack);
+                    mInventory[1] = ItemUtils.depleteStack(aGuiStack);
+                    // schedule a structure check
+                    mUpdated = true;
                 }
             }
         }
+    }
+
+    @Override
+    public void onValueUpdate(byte aValue) {
+        controllerTier = aValue;
+    }
+
+    @Override
+    public byte getUpdateData() {
+        return (byte) controllerTier;
     }
 
     @Override
@@ -306,6 +321,21 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
             // to worry about upgrading
             controllerTier = 2;
         else controllerTier = aNBT.getByte("mTier");
+    }
+
+    @Override
+    public void initDefaultModes(NBTTagCompound aNBT) {
+        super.initDefaultModes(aNBT);
+        if (!aNBT.hasKey("mTier"))
+            controllerTier = 1;
+        else
+            controllerTier = aNBT.getByte("mTier");
+    }
+
+    @Override
+    public void setItemNBT(NBTTagCompound aNBT) {
+        super.setItemNBT(aNBT);
+        aNBT.setByte("mTier", (byte) controllerTier);
     }
 
     @Override
