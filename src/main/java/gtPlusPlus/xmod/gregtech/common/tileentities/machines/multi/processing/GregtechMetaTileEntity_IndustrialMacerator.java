@@ -326,10 +326,8 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     @Override
     public void initDefaultModes(NBTTagCompound aNBT) {
         super.initDefaultModes(aNBT);
-        if (!aNBT.hasKey("mTier"))
-            controllerTier = 1;
-        else
-            controllerTier = aNBT.getByte("mTier");
+        if (!aNBT.hasKey("mTier")) controllerTier = 1;
+        else controllerTier = aNBT.getByte("mTier");
     }
 
     @Override
