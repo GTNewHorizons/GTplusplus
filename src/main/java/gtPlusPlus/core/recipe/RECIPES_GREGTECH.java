@@ -1521,6 +1521,18 @@ public class RECIPES_GREGTECH {
                 ALLOY.LEAGRISIUM.getDust(50),
                 20 * 60,
                 1920);
+        GT_Values.RA.addMixerRecipe(
+                CI.getNumberedAdvancedCircuit(2),
+                Materials.Steel.getDust(16),
+                Materials.Molybdenum.getDust(1),
+                Materials.Titanium.getDust(1),
+                Materials.Nickel.getDust(4),
+                Materials.Cobalt.getDust(2),
+                GT_Values.NF,
+                null,
+                ALLOY.MARAGING250.getDust(24),
+                20 * 60,
+                1920);
     }
 
     private static void chemicalReactorRecipes() {

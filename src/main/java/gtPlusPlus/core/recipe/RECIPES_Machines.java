@@ -172,7 +172,7 @@ public class RECIPES_Machines {
 
     // EV/IV MACHINES
     public static ItemStack IV_MACHINE_Electrolyzer;
-    public static ItemStack IV_MACHINE_Centrifuge;
+    public static ItemStack EV_MACHINE_Centrifuge;
     public static ItemStack IV_MACHINE_BendingMachine;
     public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
@@ -972,7 +972,7 @@ public class RECIPES_Machines {
 
         // IV/EV/HV MACHINES
         IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
-        IV_MACHINE_Centrifuge = ItemList.Machine_IV_Centrifuge.get(1);
+        EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
         IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
         IV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
         IV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
@@ -1288,14 +1288,14 @@ public class RECIPES_Machines {
 
             // Industrial Centrifuge
             RecipeUtils.addShapedGregtechRecipe(
-                    CI.circuitTier5,
+                    CI.circuitTier4,
                     pipeHugeStainlessSteel,
-                    CI.circuitTier5,
+                    CI.circuitTier4,
                     CI.component_Plate[6],
-                    IV_MACHINE_Centrifuge,
+                    EV_MACHINE_Centrifuge,
                     CI.component_Plate[6],
                     CI.component_Plate[8],
-                    CI.machineCasing_IV,
+                    CI.machineCasing_EV,
                     CI.component_Plate[8],
                     RECIPE_IndustrialCentrifugeController);
             // Centrifuge Casing
