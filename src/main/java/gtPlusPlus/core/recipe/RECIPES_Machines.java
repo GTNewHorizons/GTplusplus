@@ -175,6 +175,7 @@ public class RECIPES_Machines {
     public static ItemStack EV_MACHINE_Centrifuge;
     public static ItemStack EV_MACHINE_BendingMachine;
     public static ItemStack IV_MACHINE_Wiremill;
+    public static ItemStack EV_MACHINE_Macerator;
     public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack IV_MACHINE_Cutter;
     public static ItemStack IV_MACHINE_Extruder;
@@ -975,6 +976,7 @@ public class RECIPES_Machines {
         EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
         EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
         IV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
+        EV_MACHINE_Macerator = ItemList.Machine_EV_Macerator.get(1);
         IV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
         IV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
         IV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
@@ -1505,6 +1507,18 @@ public class RECIPES_Machines {
                     16);
             // Industrial Maceration stack
             RecipeUtils.addShapedGregtechRecipe(
+                    "plateTitanium",
+                    EV_MACHINE_Macerator,
+                    "plateTitanium",
+                    EV_MACHINE_Macerator,
+                    CI.circuitTier4,
+                    EV_MACHINE_Macerator,
+                    "plateTitanium",
+                    EV_MACHINE_Macerator,
+                    "plateTitanium",
+                    RECIPE_IndustrialMacerationStackController);
+            //T2-Upgrade Card
+            RecipeUtils.addShapedGregtechRecipe(
                     "plateTungstenCarbide",
                     IV_MACHINE_Macerator,
                     "plateTungstenCarbide",
@@ -1514,7 +1528,7 @@ public class RECIPES_Machines {
                     "plateTungstenCarbide",
                     IV_MACHINE_Macerator,
                     "plateTungstenCarbide",
-                    RECIPE_IndustrialMacerationStackController);
+                    GregtechItemList.Maceration_Upgrade_Chip.get(1));
         }
 
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialWireMill) {
