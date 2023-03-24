@@ -68,7 +68,8 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
                 .addInfo("Maximum of n*tier parallels, LV = Tier 1, MV = Tier 2, etc.")
                 .addInfo("n=2 initially. n=8 after inserting Maceration Upgrade Chip.")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 6, 3, true)
-                .addController("Bottom center").addCasingInfo("Maceration Stack Casings", 26)
+                .addController("Bottom center").addCasingInfo("Maceration Stack Casings (After upgrade)", 26)
+                .addCasingInfo("Stable Titanium Casings (Before upgrade)", 26)
                 .addInputBus("Bottom casing", 1).addEnergyHatch("Bottom casing", 1)
                 .addMaintenanceHatch("Bottom casing", 1).addOutputBus("One per layer except bottom layer", 2)
                 .addMufflerHatch("Any casing except bottom layer", 2).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
