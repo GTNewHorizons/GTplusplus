@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_MultiInput;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -43,6 +42,7 @@ import gregtech.api.interfaces.IItemContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_MultiInput;
 import gregtech.api.objects.ItemData;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_ModHandler;
