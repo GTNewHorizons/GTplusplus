@@ -173,7 +173,7 @@ public class RECIPES_Machines {
     // EV/IV MACHINES
     public static ItemStack IV_MACHINE_Electrolyzer;
     public static ItemStack EV_MACHINE_Centrifuge;
-    public static ItemStack IV_MACHINE_BendingMachine;
+    public static ItemStack EV_MACHINE_BendingMachine;
     public static ItemStack IV_MACHINE_Wiremill;
     public static ItemStack IV_MACHINE_Macerator;
     public static ItemStack IV_MACHINE_Cutter;
@@ -973,7 +973,7 @@ public class RECIPES_Machines {
         // IV/EV/HV MACHINES
         IV_MACHINE_Electrolyzer = ItemList.Machine_IV_Electrolyzer.get(1);
         EV_MACHINE_Centrifuge = ItemList.Machine_EV_Centrifuge.get(1);
-        IV_MACHINE_BendingMachine = ItemList.Machine_IV_Bender.get(1);
+        EV_MACHINE_BendingMachine = ItemList.Machine_EV_Bender.get(1);
         IV_MACHINE_Wiremill = ItemList.Machine_IV_Wiremill.get(1);
         IV_MACHINE_Macerator = ItemList.Machine_IV_Macerator.get(1);
         IV_MACHINE_Cutter = ItemList.Machine_IV_Cutter.get(1);
@@ -1466,13 +1466,13 @@ public class RECIPES_Machines {
             // Industrial Material Press
             RecipeUtils.addShapedGregtechRecipe(
                     "plateTitanium",
-                    CI.circuitTier5,
+                    CI.circuitTier4,
                     "plateTitanium",
-                    CI.machineCasing_IV,
-                    IV_MACHINE_BendingMachine,
-                    CI.machineCasing_IV,
+                    CI.machineCasing_EV,
+                    EV_MACHINE_BendingMachine,
+                    CI.machineCasing_EV,
                     "plateTitanium",
-                    CI.circuitTier5,
+                    CI.circuitTier4,
                     "plateTitanium",
                     RECIPE_IndustrialMaterialPressController);
         }
