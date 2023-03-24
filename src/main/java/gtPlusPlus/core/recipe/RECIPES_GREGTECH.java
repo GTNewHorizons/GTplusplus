@@ -1509,6 +1509,18 @@ public class RECIPES_GREGTECH {
                 MISC_MATERIALS.SOLAR_SALT_COLD.getCell(5),
                 20 * 10,
                 120);
+        GT_Values.RA.addMixerRecipe(
+                CI.getNumberedAdvancedCircuit(2),
+                Materials.Titanium.getDust(9),
+                Materials.Carbon.getDust(9),
+                Materials.Potassium.getDust(9),
+                Materials.Lithium.getDust(9),
+                Materials.Sulfur.getDust(9),
+                Materials.Hydrogen.getFluid(5000),
+                null,
+                ALLOY.LEAGRISIUM.getDust(50),
+                20 * 60,
+                1920);
     }
 
     private static void chemicalReactorRecipes() {

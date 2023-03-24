@@ -180,10 +180,10 @@ public class RECIPES_Machines {
     public static ItemStack IV_MACHINE_Extruder;
     public static ItemStack HV_MACHINE_Sifter;
     public static ItemStack IV_MACHINE_ThermalCentrifuge;
-    public static ItemStack IV_MACHINE_OreWasher;
+    public static ItemStack EV_MACHINE_OreWasher;
     public static ItemStack IV_MACHINE_AlloySmelter;
     public static ItemStack IV_MACHINE_Mixer;
-    public static ItemStack IV_MACHINE_ChemicalBath;
+    public static ItemStack EV_MACHINE_ChemicalBath;
     // Cables
     public static String cableGt02Electrum = "cableGt02Electrum";
 
@@ -980,10 +980,10 @@ public class RECIPES_Machines {
         IV_MACHINE_Extruder = ItemList.Machine_IV_Extruder.get(1);
         HV_MACHINE_Sifter = ItemList.Machine_HV_Sifter.get(1);
         IV_MACHINE_ThermalCentrifuge = ItemList.Machine_IV_ThermalCentrifuge.get(1);
-        IV_MACHINE_OreWasher = ItemList.Machine_IV_OreWasher.get(1);
+        EV_MACHINE_OreWasher = ItemList.Machine_EV_OreWasher.get(1);
         IV_MACHINE_AlloySmelter = ItemList.Machine_IV_AlloySmelter.get(1);
         IV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
-        IV_MACHINE_ChemicalBath = ItemList.Machine_IV_ChemicalBath.get(1);
+        EV_MACHINE_ChemicalBath = ItemList.Machine_EV_ChemicalBath.get(1);
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
             if (LoadedMods.Railcraft) {
                 // Misc
@@ -2612,13 +2612,13 @@ public class RECIPES_Machines {
 
             RecipeUtils.addShapedRecipe(
                     "plateGrisium",
-                    IV_MACHINE_OreWasher,
+                    EV_MACHINE_OreWasher,
                     "plateGrisium",
                     "plateTalonite",
-                    "circuitElite",
+                    "circuitData",
                     "plateTalonite",
                     "plateGrisium",
-                    IV_MACHINE_ChemicalBath,
+                    EV_MACHINE_ChemicalBath,
                     "plateGrisium",
                     GregtechItemList.Industrial_WashPlant.get(1));
         }
