@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_MultiInput;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -1067,6 +1068,8 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
                                 PlayerUtils.messagePlayer(
                                         aPlayer,
                                         "Drained " + mAmountInserted + "L of " + aStored.getLocalizedName() + ".");
+                            } else {
+                                drain(aStack, mAmountInserted);
                             }
                             return b;
                         }
@@ -1214,7 +1217,8 @@ public class GregtechPump extends Item implements ISpecialElectricItem, IElectri
             return null;
         }
         final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();;
-        if (aMetaTileEntity == null) {
+        if (aMetaTileEntity == null || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_MultiInput) {
+            // blacklist multiinput hatch as it's too complex
             return null;
         }
         if (aMetaTileEntity instanceof GT_MetaTileEntity_BasicTank) {
