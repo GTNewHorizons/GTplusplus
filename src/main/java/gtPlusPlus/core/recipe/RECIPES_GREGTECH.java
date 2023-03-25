@@ -2,6 +2,7 @@ package gtPlusPlus.core.recipe;
 
 import java.util.ArrayList;
 
+import gregtech.api.enums.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -9,10 +10,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.Loader;
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.ItemList;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
@@ -1520,7 +1517,7 @@ public class RECIPES_GREGTECH {
                 null,
                 ALLOY.LEAGRISIUM.getDust(50),
                 20 * 60,
-                1920);
+                (int) TierEU.RECIPE_EV);
         GT_Values.RA.addMixerRecipe(
                 CI.getNumberedAdvancedCircuit(2),
                 Materials.Steel.getDust(16),
@@ -1532,7 +1529,7 @@ public class RECIPES_GREGTECH {
                 null,
                 ALLOY.MARAGING250.getDust(24),
                 20 * 60,
-                1920);
+                (int) TierEU.RECIPE_EV);
     }
 
     private static void chemicalReactorRecipes() {
