@@ -75,11 +75,12 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType()).addInfo("Controller Block for the Liquid Fluoride Thorium Reactor.")
-                .addInfo("Produces Heat & Energy from Radioactive Beta Decay.")
-                .addInfo("Input Li2BeF4 and a molten salt as fuel, and match the 4 Dynamo Hatches:")
-                .addInfo("LFTR Fuel 1 (4 IV amps), LFTR Fuel 2 (4 LuV amps), LFTR Fuel 3 (4 ZPM amps)")
+                .addInfo("Produces energy and new elements from Radioactive Beta Decay!")
+                .addInfo("Input LFTB and a molten salt as fuel, and match the 4 Buffered Dynamo Hatches:")
+                .addInfo("LFTR Fuel 1 (4 EV Hatches), LFTR Fuel 2 (4 IV Hatches), LFTR Fuel 3 (4 LuV Hatches)")
+                .addInfo("If using better hatches for a worse fuel, only 1 hatch will output EU")
                 .addInfo("Outputs U233 every 10 seconds, on average, while the reactor is running")
-                .addInfo("Check NEI to see the other outputs - they differ between fuels")
+                .addInfo("Check NEI to see the other 3 outputs - they differ between fuels")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(7, 4, 7, true)
                 .addController("Bottom Center").addCasingInfo("Hastelloy-N Reactor Casing", 27)
                 .addCasingInfo("Zeron-100 Reactor Shielding", 26).addInputHatch("Top or bottom layer edges", 1)
@@ -87,7 +88,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 .addMaintenanceHatch("Top or bottom layer edges", 1).addMufflerHatch("Top 3x3", 2)
                 .addStructureInfo("All dynamos must be between EV and LuV tier.")
                 .addStructureInfo("All other hatches must be IV+ tier.")
-                .addStructureInfo("3x Output Hatches, 2x Input Hatches, 4x Dynamo Hatches")
+                .addStructureInfo("4x Output Hatches, 2x Input Hatches, 4x Dynamo Hatches")
                 .addStructureInfo("2x Maintenance Hatches, 4x Mufflers").toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
