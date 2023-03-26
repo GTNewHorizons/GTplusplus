@@ -58,7 +58,7 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
                 .addInfo("Only one Energy Hatch is allowed per Processing Unit")
                 .addInfo("All recipe times in this multi are very long, watch out!")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 9, 3, false)
-                .addController("Bottom Center").addCasingInfo("Hastelloy-X Structural Casing", 7)
+                .addController("Bottom Center").addCasingInfo("Hastelloy-X Structural Block", 7)
                 .addCasingInfo("Incoloy-DS Fluid Containment Block", 5).addCasingInfo("Zeron-100 Reactor Shielding", 4)
                 .addCasingInfo("Hastelloy-N Sealant Blocks", 17).addInputHatch("Base platform", 1)
                 .addOutputHatch("Base platform", 1).addOutputBus("Base platform", 1).addMufflerHatch("Base platform", 1)
