@@ -377,8 +377,23 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             this.mOutputItems = new ItemStack[] {};
             this.mOutputFluids = new FluidStack[] {};
             this.mLastRecipe = aFuelProcessing;
+            mFuelRemaining = getStoredFuel(aFuelProcessing); // Record available fuel
             // Deplete Inputs
             if (aFuelProcessing.mFluidInputs.length > 0) {
+                if (this.mFuelRemaining < 100) {
+                    this.mEfficiency = 0;
+                    this.lEUt = 0;
+                    this.mLastRecipe = null;
+                    return false;
+                }
+                for (GT_MetaTileEntity_Hatch_Input aInputHatch : this.mInputHatches) {
+                    if (aInputHatch.getFluid().getFluid().equals(NUCLIDE.Li2BeF4.getFluid()) && aInputHatch.getFluidAmount() < 200) {
+                        this.mEfficiency = 0;
+                        this.lEUt = 0;
+                        this.mLastRecipe = null;
+                        return false;
+                    }
+                }
                 for (FluidStack aInputToConsume : aFuelProcessing.mFluidInputs) {
                     Logger.WARNING(
                             "Depleting " + aInputToConsume.getLocalizedName() + " - " + aInputToConsume.amount + "L");
