@@ -387,7 +387,8 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                     return false;
                 }
                 for (GT_MetaTileEntity_Hatch_Input aInputHatch : this.mInputHatches) {
-                    if (aInputHatch.getFluid().getFluid().equals(NUCLIDE.Li2BeF4.getFluid()) && aInputHatch.getFluidAmount() < 200) {
+                    if (aInputHatch.getFluid().getFluid().equals(NUCLIDE.Li2BeF4.getFluid())
+                            && aInputHatch.getFluidAmount() < 200) {
                         this.mEfficiency = 0;
                         this.lEUt = 0;
                         this.mLastRecipe = null;
