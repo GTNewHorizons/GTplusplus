@@ -50,7 +50,6 @@ public class LoadedMods {
     public static boolean ExtraTrees = false;
 
     // mods to yeet
-    public static boolean Simply_Jetpacks = false;
     public static boolean RFTools = false;
     public static boolean CompactWindmills = false;
     public static boolean Growthcraft = false;
@@ -125,12 +124,6 @@ public class LoadedMods {
         if ((isModLoaded("EnderIO")) && !ConfigSwitches.disableEnderIOIntegration) {
             EnderIO = true;
             Logger.INFO("Components enabled for: EnderIO");
-            totalMods++;
-        }
-
-        if (isModLoaded("simplyjetpacks")) {
-            Simply_Jetpacks = true;
-            Logger.INFO("Components enabled for: Simply Jetpacks");
             totalMods++;
         }
         if (isModLoaded("rftools")) {

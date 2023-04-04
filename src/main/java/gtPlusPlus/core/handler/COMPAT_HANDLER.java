@@ -21,7 +21,6 @@ import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
 import gtPlusPlus.core.common.compat.COMPAT_RFTools;
 import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
-import gtPlusPlus.core.common.compat.COMPAT_SimplyJetpacks;
 import gtPlusPlus.core.common.compat.COMPAT_Thaumcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Witchery;
 import gtPlusPlus.core.handler.Recipes.LateRegistrationHandler;
@@ -164,9 +163,6 @@ public class COMPAT_HANDLER {
         }
         if (LoadedMods.Railcraft) {
             COMPAT_Railcraft.OreDict();
-        }
-        if (LoadedMods.Simply_Jetpacks) {
-            COMPAT_SimplyJetpacks.OreDict();
         }
         if (LoadedMods.RFTools) {
             COMPAT_RFTools.OreDict();

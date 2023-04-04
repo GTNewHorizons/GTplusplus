@@ -90,8 +90,6 @@ public final class ModItems {
     public static Item itemDustVibrantAlloy;
     public static Item itemDustConductiveIron;
 
-    // SimplyJetpacks
-    public static Item itemPlateEnrichedSoularium;
     // rfTools
     public static Item itemPlateDimensionShard;
     // Staballoy
@@ -1222,18 +1220,6 @@ public final class ModItems {
              * MaterialGenerator.generate(MaterialEIO.ENERGETIC_ALLOY);
              * MaterialGenerator.generate(MaterialEIO.VIBRANT_ALLOY);
              */
-        }
-
-        // Simply Jetpacks
-        if (LoadedMods.Simply_Jetpacks || LOAD_ALL_CONTENT) {
-            Logger.INFO("SimplyJetpacks Found - Loading Resources.");
-            // Item Init
-            itemPlateEnrichedSoularium = new RarityUncommon().setUnlocalizedName("itemPlateEnrichedSoularium")
-                    .setCreativeTab(AddToCreativeTab.tabMisc).setTextureName(CORE.MODID + ":itemPlateSoularium");
-            // Registry
-            GameRegistry.registerItem(itemPlateEnrichedSoularium, "itemPlateEnrichedSoularium");
-        } else {
-            Logger.WARNING("SimplyJetpacks not Found - Skipping Resources.");
         }
 
         // rfTools
