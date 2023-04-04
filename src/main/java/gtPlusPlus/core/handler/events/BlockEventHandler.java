@@ -18,7 +18,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;

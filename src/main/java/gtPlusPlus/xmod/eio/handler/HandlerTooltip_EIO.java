@@ -10,7 +10,6 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gregtech.api.enums.Materials;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.eio.material.MaterialEIO;
 

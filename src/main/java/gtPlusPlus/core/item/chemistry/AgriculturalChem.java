@@ -1,5 +1,9 @@
 package gtPlusPlus.core.item.chemistry;
 
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +23,6 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.item.circuit.GTPP_IntegratedCircuit_Item;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.Utils;
@@ -30,10 +33,6 @@ import gtPlusPlus.plugin.agrichem.BioRecipes;
 import gtPlusPlus.plugin.agrichem.item.algae.ItemAgrichemBase;
 import gtPlusPlus.plugin.agrichem.item.algae.ItemAlgaeBase;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-
-import static gregtech.api.enums.Mods.BiomesOPlenty;
-import static gregtech.api.enums.Mods.Forestry;
-import static gregtech.api.enums.Mods.TinkerConstruct;
 
 public class AgriculturalChem extends ItemPackage {
 

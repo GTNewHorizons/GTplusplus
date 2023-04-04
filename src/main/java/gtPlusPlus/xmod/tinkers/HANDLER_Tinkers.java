@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.tinkers;
 
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 import java.lang.reflect.Field;
 
 import net.minecraft.block.Block;
@@ -8,13 +10,10 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.tinkers.material.BaseTinkersMaterial;
 import gtPlusPlus.xmod.tinkers.util.TinkersDryingRecipe;
 import gtPlusPlus.xmod.tinkers.util.TinkersUtils;
-
-import static gregtech.api.enums.Mods.TinkerConstruct;
 
 public class HANDLER_Tinkers {
 

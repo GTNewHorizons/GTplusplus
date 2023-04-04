@@ -17,7 +17,6 @@ import net.minecraftforge.common.ChestGenHooks;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.core.utils.StringUtil;
-import gtPlusPlus.core.lib.LoadedMods;
 
 public class FR_ItemRegistry {
 

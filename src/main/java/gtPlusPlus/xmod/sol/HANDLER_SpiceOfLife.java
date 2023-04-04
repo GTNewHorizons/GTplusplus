@@ -1,15 +1,14 @@
 package gtPlusPlus.xmod.sol;
 
+import static gregtech.api.enums.Mods.SpiceOfLife;
+
 import java.lang.reflect.Constructor;
 
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-
-import static gregtech.api.enums.Mods.SpiceOfLife;
 
 public class HANDLER_SpiceOfLife {
 
@@ -19,6 +18,7 @@ public class HANDLER_SpiceOfLife {
             tryRegisterNewLunchBox("foodcrate", 12);
         }
     }
+
     private static boolean tryRegisterNewLunchBox(String aItemName, int aSlots) {
         Item aNewBox = getNewLunchBox(aItemName, aSlots);
         if (aNewBox != null) {

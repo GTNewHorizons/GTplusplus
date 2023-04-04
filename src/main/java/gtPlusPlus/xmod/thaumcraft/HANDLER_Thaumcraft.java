@@ -1,17 +1,16 @@
 package gtPlusPlus.xmod.thaumcraft;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Pair;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.thaumcraft.aspect.GTPP_AspectCompat;
 import gtPlusPlus.xmod.thaumcraft.aspect.GTPP_AspectStack;
-
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 public class HANDLER_Thaumcraft {
 

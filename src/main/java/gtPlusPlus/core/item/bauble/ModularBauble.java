@@ -1,5 +1,7 @@
 package gtPlusPlus.core.item.bauble;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,14 +24,11 @@ import com.google.common.collect.Multimap;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.BT;
 import gtPlusPlus.core.util.minecraft.ModularArmourUtils.Modifiers;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 public class ModularBauble extends BaseBauble {
 

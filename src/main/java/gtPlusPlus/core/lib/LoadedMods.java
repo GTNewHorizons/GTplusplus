@@ -16,8 +16,6 @@ public class LoadedMods {
     public static boolean TecTech = false; // Technus' Mod
     public static boolean PlayerAPI = false;
 
-
-
     @SuppressWarnings("deprecation")
     public static void checkLoaded() {
         Logger.INFO("Looking for optional mod prereqs.");

@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.ob;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.util.HashMap;
 
 import net.minecraft.init.Items;
@@ -8,10 +10,7 @@ import net.minecraft.item.ItemStack;
 import com.google.common.base.Objects;
 
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-
-import static gregtech.api.enums.Mods.Forestry;
 
 /**
  * Wrapper Class to assist in handling the OB Sprinkler.

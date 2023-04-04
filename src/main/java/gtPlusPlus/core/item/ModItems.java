@@ -7,7 +7,6 @@ import static gregtech.api.enums.Mods.Thaumcraft;
 import static gtPlusPlus.core.creative.AddToCreativeTab.*;
 import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 
-import gtPlusPlus.core.lib.CORE;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.EnumChatFormatting;
@@ -48,6 +47,7 @@ import gtPlusPlus.core.item.tool.misc.*;
 import gtPlusPlus.core.item.tool.misc.box.*;
 import gtPlusPlus.core.item.tool.staballoy.*;
 import gtPlusPlus.core.item.wearable.WearableLoader;
+import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.material.*;
 import gtPlusPlus.core.material.nuclear.*;
@@ -710,14 +710,18 @@ public final class ModItems {
             shardTerra = new BaseItemTCShard("Terra", Utils.rgbtoHexValue(5, 255, 5));
             shardAqua = new BaseItemTCShard("Aqua", Utils.rgbtoHexValue(5, 5, 255));
         } else {
-            shardAer = ItemUtils.getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Air Shard", 0, 1)
+            shardAer = ItemUtils
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Air Shard", 0, 1)
                     .getItem();
             shardIgnis = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Fire Shard", 1, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Fire Shard", 1, 1)
+                    .getItem();
             shardAqua = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Warer Shard", 2, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Warer Shard", 2, 1)
+                    .getItem();
             shardTerra = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Earth Shard", 3, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Earth Shard", 3, 1)
+                    .getItem();
         }
         // Generates a set of four special dusts to be used in my recipes.
         dustAer = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().AER, true)[0];

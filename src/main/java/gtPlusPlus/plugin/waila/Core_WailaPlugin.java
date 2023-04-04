@@ -1,10 +1,9 @@
 package gtPlusPlus.plugin.waila;
 
-import gtPlusPlus.api.interfaces.IPlugin;
-import gtPlusPlus.core.lib.LoadedMods;
-import gtPlusPlus.plugin.manager.Core_Manager;
-
 import static gregtech.api.enums.Mods.Waila;
+
+import gtPlusPlus.api.interfaces.IPlugin;
+import gtPlusPlus.plugin.manager.Core_Manager;
 
 public class Core_WailaPlugin implements IPlugin {
 

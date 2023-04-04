@@ -4,6 +4,9 @@
  */
 package Ic2ExpReactorPlanner;
 
+import static gregtech.api.enums.Mods.BartWorks;
+import static gregtech.api.enums.Mods.GoodGenerator;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -24,12 +27,8 @@ import gregtech.api.enums.ItemList;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.xmod.goodgenerator.GG_Utils;
 import gtPlusPlus.xmod.goodgenerator.GG_Utils.GG_Fuel_Rod;
-
-import static gregtech.api.enums.Mods.BartWorks;
-import static gregtech.api.enums.Mods.GoodGenerator;
 
 /**
  * Factory class to handle creating components by id or name.

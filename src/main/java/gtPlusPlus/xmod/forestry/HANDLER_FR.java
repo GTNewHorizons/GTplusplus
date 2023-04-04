@@ -1,5 +1,8 @@
 package gtPlusPlus.xmod.forestry;
 
+import static gregtech.api.enums.Mods.ExtraTrees;
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -13,15 +16,11 @@ import forestry.api.arboriculture.EnumGermlingType;
 import forestry.api.arboriculture.EnumWoodType;
 import forestry.api.arboriculture.TreeManager;
 import forestry.arboriculture.genetics.TreeDefinition;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
 import gtPlusPlus.xmod.forestry.bees.recipe.FR_Gregtech_Recipes;
 import gtPlusPlus.xmod.forestry.bees.registry.GTPP_Bees;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
-
-import static gregtech.api.enums.Mods.ExtraTrees;
-import static gregtech.api.enums.Mods.Forestry;
 
 public class HANDLER_FR {
 

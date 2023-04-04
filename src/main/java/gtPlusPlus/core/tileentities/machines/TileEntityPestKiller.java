@@ -1,5 +1,7 @@
 package gtPlusPlus.core.tileentities.machines;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,15 +31,12 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.BTF_FluidTank;
 import gtPlusPlus.core.inventories.InventoryPestKiller;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-
-import static gregtech.api.enums.Mods.Forestry;
 
 public class TileEntityPestKiller extends TileEntity implements ISidedInventory, IFluidHandler {
 

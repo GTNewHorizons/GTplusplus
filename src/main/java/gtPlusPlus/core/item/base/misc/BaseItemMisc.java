@@ -1,5 +1,7 @@
 package gtPlusPlus.core.item.base.misc;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,11 +19,8 @@ import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-
-import static gregtech.api.enums.Mods.Forestry;
 
 public class BaseItemMisc extends Item {
 

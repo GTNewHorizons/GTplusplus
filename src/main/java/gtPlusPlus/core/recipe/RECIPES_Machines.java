@@ -1,5 +1,8 @@
 package gtPlusPlus.core.recipe;
 
+import static gregtech.api.enums.Mods.GoodGenerator;
+import static gregtech.api.enums.Mods.Railcraft;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -40,9 +43,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
-
-import static gregtech.api.enums.Mods.GoodGenerator;
-import static gregtech.api.enums.Mods.Railcraft;
 
 public class RECIPES_Machines {
 

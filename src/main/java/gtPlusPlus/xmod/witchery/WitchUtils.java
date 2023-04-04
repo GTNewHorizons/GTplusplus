@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.witchery;
 
+import static gregtech.api.enums.Mods.Witchery;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
@@ -11,11 +13,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.mojang.authlib.GameProfile;
 
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-
-import static gregtech.api.enums.Mods.Witchery;
 
 public class WitchUtils {
 

@@ -1,17 +1,16 @@
 package gtPlusPlus.xmod.bop;
 
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+
 import java.lang.reflect.Field;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
-
-import static gregtech.api.enums.Mods.BiomesOPlenty;
 
 public class HANDLER_BiomesOPlenty {
 

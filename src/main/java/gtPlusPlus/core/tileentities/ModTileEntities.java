@@ -1,10 +1,11 @@
 package gtPlusPlus.core.tileentities;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.general.BlockSuperLight.TileEntitySuperLight;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
 import gtPlusPlus.core.tileentities.general.TileEntityEggBox;
@@ -23,8 +24,6 @@ import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
 import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
-
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 public class ModTileEntities {
 

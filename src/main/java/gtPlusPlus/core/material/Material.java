@@ -25,7 +25,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
 import gtPlusPlus.core.item.base.cell.BaseItemCell;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.state.MaterialState;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;

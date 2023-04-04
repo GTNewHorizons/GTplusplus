@@ -1,5 +1,8 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.bedrock;
 
+import static gregtech.api.enums.Mods.Railcraft;
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,7 +20,6 @@ import gregtech.common.GT_Worldgen_GT_Ore_Layer;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Pair;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.ORES;
@@ -28,9 +30,6 @@ import gtPlusPlus.core.util.minecraft.MiningUtils;
 import gtPlusPlus.core.util.minecraft.OreDictUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
-
-import static gregtech.api.enums.Mods.Railcraft;
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends GregtechMeta_MultiBlockBase {
 

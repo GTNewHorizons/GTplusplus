@@ -1,5 +1,9 @@
 package gtPlusPlus.core.recipe;
 
+import static gregtech.api.enums.Mods.Backpack;
+import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+
 import java.util.ArrayList;
 
 import net.minecraft.init.Blocks;
@@ -8,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import cpw.mods.fml.common.Loader;
 import gregtech.api.enums.*;
 import gregtech.api.util.*;
 import gtPlusPlus.api.objects.Logger;
@@ -21,7 +24,6 @@ import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.*;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.recipe.common.CI;
@@ -32,10 +34,6 @@ import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-
-import static gregtech.api.enums.Mods.Backpack;
-import static gregtech.api.enums.Mods.Baubles;
-import static gregtech.api.enums.Mods.PamsHarvestCraft;
 
 public class RECIPES_GREGTECH {
 

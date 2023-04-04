@@ -51,7 +51,6 @@ import gtPlusPlus.core.handler.events.MissingMappingsEvent;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.general.ItemGiantEgg;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.LocaleUtils;

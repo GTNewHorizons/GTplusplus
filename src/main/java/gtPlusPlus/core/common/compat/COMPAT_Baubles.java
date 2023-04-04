@@ -1,5 +1,7 @@
 package gtPlusPlus.core.common.compat;
 
+import static gregtech.api.enums.Mods.Baubles;
+
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -19,8 +21,6 @@ import gtPlusPlus.core.item.general.ItemCloakingDevice;
 import gtPlusPlus.core.item.general.ItemHealingDevice;
 import gtPlusPlus.core.item.general.ItemSlowBuildingRing;
 import gtPlusPlus.core.lib.LoadedMods;
-
-import static gregtech.api.enums.Mods.Baubles;
 
 public class COMPAT_Baubles {
 

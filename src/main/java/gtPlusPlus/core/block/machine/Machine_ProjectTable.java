@@ -1,5 +1,8 @@
 package gtPlusPlus.core.block.machine;
 
+import static gregtech.api.enums.Mods.BuildCraftCore;
+import static gregtech.api.enums.Mods.EnderIO;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,14 +24,10 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import ic2.core.item.tool.ItemToolWrench;
-
-import static gregtech.api.enums.Mods.BuildCraftCore;
-import static gregtech.api.enums.Mods.EnderIO;
 
 @Optional.Interface(iface = "crazypants.enderio.api.tool.ITool", modid = "EnderIO")
 public class Machine_ProjectTable extends BlockContainer implements ITileTooltip {

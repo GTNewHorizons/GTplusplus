@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 import vswe.stevescarts.Carts.MinecartModular;
 import vswe.stevescarts.Modules.Addons.ModuleAddon;
 import vswe.stevescarts.Modules.ICropModule;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class ModuleExoticSeeds extends ModuleAddon implements ICropModule {
@@ -57,8 +56,8 @@ public class ModuleExoticSeeds extends ModuleAddon implements ICropModule {
 
         // If Forestry is loaded, let's make this upgrade convert farmland to Humus.
         /*
-         * if (Forestry.isModLoaded()) { Block mFarmLand = world.getBlock(x, y-1, z); if (mFarmLand == farmland) { Block h
-         * = tryGetHumus(); if (h != farmland) { world.setBlock(x, y-1, z, h); } } }
+         * if (Forestry.isModLoaded()) { Block mFarmLand = world.getBlock(x, y-1, z); if (mFarmLand == farmland) { Block
+         * h = tryGetHumus(); if (h != farmland) { world.setBlock(x, y-1, z, h); } } }
          */
 
         return b instanceof BlockCrops && m == 7;
@@ -77,7 +76,7 @@ public class ModuleExoticSeeds extends ModuleAddon implements ICropModule {
         if (!Forestry.isModLoaded()) {
             return farmland;
         }
-        
+
         if (mForestryHumusBlockClass == null || mForestryHumusBlock == null) {
             try {
                 mForestryHumusBlockClass = ReflectionUtils.getClass("forestry.plugins.PluginCore");
@@ -103,7 +102,7 @@ public class ModuleExoticSeeds extends ModuleAddon implements ICropModule {
         if (mForestryHumusBlock != null) {
             return mForestryHumusBlock;
         }
-        
+
         return farmland;
     }
 }

@@ -1,5 +1,7 @@
 package gtPlusPlus.core.item.base;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 import java.awt.Color;
 import java.util.*;
 
@@ -24,7 +26,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;
@@ -32,8 +33,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
-
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 public class BaseItemComponent extends Item {
 

@@ -1,5 +1,8 @@
 package gtPlusPlus.core.item.chemistry;
 
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.util.HashMap;
 
 import net.minecraft.item.Item;
@@ -17,7 +20,6 @@ import gtPlusPlus.api.objects.data.Quad;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.item.base.ore.BaseItemMilledOre;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.NONMATERIAL;
@@ -25,9 +27,6 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.*;
 import gtPlusPlus.xmod.bop.HANDLER_BiomesOPlenty;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
-
-import static gregtech.api.enums.Mods.BiomesOPlenty;
-import static gregtech.api.enums.Mods.Forestry;
 
 public class MilledOreProcessing extends ItemPackage {
 

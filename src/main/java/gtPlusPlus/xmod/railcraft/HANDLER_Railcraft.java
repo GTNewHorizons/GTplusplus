@@ -16,7 +16,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.base.BaseItemBurnable;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;

@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.tinkers.util;
 
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -20,12 +22,9 @@ import net.minecraftforge.fluids.FluidStack;
 import gregtech.api.enums.Materials;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-
-import static gregtech.api.enums.Mods.TinkerConstruct;
 
 public class TinkersUtils {
 

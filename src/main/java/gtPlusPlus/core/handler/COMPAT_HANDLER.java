@@ -1,5 +1,11 @@
 package gtPlusPlus.core.handler;
 
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.ExtraUtilities;
+import static gregtech.api.enums.Mods.OpenBlocks;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gregtech.api.enums.Mods.Witchery;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
@@ -38,12 +44,6 @@ import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GTNH;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GlueLine;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_Nuclear;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.*;
-
-import static gregtech.api.enums.Mods.EnderIO;
-import static gregtech.api.enums.Mods.ExtraUtilities;
-import static gregtech.api.enums.Mods.OpenBlocks;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.enums.Mods.Witchery;
 
 public class COMPAT_HANDLER {
 

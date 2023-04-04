@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.advsolar;
 
 import advsolar.common.AdvancedSolarPanel;
 import gregtech.api.enums.Mods;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 

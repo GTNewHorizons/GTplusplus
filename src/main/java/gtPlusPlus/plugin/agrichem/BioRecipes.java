@@ -1,5 +1,8 @@
 package gtPlusPlus.plugin.agrichem;
 
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.Railcraft;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -26,7 +29,6 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.base.BaseItemComponent;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.recipe.common.CI;
@@ -40,9 +42,6 @@ import gtPlusPlus.plugin.agrichem.block.AgrichemFluids;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.railcraft.utils.RailcraftUtils;
 import ic2.core.Ic2Items;
-
-import static gregtech.api.enums.Mods.Forestry;
-import static gregtech.api.enums.Mods.Railcraft;
 
 public class BioRecipes {
 
