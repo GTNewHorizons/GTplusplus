@@ -12,7 +12,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;

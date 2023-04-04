@@ -66,34 +66,31 @@ import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_BlastSmelterGT_GTNH;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_MultisUsingFluidInsteadOfCells;
 import gtPlusPlus.xmod.thaumcraft.commands.CommandDumpAspects;
 
-
 @MCVersion(value = "1.7.10")
 @Mod(
         modid = CORE.MODID,
         name = CORE.name,
         version = CORE.VERSION,
-        dependencies = "required-after:Forge;" +
-                " after:TConstruct;" +
-                " after:PlayerAPI;" +
-                " after:dreamcraft;" +
-                " after:IC2;" +
-                " required-after:gregtech;" +
-                " after:Forestry;" +
-                " after:MagicBees;" +
-                " after:CoFHCore;" +
-                " after:Railcraft;" +
-                " after:CompactWindmills;" +
-                " after:ForbiddenMagic;" +
-                " after:ExtraUtilities;" +
-                " after:Thaumcraft;" +
-                " after:EnderIO;" +
-                " after:tectech;" +
-                " after:OpenBlocks;" +
-                " after:IC2NuclearControl;" +
-                " after:TGregworks;" +
-                " after:StevesCarts;" +
-                " required-after:gtnhlib@[0.0.10,);"
-)
+        dependencies = "required-after:Forge;" + " after:TConstruct;"
+                + " after:PlayerAPI;"
+                + " after:dreamcraft;"
+                + " after:IC2;"
+                + " required-after:gregtech;"
+                + " after:Forestry;"
+                + " after:MagicBees;"
+                + " after:CoFHCore;"
+                + " after:Railcraft;"
+                + " after:CompactWindmills;"
+                + " after:ForbiddenMagic;"
+                + " after:ExtraUtilities;"
+                + " after:Thaumcraft;"
+                + " after:EnderIO;"
+                + " after:tectech;"
+                + " after:OpenBlocks;"
+                + " after:IC2NuclearControl;"
+                + " after:TGregworks;"
+                + " after:StevesCarts;"
+                + " required-after:gtnhlib@[0.0.10,);")
 public class GTplusplus implements ActionListener {
 
     public static enum INIT_PHASE {

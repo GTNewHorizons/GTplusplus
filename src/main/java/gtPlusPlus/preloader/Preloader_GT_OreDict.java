@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Level;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import gregtech.common.items.GT_MetaGenerated_Item_01;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 

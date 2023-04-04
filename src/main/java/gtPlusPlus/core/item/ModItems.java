@@ -30,7 +30,6 @@ import gtPlusPlus.core.item.base.plates.*;
 import gtPlusPlus.core.item.bauble.*;
 import gtPlusPlus.core.item.chemistry.*;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
-import gtPlusPlus.core.item.effects.RarityUncommon;
 import gtPlusPlus.core.item.food.BaseItemMetaFood;
 import gtPlusPlus.core.item.general.*;
 import gtPlusPlus.core.item.general.books.ItemBaseBook;
