@@ -36,7 +36,7 @@ import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
         modid = Everglades.MODID,
         name = Everglades.NAME,
         version = Everglades.VERSION,
-        dependencies = "required-after:Forge; after:dreamcraft; after:IC2; after:ihl; required-after:gregtech; required-after:miscutils;")
+        dependencies = "required-after:Forge; after:dreamcraft; after:IC2; required-after:gregtech; required-after:miscutils;")
 public class GTplusplus_Everglades implements ActionListener {
 
     // Mod Instance

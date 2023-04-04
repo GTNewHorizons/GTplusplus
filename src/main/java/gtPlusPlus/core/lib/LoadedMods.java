@@ -52,7 +52,6 @@ public class LoadedMods {
     // mods to yeet
     public static boolean CompactWindmills = false;
     public static boolean ThermalFoundation = false;
-    public static boolean IHL = false;
 
     private static int totalMods;
 
@@ -205,11 +204,6 @@ public class LoadedMods {
             Logger.INFO(
                     "Components disabled for: ThermalFoundation - This feature will enable itself if you remove TF.");
             // totalMods++;
-        }
-        if (isModLoaded("ihl")) {
-            IHL = true;
-            Logger.INFO("Components enabled for: IHL");
-            totalMods++;
         }
         if (isModLoaded("Baubles")) {
             Baubles = true;

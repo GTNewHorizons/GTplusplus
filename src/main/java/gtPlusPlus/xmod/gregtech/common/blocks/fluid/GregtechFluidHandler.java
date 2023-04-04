@@ -131,15 +131,9 @@ public class GregtechFluidHandler {
                 false);
         generateIC2FluidCell("SulfuricApatite");
 
-        // Check for IHL Hydrogen Chloride
-        if (!LoadedMods.IHL || (ItemUtils.getItemStackOfAmountFromOreDict("cellHydrogenChloride", 1) == null)) {
+        // Check for Hydrogen Chloride
+        if (ItemUtils.getItemStackOfAmountFromOreDict("cellHydrogenChloride", 1) == null) {
             if (FluidUtils.getFluidStack("hydrogenchloride", 1) == null) {
-                if (LoadedMods.IHL) {
-                    Logger.INFO(
-                            "IHL Loaded but hydrogen chloride could not be found for some reason. How about we add our own.");
-                } else {
-                    Logger.INFO("No Suitable versions of Hydrogen Chloride available, adding our own.");
-                }
                 FluidUtils.addGtFluid(
                         "hydrogenChloride",
                         "Industrial Strength Hydrogen Chloride",

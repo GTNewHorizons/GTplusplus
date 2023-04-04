@@ -322,8 +322,7 @@ public class RecipeLoader_Nuclear {
                 1000); // EU
 
         // Calcium Hydroxide
-        if ((ItemUtils.checkForInvalidItems(ItemUtils.getItemStackOfAmountFromOreDict("dustQuicklime", 1)))
-                || LoadedMods.IHL) {
+        if (ItemUtils.checkForInvalidItems(ItemUtils.getItemStackOfAmountFromOreDict("dustQuicklime", 1))) {
             // CaO + H2O = Ca(OH)2
             CORE.RA.addDehydratorRecipe(
                     new ItemStack[] { CI.getNumberedBioCircuit(20),
@@ -338,8 +337,6 @@ public class RecipeLoader_Nuclear {
             Logger.INFO("[dustCalciumHydroxide] FAILED TO LOAD RECIPE");
             if (!ItemUtils.checkForInvalidItems(ItemUtils.getItemStackOfAmountFromOreDict("dustQuicklime", 1))) {
                 Logger.INFO("Could not find dustQuicklime, cannot make dustCalciumHydroxide.");
-            } else if (!LoadedMods.IHL) {
-                Logger.INFO("IHL not loaded.");
             }
         }
 
