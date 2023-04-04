@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 
+import static gregtech.api.enums.Mods.TecTech;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -68,7 +70,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.*;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.api.objects.minecraft.multi.SpecialMultiBehaviour;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -1225,14 +1226,14 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
 
         // Handle TT Multi-A Energy Hatches
-        else if (LoadedMods.TecTech && isThisHatchMultiEnergy(aMetaTileEntity)) {
+        else if (TecTech.isModLoaded() && isThisHatchMultiEnergy(aMetaTileEntity)) {
             log("Found isThisHatchMultiEnergy");
             aDidAdd = addToMachineListInternal(mTecTechEnergyHatches, aMetaTileEntity, aBaseCasingIndex);
             updateMasterEnergyHatchList(aMetaTileEntity);
         }
 
         // Handle TT Multi-A Dynamos
-        else if (LoadedMods.TecTech && isThisHatchMultiDynamo(aMetaTileEntity)) {
+        else if (TecTech.isModLoaded() && isThisHatchMultiDynamo(aMetaTileEntity)) {
             log("Found isThisHatchMultiDynamo");
             aDidAdd = addToMachineListInternal(mTecTechDynamoHatches, aMetaTileEntity, aBaseCasingIndex);
             updateMasterDynamoHatchList(aMetaTileEntity);

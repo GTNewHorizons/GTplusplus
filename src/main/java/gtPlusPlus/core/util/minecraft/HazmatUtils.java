@@ -1,6 +1,13 @@
 package gtPlusPlus.core.util.minecraft;
 
 import static gregtech.api.GregTech_API.*;
+import static gregtech.api.enums.Mods.AdvancedSolarPanel;
+import static gregtech.api.enums.Mods.DraconicEvolution;
+import static gregtech.api.enums.Mods.ElectroMagicTools;
+import static gregtech.api.enums.Mods.GraviSuite;
+import static gregtech.api.enums.Mods.TaintedMagic;
+import static gregtech.api.enums.Mods.ThaumicTinkerer;
+import static gregtech.api.enums.Mods.WitchingGadgets;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -19,7 +26,6 @@ import gtPlusPlus.GTplusplus;
 import gtPlusPlus.GTplusplus.INIT_PHASE;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import ic2.core.Ic2Items;
@@ -70,7 +76,7 @@ public class HazmatUtils {
         }
         Logger.INFO("[Hazmat] Registered IC2 Items as hazmat gear.");
 
-        if (LoadedMods.isModLoaded("EMT")) {
+        if (ElectroMagicTools.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsEMT = ReflectionUtils.getClass("emt.init.EMTItems");
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "nanoThaumicHelmet"));
@@ -103,7 +109,7 @@ public class HazmatUtils {
             Logger.INFO("[Hazmat] Registered EMT Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("DraconicEvolution")) {
+        if (DraconicEvolution.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsDE = ReflectionUtils.getClass("com.brandon3055.draconicevolution.ModItems");
 
@@ -138,7 +144,7 @@ public class HazmatUtils {
             Logger.INFO("[Hazmat] Registered Draconic Evolution Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("TaintedMagic")) {
+        if (TaintedMagic.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsTaintedMagic = ReflectionUtils.getClass("taintedmagic.common.registry.ItemRegistry");
 
@@ -170,7 +176,7 @@ public class HazmatUtils {
             Logger.INFO("[Hazmat] Registered Tainted Magic Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("WitchingGadgets")) {
+        if (WitchingGadgets.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsTaintedMagic = ReflectionUtils.getClass("witchinggadgets.common.WGContent");
 
@@ -202,11 +208,11 @@ public class HazmatUtils {
             Logger.INFO("[Hazmat] Registered Witching Gadgets Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("ThaumicTinkerer")) {
+        if (ThaumicTinkerer.isModLoaded()) {
             Logger.INFO("[Hazmat] Did not register Thaumic Tinkerer Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("GraviSuite")) {
+        if (GraviSuite.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsGravisuite = ReflectionUtils.getClass("gravisuite.GraviSuite");
             aItemFields.add(ReflectionUtils.getField(aItemsGravisuite, "advNanoChestPlate"));
@@ -225,7 +231,7 @@ public class HazmatUtils {
             Logger.INFO("[Hazmat] Registered Gravisuit Items as hazmat gear.");
         }
 
-        if (LoadedMods.isModLoaded("AdvancedSolarPanel")) {
+        if (AdvancedSolarPanel.isModLoaded()) {
             AutoMap<Field> aItemFields = new AutoMap<Field>();
             Class aItemsEMT = ReflectionUtils.getClass("advsolar.common.AdvancedSolarPanel");
             aItemFields.add(ReflectionUtils.getField(aItemsEMT, "advancedSolarHelmet"));

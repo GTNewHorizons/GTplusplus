@@ -1,6 +1,7 @@
 package gtPlusPlus.core.common.compat;
 
 import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.PlayerAPI;
 
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -20,7 +21,6 @@ import gtPlusPlus.core.item.bauble.MonsterKillerBaseBauble;
 import gtPlusPlus.core.item.general.ItemCloakingDevice;
 import gtPlusPlus.core.item.general.ItemHealingDevice;
 import gtPlusPlus.core.item.general.ItemSlowBuildingRing;
-import gtPlusPlus.core.lib.LoadedMods;
 
 public class COMPAT_Baubles {
 
@@ -76,7 +76,7 @@ public class COMPAT_Baubles {
                 "Hellish",
                 6);
 
-        if (LoadedMods.PlayerAPI) {
+        if (PlayerAPI.isModLoaded()) {
             ModItems.itemSlowBuildingRing = new ItemSlowBuildingRing();
         }
     }

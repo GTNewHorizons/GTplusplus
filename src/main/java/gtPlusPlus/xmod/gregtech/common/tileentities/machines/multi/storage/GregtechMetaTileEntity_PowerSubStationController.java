@@ -4,6 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.Dynamo;
 import static gregtech.api.enums.GT_HatchElement.Energy;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.Mods.TecTech;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTDynamo;
@@ -54,7 +55,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.MovingAverageLong;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -456,7 +456,7 @@ public class GregtechMetaTileEntity_PowerSubStationController
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
             } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
-            } else if (LoadedMods.TecTech) {
+            } else if (TecTech.isModLoaded()) {
                 if (isThisHatchMultiDynamo(aMetaTileEntity)) {
                     return addToMachineList(aTileEntity, aBaseCasingIndex);
                 } else if (isThisHatchMultiEnergy(aMetaTileEntity)) {

@@ -1,5 +1,6 @@
 package gtPlusPlus.core.recipe;
 
+import static gregtech.api.enums.Mods.COFHCore;
 import static gregtech.api.enums.Mods.GoodGenerator;
 import static gregtech.api.enums.Mods.Railcraft;
 
@@ -29,7 +30,6 @@ import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
@@ -1193,7 +1193,7 @@ public class RECIPES_Machines {
                 GregtechItemList.Hatch_Output_Bus_Steam.get(1));
 
         // RF Convertor
-        if (LoadedMods.CoFHCore && CORE.ConfigSwitches.enableMachine_RF_Convetor) {
+        if (COFHCore.isModLoaded() && CORE.ConfigSwitches.enableMachine_RF_Convetor) {
             RecipeUtils.addShapedGregtechRecipe(
                     CI.getPlate(4, 1),
                     CI.getTieredCircuitOreDictName(5),

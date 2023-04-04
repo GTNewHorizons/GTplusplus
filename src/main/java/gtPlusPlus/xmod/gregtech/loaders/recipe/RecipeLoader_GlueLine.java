@@ -3,6 +3,7 @@ package gtPlusPlus.xmod.gregtech.loaders.recipe;
 import static gregtech.api.enums.Mods.BartWorks;
 import static gregtech.api.enums.Mods.GalacticraftCore;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
+import static gregtech.api.enums.Mods.TecTech;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,6 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -311,7 +311,7 @@ public class RecipeLoader_GlueLine {
                 32,
                 8);
 
-        if (LoadedMods.TecTech) {
+        if (TecTech.isModLoaded()) {
             GT_Values.RA.addAssemblerRecipe(
                     GT_OreDictUnificator.get(OrePrefixes.cableGt01, Materials.Naquadah, 2),
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.RedSteel, 18),

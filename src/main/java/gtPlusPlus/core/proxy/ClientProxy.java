@@ -1,5 +1,7 @@
 package gtPlusPlus.core.proxy;
 
+import static gregtech.api.enums.Mods.PlayerAPI;
+
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
@@ -39,7 +41,6 @@ import gtPlusPlus.core.handler.render.FirepitRender;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
 import gtPlusPlus.core.tileentities.general.TileEntityFirepit;
 import gtPlusPlus.core.util.minecraft.particles.EntityParticleFXMysterious;
@@ -78,14 +79,14 @@ public class ClientProxy extends CommonProxy implements Runnable {
         // Do this weird things for textures.
         GTplusplus.loadTextures();
         // We boot up the sneak manager.
-        if (LoadedMods.PlayerAPI) {
+        if (PlayerAPI.isModLoaded()) {
             this.init_PlayerAPI_PRE();
         }
     }
 
     @Override
     public void init(final FMLInitializationEvent e) {
-        if (LoadedMods.PlayerAPI) {
+        if (PlayerAPI.isModLoaded()) {
             this.init_PlayerAPI_INIT();
         }
 
