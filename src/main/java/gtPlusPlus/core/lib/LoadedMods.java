@@ -55,7 +55,6 @@ public class LoadedMods {
     public static boolean ThermalFoundation = false;
     public static boolean IHL = false;
     public static boolean Mekanism = false;
-    public static boolean RedTech = false; // RedMage's Mod
 
     private static int totalMods;
 
@@ -255,11 +254,6 @@ public class LoadedMods {
         } else {
             Logger.INFO(
                     "Components enabled for: Computronics - This feature will disable itself if you add Computronics.");
-        }
-        if (isModLoaded("GTRedtech")) {
-            RedTech = true;
-            Logger.INFO("Components enabled for: GTRedtech");
-            totalMods++;
         }
         if (isModLoaded("tectech")) {
             TecTech = true;

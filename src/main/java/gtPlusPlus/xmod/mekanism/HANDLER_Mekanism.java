@@ -24,7 +24,7 @@ public class HANDLER_Mekanism {
     }
 
     public static void postInit() {
-        if (LoadedMods.Mekanism && !LoadedMods.RedTech) {
+        if (LoadedMods.Mekanism) {
 
             Logger.INFO("Performing GT recipe balance for Mek. now that it's Osmium is useless.");
 
