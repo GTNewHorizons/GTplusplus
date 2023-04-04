@@ -18,7 +18,6 @@ import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
-import gtPlusPlus.core.common.compat.COMPAT_MorePlanets;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
 import gtPlusPlus.core.common.compat.COMPAT_RFTools;
 import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
@@ -159,9 +158,6 @@ public class COMPAT_HANDLER {
 
         if (LoadedMods.EnderIO) {
             COMPAT_EnderIO.OreDict();
-        }
-        if (LoadedMods.MorePlanets) {
-            COMPAT_MorePlanets.OreDict();
         }
         if (LoadedMods.OpenBlocks) {
             COMPAT_OpenBlocks.OreDict();
