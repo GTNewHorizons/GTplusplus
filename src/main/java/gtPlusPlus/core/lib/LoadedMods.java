@@ -54,7 +54,6 @@ public class LoadedMods {
     public static boolean Growthcraft = false;
     public static boolean ThermalFoundation = false;
     public static boolean IHL = false;
-    public static boolean Mekanism = false;
 
     private static int totalMods;
 
@@ -176,12 +175,6 @@ public class LoadedMods {
         if (isModLoaded("SpiceOfLife")) {
             SpiceOfLife = true;
             Logger.INFO("Components enabled for: Spice Of Life");
-            totalMods++;
-        }
-        if (isModLoaded("Mekanism")) {
-            Mekanism = true;
-            Logger.INFO(
-                    "Components enabled for: Mekanism - This feature is not configurable and balances Mekanism to suit GT.");
             totalMods++;
         }
         if (isModLoaded("Growthcraft")) {
