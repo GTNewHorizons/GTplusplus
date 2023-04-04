@@ -1,6 +1,11 @@
 package gtPlusPlus.core.util.minecraft;
 
-import static gregtech.api.GregTech_API.*;
+import static gregtech.api.GregTech_API.sBioHazmatList;
+import static gregtech.api.GregTech_API.sElectroHazmatList;
+import static gregtech.api.GregTech_API.sFrostHazmatList;
+import static gregtech.api.GregTech_API.sGasHazmatList;
+import static gregtech.api.GregTech_API.sHeatHazmatList;
+import static gregtech.api.GregTech_API.sRadioHazmatList;
 import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 import static gregtech.api.enums.Mods.DraconicEvolution;
 import static gregtech.api.enums.Mods.ElectroMagicTools;

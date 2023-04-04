@@ -95,7 +95,7 @@ public class GeneralTooltipEventHandler {
         }
     }
 
-    @Optional.Method(modid = "AdvancedSolarPanel")
+    @Optional.Method(modid = Mods.Names.ADVANCED_SOLAR_PANEL)
     public static void molecularTransformer(ItemTooltipEvent event) {
         if (event.itemStack.getItem() == Item.getItemFromBlock(AdvancedSolarPanel.blockMolecularTransformer)) {
             event.toolTip.add("" + EnumChatFormatting.RED + "Disabled, Use the multiblock");

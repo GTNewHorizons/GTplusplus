@@ -1,6 +1,10 @@
 package gtPlusPlus.xmod.forestry.bees.registry;
 
-import static forestry.api.apiculture.EnumBeeChromosome.*;
+import static forestry.api.apiculture.EnumBeeChromosome.EFFECT;
+import static forestry.api.apiculture.EnumBeeChromosome.HUMIDITY_TOLERANCE;
+import static forestry.api.apiculture.EnumBeeChromosome.LIFESPAN;
+import static forestry.api.apiculture.EnumBeeChromosome.SPECIES;
+import static forestry.api.apiculture.EnumBeeChromosome.TEMPERATURE_TOLERANCE;
 import static forestry.api.core.EnumHumidity.ARID;
 
 import java.lang.reflect.Field;
@@ -13,11 +17,21 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-import forestry.api.apiculture.*;
+import forestry.api.apiculture.BeeManager;
+import forestry.api.apiculture.EnumBeeType;
+import forestry.api.apiculture.IAlleleBeeEffect;
+import forestry.api.apiculture.IAlleleBeeSpecies;
+import forestry.api.apiculture.IBee;
+import forestry.api.apiculture.IBeeGenome;
+import forestry.api.apiculture.IBeeMutationCustom;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
-import forestry.api.genetics.*;
-import forestry.apiculture.genetics.*;
+import forestry.api.genetics.AlleleManager;
+import forestry.api.genetics.IAllele;
+import forestry.api.genetics.IAlleleFlowers;
+import forestry.apiculture.genetics.Bee;
+import forestry.apiculture.genetics.BeeVariation;
+import forestry.apiculture.genetics.IBeeDefinition;
 import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele.Lifespan;

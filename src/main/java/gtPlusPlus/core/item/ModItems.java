@@ -3,59 +3,120 @@ package gtPlusPlus.core.item;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Thaumcraft;
-import static gtPlusPlus.core.creative.AddToCreativeTab.*;
+import static gtPlusPlus.core.creative.AddToCreativeTab.tabMachines;
+import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
 import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 
-import net.minecraft.item.*;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.*;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.api.enums.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.base.BasicBlock.BlockTypes;
 import gtPlusPlus.core.block.base.BlockBaseModular;
 import gtPlusPlus.core.common.compat.COMPAT_Baubles;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.*;
+import gtPlusPlus.core.item.base.BaseEuItem;
+import gtPlusPlus.core.item.base.BaseItemBackpack;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
+import gtPlusPlus.core.item.base.BaseItemDamageable;
+import gtPlusPlus.core.item.base.BaseItemTCShard;
+import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.item.base.dusts.BaseItemDust;
 import gtPlusPlus.core.item.base.foil.BaseItemFoil;
-import gtPlusPlus.core.item.base.foods.*;
+import gtPlusPlus.core.item.base.foods.BaseItemFood;
+import gtPlusPlus.core.item.base.foods.BaseItemHotFood;
 import gtPlusPlus.core.item.base.gears.BaseItemSmallGear;
-import gtPlusPlus.core.item.base.ingots.*;
+import gtPlusPlus.core.item.base.ingots.BaseItemIngot;
+import gtPlusPlus.core.item.base.ingots.BaseItemIngot_OLD;
 import gtPlusPlus.core.item.base.misc.BaseItemMisc;
 import gtPlusPlus.core.item.base.misc.BaseItemMisc.MiscTypes;
-import gtPlusPlus.core.item.base.plates.*;
-import gtPlusPlus.core.item.bauble.*;
-import gtPlusPlus.core.item.chemistry.*;
+import gtPlusPlus.core.item.base.plates.BaseItemPlate;
+import gtPlusPlus.core.item.base.plates.BaseItemPlateDouble;
+import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
+import gtPlusPlus.core.item.bauble.HealthBoostBauble;
+import gtPlusPlus.core.item.bauble.ModularBauble;
+import gtPlusPlus.core.item.bauble.MonsterKillerBaseBauble;
+import gtPlusPlus.core.item.chemistry.AgriculturalChem;
+import gtPlusPlus.core.item.chemistry.CoalTar;
+import gtPlusPlus.core.item.chemistry.GenericChem;
+import gtPlusPlus.core.item.chemistry.IonParticles;
+import gtPlusPlus.core.item.chemistry.MilledOreProcessing;
+import gtPlusPlus.core.item.chemistry.NuclearChem;
+import gtPlusPlus.core.item.chemistry.RocketFuels;
+import gtPlusPlus.core.item.chemistry.StandardBaseParticles;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.food.BaseItemMetaFood;
-import gtPlusPlus.core.item.general.*;
+import gtPlusPlus.core.item.general.BaseItemGrindle;
+import gtPlusPlus.core.item.general.BufferCore;
+import gtPlusPlus.core.item.general.ItemAirFilter;
+import gtPlusPlus.core.item.general.ItemAreaClear;
+import gtPlusPlus.core.item.general.ItemBasicFirestarter;
+import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
+import gtPlusPlus.core.item.general.ItemBlueprint;
+import gtPlusPlus.core.item.general.ItemControlCore;
+import gtPlusPlus.core.item.general.ItemEmpty;
+import gtPlusPlus.core.item.general.ItemGemShards;
+import gtPlusPlus.core.item.general.ItemGenericToken;
+import gtPlusPlus.core.item.general.ItemGiantEgg;
+import gtPlusPlus.core.item.general.ItemHalfCompleteCasings;
+import gtPlusPlus.core.item.general.ItemLavaFilter;
+import gtPlusPlus.core.item.general.ItemMagicFeather;
+import gtPlusPlus.core.item.general.ItemSunnariumBit;
 import gtPlusPlus.core.item.general.books.ItemBaseBook;
 import gtPlusPlus.core.item.general.capture.ItemEntityCatcher;
-import gtPlusPlus.core.item.general.chassis.*;
+import gtPlusPlus.core.item.general.chassis.ItemBoilerChassis;
+import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoil;
+import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
-import gtPlusPlus.core.item.general.throwables.*;
+import gtPlusPlus.core.item.general.throwables.ItemHydrofluoricAcidPotion;
+import gtPlusPlus.core.item.general.throwables.ItemSulfuricAcidPotion;
+import gtPlusPlus.core.item.general.throwables.ItemThrowableBomb;
 import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
-import gtPlusPlus.core.item.tool.misc.*;
-import gtPlusPlus.core.item.tool.misc.box.*;
-import gtPlusPlus.core.item.tool.staballoy.*;
+import gtPlusPlus.core.item.tool.misc.DebugScanner;
+import gtPlusPlus.core.item.tool.misc.GregtechPump;
+import gtPlusPlus.core.item.tool.misc.SandstoneHammer;
+import gtPlusPlus.core.item.tool.misc.box.AutoLunchBox;
+import gtPlusPlus.core.item.tool.misc.box.MagicToolBag;
+import gtPlusPlus.core.item.tool.misc.box.UniversalToolBox;
+import gtPlusPlus.core.item.tool.staballoy.MultiPickaxeBase;
+import gtPlusPlus.core.item.tool.staballoy.MultiSpadeBase;
+import gtPlusPlus.core.item.tool.staballoy.StaballoyAxe;
+import gtPlusPlus.core.item.tool.staballoy.StaballoyPickaxe;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
-import gtPlusPlus.core.material.*;
-import gtPlusPlus.core.material.nuclear.*;
+import gtPlusPlus.core.material.ALLOY;
+import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
+import gtPlusPlus.core.material.Material;
+import gtPlusPlus.core.material.MaterialGenerator;
+import gtPlusPlus.core.material.NONMATERIAL;
+import gtPlusPlus.core.material.nuclear.FLUORIDES;
+import gtPlusPlus.core.material.nuclear.NUCLIDE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;
 import gtPlusPlus.core.util.debug.DEBUG_INIT;
-import gtPlusPlus.core.util.minecraft.*;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.everglades.GTplusplus_Everglades;
 import gtPlusPlus.preloader.CORE_Preloader;
@@ -380,17 +441,17 @@ public final class ModItems {
 
         // Some Simple forms of materials
         itemStickyRubber = new Item().setUnlocalizedName("itemStickyRubber").setCreativeTab(tabMachines)
-                .setTextureName(CORE.MODID + ":itemStickyRubber");
+                .setTextureName(GTPlusPlus.ID + ":itemStickyRubber");
         GameRegistry.registerItem(itemStickyRubber, "itemStickyRubber");
         GT_OreDictUnificator
-                .registerOre("ingotRubber", ItemUtils.getItemStackFromFQRN(CORE.MODID + ":itemStickyRubber", 1));
+                .registerOre("ingotRubber", ItemUtils.getItemStackFromFQRN(GTPlusPlus.ID + ":itemStickyRubber", 1));
 
         // Register Hydrogen Blobs first, so we can replace old helium blobs.
         itemHydrogenBlob = new CoreItem("itemHydrogenBlob", "Mysterious Hydrogen Blob", tabMisc)
-                .setTextureName(CORE.MODID + ":itemHeliumBlob");
+                .setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         // Register Old Helium Blob, this will be replaced when held by a player.
         itemHeliumBlob = new CoreItem("itemHeliumBlob", tabMisc, ItemUtils.getSimpleStack(itemHydrogenBlob))
-                .setTextureName(CORE.MODID + ":itemHydrogenBlob");
+                .setTextureName(GTPlusPlus.ID + ":itemHydrogenBlob");
 
         // Register this neato device, for making some fires.
         itemBasicFireMaker = new ItemBasicFirestarter();
@@ -441,7 +502,7 @@ public final class ModItems {
                 EnumRarity.rare,
                 EnumChatFormatting.GRAY,
                 false,
-                Utils.rgbtoHexValue(182, 114, 18)).setTextureName(CORE.MODID + ":itemHeliumBlob");
+                Utils.rgbtoHexValue(182, 114, 18)).setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         itemHalfCompleteCasings = new ItemHalfCompleteCasings(
                 "itemHalfCompleteCasings",
                 AddToCreativeTab.tabMisc,
@@ -451,15 +512,15 @@ public final class ModItems {
                 EnumRarity.common,
                 EnumChatFormatting.GRAY,
                 false,
-                Utils.rgbtoHexValue(255, 255, 255)).setTextureName("gregtech" + ":" + "gt.metaitem.01/" + "761");
+                Utils.rgbtoHexValue(255, 255, 255)).setTextureName(GregTech.ID + ":" + "gt.metaitem.01/" + "761");
         itemSulfuricPotion = new ItemSulfuricAcidPotion(
                 "itemSulfuricPotion",
                 "Throwable Vial of Sulfuric Acid",
-                "Burn your foes alive!").setTextureName(CORE.MODID + ":itemSulfuricAcidPotion");
+                "Burn your foes alive!").setTextureName(GTPlusPlus.ID + ":itemSulfuricAcidPotion");
         itemHydrofluoricPotion = new ItemHydrofluoricAcidPotion(
                 "itemHydrofluoricPotion",
                 "Throwable Vial of Hydrofluoric Acid",
-                "They won't see this coming, nor anything after!").setTextureName(CORE.MODID + ":itemPotion");
+                "They won't see this coming, nor anything after!").setTextureName(GTPlusPlus.ID + ":itemPotion");
         // Start meta Item Generation
         ItemsFoods.load();
 
@@ -844,7 +905,7 @@ public final class ModItems {
         itemZirconiumChlorideCinterPellet = new CoreItem(
                 "itemZirconiumPellet",
                 "Zirconium Pellet [" + StringUtils.subscript("ZrCl4") + "]",
-                tabMisc).setTextureName(CORE.MODID + ":itemShard");
+                tabMisc).setTextureName(GTPlusPlus.ID + ":itemShard");
         GT_OreDictUnificator.registerOre("pelletZirconium", new ItemStack(itemZirconiumChlorideCinterPellet));
         // Zirconium Chloride
         dustZrCl4 = ItemUtils.generateSpecialUseDusts("ZrCl4", "ZrCl4", "ZrCl4", Utils.rgbtoHexValue(180, 180, 180))[0]; // http://www.iaea.org/inis/collection/NCLCollectionStore/_Public/39/036/39036750.pdf
@@ -1085,9 +1146,9 @@ public final class ModItems {
 
         // Bombs
         itemBombCasing = new CoreItem("itemBombCasing", "Bomb Casing", tabMisc);
-        itemBombCasing.setTextureName(CORE.MODID + ":bomb_casing");
+        itemBombCasing.setTextureName(GTPlusPlus.ID + ":bomb_casing");
         itemBombUnf = new CoreItem("itemBombUnf", "Bomb (unf)", tabMisc);
-        itemBombUnf.setTextureName(CORE.MODID + ":bomb_casing");
+        itemBombUnf.setTextureName(GTPlusPlus.ID + ":bomb_casing");
         itemDetCable = new CoreItem("itemDetCable", "Det. Cable", tabMisc);
         itemDetCable.setTextureName("string");
         itemBomb = new ItemThrowableBomb();
@@ -1279,7 +1340,7 @@ public final class ModItems {
         }
 
         itemPLACEHOLDER_Circuit = new Item().setUnlocalizedName("itemPLACEHOLDER_Circuit")
-                .setTextureName(CORE.MODID + ":itemPLACEHOLDER_Circuit");
+                .setTextureName(GTPlusPlus.ID + ":itemPLACEHOLDER_Circuit");
         GameRegistry.registerItem(itemPLACEHOLDER_Circuit, "itemPLACEHOLDER_Circuit");
 
         // ItemBlockGtFrameBox = new ItemBlockGtFrameBox(ModBlocks.blockGtFrameSet1);

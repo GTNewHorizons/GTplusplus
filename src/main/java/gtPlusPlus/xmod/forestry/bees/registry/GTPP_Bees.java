@@ -9,8 +9,14 @@ import gregtech.GT_Mod;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.xmod.forestry.bees.handler.*;
-import gtPlusPlus.xmod.forestry.bees.items.output.*;
+import gtPlusPlus.xmod.forestry.bees.handler.GTPP_CombType;
+import gtPlusPlus.xmod.forestry.bees.handler.GTPP_DropType;
+import gtPlusPlus.xmod.forestry.bees.handler.GTPP_PollenType;
+import gtPlusPlus.xmod.forestry.bees.handler.GTPP_PropolisType;
+import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Comb;
+import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Drop;
+import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Pollen;
+import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Propolis;
 
 public class GTPP_Bees {
 

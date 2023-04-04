@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.railcraft;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.enums.Mods.Railcraft;
 import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
@@ -34,7 +35,7 @@ public class HANDLER_Railcraft {
                 "Used for metallurgy.",
                 "fuelCoke",
                 3200,
-                0).setTextureName(CORE.MODID + ":burnables/itemCoalCoke");
+                0).setTextureName(GTPlusPlus.ID + ":burnables/itemCoalCoke");
 
         // Add in things that once existed in 1.5.2
         ModItems.itemCactusCharcoal = new BaseItemBurnable(
@@ -46,7 +47,7 @@ public class HANDLER_Railcraft {
                 "Used for smelting.",
                 "fuelCactusCharcoal",
                 400,
-                0).setTextureName(CORE.MODID + ":burnables/itemCactusCharcoal");
+                0).setTextureName(GTPlusPlus.ID + ":burnables/itemCactusCharcoal");
         ModItems.itemSugarCharcoal = new BaseItemBurnable(
                 "itemSugarCharcoal",
                 "Sugar Charcoal",
@@ -56,7 +57,7 @@ public class HANDLER_Railcraft {
                 "Used for smelting.",
                 "fuelSugarCharcoal",
                 400,
-                0).setTextureName(CORE.MODID + ":burnables/itemSugarCharcoal");
+                0).setTextureName(GTPlusPlus.ID + ":burnables/itemSugarCharcoal");
         ModItems.itemCactusCoke = new BaseItemBurnable(
                 "itemCactusCoke",
                 "Cactus Coke",
@@ -66,7 +67,7 @@ public class HANDLER_Railcraft {
                 "Used for smelting.",
                 "fuelCactusCoke",
                 800,
-                0).setTextureName(CORE.MODID + ":burnables/itemCactusCoke");
+                0).setTextureName(GTPlusPlus.ID + ":burnables/itemCactusCoke");
         ModItems.itemSugarCoke = new BaseItemBurnable(
                 "itemSugarCoke",
                 "Sugar Coke",
@@ -76,7 +77,7 @@ public class HANDLER_Railcraft {
                 "Used for smelting.",
                 "fuelSugarCoke",
                 800,
-                0).setTextureName(CORE.MODID + ":burnables/itemSugarCoke");
+                0).setTextureName(GTPlusPlus.ID + ":burnables/itemSugarCoke");
 
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(ModItems.itemCactusCharcoal), "itemCharcoalCactus");
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(ModItems.itemCactusCoke), "itemCokeCactus");

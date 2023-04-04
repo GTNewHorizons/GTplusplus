@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -48,7 +50,7 @@ public class GTPP_Bees {
     // public static GTPP_Branch_Definition definition;
 
     public GTPP_Bees() {
-        if (Loader.isModLoaded("Forestry") /* && tryGetBeesBoolean() */) {
+        if (Loader.isModLoaded(Forestry.ID) /* && tryGetBeesBoolean() */) {
 
             for (IAllele o : AlleleManager.alleleRegistry.getRegisteredAlleles().values()) {
                 // Utils.LOG_DEBUG_BEES(" ==================================================");

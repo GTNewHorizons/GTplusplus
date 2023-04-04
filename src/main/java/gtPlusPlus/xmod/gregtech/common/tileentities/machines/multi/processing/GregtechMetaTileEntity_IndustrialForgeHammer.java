@@ -1,7 +1,16 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
-import static gregtech.api.enums.GT_HatchElement.*;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlocksTiered;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.InputBus;
+import static gregtech.api.enums.GT_HatchElement.InputHatch;
+import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.GT_HatchElement.Muffler;
+import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.Railcraft;
 import static gregtech.api.enums.Mods.ThaumicBases;
@@ -98,16 +107,16 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
             anvilTiers.put(Blocks.anvil, 1);
 
             if (Railcraft.isModLoaded()) {
-                anvilTiers.put(GameRegistry.findBlock("Railcraft", "anvil"), 2);
+                anvilTiers.put(GameRegistry.findBlock(Railcraft.ID, "anvil"), 2);
             }
 
             if (EnderIO.isModLoaded()) {
-                anvilTiers.put(GameRegistry.findBlock("EnderIO", "blockDarkSteelAnvil"), 3);
+                anvilTiers.put(GameRegistry.findBlock(EnderIO.ID, "blockDarkSteelAnvil"), 3);
             }
 
             if (ThaumicBases.isModLoaded()) {
-                anvilTiers.put(GameRegistry.findBlock("thaumicbases", "thaumicAnvil"), 3);
-                anvilTiers.put(GameRegistry.findBlock("thaumicbases", "voidAnvil"), 4);
+                anvilTiers.put(GameRegistry.findBlock(ThaumicBases.ID, "thaumicAnvil"), 3);
+                anvilTiers.put(GameRegistry.findBlock(ThaumicBases.ID, "voidAnvil"), 4);
             }
 
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntity_IndustrialForgeHammer>builder()

@@ -27,7 +27,7 @@ public class GregtechEnergyBuffer {
     private static void run1() {
 
         // itemBufferCore = new
-        // Item().setUnlocalizedName("itemBufferCore").setCreativeTab(AddToCreativeTab.tabMisc).setTextureName(CORE.MODID
+        // Item().setUnlocalizedName("itemBufferCore").setCreativeTab(AddToCreativeTab.tabMisc).setTextureName(GTPlusPlus.ID
         // + ":itemBufferCore");
 
         // Registry

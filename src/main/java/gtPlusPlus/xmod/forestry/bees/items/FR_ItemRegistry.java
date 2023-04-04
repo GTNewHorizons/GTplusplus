@@ -17,6 +17,7 @@ import net.minecraftforge.common.ChestGenHooks;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.core.utils.StringUtil;
+import gregtech.api.enums.Mods;
 
 public class FR_ItemRegistry {
 
@@ -44,7 +45,7 @@ public class FR_ItemRegistry {
     public static MB_ItemFrame hiveFrameStalilize;
     public static MB_ItemFrame hiveFrameArborist;
 
-    @Optional.Method(modid = "Forestry")
+    @Optional.Method(modid = Mods.Names.FORESTRY)
     public static void Register() {
 
         // Forestry Frames

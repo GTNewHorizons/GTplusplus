@@ -1,9 +1,13 @@
 package gtPlusPlus.core.item.base;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Thaumcraft;
 
-import java.awt.Color;
-import java.util.*;
+import java.awt.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -110,7 +114,7 @@ public class BaseItemComponent extends Item {
         this.componentColour = MathUtils.getRgbAsHex(RGBA);
         this.extraData = RGBA;
 
-        this.setTextureName(CORE.MODID + ":" + "item" + ComponentTypes.CELL.COMPONENT_NAME);
+        this.setTextureName(GTPlusPlus.ID + ":" + "item" + ComponentTypes.CELL.COMPONENT_NAME);
         GameRegistry.registerItem(this, aFormattedNameForFluids);
         GT_OreDictUnificator.registerOre(
                 ComponentTypes.CELL.getOreDictName() + Utils.sanitizeStringKeepBrackets(localName),
@@ -171,7 +175,7 @@ public class BaseItemComponent extends Item {
 
     public String getCorrectTextures() {
         if (!CORE.ConfigSwitches.useGregtechTextures) {
-            return CORE.MODID + ":" + "item" + this.componentType.COMPONENT_NAME;
+            return GTPlusPlus.ID + ":" + "item" + this.componentType.COMPONENT_NAME;
         }
         String metType = "9j4852jyo3rjmh3owlhw9oe";
         if (this.componentMaterial != null) {
@@ -181,9 +185,9 @@ public class BaseItemComponent extends Item {
             }
         }
         metType = (metType.equals("9j4852jyo3rjmh3owlhw9oe") ? "METALLIC" : metType);
-        return "gregtech" + ":" + "materialicons/" + metType + "/" + this.componentType.getOreDictName();
+        return GregTech.ID + ":" + "materialicons/" + metType + "/" + this.componentType.getOreDictName();
 
-        // return "gregtech" + ":" + "materialicons/"+metType+"/" + this.componentType.COMPONENT_NAME.toLowerCase();
+        // return GregTech.ID + ":" + "materialicons/"+metType+"/" + this.componentType.COMPONENT_NAME.toLowerCase();
     }
 
     /*

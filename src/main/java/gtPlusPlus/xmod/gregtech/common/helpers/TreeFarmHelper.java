@@ -40,6 +40,7 @@ import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import gnu.trove.set.hash.THashSet;
+import gregtech.api.enums.Mods;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
 import gregtech.api.enums.ToolDictNames;
@@ -349,7 +350,7 @@ public class TreeFarmHelper {
         return true;
     }
 
-    @Optional.Method(modid = "Forestry")
+    @Optional.Method(modid = Mods.Names.FORESTRY)
     public static Block getHumus() {
         if (blockHumus != null) {
             return blockHumus;

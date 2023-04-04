@@ -1,6 +1,7 @@
 package gtPlusPlus.core.item.base.misc;
 
 import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.List;
 
@@ -18,7 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
@@ -58,7 +58,7 @@ public class BaseItemMisc extends Item {
     }
 
     private String getCorrectTextures() {
-        return CORE.MODID + ":" + "item" + this.miscType.TYPE;
+        return GTPlusPlus.ID + ":" + "item" + this.miscType.TYPE;
     }
 
     @Override

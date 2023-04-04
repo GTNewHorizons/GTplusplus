@@ -1,12 +1,16 @@
 package gtPlusPlus.xmod.ic2.recipe;
 
 import static gregtech.api.enums.Mods.EnderIO;
-import static gtPlusPlus.core.recipe.RECIPES_Tools.*;
+import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolHardHammer;
+import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolWrench;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
-import gregtech.api.enums.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;

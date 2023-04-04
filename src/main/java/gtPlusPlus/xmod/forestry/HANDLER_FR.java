@@ -16,6 +16,7 @@ import forestry.api.arboriculture.EnumGermlingType;
 import forestry.api.arboriculture.EnumWoodType;
 import forestry.api.arboriculture.TreeManager;
 import forestry.arboriculture.genetics.TreeDefinition;
+import gregtech.api.enums.Mods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
 import gtPlusPlus.xmod.forestry.bees.recipe.FR_Gregtech_Recipes;
@@ -50,7 +51,7 @@ public class HANDLER_FR {
         return false;
     }
 
-    @Optional.Method(modid = "Forestry")
+    @Optional.Method(modid = Mods.Names.FORESTRY)
     private static void createBlockBreakParticles_INTERNAL(final World world, final int x, final int y, final int z,
             final Block block) {
         if (Forestry.isModLoaded()) {
@@ -75,7 +76,7 @@ public class HANDLER_FR {
         }
     }
 
-    @Optional.Method(modid = "Forestry")
+    @Optional.Method(modid = Mods.Names.FORESTRY)
     private static void mapForestrySaplingToLog() {
         for (TreeDefinition value : TreeDefinition.values()) {
             ItemStack aSaplingStack = value.getMemberStack(EnumGermlingType.SAPLING);
@@ -98,7 +99,7 @@ public class HANDLER_FR {
         }
     }
 
-    @Optional.Method(modid = "ExtraTrees")
+    @Optional.Method(modid = Mods.Names.EXTRA_TREES)
     private static void mapExtraTreesSaplingToLog() {
         for (ExtraTreeSpecies value : ExtraTreeSpecies.values()) {
             ItemStack aSaplingStack = TreeManager.treeRoot

@@ -1,6 +1,8 @@
 package gtPlusPlus.nei;
 
 import static gregtech.api.enums.Mods.AdvancedSolarPanel;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.NotEnoughItems;
 
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -98,14 +100,14 @@ public class NEI_IMC_Sender {
         NBTTagCompound aNBT = new NBTTagCompound();
         aNBT.setString("handler", aRecipeName);
         aNBT.setString("modName", "GT++");
-        aNBT.setString("modId", "miscutils");
+        aNBT.setString("modId", GTPlusPlus.ID);
         aNBT.setBoolean("modRequired", true);
         aNBT.setString("itemName", aBlock);
         aNBT.setInteger("yShift", 6);
         aNBT.setInteger("handlerHeight", 135);
         aNBT.setInteger("handlerWidth", 166);
         aNBT.setInteger("maxRecipesPerPage", aRecipesPerPage);
-        FMLInterModComms.sendMessage("NotEnoughItems", "registerHandlerInfo", aNBT);
+        FMLInterModComms.sendMessage(NotEnoughItems.ID, "registerHandlerInfo", aNBT);
     }
 
     private static void sendCatalyst(String aName, String aStack, int aPriority) {
@@ -113,7 +115,7 @@ public class NEI_IMC_Sender {
         aNBT.setString("handlerID", aName);
         aNBT.setString("itemName", aStack);
         aNBT.setInteger("priority", aPriority);
-        FMLInterModComms.sendMessage("NotEnoughItems", "registerCatalystInfo", aNBT);
+        FMLInterModComms.sendMessage(NotEnoughItems.ID, "registerCatalystInfo", aNBT);
     }
 
     private static void sendCatalyst(String aName, String aStack) {
@@ -124,6 +126,6 @@ public class NEI_IMC_Sender {
         NBTTagCompound aNBT = new NBTTagCompound();
         aNBT.setString("handlerID", aName);
         aNBT.setString("itemName", aStack);
-        FMLInterModComms.sendMessage("NotEnoughItems", "removeCatalystInfo", aNBT);
+        FMLInterModComms.sendMessage(NotEnoughItems.ID, "removeCatalystInfo", aNBT);
     }
 }

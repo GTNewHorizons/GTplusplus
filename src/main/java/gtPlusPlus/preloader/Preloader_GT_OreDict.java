@@ -1,5 +1,7 @@
 package gtPlusPlus.preloader;
 
+import static gregtech.api.enums.Mods.GregTech;
+
 import net.minecraft.item.ItemStack;
 
 import org.apache.logging.log4j.Level;
@@ -22,7 +24,7 @@ public class Preloader_GT_OreDict {
 
         try {
             if (CORE_Preloader.enableOldGTcircuits) {
-                if ((bannedItem != null) && ItemUtils.getModId(bannedItem).toLowerCase().equals("gregtech")) {
+                if ((bannedItem != null) && ItemUtils.getModId(bannedItem).toLowerCase().equals(GregTech.ID)) {
                     final int damageValue = bannedItem.getItemDamage() - 32000;
                     if (bannedItem.getItem() instanceof GT_MetaGenerated_Item_01) { // 700-720
                         if ((damageValue >= 700) && (damageValue <= 720)) {

@@ -1,8 +1,13 @@
 package gtPlusPlus.core.recipe;
 
+import static gregtech.api.enums.Mods.BartWorks;
 import static gregtech.api.enums.Mods.COFHCore;
+import static gregtech.api.enums.Mods.EternalSingularity;
 import static gregtech.api.enums.Mods.GoodGenerator;
+import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Railcraft;
+import static gregtech.api.enums.Mods.RemoteIO;
+import static gregtech.api.enums.Mods.ZTones;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -18,7 +23,10 @@ import com.github.technus.tectech.thing.CustomItemList;
 
 import cpw.mods.fml.common.Loader;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
@@ -35,7 +43,10 @@ import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.minecraft.*;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.MaterialUtils;
+import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
@@ -674,19 +685,19 @@ public class RECIPES_Machines {
         if (GoodGenerator.isModLoaded()) {
             GT_Values.RA.addAssemblerRecipe(
                     new ItemStack[] { CI.getNumberedAdvancedCircuit(18),
-                            GT_ModHandler.getModItem("GoodGenerator", "supercriticalFluidTurbineCasing", 1),
-                            GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedplate", 4, 10101),
-                            GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedscrew", 8, 10101) },
+                            GT_ModHandler.getModItem(GoodGenerator.ID, "supercriticalFluidTurbineCasing", 1),
+                            GT_ModHandler.getModItem(BartWorks.ID, "gt.bwMetaGeneratedplate", 4, 10101),
+                            GT_ModHandler.getModItem(BartWorks.ID, "gt.bwMetaGeneratedscrew", 8, 10101) },
                     FluidRegistry.getFluidStack("molten.adamantium alloy", 144 * 2),
                     GregtechItemList.Casing_Turbine_SC.get(1),
                     20 * 5,
                     MaterialUtils.getVoltageForTier(6));
             GT_Values.RA.addAssemblerRecipe(
                     new ItemStack[] { CI.getNumberedAdvancedCircuit(18),
-                            GT_ModHandler.getModItem("gregtech", "gt.blockmachines", 1, 32016),
-                            GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedplate", 8, 10104),
-                            GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedscrew", 16, 10104),
-                            GT_ModHandler.getModItem("bartworks", "gt.bwMetaGeneratedgearGt", 4, 10104),
+                            GT_ModHandler.getModItem(GregTech.ID, "gt.blockmachines", 1, 32016),
+                            GT_ModHandler.getModItem(BartWorks.ID, "gt.bwMetaGeneratedplate", 8, 10104),
+                            GT_ModHandler.getModItem(BartWorks.ID, "gt.bwMetaGeneratedscrew", 16, 10104),
+                            GT_ModHandler.getModItem(BartWorks.ID, "gt.bwMetaGeneratedgearGt", 4, 10104),
                             CI.getCircuit(7, 8) },
                     FluidRegistry.getFluidStack("molten.hikarium", 144 * 8),
                     GregtechItemList.Large_SCSteam_Turbine.get(1),
@@ -1800,7 +1811,7 @@ public class RECIPES_Machines {
                 (int) GT_Values.VP[11],
                 16,
                 new Object[] { GregtechItemList.Controller_MolecularTransformer.get(1),
-                        GT_ModHandler.getModItem("eternalsingularity", "eternal_singularity", 1),
+                        GT_ModHandler.getModItem(EternalSingularity.ID, "eternal_singularity", 1),
                         new Object[] { OrePrefixes.circuit.get(Materials.Bio), 8 }, ItemList.Electric_Pump_UEV.get(4),
                         ItemList.Field_Generator_UEV.get(4), GregtechItemList.Laser_Lens_Special.get(1) },
                 new FluidStack[] { MISC_MATERIALS.MUTATED_LIVING_SOLDER.getFluidStack(144 * 10),
@@ -2973,8 +2984,8 @@ public class RECIPES_Machines {
 
         // Reservoir Hatch
         GT_Values.RA.addAssemblerRecipe(
-                new ItemStack[] { ItemList.Hatch_Input_EV.get(1), GT_ModHandler.getModItem("RIO", "tile.machine", 1),
-                        ItemList.Electric_Pump_EV.get(1) },
+                new ItemStack[] { ItemList.Hatch_Input_EV.get(1),
+                        GT_ModHandler.getModItem(RemoteIO.ID, "tile.machine", 1), ItemList.Electric_Pump_EV.get(1) },
                 GT_Values.NF,
                 GregtechItemList.Hatch_Reservoir.get(1),
                 100,
@@ -3427,8 +3438,7 @@ public class RECIPES_Machines {
     }
 
     private static void ztonesCoverRecipes() {
-
-        if (!Loader.isModLoaded("Ztones")) {
+        if (!Loader.isModLoaded(ZTones.ID)) {
             return;
         }
         Class ModBlocksClass = ReflectionUtils.getClass("com.riciJak.Ztones.init.ModBlocks");
