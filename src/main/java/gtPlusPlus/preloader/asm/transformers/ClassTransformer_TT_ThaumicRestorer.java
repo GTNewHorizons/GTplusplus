@@ -48,7 +48,6 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-import cpw.mods.fml.common.Loader;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.Preloader_Logger;
 
@@ -141,7 +140,7 @@ public class ClassTransformer_TT_ThaumicRestorer {
                 ReflectionUtils.setField(aTile, mTicksExisted, ticksExisted);
                 boolean aDidRun = false;
                 if (ticksExisted % 10 == 0) {
-                    if (Loader.isModLoaded(TinkerConstruct.ID) && repairTConTools
+                    if (TinkerConstruct.isModLoaded() && repairTConTools
                             && inventorySlots[0] != null
                             && isTConstructTool(inventorySlots[0])) {
                         final int dmg = getDamage(inventorySlots[0]);

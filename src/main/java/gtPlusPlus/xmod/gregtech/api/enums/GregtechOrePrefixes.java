@@ -964,12 +964,6 @@ public enum GregtechOrePrefixes {
                         ConfigCategories.Materials.blastinductionsmelter,
                         tString,
                         tMaterial.mBlastFurnaceTemp < 1500)) {}
-                // GT_ModHandler.ThermalExpansion.addSmelterBlastOre(tMaterial);
-                // tMaterial.mHandleMaterial = (tMaterial == Desh ? tMaterial.mHandleMaterial : tMaterial == Diamond ||
-                // tMaterial == Thaumium ? Wood : tMaterial.contains(SubTag.BURNING) ? Blaze :
-                // tMaterial.contains(SubTag.MAGICAL) && tMaterial.contains(SubTag.CRYSTAL) &&
-                // Loader.isModLoaded(MOD_ID_TC) ? Thaumium : tMaterial.getMass() > Element.Tc.getMass() * 2 ?
-                // TungstenSteel : tMaterial.getMass() > Element.Tc.getMass() ? Steel : Wood);
             }
         }
 

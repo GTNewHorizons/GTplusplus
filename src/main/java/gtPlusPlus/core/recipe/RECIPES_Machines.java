@@ -21,7 +21,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import com.github.technus.tectech.recipe.TT_recipeAdder;
 import com.github.technus.tectech.thing.CustomItemList;
 
-import cpw.mods.fml.common.Loader;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -3438,7 +3437,7 @@ public class RECIPES_Machines {
     }
 
     private static void ztonesCoverRecipes() {
-        if (!Loader.isModLoaded(ZTones.ID)) {
+        if (!ZTones.isModLoaded()) {
             return;
         }
         Class ModBlocksClass = ReflectionUtils.getClass("com.riciJak.Ztones.init.ModBlocks");

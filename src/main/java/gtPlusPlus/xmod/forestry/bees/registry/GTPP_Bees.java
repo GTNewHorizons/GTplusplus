@@ -1,10 +1,9 @@
 package gtPlusPlus.xmod.forestry.bees.registry;
 
-import static gregtech.api.enums.GT_Values.MOD_ID_FR;
+import static gregtech.api.enums.Mods.Forestry;
 
 import java.util.HashMap;
 
-import cpw.mods.fml.common.Loader;
 import gregtech.GT_Mod;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
@@ -38,7 +37,7 @@ public class GTPP_Bees {
     public static HashMap<Integer, GTPP_CombType> sCombMappings = new HashMap<Integer, GTPP_CombType>();
 
     public GTPP_Bees() {
-        if (Loader.isModLoaded(MOD_ID_FR) && GT_Mod.gregtechproxy.mGTBees) {
+        if (Forestry.isModLoaded() && GT_Mod.gregtechproxy.mGTBees) {
             Logger.BEES("Creating required items.");
             propolis = new GTPP_Propolis();
             pollen = new GTPP_Pollen();

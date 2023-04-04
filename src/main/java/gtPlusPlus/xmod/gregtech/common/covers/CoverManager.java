@@ -7,7 +7,6 @@ import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtCutomCov
 import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtCutomCovers.TEXTURE_ZTONES_JELT;
 import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtCutomCovers.TEXTURE_ZTONES_KORP;
 
-import cpw.mods.fml.common.Loader;
 import gtPlusPlus.core.lib.VanillaColours;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtCutomCovers;
@@ -34,7 +33,7 @@ public class CoverManager {
         // GT Machine Casings
         Cover_Gt_Machine_Casing = new MetaItemCoverCasings();
 
-        if (Loader.isModLoaded(ZTones.ID)) {
+        if (ZTones.isModLoaded()) {
             String[] aZtoneCoverTextureNames = new String[] { "agon", "iszm", "korp", "jelt", "bitt" };
             MetaCustomCoverItem[] aZtoneCoverItems = new MetaCustomCoverItem[] { Cover_Agon, Cover_Iszm, Cover_Korp,
                     Cover_Jelt, Cover_Bitt };
