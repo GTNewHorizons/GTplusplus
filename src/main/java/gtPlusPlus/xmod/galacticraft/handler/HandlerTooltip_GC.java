@@ -15,6 +15,8 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.asm.AsmConfig;
 
+import static gregtech.api.enums.Mods.GalacticraftCore;
+
 public class HandlerTooltip_GC {
 
     private static Item mItemBlock;
@@ -29,7 +31,7 @@ public class HandlerTooltip_GC {
 
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent event) {
-        if (LoadedMods.GalacticraftCore && AsmConfig.enableGcFuelChanges) {
+        if (GalacticraftCore.isModLoaded() && AsmConfig.enableGcFuelChanges) {
 
             if (mBlock == null) {
                 try {

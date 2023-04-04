@@ -23,6 +23,10 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.plugin.agrichem.BioRecipes;
 
+import static gregtech.api.enums.Mods.BartWorks;
+import static gregtech.api.enums.Mods.GalacticraftCore;
+import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
+
 public class RecipeLoader_GlueLine {
 
     public static void generate() {
@@ -34,7 +38,6 @@ public class RecipeLoader_GlueLine {
         chemicalReactorRecipes();
         dehydratorRecipes();
         distillationTowerRecipes();
-        electrolyzerRecipes();
         fluidHeaterRecipes();
         mixerRecipes();
 
@@ -145,7 +148,7 @@ public class RecipeLoader_GlueLine {
                 30);
 
         // CaCO3 + 2HCl = CaCl2 + CO2 + H2O
-        if (LoadedMods.BartWorks) {
+        if (BartWorks.isModLoaded()) {
             GT_Values.RA.addChemicalRecipe(
                     CI.getNumberedCircuit(18),
                     ItemUtils.getSimpleStack(ModItems.dustCalciumCarbonate, 5),
@@ -203,25 +206,6 @@ public class RecipeLoader_GlueLine {
                 null,
                 4 * 20,
                 MaterialUtils.getVoltageForTier(5));
-    }
-
-    private static void electrolyzerRecipes() {
-        if (!LoadedMods.BartWorks) {
-            GT_Values.RA.addElectrolyzerRecipe(
-                    CI.getNumberedCircuit(1),
-                    MISC_MATERIALS.CALCIUM_CHLORIDE.getDust(3),
-                    null,
-                    Materials.Chlorine.getFluid(2000), // Out
-                    Materials.Calcium.getDust(1),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    new int[] { 10000, 10000, 10000 },
-                    20 * 30,
-                    120);
-        }
     }
 
     private static void fluidHeaterRecipes() {
@@ -392,7 +376,7 @@ public class RecipeLoader_GlueLine {
                     1200,
                     1966080);
         }
-        if (LoadedMods.DreamCraft && LoadedMods.GalacticraftCore) {
+        if (NewHorizonsCoreMod.isModLoaded() && GalacticraftCore.isModLoaded()) {
             GT_Values.RA.addAssemblerRecipe(
                     new ItemStack[] { ItemUtils.getItemStackFromFQRN("GalacticraftMars:item.itemBasicAsteroids:7", 1),
                             GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Titanium, 8),

@@ -5,10 +5,12 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaPollutionCreator;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class GregtechThaumcraftDevices {
 
     public static void run() {
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             Logger.INFO("Gregtech5u Content | Registering Thaumcraft content.");
             run1();
         }

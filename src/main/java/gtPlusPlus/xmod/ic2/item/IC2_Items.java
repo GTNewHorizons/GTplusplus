@@ -7,6 +7,8 @@ import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.item.wearable.hazmat.ItemArmorHazmatEx;
 import gtPlusPlus.core.lib.LoadedMods;
 
+import static gregtech.api.enums.Mods.EnderIO;
+
 public class IC2_Items {
 
     public static ItemStack rotor_Material_1; // Energetic Alloy
@@ -34,7 +36,7 @@ public class IC2_Items {
 
     public static void register() {
 
-        int aIndexEIO = (LoadedMods.EnderIO ? 0 : 1);
+        int aIndexEIO = (EnderIO.isModLoaded() ? 0 : 1);
 
         // Rotor Blades
         rotor_Blade_Material_1 = new ItemStack(

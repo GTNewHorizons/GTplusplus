@@ -28,6 +28,9 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.xmod.goodgenerator.GG_Utils;
 import gtPlusPlus.xmod.goodgenerator.GG_Utils.GG_Fuel_Rod;
 
+import static gregtech.api.enums.Mods.BartWorks;
+import static gregtech.api.enums.Mods.GoodGenerator;
+
 /**
  * Factory class to handle creating components by id or name.
  * 
@@ -558,7 +561,7 @@ public class ComponentFactory {
                         true));
 
         aID = 51;
-        if (LoadedMods.BartWorks) {
+        if (BartWorks.isModLoaded()) {
             ITEM_LIST.put(
                     aID++,
                     new FuelRod(
@@ -652,7 +655,7 @@ public class ComponentFactory {
                         "GTNH"));
 
         aID = 59;
-        if (LoadedMods.GoodGenerator) {
+        if (GoodGenerator.isModLoaded()) {
             ITEM_LIST.put(
                     aID++,
                     new FuelRod(

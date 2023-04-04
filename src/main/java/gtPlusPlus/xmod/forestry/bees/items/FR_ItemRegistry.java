@@ -93,15 +93,6 @@ public class FR_ItemRegistry {
                 ChestGenHooks.DUNGEON_CHEST,
                 new WeightedRandomChestContent(new ItemStack(hiveFrameMutagenic), 1, 3, 12));
 
-        // Extra Bee like Frames
-        if (!LoadedMods.ExtraBees) {
-            hiveFrameCocoa = new MB_ItemFrame(MB_FrameType.COCOA, EnumRarity.common, "");
-            hiveFrameCaged = new MB_ItemFrame(MB_FrameType.CAGE, EnumRarity.common, "");
-            hiveFrameSoul = new MB_ItemFrame(MB_FrameType.SOUL, EnumRarity.common, "");
-            hiveFrameClay = new MB_ItemFrame(MB_FrameType.CLAY, EnumRarity.common, "");
-            hiveFrameNova = new MB_ItemFrame(MB_FrameType.NOVA, EnumRarity.epic, "A Creative Only Frame.");
-        }
-
         // Frame Items added by bartimaeusnek
         hiveFrameDecay = new MB_ItemFrame(
                 MB_FrameType.DECAYING,

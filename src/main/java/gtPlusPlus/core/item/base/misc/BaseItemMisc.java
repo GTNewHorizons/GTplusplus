@@ -21,6 +21,8 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 public class BaseItemMisc extends Item {
 
     public final String displayName;
@@ -77,7 +79,7 @@ public class BaseItemMisc extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister) {
-        if (this.miscType == MiscTypes.DROP && LoadedMods.Forestry) {
+        if (this.miscType == MiscTypes.DROP && Forestry.isModLoaded()) {
             this.itemIcon = par1IconRegister.registerIcon("forestry:honeyDrop.0");
             this.secondIcon = par1IconRegister.registerIcon("forestry:honeyDrop.1");
         } else {

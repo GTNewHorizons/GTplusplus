@@ -27,6 +27,9 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import ic2.core.item.tool.ItemToolWrench;
 
+import static gregtech.api.enums.Mods.BuildCraftCore;
+import static gregtech.api.enums.Mods.EnderIO;
+
 @Optional.Interface(iface = "crazypants.enderio.api.tool.ITool", modid = "EnderIO")
 public class Machine_ProjectTable extends BlockContainer implements ITileTooltip {
 
@@ -119,10 +122,10 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
         if (item.getItem() instanceof ItemToolWrench) {
             return true;
         }
-        if (LoadedMods.BuildCraft) {
+        if (BuildCraftCore.isModLoaded()) {
             return checkBuildcraftWrench(item);
         }
-        if (LoadedMods.EnderIO) {
+        if (EnderIO.isModLoaded()) {
             return checkEnderIOWrench(item);
         }
         return false;

@@ -33,6 +33,8 @@ import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class BaseItemComponent extends Item {
 
     private static final Class<TextureSet> mTextureSetPreload;
@@ -73,7 +75,7 @@ public class BaseItemComponent extends Item {
         if (componentType == ComponentTypes.GEAR) {
             GT_OreDictUnificator.registerOre("gear" + material.getUnlocalizedName(), ItemUtils.getSimpleStack(this));
         }
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
             // TC_Aspect_Wrapper.generate(TC_Aspects.METALLUM.mAspect), 1);
             if (componentMaterial.isRadioactive) {

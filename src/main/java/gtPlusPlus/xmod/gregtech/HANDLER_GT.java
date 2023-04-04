@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech;
 
+import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 import static gtPlusPlus.core.recipe.common.CI.bits;
 import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
 
@@ -40,7 +41,6 @@ import gtPlusPlus.api.objects.minecraft.multi.NoSpeedBonusMultiBehaviour;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -156,7 +156,7 @@ public class HANDLER_GT {
         GT_Computercube_Description.addStandardDescriptions();
         GT_ComputerCube_Setup.init();
         RecipeLoader_AlgaeFarm.generateRecipes();
-        if (LoadedMods.AdvancedSolarPanel) {
+        if (AdvancedSolarPanel.isModLoaded()) {
             RecipeLoader_MolecularTransformer.run();
         }
     }

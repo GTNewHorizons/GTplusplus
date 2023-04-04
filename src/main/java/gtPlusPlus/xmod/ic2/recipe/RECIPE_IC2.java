@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.ic2.recipe;
 
+import static gregtech.api.enums.Mods.EnderIO;
 import static gtPlusPlus.core.recipe.RECIPES_Tools.*;
 
 import net.minecraft.init.Blocks;
@@ -65,7 +66,7 @@ public class RECIPE_IC2 {
     private static ItemStack rotor_T4 = ItemUtils.getSimpleStack(IC2_Items.rotor_Material_4.getItem());
 
     private static boolean checkForEnderIO() {
-        if (!LoadedMods.EnderIO) {
+        if (!EnderIO.isModLoaded()) {
             plate_T1 = "plateMagnalium";
             plate_T2 = "plateTungstenSteel";
             plate_T3 = "plateUltimet";

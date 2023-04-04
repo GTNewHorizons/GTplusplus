@@ -26,6 +26,8 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class BaseOreComponent extends Item {
 
     @SideOnly(Side.CLIENT)
@@ -55,14 +57,6 @@ public class BaseOreComponent extends Item {
         GT_OreDictUnificator.registerOre(
                 componentType.getComponent() + material.getUnlocalizedName(),
                 ItemUtils.getSimpleStack(this));
-        if (LoadedMods.Thaumcraft) {
-            // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-            // TC_Aspect_Wrapper.generate(TC_Aspects.METALLUM.mAspect), 1);
-            if (componentMaterial.isRadioactive) {
-                // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-                // TC_Aspect_Wrapper.generate(TC_Aspects.RADIO.mAspect), componentMaterial.vRadiationLevel);
-            }
-        }
     }
 
     public boolean registerComponent() {

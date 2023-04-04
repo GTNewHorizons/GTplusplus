@@ -2,6 +2,9 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.*;
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.Railcraft;
+import static gregtech.api.enums.Mods.ThaumicBases;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.HashMap;
@@ -68,13 +71,13 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
         tt.addMachineType(getMachineType()).addInfo("Controller Block for the Industrial Forge Hammer")
                 .addInfo("Speed: +100% | EU Usage: 100% | Parallel: Tier x Anvil Tier x 8")
                 .addInfo("T1 - Vanilla Anvil");
-        if (LoadedMods.Railcraft) {
+        if (Railcraft.isModLoaded()) {
             tt.addInfo("T2 - Steel Anvil");
         }
-        if (LoadedMods.EnderIO) {
+        if (EnderIO.isModLoaded()) {
             tt.addInfo("T3 - Dark Steel Anvil");
         }
-        if (LoadedMods.ThaumicBases) {
+        if (ThaumicBases.isModLoaded()) {
             tt.addInfo("T3 - Thaumium Anvil");
             tt.addInfo("T4 - Void Metal Anvil");
         }
@@ -95,15 +98,15 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
 
             anvilTiers.put(Blocks.anvil, 1);
 
-            if (LoadedMods.Railcraft) {
+            if (Railcraft.isModLoaded()) {
                 anvilTiers.put(GameRegistry.findBlock("Railcraft", "anvil"), 2);
             }
 
-            if (LoadedMods.EnderIO) {
+            if (EnderIO.isModLoaded()) {
                 anvilTiers.put(GameRegistry.findBlock("EnderIO", "blockDarkSteelAnvil"), 3);
             }
 
-            if (LoadedMods.ThaumicBases) {
+            if (ThaumicBases.isModLoaded()) {
                 anvilTiers.put(GameRegistry.findBlock("thaumicbases", "thaumicAnvil"), 3);
                 anvilTiers.put(GameRegistry.findBlock("thaumicbases", "voidAnvil"), 4);
             }

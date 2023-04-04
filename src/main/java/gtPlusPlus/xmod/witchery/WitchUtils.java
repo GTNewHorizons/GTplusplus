@@ -15,6 +15,8 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
+import static gregtech.api.enums.Mods.Witchery;
+
 public class WitchUtils {
 
     private static final GameProfile NORMAL_MINER_PROFILE;
@@ -23,7 +25,7 @@ public class WitchUtils {
     static {
         Field a1 = null, a2 = null;
         GameProfile b1 = null, b2 = null;
-        if (LoadedMods.Witchery) {
+        if (Witchery.isModLoaded()) {
             try {
                 a1 = getField("com.emoniph.witchery.entity.ai.EntityAIDigBlocks", "NORMAL_MINER_PROFILE");
                 a2 = getField("com.emoniph.witchery.entity.ai.EntityAIDigBlocks", "KOBOLDITE_MINER_PROFILE");
@@ -38,7 +40,7 @@ public class WitchUtils {
     // com.emoniph.witchery.entity.ai.EntityAIDigBlocks.onHarvestDrops(EntityPlayer, HarvestDropsEvent)
     public static void onHarvestDrops(final EntityPlayer harvester, final BlockEvent.HarvestDropsEvent event) {
 
-        if (LoadedMods.Witchery) {
+        if (Witchery.isModLoaded()) {
 
             if (harvester != null && !harvester.worldObj.isRemote
                     && !event.isCanceled()

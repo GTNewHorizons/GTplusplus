@@ -41,6 +41,9 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.railcraft.utils.RailcraftUtils;
 import ic2.core.Ic2Items;
 
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.Railcraft;
+
 public class BioRecipes {
 
     private static Item mFert;
@@ -378,7 +381,7 @@ public class BioRecipes {
                 30);
 
         // Add Charcoal Recipe
-        if (LoadedMods.Railcraft) {
+        if (Railcraft.isModLoaded()) {
             RailcraftUtils.addCokeOvenRecipe(
                     ItemUtils.getSimpleStack(AgriculturalChem.mWoodPellet, 2),
                     true,
@@ -957,7 +960,7 @@ public class BioRecipes {
 
     private static void recipeCompost() {
         ItemStack aFert;
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             aFert = ItemUtils.getSimpleStack(AgriculturalChem.aFertForestry, 32);
             CORE.RA.addChemicalPlantRecipe(
                     new ItemStack[] { getBioChip(11),

@@ -14,6 +14,8 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 public class TinkersDryingRecipe {
 
     public static AutoMap<TinkersDryingRecipe> recipes = new AutoMap<TinkersDryingRecipe>();
@@ -55,7 +57,7 @@ public class TinkersDryingRecipe {
         Field aInput;
         Field aOutput;
         Class aTinkerClass = ReflectionUtils.getClass("tconstruct.library.crafting.DryingRackRecipes.DryingRecipe"); // o.getClass();
-        if (aTinkerClass == null || !LoadedMods.TiCon) {
+        if (aTinkerClass == null || TinkerConstruct.isModLoaded()) {
             Logger.INFO(
                     "Error generating Drying Recipe, could not find class. Exists? " + ReflectionUtils
                             .doesClassExist("tconstruct.library.crafting.DryingRackRecipes.DryingRecipe"));

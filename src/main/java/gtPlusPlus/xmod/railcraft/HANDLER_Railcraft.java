@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.railcraft;
 
+import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
+import static gregtech.api.enums.Mods.Railcraft;
 import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
 
 import net.minecraft.init.Blocks;
@@ -23,8 +25,6 @@ import gtPlusPlus.xmod.railcraft.utils.RailcraftUtils;
 public class HANDLER_Railcraft {
 
     public static void preInit() {
-        if (LoadedMods.Railcraft) {}
-
         // Register Custom Coal Coke
         ModItems.itemCoalCoke = new BaseItemBurnable(
                 "itemCoalCoke",
@@ -85,13 +85,7 @@ public class HANDLER_Railcraft {
         ItemUtils.addItemToOreDictionary(ItemUtils.getSimpleStack(ModItems.itemSugarCoke), "itemCokeSugar");
     }
 
-    public static void init() {
-        if (LoadedMods.Railcraft) {}
-    }
-
     public static void postInit() {
-        if (LoadedMods.Railcraft) {}
-
         generateCokeOvenRecipes();
     }
 
@@ -185,7 +179,7 @@ public class HANDLER_Railcraft {
                     40,
                     8);
         }
-        if (LoadedMods.Railcraft) {
+        if (Railcraft.isModLoaded()) {
             for (int i = 0; i < aOutputs.length; i++) {
                 RailcraftUtils.addCokeOvenRecipe(
                         aInputs1[i],
@@ -205,7 +199,7 @@ public class HANDLER_Railcraft {
                         500);
             }
 
-            if (LoadedMods.DreamCraft) {
+            if (NewHorizonsCoreMod.isModLoaded()) {
                 for (int i = 0; i < aOutputs.length; i++) {
                     RailcraftUtils.addAdvancedCokeOvenRecipe(aInputs1[i], true, true, aInputs2[i], 20);
                 }

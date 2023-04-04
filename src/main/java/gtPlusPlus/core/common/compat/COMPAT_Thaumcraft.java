@@ -5,6 +5,8 @@ import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
+import static gregtech.api.enums.Mods.ForbiddenMagic;
+
 public class COMPAT_Thaumcraft {
 
     public static void OreDict() {
@@ -17,19 +19,16 @@ public class COMPAT_Thaumcraft {
     private static final void run() {
 
         for (int i = 0; i <= 6; i++) {
-            // Utils.LOG_INFO(""+i);
             ItemUtils.getItemForOreDict("Thaumcraft:ItemShard", "shardAny", "TC Shard " + i, i);
             GT_OreDictUnificator
                     .registerOre("shardAny", ItemUtils.getItemStackFromFQRN("Thaumcraft:ItemShard:" + i, 1));
             ItemUtils.getItemForOreDict("Thaumcraft:ItemShard", "gemInfusedAnything", "TC Shard " + i, i);
             GT_OreDictUnificator
                     .registerOre("gemInfusedAnything", ItemUtils.getItemStackFromFQRN("Thaumcraft:ItemShard:" + i, 1));
-            // System.out.println("TC Shard registration count is: "+i);
         }
 
-        if (LoadedMods.ForbiddenMagic) {
+        if (ForbiddenMagic.isModLoaded()) {
             for (int i = 0; i <= 6; i++) {
-                // Utils.LOG_INFO(""+i);
                 ItemUtils.getItemForOreDict("ForbiddenMagic:NetherShard", "shardAny", "FM Shard " + i, i);
                 GT_OreDictUnificator
                         .registerOre("shardAny", ItemUtils.getItemStackFromFQRN("ForbiddenMagic:NetherShard:" + i, 1));
@@ -37,7 +36,6 @@ public class COMPAT_Thaumcraft {
                 GT_OreDictUnificator.registerOre(
                         "gemInfusedAnything",
                         ItemUtils.getItemStackFromFQRN("ForbiddenMagic:NetherShard:" + i, 1));
-                // System.out.println("TC Shard registration count is: "+i);
             }
             ItemUtils.getItemForOreDict("ForbiddenMagic:GluttonyShard", "shardAny", "FM Gluttony Shard", 0);
             GT_OreDictUnificator

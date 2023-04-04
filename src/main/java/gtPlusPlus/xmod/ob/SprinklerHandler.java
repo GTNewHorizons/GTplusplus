@@ -11,6 +11,8 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 /**
  * Wrapper Class to assist in handling the OB Sprinkler.
  * 
@@ -45,7 +47,7 @@ public class SprinklerHandler {
         f = new ItemStack(Items.dye, 1, 15);
         SprinklerHandler.registerSprinklerFertilizer(f);
 
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             f = ItemUtils.getCorrectStacktype("Forestry:fertilizerBio", 1);
             if (f != null) {
                 registerSprinklerFertilizer(f);

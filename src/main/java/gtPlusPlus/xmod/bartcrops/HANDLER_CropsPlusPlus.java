@@ -10,9 +10,6 @@ public class HANDLER_CropsPlusPlus {
         LoaderOfTheCrops.load(preinit);
     }
 
-    public static void init(FMLInitializationEvent init) {
-        // registerItems();
-    }
 
     public static void postInit(FMLPostInitializationEvent postinit) {
         LoaderOfTheCrops.register();

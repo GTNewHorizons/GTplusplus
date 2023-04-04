@@ -37,6 +37,8 @@ import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
+import static gregtech.api.enums.Mods.Forestry;
+
 public class TileEntityPestKiller extends TileEntity implements ISidedInventory, IFluidHandler {
 
     private final int mBaseTickRate = 20 * 30;
@@ -55,7 +57,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
 
     static {
         mEntityMap.put(EntityBat.class);
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             mEntityMap.put(ReflectionUtils.getClass("forestry.lepidopterology.entities.EntityButterfly"));
         }
     }

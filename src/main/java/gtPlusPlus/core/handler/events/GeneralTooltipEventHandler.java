@@ -1,5 +1,6 @@
 package gtPlusPlus.core.handler.events;
 
+import gregtech.api.enums.Mods;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -90,7 +91,7 @@ public class GeneralTooltipEventHandler {
             event.toolTip.add("Max Capacity: " + MathUtils.formatNumbers(32000) + "L");
         }
 
-        if (LoadedMods.AdvancedSolarPanel) {
+        if (Mods.AdvancedSolarPanel.isModLoaded()) {
             molecularTransformer(event);
         }
     }

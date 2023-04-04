@@ -5,6 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import gtPlusPlus.core.lib.LoadedMods;
 
+import static gregtech.api.enums.Mods.AdvancedSolarPanel;
+
 public class NEI_IMC_Sender {
 
     public static void IMCSender() {
@@ -59,7 +61,7 @@ public class NEI_IMC_Sender {
         sendHandler("gtpp.recipe.quantumforcesmelter", "gregtech:gt.blockmachines:31151");
         sendCatalyst("gtpp.recipe.quantumforcesmelter", "gregtech:gt.blockmachines:31151");
 
-        if (LoadedMods.AdvancedSolarPanel) {
+        if (AdvancedSolarPanel.isModLoaded()) {
             sendHandler("gtpp.recipe.moleculartransformer", "AdvancedSolarPanel:BlockMolecularTransformer");
             sendCatalyst("gtpp.recipe.moleculartransformer", "gregtech:gt.blockmachines:31072");
         }

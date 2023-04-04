@@ -1,5 +1,6 @@
 package gtPlusPlus;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
 
 import java.awt.event.ActionEvent;
@@ -256,7 +257,7 @@ public class GTplusplus implements ActionListener {
         event.registerServerCommand(new CommandMath());
         event.registerServerCommand(new CommandEnableDebugWhileRunning());
         event.registerServerCommand(new CommandDebugChunks());
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             event.registerServerCommand(new CommandDumpAspects());
         }
         Core_Manager.serverStart();

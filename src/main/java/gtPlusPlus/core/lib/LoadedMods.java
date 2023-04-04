@@ -4,50 +4,19 @@ import java.util.HashMap;
 
 import cpw.mods.fml.common.Loader;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechTextures;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 
 public class LoadedMods {
 
-    // Initialize Variables
+    // missing in GT5U
 
-    // GTNH mods
-    public static boolean PlayerAPI = false;
-    public static boolean BuildCraft = false;
-    public static boolean EnderIO = false;
-    public static boolean Thaumcraft = false;
-    public static boolean ThaumicBases = false;
-    public static boolean Baubles = false;
-    public static boolean Extra_Utils = false;
-    public static boolean ForbiddenMagic = false;
-    public static boolean Railcraft = false;
     public static boolean CoFHCore = false;
-    public static boolean Forestry = false;
-    public static boolean MagicBees = false;
-    public static boolean ExtraBees = false;
-    public static boolean AdvancedSolarPanel = false;
-    public static boolean OpenComputers = false; // OpenComputers
-    public static boolean OpenBlocks = false;
-    public static boolean Computronics = false; // computronics
-    public static boolean DreamCraft = false; // GT: New Horizons
-    public static boolean BiomesOPlenty = false;
-    public static boolean PamsHarvestcraft = false;
-    public static boolean GalacticraftCore = false;
-    public static boolean TecTech = false; // Technus' Mod
-    public static boolean KekzTech = false; // KekzDealers' Mod
-    public static boolean TiCon = false;
-    public static boolean StevesCarts = false;
-    public static boolean Witchery = false;
-    public static boolean Waila = false;
-    public static boolean CropsPlusPlus = false; // Barts Crop Mod
-    public static boolean SpiceOfLife = false;
-    public static boolean RemoteIO = false;
-    public static boolean BartWorks = false;
-    public static boolean GoodGenerator = false;
-    public static boolean ExtraTrees = false;
 
-    private static int totalMods;
+    public static boolean TecTech = false; // Technus' Mod
+    public static boolean PlayerAPI = false;
+
+
 
     @SuppressWarnings("deprecation")
     public static void checkLoaded() {
@@ -62,178 +31,6 @@ public class LoadedMods {
         } catch (final NullPointerException e) {
             Logger.INFO("Could NOT create a Gregtech recipe handler.");
         }
-
-        totalMods++;
-        if (isModLoaded("dreamcraft")) {
-            DreamCraft = true;
-            Logger.INFO("Components enabled for: DreamCraft");
-            totalMods++;
-        }
-        if (isModLoaded("PlayerAPI")) {
-            PlayerAPI = true;
-            Logger.INFO("Components enabled for: PlayerAPI");
-            totalMods++;
-        }
-        if (isModLoaded("berriespp")) {
-            CropsPlusPlus = true;
-            Logger.INFO("Components enabled for: Crops++");
-            totalMods++;
-        }
-        if (isModLoaded("TConstruct")) {
-            TiCon = true;
-            Logger.INFO("Components enabled for: Tinkers Construct");
-            totalMods++;
-        }
-        if (isModLoaded("AdvancedSolarPanel")) {
-            AdvancedSolarPanel = true;
-            Logger.INFO("Components enabled for: Advanced Solar Panels");
-            totalMods++;
-        }
-        if (isModLoaded("GoodGenerator")) {
-            GoodGenerator = true;
-            Logger.INFO("Components enabled for: GoodGenerator");
-            totalMods++;
-        }
-        if (isModLoaded("bartworks")) {
-            BartWorks = true;
-            Logger.INFO("Components enabled for: BartWorks");
-            totalMods++;
-        }
-        if (isModLoaded("BuildCraft")) {
-            BuildCraft = true;
-            Logger.INFO("Components enabled for: BuildCraft");
-            totalMods++;
-        }
-        if ((isModLoaded("EnderIO")) && !ConfigSwitches.disableEnderIOIntegration) {
-            EnderIO = true;
-            Logger.INFO("Components enabled for: EnderIO");
-            totalMods++;
-        }
-        if (isModLoaded("StevesCarts")) {
-            StevesCarts = true;
-            Logger.INFO("Components enabled for: StevesCarts");
-            totalMods++;
-        }
-        if (isModLoaded("OpenBlocks")) {
-            OpenBlocks = true;
-            Logger.INFO("Components enabled for: OpenBlocks");
-            totalMods++;
-        }
-        if (isModLoaded("Thaumcraft")) {
-            Thaumcraft = true;
-            Logger.INFO("Components enabled for: Thaumcraft");
-            totalMods++;
-        }
-        if (isModLoaded("thaumicbases")) {
-            ThaumicBases = true;
-            Logger.INFO("Components enabled for: Thaumic Bases");
-            totalMods++;
-        }
-        if (isModLoaded("BiomesOPlenty")) {
-            BiomesOPlenty = true;
-            Logger.INFO("Components enabled for: BiomesOPlenty");
-            totalMods++;
-        }
-        if (isModLoaded("ExtraUtilities")) {
-            Extra_Utils = true;
-            Logger.INFO("Components enabled for: Extra_Utils");
-            totalMods++;
-        }
-        if (isModLoaded("harvestcraft")) {
-            PamsHarvestcraft = true;
-            Logger.INFO("Components enabled for: PamsHarvestcraft");
-            totalMods++;
-        }
-        if (isModLoaded("ForbiddenMagic")) {
-            ForbiddenMagic = true;
-            Logger.INFO("Components enabled for: ForbiddenMagic");
-            totalMods++;
-        }
-        if (isModLoaded("Railcraft")) {
-            Railcraft = true;
-            Logger.INFO("Components enabled for: Railcraft");
-            totalMods++;
-        }
-        if (isModLoaded("Waila")) {
-            Waila = true;
-            Logger.INFO("Components enabled for: WAILA");
-            totalMods++;
-        }
-        if (isModLoaded("SpiceOfLife")) {
-            SpiceOfLife = true;
-            Logger.INFO("Components enabled for: Spice Of Life");
-            totalMods++;
-        }
-        if (isModLoaded("CoFHCore")) {
-            CoFHCore = true;
-            Logger.INFO("Components enabled for: CoFHCore");
-            totalMods++;
-        }
-        if (isModLoaded("Forestry")) {
-            Forestry = true;
-            Logger.INFO("Components enabled for: Forestry");
-            totalMods++;
-        }
-        if (isModLoaded("MagicBees")) {
-            MagicBees = true;
-            Logger.INFO("Components enabled for: MagicBees");
-            totalMods++;
-        }
-        if (isModLoaded("ExtraBees")) {
-            ExtraBees = true;
-            Logger.INFO("Components enabled for: ExtraBees");
-            totalMods++;
-        }
-        if (isModLoaded("Baubles")) {
-            Baubles = true;
-            Logger.INFO("Components enabled for: Baubles");
-            totalMods++;
-        }
-        if (isModLoaded("GalacticraftCore")) {
-            GalacticraftCore = true;
-            Logger.INFO("Components enabled for: Galacticraft Core");
-            totalMods++;
-        }
-        if (isModLoaded("OpenComputers")) {
-            OpenComputers = true;
-            Logger.INFO("Components enabled for: OpenComputers");
-            totalMods++;
-        }
-        if (isModLoaded("computronics")) {
-            Computronics = true;
-            Logger.INFO(
-                    "Components disabled for: Computronics - This feature will enable itself if you remove Computronics.");
-            totalMods++;
-        } else {
-            Logger.INFO(
-                    "Components enabled for: Computronics - This feature will disable itself if you add Computronics.");
-        }
-        if (isModLoaded("tectech")) {
-            TecTech = true;
-            Logger.INFO("Components enabled for: TecTech");
-            totalMods++;
-        }
-        if (isModLoaded("kekztech")) {
-            KekzTech = true;
-            Logger.INFO("Components enabled for: KekzTech");
-            totalMods++;
-        }
-        if (isModLoaded("witchery")) {
-            Witchery = true;
-            Logger.INFO("Components enabled for: Witchery");
-            totalMods++;
-        }
-        if (isModLoaded("RIO")) {
-            RemoteIO = true;
-            Logger.INFO("Components enabled for: RemoteIO");
-            totalMods++;
-        }
-        if (isModLoaded("ExtraTrees")) {
-            ExtraTrees = true;
-            Logger.INFO("Components enabled for: ExtraTrees");
-            totalMods++;
-        }
-        Logger.INFO("Content found for " + totalMods + " mods");
     }
 
     public static String getModVersion(final String modName) {

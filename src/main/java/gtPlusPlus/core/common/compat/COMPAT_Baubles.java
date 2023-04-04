@@ -20,13 +20,13 @@ import gtPlusPlus.core.item.general.ItemHealingDevice;
 import gtPlusPlus.core.item.general.ItemSlowBuildingRing;
 import gtPlusPlus.core.lib.LoadedMods;
 
+import static gregtech.api.enums.Mods.Baubles;
+
 public class COMPAT_Baubles {
 
     public static void run() {
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
             baublesLoaded();
-        } else {
-            baublesNotLoaded();
         }
     }
 
@@ -79,9 +79,5 @@ public class COMPAT_Baubles {
         if (LoadedMods.PlayerAPI) {
             ModItems.itemSlowBuildingRing = new ItemSlowBuildingRing();
         }
-    }
-
-    public static void baublesNotLoaded() {
-        Logger.INFO("Baubles Not Found - Skipping Resources.");
     }
 }

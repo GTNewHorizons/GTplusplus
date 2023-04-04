@@ -20,6 +20,8 @@ import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+
 public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
 
     private int tickCount = 0;
@@ -159,7 +161,7 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
         }
         // Junk Loot
         else if (lootWeight <= 23) {
-            if (LoadedMods.PamsHarvestcraft) {
+            if (PamsHarvestCraft.isModLoaded()) {
                 loot = ItemUtils.getItemStackOfAmountFromOreDictNoBroken(seaweed, 1);
             } else {
                 loot = ItemUtils.getSimpleStack(Blocks.dirt);

@@ -31,6 +31,10 @@ import gtPlusPlus.plugin.agrichem.item.algae.ItemAgrichemBase;
 import gtPlusPlus.plugin.agrichem.item.algae.ItemAlgaeBase;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 public class AgriculturalChem extends ItemPackage {
 
     private static boolean aBOP;
@@ -281,8 +285,8 @@ public class AgriculturalChem extends ItemPackage {
     public AgriculturalChem() {
         super();
 
-        aBOP = LoadedMods.BiomesOPlenty;
-        aTiCon = LoadedMods.TiCon;
+        aBOP = BiomesOPlenty.isModLoaded();
+        aTiCon = TinkerConstruct.isModLoaded();
 
         Logger.INFO("Adding Agrochemical content");
 
@@ -527,7 +531,7 @@ public class AgriculturalChem extends ItemPackage {
         /**
          * Forestry Support
          */
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             Field aItemField = ReflectionUtils
                     .getField(ReflectionUtils.getClass("forestry.plugins.PluginCore"), "items");
             try {

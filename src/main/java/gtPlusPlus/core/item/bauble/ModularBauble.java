@@ -29,6 +29,8 @@ import gtPlusPlus.core.util.minecraft.ModularArmourUtils.Modifiers;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class ModularBauble extends BaseBauble {
 
     @SideOnly(Side.CLIENT)
@@ -451,7 +453,7 @@ public class ModularBauble extends BaseBauble {
         this.mfallback = register.registerIcon("miscutils" + ":" + "itemAmulet");
         // you cannot initialize iconArray when declared nor in the constructor,
         // as it is client-side only, so do it here:
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             iconArray[0] = register.registerIcon("thaumcraft" + ":" + "bauble_amulet");
             iconArray[1] = register.registerIcon("thaumcraft" + ":" + "bauble_ring");
             iconArray[2] = register.registerIcon("thaumcraft" + ":" + "bauble_belt");

@@ -41,6 +41,9 @@ import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
 
+import static gregtech.api.enums.Mods.GoodGenerator;
+import static gregtech.api.enums.Mods.Railcraft;
+
 public class RECIPES_Machines {
 
     // Outputs
@@ -668,7 +671,7 @@ public class RECIPES_Machines {
                 GregtechItemList.Large_Plasma_Turbine.get(1),
                 20 * 60,
                 MaterialUtils.getVoltageForTier(7));
-        if (LoadedMods.GoodGenerator) {
+        if (GoodGenerator.isModLoaded()) {
             GT_Values.RA.addAssemblerRecipe(
                     new ItemStack[] { CI.getNumberedAdvancedCircuit(18),
                             GT_ModHandler.getModItem("GoodGenerator", "supercriticalFluidTurbineCasing", 1),
@@ -986,10 +989,10 @@ public class RECIPES_Machines {
         IV_MACHINE_Mixer = ItemList.Machine_IV_Mixer.get(1);
         EV_MACHINE_ChemicalBath = ItemList.Machine_EV_ChemicalBath.get(1);
         if (CORE.ConfigSwitches.enableMultiblock_IndustrialCokeOven) {
-            if (LoadedMods.Railcraft) {
+            if (Railcraft.isModLoaded()) {
                 // Misc
                 INPUT_RCCokeOvenBlock = ItemUtils
-                        .getItemStackWithMeta(LoadedMods.Railcraft, "Railcraft:machine.alpha", "Coke_Oven_RC", 7, 1);
+                        .getItemStackWithMeta(Railcraft.isModLoaded(), "Railcraft:machine.alpha", "Coke_Oven_RC", 7, 1);
             }
         }
         runModRecipes();
@@ -1318,7 +1321,7 @@ public class RECIPES_Machines {
             RECIPE_IndustrialCokeOvenCasingA = GregtechItemList.Casing_CokeOven_Coil1.get(1);
             RECIPE_IndustrialCokeOvenCasingB = GregtechItemList.Casing_CokeOven_Coil2.get(1);
 
-            if (LoadedMods.Railcraft) {
+            if (Railcraft.isModLoaded()) {
                 // Industrial Coke Oven
                 RecipeUtils.addShapedGregtechRecipe(
                         CI.component_Plate[7],

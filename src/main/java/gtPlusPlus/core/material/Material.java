@@ -1,6 +1,7 @@
 package gtPlusPlus.core.material;
 
 import static gregtech.api.enums.GT_Values.M;
+import static gregtech.api.enums.Mods.TinkerConstruct;
 import static gtPlusPlus.core.util.math.MathUtils.safeCast_LongToInt;
 
 import java.util.ArrayList;
@@ -686,7 +687,7 @@ public class Material {
 
             this.textureSet = setTextureSet(set, vTier);
 
-            if (LoadedMods.TiCon && this.materialState == MaterialState.SOLID) {
+            if (TinkerConstruct.isModLoaded() && this.materialState == MaterialState.SOLID) {
                 if (this.getProtons() >= 98 || this.getComposites().size() > 1 || this.getMeltingPointC() >= 3600) {
                     this.vTiConHandler = new BaseTinkersMaterial(this);
                 }

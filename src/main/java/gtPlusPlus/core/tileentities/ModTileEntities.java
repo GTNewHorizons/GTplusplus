@@ -24,6 +24,8 @@ import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class ModTileEntities {
 
     public static void init() {
@@ -50,7 +52,7 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityVolumetricFlaskSetter.class, "TileEntityVolumetricFlaskSetter");
 
         // Mod TEs
-        if (LoadedMods.Thaumcraft) {}
+        if (Thaumcraft.isModLoaded()) {}
 
         blacklistTilesFromAcceleration();
     }

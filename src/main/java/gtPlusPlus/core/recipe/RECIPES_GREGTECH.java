@@ -33,6 +33,10 @@ import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
+import static gregtech.api.enums.Mods.Backpack;
+import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+
 public class RECIPES_GREGTECH {
 
     public static void run() {
@@ -430,7 +434,7 @@ public class RECIPES_GREGTECH {
                     (int) MaterialUtils.getVoltageForTier(j));
         }
 
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
             // Nano Healer
             CORE.RA.addAssemblylineRecipe(
                     ItemUtils.simpleMetaStack(Items.golden_apple, 1, 1),
@@ -1019,7 +1023,7 @@ public class RECIPES_GREGTECH {
         /*
          * Try Add custom Recipe for drying leather
          */
-        if (LoadedMods.PamsHarvestcraft && Loader.isModLoaded("Backpack")) {
+        if (PamsHarvestCraft.isModLoaded() && Backpack.isModLoaded()) {
             ItemStack aLeather1, aLeather2;
             aLeather1 = ItemUtils.getCorrectStacktype("harvestcraft:hardenedleatherItem", 1);
             aLeather2 = ItemUtils.getCorrectStacktype("Backpack:tannedLeather", 1);
@@ -1331,7 +1335,7 @@ public class RECIPES_GREGTECH {
                     (int) GT_Values.V[i]);
         }
 
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
 
             // Turbine Housing Research Page
             CORE.RA.addSixSlotAssemblingRecipe(

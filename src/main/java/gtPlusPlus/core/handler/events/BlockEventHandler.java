@@ -1,5 +1,6 @@
 package gtPlusPlus.core.handler.events;
 
+import static gregtech.api.enums.Mods.Thaumcraft;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropDrainedShard;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropFluoriteOre;
 
@@ -155,7 +156,7 @@ public class BlockEventHandler {
                     if (((event.block == Blocks.stone) || (event.block == Blocks.sandstone)
                             || (event.block == Blocks.log)
                             || (event.block == Blocks.log2)
-                            || (event.block == Blocks.grass)) && !LoadedMods.Thaumcraft
+                            || (event.block == Blocks.grass)) && !Thaumcraft.isModLoaded()
                             && (chanceToDropDrainedShard != 0)) {
                         // small chance for one to spawn per stone mined. 1 per 3 stacks~
                         if (MathUtils.randInt(1, chanceToDropDrainedShard) == 1) {

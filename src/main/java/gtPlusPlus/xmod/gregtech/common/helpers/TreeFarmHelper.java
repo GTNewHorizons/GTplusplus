@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
+import static gregtech.api.enums.Mods.Forestry;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableTreeFarmerParticles;
 
 import java.util.ArrayList;
@@ -328,7 +329,7 @@ public class TreeFarmHelper {
     public static Block blockHumus;
 
     public static boolean isForestryValid() {
-        if (!LoadedMods.Forestry) {
+        if (!Forestry.isModLoaded()) {
             return false;
         }
         if (ReflectionUtils.doesClassExist("forestry.core.blocks.BlockSoil")) {

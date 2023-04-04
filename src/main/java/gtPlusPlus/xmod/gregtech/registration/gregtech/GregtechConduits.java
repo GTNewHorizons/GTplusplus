@@ -30,6 +30,9 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaPipeEntityFluid;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaPipeEntity_Cable;
 
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.Thaumcraft;
+
 public class GregtechConduits {
 
     // 30000-30999
@@ -190,7 +193,7 @@ public class GregtechConduits {
 
     private static void run1() {
 
-        if (LoadedMods.EnderIO) {
+        if (EnderIO.isModLoaded()) {
             wireFactory("RedstoneAlloy", 32, BaseWireID + 45, 0, 2, 1, new short[] { 178, 34, 34, 0 });
         }
 
@@ -198,7 +201,7 @@ public class GregtechConduits {
         makeCustomWires(ELEMENT.STANDALONE.HYPOGEN, BaseWireID - 15, 0, 0, 8, GT_Values.V[11], false, true);
 
         // superConductorFactory(GT_Materials.Superconductor, 524288, 30660, 0, 0, 8);
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             // superConductorFactory(GT_Materials.Void, 512, 30661, 0, 0, 8);
         }
     }
@@ -207,7 +210,7 @@ public class GregtechConduits {
         generateNonGTFluidPipes(GT_Materials.Staballoy, ALLOY.STABALLOY, BasePipeID, 12500, 7500, true);
         generateNonGTFluidPipes(GT_Materials.Tantalloy60, ALLOY.TANTALLOY_60, BasePipeID + 5, 10000, 4250, true);
         generateNonGTFluidPipes(GT_Materials.Tantalloy61, ALLOY.TANTALLOY_61, BasePipeID + 10, 12000, 5800, true);
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             generateNonGTFluidPipes(GT_Materials.Void, null, BasePipeID + 15, 1600, 25000, true);
         }
         generateGTFluidPipes(Materials.Europium, BasePipeID + 20, 12000, 7500, true);
@@ -219,7 +222,7 @@ public class GregtechConduits {
         generateNonGTFluidPipes(GT_Materials.HastelloyX, ALLOY.HASTELLOY_X, BasePipeID + 50, 20000, 4200, true);
 
         generateGTFluidPipes(Materials.Tungsten, BasePipeID + 55, 4320, 7200, true);
-        if (LoadedMods.EnderIO) {
+        if (EnderIO.isModLoaded()) {
             generateGTFluidPipes(Materials.DarkSteel, BasePipeID + 60, 2320, 2750, true);
         }
         generateGTFluidPipes(Materials.Clay, BasePipeID + 65, 100, 500, false);

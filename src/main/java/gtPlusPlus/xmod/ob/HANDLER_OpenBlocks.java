@@ -3,20 +3,17 @@ package gtPlusPlus.xmod.ob;
 import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.util.Utils;
 
+import static gregtech.api.enums.Mods.OpenBlocks;
+
 public class HANDLER_OpenBlocks {
-
-    public static void preInit() {
-        if (LoadedMods.OpenBlocks) {}
-    }
-
     public static void init() {
-        if (LoadedMods.OpenBlocks) {
+        if (OpenBlocks.isModLoaded()) {
             GliderHandler.populateBlacklist();
         }
     }
 
     public static void postInit() {
-        if (LoadedMods.OpenBlocks) {
+        if (OpenBlocks.isModLoaded()) {
             Utils.registerEvent(new GliderHandler());
         }
     }

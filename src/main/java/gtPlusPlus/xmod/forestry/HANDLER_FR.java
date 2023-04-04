@@ -20,33 +20,32 @@ import gtPlusPlus.xmod.forestry.bees.recipe.FR_Gregtech_Recipes;
 import gtPlusPlus.xmod.forestry.bees.registry.GTPP_Bees;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
 
+import static gregtech.api.enums.Mods.ExtraTrees;
+import static gregtech.api.enums.Mods.Forestry;
+
 public class HANDLER_FR {
 
     public static void preInit() {
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             FR_ItemRegistry.Register();
         }
     }
 
-    public static void Init() {
-        if (LoadedMods.Forestry) {}
-    }
-
     public static void postInit() {
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             FR_Gregtech_Recipes.registerItems();
             new GTPP_Bees();
             mapForestrySaplingToLog();
         }
 
-        if (LoadedMods.ExtraTrees) {
+        if (ExtraTrees.isModLoaded()) {
             mapExtraTreesSaplingToLog();
         }
     }
 
     public static boolean createBlockBreakParticles(final World world, final int x, final int y, final int z,
             final Block block) {
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             createBlockBreakParticles_INTERNAL(world, x, y, z, block);
         }
         return false;
@@ -55,7 +54,7 @@ public class HANDLER_FR {
     @Optional.Method(modid = "Forestry")
     private static void createBlockBreakParticles_INTERNAL(final World world, final int x, final int y, final int z,
             final Block block) {
-        if (LoadedMods.Forestry) {
+        if (Forestry.isModLoaded()) {
             Class oClass;
             try {
                 oClass = ReflectionUtils.getClass("forestry.core.proxy.ProxyCommon");

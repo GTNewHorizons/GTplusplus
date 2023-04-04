@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.eio.handler;
 
+import static gregtech.api.enums.Mods.EnderIO;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIngotTooltips;
 
 import java.lang.reflect.Field;
@@ -22,7 +23,7 @@ public class HandlerTooltip_EIO {
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent event) {
         // Is EIO loaded?
-        if (!disableEnderIOIngotTooltips && LoadedMods.EnderIO) {
+        if (!disableEnderIOIngotTooltips && EnderIO.isModLoaded()) {
 
             // Is the EIO Ingot Item null?
             // If it is, reflect in.

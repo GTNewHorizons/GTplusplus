@@ -1,8 +1,13 @@
 package gtPlusPlus.core.item;
 
+import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.Thaumcraft;
 import static gtPlusPlus.core.creative.AddToCreativeTab.*;
 import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 
+import gtPlusPlus.core.lib.CORE;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.EnumChatFormatting;
@@ -43,7 +48,6 @@ import gtPlusPlus.core.item.tool.misc.*;
 import gtPlusPlus.core.item.tool.misc.box.*;
 import gtPlusPlus.core.item.tool.staballoy.*;
 import gtPlusPlus.core.item.wearable.WearableLoader;
-import gtPlusPlus.core.lib.*;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.material.*;
 import gtPlusPlus.core.material.nuclear.*;
@@ -700,20 +704,20 @@ public final class ModItems {
                         "Obtained from Mining Stone/SandStone, Chopping Logs or Shovelling Dirt." });
 
         // Generates four elemental shards when TC is not installed.
-        if (!LoadedMods.Thaumcraft) {
+        if (!Thaumcraft.isModLoaded()) {
             shardAer = new BaseItemTCShard("Aer", Utils.rgbtoHexValue(225, 225, 5));
             shardIgnis = new BaseItemTCShard("Ignis", Utils.rgbtoHexValue(255, 5, 5));
             shardTerra = new BaseItemTCShard("Terra", Utils.rgbtoHexValue(5, 255, 5));
             shardAqua = new BaseItemTCShard("Aqua", Utils.rgbtoHexValue(5, 5, 255));
         } else {
-            shardAer = ItemUtils.getItemStackWithMeta(LoadedMods.Thaumcraft, "Thaumcraft:ItemShard", "Air Shard", 0, 1)
+            shardAer = ItemUtils.getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Air Shard", 0, 1)
                     .getItem();
             shardIgnis = ItemUtils
-                    .getItemStackWithMeta(LoadedMods.Thaumcraft, "Thaumcraft:ItemShard", "Fire Shard", 1, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Fire Shard", 1, 1).getItem();
             shardAqua = ItemUtils
-                    .getItemStackWithMeta(LoadedMods.Thaumcraft, "Thaumcraft:ItemShard", "Warer Shard", 2, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Warer Shard", 2, 1).getItem();
             shardTerra = ItemUtils
-                    .getItemStackWithMeta(LoadedMods.Thaumcraft, "Thaumcraft:ItemShard", "Earth Shard", 3, 1).getItem();
+                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Earth Shard", 3, 1).getItem();
         }
         // Generates a set of four special dusts to be used in my recipes.
         dustAer = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().AER, true)[0];
@@ -876,7 +880,7 @@ public final class ModItems {
             ItemStack temp1 = ItemUtils.getCorrectStacktype("IC2:itemFertilizer", 1);
             ItemStack temp2 = null;
 
-            if (LoadedMods.Forestry) {
+            if (Forestry.isModLoaded()) {
                 temp2 = ItemUtils.getCorrectStacktype("Forestry:fertilizerCompound", 1);
             }
             if (temp1 != null) {
@@ -1108,13 +1112,13 @@ public final class ModItems {
                 new String[] { "You Found this on the ground.", "Definitely not sure if it's worth eating." });
 
         // Baubles
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
             tI = new HealthBoostBauble();
             itemModularBauble = new ModularBauble();
         }
 
         // EnderIO Resources
-        if ((LoadedMods.EnderIO || LOAD_ALL_CONTENT)) {
+        if ((EnderIO.isModLoaded() || LOAD_ALL_CONTENT)) {
             Logger.INFO("EnderIO Found - Loading Resources.");
             // Enderio Dusts
             itemDustSoularium = ItemUtils.generateSpecialUseDusts(

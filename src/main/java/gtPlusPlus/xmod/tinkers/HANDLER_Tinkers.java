@@ -14,20 +14,14 @@ import gtPlusPlus.xmod.tinkers.material.BaseTinkersMaterial;
 import gtPlusPlus.xmod.tinkers.util.TinkersDryingRecipe;
 import gtPlusPlus.xmod.tinkers.util.TinkersUtils;
 
+import static gregtech.api.enums.Mods.TinkerConstruct;
+
 public class HANDLER_Tinkers {
 
     public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<BaseTinkersMaterial>();
 
-    public static final void preInit() {
-        if (LoadedMods.TiCon) {}
-    }
-
-    public static final void init() {
-        if (LoadedMods.TiCon) {}
-    }
-
     public static final void postInit() {
-        if (LoadedMods.TiCon) {
+        if (TinkerConstruct.isModLoaded()) {
 
             Fluid pyrotheumFluid = FluidRegistry.getFluid("pyrotheum");
             if (pyrotheumFluid != null) {

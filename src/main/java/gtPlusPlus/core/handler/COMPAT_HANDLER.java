@@ -17,13 +17,11 @@ import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
-import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Thaumcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Witchery;
 import gtPlusPlus.core.handler.Recipes.LateRegistrationHandler;
 import gtPlusPlus.core.handler.Recipes.RegistrationHandler;
 import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.lib.LoadedMods;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.recipe.RECIPES_GREGTECH;
@@ -40,6 +38,12 @@ import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GTNH;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_GlueLine;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_Nuclear;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.*;
+
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.ExtraUtilities;
+import static gregtech.api.enums.Mods.OpenBlocks;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gregtech.api.enums.Mods.Witchery;
 
 public class COMPAT_HANDLER {
 
@@ -98,7 +102,6 @@ public class COMPAT_HANDLER {
         GregtechAdvancedBoilers.run();
         GregtechPollutionDevices.run();
         GregtechTieredFluidTanks.run();
-        // GregtechIndustrialMultiTank.run();
         GregtechGeothermalThermalGenerator.run();
         Gregtech4Content.run();
         GregtechIndustrialFuelRefinery.run();
@@ -115,7 +118,6 @@ public class COMPAT_HANDLER {
         GregtechWirelessChargers.run();
         GregtechIndustrialGeneratorArray.run();
         GregtechIndustrialCuttingFactory.run();
-        // GregtechMiniRaFusion.run();
         GregtechComponentAssembler.run();
         GregtechTeslaTower.run();
         GregtechSuperChests.run();
@@ -123,7 +125,6 @@ public class COMPAT_HANDLER {
         GregtechTieredChunkloaders.run();
         GregtechIndustrialExtruder.run();
         GregtechIndustrialMultiMachine.run();
-        // GregtechBedrockPlatforms.run();
         GregtechBufferDynamos.run();
         GregtechAmazonWarehouse.run();
         GregtechFactoryGradeReplacementMultis.run();
@@ -131,7 +132,6 @@ public class COMPAT_HANDLER {
         GregtechThreadedBuffers.run();
         GregtechIndustrialMixer.run();
         GregtechCustomHatches.run();
-        // GregtechNaqReactor.run();
         GregtechIndustrialArcFurnace.run();
         GregtechSolarTower.run();
         GregtechLargeTurbinesAndHeatExchanger.run();
@@ -152,23 +152,21 @@ public class COMPAT_HANDLER {
     // InterMod
     public static void intermodOreDictionarySupport() {
 
-        if (LoadedMods.EnderIO) {
+        if (EnderIO.isModLoaded()) {
             COMPAT_EnderIO.OreDict();
         }
-        if (LoadedMods.OpenBlocks) {
+        if (OpenBlocks.isModLoaded()) {
             COMPAT_OpenBlocks.OreDict();
         }
-        if (LoadedMods.Railcraft) {
-            COMPAT_Railcraft.OreDict();
-        }
-        if (LoadedMods.Thaumcraft) {
+        if (Thaumcraft.isModLoaded()) {
             COMPAT_Thaumcraft.OreDict();
         }
-        if (LoadedMods.Extra_Utils) {
+        if (ExtraUtilities.isModLoaded()) {
             COMPAT_ExtraUtils.OreDict();
         }
         COMPAT_IC2.OreDict();
-        if (LoadedMods.Witchery) {
+
+        if (Witchery.isModLoaded()) {
             COMPAT_Witchery.OreDict();
         }
     }

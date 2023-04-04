@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_ModHandler.getModItem;
 
 import net.minecraft.item.ItemStack;
@@ -169,7 +170,7 @@ public class RecipeLoader_ChemicalSkips {
         // Stem Cells
         CORE.RA.addQuantumTransformerRecipe(
                 new ItemStack[] { Materials.Calcium.getDust(32), Materials.MeatRaw.getDust(32),
-                        getModItem("dreamcraft", "GTNHBioItems", 32, 2),
+                        getModItem(NewHorizonsCoreMod.ID, "GTNHBioItems", 32, 2),
                         ItemUtils.getSimpleStack(GenericChem.mRawIntelligenceCatalyst, 0) },
                 new FluidStack[] {},
                 new FluidStack[] { Materials.GrowthMediumRaw.getFluid(1000 * 1024),
