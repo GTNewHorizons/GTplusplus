@@ -21,72 +21,40 @@ public class GregtechFluidHandler {
     }
 
     private static void start() {
-
-        /*
-         * Meta_GT_Proxy.addFluid("lubricant", "Lubricant", Materials.Lubricant, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("creosote", "Creosote Oil", Materials.Creosote, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Creosote, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("seedoil", "Seed Oil", Materials.SeedOil, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.SeedOil, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("fishoil", "Fish Oil", Materials.FishOil, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.FishOil, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("oil", "Oil", Materials.Oil, 1, 295, GT_OreDictUnificator.get(OrePrefixes.cell,
-         * Materials.Oil, 1L), ItemUtils.getEmptyCell(), 1000); Meta_GT_Proxy.addFluid("fuel", "Diesel", Materials.Fuel,
-         * 1, 295, GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Fuel, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("for.honey", "Honey", Materials.Honey, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Honey, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("biomass", "Biomass", Materials.Biomass, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Biomass, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("bioethanol", "Bio Ethanol", Materials.Ethanol, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Ethanol, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("sulfuricacid", "Sulfuric Acid", Materials.SulfuricAcid, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.SulfuricAcid, 1L), ItemUtils.getEmptyCell(), 1000);
-         * Meta_GT_Proxy.addFluid("milk", "Milk", Materials.Milk, 1, 290, GT_OreDictUnificator.get(OrePrefixes.cell,
-         * Materials.Milk, 1L), ItemUtils.getEmptyCell(), 1000); Meta_GT_Proxy.addFluid("mcguffium", "Mc Guffium 239",
-         * Materials.McGuffium239, 1, 295, GT_OreDictUnificator.get(OrePrefixes.cell, Materials.McGuffium239, 1L),
-         * ItemUtils.getEmptyCell(), 1000); Meta_GT_Proxy.addFluid("glue", "Glue", Materials.Glue, 1, 295,
-         * GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Glue, 1L), ItemUtils.getEmptyCell(), 1000);
-         */
-
-        if (!LoadedMods.ThermalFoundation) {
-
-            Logger.INFO("Adding in our own GT versions of Thermal Foundation Fluids if they do not already exist.");
-            if (!FluidRegistry.isFluidRegistered("cryotheum")) {
-                FluidUtils.addGtFluid(
-                        "cryotheum",
-                        "Gelid Cryotheum",
-                        GT_Materials.Cryotheum,
-                        4,
-                        -1200,
-                        GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Cryotheum, 1L),
-                        ItemUtils.getEmptyCell(),
-                        1000);
-            }
-            if (!FluidRegistry.isFluidRegistered("pyrotheum")) {
-                FluidUtils.addGtFluid(
-                        "pyrotheum",
-                        "Blazing Pyrotheum",
-                        GT_Materials.Pyrotheum,
-                        4,
-                        4000,
-                        GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Pyrotheum, 1L),
-                        ItemUtils.getEmptyCell(),
-                        1000);
-            }
-            if (!FluidRegistry.isFluidRegistered("ender")) {
-                FluidUtils.addGtFluid(
-                        "ender",
-                        "Resonant Ender",
-                        GT_Materials.Ender,
-                        4,
-                        4000,
-                        GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Ender, 1L),
-                        ItemUtils.getEmptyCell(),
-                        1000);
-            }
+        Logger.INFO("Adding in our own GT versions of Thermal Foundation Fluids if they do not already exist.");
+        if (!FluidRegistry.isFluidRegistered("cryotheum")) {
+            FluidUtils.addGtFluid(
+                    "cryotheum",
+                    "Gelid Cryotheum",
+                    GT_Materials.Cryotheum,
+                    4,
+                    -1200,
+                    GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Cryotheum, 1L),
+                    ItemUtils.getEmptyCell(),
+                    1000);
         }
-
+        if (!FluidRegistry.isFluidRegistered("pyrotheum")) {
+            FluidUtils.addGtFluid(
+                    "pyrotheum",
+                    "Blazing Pyrotheum",
+                    GT_Materials.Pyrotheum,
+                    4,
+                    4000,
+                    GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Pyrotheum, 1L),
+                    ItemUtils.getEmptyCell(),
+                    1000);
+        }
+        if (!FluidRegistry.isFluidRegistered("ender")) {
+            FluidUtils.addGtFluid(
+                    "ender",
+                    "Resonant Ender",
+                    GT_Materials.Ender,
+                    4,
+                    4000,
+                    GT_OreDictUnificator.get(OrePrefixes.cell, GT_Materials.Ender, 1L),
+                    ItemUtils.getEmptyCell(),
+                    1000);
+        }
         Logger.INFO("Adding in GT Fluids for various nuclear related content.");
 
         FluidUtils.addGtFluid(

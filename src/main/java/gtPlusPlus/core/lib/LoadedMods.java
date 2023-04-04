@@ -51,7 +51,6 @@ public class LoadedMods {
 
     // mods to yeet
     public static boolean CompactWindmills = false;
-    public static boolean ThermalFoundation = false;
 
     private static int totalMods;
 
@@ -194,16 +193,6 @@ public class LoadedMods {
             ExtraBees = true;
             Logger.INFO("Components enabled for: ExtraBees");
             totalMods++;
-        }
-        if (isModLoaded("ThermalFoundation") == false) {
-            ThermalFoundation = false;
-            Logger.INFO("Components enabled for: ThermalFoundation - This feature will disable itself if you add TF.");
-            totalMods++;
-        } else if (isModLoaded("ThermalFoundation")) {
-            ThermalFoundation = true;
-            Logger.INFO(
-                    "Components disabled for: ThermalFoundation - This feature will enable itself if you remove TF.");
-            // totalMods++;
         }
         if (isModLoaded("Baubles")) {
             Baubles = true;
