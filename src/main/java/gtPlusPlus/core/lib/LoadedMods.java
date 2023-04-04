@@ -37,7 +37,6 @@ public class LoadedMods {
     public static boolean OpenBlocks = false;
     public static boolean Computronics = false; // computronics
     public static boolean DreamCraft = false; // GT: New Horizons
-    public static boolean BeyondRealityCore = false; // Beyond Reality - Probably Classic
     public static boolean BiomesOPlenty = false;
     public static boolean PamsHarvestcraft = false;
     public static boolean GalacticraftCore = false;
@@ -77,12 +76,6 @@ public class LoadedMods {
         if (isModLoaded("dreamcraft")) {
             DreamCraft = true;
             Logger.INFO("Components enabled for: DreamCraft");
-            totalMods++;
-        }
-        if (isModLoaded("beyondrealitycore")) {
-            BeyondRealityCore = true;
-            BRC = true;
-            Logger.INFO("Components enabled for: Beyond Reality");
             totalMods++;
         }
         if (isModLoaded("PlayerAPI")) {
