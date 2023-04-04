@@ -89,10 +89,7 @@ public final class ModItems {
     public static Item itemDustEnergeticAlloy;
     public static Item itemDustVibrantAlloy;
     public static Item itemDustConductiveIron;
-    // Big Reactors
-    public static Item itemPlateBlutonium;
-    public static Item itemPlateCyanite;
-    public static Item itemPlateLudicrite;
+
     // Pneumaticraft
     public static Item itemPlateCompressedIron;
     // SimplyJetpacks
@@ -1229,18 +1226,6 @@ public final class ModItems {
              */
         }
 
-        // Big Reactors
-        if (LoadedMods.Big_Reactors || LOAD_ALL_CONTENT) {
-            Logger.INFO("BigReactors Found - Loading Resources.");
-            // Item Init
-            itemPlateBlutonium = ItemUtils
-                    .generateSpecialUsePlate("Blutonium", "Blutonium", new short[] { 0, 0, 255 }, 0);
-            itemPlateCyanite = ItemUtils.generateSpecialUsePlate("Cyanite", "Cyanite", new short[] { 0, 191, 255 }, 0);
-            itemPlateLudicrite = ItemUtils
-                    .generateSpecialUsePlate("Ludicrite", "Ludicrite", new short[] { 167, 5, 179 }, 0);
-        } else {
-            Logger.WARNING("BigReactors not Found - Skipping Resources.");
-        }
 
         // Pneumaticraft
         if (LoadedMods.PneumaticCraft || LOAD_ALL_CONTENT) {

@@ -16,7 +16,6 @@ public class LoadedMods {
     public static boolean PlayerAPI = false;
     public static boolean BuildCraft = false;
     public static boolean EnderIO = false;
-    public static boolean Big_Reactors = false;
     public static boolean IndustrialCraft2Classic = false;
     public static boolean Simply_Jetpacks = false;
     public static boolean RFTools = false;
@@ -136,11 +135,7 @@ public class LoadedMods {
             Logger.INFO("Components enabled for: EnderIO");
             totalMods++;
         }
-        if (isModLoaded("BigReactors")) {
-            Big_Reactors = true;
-            Logger.INFO("Components enabled for: Big Reactors");
-            totalMods++;
-        }
+
         if (isModLoaded("IC2-Classic-Spmod")) {
             IndustrialCraft2Classic = true;
             Logger.INFO("Components enabled for: IndustrialCraft2-Classic");

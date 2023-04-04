@@ -13,7 +13,6 @@ import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
-import gtPlusPlus.core.common.compat.COMPAT_BigReactors;
 import gtPlusPlus.core.common.compat.COMPAT_CompactWindmills;
 import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
@@ -159,9 +158,6 @@ public class COMPAT_HANDLER {
     // InterMod
     public static void intermodOreDictionarySupport() {
 
-        if (LoadedMods.Big_Reactors) {
-            COMPAT_BigReactors.OreDict();
-        }
         if (LoadedMods.EnderIO) {
             COMPAT_EnderIO.OreDict();
         }

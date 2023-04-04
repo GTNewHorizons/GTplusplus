@@ -127,15 +127,6 @@ public class GTplusplus_Everglades implements ActionListener {
         MaterialGenerator.generateOreMaterial(ORES.RADIOBARITE);
         MaterialGenerator.generateOreMaterial(ORES.DEEP_EARTH_REACTOR_FUEL_DEPOSIT);
 
-        // Custom Ores
-        if (LoadedMods.Big_Reactors) {
-            MaterialGenerator.generateOreMaterial(
-                    ELEMENT.getInstance().YELLORIUM,
-                    false,
-                    false,
-                    true,
-                    new short[] { 255, 242, 10 });
-        }
     }
 
     protected synchronized void setVars(FMLPreInitializationEvent event) {

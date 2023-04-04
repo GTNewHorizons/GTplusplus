@@ -190,12 +190,6 @@ public class GregtechConduits {
 
     private static void run1() {
 
-        if (LoadedMods.Big_Reactors) {
-            wireFactory("Blutonium", 8196, BaseWireID, 8, 32, 2, new short[] { 28, 28, 218, 0 });
-            wireFactory("Cyanite", 512, BaseWireID + 15, 2, 16, 4, new short[] { 27, 130, 178, 0 });
-            wireFactory("Yellorium", 2048, BaseWireID + 30, 4, 16, 2, new short[] { 150, 195, 54, 0 });
-        }
-
         if (LoadedMods.EnderIO) {
             wireFactory("RedstoneAlloy", 32, BaseWireID + 45, 0, 2, 1, new short[] { 178, 34, 34, 0 });
         }
