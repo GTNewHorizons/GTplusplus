@@ -216,7 +216,6 @@ public class RECIPES_Machines {
 
     // Misc
     public static ItemStack INPUT_RCCokeOvenBlock;
-    public static ItemStack INPUT_IECokeOvenBlock;
 
     public static final void loadRecipes() {
         run();
@@ -992,15 +991,6 @@ public class RECIPES_Machines {
                 INPUT_RCCokeOvenBlock = ItemUtils
                         .getItemStackWithMeta(LoadedMods.Railcraft, "Railcraft:machine.alpha", "Coke_Oven_RC", 7, 1);
             }
-            if (LoadedMods.ImmersiveEngineering) {
-                // Misc
-                INPUT_IECokeOvenBlock = ItemUtils.getItemStackWithMeta(
-                        LoadedMods.ImmersiveEngineering,
-                        "ImmersiveEngineering:stoneDecoration",
-                        "Coke_Oven_IE",
-                        1,
-                        1);
-            }
         }
         runModRecipes();
     }
@@ -1340,20 +1330,6 @@ public class RECIPES_Machines {
                         CI.component_Plate[7],
                         CI.circuitTier4,
                         CI.component_Plate[7],
-                        RECIPE_IndustrialCokeOvenController);
-            }
-            if (LoadedMods.ImmersiveEngineering) {
-                // Industrial Coke Oven
-                RecipeUtils.addShapedGregtechRecipe(
-                        CI.component_Plate[8],
-                        CI.circuitTier4,
-                        CI.component_Plate[8],
-                        CI.machineCasing_EV,
-                        INPUT_IECokeOvenBlock,
-                        CI.machineCasing_EV,
-                        CI.component_Plate[8],
-                        CI.circuitTier4,
-                        CI.component_Plate[8],
                         RECIPE_IndustrialCokeOvenController);
             }
             // Coke Oven Frame Casing

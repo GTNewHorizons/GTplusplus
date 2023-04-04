@@ -16,7 +16,6 @@ public class LoadedMods {
     public static boolean PlayerAPI = false;
     public static boolean BuildCraft = false;
     public static boolean EnderIO = false;
-    public static boolean IndustrialCraft2Classic = false;
     public static boolean Simply_Jetpacks = false;
     public static boolean RFTools = false;
     public static boolean Thaumcraft = false;
@@ -26,7 +25,6 @@ public class LoadedMods {
     public static boolean ForbiddenMagic = false;
     public static boolean CompactWindmills = false;
     public static boolean Railcraft = false;
-    public static boolean ImmersiveEngineering = false;
     public static boolean Growthcraft = false;
     public static boolean CoFHCore = false;
     public static boolean Forestry = false;
@@ -240,11 +238,6 @@ public class LoadedMods {
         if (isModLoaded("psychedelicraft")) {
             Psychedelicraft = true;
             Logger.INFO("Components enabled for: Psychedelicraft");
-            totalMods++;
-        }
-        if (isModLoaded("ImmersiveEngineering")) {
-            ImmersiveEngineering = true;
-            Logger.INFO("Components enabled for: ImmersiveEngineering");
             totalMods++;
         }
         if (isModLoaded("ExtraBees")) {
