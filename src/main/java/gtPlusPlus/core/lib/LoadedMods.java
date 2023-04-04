@@ -51,7 +51,6 @@ public class LoadedMods {
 
     // mods to yeet
     public static boolean CompactWindmills = false;
-    public static boolean Growthcraft = false;
     public static boolean ThermalFoundation = false;
     public static boolean IHL = false;
 
@@ -176,18 +175,6 @@ public class LoadedMods {
             SpiceOfLife = true;
             Logger.INFO("Components enabled for: Spice Of Life");
             totalMods++;
-        }
-        if (isModLoaded("Growthcraft")) {
-            Logger.INFO("Growthcraft Version: " + getModVersion("Growthcraft"));
-            if (getModVersion("Growthcraft").equals("1.7.10-2.3.1")) {
-                // Load Growthcraft Compat
-                Growthcraft = true;
-                Logger.INFO("Components enabled for: Growthcraft");
-                totalMods++;
-            } else {
-                Growthcraft = false;
-                Logger.INFO("Growthcraft found, but the version was too new. I will update GC support eventually.");
-            }
         }
         if (isModLoaded("CoFHCore")) {
             CoFHCore = true;
