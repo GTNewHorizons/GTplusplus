@@ -56,7 +56,6 @@ public class LoadedMods {
     public static boolean IHL = false;
     public static boolean Mekanism = false;
     public static boolean RedTech = false; // RedMage's Mod
-    public static boolean Reliquary = false;
 
     private static int totalMods;
 
@@ -88,11 +87,6 @@ public class LoadedMods {
         if (isModLoaded("berriespp")) {
             CropsPlusPlus = true;
             Logger.INFO("Components enabled for: Crops++");
-            totalMods++;
-        }
-        if (isModLoaded("xreliquary")) {
-            Reliquary = true;
-            Logger.INFO("Components enabled for: Reliquary");
             totalMods++;
         }
         if (isModLoaded("TConstruct")) {
