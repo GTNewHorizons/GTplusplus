@@ -23,7 +23,6 @@ public class LoadedMods {
     public static boolean ThaumicBases = false;
     public static boolean Baubles = false;
     public static boolean Extra_Utils = false;
-    public static boolean PneumaticCraft = false;
     public static boolean MorePlanets = false;
     public static boolean ForbiddenMagic = false;
     public static boolean CompactWindmills = false;
@@ -179,11 +178,6 @@ public class LoadedMods {
         if (isModLoaded("harvestcraft")) {
             PamsHarvestcraft = true;
             Logger.INFO("Components enabled for: PamsHarvestcraft");
-            totalMods++;
-        }
-        if (isModLoaded("PneumaticCraft")) {
-            PneumaticCraft = true;
-            Logger.INFO("Components enabled for: PneumaticCraft");
             totalMods++;
         }
         if (isModLoaded("MorePlanet")) {

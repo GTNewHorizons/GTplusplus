@@ -20,7 +20,6 @@ import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_MorePlanets;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
-import gtPlusPlus.core.common.compat.COMPAT_PneumaticCraft;
 import gtPlusPlus.core.common.compat.COMPAT_RFTools;
 import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
 import gtPlusPlus.core.common.compat.COMPAT_SimplyJetpacks;
@@ -181,9 +180,6 @@ public class COMPAT_HANDLER {
         }
         if (LoadedMods.Extra_Utils) {
             COMPAT_ExtraUtils.OreDict();
-        }
-        if (LoadedMods.PneumaticCraft) {
-            COMPAT_PneumaticCraft.OreDict();
         }
         if (LoadedMods.CompactWindmills) {
             COMPAT_CompactWindmills.OreDict();

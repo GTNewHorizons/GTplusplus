@@ -30,12 +30,6 @@ public class MissingMappingsEvent {
 
             // Missing Items
             if (mapping.type == cpw.mods.fml.common.registry.GameRegistry.Type.ITEM && bool1) {
-
-                // Example
-                // if(mapping.name.equals("PneumaticCraft:etchingAcidBucket")) {
-                // mapping.remap(Fluids.getBucket(Fluids.etchingAcid));
-                // }
-
                 if (mapping.name.contains("miscutils:itemDustTiny")) {
                     ItemStack stack = null;
                     String missingItemString = StringUtils.remove(mapping.name, "miscutils:itemDustTiny");

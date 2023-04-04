@@ -90,8 +90,6 @@ public final class ModItems {
     public static Item itemDustVibrantAlloy;
     public static Item itemDustConductiveIron;
 
-    // Pneumaticraft
-    public static Item itemPlateCompressedIron;
     // SimplyJetpacks
     public static Item itemPlateEnrichedSoularium;
     // rfTools
@@ -1224,17 +1222,6 @@ public final class ModItems {
              * MaterialGenerator.generate(MaterialEIO.ENERGETIC_ALLOY);
              * MaterialGenerator.generate(MaterialEIO.VIBRANT_ALLOY);
              */
-        }
-
-
-        // Pneumaticraft
-        if (LoadedMods.PneumaticCraft || LOAD_ALL_CONTENT) {
-            Logger.INFO("PneumaticCraft Found - Loading Resources.");
-            // Item Init
-            itemPlateCompressedIron = ItemUtils
-                    .generateSpecialUsePlate("CompressedIron", "Compressed Iron", new short[] { 128, 128, 128 }, 0);
-        } else {
-            Logger.WARNING("PneumaticCraft not Found - Skipping Resources.");
         }
 
         // Simply Jetpacks
