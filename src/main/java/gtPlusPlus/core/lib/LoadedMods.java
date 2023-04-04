@@ -136,11 +136,6 @@ public class LoadedMods {
             totalMods++;
         }
 
-        if (isModLoaded("IC2-Classic-Spmod")) {
-            IndustrialCraft2Classic = true;
-            Logger.INFO("Components enabled for: IndustrialCraft2-Classic");
-            totalMods++;
-        }
         if (isModLoaded("simplyjetpacks")) {
             Simply_Jetpacks = true;
             Logger.INFO("Components enabled for: Simply Jetpacks");
