@@ -16,7 +16,6 @@ import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.common.compat.COMPAT_CompactWindmills;
 import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
-import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
 import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
@@ -173,9 +172,6 @@ public class COMPAT_HANDLER {
             COMPAT_CompactWindmills.OreDict();
         }
         COMPAT_IC2.OreDict();
-        if (LoadedMods.PamsHarvestcraft) {
-            COMPAT_HarvestCraft.OreDict();
-        }
         if (LoadedMods.Witchery) {
             COMPAT_Witchery.OreDict();
         }
