@@ -30,7 +30,6 @@ public class LoadedMods {
     public static boolean Forestry = false;
     public static boolean MagicBees = false;
     public static boolean ExtraBees = false;
-    public static boolean Psychedelicraft = false;
     public static boolean ThermalFoundation = false;
     public static boolean IHL = false;
     public static boolean AdvancedSolarPanel = false;
@@ -233,11 +232,6 @@ public class LoadedMods {
         if (isModLoaded("MagicBees")) {
             MagicBees = true;
             Logger.INFO("Components enabled for: MagicBees");
-            totalMods++;
-        }
-        if (isModLoaded("psychedelicraft")) {
-            Psychedelicraft = true;
-            Logger.INFO("Components enabled for: Psychedelicraft");
             totalMods++;
         }
         if (isModLoaded("ExtraBees")) {

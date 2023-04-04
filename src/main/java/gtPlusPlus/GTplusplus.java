@@ -71,7 +71,7 @@ import gtPlusPlus.xmod.thaumcraft.commands.CommandDumpAspects;
         modid = CORE.MODID,
         name = CORE.name,
         version = CORE.VERSION,
-        dependencies = "required-after:Forge; after:TConstruct; after:PlayerAPI; after:dreamcraft; after:IC2; after:ihl; after:psychedelicraft; required-after:gregtech; after:Forestry; after:MagicBees; after:CoFHCore; after:Growthcraft; after:Railcraft; after:CompactWindmills; after:ForbiddenMagic; after:ExtraUtilities; after:Thaumcraft; after:rftools; after:simplyjetpacks; after:EnderIO; after:tectech; after:GTRedtech; after:beyondrealitycore; after:OpenBlocks; after:IC2NuclearControl; after:TGregworks; after:StevesCarts; after:xreliquary; required-after:gtnhlib@[0.0.10,)")
+        dependencies = "required-after:Forge; after:TConstruct; after:PlayerAPI; after:dreamcraft; after:IC2; after:ihl; required-after:gregtech; after:Forestry; after:MagicBees; after:CoFHCore; after:Growthcraft; after:Railcraft; after:CompactWindmills; after:ForbiddenMagic; after:ExtraUtilities; after:Thaumcraft; after:rftools; after:simplyjetpacks; after:EnderIO; after:tectech; after:GTRedtech; after:beyondrealitycore; after:OpenBlocks; after:IC2NuclearControl; after:TGregworks; after:StevesCarts; after:xreliquary; required-after:gtnhlib@[0.0.10,)")
 public class GTplusplus implements ActionListener {
 
     public static enum INIT_PHASE {
