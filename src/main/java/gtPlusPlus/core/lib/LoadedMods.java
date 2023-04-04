@@ -13,25 +13,21 @@ import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 public class LoadedMods {
 
     // Initialize Variables
+
+    // GTNH mods
     public static boolean PlayerAPI = false;
     public static boolean BuildCraft = false;
     public static boolean EnderIO = false;
-    public static boolean Simply_Jetpacks = false;
-    public static boolean RFTools = false;
     public static boolean Thaumcraft = false;
     public static boolean ThaumicBases = false;
     public static boolean Baubles = false;
     public static boolean Extra_Utils = false;
     public static boolean ForbiddenMagic = false;
-    public static boolean CompactWindmills = false;
     public static boolean Railcraft = false;
-    public static boolean Growthcraft = false;
     public static boolean CoFHCore = false;
     public static boolean Forestry = false;
     public static boolean MagicBees = false;
     public static boolean ExtraBees = false;
-    public static boolean ThermalFoundation = false;
-    public static boolean IHL = false;
     public static boolean AdvancedSolarPanel = false;
     public static boolean OpenComputers = false; // OpenComputers
     public static boolean OpenBlocks = false;
@@ -40,8 +36,6 @@ public class LoadedMods {
     public static boolean BiomesOPlenty = false;
     public static boolean PamsHarvestcraft = false;
     public static boolean GalacticraftCore = false;
-    public static boolean Mekanism = false;
-    public static boolean RedTech = false; // RedMage's Mod
     public static boolean TecTech = false; // Technus' Mod
     public static boolean KekzTech = false; // KekzDealers' Mod
     public static boolean TiCon = false;
@@ -49,12 +43,22 @@ public class LoadedMods {
     public static boolean Witchery = false;
     public static boolean Waila = false;
     public static boolean CropsPlusPlus = false; // Barts Crop Mod
-    public static boolean Reliquary = false;
     public static boolean SpiceOfLife = false;
     public static boolean RemoteIO = false;
     public static boolean BartWorks = false;
     public static boolean GoodGenerator = false;
     public static boolean ExtraTrees = false;
+
+    // mods to yeet
+    public static boolean Simply_Jetpacks = false;
+    public static boolean RFTools = false;
+    public static boolean CompactWindmills = false;
+    public static boolean Growthcraft = false;
+    public static boolean ThermalFoundation = false;
+    public static boolean IHL = false;
+    public static boolean Mekanism = false;
+    public static boolean RedTech = false; // RedMage's Mod
+    public static boolean Reliquary = false;
 
     private static int totalMods;
 
