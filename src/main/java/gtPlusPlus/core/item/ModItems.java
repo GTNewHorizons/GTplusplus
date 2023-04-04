@@ -1226,7 +1226,6 @@ public final class ModItems {
              */
         }
 
-
         // Pneumaticraft
         if (LoadedMods.PneumaticCraft || LOAD_ALL_CONTENT) {
             Logger.INFO("PneumaticCraft Found - Loading Resources.");
