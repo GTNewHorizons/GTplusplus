@@ -50,7 +50,6 @@ public class LoadedMods {
     public static boolean ExtraTrees = false;
 
     // mods to yeet
-    public static boolean RFTools = false;
     public static boolean CompactWindmills = false;
     public static boolean Growthcraft = false;
     public static boolean ThermalFoundation = false;
@@ -124,11 +123,6 @@ public class LoadedMods {
         if ((isModLoaded("EnderIO")) && !ConfigSwitches.disableEnderIOIntegration) {
             EnderIO = true;
             Logger.INFO("Components enabled for: EnderIO");
-            totalMods++;
-        }
-        if (isModLoaded("rftools")) {
-            RFTools = true;
-            Logger.INFO("Components enabled for: RFTools");
             totalMods++;
         }
         if (isModLoaded("StevesCarts")) {

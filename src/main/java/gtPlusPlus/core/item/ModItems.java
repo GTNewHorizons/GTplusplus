@@ -90,8 +90,6 @@ public final class ModItems {
     public static Item itemDustVibrantAlloy;
     public static Item itemDustConductiveIron;
 
-    // rfTools
-    public static Item itemPlateDimensionShard;
     // Staballoy
     public static Item itemStaballoyPickaxe;
     public static Item itemStaballoyAxe;
@@ -1220,16 +1218,6 @@ public final class ModItems {
              * MaterialGenerator.generate(MaterialEIO.ENERGETIC_ALLOY);
              * MaterialGenerator.generate(MaterialEIO.VIBRANT_ALLOY);
              */
-        }
-
-        // rfTools
-        if (LoadedMods.RFTools || LOAD_ALL_CONTENT) {
-            Logger.INFO("rfTools Found - Loading Resources.");
-            // Item Init
-            itemPlateDimensionShard = ItemUtils
-                    .generateSpecialUsePlate("DimensionShard", "Dimensional Shard", new short[] { 170, 230, 230 }, 0);
-        } else {
-            Logger.WARNING("rfTools not Found - Skipping Resources.");
         }
 
         // IC2 Exp

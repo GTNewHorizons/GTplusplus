@@ -19,7 +19,6 @@ import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
-import gtPlusPlus.core.common.compat.COMPAT_RFTools;
 import gtPlusPlus.core.common.compat.COMPAT_Railcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Thaumcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Witchery;
@@ -163,9 +162,6 @@ public class COMPAT_HANDLER {
         }
         if (LoadedMods.Railcraft) {
             COMPAT_Railcraft.OreDict();
-        }
-        if (LoadedMods.RFTools) {
-            COMPAT_RFTools.OreDict();
         }
         if (LoadedMods.Thaumcraft) {
             COMPAT_Thaumcraft.OreDict();
