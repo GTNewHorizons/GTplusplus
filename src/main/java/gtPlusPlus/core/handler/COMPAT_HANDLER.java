@@ -13,7 +13,6 @@ import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
-import gtPlusPlus.core.common.compat.COMPAT_CompactWindmills;
 import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
@@ -167,9 +166,6 @@ public class COMPAT_HANDLER {
         }
         if (LoadedMods.Extra_Utils) {
             COMPAT_ExtraUtils.OreDict();
-        }
-        if (LoadedMods.CompactWindmills) {
-            COMPAT_CompactWindmills.OreDict();
         }
         COMPAT_IC2.OreDict();
         if (LoadedMods.Witchery) {

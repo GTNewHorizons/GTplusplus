@@ -1,7 +1,4 @@
 package gtPlusPlus.core.lib;
-
-import static gtPlusPlus.core.lib.CORE.*;
-
 import java.util.HashMap;
 
 import cpw.mods.fml.common.Loader;
@@ -48,9 +45,6 @@ public class LoadedMods {
     public static boolean BartWorks = false;
     public static boolean GoodGenerator = false;
     public static boolean ExtraTrees = false;
-
-    // mods to yeet
-    public static boolean CompactWindmills = false;
 
     private static int totalMods;
 
@@ -152,11 +146,6 @@ public class LoadedMods {
         if (isModLoaded("ForbiddenMagic")) {
             ForbiddenMagic = true;
             Logger.INFO("Components enabled for: ForbiddenMagic");
-            totalMods++;
-        }
-        if (isModLoaded("CompactWindmills")) {
-            CompactWindmills = true;
-            Logger.INFO("Components enabled for: CompactWindmills");
             totalMods++;
         }
         if (isModLoaded("Railcraft")) {
