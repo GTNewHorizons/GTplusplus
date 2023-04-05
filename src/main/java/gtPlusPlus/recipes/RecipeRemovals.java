@@ -1,5 +1,14 @@
 package gtPlusPlus.recipes;
 
+import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
+
+import java.util.Collection;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import advsolar.common.AdvancedSolarPanel;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Mods;
@@ -11,22 +20,16 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import org.apache.commons.lang3.ArrayUtils;
 
-import java.util.Collection;
-
-import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
-
-public class RecipeRemovals{
+public class RecipeRemovals {
 
     public static void postInit() {
         if (Mods.AdvancedSolarPanel.isModLoaded()) {
             RecipeUtils.removeRecipeByOutput(ItemUtils.getSimpleStack(AdvancedSolarPanel.blockMolecularTransformer));
         }
     }
-    public static void onLoadComplete(){
+
+    public static void onLoadComplete() {
         removeCrudeTurbineRotors();
         if (CORE.ConfigSwitches.enableHarderRecipesForHighTierCasings) {
             // Casings
@@ -42,10 +45,9 @@ public class RecipeRemovals{
             RecipeUtils.removeRecipeByOutput(CI.machineHull_UV);
         }
 
-
     }
 
-    //Doesn't actually remove recipes, just hide them
+    // Doesn't actually remove recipes, just hide them
     private static int removeCrudeTurbineRotors() {
         int aRemoved = 0;
         int CUT = CORE.turbineCutoffBase;
@@ -69,22 +71,22 @@ public class RecipeRemovals{
                             if (aMeta >= 170 && aMeta <= 176) {
                                 int aCutoff;
                                 String aType;
-                                switch(aMeta){
+                                switch (aMeta) {
                                     case 170:
                                         aCutoff = CUT;
                                         aType = "Small ";
                                         break;
                                     case 172:
-                                        aCutoff = 2*CUT;
+                                        aCutoff = 2 * CUT;
                                         aType = "";
                                         break;
                                     case 174:
-                                        aCutoff = 3*CUT;
+                                        aCutoff = 3 * CUT;
                                         aType = "Large ";
                                         break;
                                     default: // 176
-                                        aCutoff = 4*CUT;
-                                        aType =  "Huge ";
+                                        aCutoff = 4 * CUT;
+                                        aType = "Huge ";
                                         break;
                                 }
                                 Materials aMainMaterial = GT_MetaGenerated_Tool.getPrimaryMaterial(aI);

@@ -2,13 +2,10 @@ package gtPlusPlus.xmod.gregtech;
 
 import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 import static gtPlusPlus.core.recipe.common.CI.bits;
-import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -29,7 +26,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
-import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gtPlusPlus.api.helpers.GregtechPlusPlus_API.Multiblock_API;
 import gtPlusPlus.api.objects.Logger;
@@ -280,7 +276,6 @@ public class HANDLER_GT {
         ItemStack[] aCasings = new ItemStack[] { aCasing_LUV, aCasing_ZPM, aCasing_UV, aCasing_MAX };
         ItemStack[] aHulls = new ItemStack[] { aHull_LUV, aHull_ZPM, aHull_UV, aHull_MAX };
 
-
         // Modify Assembler Recipes
         Logger.INFO(
                 "Attempting to modify existing Assembly recipes for Casings & Hulls, this should provide best compatibility.");
@@ -443,6 +438,5 @@ public class HANDLER_GT {
                             OrePrefixes.plate.get(aPolytetrafluoroethylene) });
         }
     }
-
 
 }
