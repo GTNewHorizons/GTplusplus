@@ -23,7 +23,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCircuits;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustom_Cables;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustom_Pipes;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableHarderRecipesForHighTierCasings;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_ComponentAssemblers;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Dehydrators;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_FluidTanks;
@@ -223,12 +222,6 @@ public class ConfigHandler {
                 0,
                 Integer.MAX_VALUE,
                 "Rotors below this durability will be removed, prevents NEI clutter. Minimum Durability is N * x, where N is the new value set and x is the turbine size, where 1 is Tiny and 4 is Huge. Set to 0 to disable.");
-
-        enableHarderRecipesForHighTierCasings = config.getBoolean(
-                "enableHarderRecipesForHighTierCasings",
-                GregTech.ID,
-                false,
-                "Makes LuV+ Casings and Hulls more difficult to craft.");
 
         // Pipes & Cables
         enableCustom_Pipes = config.getBoolean("enableCustom_Pipes", GregTech.ID, true, "Adds Custom GT Fluid Pipes.");

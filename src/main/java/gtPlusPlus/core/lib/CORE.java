@@ -159,7 +159,6 @@ public class CORE {
 
         // GT Fixes
         public static boolean enableSulfuricAcidFix = false;
-        public static boolean enableHarderRecipesForHighTierCasings = true;
 
         // Single Block Machines
         public static boolean enableMachine_SolarGenerators = false;
