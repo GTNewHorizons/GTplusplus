@@ -98,11 +98,6 @@ public class HANDLER_GT {
         if (CORE.ConfigSwitches.enableSkookumChoochers) {
             sMetaGeneratedToolInstance = MetaGeneratedGregtechTools.getInstance();
         }
-
-        // Generates recipes for all gregtech smelting and alloy smelting combinations.
-        // RecipeGen_BlastSmelterGT.generateRecipes();
-        // new RecipeGen_BlastSmelterGT_Ex();
-
     }
 
     public static void postInit() {
