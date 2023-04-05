@@ -70,7 +70,7 @@ public class TinkersUtils {
      * @param aSwitch - The Registry to return
      */
     private static void setTiConDataInstance() {
-        if (TinkerConstruct.isModLoaded()) {
+        if (!TinkerConstruct.isModLoaded()) {
             return;
         }
 
