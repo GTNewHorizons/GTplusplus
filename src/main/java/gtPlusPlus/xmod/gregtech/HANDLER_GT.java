@@ -145,7 +145,6 @@ public class HANDLER_GT {
     }
 
     public static void onLoadComplete(FMLLoadCompleteEvent event) {
-        removeCrudeTurbineRotors();
         if (ConfigSwitches.enableHarderRecipesForHighTierCasings) {
             removeOldHighTierCasingRecipes();
         }
@@ -281,21 +280,6 @@ public class HANDLER_GT {
         ItemStack[] aCasings = new ItemStack[] { aCasing_LUV, aCasing_ZPM, aCasing_UV, aCasing_MAX };
         ItemStack[] aHulls = new ItemStack[] { aHull_LUV, aHull_ZPM, aHull_UV, aHull_MAX };
 
-        // Remove Hand Crafting Recipes
-
-        // Casings
-        Logger.INFO("Removing shaped crafting for Casings.");
-        RecipeUtils.removeRecipeByOutput(aCasing_LUV);
-        RecipeUtils.removeRecipeByOutput(aCasing_ZPM);
-        RecipeUtils.removeRecipeByOutput(aCasing_UV);
-        // RecipeUtils.removeRecipeByOutput(aCasing_MAX);
-
-        // Hulls
-        Logger.INFO("Removing shaped crafting for Hulls.");
-        RecipeUtils.removeRecipeByOutput(aHull_LUV);
-        RecipeUtils.removeRecipeByOutput(aHull_ZPM);
-        RecipeUtils.removeRecipeByOutput(aHull_UV);
-        // RecipeUtils.removeRecipeByOutput(aHull_MAX);
 
         // Modify Assembler Recipes
         Logger.INFO(
@@ -460,60 +444,5 @@ public class HANDLER_GT {
         }
     }
 
-    private static int removeCrudeTurbineRotors() {
-        int aRemoved = 0;
-        int CUT = CORE.turbineCutoffBase;
-        Item aU;
-        Collection<GT_Recipe> aAssRecipes = GT_Recipe.GT_Recipe_Map.sAssemblerRecipes.mRecipeList;
-        // 170, 172, 174, 176
-        if (aAssRecipes.size() > 0) {
-            recipe: for (GT_Recipe aG : aAssRecipes) {
-                if (aG.mOutputs != null && aG.mOutputs.length > 0) {
-                    outputs: for (ItemStack aI : aG.mOutputs) {
-                        if (aI == null) {
-                            continue;
-                        }
-                        aU = aI.getItem();
-                        if (aU == null) {
-                            continue;
-                        }
-                        if (aU instanceof GT_MetaGenerated_Tool_01) {
-                            int aMeta = aI.getItemDamage();
-                            if (aMeta >= 170 && aMeta <= 176) {
-                                // Found a Turbine
-                                int aCutoff = aMeta == 170 ? CUT
-                                        : (aMeta == 172 ? CUT * 2 : (aMeta == 174 ? CUT * 3 : CUT * 4));
-                                String aType = aMeta == 170 ? "Small "
-                                        : (aMeta == 172 ? "" : (aMeta == 174 ? "Large " : "Huge "));
-                                Materials aMainMaterial = GT_MetaGenerated_Tool.getPrimaryMaterial(aI);
-                                Materials aSecondaryMaterial = GT_MetaGenerated_Tool.getSecondaryMaterial(aI);
-                                long rotorDurabilityMax = GT_MetaGenerated_Tool.getToolMaxDamage(aI);
-                                if (rotorDurabilityMax < aCutoff) {
-                                    Logger.WARNING(
-                                            "[Turbine Cleanup] " + getMaterialName(aMainMaterial)
-                                                    + " "
-                                                    + aType
-                                                    + "Turbines have "
-                                                    + rotorDurabilityMax
-                                                    + ", which is below the cutoff durability of "
-                                                    + aCutoff
-                                                    + ", disabling.");
-                                    aG.mEnabled = false;
-                                    aG.mHidden = true;
-                                    aG.mCanBeBuffered = false;
-                                    aRemoved++;
-                                } else {
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
-        Logger.INFO("Removed " + aRemoved + " useless Turbines.");
-
-        return aRemoved;
-    }
 }

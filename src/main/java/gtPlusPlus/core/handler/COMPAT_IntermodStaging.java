@@ -4,7 +4,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import gtPlusPlus.xmod.advsolar.HANDLER_AdvSolar;
+import gtPlusPlus.recipes.RecipeRemovals;
 import gtPlusPlus.xmod.bartcrops.HANDLER_CropsPlusPlus;
 import gtPlusPlus.xmod.bop.HANDLER_BiomesOPlenty;
 import gtPlusPlus.xmod.forestry.HANDLER_FR;
@@ -49,10 +49,11 @@ public class COMPAT_IntermodStaging {
         HANDLER_CropsPlusPlus.postInit(postinit);
         HANDLER_Railcraft.postInit();
         HANDLER_OpenBlocks.postInit();
-        HANDLER_AdvSolar.postInit();
+        RecipeRemovals.postInit();
     }
 
     public static void onLoadComplete(FMLLoadCompleteEvent event) {
         HANDLER_GT.onLoadComplete(event);
+        RecipeRemovals.onLoadComplete();
     }
 }
