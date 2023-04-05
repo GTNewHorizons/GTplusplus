@@ -56,7 +56,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.LocaleUtils;
-import gtPlusPlus.core.util.minecraft.HazmatUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.nei.NEI_IMC_Sender;
 import gtPlusPlus.plugin.manager.Core_Manager;
@@ -217,7 +216,6 @@ public class GTplusplus implements ActionListener {
     public void postInit(final FMLPostInitializationEvent event) {
         INIT_PHASE.POST_INIT.setPhaseActive(true);
         proxy.postInit(event);
-        HazmatUtils.init();
         BookHandler.runLater();
         Meta_GT_Proxy.postInit();
         Core_Manager.postInit();

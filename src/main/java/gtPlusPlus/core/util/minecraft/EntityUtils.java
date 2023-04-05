@@ -120,48 +120,6 @@ public class EntityUtils {
         return false;
     }
 
-    public static boolean isWearingFullFrostHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Frost(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isWearingFullHeatHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Fire(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isWearingFullBioHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Biohazard(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isWearingFullRadioHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Radiation(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isWearingFullElectroHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Electricity(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isWearingFullGasHazmat(EntityLivingBase aEntity) {
-        for (byte i = 1; i < 5; i++) if (!HazmatUtils.providesProtetion_Gas(aEntity.getEquipmentInSlot(i))) {
-            return false;
-        }
-        return true;
-    }
-
     public static boolean applyRadioactivity(EntityLivingBase aEntity, int aLevel, int aAmountOfItems) {
         if (aLevel > 0 && aEntity != null
                 && aEntity.getCreatureAttribute() != EnumCreatureAttribute.UNDEAD
