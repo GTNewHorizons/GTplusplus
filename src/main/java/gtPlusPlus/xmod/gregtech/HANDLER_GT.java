@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.gregtech;
 
 import static gregtech.api.enums.Mods.AdvancedSolarPanel;
-import static gtPlusPlus.core.recipe.common.CI.bits;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +9,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
-import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Element;
-import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Config;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_ModHandler.RecipeBits;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
@@ -29,18 +24,12 @@ import gregtech.api.util.GT_Utility;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gtPlusPlus.api.helpers.GregtechPlusPlus_API.Multiblock_API;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.api.objects.minecraft.multi.NoEUBonusMultiBehaviour;
 import gtPlusPlus.api.objects.minecraft.multi.NoOutputBonusMultiBehaviour;
 import gtPlusPlus.api.objects.minecraft.multi.NoSpeedBonusMultiBehaviour;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
-import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
 import gtPlusPlus.everglades.gen.gt.WorldGen_GT;
