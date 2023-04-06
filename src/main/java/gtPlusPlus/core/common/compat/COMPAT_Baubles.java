@@ -2,6 +2,8 @@ package gtPlusPlus.core.common.compat;
 
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.PlayerAPI;
+import static gregtech.client.GT_TooltipHandler.Tier.*;
+import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
 
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
