@@ -4,13 +4,10 @@ import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.PamsHarvestCraft;
 
-import java.util.ArrayList;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
 
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -43,7 +40,6 @@ import gtPlusPlus.core.util.minecraft.EnchantingUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
-import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
 import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
@@ -55,7 +51,6 @@ public class RECIPES_GREGTECH {
     }
 
     private static void execute() {
-        cokeOvenRecipes();
         electrolyzerRecipes();
         assemblerRecipes();
         fluidcannerRecipes();
@@ -66,10 +61,8 @@ public class RECIPES_GREGTECH {
         chemicalReactorRecipes();
         dehydratorRecipes();
         blastFurnaceRecipes();
-
         largeChemReactorRecipes();
         fusionRecipes();
-
         fissionFuelRecipes();
         autoclaveRecipes();
         compressorRecipes();
@@ -79,7 +72,6 @@ public class RECIPES_GREGTECH {
         benderRecipes();
         cyclotronRecipes();
         blastSmelterRecipes();
-        // advancedMixerRecipes();
         sifterRecipes();
         electroMagneticSeperatorRecipes();
         extruderRecipes();
@@ -93,7 +85,6 @@ public class RECIPES_GREGTECH {
         chemplantRecipes();
         packagerRecipes();
         alloySmelterRecipes();
-        implosionRecipes();
 
         /**
          * Special Recipe handlers
@@ -921,69 +912,6 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getFluidStack("pyrotheum", 250),
                 200,
                 240);
-    }
-
-    private static void cokeOvenRecipes() {
-        Logger.INFO("Loading Recipes for Industrial Coking Oven.");
-        // Wood to Charcoal
-        // Try use all woods found
-        ArrayList<ItemStack> aLogData = OreDictionary.getOres("logWood");
-        for (ItemStack stack : aLogData) {
-            AddGregtechRecipe.addCokeAndPyrolyseRecipes(
-                    ItemUtils.getSimpleStack(stack, 20),
-                    20,
-                    GT_ModHandler.getSteam(1000),
-                    GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 24L),
-                    FluidUtils.getFluidStack("fluid.coalgas", 1440),
-                    60,
-                    30);
-        }
-
-        // Coal to Coke
-        AddGregtechRecipe.addCokeAndPyrolyseRecipes(
-                GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Coal, 16L),
-                22,
-                GT_ModHandler.getSteam(1000),
-                ItemUtils.getItemStackOfAmountFromOreDict("fuelCoke", 10),
-                FluidUtils.getFluidStack("fluid.coalgas", 2880),
-                30,
-                120);
-
-        // Coke & Coal
-        CORE.RA.addCokeOvenRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Coal, 12L),
-                ItemUtils.getItemStackOfAmountFromOreDict("fuelCoke", 6),
-                GT_ModHandler.getSteam(2000),
-                FluidUtils.getFluidStack("fluid.coalgas", 5040),
-                ItemUtils.getItemStackOfAmountFromOreDict("fuelCoke", 14),
-                60 * 20,
-                240);
-    }
-
-    private static void matterFabRecipes() {
-        Logger.INFO("Loading Recipes for Matter Fabricator.");
-
-        try {
-
-            CORE.RA.addMatterFabricatorRecipe(
-                    Materials.UUAmplifier.getFluid(1L), // Fluid
-                    // Input
-                    Materials.UUMatter.getFluid(1L), // Fluid Output
-                    800, // Time in ticks
-                    32); // EU
-        } catch (final NullPointerException e) {
-            Logger.INFO("FAILED TO LOAD RECIPES - NULL POINTER SOMEWHERE");
-        }
-        try {
-
-            CORE.RA.addMatterFabricatorRecipe(
-                    null, // Fluid Input
-                    Materials.UUMatter.getFluid(1L), // Fluid Output
-                    3200, // Time in ticks
-                    32); // EU
-        } catch (final NullPointerException e) {
-            Logger.INFO("FAILED TO LOAD RECIPES - NULL POINTER SOMEWHERE");
-        }
     }
 
     private static void dehydratorRecipes() {
