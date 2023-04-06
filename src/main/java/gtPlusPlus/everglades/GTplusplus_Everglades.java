@@ -18,8 +18,6 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.Everglades;
-import gtPlusPlus.core.lib.LoadedMods;
-import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.material.ORES;
 import gtPlusPlus.everglades.biome.Biome_Everglades;
@@ -36,7 +34,7 @@ import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
         modid = Everglades.MODID,
         name = Everglades.NAME,
         version = Everglades.VERSION,
-        dependencies = "required-after:Forge; after:dreamcraft; after:IC2; after:ihl; required-after:gregtech; required-after:miscutils;")
+        dependencies = "required-after:Forge; after:dreamcraft; after:IC2; required-after:gregtech; required-after:miscutils;")
 public class GTplusplus_Everglades implements ActionListener {
 
     // Mod Instance
@@ -127,15 +125,6 @@ public class GTplusplus_Everglades implements ActionListener {
         MaterialGenerator.generateOreMaterial(ORES.RADIOBARITE);
         MaterialGenerator.generateOreMaterial(ORES.DEEP_EARTH_REACTOR_FUEL_DEPOSIT);
 
-        // Custom Ores
-        if (LoadedMods.Big_Reactors) {
-            MaterialGenerator.generateOreMaterial(
-                    ELEMENT.getInstance().YELLORIUM,
-                    false,
-                    false,
-                    true,
-                    new short[] { 255, 242, 10 });
-        }
     }
 
     protected synchronized void setVars(FMLPreInitializationEvent event) {

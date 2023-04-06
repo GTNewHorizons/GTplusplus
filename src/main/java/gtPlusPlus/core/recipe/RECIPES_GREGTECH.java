@@ -1,5 +1,9 @@
 package gtPlusPlus.core.recipe;
 
+import static gregtech.api.enums.Mods.Backpack;
+import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+
 import java.util.ArrayList;
 
 import net.minecraft.init.Blocks;
@@ -8,9 +12,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import cpw.mods.fml.common.Loader;
-import gregtech.api.enums.*;
-import gregtech.api.util.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.TierEU;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.HotFuel;
+import gregtech.api.util.ThermalFuel;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.ModItems;
@@ -21,8 +32,11 @@ import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.LoadedMods;
-import gtPlusPlus.core.material.*;
+import gtPlusPlus.core.material.ALLOY;
+import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
+import gtPlusPlus.core.material.ORES;
+import gtPlusPlus.core.material.Particle;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.EnchantingUtils;
@@ -430,7 +444,7 @@ public class RECIPES_GREGTECH {
                     (int) MaterialUtils.getVoltageForTier(j));
         }
 
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
             // Nano Healer
             CORE.RA.addAssemblylineRecipe(
                     ItemUtils.simpleMetaStack(Items.golden_apple, 1, 1),
@@ -1019,7 +1033,7 @@ public class RECIPES_GREGTECH {
         /*
          * Try Add custom Recipe for drying leather
          */
-        if (LoadedMods.PamsHarvestcraft && Loader.isModLoaded("Backpack")) {
+        if (PamsHarvestCraft.isModLoaded() && Backpack.isModLoaded()) {
             ItemStack aLeather1, aLeather2;
             aLeather1 = ItemUtils.getCorrectStacktype("harvestcraft:hardenedleatherItem", 1);
             aLeather2 = ItemUtils.getCorrectStacktype("Backpack:tannedLeather", 1);
@@ -1331,7 +1345,7 @@ public class RECIPES_GREGTECH {
                     (int) GT_Values.V[i]);
         }
 
-        if (LoadedMods.Baubles) {
+        if (Baubles.isModLoaded()) {
 
             // Turbine Housing Research Page
             CORE.RA.addSixSlotAssemblingRecipe(
