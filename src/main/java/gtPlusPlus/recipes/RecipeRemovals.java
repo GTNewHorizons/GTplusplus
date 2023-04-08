@@ -4,17 +4,17 @@ import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
 
 import java.util.Collection;
 
-import gregtech.api.util.GTPP_Recipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.fluids.FluidStack;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import advsolar.common.AdvancedSolarPanel;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Mods;
 import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gtPlusPlus.api.objects.Logger;
@@ -107,7 +107,7 @@ public class RecipeRemovals {
         Logger.INFO("Removed " + aRemoved + " useless Turbines.");
     }
 
-    private static void removeGTRareEarthRecipe(){
+    private static void removeGTRareEarthRecipe() {
 
         Logger.INFO("Processing Gregtech recipe maps, removing recipes to suit GT++.");
         // Remove Rare Earth Centrifuging

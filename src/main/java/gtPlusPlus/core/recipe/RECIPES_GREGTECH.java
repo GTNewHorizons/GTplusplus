@@ -16,7 +16,6 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.HotFuel;
 import gregtech.api.util.ThermalFuel;
 import gtPlusPlus.api.objects.Logger;

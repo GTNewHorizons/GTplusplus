@@ -5,7 +5,6 @@ import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 import java.util.ArrayList;
 import java.util.List;
 
-import gtPlusPlus.recipes.CokeAndPyrolyseOven;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -33,6 +32,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.everglades.gen.gt.WorldGen_GT;
+import gtPlusPlus.recipes.CokeAndPyrolyseOven;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
