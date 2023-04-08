@@ -23,6 +23,7 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import gregtech.api.enums.Mods;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.api.objects.random.XSTR;
@@ -269,7 +270,8 @@ public class CORE {
 
     public static class Everglades {
 
-        public static final String MODID = "ToxicEverglades";
+        @Deprecated
+        public static final String MODID = Mods.Names.G_T_PLUS_PLUS_EVERGLADES;
         public static final String NAME = "GT++ Toxic Everglades";
         public static final String VERSION = "GRADLETOKEN_VERSION";
     }

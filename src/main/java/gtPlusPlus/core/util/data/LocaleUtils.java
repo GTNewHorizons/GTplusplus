@@ -1,6 +1,7 @@
 package gtPlusPlus.core.util.data;
 
 import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GTPlusPlusEverglades;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -41,7 +42,7 @@ public class LocaleUtils {
                         Item R = (Item) C;
                         ItemStack IS = ItemUtils.getSimpleStack(R);
                         String modid = ItemUtils.getModId(IS);
-                        if (modid.equals(GTPlusPlus.ID) || modid.equals("ToxicEverglades")) {
+                        if (modid.equals(GTPlusPlus.ID) || modid.equals(GTPlusPlusEverglades.ID)) {
                             String S = "[" + modid + "] " + IS.getUnlocalizedName() + ".name=";
                             writeToFile(S);
                         }
@@ -60,7 +61,7 @@ public class LocaleUtils {
                         Block R = (Block) B;
                         ItemStack IS = ItemUtils.getSimpleStack(R);
                         String modid = ItemUtils.getModId(IS);
-                        if (modid.equals(GTPlusPlus.ID) || modid.equals("ToxicEverglades")) {
+                        if (modid.equals(GTPlusPlus.ID) || modid.equals(GTPlusPlusEverglades.ID)) {
                             String S = "[" + modid + "] " + IS.getUnlocalizedName() + ".name=";
                             writeToFile(S);
                         }

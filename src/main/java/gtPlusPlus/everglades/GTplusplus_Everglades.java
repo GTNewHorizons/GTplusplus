@@ -1,5 +1,7 @@
 package gtPlusPlus.everglades;
 
+import static gregtech.api.enums.Mods.GTPlusPlusEverglades;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -15,6 +17,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
+import gregtech.api.enums.Mods;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.Everglades;
@@ -31,14 +34,14 @@ import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
 
 @MCVersion(value = "1.7.10")
 @Mod(
-        modid = Everglades.MODID,
+        modid = Mods.Names.G_T_PLUS_PLUS_EVERGLADES,
         name = Everglades.NAME,
         version = Everglades.VERSION,
         dependencies = "required-after:Forge; after:dreamcraft; after:IC2; required-after:gregtech; required-after:miscutils;")
 public class GTplusplus_Everglades implements ActionListener {
 
     // Mod Instance
-    @Mod.Instance(Everglades.MODID)
+    @Mod.Instance(Mods.Names.G_T_PLUS_PLUS_EVERGLADES)
     public static GTplusplus_Everglades instance;
 
     // Dark World Handler
@@ -49,7 +52,7 @@ public class GTplusplus_Everglades implements ActionListener {
     // Pre-Init
     @Mod.EventHandler
     public void preInit(final FMLPreInitializationEvent event) {
-        Logger.INFO("Loading " + Everglades.MODID + " V" + Everglades.VERSION);
+        Logger.INFO("Loading " + GTPlusPlusEverglades.ID + " V" + Everglades.VERSION);
 
         // Setup
         setVars(event);
@@ -70,7 +73,7 @@ public class GTplusplus_Everglades implements ActionListener {
 
     @EventHandler
     public void load(final FMLInitializationEvent e) {
-        Logger.INFO("Begin resource allocation for " + Everglades.MODID + " V" + Everglades.VERSION);
+        Logger.INFO("Begin resource allocation for " + GTPlusPlusEverglades.ID + " V" + Everglades.VERSION);
 
         // Load World and Biome
         GameRegistry.registerWorldGenerator(new WorldGen_GT_Base(), Short.MAX_VALUE);
