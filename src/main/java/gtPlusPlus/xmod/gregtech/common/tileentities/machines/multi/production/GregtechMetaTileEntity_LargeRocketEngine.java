@@ -92,7 +92,7 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends
                 .addInfo("Generating Power from Rocket Fuels - Supports TecTech Multi-Amp Dynamos!")
                 .addInfo("Supply GT++ Rocket Fuels and 1000L of " + mLubricantName + " per hour")
                 .addInfo("Produces as much energy as you put fuel in, with optional boosting")
-                .addInfo("This multi sometimes doesn't accept fluids if not enabled - enable it first!")
+                .addInfo("This multi doesn't accept fluids if not enabled - enable it first!")
                 .addInfo("Consumes 2000L/s of air and pollutes 1500 gibbl/s per 16384 eu/t produced")
                 .addInfo("Place 1-8 Air Intake Hatches on the sides to maintain Air input")
                 .addInfo("If it runs out of air, it will shut down and have to be manually restarted")
