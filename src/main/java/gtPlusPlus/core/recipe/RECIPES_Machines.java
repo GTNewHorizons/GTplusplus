@@ -29,7 +29,6 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
-import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Disassembler;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.ModItems;
@@ -3002,7 +3001,6 @@ public class RECIPES_Machines {
                 ItemUtils.getSimpleStack(Dimension_Everglades.blockPortalFrame, 2),
                 45 * 20 * 1 * (6),
                 MaterialUtils.getVoltageForTier(6));
-        GT_MetaTileEntity_Disassembler.addBlacklist(ItemUtils.getSimpleStack(Dimension_Everglades.blockPortalFrame, 1));
 
         // Player Doors
         ItemStack[] aDoorInputs = new ItemStack[] { ItemUtils.getSimpleStack(Blocks.log2),
