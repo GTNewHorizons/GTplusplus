@@ -47,7 +47,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType("Fusion Reactor").addInfo("HARNESSING THE POWER OF A NEUTRON STAR")
+        tt.addMachineType("Fusion Reactor").addInfo("HARNESSING THE POWER OF A BLUE GIANT")
                 .addInfo("Controller block for the Fusion Reactor Mk IV")
                 .addInfo("131072EU/t and 320M EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
