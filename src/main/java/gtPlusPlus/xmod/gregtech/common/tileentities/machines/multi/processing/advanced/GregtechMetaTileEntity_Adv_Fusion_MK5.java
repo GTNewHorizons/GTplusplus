@@ -131,12 +131,12 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GT_MetaTileEntity_Fus
     @Override
     public ITexture getTextureOverlay() {
         return new GT_RenderedTexture(
-                this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3
+                this.getBaseMetaTileEntity().isActive() ? TexturesGtBlock.Casing_Machine_Screen_Rainbow
                         : TexturesGtBlock.Casing_Machine_Screen_1);
     }
 
     public IIconContainer getIconOverlay() {
-        return this.mMaxProgresstime > 0 ? TexturesGtBlock.Casing_Machine_Screen_3
+        return this.getBaseMetaTileEntity().isActive() ? TexturesGtBlock.Casing_Machine_Screen_Rainbow
                 : TexturesGtBlock.Casing_Machine_Screen_1;
     }
 
