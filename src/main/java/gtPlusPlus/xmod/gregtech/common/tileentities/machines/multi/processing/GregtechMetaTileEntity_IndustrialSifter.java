@@ -107,7 +107,7 @@ public class GregtechMetaTileEntity_IndustrialSifter
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         mCasing = 0;
-        return checkPiece(mName, 2, 2, 0) && mCasing >= 35 && mOutputBusses.size() >= 4 && checkHatch();
+        return checkPiece(mName, 2, 2, 0) && mCasing >= 35 && checkHatch();
     }
 
     @Override
