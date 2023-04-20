@@ -5,7 +5,6 @@ import static gregtech.api.enums.Mods.GoodGenerator;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_ModHandler.getModItem;
 
-import gregtech.api.enums.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -13,6 +12,7 @@ import com.github.bartimaeusnek.bartworks.system.material.WerkstoffLoader;
 import com.github.technus.tectech.recipe.TT_recipeAdder;
 import com.github.technus.tectech.thing.block.QuantumGlassBlock;
 
+import gregtech.api.enums.*;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.CombType;
