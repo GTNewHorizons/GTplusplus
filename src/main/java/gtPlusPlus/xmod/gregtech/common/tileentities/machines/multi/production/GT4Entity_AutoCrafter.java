@@ -193,13 +193,15 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
                 }
             }
 
-            return checkRecipeGeneric(
+            if (checkRecipeGeneric(
                     tBusItems.toArray(new ItemStack[] {}),
                     properArray,
                     getMaxParallelRecipes(),
                     100,
                     200,
-                    10_000);
+                    10_000)) {
+                return true;
+            }
 
         }
         return false;
