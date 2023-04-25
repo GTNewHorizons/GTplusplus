@@ -16,6 +16,7 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMetaTileEntity;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
 
@@ -57,10 +58,10 @@ public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (aSide == aFacing ? 0
-                : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
+                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
                         + 1];
     }
 
@@ -115,14 +116,14 @@ public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (mFrequency < 180) {
             mFrequency += 5;
         } else {
             mFrequency = 5;
         }
         PlayerUtils.messagePlayer(aPlayer, "Running every " + mFrequency + " minutes.");
-        super.onScrewdriverRightClick(aSide, aPlayer, aX, aY, aZ);
+        super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
     @Override
@@ -146,7 +147,7 @@ public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
     }
 
     @Override
-    public boolean isFacingValid(final byte aFacing) {
+    public boolean isFacingValid(final ForgeDirection facing) {
         return true;
     }
 
@@ -161,13 +162,13 @@ public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
     }
 
     @Override
-    public boolean isInputFacing(final byte aSide) {
-        return aSide != this.getBaseMetaTileEntity().getFrontFacing();
+    public boolean isInputFacing(final ForgeDirection side) {
+        return side != this.getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
-    public boolean isOutputFacing(final byte aSide) {
-        return aSide == this.getBaseMetaTileEntity().getFrontFacing();
+    public boolean isOutputFacing(final ForgeDirection side) {
+        return side == this.getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -263,13 +264,13 @@ public class GregtechMetaGarbageCollector extends GregtechMetaTileEntity {
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
             final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
             final ItemStack aStack) {
         return false;
     }

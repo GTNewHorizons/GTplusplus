@@ -11,6 +11,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Transformer
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTransformerHiAmp extends GT_MetaTileEntity_Transformer {
 
@@ -101,7 +102,7 @@ public class GregtechMetaTransformerHiAmp extends GT_MetaTileEntity_Transformer 
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         this.mHalfMode = Utils.invertBoolean(mHalfMode);
         if (this.mHalfMode) {
             PlayerUtils.messagePlayer(aPlayer, "Transformer is now running at 2A:8A in/out Ratio.");

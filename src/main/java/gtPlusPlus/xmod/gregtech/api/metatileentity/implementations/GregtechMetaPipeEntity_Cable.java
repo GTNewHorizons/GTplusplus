@@ -11,6 +11,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Cable;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaPipeEntity_Cable extends GT_MetaPipeEntity_Cable implements IMetaTileEntityCable {
 
@@ -88,14 +89,13 @@ public class GregtechMetaPipeEntity_Cable extends GT_MetaPipeEntity_Cable implem
                 this.vRGB);
     }
 
-    @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aConnections,
-            byte aColorIndex, boolean aConnected, boolean aRedstone) {
-        return getTextureGTNH(aBaseMetaTileEntity, aSide, aConnections, aColorIndex, aConnected, aRedstone);
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, byte aConnections,
+            int aColorIndex, boolean aConnected, boolean aRedstone) {
+        return getTextureGTNH(aBaseMetaTileEntity, side, aConnections, aColorIndex, aConnected, aRedstone);
     }
 
-    private ITexture[] getTextureGTNH(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aConnections,
-            byte aColorIndex, boolean aConnected, boolean aRedstone) {
+    private ITexture[] getTextureGTNH(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection aSide, byte aConnections,
+            int aColorIndex, boolean aConnected, boolean aRedstone) {
 
         Materials wireMaterial = mMaterial;
         if (wireMaterial == null) {

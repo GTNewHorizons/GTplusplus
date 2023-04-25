@@ -203,7 +203,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
         // Get Facing direction
         IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
-        int mDirectionX = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX;
+        int mDirectionX = aBaseMetaTileEntity.getBackFacing().offsetX;
         int mCurrentDirectionX;
         int mCurrentDirectionZ;
         int mOffsetX_Lower = 0;
@@ -221,9 +221,9 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
         // if (aBaseMetaTileEntity.fac)
 
-        final int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX
+        final int xDir = aBaseMetaTileEntity.getBackFacing().offsetX
                 * mCurrentDirectionX;
-        final int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ
+        final int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ
                 * mCurrentDirectionZ;
 
         int tAmount = 0;
@@ -315,6 +315,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 0);
     }
 
+    @Override
     public boolean checkRecipeGeneric(ItemStack[] aItemInputs, FluidStack[] aFluidInputs, int aMaxParallelRecipes,
             long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
 
@@ -390,8 +391,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
             Block aInitStructureCheck;
             int aInitStructureCheckMeta;
             IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
-            int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX;
-            int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ;
+            int xDir = aBaseMetaTileEntity.getBackFacing().offsetX;
+            int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ;
             aInitStructureCheck = aBaseMetaTileEntity.getBlockOffset(xDir, -1, zDir);
             aInitStructureCheckMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir, -1, zDir);
             if (aInitStructureCheck == GregTech_API.sBlockCasings1) {

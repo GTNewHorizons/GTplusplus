@@ -10,6 +10,7 @@ import gregtech.api.interfaces.tileentity.IBasicEnergyContainer;
 import gregtech.api.interfaces.tileentity.IGearEnergyTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
 import gregtech.api.interfaces.tileentity.ITurnable;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract interface IGregtechPower
         extends IGearEnergyTileEntity, ITurnable, IGregTechDeviceInformation, IDescribable, IBasicEnergyContainer {
@@ -41,7 +42,7 @@ public abstract interface IGregtechPower
     public boolean increaseStoredEnergyUnits(long p0, boolean p1);
 
     @Override
-    public boolean drainEnergyUnits(byte p0, long p1, long p2);
+    public boolean drainEnergyUnits(ForgeDirection side, long p1, long p2);
 
     @Override
     public long getAverageElectricInput();
@@ -65,10 +66,10 @@ public abstract interface IGregtechPower
     public boolean increaseStoredSteam(long p0, boolean p1);
 
     @Override
-    public Block getBlockAtSide(byte p0);
+    public Block getBlockAtSide(ForgeDirection side);
 
     @Override
-    public Block getBlockAtSideAndDistance(byte p0, int p1);
+    public Block getBlockAtSideAndDistance(ForgeDirection side, int p1);
 
     @Override
     public Block getBlockOffset(int p0, int p1, int p2);
@@ -77,10 +78,10 @@ public abstract interface IGregtechPower
     public TileEntity getTileEntity(int p0, int p1, int p2);
 
     @Override
-    public TileEntity getTileEntityAtSide(byte p0);
+    public TileEntity getTileEntityAtSide(ForgeDirection side);
 
     @Override
-    public TileEntity getTileEntityAtSideAndDistance(byte p0, int p1);
+    public TileEntity getTileEntityAtSideAndDistance(ForgeDirection side, int p1);
 
     @Override
     public TileEntity getTileEntityOffset(int p0, int p1, int p2);
@@ -116,19 +117,19 @@ public abstract interface IGregtechPower
     public void writeToNBT(NBTTagCompound p0);
 
     @Override
-    public boolean acceptsRotationalEnergy(byte p0);
+    public boolean acceptsRotationalEnergy(ForgeDirection side);
 
     @Override
-    public boolean injectRotationalEnergy(byte p0, long p1, long p2);
+    public boolean injectRotationalEnergy(ForgeDirection side, long p1, long p2);
 
     @Override
-    public long injectEnergyUnits(byte p0, long p1, long p2);
+    public long injectEnergyUnits(ForgeDirection side, long p1, long p2);
 
     @Override
-    public boolean inputEnergyFrom(byte p0);
+    public boolean inputEnergyFrom(ForgeDirection side);
 
     @Override
-    public boolean outputsEnergyTo(byte p0);
+    public boolean outputsEnergyTo(ForgeDirection side);
 
     @Override
     public String[] getInfoData();
@@ -138,9 +139,5 @@ public abstract interface IGregtechPower
         return true;
     }
 
-    /*
-     * boolean onPreTick(TilePoweredGT tilePoweredGT, long mTickTimer2); boolean onTick(TilePoweredGT
-     * iGregTechTileEntity, long mTickTimer2); boolean onPostTick(TilePoweredGT iGregTechTileEntity, long mTickTimer2);
-     */
 
 }

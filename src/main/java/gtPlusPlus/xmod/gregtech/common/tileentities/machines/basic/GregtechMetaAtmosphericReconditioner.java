@@ -11,6 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
+import net.minecraftforge.common.util.ForgeDirection;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
@@ -739,7 +740,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public boolean canInsertItem(int aIndex, ItemStack aStack, int aSide) {
+    public boolean canInsertItem(int aIndex, ItemStack aStack, int ordinalSide) {
         if (aIndex == SLOT_FILTER) {
             if (aStack.getItem() instanceof ItemAirFilter) {
                 Logger.INFO("Inserting Air Filter into " + aIndex);
@@ -758,16 +759,15 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 }
             }
         }
-        // return super.canInsertItem(aIndex, aStack, aSide);
         return false;
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        super.onScrewdriverRightClick(aSide, aPlayer, aX, aY, aZ);
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
-    public boolean onSolderingToolRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
+    public boolean onSolderingToolRightclick(ForgeDirection side, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
             float aZ) {
         this.mSaveRotor = Utils.invertBoolean(mSaveRotor);
         if (mSaveRotor) {
@@ -843,11 +843,11 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public boolean allowCoverOnSide(byte aSide, GT_ItemStack aCoverID) {
-        if (aSide <= 1) {
+    public boolean allowCoverOnSide(ForgeDirection side, GT_ItemStack aCoverID) {
+        if (side.offsetY != 0) {
             return false;
         }
-        return super.allowCoverOnSide(aSide, aCoverID);
+        return super.allowCoverOnSide(side, aCoverID);
     }
 
     @Override

@@ -23,6 +23,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.InventoryUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_Energy {
 
@@ -69,7 +70,7 @@ public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -84,8 +85,8 @@ public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_
     }
 
     @Override
-    public boolean isInputFacing(byte aSide) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing();
+    public boolean isInputFacing(ForgeDirection side) {
+        return side == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -119,12 +120,12 @@ public class GT_MetaTileEntity_Hatch_Energy_RTG extends GT_MetaTileEntity_Hatch_
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return true;
     }
 

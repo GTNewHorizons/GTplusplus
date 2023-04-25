@@ -13,6 +13,7 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.common.util.ForgeDirection;
 
 @SuppressWarnings("deprecation")
 public class GT_MetaTileEntity_Dehydrator extends GT_MetaTileEntity_BasicMachine_GT_Recipe {
@@ -86,11 +87,9 @@ public class GT_MetaTileEntity_Dehydrator extends GT_MetaTileEntity_BasicMachine
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return super.getTexture(aBaseMetaTileEntity, aSide, aFacing, aColorIndex, aActive, aRedstone);
-        // return this.mTextures[(aActive ? 5 : 0) + (aSide == aFacing ? 0 : aSide ==
-        // GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex + 1];
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return super.getTexture(aBaseMetaTileEntity, side, facing, aColorIndex, aActive, aRedstone);
     }
 
     @Override

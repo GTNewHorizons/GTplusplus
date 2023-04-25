@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import gregtech.api.enums.SubTag;
 import gregtech.api.interfaces.IItemBehaviour;
 import gregtech.api.items.GT_MetaBase_Item;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class Behaviour_Grinder implements IItemBehaviour<GT_MetaBase_Item> {
 
@@ -31,7 +32,7 @@ public class Behaviour_Grinder implements IItemBehaviour<GT_MetaBase_Item> {
 
     @Override
     public boolean onItemUseFirst(GT_MetaBase_Item var1, ItemStack var2, EntityPlayer var3, World var4, int var5,
-            int var6, int var7, int var8, float var9, float var10, float var11) {
+            int var6, int var7, ForgeDirection side, float var9, float var10, float var11) {
         // TODO Auto-generated method stub
         return false;
     }

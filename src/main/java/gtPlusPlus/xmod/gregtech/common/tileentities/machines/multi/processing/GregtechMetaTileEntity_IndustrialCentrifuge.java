@@ -36,6 +36,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_IndustrialCentrifuge extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialCentrifuge> implements ISurvivalConstructable {
@@ -192,7 +193,7 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends
     }
 
     @Override
-    public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         this.mIsAnimated = !mIsAnimated;
         Logger.INFO("Is Centrifuge animated " + this.mIsAnimated);
         if (this.mIsAnimated) {

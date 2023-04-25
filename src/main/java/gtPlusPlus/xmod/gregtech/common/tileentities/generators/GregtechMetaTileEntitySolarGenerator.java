@@ -19,6 +19,7 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.generators.GregtechMetaSolarGenerator;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGenerator {
 
@@ -41,8 +42,8 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
     }
 
     @Override
-    public boolean isOutputFacing(final byte aSide) {
-        return aSide == this.getBaseMetaTileEntity().getFrontFacing();
+    public boolean isOutputFacing(final ForgeDirection side) {
+        return side == this.getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -102,7 +103,7 @@ public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGener
                 final boolean bRain = aBaseMetaTileEntity.getWorld().isRaining()
                         && (aBaseMetaTileEntity.getBiome().rainfall > 0.0F);
                 this.mProcessingEnergy += (bRain && (aBaseMetaTileEntity.getWorld().skylightSubtracted >= 4))
-                        || !aBaseMetaTileEntity.getSkyAtSide((byte) 1) ? 0
+                        || !aBaseMetaTileEntity.getSkyAtSide(ForgeDirection.UP) ? 0
                                 : !bRain && aBaseMetaTileEntity.getWorld().isDaytime() ? 8 : 1;
             }
 

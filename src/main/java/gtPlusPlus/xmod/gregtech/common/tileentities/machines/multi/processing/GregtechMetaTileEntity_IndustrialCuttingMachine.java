@@ -34,6 +34,7 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialCuttingMachine> implements ISurvivalConstructable {
@@ -181,7 +182,7 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
     }
 
     @Override
-    public void onModeChangeByScrewdriver(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         mCuttingMode = Utils.invertBoolean(mCuttingMode);
         String aMode = mCuttingMode ? "Cutting" : "Slicing";
         PlayerUtils.messagePlayer(aPlayer, "Mode: " + aMode);

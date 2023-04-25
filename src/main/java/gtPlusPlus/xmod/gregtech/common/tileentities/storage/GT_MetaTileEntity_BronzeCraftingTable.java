@@ -11,6 +11,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.objects.GT_ItemStack;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_BronzeCraftingTable extends GT_MetaTileEntity_AdvancedCraftingTable {
 
@@ -30,7 +31,7 @@ public class GT_MetaTileEntity_BronzeCraftingTable extends GT_MetaTileEntity_Adv
     }
 
     @Override
-    public boolean isInputFacing(byte aSide) {
+    public boolean isInputFacing(ForgeDirection side) {
         return false;
     }
 
@@ -41,7 +42,7 @@ public class GT_MetaTileEntity_BronzeCraftingTable extends GT_MetaTileEntity_Adv
 
     @SuppressWarnings("deprecation")
     @Override
-    public boolean allowCoverOnSide(byte aSide, GT_ItemStack aStack) {
+    public boolean allowCoverOnSide(ForgeDirection side, GT_ItemStack aStack) {
         return GregTech_API.getCoverBehavior(aStack.toStack()).isSimpleCover();
     }
 

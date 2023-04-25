@@ -4,10 +4,12 @@ import net.minecraft.block.Block;
 
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public interface ITexturedBlock extends ITexturedTileEntity {
 
-    ITexture[] getTexture(byte side);
+    ITexture[] getTexture(ForgeDirection side);
 
-    ITexture[] getTexture(Block block, byte side);
+    @Override
+    ITexture[] getTexture(Block block, ForgeDirection side);
 }

@@ -63,6 +63,7 @@ import gtPlusPlus.xmod.gregtech.api.gui.widget.DataStickSlotWidget;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Description;
 import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Simulator;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank implements IAddGregtechLogo {
 
@@ -127,6 +128,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
                 "Displays Fusion Recipes", CORE.GT_Tooltip.get() };
     }
 
+
     @Override
     public boolean onRightclick(final IGregTechTileEntity aBaseMetaTileEntity, final EntityPlayer aPlayer) {
         GT_UIInfos.openGTTileEntityUI(aBaseMetaTileEntity, aPlayer);
@@ -166,7 +168,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
     }
 
     @Override
-    public boolean isInputFacing(byte aDirection) {
+    public boolean isInputFacing(ForgeDirection aDirection) {
         return true;
     }
 
@@ -201,7 +203,7 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -798,10 +800,10 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aSide == aFacing ? 0
-                : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(side == facing ? 0
+                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
                         + 1];
     }
 

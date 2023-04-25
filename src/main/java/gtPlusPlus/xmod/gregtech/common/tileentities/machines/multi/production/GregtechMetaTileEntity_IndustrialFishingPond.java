@@ -253,7 +253,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
         // Get Facing direction
         IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
-        int mDirectionX = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX;
+        int mDirectionX = aBaseMetaTileEntity.getBackFacing().offsetX;
         int mCurrentDirectionX;
         int mCurrentDirectionZ;
         int mOffsetX_Lower = 0;
@@ -271,9 +271,9 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
         // if (aBaseMetaTileEntity.fac)
 
-        final int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX
+        final int xDir = aBaseMetaTileEntity.getBackFacing().offsetX
                 * mCurrentDirectionX;
-        final int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ
+        final int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ
                 * mCurrentDirectionZ;
 
         int tAmount = 0;

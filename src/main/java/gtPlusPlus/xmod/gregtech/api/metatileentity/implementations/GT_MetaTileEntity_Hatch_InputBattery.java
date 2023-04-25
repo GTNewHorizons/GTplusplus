@@ -21,6 +21,7 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.gui.widget.ElectricSlotWidget;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatch {
 
@@ -54,8 +55,8 @@ public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatc
     }
 
     @Override
-    public boolean isInputFacing(byte aSide) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing();
+    public boolean isInputFacing(ForgeDirection side) {
+        return side == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -94,7 +95,7 @@ public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatc
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -179,14 +180,14 @@ public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatc
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing()
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == getBaseMetaTileEntity().getFrontFacing()
                 && (mRecipeMap == null || mRecipeMap.containsInput(aStack));
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing()
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == getBaseMetaTileEntity().getFrontFacing()
                 && (mRecipeMap == null || mRecipeMap.containsInput(aStack));
     }
 

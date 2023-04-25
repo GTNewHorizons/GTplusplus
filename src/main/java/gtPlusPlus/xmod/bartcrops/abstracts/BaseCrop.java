@@ -19,6 +19,7 @@ import ic2.api.crops.ICropTile;
 
 public abstract class BaseCrop extends CropCard implements ICropCardInfo {
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerSprites(IIconRegister iconRegister) {
         this.textures = new IIcon[this.maxSize()];
@@ -28,26 +29,32 @@ public abstract class BaseCrop extends CropCard implements ICropCardInfo {
         }
     }
 
+    @Override
     public float dropGainChance() {
         return (float) (Math.pow(0.95D, (double) ((float) this.tier())) * (double) 1f);
     }
 
+    @Override
     public boolean canCross(ICropTile crop) {
         return crop.getSize() == this.maxSize();
     }
 
+    @Override
     public int getrootslength(ICropTile crop) {
         return 3;
     }
 
+    @Override
     public String discoveredBy() {
         return "Alkalus";
     }
 
+    @Override
     public String owner() {
         return "Gtplusplus";
     }
 
+    @Override
     public List<String> getCropInformation() {
         List<String> ret = new ArrayList<String>();
         ret.add(Arrays.toString(this.attributes()));

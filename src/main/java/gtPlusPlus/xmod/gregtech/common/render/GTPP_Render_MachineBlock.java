@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 
+import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -30,10 +31,10 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
         RenderingRegistry.registerBlockHandler(this);
     }
 
-    private static ITexture[] getTexture(IMetaTileEntity arg0, int arg1, int arg2, int arg3, boolean arg4,
+    private static ITexture[] getTexture(IMetaTileEntity tile, ForgeDirection side, ForgeDirection facing, int colorIndex, boolean active,
             boolean arg5) {
-        IGregTechTileEntity arg0b = arg0.getBaseMetaTileEntity();
-        return arg0.getTexture(arg0b, (byte) arg1, (byte) arg2, (byte) arg3, arg4, arg5);
+        final IGregTechTileEntity gtTile = tile.getBaseMetaTileEntity();
+        return tile.getTexture(gtTile, side, facing, (byte) colorIndex, active, arg5);
     }
 
     private static void renderNormalInventoryMetaTileEntity(Block aBlock, int aMeta, RenderBlocks aRenderer) {
@@ -44,7 +45,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                 aRenderer.setRenderBoundsFromBlock(aBlock);
                 GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
                 GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-                if (tMetaTileEntity.getBaseMetaTileEntity() instanceof IPipeRenderedTileEntity) {
+                if (tMetaTileEntity.getBaseMetaTileEntity() instanceof IPipeRenderedTileEntity pipeRenderedTile) {
                     float tThickness = ((IPipeRenderedTileEntity) tMetaTileEntity.getBaseMetaTileEntity())
                             .getThickNess();
                     float sp = (1.0F - tThickness) / 2.0F;
@@ -59,7 +60,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 0, 9, -1, false, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.DOWN, 9, -1, false, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -71,7 +72,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 1, 9, -1, false, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.UP, 9, -1, false, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -83,7 +84,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 2, 9, -1, false, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.NORTH, 9, -1, false, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -95,7 +96,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 3, 9, -1, false, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.SOUTH, 9, -1, false, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -107,7 +108,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 4, 9, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.WEST, 9, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -119,7 +120,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 5, 9, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.EAST, 9, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                 } else {
@@ -132,7 +133,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 0, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.DOWN, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -144,7 +145,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 1, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.UP, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -156,7 +157,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 2, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.NORTH, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -168,7 +169,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 3, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.SOUTH, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -180,7 +181,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 4, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.WEST, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                     Tessellator.instance.startDrawingQuads();
@@ -192,7 +193,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                             0,
                             0,
                             0,
-                            getTexture(tMetaTileEntity, 5, 4, -1, true, false),
+                            getTexture(tMetaTileEntity, ForgeDirection.EAST, 4, -1, true, false),
                             true);
                     Tessellator.instance.draw();
                 }
@@ -216,12 +217,12 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                         aZ,
                         aBlock,
                         aRenderer,
-                        new ITexture[][] { GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 0),
-                                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 1),
-                                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 2),
-                                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 3),
-                                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 4),
-                                GT_MethodHelper.getTexture(tTileEntity, aBlock, (byte) 5) })
+                        new ITexture[][] { GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.DOWN),
+                                GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.UP),
+                                GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.NORTH),
+                                GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.SOUTH),
+                                GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.WEST),
+                                GT_MethodHelper.getTexture(tTileEntity, aBlock, ForgeDirection.EAST) })
                 : false;
     }
 
@@ -259,8 +260,8 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
 
                 boolean[] arg14 = new boolean[6];
 
-                for (byte tIcons = 0; tIcons < 6; ++tIcons) {
-                    arg14[tIcons] = aTileEntity.getCoverIDAtSide(tIcons) != 0;
+                for (final ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
+                    arg14[side.ordinal()] = aTileEntity.getCoverIDAtSide(side) != 0;
                 }
 
                 if (arg14[0] && arg14[1] && arg14[2] && arg14[3] && arg14[4] && arg14[5]) {
@@ -269,9 +270,9 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                     ITexture[][] arg15 = new ITexture[6][];
                     ITexture[][] tCovers = new ITexture[6][];
 
-                    for (byte i = 0; i < 6; ++i) {
-                        tCovers[i] = GT_MethodHelper.getTexture((TileEntity) aTileEntity, aBlock, i);
-                        arg15[i] = aTileEntity.getTextureUncovered(i);
+                    for (final ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
+                        tCovers[side.ordinal()] = GT_MethodHelper.getTexture((TileEntity) aTileEntity, aBlock, side);
+                        arg15[side.ordinal()] = aTileEntity.getTextureUncovered(side);
                     }
 
                     if (tConnections == 0) {
@@ -699,6 +700,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
         aRenderer.flipTexture = false;
     }
 
+    @Override
     public void renderInventoryBlock(Block aBlock, int aMeta, int aModelID, RenderBlocks aRenderer) {
         aMeta += 30400;
         if (aBlock instanceof GT_Block_Machines || aBlock instanceof GTPP_Block_Machines) {
@@ -713,6 +715,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
     }
 
+    @Override
     public boolean renderWorldBlock(IBlockAccess aWorld, int aX, int aY, int aZ, Block aBlock, int aModelID,
             RenderBlocks aRenderer) {
         TileEntity aTileEntity = aWorld.getTileEntity(aX, aY, aZ);
@@ -734,10 +737,12 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                                                 : renderStandardBlock(aWorld, aX, aY, aZ, aBlock, aRenderer)));
     }
 
+    @Override
     public boolean shouldRender3DInInventory(int aModel) {
         return true;
     }
 
+    @Override
     public int getRenderId() {
         return this.mRenderID;
     }

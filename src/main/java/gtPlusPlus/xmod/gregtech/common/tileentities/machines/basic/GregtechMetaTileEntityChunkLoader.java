@@ -30,6 +30,7 @@ import gtPlusPlus.GTplusplus;
 import gtPlusPlus.core.chunkloading.GTPP_ChunkManager;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMachine {
 
@@ -111,10 +112,10 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (aSide == aFacing ? 0
-                : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
+                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
                         + 1];
     }
 
@@ -179,8 +180,8 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        super.onScrewdriverRightClick(aSide, aPlayer, aX, aY, aZ);
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
     @Override
@@ -195,13 +196,13 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
             final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final byte aSide,
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
             final ItemStack aStack) {
         return false;
     }

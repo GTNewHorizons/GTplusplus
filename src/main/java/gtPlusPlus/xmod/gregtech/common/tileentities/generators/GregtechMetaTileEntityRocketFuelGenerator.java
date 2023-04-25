@@ -16,6 +16,7 @@ import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.generators.GregtechRocketFuelGeneratorBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFuelGeneratorBase {
 
@@ -34,8 +35,8 @@ public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFue
     }
 
     @Override
-    public boolean isOutputFacing(final byte aSide) {
-        return aSide == this.getBaseMetaTileEntity().getFrontFacing();
+    public boolean isOutputFacing(final ForgeDirection side) {
+        return side == this.getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override

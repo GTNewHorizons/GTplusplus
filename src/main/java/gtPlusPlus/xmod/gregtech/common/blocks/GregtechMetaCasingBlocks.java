@@ -12,6 +12,7 @@ import gregtech.common.blocks.GT_Material_Casings;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.CasingTextureHandler;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaCasingBlocks extends GregtechMetaCasingBlocksAbstract {
 
@@ -63,15 +64,15 @@ public class GregtechMetaCasingBlocks extends GregtechMetaCasingBlocksAbstract {
     }
 
     @Override
-    public IIcon getIcon(final int aSide, final int aMeta) { // Texture ID's. case 0 == ID[57]
-        return CasingTextureHandler.getIcon(aSide, aMeta);
+    public IIcon getIcon(final int ordinalSide, final int aMeta) { // Texture ID's. case 0 == ID[57]
+        return CasingTextureHandler.getIcon(ordinalSide, aMeta);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final IBlockAccess aWorld, final int xCoord, final int yCoord, final int zCoord,
-            final int aSide) {
+            final int ordinalSide) {
         final GregtechMetaCasingBlocks i = this;
-        return CasingTextureHandler.handleCasingsGT(aWorld, xCoord, yCoord, zCoord, aSide, i);
+        return CasingTextureHandler.handleCasingsGT(aWorld, xCoord, yCoord, zCoord, ForgeDirection.getOrientation(ordinalSide), i);
     }
 }

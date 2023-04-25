@@ -56,6 +56,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
         super(aName);
     }
 
+    @Override
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         return new GregtechMetaTileEntity_IndustrialChisel(this.mName);
     }
@@ -130,10 +131,12 @@ public class GregtechMetaTileEntity_IndustrialChisel
         return 90;
     }
 
+    @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
         return null;
     }
 
+    @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
         return true;
     }
@@ -223,6 +226,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
         return null;
     }
 
+    @Override
     public boolean checkRecipe(final ItemStack aStack) {
         ArrayList<ItemStack> aItems = this.getStoredInputs();
         if (!aItems.isEmpty()) {
@@ -316,18 +320,22 @@ public class GregtechMetaTileEntity_IndustrialChisel
         return getChiselSound();
     }
 
+    @Override
     public int getMaxEfficiency(ItemStack aStack) {
         return 10000;
     }
 
+    @Override
     public int getPollutionPerSecond(ItemStack aStack) {
         return CORE.ConfigSwitches.pollutionPerSecondMultiIndustrialChisel;
     }
 
+    @Override
     public int getDamageToComponent(ItemStack aStack) {
         return 0;
     }
 
+    @Override
     public boolean explodesOnComponentBreak(ItemStack aStack) {
         return false;
     }

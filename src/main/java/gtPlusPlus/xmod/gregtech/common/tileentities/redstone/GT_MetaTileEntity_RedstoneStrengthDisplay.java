@@ -11,6 +11,7 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_RedstoneStrengthDisplay extends GT_MetaTileEntity_RedstoneBase {
 
@@ -68,20 +69,11 @@ public class GT_MetaTileEntity_RedstoneStrengthDisplay extends GT_MetaTileEntity
         }
     }
 
-    /*
-     * @Override public int getTextureIndex(byte aSide, byte aFacing, boolean aActive, boolean aRedstone) { if (aSide ==
-     * 0) return aRedstone ? 60 : 59; if (aSide == 1) return aRedstone ? 58 : 57; return aRedstone ? 62 : 61; }
-     */
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        if (aSide == getBaseMetaTileEntity().getFrontFacing()) mType = (byte) ((mType + 1) % 6);
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        if (side == getBaseMetaTileEntity().getFrontFacing()) mType = (byte) ((mType + 1) % 6);
     }
-
-    /*
-     * @Override public IIcon getTextureIcon(byte aSide, byte aFacing, boolean aActive, boolean aRedstone) { return
-     * aSide == aFacing ? sIconList[mType * 16 + mRedstoneStrength] : null; }
-     */
 
     @Override
     public ITexture[][][] getTextureSet(final ITexture[] aTextures) {
@@ -102,14 +94,14 @@ public class GT_MetaTileEntity_RedstoneStrengthDisplay extends GT_MetaTileEntity
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        if (aSide == aFacing) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        if (side == facing) {
             return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1],
                     new GT_RenderedTexture(sIconList[mType * 16 + mRedstoneStrength]) };
         }
-        return this.mTextures[(aActive || hasRedstoneSignal() ? 5 : 0) + (aSide == aFacing ? 0
-                : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex
+        return this.mTextures[(aActive || hasRedstoneSignal() ? 5 : 0) + (side == facing ? 0
+                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
                         + 1];
     }
 

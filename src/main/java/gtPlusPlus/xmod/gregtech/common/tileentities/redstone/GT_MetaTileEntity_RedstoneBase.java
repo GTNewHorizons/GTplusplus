@@ -9,6 +9,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
 import gregtech.api.objects.GT_ItemStack;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_TieredMachineBlock {
 
@@ -40,8 +41,8 @@ public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_T
     }
 
     @Override
-    public boolean allowCoverOnSide(byte aSide, GT_ItemStack aStack) {
-        return aSide != getBaseMetaTileEntity().getFrontFacing();
+    public boolean allowCoverOnSide(ForgeDirection side, GT_ItemStack aStack) {
+        return side != getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -50,7 +51,7 @@ public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_T
     }
 
     @Override
-    public final boolean isFacingValid(byte aFacing) {
+    public final boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -86,8 +87,8 @@ public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_T
         if (getBaseMetaTileEntity().getStrongestRedstone() > 0) {
             return true;
         }
-        for (byte i = 0; i < 6; i++) {
-            if (getBaseMetaTileEntity().getOutputRedstoneSignal(i) > 0) {
+        for (final ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
+            if (getBaseMetaTileEntity().getOutputRedstoneSignal(side) > 0) {
                 return true;
             }
         }
@@ -95,12 +96,12 @@ public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_T
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 

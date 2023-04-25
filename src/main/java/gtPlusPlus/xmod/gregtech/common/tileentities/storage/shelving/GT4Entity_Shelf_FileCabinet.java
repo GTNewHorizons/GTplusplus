@@ -7,6 +7,7 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT4Entity_Shelf_FileCabinet extends GT4Entity_Shelf {
 
@@ -20,8 +21,8 @@ public class GT4Entity_Shelf_FileCabinet extends GT4Entity_Shelf {
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        if (aSide == getBaseMetaTileEntity().getFrontFacing()) {
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        if (side == getBaseMetaTileEntity().getFrontFacing()) {
             this.mType = ((byte) ((this.mType + 1) % 16));
             PlayerUtils.messagePlayer(aPlayer, "Set type to " + this.mType + ".");
         }
@@ -37,18 +38,22 @@ public class GT4Entity_Shelf_FileCabinet extends GT4Entity_Shelf {
         return new ITexture[] { TexturesGtBlock.OVERLAYS_CABINET_FRONT[this.mType < 16 ? this.mType : 0] };
     }
 
+    @Override
     public ITexture[] getBack(final byte aColor) {
         return new ITexture[] { texSide };
     }
 
+    @Override
     public ITexture[] getBottom(final byte aColor) {
         return new ITexture[] { texBottom };
     }
 
+    @Override
     public ITexture[] getTop(final byte aColor) {
         return new ITexture[] { texTop };
     }
 
+    @Override
     public ITexture[] getSides(final byte aColor) {
         return new ITexture[] { texSide };
     }

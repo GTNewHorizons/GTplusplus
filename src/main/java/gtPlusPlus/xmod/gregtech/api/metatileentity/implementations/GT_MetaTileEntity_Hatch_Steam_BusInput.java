@@ -23,6 +23,7 @@ import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_Steam_BusInput extends GT_MetaTileEntity_Hatch {
 
@@ -71,7 +72,7 @@ public class GT_MetaTileEntity_Hatch_Steam_BusInput extends GT_MetaTileEntity_Ha
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -142,7 +143,7 @@ public class GT_MetaTileEntity_Hatch_Steam_BusInput extends GT_MetaTileEntity_Ha
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer.isSneaking()) {
             disableSort = !disableSort;
             GT_Utility.sendChatToPlayer(
@@ -152,18 +153,19 @@ public class GT_MetaTileEntity_Hatch_Steam_BusInput extends GT_MetaTileEntity_Ha
         }
     }
 
+    @Override
     public String trans(String aKey, String aEnglish) {
         return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing()
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == getBaseMetaTileEntity().getFrontFacing()
                 && (mRecipeMap == null || mRecipeMap.containsInput(aStack));
     }
 

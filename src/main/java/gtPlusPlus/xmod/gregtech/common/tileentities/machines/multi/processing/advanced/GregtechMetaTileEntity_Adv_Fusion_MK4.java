@@ -24,6 +24,7 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_FusionComputer {
 
@@ -107,9 +108,9 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte aFacing,
-            final byte aColorIndex, final boolean aActive, final boolean aRedstone) {
-        if (aSide == aFacing) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
+            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        if (side == facing) {
             return new ITexture[] {
                     new GT_RenderedTexture(
                             Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
@@ -138,6 +139,7 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
                 : TexturesGtBlock.Casing_Machine_Screen_1;
     }
 
+    @Override
     public boolean turnCasingActive(final boolean status) {
         try {
             if (this.mEnergyHatches != null) {

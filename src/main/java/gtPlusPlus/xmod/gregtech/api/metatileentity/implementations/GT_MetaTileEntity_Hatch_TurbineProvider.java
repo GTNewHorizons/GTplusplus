@@ -23,6 +23,7 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GregtechMetaTileEntity_LargerTurbineBase;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_Hatch_InputBus {
 
@@ -40,6 +41,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
         super(aName, aTier, aDescription[0], aTextures);
     }
 
+    @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         return new GT_MetaTileEntity_Hatch_TurbineProvider(this.mName, this.mTier, this.mDescription, this.mTextures);
     }
@@ -55,6 +57,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
 
     private GT_MetaTileEntity_LargeTurbine mParent = null;
 
+    @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTimer) {
         super.onPostTick(aBaseMetaTileEntity, aTimer);
         if (aTimer % mRefreshTime == 0 && this.getBaseMetaTileEntity().isServerSide()) {
@@ -132,12 +135,12 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return isItemStackTurbine(aStack);
     }
 
@@ -159,7 +162,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer != null) {
             if (KeyboardUtils.isCtrlKeyDown()) {
                 mDescending = Utils.invertBoolean(mDescending);

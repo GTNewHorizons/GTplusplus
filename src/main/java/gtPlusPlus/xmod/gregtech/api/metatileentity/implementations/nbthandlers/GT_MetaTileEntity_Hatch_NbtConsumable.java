@@ -20,6 +20,7 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileEntity_Hatch
         implements IAddGregtechLogo {
@@ -67,7 +68,7 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -240,15 +241,15 @@ public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileE
     }
 
     @Override
-    public final boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide,
+    public final boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
             ItemStack aStack) {
         return false;
     }
 
     @Override
-    public final boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide,
+    public final boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
             ItemStack aStack) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing() && isItemValidForUsageSlot(aStack)
+        return side == getBaseMetaTileEntity().getFrontFacing() && isItemValidForUsageSlot(aStack)
                 && aIndex < mInputslotCount;
     }
 

@@ -19,6 +19,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_Steam_BusOutput extends GT_MetaTileEntity_Hatch {
 
@@ -63,7 +64,7 @@ public class GT_MetaTileEntity_Hatch_Steam_BusOutput extends GT_MetaTileEntity_H
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -89,12 +90,12 @@ public class GT_MetaTileEntity_Hatch_Steam_BusOutput extends GT_MetaTileEntity_H
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == aBaseMetaTileEntity.getFrontFacing();
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == aBaseMetaTileEntity.getFrontFacing();
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
         return false;
     }
 

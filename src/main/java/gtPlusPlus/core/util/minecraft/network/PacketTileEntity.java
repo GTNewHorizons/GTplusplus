@@ -30,6 +30,7 @@ public class PacketTileEntity extends CustomPacket {
         }
     }
 
+    @Override
     public void writeData(DataOutputStream data) throws IOException {
         if (ptile != null) {
             data.writeInt(this.tile.getXCoord());
@@ -40,6 +41,7 @@ public class PacketTileEntity extends CustomPacket {
         }
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void readData(DataInputStream data) throws IOException {
         Minecraft mc = FMLClientHandler.instance().getClient();
@@ -75,6 +77,7 @@ public class PacketTileEntity extends CustomPacket {
         }
     }
 
+    @Override
     public int getID() {
         return 0;
     }

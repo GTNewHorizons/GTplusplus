@@ -19,6 +19,7 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.gui.widget.ElectricSlotWidget;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hatch {
 
@@ -50,8 +51,8 @@ public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hat
     }
 
     @Override
-    public boolean isOutputFacing(byte aSide) {
-        return aSide == getBaseMetaTileEntity().getFrontFacing();
+    public boolean isOutputFacing(ForgeDirection side) {
+        return side == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -85,7 +86,7 @@ public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hat
     }
 
     @Override
-    public boolean isFacingValid(byte aFacing) {
+    public boolean isFacingValid(ForgeDirection facing) {
         return true;
     }
 
@@ -111,13 +112,13 @@ public class GT_MetaTileEntity_Hatch_OutputBattery extends GT_MetaTileEntity_Hat
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == aBaseMetaTileEntity.getFrontFacing();
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == aBaseMetaTileEntity.getFrontFacing();
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aSide == aBaseMetaTileEntity.getFrontFacing();
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+        return side == aBaseMetaTileEntity.getFrontFacing();
     }
 
     public void updateSlots() {

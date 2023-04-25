@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
+import net.minecraftforge.common.util.ForgeDirection;
 import team.chisel.carving.Carving;
 
 import com.gtnewhorizons.modularui.api.drawable.IDrawable;
@@ -103,10 +104,10 @@ public class GregtechMetaTileEntity_AutoChisel extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    protected boolean allowPutStackValidated(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide,
+    protected boolean allowPutStackValidated(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
             ItemStack aStack) {
         return hasValidCache(aStack, this.getSpecialSlot(), false) ? true
-                : super.allowPutStackValidated(aBaseMetaTileEntity, aIndex, aSide, aStack) && hasChiselResults(aStack);
+                : super.allowPutStackValidated(aBaseMetaTileEntity, aIndex, side, aStack) && hasChiselResults(aStack);
     }
 
     // lets make sure the user isn't trying to make something from a block that doesn't have this as a valid target
