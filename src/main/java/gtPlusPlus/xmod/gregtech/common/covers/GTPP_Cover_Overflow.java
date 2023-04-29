@@ -35,8 +35,8 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
         this.mMaxTransferRate = aTransferRate * 1000;
     }
 
-    public int doCoverThings(ForgeDirection side, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            long aTimer) {
+    public int doCoverThings(ForgeDirection side, byte aInputRedstone, int aCoverID, int aCoverVariable,
+            ICoverable aTileEntity, long aTimer) {
         if (aCoverVariable == 0) {
             return aCoverVariable;
         }
@@ -128,19 +128,23 @@ public class GTPP_Cover_Overflow extends GT_CoverBehavior {
         return true;
     }
 
-    public boolean letsItemsIn(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
+    public boolean letsItemsIn(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot,
+            ICoverable aTileEntity) {
         return true;
     }
 
-    public boolean letsItemsOut(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
+    public boolean letsItemsOut(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot,
+            ICoverable aTileEntity) {
         return true;
     }
 
-    public boolean letsFluidIn(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid, ICoverable aTileEntity) {
+    public boolean letsFluidIn(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid,
+            ICoverable aTileEntity) {
         return false;
     }
 
-    public boolean letsFluidOut(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid, ICoverable aTileEntity) {
+    public boolean letsFluidOut(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid,
+            ICoverable aTileEntity) {
         return true;
     }
 

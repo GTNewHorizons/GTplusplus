@@ -61,8 +61,8 @@ public class GT_MetaTileEntity_Boiler_Solar extends GT_MetaTileEntity_Boiler {
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return this.mTextures[side.offsetY == 0 ? ((byte) (side != facing ? 2 : 3)) : side.ordinal()][aColorIndex + 1];
     }
 
@@ -108,8 +108,7 @@ public class GT_MetaTileEntity_Boiler_Solar extends GT_MetaTileEntity_Boiler {
                     final FluidStack tDrained = aBaseMetaTileEntity
                             .drain(side, Math.max(1, this.mSteam.amount / 2), false);
                     if (tDrained != null) {
-                        final int tFilledAmount = tTileEntity
-                                .fill(side.getOpposite(), tDrained, false);
+                        final int tFilledAmount = tTileEntity.fill(side.getOpposite(), tDrained, false);
                         if (tFilledAmount > 0) {
                             tTileEntity.fill(
                                     side.getOpposite(),

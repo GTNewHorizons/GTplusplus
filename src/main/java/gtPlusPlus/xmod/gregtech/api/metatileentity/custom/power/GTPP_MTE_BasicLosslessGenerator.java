@@ -60,11 +60,13 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing, int aColorIndex,
-            boolean aActive, boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
-                : (side == facing.getOpposite()? 1
-                        : (side == ForgeDirection.DOWN ? 2 : (side == ForgeDirection.UP ? 3 : 4))))][aColorIndex + 1];
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing,
+            int aColorIndex, boolean aActive, boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0)
+                + (side == facing ? 0
+                        : (side == facing.getOpposite() ? 1
+                                : (side == ForgeDirection.DOWN ? 2 : (side == ForgeDirection.UP ? 3 : 4))))][aColorIndex
+                                        + 1];
     }
 
     @Override
@@ -274,15 +276,15 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
                     if ((tLiquid = GT_Utility.getFluidForFilledItem(tFuel.getRepresentativeInput(0), true)) != null
                             && aLiquid.isFluidEqual(tLiquid)) {
                         Logger.WARNING("Fuel Ok");
-                        return (int) ((long) tFuel.mSpecialValue
-                                * (long) this.getEfficiency()
-                                * (long) this.consumedFluidPerOperation(tLiquid) / 100L);
+                        return (int) ((long) tFuel.mSpecialValue * (long) this.getEfficiency()
+                                * (long) this.consumedFluidPerOperation(tLiquid)
+                                / 100L);
                     }
                     if ((tLiquid = tFuel.getRepresentativeFluidInput(0)) != null && aLiquid.isFluidEqual(tLiquid)) {
                         Logger.WARNING("Fuel Ok");
-                        return (int) ((long) tFuel.mSpecialValue
-                                * (long) this.getEfficiency()
-                                * (long) this.consumedFluidPerOperation(tLiquid) / 100L);
+                        return (int) ((long) tFuel.mSpecialValue * (long) this.getEfficiency()
+                                * (long) this.consumedFluidPerOperation(tLiquid)
+                                / 100L);
                     }
                 }
             }
@@ -324,7 +326,8 @@ public abstract class GTPP_MTE_BasicLosslessGenerator extends GTPP_MTE_BasicTank
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return super.allowPutStack(aBaseMetaTileEntity, aIndex, side, aStack) && (this.getFuelValue(aStack) > 0
                 || this.getFuelValue(GT_Utility.getFluidForFilledItem(aStack, true)) > 0);
     }

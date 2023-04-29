@@ -97,7 +97,8 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                     aX += tDirection.offsetX;
                     aY += tDirection.offsetY;
                     aZ += tDirection.offsetZ;
-                    if (GT_Utility.isBlockAir(aWorld, aX, aY, aZ) && aPlayer.canPlayerEdit(aX, aY, aZ, ordinalSide, aStack)) {
+                    if (GT_Utility.isBlockAir(aWorld, aX, aY, aZ)
+                            && aPlayer.canPlayerEdit(aX, aY, aZ, ordinalSide, aStack)) {
                         Logger.WARNING("Preparing Lighter b");
                         if (this.prepare(aStack) || aPlayer.capabilities.isCreativeMode) {
                             Logger.WARNING("Preparing Lighter c");
@@ -156,7 +157,8 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                     aX += tDirection.offsetX;
                     aY += tDirection.offsetY;
                     aZ += tDirection.offsetZ;
-                    if (GT_Utility.isBlockAir(aWorld, aX, aY, aZ) && aPlayer.canPlayerEdit(aX, aY, aZ, ordinalSide, aStack)) {
+                    if (GT_Utility.isBlockAir(aWorld, aX, aY, aZ)
+                            && aPlayer.canPlayerEdit(aX, aY, aZ, ordinalSide, aStack)) {
                         Logger.WARNING("Preparing Lighter b");
                         if (this.prepare(aStack) || aPlayer.capabilities.isCreativeMode) {
                             Logger.WARNING("Preparing Lighter c");

@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.items.GT_MetaBase_Item;
 import gregtech.api.util.GT_LanguageManager;
@@ -13,7 +14,6 @@ import gregtech.common.items.behaviors.Behaviour_Wrench;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class Behaviour_Choocher extends Behaviour_None {
 
@@ -54,8 +54,7 @@ public class Behaviour_Choocher extends Behaviour_None {
             return true;
         } else {
             if (inWrenchMode) {
-                return this.wrench
-                        .onItemUseFirst(aItem, aStack, aPlayer, aWorld, aX, aY, aZ, side, hitZ, hitZ, hitZ);
+                return this.wrench.onItemUseFirst(aItem, aStack, aPlayer, aWorld, aX, aY, aZ, side, hitZ, hitZ, hitZ);
             } else {
                 return this.prospecting
                         .onItemUseFirst(aItem, aStack, aPlayer, aWorld, aX, aY, aZ, side, hitX, hitY, hitZ);

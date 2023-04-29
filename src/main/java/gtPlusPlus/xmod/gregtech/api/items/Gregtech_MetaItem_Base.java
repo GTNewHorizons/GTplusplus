@@ -222,7 +222,8 @@ public abstract class Gregtech_MetaItem_Base extends Gregtech_Generic_Item
         if (tList != null) {
             for (final Interface_ItemBehaviour<Gregtech_MetaItem_Base> tBehavior : tList) {
                 try {
-                    if (tBehavior.onItemUseFirst(this, aStack, aPlayer, aWorld, aX, aY, aZ, ordinalSide, hitX, hitY, hitZ)) {
+                    if (tBehavior
+                            .onItemUseFirst(this, aStack, aPlayer, aWorld, aX, aY, aZ, ordinalSide, hitX, hitY, hitZ)) {
                         if (aStack.stackSize <= 0) {
                             aPlayer.destroyCurrentEquippedItem();
                         }

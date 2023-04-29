@@ -1,31 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.render;
 
-import gregtech.api.metatileentity.BaseMetaPipeEntity;
-import gregtech.api.metatileentity.MetaPipeEntity;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.IBlockAccess;
-
-import net.minecraftforge.common.util.ForgeDirection;
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.ITexture;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IPipeRenderedTileEntity;
-import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
-import gregtech.common.blocks.GT_Block_Machines;
-import gregtech.common.render.GT_Renderer_Block;
-import gtPlusPlus.xmod.gregtech.common.blocks.GTPP_Block_Machines;
-import gtPlusPlus.xmod.gregtech.common.helpers.GT_MethodHelper;
-
-import java.util.EnumMap;
-import java.util.EnumSet;
-
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_DOWN;
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_EAST;
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_NORTH;
@@ -41,6 +15,31 @@ import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
 import static net.minecraftforge.common.util.ForgeDirection.UP;
 import static net.minecraftforge.common.util.ForgeDirection.WEST;
 
+import java.util.EnumMap;
+import java.util.EnumSet;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.interfaces.tileentity.IPipeRenderedTileEntity;
+import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
+import gregtech.api.metatileentity.MetaPipeEntity;
+import gregtech.common.blocks.GT_Block_Machines;
+import gregtech.common.render.GT_Renderer_Block;
+import gtPlusPlus.xmod.gregtech.common.blocks.GTPP_Block_Machines;
+import gtPlusPlus.xmod.gregtech.common.helpers.GT_MethodHelper;
+
 public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
 
     public static GTPP_Render_MachineBlock INSTANCE;
@@ -51,14 +50,14 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
         RenderingRegistry.registerBlockHandler(this);
     }
 
-    private static ITexture[] getTexture(IMetaTileEntity tile, ForgeDirection side, ForgeDirection facing, int colorIndex, boolean active,
-            boolean arg5) {
+    private static ITexture[] getTexture(IMetaTileEntity tile, ForgeDirection side, ForgeDirection facing,
+            int colorIndex, boolean active, boolean arg5) {
         final IGregTechTileEntity gtTile = tile.getBaseMetaTileEntity();
         return tile.getTexture(gtTile, side, facing, (byte) colorIndex, active, arg5);
     }
 
-    private static ITexture[] getTexture(IMetaTileEntity tile, ForgeDirection side, int facingMask, int colorIndex, boolean active,
-                                         boolean arg5) {
+    private static ITexture[] getTexture(IMetaTileEntity tile, ForgeDirection side, int facingMask, int colorIndex,
+            boolean active, boolean arg5) {
         final MetaPipeEntity gtTile = (MetaPipeEntity) tile.getBaseMetaTileEntity();
         return gtTile.getTexture((IGregTechTileEntity) tile, side, facingMask, colorIndex, active, arg5);
     }
@@ -304,144 +303,624 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
                         case NO_CONNECTION -> {
                             aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                             aRenderer.setRenderBoundsFromBlock(aBlock);
-                            renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                            renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                            renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                            renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
-                            renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                            renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                            renderNegativeYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(DOWN),
+                                    false);
+                            renderPositiveYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(UP),
+                                    false);
+                            renderNegativeZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(NORTH),
+                                    false);
+                            renderPositiveZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(SOUTH),
+                                    false);
+                            renderNegativeXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(WEST),
+                                    false);
+                            renderPositiveXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(EAST),
+                                    false);
                         }
                         case (CONNECTED_DOWN | CONNECTED_UP) -> {
                             aBlock.setBlockBounds(0.0F, sp, sp, 1.0F, sp + tThickness, sp + tThickness);
                             aRenderer.setRenderBoundsFromBlock(aBlock);
-                            renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                            renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                            renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                            renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                            renderNegativeYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(DOWN),
+                                    false);
+                            renderPositiveYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(UP),
+                                    false);
+                            renderNegativeZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(NORTH),
+                                    false);
+                            renderPositiveZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(SOUTH),
+                                    false);
                             if (!coveredSides.contains(WEST)) {
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
                             }
                             if (!coveredSides.contains(EAST)) {
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                             }
                         }
                         case (CONNECTED_NORTH | CONNECTED_SOUTH) -> {
                             aBlock.setBlockBounds(sp, 0.0F, sp, sp + tThickness, 1.0F, sp + tThickness);
                             aRenderer.setRenderBoundsFromBlock(aBlock);
-                            renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                            renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
-                            renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                            renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                            renderNegativeZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(NORTH),
+                                    false);
+                            renderPositiveZFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(SOUTH),
+                                    false);
+                            renderNegativeXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(WEST),
+                                    false);
+                            renderPositiveXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(EAST),
+                                    false);
                             if (!coveredSides.contains(DOWN)) {
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
                             }
                             if (!coveredSides.contains(UP)) {
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
                             }
                         }
                         case (CONNECTED_WEST | CONNECTED_EAST) -> {
                             aBlock.setBlockBounds(sp, sp, 0.0F, sp + tThickness, sp + tThickness, 1.0F);
                             aRenderer.setRenderBoundsFromBlock(aBlock);
-                            renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                            renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                            renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                            renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                            renderNegativeYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(DOWN),
+                                    false);
+                            renderPositiveYFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(UP),
+                                    false);
+                            renderNegativeXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(WEST),
+                                    false);
+                            renderPositiveXFacing(
+                                    aWorld,
+                                    aRenderer,
+                                    aBlock,
+                                    aX,
+                                    aY,
+                                    aZ,
+                                    textureUncovered.get(EAST),
+                                    false);
                             if (!coveredSides.contains(NORTH)) {
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
                             }
                             if (!coveredSides.contains(SOUTH)) {
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
                             }
                         }
                         default -> {
                             if ((connexionSidesBits & CONNECTED_DOWN) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(0.0F, sp, sp, sp, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
                                 if (!coveredSides.contains(WEST)) {
-                                    renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
+                                    renderNegativeXFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(WEST),
+                                            false);
                                 }
                             }
                             if ((connexionSidesBits & CONNECTED_UP) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(sp + tThickness, sp, sp, 1.0F, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
                                 if (!coveredSides.contains(EAST)) {
-                                    renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                    renderPositiveXFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(EAST),
+                                            false);
                                 }
                             }
                             if ((connexionSidesBits & CONNECTED_NORTH) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(sp, 0.0F, sp, sp + tThickness, sp, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                                 if (!coveredSides.contains(DOWN)) {
-                                    renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
+                                    renderNegativeYFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(DOWN),
+                                            false);
                                 }
                             }
                             if ((connexionSidesBits & CONNECTED_SOUTH) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(sp, sp + tThickness, sp, sp + tThickness, 1.0F, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                                 if (!coveredSides.contains(UP)) {
-                                    renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
+                                    renderPositiveYFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(UP),
+                                            false);
                                 }
                             }
                             if ((connexionSidesBits & CONNECTED_WEST) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
+                                renderNegativeZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(NORTH),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(sp, sp, 0.0F, sp + tThickness, sp + tThickness, sp);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                                 if (!coveredSides.contains(NORTH)) {
-                                    renderNegativeZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(NORTH), false);
+                                    renderNegativeZFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(NORTH),
+                                            false);
                                 }
                             }
                             if ((connexionSidesBits & CONNECTED_EAST) == 0) {
                                 aBlock.setBlockBounds(sp, sp, sp, sp + tThickness, sp + tThickness, sp + tThickness);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                                renderPositiveZFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(SOUTH),
+                                        false);
                             } else {
                                 aBlock.setBlockBounds(sp, sp, sp + tThickness, sp + tThickness, sp + tThickness, 1.0F);
                                 aRenderer.setRenderBoundsFromBlock(aBlock);
-                                renderNegativeYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(DOWN), false);
-                                renderPositiveYFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(UP), false);
-                                renderNegativeXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(WEST), false);
-                                renderPositiveXFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(EAST), false);
+                                renderNegativeYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(DOWN),
+                                        false);
+                                renderPositiveYFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(UP),
+                                        false);
+                                renderNegativeXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(WEST),
+                                        false);
+                                renderPositiveXFacing(
+                                        aWorld,
+                                        aRenderer,
+                                        aBlock,
+                                        aX,
+                                        aY,
+                                        aZ,
+                                        textureUncovered.get(EAST),
+                                        false);
                                 if (!coveredSides.contains(SOUTH)) {
-                                    renderPositiveZFacing(aWorld, aRenderer, aBlock, aX, aY, aZ, textureUncovered.get(SOUTH), false);
+                                    renderPositiveZFacing(
+                                            aWorld,
+                                            aRenderer,
+                                            aBlock,
+                                            aX,
+                                            aY,
+                                            aZ,
+                                            textureUncovered.get(SOUTH),
+                                            false);
                                 }
                             }
                         }

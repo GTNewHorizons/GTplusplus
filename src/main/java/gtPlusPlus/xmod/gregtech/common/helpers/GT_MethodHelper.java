@@ -2,11 +2,11 @@ package gtPlusPlus.xmod.gregtech.common.helpers;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Textures.BlockIcons;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MethodHelper {
 

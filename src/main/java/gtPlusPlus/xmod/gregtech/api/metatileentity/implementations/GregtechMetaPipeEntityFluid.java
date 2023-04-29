@@ -1,6 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.OrePrefixes;
@@ -11,7 +12,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Fluid;
 import gregtech.api.render.TextureFactory;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaPipeEntityFluid extends GT_MetaPipeEntity_Fluid {
 
@@ -73,9 +73,12 @@ public class GregtechMetaPipeEntityFluid extends GT_MetaPipeEntity_Fluid {
         int[][] sRestrictionArray = { { 2, 3, 5, 4 }, { 2, 3, 4, 5 }, { 1, 0, 4, 5 }, { 1, 0, 4, 5 }, { 1, 0, 2, 3 },
                 { 1, 0, 2, 3 } };
         if (side != ForgeDirection.UNKNOWN) {
-            for (byte i = 0; i < 4; i++) if (isInputDisabledAtSide(ForgeDirection.getOrientation(sRestrictionArray[side.ordinal()][i]))) tMask |= 1 << i;
+            for (byte i = 0; i < 4; i++)
+                if (isInputDisabledAtSide(ForgeDirection.getOrientation(sRestrictionArray[side.ordinal()][i])))
+                    tMask |= 1 << i;
             // Full block size renderer flips side 5 and 2 textures, flip restrictor textures to compensate
-            if (side == ForgeDirection.EAST || side == ForgeDirection.UP) if (tMask > 3 && tMask < 12) tMask = (byte) (tMask ^ 12);
+            if (side == ForgeDirection.EAST || side == ForgeDirection.UP)
+                if (tMask > 3 && tMask < 12) tMask = (byte) (tMask ^ 12);
         }
         return new ITexture[] { aConnected ? getBaseTexture(tThickNess, mPipeAmount, mMaterial, aColorIndex)
                 : TextureFactory.of(

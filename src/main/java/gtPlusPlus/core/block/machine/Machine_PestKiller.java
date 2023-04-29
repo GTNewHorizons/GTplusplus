@@ -25,7 +25,6 @@ import gtPlusPlus.core.handler.GuiHandler;
 import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.util.minecraft.InventoryUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
 

@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.CubicObject;
@@ -18,7 +19,6 @@ import gtPlusPlus.core.item.base.itemblock.ItemBlockRoundRobinator;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class Machine_RoundRobinator extends BasicTileBlockWithTooltip {
 

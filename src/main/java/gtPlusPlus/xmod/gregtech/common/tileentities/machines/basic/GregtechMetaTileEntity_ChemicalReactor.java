@@ -92,7 +92,8 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return (super.allowPutStack(aBaseMetaTileEntity, aIndex, side, aStack))
                 && (getRecipeList().containsInput(aStack));
     }
@@ -281,15 +282,9 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
                 if (tTank != null) {
                     FluidStack tDrained = this.drain(1000, false);
                     if (tDrained != null) {
-                        int tFilledAmount = tTank.fill(
-                                aBaseMetaTileEntity.getBackFacing(),
-                                tDrained,
-                                false);
+                        int tFilledAmount = tTank.fill(aBaseMetaTileEntity.getBackFacing(), tDrained, false);
                         if (tFilledAmount > 0) {
-                            tTank.fill(
-                                    aBaseMetaTileEntity.getBackFacing(),
-                                    this.drain(tFilledAmount, true),
-                                    true);
+                            tTank.fill(aBaseMetaTileEntity.getBackFacing(), this.drain(tFilledAmount, true), true);
                         }
                     }
                 }
@@ -463,7 +458,8 @@ public class GregtechMetaTileEntity_ChemicalReactor extends GT_MetaTileEntity_Ba
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return super.allowPullStack(aBaseMetaTileEntity, aIndex, side, aStack);
     }
 

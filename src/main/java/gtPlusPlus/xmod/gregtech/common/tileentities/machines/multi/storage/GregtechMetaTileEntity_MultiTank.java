@@ -73,8 +73,8 @@
     * "Each casing within the structure adds 128000L storage.", "Multitank Exterior Casings (16 at least!)",
     * "Controller (front centered)", "1x Input hatch", "1x Output hatch", "1x Energy Hatch", }; }
     * @Override public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final byte aSide, final byte
-    * aFacing, final int aColorIndex, final boolean aActive, final boolean aRedstone) { if (side == facing) { return
-    * new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(11)), new GT_RenderedTexture(aActive ?
+    * aFacing, final int aColorIndex, final boolean aActive, final boolean aRedstone) { if (side == facing) { return new
+    * ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(11)), new GT_RenderedTexture(aActive ?
     * TexturesGtBlock.Overlay_Machine_Screen_Logo : TexturesGtBlock.Overlay_Machine_Screen_Logo)}; } return new
     * ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(11))}; }
     * @Override public GT_Recipe.GT_Recipe_Map getRecipeMap() { return null; }

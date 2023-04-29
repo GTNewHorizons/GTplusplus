@@ -266,12 +266,8 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
         final ForgeDirection side = ForgeDirection.getOrientation(ordinalSide);
         if (canAccessData() && (getCoverBehaviorAtSide(side)
                 .letsItemsOut(side, getCoverIDAtSide(side), getCoverDataAtSide(side), -1, this)
-                || getCoverBehaviorAtSide(side).letsItemsIn(
-                        side,
-                        getCoverIDAtSide(side),
-                        getCoverDataAtSide(side),
-                        -1,
-                        this)))
+                || getCoverBehaviorAtSide(side)
+                        .letsItemsIn(side, getCoverIDAtSide(side), getCoverDataAtSide(side), -1, this)))
             return mInventory.getAccessibleSlotsFromSide(ordinalSide);
         return new int[0];
     }
@@ -283,12 +279,8 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     public boolean canInsertItem(int aIndex, ItemStack aStack, int ordinalSide) {
         final ForgeDirection side = ForgeDirection.getOrientation(ordinalSide);
         return canAccessData() && (mRunningThroughTick || !mInputDisabled)
-                && getCoverBehaviorAtSide(side).letsItemsIn(
-                        side,
-                        getCoverIDAtSide(side),
-                        getCoverDataAtSide(side),
-                        aIndex,
-                        this)
+                && getCoverBehaviorAtSide(side)
+                        .letsItemsIn(side, getCoverIDAtSide(side), getCoverDataAtSide(side), aIndex, this)
                 && mInventory.canInsertItem(aIndex, aStack, ordinalSide);
     }
 
@@ -299,12 +291,8 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     public boolean canExtractItem(int aIndex, ItemStack aStack, int ordinalSide) {
         final ForgeDirection side = ForgeDirection.getOrientation(ordinalSide);
         return canAccessData() && (mRunningThroughTick || !mOutputDisabled)
-                && getCoverBehaviorAtSide(side).letsItemsOut(
-                        side,
-                        getCoverIDAtSide(side),
-                        getCoverDataAtSide(side),
-                        aIndex,
-                        this)
+                && getCoverBehaviorAtSide(side)
+                        .letsItemsOut(side, getCoverIDAtSide(side), getCoverDataAtSide(side), aIndex, this)
                 && mInventory.canExtractItem(aIndex, aStack, ordinalSide);
     }
 
@@ -429,14 +417,16 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     public boolean inputEnergyFrom(ForgeDirection side) {
         return side == ForgeDirection.UNKNOWN ? true
                 : (!this.isServerSide() ? this.isEnergyInputSide(side)
-                        : side != ForgeDirection.UNKNOWN && this.mActiveEUInputs[side.ordinal()] && !this.mReleaseEnergy);
+                        : side != ForgeDirection.UNKNOWN && this.mActiveEUInputs[side.ordinal()]
+                                && !this.mReleaseEnergy);
     }
 
     @Override
     public boolean outputsEnergyTo(ForgeDirection side) {
         return side == ForgeDirection.UNKNOWN ? true
                 : (!this.isServerSide() ? this.isEnergyOutputSide(side)
-                        : side != ForgeDirection.UNKNOWN && this.mActiveEUOutputs[side.ordinal()] || this.mReleaseEnergy);
+                        : side != ForgeDirection.UNKNOWN && this.mActiveEUOutputs[side.ordinal()]
+                                || this.mReleaseEnergy);
     }
 
     private boolean isEnergyInputSide(ForgeDirection side) {
@@ -606,14 +596,17 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 this.getOffsetY(side, aDistance),
                 this.getOffsetZ(side, aDistance));
     }
+
     @Override
     public final boolean getOpacityOffset(int aX, int aY, int aZ) {
         return this.getOpacity(this.xCoord + aX, this.yCoord + aY, this.zCoord + aZ);
     }
+
     @Override
     public final boolean getOpacityAtSide(ForgeDirection side) {
         return this.getOpacityAtSideAndDistance(side, 1);
     }
+
     @Override
     public final boolean getOpacityAtSideAndDistance(ForgeDirection side, int aDistance) {
         return this.getOpacity(
@@ -621,10 +614,12 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 this.getOffsetY(side, aDistance),
                 this.getOffsetZ(side, aDistance));
     }
+
     @Override
     public final boolean getSkyOffset(int aX, int aY, int aZ) {
         return this.getSky(this.xCoord + aX, this.yCoord + aY, this.zCoord + aZ);
     }
+
     @Override
     public final boolean getSkyAtSide(ForgeDirection side) {
         return this.getSkyAtSideAndDistance(side, 1);
@@ -637,14 +632,17 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 this.getOffsetY(side, aDistance),
                 this.getOffsetZ(side, aDistance));
     }
+
     @Override
     public final boolean getAirOffset(int aX, int aY, int aZ) {
         return this.getAir(this.xCoord + aX, this.yCoord + aY, this.zCoord + aZ);
     }
+
     @Override
     public final boolean getAirAtSide(ForgeDirection side) {
         return this.getAirAtSideAndDistance(side, 1);
     }
+
     @Override
     public final boolean getAirAtSideAndDistance(ForgeDirection side, int aDistance) {
         return this.getAir(
@@ -652,6 +650,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 this.getOffsetY(side, aDistance),
                 this.getOffsetZ(side, aDistance));
     }
+
     @Override
     public final TileEntity getTileEntityOffset(int aX, int aY, int aZ) {
         return this.getTileEntity(this.xCoord + aX, this.yCoord + aY, this.zCoord + aZ);
@@ -713,21 +712,25 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
         TileEntity tTileEntity = this.getTileEntityAtSideAndDistance(side, aDistance);
         return tTileEntity instanceof IFluidHandler ? (IFluidHandler) tTileEntity : null;
     }
+
     @Override
     public final IGregTechTileEntity getIGregTechTileEntity(int aX, int aY, int aZ) {
         TileEntity tTileEntity = this.getTileEntity(aX, aY, aZ);
         return tTileEntity instanceof IGregTechTileEntity ? (IGregTechTileEntity) tTileEntity : null;
     }
+
     @Override
     public final IGregTechTileEntity getIGregTechTileEntityOffset(int aX, int aY, int aZ) {
         TileEntity tTileEntity = this.getTileEntityOffset(aX, aY, aZ);
         return tTileEntity instanceof IGregTechTileEntity ? (IGregTechTileEntity) tTileEntity : null;
     }
+
     @Override
     public final IGregTechTileEntity getIGregTechTileEntityAtSide(ForgeDirection side) {
         TileEntity tTileEntity = this.getTileEntityAtSide(side);
         return tTileEntity instanceof IGregTechTileEntity ? (IGregTechTileEntity) tTileEntity : null;
     }
+
     @Override
     public final IGregTechTileEntity getIGregTechTileEntityAtSideAndDistance(ForgeDirection side, int aDistance) {
         TileEntity tTileEntity = this.getTileEntityAtSideAndDistance(side, aDistance);
@@ -809,8 +812,11 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
                 this.mBufferedTileEntities[ordinalSide] = null;
                 return this.getTileEntityAtSide(side);
             } else {
-                return this.mBufferedTileEntities[ordinalSide].xCoord == tX && this.mBufferedTileEntities[ordinalSide].yCoord == tY
-                        && this.mBufferedTileEntities[ordinalSide].zCoord == tZ ? this.mBufferedTileEntities[ordinalSide] : null;
+                return this.mBufferedTileEntities[ordinalSide].xCoord == tX
+                        && this.mBufferedTileEntities[ordinalSide].yCoord == tY
+                        && this.mBufferedTileEntities[ordinalSide].zCoord == tZ
+                                ? this.mBufferedTileEntities[ordinalSide]
+                                : null;
             }
         } else {
             return null;
@@ -883,7 +889,8 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     @Override
     public byte getInputRedstoneSignal(ForgeDirection side) {
         return (byte) (worldObj
-                .getIndirectPowerLevelTo(getOffsetX(side, 1), getOffsetY(side, 1), getOffsetZ(side, 1), side.ordinal()) & 15);
+                .getIndirectPowerLevelTo(getOffsetX(side, 1), getOffsetY(side, 1), getOffsetZ(side, 1), side.ordinal())
+                & 15);
     }
 
     @Override
@@ -1076,7 +1083,8 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     @Override
     public byte getStrongOutputRedstoneSignal(ForgeDirection side) {
         final int ordinalSide = side.ordinal();
-        return side != ForgeDirection.UNKNOWN && (mStrongRedstone & (1 << ordinalSide)) != 0 ? (byte) (mSidedRedstone[ordinalSide] & 15)
+        return side != ForgeDirection.UNKNOWN && (mStrongRedstone & (1 << ordinalSide)) != 0
+                ? (byte) (mSidedRedstone[ordinalSide] & 15)
                 : 0;
     }
 
@@ -1125,7 +1133,6 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
         }
         return false;
     }
-
 
     public double getOutputEnergyUnitsPerTick() {
         return oOutput;

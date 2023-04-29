@@ -265,7 +265,6 @@ public abstract class GregtechMetaTileEntity_BedrockMiningPlatformBase extends G
                             }
                             ++tAmount;
 
-
                         }
                     }
                 }

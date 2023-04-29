@@ -15,8 +15,8 @@
  * aFacing, final int aColorIndex, final boolean aActive, final boolean aRedstone) { if (aSide ==
  * this.getBaseMetaTileEntity().getBackFacing()) { return new
  * ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(10)),
- * Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[(int) this.getInputTier()]}; } if (side == ForgeDirection.UP) { return new
- * ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(10)),
+ * Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[(int) this.getInputTier()]}; } if (side == ForgeDirection.UP) { return
+ * new ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(10)),
  * Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[(int) this.getOutputTier()]}; } if (side == facing) { return new
  * ITexture[]{Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(10)), new GT_RenderedTexture(aActive ?
  * Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER)}; } return
@@ -77,8 +77,8 @@
  * @Override public boolean isElectric() { return true; }
  * @Override public boolean isEnetInput() { return true; }
  * @Override public boolean isEnetOutput() { return false; }
- * @Override public boolean isInputFacing(ForgeDirection side) { return (aSide == this.getBaseMetaTileEntity().getBackFacing());
- * }
+ * @Override public boolean isInputFacing(ForgeDirection side) { return (aSide ==
+ * this.getBaseMetaTileEntity().getBackFacing()); }
  * @Override public boolean isOutputFacing(ForgeDirection side) { return side == ForgeDirection.UP; }
  * @Override public long maxAmperesIn() { return 32; }
  * @Override public long maxAmperesOut() { return 1; }

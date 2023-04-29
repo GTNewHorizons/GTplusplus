@@ -135,16 +135,19 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing, int aColorIndex,
-            boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing,
+            int aColorIndex, boolean aActive, boolean aRedstone) {
         return mTextures[mMainFacing.offsetY != 0
                 ? side == facing ? aActive ? 2 : 3
-                        : side == ForgeDirection.DOWN ? aActive ? 6 : 7 : side == ForgeDirection.UP ? aActive ? 4 : 5 : aActive ? 0 : 1
+                        : side == ForgeDirection.DOWN ? aActive ? 6 : 7
+                                : side == ForgeDirection.UP ? aActive ? 4 : 5 : aActive ? 0 : 1
                 : side == mMainFacing ? aActive ? 2 : 3
                         : (showPipeFacing() && side == facing)
-                                ? side == ForgeDirection.DOWN ? aActive ? 8 : 9 : side == ForgeDirection.UP ? aActive ? 10 : 11 : aActive ? 12 : 13
+                                ? side == ForgeDirection.DOWN ? aActive ? 8 : 9
+                                        : side == ForgeDirection.UP ? aActive ? 10 : 11 : aActive ? 12 : 13
                                 : side == ForgeDirection.DOWN ? aActive ? 6 : 7
-                                        : side == ForgeDirection.UP ? aActive ? 4 : 5 : aActive ? 0 : 1][aColorIndex + 1];
+                                        : side == ForgeDirection.UP ? aActive ? 4 : 5 : aActive ? 0 : 1][aColorIndex
+                                                + 1];
     }
 
     @Override
@@ -457,14 +460,9 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
                 if (tTank != null) {
                     FluidStack tDrained = drain(1000, false);
                     if (tDrained != null) {
-                        int tFilledAmount = tTank.fill(
-                                aBaseMetaTileEntity.getBackFacing(),
-                                tDrained,
-                                false);
-                        if (tFilledAmount > 0) tTank.fill(
-                                aBaseMetaTileEntity.getBackFacing(),
-                                drain(tFilledAmount, true),
-                                true);
+                        int tFilledAmount = tTank.fill(aBaseMetaTileEntity.getBackFacing(), tDrained, false);
+                        if (tFilledAmount > 0)
+                            tTank.fill(aBaseMetaTileEntity.getBackFacing(), drain(tFilledAmount, true), true);
                     }
                 }
                 if (getDrainableStack() == null) tRemovedOutputFluid = true;
@@ -761,12 +759,14 @@ public abstract class GT_MetaTileEntity_DeluxeMachine extends GT_MetaTileEntity_
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return side != mMainFacing && aIndex >= getOutputSlot() && aIndex < getOutputSlot() + mOutputItems.length;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         if (side == mMainFacing || aIndex < getInputSlot()
                 || aIndex >= getInputSlot() + mInputSlotCount
                 || (!mAllowInputFromOutputSide && side == aBaseMetaTileEntity.getFrontFacing()))

@@ -8,6 +8,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.OrePrefixes;
@@ -24,7 +25,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_RenderedTexture;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
 
@@ -142,7 +142,6 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
                 final int colour, final int miningLevel) {
             super(unlocalizedName, blockMaterial, vanillaMaterial, blockType, colour, miningLevel);
         }
-
 
         @Override
         public boolean canCreatureSpawn(final EnumCreatureType type, final IBlockAccess world, final int x, final int y,

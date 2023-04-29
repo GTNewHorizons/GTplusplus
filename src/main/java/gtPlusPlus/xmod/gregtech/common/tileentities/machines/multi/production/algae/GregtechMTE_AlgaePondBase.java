@@ -12,7 +12,6 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
@@ -221,10 +220,8 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
 
         // if (aBaseMetaTileEntity.fac)
 
-        final int xDir = aBaseMetaTileEntity.getBackFacing().offsetX
-                * mCurrentDirectionX;
-        final int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ
-                * mCurrentDirectionZ;
+        final int xDir = aBaseMetaTileEntity.getBackFacing().offsetX * mCurrentDirectionX;
+        final int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ * mCurrentDirectionZ;
 
         int tAmount = 0;
         for (int i = mOffsetX_Lower + 1; i <= mOffsetX_Upper - 1; ++i) {

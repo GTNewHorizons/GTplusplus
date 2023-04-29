@@ -1,5 +1,12 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.automation;
 
+import static net.minecraftforge.common.util.ForgeDirection.DOWN;
+import static net.minecraftforge.common.util.ForgeDirection.EAST;
+import static net.minecraftforge.common.util.ForgeDirection.NORTH;
+import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
+import static net.minecraftforge.common.util.ForgeDirection.UP;
+import static net.minecraftforge.common.util.ForgeDirection.WEST;
+
 import java.util.ArrayList;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,13 +42,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
 
 public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntity_TieredMachineBlock
         implements IAddGregtechLogo, IAddUIWidgets {
@@ -228,7 +228,7 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
     }
 
     public ForgeDirection getSlot2Direction(int aIndex) {
-        return ForgeDirection.getOrientation ((mSlotRange[aIndex] & 896) >> 7);
+        return ForgeDirection.getOrientation((mSlotRange[aIndex] & 896) >> 7);
     }
 
     public ForgeDirection getSlot3Direction(int aIndex) {
@@ -262,8 +262,7 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
             mWorkedLastTick = false;
 
             IInventory[] tTileEntities = new IInventory[] { getBaseMetaTileEntity().getIInventoryAtSide(DOWN),
-                    getBaseMetaTileEntity().getIInventoryAtSide(UP),
-                    getBaseMetaTileEntity().getIInventoryAtSide(NORTH),
+                    getBaseMetaTileEntity().getIInventoryAtSide(UP), getBaseMetaTileEntity().getIInventoryAtSide(NORTH),
                     getBaseMetaTileEntity().getIInventoryAtSide(SOUTH),
                     getBaseMetaTileEntity().getIInventoryAtSide(WEST),
                     getBaseMetaTileEntity().getIInventoryAtSide(EAST), null, null };
@@ -441,19 +440,20 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
         return new String[] { "It's simpler than you think. I promise.", this.mDescription, CORE.GT_Tooltip.get() };
     }
 
-
     @Override
     public boolean allowCoverOnSide(ForgeDirection side, GT_ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return true;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return true;
     }
 
@@ -478,8 +478,8 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return this.mTextures[!aRedstone ? side.ordinal() : side.ordinal() + 6][aColorIndex < 0 ? 0 : aColorIndex];
     }
 

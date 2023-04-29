@@ -7,8 +7,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-
 import net.minecraftforge.common.util.ForgeDirection;
+
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -250,27 +250,75 @@ public class CustomOreBlockRenderer implements ISimpleBlockRenderingHandler {
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(0.0F, -1.0F, 0.0F);
-        renderNegativeYFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.DOWN), true);
+        renderNegativeYFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.DOWN),
+                true);
         Tessellator.instance.draw();
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(0.0F, 1.0F, 0.0F);
-        renderPositiveYFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.UP), true);
+        renderPositiveYFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.UP),
+                true);
         Tessellator.instance.draw();
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(0.0F, 0.0F, -1.0F);
-        renderNegativeZFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.NORTH), true);
+        renderNegativeZFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.NORTH),
+                true);
         Tessellator.instance.draw();
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(0.0F, 0.0F, 1.0F);
-        renderPositiveZFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.SOUTH), true);
+        renderPositiveZFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.SOUTH),
+                true);
         Tessellator.instance.draw();
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(-1.0F, 0.0F, 0.0F);
-        renderNegativeXFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.WEST), true);
+        renderNegativeXFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.WEST),
+                true);
         Tessellator.instance.draw();
         Tessellator.instance.startDrawingQuads();
         Tessellator.instance.setNormal(1.0F, 0.0F, 0.0F);
-        renderPositiveXFacing(null, aRenderer, aBlock, 0, 0, 0, ((ITexturedBlock) aBlock).getTexture(ForgeDirection.EAST), true);
+        renderPositiveXFacing(
+                null,
+                aRenderer,
+                aBlock,
+                0,
+                0,
+                0,
+                ((ITexturedBlock) aBlock).getTexture(ForgeDirection.EAST),
+                true);
         Tessellator.instance.draw();
         aBlock.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         aRenderer.setRenderBoundsFromBlock(aBlock);

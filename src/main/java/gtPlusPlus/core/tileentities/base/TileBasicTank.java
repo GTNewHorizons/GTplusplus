@@ -61,7 +61,6 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
         return mTank.drain(maxDrain, doDrain);
     }
 
-
     public boolean isLiquidInput(ForgeDirection side) {
         return true;
     }
@@ -74,9 +73,9 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     public int fill(ForgeDirection side, FluidStack aFluid, boolean doFill) {
         if (mTickTimer > 5 && canAccessData()
                 && (mRunningThroughTick || !mInputDisabled)
-                && (side == ForgeDirection.UNKNOWN || (this.isLiquidInput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidIn(
-                side,
+                && (side == ForgeDirection.UNKNOWN
+                        || (this.isLiquidInput(side) && getCoverBehaviorAtSide(side).letsFluidIn(
+                                side,
                                 getCoverIDAtSide(side),
                                 getCoverDataAtSide(side),
                                 aFluid == null ? null : aFluid.getFluid(),
@@ -89,8 +88,8 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     public FluidStack drain(ForgeDirection side, int maxDrain, boolean doDrain) {
         if (mTickTimer > 5 && canAccessData()
                 && (mRunningThroughTick || !mOutputDisabled)
-                && (side == ForgeDirection.UNKNOWN || (this.isLiquidOutput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidOut(
+                && (side == ForgeDirection.UNKNOWN
+                        || (this.isLiquidOutput(side) && getCoverBehaviorAtSide(side).letsFluidOut(
                                 side,
                                 getCoverIDAtSide(side),
                                 getCoverDataAtSide(side),
@@ -104,8 +103,8 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     public FluidStack drain(ForgeDirection side, FluidStack aFluid, boolean doDrain) {
         if (mTickTimer > 5 && canAccessData()
                 && (mRunningThroughTick || !mOutputDisabled)
-                && (side == ForgeDirection.UNKNOWN || (this.isLiquidOutput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidOut(
+                && (side == ForgeDirection.UNKNOWN
+                        || (this.isLiquidOutput(side) && getCoverBehaviorAtSide(side).letsFluidOut(
                                 side,
                                 getCoverIDAtSide(side),
                                 getCoverDataAtSide(side),
@@ -119,13 +118,8 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     public boolean canFill(ForgeDirection side, Fluid aFluid) {
         if (mTickTimer > 5 && canAccessData()
                 && (mRunningThroughTick || !mInputDisabled)
-                && (side == ForgeDirection.UNKNOWN || (this.isLiquidInput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidIn(
-                                side,
-                                getCoverIDAtSide(side),
-                                getCoverDataAtSide(side),
-                                aFluid,
-                                this))))
+                && (side == ForgeDirection.UNKNOWN || (this.isLiquidInput(side) && getCoverBehaviorAtSide(side)
+                        .letsFluidIn(side, getCoverIDAtSide(side), getCoverDataAtSide(side), aFluid, this))))
             return this.canFillEx(side, aFluid);
         return false;
     }
@@ -134,13 +128,8 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     public boolean canDrain(ForgeDirection side, Fluid aFluid) {
         if (mTickTimer > 5 && canAccessData()
                 && (mRunningThroughTick || !mOutputDisabled)
-                && (side == ForgeDirection.UNKNOWN || (this.isLiquidOutput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidOut(
-                                side,
-                                getCoverIDAtSide(side),
-                                getCoverDataAtSide(side),
-                                aFluid,
-                                this))))
+                && (side == ForgeDirection.UNKNOWN || (this.isLiquidOutput(side) && getCoverBehaviorAtSide(side)
+                        .letsFluidOut(side, getCoverIDAtSide(side), getCoverDataAtSide(side), aFluid, this))))
             return this.canDrainEx(side, aFluid);
         return false;
     }
@@ -148,20 +137,10 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
     @Override
     public FluidTankInfo[] getTankInfo(ForgeDirection side) {
         if (canAccessData() && (side == ForgeDirection.UNKNOWN
-                || (this.isLiquidInput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidIn(
-                                side,
-                                getCoverIDAtSide(side),
-                                getCoverDataAtSide(side),
-                                null,
-                                this))
-                || (this.isLiquidOutput(side)
-                        && getCoverBehaviorAtSide(side).letsFluidOut(
-                                side,
-                                getCoverIDAtSide(side),
-                                getCoverDataAtSide(side),
-                                null,
-                                this))))
+                || (this.isLiquidInput(side) && getCoverBehaviorAtSide(side)
+                        .letsFluidIn(side, getCoverIDAtSide(side), getCoverDataAtSide(side), null, this))
+                || (this.isLiquidOutput(side) && getCoverBehaviorAtSide(side)
+                        .letsFluidOut(side, getCoverIDAtSide(side), getCoverDataAtSide(side), null, this))))
             return this.getTankInfoEx(side);
         return new FluidTankInfo[] {};
     }

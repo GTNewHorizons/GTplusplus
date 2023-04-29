@@ -16,8 +16,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-
-import Ic2ExpReactorPlanner.SimulationData;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.gtnewhorizons.modularui.api.ModularUITextures;
 import com.gtnewhorizons.modularui.api.forge.IItemHandlerModifiable;
@@ -31,6 +30,7 @@ import com.gtnewhorizons.modularui.common.widget.ProgressBar;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
 import com.gtnewhorizons.modularui.common.widget.TextWidget;
 
+import Ic2ExpReactorPlanner.SimulationData;
 import cpw.mods.fml.common.FMLCommonHandler;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
@@ -63,7 +63,6 @@ import gtPlusPlus.xmod.gregtech.api.gui.widget.DataStickSlotWidget;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Description;
 import gtPlusPlus.xmod.gregtech.common.computer.GT_Computercube_Simulator;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank implements IAddGregtechLogo {
 
@@ -127,7 +126,6 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
         return new String[] { this.mDescription, "Built in Reactor Planner", "Built in Scanner", "Built in Info-Bank",
                 "Displays Fusion Recipes", CORE.GT_Tooltip.get() };
     }
-
 
     @Override
     public boolean onRightclick(final IGregTechTileEntity aBaseMetaTileEntity, final EntityPlayer aPlayer) {
@@ -800,11 +798,11 @@ public class GT_TileEntity_ComputerCube extends GT_MetaTileEntity_BasicTank impl
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return this.mTextures[(side == facing ? 0
-                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
-                        + 1];
+                : side == facing.getOpposite() ? 1
+                        : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex + 1];
     }
 
     public ITexture[] getFront(final byte aColor) {
