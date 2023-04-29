@@ -3,13 +3,13 @@ package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.GregtechMetaTileEntity_IndustrialCentrifuge;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class TexturesCentrifugeMultiblock {
 
@@ -63,7 +63,8 @@ public class TexturesCentrifugeMultiblock {
         return this.handleCasingsGT58(aWorld, xCoord, yCoord, zCoord, side, thisBlock);
     }
 
-    private static int isCentrifugeControllerWithSide(IBlockAccess aWorld, int aX, int aY, int aZ, ForgeDirection side) {
+    private static int isCentrifugeControllerWithSide(IBlockAccess aWorld, int aX, int aY, int aZ,
+            ForgeDirection side) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (!(tTileEntity instanceof IGregTechTileEntity)) return 0;
         IGregTechTileEntity tTile = (IGregTechTileEntity) tTileEntity;

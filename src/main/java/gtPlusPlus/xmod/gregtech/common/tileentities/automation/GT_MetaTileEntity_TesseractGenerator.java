@@ -237,8 +237,8 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public void onScrewdriverRightClick(final ForgeDirection side, final EntityPlayer aPlayer, final float aX, final float aY,
-            final float aZ) {
+    public void onScrewdriverRightClick(final ForgeDirection side, final EntityPlayer aPlayer, final float aX,
+            final float aY, final float aZ) {
         if (aPlayer.getUniqueID().compareTo(this.mOwner) == 0) {
             if (side == this.getBaseMetaTileEntity().getFrontFacing()) {
                 final float[] tCoords = GT_Utility.getClickedFacingCoords(side, aX, aY, aZ);
@@ -628,14 +628,14 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
@@ -645,8 +645,8 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return side == facing
                 ? new ITexture[] { new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Dimensional),
                         new GT_RenderedTexture(TexturesGtBlock.Casing_Machine_Screen_Frequency) }

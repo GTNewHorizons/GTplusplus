@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-
 import net.minecraftforge.common.util.ForgeDirection;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
@@ -767,8 +767,8 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
-    public boolean onSolderingToolRightclick(ForgeDirection side, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
-            float aZ) {
+    public boolean onSolderingToolRightclick(ForgeDirection side, byte aWrenchingSide, EntityPlayer aPlayer, float aX,
+            float aY, float aZ) {
         this.mSaveRotor = Utils.invertBoolean(mSaveRotor);
         if (mSaveRotor) {
             PlayerUtils.messagePlayer(aPlayer, "Running in low efficiency mode, rotors will not break.");

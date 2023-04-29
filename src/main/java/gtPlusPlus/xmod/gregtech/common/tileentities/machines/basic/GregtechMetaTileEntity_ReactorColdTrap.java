@@ -70,7 +70,8 @@ public class GregtechMetaTileEntity_ReactorColdTrap extends GT_MetaTileEntity_Ba
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return (super.allowPutStack(aBaseMetaTileEntity, aIndex, side, aStack))
                 && (getRecipeList().containsInput(aStack));
     }

@@ -2,6 +2,7 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.GregTech_API;
@@ -18,7 +19,6 @@ import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntityGeothermalGenerator extends GT_MetaTileEntity_BasicGenerator {
 

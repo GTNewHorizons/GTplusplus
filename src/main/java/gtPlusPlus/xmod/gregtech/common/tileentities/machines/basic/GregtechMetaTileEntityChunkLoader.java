@@ -15,6 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.google.common.collect.MapMaker;
 
@@ -25,12 +26,10 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Utility;
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.core.chunkloading.GTPP_ChunkManager;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMachine {
 
@@ -112,11 +111,13 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
-                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
-                        + 1];
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0)
+                + (side == facing ? 0
+                        : side == facing.getOpposite() ? 1
+                                : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
+                                        + 1];
     }
 
     public ITexture[] getFront(final byte aColor) {
@@ -196,14 +197,14 @@ public class GregtechMetaTileEntityChunkLoader extends GT_MetaTileEntity_BasicMa
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 

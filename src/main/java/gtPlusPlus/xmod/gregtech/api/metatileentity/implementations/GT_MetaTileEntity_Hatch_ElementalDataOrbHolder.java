@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
@@ -25,7 +26,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileEntity_Hatch
         implements IConfigurationCircuitSupport {
@@ -134,7 +134,8 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         Logger.INFO("Checking if we can pull " + aStack.getDisplayName() + " from slot " + aIndex);
         if (aIndex == mInventory.length - 1 && ItemUtils.isControlCircuit(aStack)
                 && side == getBaseMetaTileEntity().getFrontFacing()) {
@@ -144,7 +145,8 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         Logger.INFO("Checking if we can put " + aStack.getDisplayName() + " into slot " + aIndex);
         if (aIndex == mInventory.length - 1 && ItemUtils.isControlCircuit(aStack)
                 && side == getBaseMetaTileEntity().getFrontFacing()) {

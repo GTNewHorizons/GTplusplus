@@ -22,6 +22,7 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
@@ -30,7 +31,6 @@ import gtPlusPlus.core.inventories.Inventory_RoundRobinator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityRoundRobinator extends TileEntity implements ISidedInventory, IHopper {
 
@@ -471,8 +471,9 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         return true;
     }
 
-    private static final EnumSet<ForgeDirection> VALID_SIDES = EnumSet.of(ForgeDirection.NORTH, ForgeDirection.SOUTH,
-            ForgeDirection.WEST, ForgeDirection.EAST);
+    private static final EnumSet<ForgeDirection> VALID_SIDES = EnumSet
+            .of(ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST);
+
     private boolean tryPushItemsIntoNeighbours() {
 
         boolean aDidPush = false;
@@ -493,7 +494,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
             } else {
                 final ForgeDirection oppositeSide = side.getOpposite();
 
-//                int i = Facing.oppositeSide[u];
+                // int i = Facing.oppositeSide[u];
                 Logger.WARNING("Using Opposite direction: " + oppositeSide);
 
                 if (this.isInventoryFull(iinventory, oppositeSide.ordinal())) {
@@ -504,7 +505,10 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
                     for (int j = 0; j < this.getSizeInventory(); ++j) {
                         if (this.getStackInSlot(j) != null) {
                             ItemStack itemstack = this.getStackInSlot(j).copy();
-                            ItemStack itemstack1 = setStackInNeighbour(iinventory, this.decrStackSize(j, 1), ordinalSide);
+                            ItemStack itemstack1 = setStackInNeighbour(
+                                    iinventory,
+                                    this.decrStackSize(j, 1),
+                                    ordinalSide);
                             if (itemstack1 == null || itemstack1.stackSize == 0) {
                                 iinventory.markDirty();
                                 aDidPush = true;
@@ -608,7 +612,10 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
 
     private IInventory getInventoryFromFacing(ForgeDirection side) {
         return tryFindInvetoryAtXYZ(
-                this.getWorldObj(), this.xCoord + side.offsetX, this.yCoord + side.offsetY, this.zCoord + side.offsetZ);
+                this.getWorldObj(),
+                this.xCoord + side.offsetX,
+                this.yCoord + side.offsetY,
+                this.zCoord + side.offsetZ);
     }
 
     public static IInventory tryFindInvetoryAtXYZ(World aWorld, double aX, double aY, double aZ) {

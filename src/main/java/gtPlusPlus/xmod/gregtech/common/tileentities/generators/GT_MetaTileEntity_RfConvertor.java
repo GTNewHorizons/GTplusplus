@@ -22,7 +22,6 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -77,8 +76,8 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing, int aColorIndex,
-            boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing,
+            int aColorIndex, boolean aActive, boolean aRedstone) {
         return mTextures[Math.min(2, side.ordinal()) + (side == facing ? 3 : 0) + (aActive ? 0 : 6)][aColorIndex + 1];
     }
 
@@ -150,7 +149,7 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
             }
             if (this.getEUVar() < this.maxEUStore()) {
                 for (final ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
-                    if(aBaseMetaTileEntity.getStoredEU() >= aBaseMetaTileEntity.getEUCapacity()) break;
+                    if (aBaseMetaTileEntity.getStoredEU() >= aBaseMetaTileEntity.getEUCapacity()) break;
                     if (isInputFacing(side)) {
                         receiveEnergy(side, Integer.MAX_VALUE, false);
                     }
@@ -161,14 +160,14 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
@@ -259,13 +258,10 @@ public class GT_MetaTileEntity_RfConvertor extends GregtechMetaEnergyBuffer impl
                 final ForgeDirection toSide = from.getOpposite();
                 byte aSide = (byte) from.ordinal();
                 Logger.WARNING("Free: " + aRemainingSpace + "EU");
-                if (tTileEntity instanceof IEnergyProvider && ((IEnergyProvider) tTileEntity)
-                        .extractEnergy(toSide, 1, true)
-                        == 1) {
-                    tEU = (long) ((IEnergyProvider) tTileEntity).extractEnergy(
-                            toSide,
-                            (int) maxEUOutput() * 100 / GregTech_API.mRFtoEU,
-                            false);
+                if (tTileEntity instanceof IEnergyProvider
+                        && ((IEnergyProvider) tTileEntity).extractEnergy(toSide, 1, true) == 1) {
+                    tEU = (long) ((IEnergyProvider) tTileEntity)
+                            .extractEnergy(toSide, (int) maxEUOutput() * 100 / GregTech_API.mRFtoEU, false);
                     Logger.WARNING("Drained from IEnergyProvider Tile: " + (tEU * 100 / GregTech_API.mRFtoEU) + "");
                     tEU = tEU * GregTech_API.mRFtoEU / 100;
                 } else if (tTileEntity instanceof IEnergyStorage

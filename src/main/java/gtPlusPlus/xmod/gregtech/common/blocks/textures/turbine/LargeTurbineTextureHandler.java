@@ -94,12 +94,12 @@ import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.OV
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
 import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaSpecialMultiCasings;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class LargeTurbineTextureHandler {
 
@@ -205,7 +205,8 @@ public class LargeTurbineTextureHandler {
             if ((side == ForgeDirection.NORTH) || (side == ForgeDirection.SOUTH)) {
                 TileEntity tTileEntity;
                 IMetaTileEntity tMetaTileEntity;
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord - 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord - 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -215,7 +216,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[0];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -225,7 +227,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[3];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord + 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord + 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -255,7 +258,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[7];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord + 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord + 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -265,7 +269,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[8];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -275,7 +280,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[5];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord - 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord - 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -288,7 +294,8 @@ public class LargeTurbineTextureHandler {
             } else if ((side == ForgeDirection.WEST) || (side == ForgeDirection.EAST)) {
                 TileEntity tTileEntity;
                 Object tMetaTileEntity;
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -298,7 +305,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[0];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -308,7 +316,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[3];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -338,7 +347,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[7];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -348,7 +358,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[8];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -358,7 +369,8 @@ public class LargeTurbineTextureHandler {
                     }
                     return mGetCurrentTextureSet[5];
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))

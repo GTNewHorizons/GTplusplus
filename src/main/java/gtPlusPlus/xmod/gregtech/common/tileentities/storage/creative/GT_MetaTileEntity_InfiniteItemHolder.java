@@ -2,6 +2,7 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.storage.creative;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -10,7 +11,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_TieredChest {
 
@@ -79,12 +79,14 @@ public class GT_MetaTileEntity_InfiniteItemHolder extends GT_MetaTileEntity_Tier
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return true;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return false;
     }
 

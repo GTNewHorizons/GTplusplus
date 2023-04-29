@@ -402,8 +402,8 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         if (side == ForgeDirection.DOWN || side == ForgeDirection.UP) {
             if (aActive) return new ITexture[] { Textures.BlockIcons.getCasingTextureForId(TAE.GTPP_INDEX(12)),
                     TextureFactory.builder().addIcon(TexturesGtBlock.Overlay_Machine_Controller_Default_Active)

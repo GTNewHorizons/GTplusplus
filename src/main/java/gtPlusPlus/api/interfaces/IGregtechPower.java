@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.IDescribable;
 import gregtech.api.interfaces.tileentity.IBasicEnergyContainer;
 import gregtech.api.interfaces.tileentity.IGearEnergyTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
 import gregtech.api.interfaces.tileentity.ITurnable;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract interface IGregtechPower
         extends IGearEnergyTileEntity, ITurnable, IGregTechDeviceInformation, IDescribable, IBasicEnergyContainer {
@@ -138,6 +138,5 @@ public abstract interface IGregtechPower
     public default boolean isGivingInformation() {
         return true;
     }
-
 
 }

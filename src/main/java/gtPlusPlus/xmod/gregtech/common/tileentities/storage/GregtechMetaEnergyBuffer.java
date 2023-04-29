@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -19,7 +20,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMetaTileEntity;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaEnergyBuffer extends GregtechMetaTileEntity {
 
@@ -72,11 +72,13 @@ public class GregtechMetaEnergyBuffer extends GregtechMetaTileEntity {
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
-                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
-                        + 1];
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0)
+                + (side == facing ? 0
+                        : side == facing.getOpposite() ? 1
+                                : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
+                                        + 1];
     }
 
     public ITexture[] getFront(final byte aColor) {
@@ -335,14 +337,14 @@ public class GregtechMetaEnergyBuffer extends GregtechMetaTileEntity {
      */
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 

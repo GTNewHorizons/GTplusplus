@@ -120,8 +120,8 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         boolean aWarmedUp = this.mEfficiency == this.getMaxEfficiency(null);
         if (!aBaseMetaTileEntity.isActive() || !aWarmedUp) {
             if (side == facing) {

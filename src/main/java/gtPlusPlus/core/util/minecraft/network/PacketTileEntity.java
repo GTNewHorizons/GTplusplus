@@ -4,8 +4,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import mods.railcraft.common.util.misc.Game;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -15,6 +13,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gtPlusPlus.api.interfaces.IGregtechPacketEntity;
+import mods.railcraft.common.util.misc.Game;
 
 public class PacketTileEntity extends CustomPacket {
 

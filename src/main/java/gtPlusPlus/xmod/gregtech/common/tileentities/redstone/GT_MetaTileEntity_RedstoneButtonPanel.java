@@ -2,16 +2,15 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.redstone;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GT_Utility;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.CustomIcon;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_RedstoneButtonPanel extends GT_MetaTileEntity_RedstoneBase {
 
@@ -69,8 +68,8 @@ public class GT_MetaTileEntity_RedstoneButtonPanel extends GT_MetaTileEntity_Red
     }
 
     @Override
-    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, ForgeDirection side, float aX,
-            float aY, float aZ) {
+    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, ForgeDirection side,
+            float aX, float aY, float aZ) {
         if (side == getBaseMetaTileEntity().getFrontFacing()) {
             if (getBaseMetaTileEntity().isServerSide()) {
                 mUpdate = 2;
@@ -192,15 +191,17 @@ public class GT_MetaTileEntity_RedstoneButtonPanel extends GT_MetaTileEntity_Red
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         if (side == facing) {
             return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1],
                     new GT_RenderedTexture(sIconList[mType * 16 + mRedstoneStrength]) };
         }
-        return this.mTextures[(aActive || hasRedstoneSignal() ? 5 : 0) + (side == facing ? 0
-                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
-                        + 1];
+        return this.mTextures[(aActive || hasRedstoneSignal() ? 5 : 0)
+                + (side == facing ? 0
+                        : side == facing.getOpposite() ? 1
+                                : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
+                                        + 1];
     }
 
     public ITexture[] getFront(final byte aColor) {

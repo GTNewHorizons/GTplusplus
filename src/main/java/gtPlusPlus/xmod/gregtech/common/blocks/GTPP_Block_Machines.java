@@ -305,8 +305,8 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
     }
 
     @Override
-    public boolean onBlockActivated(World aWorld, int aX, int aY, int aZ, EntityPlayer aPlayer, int ordinalSide, float par1,
-            float par2, float par3) {
+    public boolean onBlockActivated(World aWorld, int aX, int aY, int aZ, EntityPlayer aPlayer, int ordinalSide,
+            float par1, float par2, float par3) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (tTileEntity == null) {
             return false;
@@ -326,8 +326,12 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
             return tTileEntity instanceof IGregTechTileEntity ? (((IGregTechTileEntity) tTileEntity).getTimer() < 50L
                     ? false
                     : (!aWorld.isRemote && !((IGregTechTileEntity) tTileEntity).isUseableByPlayer(aPlayer) ? true
-                            : ((IGregTechTileEntity) tTileEntity)
-                                    .onRightclick(aPlayer, ForgeDirection.getOrientation(ordinalSide), par1, par2, par3)))
+                            : ((IGregTechTileEntity) tTileEntity).onRightclick(
+                                    aPlayer,
+                                    ForgeDirection.getOrientation(ordinalSide),
+                                    par1,
+                                    par2,
+                                    par3)))
                     : false;
         }
     }
@@ -413,7 +417,8 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
         if (ordinalSide >= 0 && ordinalSide <= 5) {
             TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
             return tTileEntity instanceof IGregTechTileEntity
-                    ? ((IGregTechTileEntity) tTileEntity).getOutputRedstoneSignal(ForgeDirection.getOrientation(ordinalSide).getOpposite())
+                    ? ((IGregTechTileEntity) tTileEntity)
+                            .getOutputRedstoneSignal(ForgeDirection.getOrientation(ordinalSide).getOpposite())
                     : 0;
         } else {
             return 0;
@@ -463,8 +468,7 @@ public class GTPP_Block_Machines extends GT_Generic_Block implements IDebugableB
                     return true;
                 }
 
-                if (tTileEntity instanceof ICoverable
-                        && ((ICoverable) tTileEntity).getCoverIDAtSide(side) != 0) {
+                if (tTileEntity instanceof ICoverable && ((ICoverable) tTileEntity).getCoverIDAtSide(side) != 0) {
                     return true;
                 }
             }

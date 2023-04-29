@@ -56,18 +56,19 @@
  * (controllerZ+k), Color.ORANGE); if (((i == 0) || (j == 0)) && ((k == 1) || (k == 2) || (k == 3))) {
  * //UtilsRendering.drawBlockInWorld((controllerX+i), (controllerY+k), (controllerZ+k), Color.TOMATO); if
  * ((this.getBaseMetaTileEntity().getBlock(tX + (tSide == 5 ? k : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k :
- * tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingBlock()) && (this.getBaseMetaTileEntity().getMetaID(tX + (tSide == 5 ? k :
- * tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingMeta())) { } else if
- * (!this.addToMachineList(this.getBaseMetaTileEntity().getIGregTechTileEntity(tX + (tSide == 5 ? k : tSide == 4 ? -k :
- * i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i))) &&
+ * tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingBlock()) && (this.getBaseMetaTileEntity().getMetaID(tX +
+ * (tSide == 5 ? k : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i)) ==
+ * this.getCasingMeta())) { } else if (!this.addToMachineList(this.getBaseMetaTileEntity().getIGregTechTileEntity(tX +
+ * (tSide == 5 ? k : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i))) &&
  * (!this.addEnergyInputToMachineList(this.getBaseMetaTileEntity().getIGregTechTileEntity(tX + (tSide == 5 ? k : tSide
- * == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i))))) { Logger.INFO("False 2"); return false; } }
- * else if ((this.getBaseMetaTileEntity().getBlock(tX + (tSide == 5 ? k : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2
- * ? -k : tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingBlock()) && (this.getBaseMetaTileEntity().getMetaID(tX + (tSide == 5 ? k
- * : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingMeta())) { } else {
- * Logger.INFO("False 3"); return false; } } } } } if ((this.mOutputHatches.size() != 0) || (this.mInputHatches.size()
- * != 0)) { Logger.INFO("Use Busses, Not Hatches for Input/Output."); return false; } if ((this.mInputBusses.size() !=
- * 2) || (this.mOutputBusses.size() != 2)) { Logger.INFO("Incorrect amount of Input & Output busses."); return false; }
+ * == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i))))) { Logger.INFO("False 2");
+ * return false; } } else if ((this.getBaseMetaTileEntity().getBlock(tX + (tSide == 5 ? k : tSide == 4 ? -k : i), tY +
+ * j, tZ + (tSide == 2 ? -k : tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingBlock()) &&
+ * (this.getBaseMetaTileEntity().getMetaID(tX + (tSide == 5 ? k : tSide == 4 ? -k : i), tY + j, tZ + (tSide == 2 ? -k :
+ * tside == ForgeDirection.SOUTH ? k : i)) == this.getCasingMeta())) { } else { Logger.INFO("False 3"); return false; }
+ * } } } } if ((this.mOutputHatches.size() != 0) || (this.mInputHatches.size() != 0)) {
+ * Logger.INFO("Use Busses, Not Hatches for Input/Output."); return false; } if ((this.mInputBusses.size() != 2) ||
+ * (this.mOutputBusses.size() != 2)) { Logger.INFO("Incorrect amount of Input & Output busses."); return false; }
  * this.mMaintenanceHatches.clear(); final IGregTechTileEntity tTileEntity =
  * this.getBaseMetaTileEntity().getIGregTechTileEntityAtSideAndDistance(this.getBaseMetaTileEntity().getBackFacing(),
  * 4); if ((tTileEntity != null) && (tTileEntity.getMetaTileEntity() != null)) { if ((tTileEntity.getMetaTileEntity()

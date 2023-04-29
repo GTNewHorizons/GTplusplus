@@ -3,13 +3,13 @@ package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.GregtechMetaTileEntity_IndustrialCentrifuge;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class TexturesGregtech59 {
 
@@ -93,7 +93,8 @@ public class TexturesGregtech59 {
             if ((side == ForgeDirection.NORTH) || (side == ForgeDirection.SOUTH)) {
                 TileEntity tTileEntity;
                 IMetaTileEntity tMetaTileEntity;
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord - 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord - 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -103,7 +104,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[0].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -113,7 +115,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[3].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord + 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.SOUTH ? 1 : -1), yCoord + 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -143,7 +146,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[7].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord + 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord + 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -153,7 +157,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[8].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -163,7 +168,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[5].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord - 1, zCoord)))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord + (side == ForgeDirection.NORTH ? 1 : -1), yCoord - 1, zCoord)))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -176,7 +182,8 @@ public class TexturesGregtech59 {
             } else if ((side == ForgeDirection.WEST) || (side == ForgeDirection.EAST)) {
                 TileEntity tTileEntity;
                 Object tMetaTileEntity;
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -186,7 +193,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[0].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -196,7 +204,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[3].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.WEST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -226,7 +235,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[7].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord + 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -236,7 +246,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[8].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))
@@ -246,7 +257,8 @@ public class TexturesGregtech59 {
                     }
                     return this.TURBINE[5].getIcon();
                 }
-                if ((null != (tTileEntity = aWorld.getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
+                if ((null != (tTileEntity = aWorld
+                        .getTileEntity(xCoord, yCoord - 1, zCoord + (side == ForgeDirection.EAST ? 1 : -1))))
                         && ((tTileEntity instanceof IGregTechTileEntity))
                         && (((IGregTechTileEntity) tTileEntity).getFrontFacing() == side)
                         && (null != (tMetaTileEntity = ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()))

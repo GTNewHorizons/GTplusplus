@@ -56,8 +56,8 @@ public class GT_MetaTileEntity_TieredTank extends GT_MetaTileEntity_BasicTank {
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return side == ForgeDirection.UP
                 ? new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[this.mTier][aColorIndex + 1],
                         new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_POTIONBREWER_ACTIVE) }

@@ -25,7 +25,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import gtPlusPlus.everglades.world.TeleporterDimensionMod;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockEvergladesPortal extends BlockBreakable implements ITileTooltip {
 

@@ -25,7 +25,6 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.handler.GuiHandler;
 import gtPlusPlus.core.inventories.Inventory_SuperJukebox;
 import gtPlusPlus.core.util.math.MathUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class Machine_SuperJukebox extends BlockJukebox {
 

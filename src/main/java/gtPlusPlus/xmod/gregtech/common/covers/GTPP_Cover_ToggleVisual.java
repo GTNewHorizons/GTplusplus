@@ -57,19 +57,23 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
         return getConnectionState(aCoverVariable);
     }
 
-    public boolean letsFluidIn(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid, ICoverable aTileEntity) {
+    public boolean letsFluidIn(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid,
+            ICoverable aTileEntity) {
         return getConnectionState(aCoverVariable);
     }
 
-    public boolean letsFluidOut(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid, ICoverable aTileEntity) {
+    public boolean letsFluidOut(ForgeDirection side, int aCoverID, int aCoverVariable, Fluid aFluid,
+            ICoverable aTileEntity) {
         return getConnectionState(aCoverVariable);
     }
 
-    public boolean letsItemsIn(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
+    public boolean letsItemsIn(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot,
+            ICoverable aTileEntity) {
         return getConnectionState(aCoverVariable);
     }
 
-    public boolean letsItemsOut(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
+    public boolean letsItemsOut(ForgeDirection side, int aCoverID, int aCoverVariable, int aSlot,
+            ICoverable aTileEntity) {
         return getConnectionState(aCoverVariable);
     }
 
@@ -82,8 +86,8 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
     }
 
     @Override
-    public int doCoverThings(ForgeDirection side, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
-            long aTimer) {
+    public int doCoverThings(ForgeDirection side, byte aInputRedstone, int aCoverID, int aCoverVariable,
+            ICoverable aTileEntity, long aTimer) {
         try {
             String aKey = generateUniqueKey(side, aTileEntity);
             Integer b = sConnectionStateForEntityMap.get(aKey);

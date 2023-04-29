@@ -7,6 +7,7 @@ import java.util.UUID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.modularui.GT_UIInfos;
@@ -17,7 +18,6 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.player.PlayerCache;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_TieredMachineBlock {
 
@@ -85,8 +85,8 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         if (side == facing) {
             return this.mTextures[5][aColorIndex + 1];
         }
@@ -317,14 +317,14 @@ public abstract class GregtechMetaSafeBlockBase extends GT_MetaTileEntity_Tiered
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return side != aBaseMetaTileEntity.getBackFacing();
     }
 }

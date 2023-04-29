@@ -98,11 +98,13 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
-        return this.mTextures[(aActive ? 5 : 0) + (side == facing ? 0
-                : side == facing.getOpposite() ? 1 : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
-                        + 1];
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+        return this.mTextures[(aActive ? 5 : 0)
+                + (side == facing ? 0
+                        : side == facing.getOpposite() ? 1
+                                : side == ForgeDirection.DOWN ? 2 : side == ForgeDirection.UP ? 3 : 4)][aColorIndex
+                                        + 1];
     }
 
     @Override
@@ -655,14 +657,15 @@ public class GregtechMetaTileEntity_PocketFusion extends GT_MetaTileEntity_Delux
     }
 
     @Override
-    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, ForgeDirection side, float aX,
-            float aY, float aZ) {
+    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, ForgeDirection side,
+            float aX, float aY, float aZ) {
         // TODO Auto-generated method stub
         return super.onRightclick(aBaseMetaTileEntity, aPlayer, side, aX, aY, aZ);
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return false;
     }
 

@@ -96,20 +96,18 @@ public class GregtechMetaCondensor extends GregtechMetaBoilerBase implements IAd
                 this.mLossTimer = 0;
             }
             for (final ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
-                if(this.mSteam == null) break;
+                if (this.mSteam == null) break;
                 if (side != aBaseMetaTileEntity.getFrontFacing()) {
                     final IFluidHandler tTileEntity = aBaseMetaTileEntity.getITankContainerAtSide(side);
                     if (tTileEntity != null) {
                         final FluidStack tDrained = aBaseMetaTileEntity
                                 .drain(side, Math.max(1, this.mSteam.amount / 2), false);
                         if (tDrained != null) {
-                            final int tFilledAmount = tTileEntity
-                                    .fill(side.getOpposite(), tDrained, false);
+                            final int tFilledAmount = tTileEntity.fill(side.getOpposite(), tDrained, false);
                             if (tFilledAmount > 0) {
                                 tTileEntity.fill(
                                         side.getOpposite(),
-                                        aBaseMetaTileEntity
-                                                .drain(side, tFilledAmount, true),
+                                        aBaseMetaTileEntity.drain(side, tFilledAmount, true),
                                         true);
                             }
                         }

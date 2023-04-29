@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,7 +19,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.turbine.LargeTurbineTextureHandler;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbstract {
 
@@ -88,7 +88,8 @@ public class GregtechMetaSpecialMultiCasings extends GregtechMetaCasingBlocksAbs
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final IBlockAccess aWorld, final int xCoord, final int yCoord, final int zCoord,
             final int ordinalSide) {
-        return LargeTurbineTextureHandler.handleCasingsGT(aWorld, xCoord, yCoord, zCoord, ForgeDirection.getOrientation(ordinalSide), this);
+        return LargeTurbineTextureHandler
+                .handleCasingsGT(aWorld, xCoord, yCoord, zCoord, ForgeDirection.getOrientation(ordinalSide), this);
     }
 
     @Override

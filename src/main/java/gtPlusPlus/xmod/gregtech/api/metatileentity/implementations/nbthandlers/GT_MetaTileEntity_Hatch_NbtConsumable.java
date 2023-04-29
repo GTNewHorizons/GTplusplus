@@ -2,6 +2,7 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
@@ -20,7 +21,6 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class GT_MetaTileEntity_Hatch_NbtConsumable extends GT_MetaTileEntity_Hatch
         implements IAddGregtechLogo {

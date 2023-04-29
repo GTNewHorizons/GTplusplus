@@ -1,13 +1,13 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.storage.shelving;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT4Entity_Shelf_FileCabinet extends GT4Entity_Shelf {
 

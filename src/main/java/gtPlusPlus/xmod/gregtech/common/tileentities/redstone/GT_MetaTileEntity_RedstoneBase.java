@@ -3,13 +3,13 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.redstone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachineBlock;
 import gregtech.api.objects.GT_ItemStack;
 import gtPlusPlus.core.lib.CORE;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_TieredMachineBlock {
 
@@ -96,12 +96,14 @@ public abstract class GT_MetaTileEntity_RedstoneBase extends GT_MetaTileEntity_T
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return false;
     }
 

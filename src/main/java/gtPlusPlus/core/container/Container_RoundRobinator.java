@@ -9,6 +9,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,7 +18,6 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.inventories.Inventory_RoundRobinator;
 import gtPlusPlus.core.slots.SlotNoInput;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class Container_RoundRobinator extends Container {
 

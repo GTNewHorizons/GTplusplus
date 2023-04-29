@@ -71,7 +71,8 @@ public class GregtechMetaTileEntity_BasicWasher extends GT_MetaTileEntity_BasicM
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return (super.allowPutStack(aBaseMetaTileEntity, aIndex, side, aStack))
                 && (getRecipeList().containsInput(aStack));
     }

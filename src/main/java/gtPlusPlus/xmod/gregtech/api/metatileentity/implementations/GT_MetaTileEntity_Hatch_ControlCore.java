@@ -3,6 +3,7 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
@@ -19,7 +20,6 @@ import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.core.item.general.ItemControlCore;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GT_MetaTileEntity_Hatch_ControlCore extends GT_MetaTileEntity_Hatch {
 
@@ -122,12 +122,14 @@ public class GT_MetaTileEntity_Hatch_ControlCore extends GT_MetaTileEntity_Hatch
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return side == getBaseMetaTileEntity().getFrontFacing()
                 && (aStack != null && aStack.getItem() instanceof ItemControlCore);
     }

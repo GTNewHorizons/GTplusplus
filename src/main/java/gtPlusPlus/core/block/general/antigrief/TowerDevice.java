@@ -26,7 +26,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.tileentities.general.TileEntityReverter;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class TowerDevice extends Block {
 

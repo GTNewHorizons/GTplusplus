@@ -298,29 +298,31 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
                             if (((IEnergySink) tTileEntity)
                                     .acceptsEnergyFrom((TileEntity) this.getBaseMetaTileEntity(), oppositeDirection)) {
                                 if ((((IEnergySink) tTileEntity).getDemandedEnergy() > 0)
-                                        && (((IEnergySink) tTileEntity).injectEnergy(oppositeDirection, aVoltage, aVoltage)
-                                                < aVoltage)) {
+                                        && (((IEnergySink) tTileEntity)
+                                                .injectEnergy(oppositeDirection, aVoltage, aVoltage) < aVoltage)) {
                                     rUsedAmperes++;
                                 }
                             }
                         } else if (GregTech_API.mOutputRF && (tTileEntity instanceof IEnergyReceiver)) {
                             final ForgeDirection oppositeDirection = targetSide.getOpposite();
                             final int rfOut = (int) ((aVoltage * GregTech_API.mEUtoRF) / 100);
-                            if (((IEnergyReceiver) tTileEntity).receiveEnergy(oppositeDirection, rfOut, true) == rfOut) {
+                            if (((IEnergyReceiver) tTileEntity).receiveEnergy(oppositeDirection, rfOut, true)
+                                    == rfOut) {
                                 ((IEnergyReceiver) tTileEntity).receiveEnergy(oppositeDirection, rfOut, false);
                                 rUsedAmperes++;
-                            } else if (((IEnergyReceiver) tTileEntity).receiveEnergy(oppositeDirection, rfOut, true) > 0) {
-                                if (this.mRestRF == 0) {
-                                    final int RFtrans = ((IEnergyReceiver) tTileEntity)
-                                            .receiveEnergy(oppositeDirection, rfOut, false);
-                                    rUsedAmperes++;
-                                    this.mRestRF = rfOut - RFtrans;
-                                } else {
-                                    final int RFtrans = ((IEnergyReceiver) tTileEntity)
-                                            .receiveEnergy(oppositeDirection, (int) this.mRestRF, false);
-                                    this.mRestRF = this.mRestRF - RFtrans;
+                            } else
+                                if (((IEnergyReceiver) tTileEntity).receiveEnergy(oppositeDirection, rfOut, true) > 0) {
+                                    if (this.mRestRF == 0) {
+                                        final int RFtrans = ((IEnergyReceiver) tTileEntity)
+                                                .receiveEnergy(oppositeDirection, rfOut, false);
+                                        rUsedAmperes++;
+                                        this.mRestRF = rfOut - RFtrans;
+                                    } else {
+                                        final int RFtrans = ((IEnergyReceiver) tTileEntity)
+                                                .receiveEnergy(oppositeDirection, (int) this.mRestRF, false);
+                                        this.mRestRF = this.mRestRF - RFtrans;
+                                    }
                                 }
-                            }
                             if (GregTech_API.mRFExplosions
                                     && (((IEnergyReceiver) tTileEntity).getMaxEnergyStored(oppositeDirection)
                                             < (rfOut * 600))) {
@@ -371,12 +373,12 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
                             aBaseMetaTileEntity.getCoverDataAtSide(side),
                             aBaseMetaTileEntity)
                             || aBaseMetaTileEntity.getCoverBehaviorAtSide(side).letsEnergyIn(
-                            side,
+                                    side,
                                     aBaseMetaTileEntity.getCoverIDAtSide(side),
                                     aBaseMetaTileEntity.getCoverDataAtSide(side),
                                     aBaseMetaTileEntity)
                             || aBaseMetaTileEntity.getCoverBehaviorAtSide(side).letsEnergyOut(
-                            side,
+                                    side,
                                     aBaseMetaTileEntity.getCoverIDAtSide(side),
                                     aBaseMetaTileEntity.getCoverDataAtSide(side),
                                     aBaseMetaTileEntity)) {
@@ -397,28 +399,32 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
                         }
                         if ((tTileEntity instanceof IGregTechTileEntity) && (((IGregTechTileEntity) tTileEntity)
                                 .getMetaTileEntity() instanceof IMetaTileEntityCable)) {
-                            if (((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide).alwaysLookConnected(
-                                    oppositeSide,
-                                    ((IGregTechTileEntity) tTileEntity).getCoverIDAtSide(oppositeSide),
-                                    ((IGregTechTileEntity) tTileEntity).getCoverDataAtSide(oppositeSide),
-                                    ((IGregTechTileEntity) tTileEntity))
-                                    || ((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide).letsEnergyIn(
-                                    oppositeSide,
+                            if (((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide)
+                                    .alwaysLookConnected(
+                                            oppositeSide,
                                             ((IGregTechTileEntity) tTileEntity).getCoverIDAtSide(oppositeSide),
                                             ((IGregTechTileEntity) tTileEntity).getCoverDataAtSide(oppositeSide),
                                             ((IGregTechTileEntity) tTileEntity))
-                                    || ((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide).letsEnergyOut(
-                                    oppositeSide,
-                                            ((IGregTechTileEntity) tTileEntity).getCoverIDAtSide(oppositeSide),
-                                            ((IGregTechTileEntity) tTileEntity).getCoverDataAtSide(oppositeSide),
-                                            ((IGregTechTileEntity) tTileEntity))) {
+                                    || ((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide)
+                                            .letsEnergyIn(
+                                                    oppositeSide,
+                                                    ((IGregTechTileEntity) tTileEntity).getCoverIDAtSide(oppositeSide),
+                                                    ((IGregTechTileEntity) tTileEntity)
+                                                            .getCoverDataAtSide(oppositeSide),
+                                                    ((IGregTechTileEntity) tTileEntity))
+                                    || ((IGregTechTileEntity) tTileEntity).getCoverBehaviorAtSide(oppositeSide)
+                                            .letsEnergyOut(
+                                                    oppositeSide,
+                                                    ((IGregTechTileEntity) tTileEntity).getCoverIDAtSide(oppositeSide),
+                                                    ((IGregTechTileEntity) tTileEntity)
+                                                            .getCoverDataAtSide(oppositeSide),
+                                                    ((IGregTechTileEntity) tTileEntity))) {
                                 this.mConnections |= (1 << ordinalSide);
                                 continue;
                             }
                         }
-                        if ((tTileEntity instanceof IEnergySink) && ((IEnergySink) tTileEntity).acceptsEnergyFrom(
-                                (TileEntity) aBaseMetaTileEntity,
-                                oppositeSide)) {
+                        if ((tTileEntity instanceof IEnergySink) && ((IEnergySink) tTileEntity)
+                                .acceptsEnergyFrom((TileEntity) aBaseMetaTileEntity, oppositeSide)) {
                             this.mConnections |= (1 << ordinalSide);
                             continue;
                         }
@@ -435,14 +441,14 @@ public class GregtechMetaPipeEntityBase_Cable extends MetaPipeEntity implements 
     }
 
     @Override
-    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPullStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex, final ForgeDirection side,
-            final ItemStack aStack) {
+    public boolean allowPutStack(final IGregTechTileEntity aBaseMetaTileEntity, final int aIndex,
+            final ForgeDirection side, final ItemStack aStack) {
         return false;
     }
 

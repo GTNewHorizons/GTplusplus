@@ -1,6 +1,5 @@
 package gtPlusPlus.api.objects.minecraft;
 
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import gtPlusPlus.api.objects.data.AutoMap;

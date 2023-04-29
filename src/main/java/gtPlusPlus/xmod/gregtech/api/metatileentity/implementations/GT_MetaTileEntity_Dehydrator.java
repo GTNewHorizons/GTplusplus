@@ -3,6 +3,8 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 import static gregtech.api.enums.Textures.BlockIcons.MACHINE_CASINGS;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_OUT;
 
+import net.minecraftforge.common.util.ForgeDirection;
+
 import gregtech.api.enums.SoundResource;
 import gregtech.api.enums.Textures;
 import gregtech.api.enums.Textures.BlockIcons.CustomIcon;
@@ -13,7 +15,6 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.core.lib.CORE;
-import net.minecraftforge.common.util.ForgeDirection;
 
 @SuppressWarnings("deprecation")
 public class GT_MetaTileEntity_Dehydrator extends GT_MetaTileEntity_BasicMachine_GT_Recipe {
@@ -87,8 +88,8 @@ public class GT_MetaTileEntity_Dehydrator extends GT_MetaTileEntity_BasicMachine
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         return super.getTexture(aBaseMetaTileEntity, side, facing, aColorIndex, aActive, aRedstone);
     }
 

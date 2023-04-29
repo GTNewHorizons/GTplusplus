@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.tileentities.base.TileEntityBase;
 import gtPlusPlus.core.util.data.ArrayUtils;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BTF_Inventory implements ISidedInventory {
 
@@ -151,7 +151,8 @@ public class BTF_Inventory implements ISidedInventory {
         return aIndex >= 0 && aIndex < this.getSizeInventory();
     }
 
-    public boolean allowPutStack(TileEntityBase aBaseMetaTileEntity, int aIndex, ForgeDirection side, ItemStack aStack) {
+    public boolean allowPutStack(TileEntityBase aBaseMetaTileEntity, int aIndex, ForgeDirection side,
+            ItemStack aStack) {
         return (aIndex >= 0 && aIndex < this.getSizeInventory())
                 && (this.mInventory[aIndex] == null || GT_Utility.areStacksEqual(this.mInventory[aIndex], aStack));
     }

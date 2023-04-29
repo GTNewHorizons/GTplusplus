@@ -738,8 +738,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return tChances;
     }
 
-    public boolean onWireCutterRightclick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer, float aX, float aY,
-            float aZ) {
+    public boolean onWireCutterRightclick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer,
+            float aX, float aY, float aZ) {
         if (aPlayer.isSneaking()) {
             batchMode = !batchMode;
             if (batchMode) {
@@ -821,8 +821,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing, int aColorIndex,
-            boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing,
+            int aColorIndex, boolean aActive, boolean aRedstone) {
         if (side == facing) {
             if (aActive) return new ITexture[] { getCasingTexture(),
                     TextureFactory.builder().addIcon(getActiveOverlay()).extFacing().build() };

@@ -3,6 +3,7 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.a
 import java.lang.reflect.Method;
 
 import net.minecraft.block.Block;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.TAE;
@@ -24,7 +25,6 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_FusionComputer {
 
@@ -108,8 +108,8 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
     }
 
     @Override
-    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side, final ForgeDirection facing,
-            final int aColorIndex, final boolean aActive, final boolean aRedstone) {
+    public ITexture[] getTexture(final IGregTechTileEntity aBaseMetaTileEntity, final ForgeDirection side,
+            final ForgeDirection facing, final int aColorIndex, final boolean aActive, final boolean aRedstone) {
         if (side == facing) {
             return new ITexture[] {
                     new GT_RenderedTexture(

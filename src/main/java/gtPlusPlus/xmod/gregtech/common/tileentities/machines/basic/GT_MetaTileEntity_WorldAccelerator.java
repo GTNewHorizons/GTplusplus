@@ -92,22 +92,26 @@ public class GT_MetaTileEntity_WorldAccelerator extends GT_MetaTileEntity_Tiered
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity pBaseMetaTileEntity, ForgeDirection side, ForgeDirection sacing, int pColorIndex,
-            boolean pActive, boolean pRedstone) {
-        if (mMode == 0) return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1], (side.offsetY != 0)
+    public ITexture[] getTexture(IGregTechTileEntity pBaseMetaTileEntity, ForgeDirection side, ForgeDirection sacing,
+            int pColorIndex, boolean pActive, boolean pRedstone) {
+        if (mMode == 0) return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1],
+                (side.offsetY != 0) ? null
+                        : pActive ? new GT_RenderedTexture(_mGTIco_Norm_Active)
+                                : new GT_RenderedTexture(_mGTIco_Norm_Idle) };
+        else return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1], (side.offsetY != 0)
                 ? null
-                : pActive ? new GT_RenderedTexture(_mGTIco_Norm_Active) : new GT_RenderedTexture(_mGTIco_Norm_Idle) };
-        else return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][pColorIndex + 1], (side.offsetY != 0) ? null
                 : pActive ? new GT_RenderedTexture(_mGTIco_TE_Active) : new GT_RenderedTexture(_mGTIco_TE_Idle) };
     }
 
     @Override
-    public boolean allowPullStack(IGregTechTileEntity pBaseMetaTileEntity, int pIndex, ForgeDirection side, ItemStack pStack) {
+    public boolean allowPullStack(IGregTechTileEntity pBaseMetaTileEntity, int pIndex, ForgeDirection side,
+            ItemStack pStack) {
         return false;
     }
 
     @Override
-    public boolean allowPutStack(IGregTechTileEntity pBaseMetaTileEntity, int pIndex, ForgeDirection side, ItemStack pStack) {
+    public boolean allowPutStack(IGregTechTileEntity pBaseMetaTileEntity, int pIndex, ForgeDirection side,
+            ItemStack pStack) {
         return false;
     }
 

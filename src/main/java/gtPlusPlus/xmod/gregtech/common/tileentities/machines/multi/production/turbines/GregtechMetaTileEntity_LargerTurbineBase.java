@@ -753,8 +753,8 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
         }
     }
 
-    public final ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side, ForgeDirection facing,
-            int aColorIndex, boolean aActive, boolean aRedstone) {
+    public final ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, ForgeDirection side,
+            ForgeDirection facing, int aColorIndex, boolean aActive, boolean aRedstone) {
         return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[1][aColorIndex + 1],
                 facing == side ? getFrontFacingTurbineTexture(aActive)
                         : Textures.BlockIcons.getCasingTextureForId(getCasingTextureIndex()) };
