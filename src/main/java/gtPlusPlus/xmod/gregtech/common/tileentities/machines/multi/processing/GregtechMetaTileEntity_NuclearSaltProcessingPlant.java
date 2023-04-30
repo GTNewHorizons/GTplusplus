@@ -12,7 +12,6 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.ArrayList;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -85,10 +84,9 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
                 .addInfo("Processes two items per voltage tier").addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator().beginStructureBlock(3, 3, 3, true).addController("Front Center")
                 .addCasingInfoMin("IV Machine Casing", 58, false)
-                .addCasingInfoMin("Thermally Insulated Casing", 1, false)
-                .addInputBus("Left Half", 2).addInputHatch("Left Half", 2).addOutputBus("Right Half", 3)
-                .addOutputHatch("Right Half", 3).addMufflerHatch("Top Side, 2 Required", 4)
-                .addEnergyHatch("Bottom Side, 2 Required", 5)
+                .addCasingInfoMin("Thermally Insulated Casing", 1, false).addInputBus("Left Half", 2)
+                .addInputHatch("Left Half", 2).addOutputBus("Right Half", 3).addOutputHatch("Right Half", 3)
+                .addMufflerHatch("Top Side, 2 Required", 4).addEnergyHatch("Bottom Side, 2 Required", 5)
                 .addMaintenanceHatch("Back Side, Opposite of Controller", 6)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
