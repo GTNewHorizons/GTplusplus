@@ -43,8 +43,6 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     private int casing;
     private static IStructureDefinition<GregtechMetaTileEntity_NuclearSaltProcessingPlant> STRUCTURE_DEFINITION = null;
 
-    public void onRightclick(EntityPlayer player) {}
-
     public GregtechMetaTileEntity_NuclearSaltProcessingPlant(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
     }
@@ -61,11 +59,6 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity tileEntity) {
         return new GregtechMetaTileEntity_NuclearSaltProcessingPlant(this.mName);
-    }
-
-    @Override
-    public boolean onRunningTick(ItemStack aStack) {
-        return super.onRunningTick(aStack);
     }
 
     @Override
@@ -91,7 +84,8 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
                 .addInfo("150% faster than using single block machines of the same voltage")
                 .addInfo("Processes two items per voltage tier").addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator().beginStructureBlock(3, 3, 3, true).addController("Front Center")
-                .addCasingInfo("IV Machine Casing", 58).addCasingInfo("Thermally Insulated Casing", 1)
+                .addCasingInfoMin("IV Machine Casing", 58, false)
+                .addCasingInfoMin("Thermally Insulated Casing", 1, false)
                 .addInputBus("Left Half", 2).addInputHatch("Left Half", 2).addOutputBus("Right Half", 3)
                 .addOutputHatch("Right Half", 3).addMufflerHatch("Top Side, 2 Required", 4)
                 .addEnergyHatch("Bottom Side, 2 Required", 5)
@@ -184,7 +178,12 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     @Override
     public boolean checkMachine(IGregTechTileEntity baseMetaTileEntity, ItemStack itemStack) {
         casing = 0;
-        return checkPiece(mName, 4, 2, 0) && mEnergyHatches.size() == 2 && mMufflerHatches.size() == 2 && checkHatch();
+        return checkPiece(mName, 4, 2, 0) && checkHatch();
+    }
+
+    @Override
+    public boolean checkHatch() {
+        return mEnergyHatches.size() == 2 && mMufflerHatches.size() == 2 && super.checkHatch();
     }
 
     @Override
