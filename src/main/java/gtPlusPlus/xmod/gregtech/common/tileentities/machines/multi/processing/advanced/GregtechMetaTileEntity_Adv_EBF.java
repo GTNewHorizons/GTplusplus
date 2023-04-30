@@ -20,6 +20,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.FluidStack;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
@@ -89,6 +91,15 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
                 .addMufflerHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
+    }
+
+    @Override
+    public String[] getExtraInfoData() {
+        return new String[] { StatCollector.translateToLocal("GT5U.EBF.heat") + ": "
+                + EnumChatFormatting.GREEN
+                + GT_Utility.formatNumbers(mHeatingCapacity.getHeat())
+                + EnumChatFormatting.RESET
+                + " K" };
     }
 
     @Override
