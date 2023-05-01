@@ -253,6 +253,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
 
         return new String[] { "Nuclear Salt Processing Plant", running, maintenance, tSpecialText };
     }
+
     @Override
     protected boolean isInputSeparationButtonEnabled() {
         return true;
