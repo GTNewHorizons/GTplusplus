@@ -4,8 +4,6 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
-import team.chisel.carving.Carving;
-
 import com.gtnewhorizons.modularui.api.drawable.IDrawable;
 import com.gtnewhorizons.modularui.api.math.Pos2d;
 import com.gtnewhorizons.modularui.api.math.Size;
@@ -25,6 +23,7 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import team.chisel.carving.Carving;
 
 public class GregtechMetaTileEntity_AutoChisel extends GT_MetaTileEntity_BasicMachine {
 

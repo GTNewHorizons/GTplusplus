@@ -43,8 +43,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     private int casing;
     private static IStructureDefinition<GregtechMetaTileEntity_NuclearSaltProcessingPlant> STRUCTURE_DEFINITION = null;
 
-    public void onRightclick(EntityPlayer player) {
-    }
+    public void onRightclick(EntityPlayer player) {}
 
     public GregtechMetaTileEntity_NuclearSaltProcessingPlant(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -123,11 +122,11 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
                     .addShape(
                             mName,
                             transpose(
-                                    new String[][]{{"AAA   AAA", "ADA   ADA", "AAA   AAA"},
-                                            {"ABBA ACCA", "B  AAA  C", "ABBA ACCA"},
-                                            {"ABBB~CCCA", "B       C", "ABBBFCCCA"},
-                                            {"ABBA ACCA", "B  AAA  C", "ABBA ACCA"},
-                                            {"AAA   AAA", "AEA   AEA", "AAA   AAA"}}))
+                                    new String[][] { { "AAA   AAA", "ADA   ADA", "AAA   AAA" },
+                                            { "ABBA ACCA", "B  AAA  C", "ABBA ACCA" },
+                                            { "ABBB~CCCA", "B       C", "ABBBFCCCA" },
+                                            { "ABBA ACCA", "B  AAA  C", "ABBA ACCA" },
+                                            { "AAA   AAA", "AEA   AEA", "AAA   AAA" } }))
                     .addElement('A', ofBlock(GregTech_API.sBlockCasings1, 5))
                     .addElement(
                             'B',
@@ -255,7 +254,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
             tSpecialText = "Currently processing: Nothing";
         }
 
-        return new String[]{"Nuclear Salt Processing Plant", running, maintenance, tSpecialText};
+        return new String[] { "Nuclear Salt Processing Plant", running, maintenance, tSpecialText };
     }
 
     @Override
