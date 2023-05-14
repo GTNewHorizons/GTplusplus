@@ -25,9 +25,11 @@ import net.minecraftforge.fluids.FluidStack;
 
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
+import com.gtnewhorizon.structurelib.alignment.enumerable.ExtendedFacing;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizon.structurelib.util.Vec3Impl;
 
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
@@ -138,8 +140,7 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
 
     @Override
     protected IAlignmentLimits getInitialAlignmentLimits() {
-        // don't rotate a washer, water will flow out.
-        return (d, r, f) -> d.offsetY == 0 && r.isNotRotated() && !f.isVerticallyFliped();
+        return (d, r, f) -> !f.isVerticallyFliped();
     }
 
     @Override
@@ -218,47 +219,28 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
 
         // Get Facing direction
         IGregTechTileEntity aBaseMetaTileEntity = this.getBaseMetaTileEntity();
-        int mDirectionX = aBaseMetaTileEntity.getBackFacing().offsetX;
-        int mCurrentDirectionX;
-        int mCurrentDirectionZ;
-        int mOffsetX_Lower = 0;
-        int mOffsetX_Upper = 0;
-        int mOffsetZ_Lower = 0;
-        int mOffsetZ_Upper = 0;
-
-        if (mDirectionX == 0) {
-            mCurrentDirectionX = 2;
-            mCurrentDirectionZ = 3;
-            mOffsetX_Lower = -2;
-            mOffsetX_Upper = 2;
-            mOffsetZ_Lower = -3;
-            mOffsetZ_Upper = 3;
-        } else {
-            mCurrentDirectionX = 3;
-            mCurrentDirectionZ = 2;
-            mOffsetX_Lower = -3;
-            mOffsetX_Upper = 3;
-            mOffsetZ_Lower = -2;
-            mOffsetZ_Upper = 2;
-        }
-
-        // if (aBaseMetaTileEntity.fac)
-
-        final int xDir = aBaseMetaTileEntity.getBackFacing().offsetX * mCurrentDirectionX;
-        final int zDir = aBaseMetaTileEntity.getBackFacing().offsetZ * mCurrentDirectionZ;
+        ExtendedFacing f = getExtendedFacing();
+        Vec3Impl nearCornerOffset = f.getWorldOffset(new Vec3Impl(1, 0, 1));
+        Vec3Impl farCornerOffset = f.getWorldOffset(new Vec3Impl(-1, -1, 5));
+        int mOffsetX_Lower = Math.min(nearCornerOffset.get0(), farCornerOffset.get0());
+        int mOffsetY_Lower = Math.min(nearCornerOffset.get1(), farCornerOffset.get1());
+        int mOffsetZ_Lower = Math.min(nearCornerOffset.get2(), farCornerOffset.get2());
+        int mOffsetX_Upper = Math.max(nearCornerOffset.get0(), farCornerOffset.get0());
+        int mOffsetY_Upper = Math.max(nearCornerOffset.get1(), farCornerOffset.get1());
+        int mOffsetZ_Upper = Math.max(nearCornerOffset.get2(), farCornerOffset.get2());
 
         int tAmount = 0;
-        for (int i = mOffsetX_Lower + 1; i <= mOffsetX_Upper - 1; ++i) {
-            for (int j = mOffsetZ_Lower + 1; j <= mOffsetZ_Upper - 1; ++j) {
-                for (int h = 0; h < 2; ++h) {
-                    Block tBlock = aBaseMetaTileEntity.getBlockOffset(xDir + i, h, zDir + j);
-                    byte tMeta = aBaseMetaTileEntity.getMetaIDOffset(xDir + i, h, zDir + j);
+        for (int i = mOffsetX_Lower; i <= mOffsetX_Upper; ++i) {
+            for (int j = mOffsetZ_Lower; j <= mOffsetZ_Upper; ++j) {
+                for (int h = mOffsetY_Lower; h <= mOffsetY_Upper; ++h) {
+                    Block tBlock = aBaseMetaTileEntity.getBlockOffset(i, h, j);
+                    byte tMeta = aBaseMetaTileEntity.getMetaIDOffset(i, h, j);
                     if (tBlock == Blocks.air || tBlock == Blocks.flowing_water || tBlock == Blocks.water) {
                         if (this.getStoredFluids() != null) {
                             for (FluidStack stored : this.getStoredFluids()) {
                                 if (stored.isFluidEqual(FluidUtils.getFluidStack("water", 1))) {
                                     if (stored.amount >= 1000) {
-                                        // Utils.LOG_WARNING("Going to try swap an air block for water from inut bus.");
+                                        Logger.WARNING("Going to try swap an air block for water from input bus.");
                                         stored.amount -= 1000;
                                         Block fluidUsed = null;
                                         if (tBlock == Blocks.air || tBlock == Blocks.flowing_water) {
@@ -268,9 +250,9 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
                                             fluidUsed = BlocksItems.getFluidBlock(InternalName.fluidDistilledWater);
                                         }
                                         aBaseMetaTileEntity.getWorld().setBlock(
-                                                aBaseMetaTileEntity.getXCoord() + xDir + i,
+                                                aBaseMetaTileEntity.getXCoord() + i,
                                                 aBaseMetaTileEntity.getYCoord() + h,
-                                                aBaseMetaTileEntity.getZCoord() + zDir + j,
+                                                aBaseMetaTileEntity.getZCoord() + j,
                                                 fluidUsed);
                                     }
                                 }
