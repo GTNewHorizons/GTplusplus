@@ -95,7 +95,7 @@ public class FLUORIDES {
             -1,
             -1,
             false,
-            "ZrF4",
+            "ZrF\u2084",
             -1,
             true,
             false,
