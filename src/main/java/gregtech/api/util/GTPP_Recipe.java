@@ -825,7 +825,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
             List<String> result = new ArrayList<>();
             if (ModItems.fluidFertBasic != null) {
                 result.add("The sapling is not consumed.");
-                result.add("If" + ModItems.fluidFertBasic.getLocalizedName() + " is provided.");
+                result.add("If " + ModItems.fluidFertBasic.getLocalizedName() + " is provided,");
                 result.add("Saplings are made instead");
             }
             return result;
