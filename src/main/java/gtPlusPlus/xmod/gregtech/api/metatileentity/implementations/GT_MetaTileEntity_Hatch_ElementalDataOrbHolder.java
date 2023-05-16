@@ -163,19 +163,17 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
         }
         return aContents;
     }
-    
-    public ItemStack getOrbByCircuit(){
+
+    public ItemStack getOrbByCircuit() {
         ItemStack aCirc = getBaseMetaTileEntity().getStackInSlot(getCircuitSlot());
-        if(aCirc != null && ItemUtils.isControlCircuit(aCirc)){
-            int slot = circ.mMetaData;
-            if(slot < getBaseMetaTileEntity().getSizeInventory() - 1){
+        if (aCirc != null && ItemUtils.isControlCircuit(aCirc)) {
+            int slot = aCirc.getItemDamage();
+            if (slot < getBaseMetaTileEntity().getSizeInventory() - 1) {
                 return getBaseMetaTileEntity().getStackInSlot(slot);
-            }
-            else {
+            } else {
                 return null;
             }
-        }
-        else {
+        } else {
             return null;
         }
     }

@@ -182,7 +182,7 @@ public class FLUORIDES {
             // Material Stacks with Percentage of required elements.
             new MaterialStack[] { new MaterialStack(MISC_MATERIALS.AMMONIUM, 2),
                     new MaterialStack(ELEMENT.getInstance().BERYLLIUM, 1),
-                    new MaterialStack(ELEMENT.getInstance().FLUORINE, 4)});
+                    new MaterialStack(ELEMENT.getInstance().FLUORINE, 4) });
 
     // LFTR Output
     public static final Material NEPTUNIUM_HEXAFLUORIDE = new Material(

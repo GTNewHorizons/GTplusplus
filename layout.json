@@ -1,0 +1,13 @@
+{
+  "ideaDirPath": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea",
+  "modulesMap": {
+    "GTplusplus": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.iml",
+    "GTplusplus:mcLauncher": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.mcLauncher.iml",
+    "GTplusplus:patchedMc": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.patchedMc.iml",
+    "GTplusplus:test": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.test.iml",
+    "GTplusplus:injectedTags": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.injectedTags.iml",
+    "GTplusplus:main": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.main.iml",
+    "GTplusplus:api": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.api.iml",
+    "GTplusplus:ideVirtualMain": "C:/Users/mk/Documents/gtnh/GTplusplus/.idea/modules/GTplusplus.ideVirtualMain.iml"
+  }
+}

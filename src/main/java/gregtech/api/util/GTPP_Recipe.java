@@ -818,7 +818,7 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 }
                 return currentTip;
             }
-            
+
             @Override
             protected void drawNEIOverlayForOutput(FixedPositionedStack stack) {}
         }.useModularUI(true).setNEISpecialInfoFormatter((recipeInfo, applyPrefixAndSuffix) -> {
