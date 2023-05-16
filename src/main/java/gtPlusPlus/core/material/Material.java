@@ -1342,7 +1342,7 @@ public class Material {
                                     if (!aChemSymbol.equals("??")) {
                                         if (dummyFormulaArray[e] > 1) {
 
-                                            if (aChemFormula.length() > 3) {
+                                            if (aChemFormula.length() > 1) {
                                                 dummyFormula = dummyFormula + "("
                                                         + aChemFormula
                                                         + ")"
@@ -1351,7 +1351,7 @@ public class Material {
                                                 dummyFormula = dummyFormula + aChemFormula + dummyFormulaArray[e];
                                             }
                                         } else if (dummyFormulaArray[e] == 1) {
-                                            if (aChemFormula.length() > 3) {
+                                            if (aChemFormula.length() > 1) {
                                                 dummyFormula = dummyFormula + "(" + aChemFormula + ")";
                                             } else {
                                                 dummyFormula = dummyFormula + aChemFormula;
