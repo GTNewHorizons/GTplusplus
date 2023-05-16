@@ -613,8 +613,7 @@ public class GregtechMetaTileEntity_PowerSubStationController
             return 0;
         }
 
-        if (this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(voltage, false)
-                && (aHatch.getBaseMetaTileEntity().getStoredEU() < aHatch.getBaseMetaTileEntity().getEUCapacity())) {
+        if (this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(voltage, false)) {
             aHatch.getBaseMetaTileEntity().increaseStoredEnergyUnits(voltage, false);
             this.mTotalEnergyConsumed += voltage;
             return voltage;
