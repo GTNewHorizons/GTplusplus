@@ -818,15 +818,14 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
                 }
                 return currentTip;
             }
-
+            
             @Override
             protected void drawNEIOverlayForOutput(FixedPositionedStack stack) {}
         }.useModularUI(true).setNEISpecialInfoFormatter((recipeInfo, applyPrefixAndSuffix) -> {
             List<String> result = new ArrayList<>();
             if (ModItems.fluidFertBasic != null) {
-                result.add("Sapling is outputted if");
+                result.add("The Sapling is not consumed. Additional saplings are outputted instead of wood if");
                 result.add("" + ModItems.fluidFertBasic.getLocalizedName() + " is provided.");
-                result.add("This is optional.");
             }
             return result;
         });
