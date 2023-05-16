@@ -402,6 +402,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         } else {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
             if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Catalysts) {
+                System.out.println("adding catalyst housing");
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
             } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_InputBus) {
                 maxTierOfHatch = Math.max(maxTierOfHatch, ((GT_MetaTileEntity_Hatch_InputBus) aMetaTileEntity).mTier);
