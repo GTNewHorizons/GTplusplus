@@ -1,8 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.chemplant;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.withChannel;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static gregtech.api.enums.GT_HatchElement.InputBus;
 import static gregtech.api.enums.GT_HatchElement.InputHatch;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
@@ -132,7 +130,8 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         tt.addMachineType(getMachineType()).addInfo("Controller Block for the Chemical Plant")
                 .addInfo("Heavy Industry, now right at your doorstep!")
                 .addInfo("Please read the user manual for more information on construction and usage").addSeparator()
-                .addController("Bottom Center").addStructureHint("Catalyst Housing", 1).addInputBus("Bottom Casing", 1)
+                .addController("Bottom Center").addCasingInfoExactly("Catalyst Housing: Bottom Casing", 1, false)
+                .addStructureHint("Catalyst Housing", 1).addInputBus("Bottom Casing", 1)
                 .addOutputBus("Bottom Casing", 1).addInputHatch("Bottom Casing", 1).addOutputHatch("Bottom Casing", 1)
                 .addEnergyHatch("Bottom Casing", 1).addMaintenanceHatch("Bottom Casing", 1)
                 .addSubChannelUsage("casing", "metal machine casing")
@@ -234,6 +233,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                                             .casingIndex(getCasingTextureID()).dot(1).build(),
                                     buildHatchAdder(GregtechMTE_ChemicalPlant.class)
                                             .hatchClass(GT_MetaTileEntity_Hatch_Catalysts.class)
+                                            .shouldReject(t -> t.mCatalystBuses.size() >= 1)
                                             .adder(GregtechMTE_ChemicalPlant::addChemicalPlantList)
                                             .casingIndex(getCasingTextureID()).dot(1).build(),
                                     allCasingsElement))
