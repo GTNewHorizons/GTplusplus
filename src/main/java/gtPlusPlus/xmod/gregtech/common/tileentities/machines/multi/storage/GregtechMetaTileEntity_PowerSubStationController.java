@@ -898,6 +898,10 @@ public class GregtechMetaTileEntity_PowerSubStationController
                                         () -> "Avg Out: " + GT_Utility.formatNumbers(getAverageEuConsumed()) + " EU")
                                 .setDefaultColor(COLOR_TEXT_WHITE.get()).setPos(10, 30))
                 .widget(
+                        TextWidget.dynamicString(
+                                () -> "Powerloss: " + GT_Utility.formatNumbers(computeEnergyTax()) + " EU per second")
+                                .setDefaultColor(COLOR_TEXT_WHITE.get()).setPos(10, 40))
+                .widget(
                         new DrawableWidget().setDrawable(GTPP_UITextures.PICTURE_ENERGY_FRAME).setPos(4, 155)
                                 .setSize(149, 7))
                 .widget(
