@@ -40,7 +40,7 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
                 aTier,
                 17,
                 new String[] { "Holds Data Orbs for the Elemental Duplicator", "Can insert/extract the circuit slot",
-                        "Use Circuit to select a slot (1-16)", CORE.GT_Tooltip.get() });
+                        "A circuit must be used to select a slot (1-16)", CORE.GT_Tooltip.get() });
     }
 
     public GT_MetaTileEntity_Hatch_ElementalDataOrbHolder(String aName, int aTier, String aDescription,
@@ -167,7 +167,7 @@ public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileE
     public ItemStack getOrbByCircuit() {
         ItemStack aCirc = getBaseMetaTileEntity().getStackInSlot(getCircuitSlot());
         if (aCirc != null && ItemUtils.isControlCircuit(aCirc)) {
-            int slot = aCirc.getItemDamage();
+            int slot = aCirc.getItemDamage() - 1; // slots are 0 indexed but there's no 0 circuit
             if (slot < getBaseMetaTileEntity().getSizeInventory() - 1) {
                 return getBaseMetaTileEntity().getStackInSlot(slot);
             } else {
