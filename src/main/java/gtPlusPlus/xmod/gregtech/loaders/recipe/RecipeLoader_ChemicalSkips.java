@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
 import static gregtech.api.enums.Mods.BartWorks;
-import static gregtech.api.enums.Mods.EternalSingularity;
 import static gregtech.api.enums.Mods.GoodGenerator;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_ModHandler.getModItem;
@@ -226,20 +225,6 @@ public class RecipeLoader_ChemicalSkips {
                 (int) TierEU.RECIPE_UIV,
                 4);
 
-        if (EternalSingularity.isModLoaded()) {
-            // Shirabon and Eternity
-            CORE.RA.addQuantumTransformerRecipe(
-                    new ItemStack[] { getModItem(EternalSingularity.ID, "combined_singularity", 1, 15),
-                            ItemUtils.getSimpleStack(GenericChem.TemporalHarmonyCatalyst, 0) },
-                    new FluidStack[] { MaterialsUEVplus.RawStarMatter.getFluid(1152) },
-                    new FluidStack[] { MaterialsUEVplus.Eternity.getMolten(9216),
-                            MaterialsUEVplus.Time.getMolten(18432) },
-                    new ItemStack[] { GT_OreDictUnificator.get("dustShirabon", 64), ItemList.Timepiece.get(1) },
-                    new int[] { 2500, 2500, 2500, 2500 },
-                    20 * 20,
-                    (int) TierEU.RECIPE_UXV,
-                    4);
-        }
     }
 
     private static void fusionReactorRecipes() {
