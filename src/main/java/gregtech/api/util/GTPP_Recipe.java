@@ -23,7 +23,6 @@ import gregtech.api.gui.modularui.GT_UITextures;
 import gregtech.common.gui.modularui.UIHelper;
 import gregtech.nei.GT_NEI_DefaultHandler.FixedPositionedStack;
 import gregtech.nei.NEIRecipeInfo;
-import gtPlusPlus.api.interfaces.IComparableRecipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -36,7 +35,7 @@ import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
  * @author Alkalus
  *
  */
-public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
+public class GTPP_Recipe extends GT_Recipe {
 
     public GTPP_Recipe(final boolean aOptimize, final ItemStack[] aInputs, final ItemStack[] aOutputs,
             final Object aSpecialItems, final int[] aChances, final FluidStack[] aFluidInputs,
@@ -824,9 +823,9 @@ public class GTPP_Recipe extends GT_Recipe implements IComparableRecipe {
         }.useModularUI(true).setNEISpecialInfoFormatter((recipeInfo, applyPrefixAndSuffix) -> {
             List<String> result = new ArrayList<>();
             if (ModItems.fluidFertBasic != null) {
-                result.add("Sapling is outputted if");
-                result.add("" + ModItems.fluidFertBasic.getLocalizedName() + " is provided.");
-                result.add("This is optional.");
+                result.add("The sapling is not consumed.");
+                result.add("If " + ModItems.fluidFertBasic.getLocalizedName() + " is provided,");
+                result.add("Saplings are made instead");
             }
             return result;
         });
