@@ -157,19 +157,16 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         mCasing = 0;
-        mSize = 0;
         if (checkPiece(mName + "3", 1, 1, 0)) {
             mSize = 3;
             return mCasing >= 10 && checkHatch();
         }
         mCasing = 0;
-        clearHatches();
         if (checkPiece(mName + "5", 2, 2, 0)) {
             mSize = 5;
             return mCasing >= 10 && checkHatch();
         }
         mCasing = 0;
-        clearHatches();
         if (checkPiece(mName + "7", 3, 3, 0)) {
             mSize = 7;
             return mCasing >= 10 && checkHatch();
