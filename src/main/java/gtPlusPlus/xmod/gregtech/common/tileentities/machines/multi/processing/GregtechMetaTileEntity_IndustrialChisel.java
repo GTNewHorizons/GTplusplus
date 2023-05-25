@@ -72,9 +72,10 @@ public class GregtechMetaTileEntity_IndustrialChisel
                 .addInfo("Target block goes in GUI slot").addInfo("If no target provided, first chisel result is used")
                 .addInfo("Speed: +200% | EU Usage: 75% | Parallel: Tier x 16")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
-                .addController("Front center").addCasingInfo("Sturdy Printer Casing", 10).addInputBus("Any casing", 1)
-                .addOutputBus("Any casing", 1).addEnergyHatch("Any casing", 1).addMaintenanceHatch("Any casing", 1)
-                .addMufflerHatch("Any casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addController("Front center").addCasingInfoMin("Sturdy Printer Casing", 10, false)
+                .addInputBus("Any casing", 1).addOutputBus("Any casing", 1).addEnergyHatch("Any casing", 1)
+                .addMaintenanceHatch("Any casing", 1).addMufflerHatch("Any casing", 1)
+                .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
