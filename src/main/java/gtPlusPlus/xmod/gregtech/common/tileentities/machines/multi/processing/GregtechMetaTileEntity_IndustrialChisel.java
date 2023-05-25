@@ -75,6 +75,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
         tt.addMachineType(getMachineType()).addInfo("Factory Grade Auto Chisel")
                 .addInfo("Target block goes in Controller slot for common Input Buses")
                 .addInfo("You can also set a target block in each Chisel Input Bus and use them as an Input Bus")
+                .addInfo("If no target is provided for common buses, the result of the first chisel is used")
                 .addInfo("Speed: +200% | EU Usage: 75% | Parallel: Tier x 16")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
                 .addController("Front center").addCasingInfo("Sturdy Printer Casing", 10).addInputBus("Any casing", 1)
