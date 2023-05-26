@@ -285,14 +285,14 @@ public class GregtechCustomHatches {
     private static void run5() {
         int aID = 31777;
 
-        GregtechItemList.GT_MetaTileEntity_ChiselBus_I.set(
-                ((IMetaTileEntity) makeChiselBus(aID++, "hatch.chisel.tier.00", "Chisel Bus I", 0)).getStackForm(1L));
-        GregtechItemList.GT_MetaTileEntity_ChiselBus_II.set(
-                ((IMetaTileEntity) makeChiselBus(aID++, "hatch.chisel.tier.01", "Chisel Bus II", 1)).getStackForm(1L));
-        GregtechItemList.GT_MetaTileEntity_ChiselBus_III.set(
-                ((IMetaTileEntity) makeChiselBus(aID++, "hatch.chisel.tier.02", "Chisel Bus III", 2)).getStackForm(1L));
-        GregtechItemList.GT_MetaTileEntity_ChiselBus_IV.set(
-                ((IMetaTileEntity) makeChiselBus(aID++, "hatch.chisel.tier.03", "Chisel Bus IV", 3)).getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_ChiselBus_I
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.00", "Chisel Bus I", 0)).getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_ChiselBus_II
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.01", "Chisel Bus II", 1)).getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_ChiselBus_III
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.02", "Chisel Bus III", 2)).getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_ChiselBus_IV
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.03", "Chisel Bus IV", 3)).getStackForm(1L));
 
     }
 }

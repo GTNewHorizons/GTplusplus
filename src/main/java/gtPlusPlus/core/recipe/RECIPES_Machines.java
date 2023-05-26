@@ -3568,7 +3568,7 @@ public class RECIPES_Machines {
                     CI.getAlternativeTieredFluid(i, 144 * 2),
                     mChiselBuses[i],
                     20 * 30 * 2,
-                    (int) GT_Values.V[i + 1]);
+                    (int) GT_Values.VP[i + 1]);
         }
     }
 

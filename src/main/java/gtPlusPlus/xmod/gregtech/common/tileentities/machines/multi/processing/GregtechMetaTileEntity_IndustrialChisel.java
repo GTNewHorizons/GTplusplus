@@ -237,21 +237,15 @@ public class GregtechMetaTileEntity_IndustrialChisel
     }
 
     private GT_Recipe getRecipe() {
-        ArrayList<GT_MetaTileEntity_Hatch_InputBus> busses = this.mInputBusses;
-        GT_Recipe tRecipe;
-
-        for (GT_MetaTileEntity_Hatch_InputBus bus : busses) {
-            ItemStack[] busInventory = bus.mInventory;
-            ItemStack itemsInSlot;
-
+        for (GT_MetaTileEntity_Hatch_InputBus bus : this.mInputBusses) {
             if (bus instanceof GT_MetaTileEntity_ChiselBus) { // Chisel buses
-                if (busInventory[bus.getSizeInventory() - 1] == null) continue;
-                this.target = busInventory[bus.getSizeInventory() - 1];
+                if (bus.mInventory[bus.getSizeInventory() - 1] == null) continue;
+                this.target = bus.mInventory[bus.getSizeInventory() - 1];
 
                 for (int i = bus.getSizeInventory() - 2; i >= 0; i--) {
-                    itemsInSlot = busInventory[i];
+                    ItemStack itemsInSlot = bus.mInventory[i];
                     if (itemsInSlot != null) {
-                        tRecipe = generateChiselRecipe(itemsInSlot);
+                        GT_Recipe tRecipe = generateChiselRecipe(itemsInSlot);
                         if (tRecipe != null) {
                             return tRecipe;
                         }
@@ -260,9 +254,9 @@ public class GregtechMetaTileEntity_IndustrialChisel
             } else {
                 target = this.getGUIItemStack(); // Common buses
                 for (int i = bus.getSizeInventory() - 1; i >= 0; i--) {
-                    itemsInSlot = busInventory[i];
+                    ItemStack itemsInSlot = bus.mInventory[i];
                     if (itemsInSlot != null) {
-                        tRecipe = generateChiselRecipe(itemsInSlot);
+                        GT_Recipe tRecipe = generateChiselRecipe(itemsInSlot);
                         if (tRecipe != null) {
                             return tRecipe;
                         }
