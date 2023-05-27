@@ -245,7 +245,7 @@ public class GregtechMetaTileEntity_IndustrialMixer
     }
 
     @Override
-    public boolean isInputSeparationButtonEnabled() {
+    public boolean supportsInputSeparation() {
         return true;
     }
 }

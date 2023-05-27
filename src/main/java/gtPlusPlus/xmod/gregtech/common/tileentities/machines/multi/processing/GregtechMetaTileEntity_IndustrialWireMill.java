@@ -234,7 +234,7 @@ public class GregtechMetaTileEntity_IndustrialWireMill extends
     }
 
     @Override
-    public boolean isInputSeparationButtonEnabled() {
+    public boolean supportsInputSeparation() {
         return true;
     }
 }
