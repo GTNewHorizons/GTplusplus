@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
+import gregtech.api.enums.Materials;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -19,6 +20,8 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEn
 
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTurbineBase {
+
+    private static final FluidStack HELIUM_BLACKLIST = Materials.Helium.getPlasma(1);
 
     public GT_MTE_LargeTurbine_Plasma(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -97,6 +100,11 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             ArrayList<FluidStack> tFluids = getStoredFluids();
 
             if (tFluids.size() > 0) {
+                for (FluidStack fluid : tFluids) {
+                    if (fluid.isFluidEqual(HELIUM_BLACKLIST)) {
+                        return false;
+                    }
+                }
                 if (baseEff == 0 || optFlow == 0
                         || counter >= 512
                         || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()
