@@ -255,7 +255,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     }
 
     @Override
-    protected boolean isInputSeparationButtonEnabled() {
+    public boolean isInputSeparationButtonEnabled() {
         return true;
     }
 }
