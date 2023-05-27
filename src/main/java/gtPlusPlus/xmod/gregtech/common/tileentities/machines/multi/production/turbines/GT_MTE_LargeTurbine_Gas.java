@@ -3,6 +3,7 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.t
 import static gtPlusPlus.core.lib.CORE.RANDOM;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
@@ -22,7 +23,7 @@ import gregtech.api.util.GT_Utility;
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbineBase {
 
-    private static final List<Fluid> BLACKLIST = new ArrayList<>();
+    private static final HashSet<Fluid> BLACKLIST = new HashSet<>();
 
     static {
         BLACKLIST.add(Materials.Benzene.getFluid(0).getFluid());

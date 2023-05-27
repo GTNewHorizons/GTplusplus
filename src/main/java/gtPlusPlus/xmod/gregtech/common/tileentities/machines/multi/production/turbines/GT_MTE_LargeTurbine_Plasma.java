@@ -1,7 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -23,7 +23,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEn
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTurbineBase {
 
-    private static final List<Fluid> BLACKLIST = new ArrayList<>();
+    private static final HashSet<Fluid> BLACKLIST = new HashSet<>();
 
     static {
         BLACKLIST.add(Materials.Helium.getPlasma(0).getFluid());
