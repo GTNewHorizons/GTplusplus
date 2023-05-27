@@ -7,6 +7,7 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.Materials;
@@ -21,7 +22,11 @@ import gregtech.api.util.GT_Utility;
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbineBase {
 
-    private static final FluidStack BENZENE_BLACKLIST = Materials.Benzene.getFluid(1);
+    private static final List<Fluid> BLACKLIST = new ArrayList<>();
+
+    static {
+        BLACKLIST.add(Materials.Benzene.getFluid(0).getFluid());
+    }
 
     public GT_MTE_LargeTurbine_Gas(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -73,7 +78,7 @@ public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbin
             long aEUPercent, int aSpeedBonusPercent, int aOutputChanceRoll, GT_Recipe aRecipe) {
         List<FluidStack> fluids = getStoredFluids();
         for (FluidStack fluid : fluids) {
-            if (fluid.isFluidEqual(BENZENE_BLACKLIST)) {
+            if (fluid != null && BLACKLIST.contains(fluid.getFluid())) {
                 return false;
             }
         }
