@@ -119,7 +119,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
 
                     float aTotalBaseEff = 0;
                     float aTotalOptimalFlow = 0;
-
+                    
                     ItemStack aStack = getFullTurbineAssemblies().get(0).getTurbine();
                     aTotalBaseEff += GT_Utility.safeInt(
                             (long) ((5F + ((GT_MetaGenerated_Tool) aStack.getItem()).getToolCombatDamage(aStack))
@@ -129,8 +129,15 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                                     Float.MIN_NORMAL,
                                     ((GT_MetaGenerated_Tool) aStack.getItem()).getToolStats(aStack).getSpeedMultiplier()
                                             * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mToolSpeed
-                                            * 50))
-                            * getSpeedMultiplier();
+                                            * 50));
+
+                        //Calculate total EU/t (as shown on turbine tooltip (Fast mode doesn't affect))
+                    double aEUPerTurbine = aTotalOptimalFlow
+                                    * 40 * 0.0105
+                                    * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mPlasmaMultiplier
+                                    * (50.0f + (10.0f * ((GT_MetaGenerated_Tool) aStack.getItem()).getToolCombatDamage(aStack)));
+                    aTotalOptimalFlow *= getSpeedMultiplier();
+
                     if (aTotalOptimalFlow < 0) {
                         log("Int overflow, report to issue tracker");
                         aTotalOptimalFlow = 100;
@@ -141,6 +148,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                     flowMultipliers[2] = GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mPlasmaMultiplier;
                     baseEff = MathUtils.roundToClosestInt(aTotalBaseEff);
                     optFlow = MathUtils.roundToClosestInt(aTotalOptimalFlow);
+                    euPerTurbine = MathUtils.roundToClosestInt(aEUPerTurbine);
                     if (optFlow <= 0 || baseEff <= 0) {
                         stopMachine(); // in case the turbine got removed
                         return false;
@@ -152,7 +160,16 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
 
             // How much the turbine should be producing with this flow
             int newPower = fluidIntoPower(tFluids, optFlow, baseEff, flowMultipliers);
+
+            //Reduce produced power depending on the ratio between fuel value and turbine EU/t with the following formula:
+            // EU/t = EU/t * MIN(1, ( ( (FuelValue / 100) ^ 2 ) / EUPerTurbine))
+            int fuelValue = getFuelValue(new FluidStack(tFluids.get(0), 0));
+            float magicValue = (fuelValue * 0.01f) * ( fuelValue * 0.01f);
+            float efficiencyLoss = Math.min(1.0f, magicValue / euPerTurbine);
+            newPower *= efficiencyLoss;
+
             long difference = newPower - this.lEUt; // difference between current output and new output
+
             // Magic numbers: can always change by at least 10 eu/t, but otherwise by at most 1 percent of the
             // difference in power level (per tick)
             // This is how much the turbine can actually change during this tick

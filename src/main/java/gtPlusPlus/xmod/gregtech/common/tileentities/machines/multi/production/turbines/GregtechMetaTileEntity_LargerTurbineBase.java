@@ -57,6 +57,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
 
     protected int baseEff = 0;
     protected long optFlow = 0;
+    protected long euPerTurbine = 0;
     protected double realOptFlow = 0;
     protected int storedFluid = 0;
     protected int counter = 0;
