@@ -8,7 +8,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.enums.Materials;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -24,10 +23,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEn
 public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTurbineBase {
 
     private static final HashSet<Fluid> BLACKLIST = new HashSet<>();
-
-    static {
-        BLACKLIST.add(Materials.Helium.getPlasma(0).getFluid());
-    }
 
     public GT_MTE_LargeTurbine_Plasma(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -119,7 +114,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
 
                     float aTotalBaseEff = 0;
                     float aTotalOptimalFlow = 0;
-                    
+
                     ItemStack aStack = getFullTurbineAssemblies().get(0).getTurbine();
                     aTotalBaseEff += GT_Utility.safeInt(
                             (long) ((5F + ((GT_MetaGenerated_Tool) aStack.getItem()).getToolCombatDamage(aStack))
@@ -131,11 +126,12 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                                             * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mToolSpeed
                                             * 50));
 
-                        //Calculate total EU/t (as shown on turbine tooltip (Fast mode doesn't affect))
-                    double aEUPerTurbine = aTotalOptimalFlow
-                                    * 40 * 0.0105
-                                    * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mPlasmaMultiplier
-                                    * (50.0f + (10.0f * ((GT_MetaGenerated_Tool) aStack.getItem()).getToolCombatDamage(aStack)));
+                    // Calculate total EU/t (as shown on turbine tooltip (Fast mode doesn't affect))
+                    double aEUPerTurbine = aTotalOptimalFlow * 40
+                            * 0.0105
+                            * GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mPlasmaMultiplier
+                            * (50.0f + (10.0f
+                                    * ((GT_MetaGenerated_Tool) aStack.getItem()).getToolCombatDamage(aStack)));
                     aTotalOptimalFlow *= getSpeedMultiplier();
 
                     if (aTotalOptimalFlow < 0) {
@@ -161,10 +157,11 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             // How much the turbine should be producing with this flow
             int newPower = fluidIntoPower(tFluids, optFlow, baseEff, flowMultipliers);
 
-            //Reduce produced power depending on the ratio between fuel value and turbine EU/t with the following formula:
+            // Reduce produced power depending on the ratio between fuel value and turbine EU/t with the following
+            // formula:
             // EU/t = EU/t * MIN(1, ( ( (FuelValue / 100) ^ 2 ) / EUPerTurbine))
             int fuelValue = getFuelValue(new FluidStack(tFluids.get(0), 0));
-            float magicValue = (fuelValue * 0.01f) * ( fuelValue * 0.01f);
+            float magicValue = (fuelValue * 0.01f) * (fuelValue * 0.01f);
             float efficiencyLoss = Math.min(1.0f, magicValue / euPerTurbine);
             newPower *= efficiencyLoss;
 
