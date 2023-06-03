@@ -1,5 +1,6 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import gtPlusPlus.core.material.ALLOY;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -38,6 +39,7 @@ public class RecipeLoader_Nuclear {
         electroMagneticSeperator();
         fluidExtractorRecipes();
         fluidHeater();
+        fusionChainRecipes();
         macerator();
         mixerRecipes();
         sifter();
@@ -471,6 +473,67 @@ public class RecipeLoader_Nuclear {
                 FLUORIDES.ZIRCONIUM_TETRAFLUORIDE.getFluidStack(144),
                 200,
                 512 + 256);
+    }
+
+    private static void fusionChainRecipes() {
+        // Mk1
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { Materials.Boron.getPlasma(100), Materials.Calcium.getPlasma(100) },
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().NEON.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_LuV,
+                100_000_000);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().NEON.getPlasma(), 100), Materials.Bedrockium.getMolten(1000) },
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_LuV,
+                100_000_000);
+
+        // Mk2
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { Materials.Niobium.getPlasma(100), Materials.Zinc.getPlasma(100) },
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_ZPM,
+                300_000_000);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().NEON.getPlasma(), 100), new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 100) },
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_ZPM,
+                300_000_000);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 100), new FluidStack(ALLOY.TITANSTEEL.getFluid(), 1000) },
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_ZPM,
+                300_000_000);
+
+        // Mk3
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { ELEMENT.getInstance().CURIUM.getFluidStack(100), Materials.Americium.getPlasma(100) },
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_UV,
+                500_000_000);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 100), new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 100) },
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_UV,
+                500_000_000);
+
+        GT_Values.RA.addFusionReactorRecipe(
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 100), Materials.Tartarite.getMolten(1000) },
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getPlasma(), 100) },
+                3 * 20,
+                (int) TierEU.RECIPE_UV,
+                500_000_000);
     }
 
     private static void macerator() {
