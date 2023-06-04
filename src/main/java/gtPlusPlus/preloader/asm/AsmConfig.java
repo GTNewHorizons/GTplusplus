@@ -100,10 +100,10 @@ public class AsmConfig {
             propOrderDebug.add(prop.getName());
 
             // General Features
-            prop = config.get("general", "enableTiConFluidLighting", true);
+            prop = config.get("general", "enableTiConFluidLighting", false);
             prop.comment = "Enable/Disable Brightness Visuals for Tinkers Fluids, only required on the Client.";
             prop.setLanguageKey("gtpp.enableTiConFluidLighting").setRequiresMcRestart(true);
-            enableTiConFluidLighting = prop.getBoolean(true);
+            enableTiConFluidLighting = false;
             propOrder.add(prop.getName());
 
             prop = config.get("general", "enabledLwjglKeybindingFix", true);
