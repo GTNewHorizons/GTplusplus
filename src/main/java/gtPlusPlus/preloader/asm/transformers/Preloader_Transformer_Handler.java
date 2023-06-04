@@ -139,12 +139,6 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
             return new ClassTransformer_COFH_OreDictionaryArbiter(basicClass).getWriter().toByteArray();
         }
 
-        // Tries to make tinkers fluids glow(doesn't work and causes catastrophic fps lag, so it's turned off)
-        // if (transformedName.equals(TINKERS_FLUID_BLOCK) && AsmConfig.enableTiConFluidLighting) {
-        // Preloader_Logger.INFO("Bright Fluids", "Transforming " + transformedName);
-        // return new ClassTransformer_TiConFluids("getLightValue", obfuscated, basicClass).getWriter().toByteArray();
-        // }
-
         // Fix GC stuff
         if (AsmConfig.enableGcFuelChanges) {
             if (transformedName.equals(GALACTICRAFT_FLUID_UTILS)) {
