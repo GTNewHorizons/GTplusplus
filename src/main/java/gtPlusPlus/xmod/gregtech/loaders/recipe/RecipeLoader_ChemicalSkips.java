@@ -212,7 +212,8 @@ public class RecipeLoader_ChemicalSkips {
                 4);
         // Platline skip using Platline Combs (Palladium, Osmium, Iridium, Platinum)
         CORE.RA.addQuantumTransformerRecipe(
-                new ItemStack[] { WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dust, 16), GT_Bees.combs.getStackForType(CombType.PLATINUM, 16),
+                new ItemStack[] { WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dust, 16),
+                        GT_Bees.combs.getStackForType(CombType.PLATINUM, 16),
                         GT_Bees.combs.getStackForType(CombType.PALLADIUM, 16),
                         GT_Bees.combs.getStackForType(CombType.OSMIUM, 16),
                         GT_Bees.combs.getStackForType(CombType.IRIDIUM, 16),
