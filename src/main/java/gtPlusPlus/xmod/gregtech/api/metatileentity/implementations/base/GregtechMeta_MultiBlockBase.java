@@ -111,6 +111,15 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
 
     public static final boolean DEBUG_DISABLE_CORES_TEMPORARILY = true;
 
+    private static Method calculatePollutionReduction = null;
+
+    static {
+        try {
+            calculatePollutionReduction = GT_MetaTileEntity_Hatch_Muffler.class
+                    .getDeclaredMethod("calculatePollutionReduction", int.class);
+        } catch (NoSuchMethodException | SecurityException ignored) {}
+    }
+
     public GT_Recipe mLastRecipe;
     private boolean mInternalCircuit = false;
     protected long mTotalRunTime = 0;
@@ -1601,8 +1610,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     /**
      * Pollution Management
      */
-    private static Method calculatePollutionReduction = null;
-
     public int calculatePollutionReductionForHatch(GT_MetaTileEntity_Hatch_Muffler i, int g) {
         if (calculatePollutionReduction != null) {
             try {
