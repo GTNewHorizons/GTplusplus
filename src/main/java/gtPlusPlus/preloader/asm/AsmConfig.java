@@ -22,7 +22,6 @@ public class AsmConfig {
     public static boolean enableGtCharcoalPitFix;
     public static boolean enableChunkDebugging;
     public static boolean enableCofhPatch;
-    public static boolean enableGcFuelChanges;
     public static boolean enableTcAspectSafety;
     public static boolean enabledLwjglKeybindingFix;
     public static boolean enabledFixEntitySetHealth;
@@ -115,14 +114,6 @@ public class AsmConfig {
             prop.comment = "Makes the Charcoal Pile Igniter work better.";
             prop.setLanguageKey("gtpp.enableGtCharcoalPitFix").setRequiresMcRestart(true);
             enableGtCharcoalPitFix = prop.getBoolean(true);
-            propOrder.add(prop.getName());
-
-            prop = config.get("general", "enableGcFuelChanges", true);
-            prop.comment = "Enable/Disable changes to Galacticraft Rocket Fuels.";
-            prop.setLanguageKey("gtpp.enableGcFuelChanges").setRequiresMcRestart(true);
-            // Disabled because Broken
-            // enableGcFuelChanges = prop.getBoolean(true);
-            enableGcFuelChanges = false;
             propOrder.add(prop.getName());
 
             // TC Aspect Safety
