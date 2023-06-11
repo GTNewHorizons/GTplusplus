@@ -133,7 +133,6 @@ public class AsmConfig {
             Preloader_Logger.INFO("Gt Nbt Fix - Enabled: " + enableGtNbtFix);
             Preloader_Logger.INFO("Gt Tooltip Fix - Enabled: " + enableGtTooltipFix);
             Preloader_Logger.INFO("COFH Patch - Enabled: " + enableCofhPatch);
-            Preloader_Logger.INFO("Gc Fuel Changes Patch - Enabled: " + enableGcFuelChanges);
             Preloader_Logger.INFO("Thaumcraft Aspect Safety Patch - Enabled: " + enableTcAspectSafety);
             Preloader_Logger
                     .INFO("Fix bad usage of EntityLivingBase.setHealth Patch - Enabled: " + enabledFixEntitySetHealth);
