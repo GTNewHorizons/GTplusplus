@@ -497,22 +497,22 @@ public class RecipeLoader_Nuclear {
 
         // Mk2
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
-                .fluidInputs(Materials.Niobium.getPlasma(100), Materials.Zinc.getPlasma(100))
-                .fluidOutputs(new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 100)).duration(3 * SECONDS)
+                .fluidInputs(Materials.Niobium.getPlasma(144), Materials.Zinc.getPlasma(144))
+                .fluidOutputs(new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 100)).duration(32 * TICKS)
                 .eut(TierEU.RECIPE_ZPM).metadata(FUSION_THRESHOLD, 300000000).addTo(sFusionRecipes);
 
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
                 .fluidInputs(
-                        new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 100),
-                        new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 100))
-                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 100)).duration(3 * SECONDS)
+                        new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 144),
+                        new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 1000))
+                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 1000)).duration(32 * TICKS)
                 .eut(TierEU.RECIPE_ZPM).metadata(FUSION_THRESHOLD, 300000000).addTo(sFusionRecipes);
 
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
                 .fluidInputs(
-                        new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 100),
-                        new FluidStack(ALLOY.TITANSTEEL.getFluid(), 1000))
-                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 100)).duration(3 * SECONDS)
+                        new FluidStack(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getPlasma(), 144),
+                        new FluidStack(ALLOY.TITANSTEEL.getFluid(), 8))
+                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 1000)).duration(32 * TICKS)
                 .eut(TierEU.RECIPE_ZPM).metadata(FUSION_THRESHOLD, 300000000).addTo(sFusionRecipes);
 
         // Mk3
