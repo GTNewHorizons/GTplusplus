@@ -498,7 +498,7 @@ public class RecipeLoader_Nuclear {
         // Mk2
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
                 .fluidInputs(Materials.Niobium.getPlasma(144), Materials.Zinc.getPlasma(144))
-                .fluidOutputs(new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 100)).duration(32 * TICKS)
+                .fluidOutputs(new FluidStack(ELEMENT.getInstance().KRYPTON.getPlasma(), 144)).duration(32 * TICKS)
                 .eut(TierEU.RECIPE_ZPM).metadata(FUSION_THRESHOLD, 300000000).addTo(sFusionRecipes);
 
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
