@@ -517,24 +517,24 @@ public class RecipeLoader_Nuclear {
 
         // Mk3
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
-                .fluidInputs(ELEMENT.getInstance().CURIUM.getFluidStack(100), Materials.Americium.getPlasma(100))
-                .fluidOutputs(new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 100)).duration(3 * SECONDS)
+                .fluidInputs(ELEMENT.getInstance().CURIUM.getFluidStack(144), Materials.Americium.getPlasma(144))
+                .fluidOutputs(new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 144)).duration(16 * TICKS)
                 .eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 500000000).addTo(sFusionRecipes);
 
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
                 .fluidInputs(
-                        new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 100),
-                        new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 100))
-                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 100))
-                .duration(3 * SECONDS).eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 500000000)
+                        new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 144),
+                        new FluidStack(ELEMENT.STANDALONE.RUNITE.getPlasma(), 1000))
+                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 1000))
+                .duration(16 * TICKS).eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 500000000)
                 .addTo(sFusionRecipes);
 
         GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
                 .fluidInputs(
-                        new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 100),
-                        Materials.Tartarite.getMolten(1000))
-                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getPlasma(), 100))
-                .duration(3 * SECONDS).eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 500000000)
+                        new FluidStack(ELEMENT.STANDALONE.ADVANCED_NITINOL.getPlasma(), 144),
+                        Materials.Tartarite.getMolten(8))
+                .fluidOutputs(new FluidStack(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getPlasma(), 1000))
+                .duration(16 * TICKS).eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 500000000)
                 .addTo(sFusionRecipes);
     }
 
