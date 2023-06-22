@@ -619,6 +619,12 @@ public enum GregtechItemList implements GregtechItemContainer {
     GT_MetaTileEntity_ChiselBus_III,
     GT_MetaTileEntity_ChiselBus_IV,
 
+    // Solidifier Hatches for Industrial Multi Machine
+    GT_MetaTileEntity_Solidifier_I,
+    GT_MetaTileEntity_Solidifier_II,
+    GT_MetaTileEntity_Solidifier_III,
+    GT_MetaTileEntity_Solidifier_IV,
+
     // ----------------------------------------------------------------------------
 
     /**

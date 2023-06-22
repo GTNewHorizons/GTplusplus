@@ -13,6 +13,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEn
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler_Adv;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Naquadah;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Reservoir;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Solidifier;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_TurbineProvider;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_SuperBus_Input;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_SuperBus_Output;
@@ -29,6 +30,7 @@ public class GregtechCustomHatches {
         run3();
         run4();
         run5(); // Chisel buses
+        run6(); // Solidifier hatches
     }
 
     private static void run1() {
@@ -294,5 +296,22 @@ public class GregtechCustomHatches {
         GregtechItemList.GT_MetaTileEntity_ChiselBus_IV
                 .set((makeChiselBus(aID++, "hatch.chisel.tier.03", "Chisel Bus IV", 3)).getStackForm(1L));
 
+    }
+
+    private static void run6() {
+        int aID = 31781;
+
+        GregtechItemList.GT_MetaTileEntity_Solidifier_I.set(
+                new GT_MetaTileEntity_Hatch_Solidifier(aID++, "hatch.solidifier.tier.05", "Solidifier Hatch I", 5)
+                        .getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_Solidifier_II.set(
+                new GT_MetaTileEntity_Hatch_Solidifier(aID++, "hatch.solidifier.tier.06", "Solidifier Hatch II", 6)
+                        .getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_Solidifier_III.set(
+                new GT_MetaTileEntity_Hatch_Solidifier(aID++, "hatch.solidifier.tier.07", "Solidifier Hatch III", 7)
+                        .getStackForm(1L));
+        GregtechItemList.GT_MetaTileEntity_Solidifier_IV.set(
+                new GT_MetaTileEntity_Hatch_Solidifier(aID, "hatch.solidifier.tier.08", "Solidifier Hatch IV", 8)
+                        .getStackForm(1L));
     }
 }

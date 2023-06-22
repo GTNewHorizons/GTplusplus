@@ -32,6 +32,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -45,6 +46,7 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Solidifier;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
@@ -120,6 +122,8 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                                 + aBuiltStrings[2]
                                 + EnumChatFormatting.RESET)
                 .addInfo("Read Multi-Machine Manual for extra information")
+                .addInfo(
+                        "You can use Solidifier Hatch to solidify. It's more comfortable and add more 50% speed (300 total)")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
                 .addController("Front Center").addCasingInfoMin("Multi-Use Casings", 6, false)
                 .addInputBus("Any Casing", 1).addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1)
@@ -200,6 +204,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
             for (ItemStack aBusItem : tBusItems) {
                 if (ItemUtils.isControlCircuit(aBusItem)) {
                     aFoundCircuitInBus = true;
+                    break;
                 }
             }
             if (!aFoundCircuitInBus) {
@@ -220,6 +225,25 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                     250,
                     10000))
                 return true;
+        }
+        if (mInternalMode == 2) {
+            for (GT_MetaTileEntity_Hatch_Input tHatch : mInputHatches) {
+                if (tHatch instanceof GT_MetaTileEntity_Hatch_Solidifier) {
+                    ItemStack items = ((GT_MetaTileEntity_Hatch_Solidifier) tHatch).getMold();
+                    FluidStack fluid = tHatch.getFluid();
+
+                    if (items != null && fluid != null) {
+                        if (checkRecipeGeneric(
+                                new ItemStack[] { items, ItemUtils.getGregtechCircuit(22) },
+                                new FluidStack[] { fluid },
+                                (2 * GT_Utility.getTier(this.getMaxInputVoltage())),
+                                80,
+                                300,
+                                10000))
+                            return true;
+                    }
+                }
+            }
         }
         return false;
 
