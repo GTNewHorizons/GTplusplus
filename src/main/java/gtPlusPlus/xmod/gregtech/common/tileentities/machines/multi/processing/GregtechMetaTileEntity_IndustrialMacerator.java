@@ -360,7 +360,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
         if (aNBT == null || !aNBT.hasKey("mTier")) {
             tier = 1;
         } else {
-            tier = 2;
+            tier = aNBT.getInteger("mTier");
         }
         tooltip.add(StatCollector.translateToLocalFormatted("tooltip.large_macerator.tier", tier));
     }
