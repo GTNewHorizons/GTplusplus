@@ -1,7 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
 import static gregtech.api.GregTech_API.mEUtoRF;
-import static gregtech.api.enums.Mods.COFHCore;
+import static gregtech.api.enums.Mods.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,9 +9,11 @@ import java.util.UUID;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
+import baubles.api.BaublesApi;
 import cofh.api.energy.IEnergyContainerItem;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -62,6 +64,16 @@ public class ChargingHelper {
                                     InventoryPlayer mPlayerInventory = mPlayerMan.inventory;
                                     ItemStack[] mArmourContents = mPlayerInventory.armorInventory.clone();
                                     ItemStack[] mInventoryContents = mPlayerInventory.mainInventory.clone();
+                                    ItemStack[] baubleSlots = null;
+                                    if (Baubles.isModLoaded()) {
+                                        IInventory baubleInv = BaublesApi.getBaubles(mPlayerMan);
+                                        if (baubleInv != null) {
+                                            baubleSlots = new ItemStack[baubleInv.getSizeInventory()];
+                                            for (int i = 0; i < baubleInv.getSizeInventory(); i++) {
+                                                baubleSlots[i] = baubleInv.getStackInSlot(i);
+                                            }
+                                        }
+                                    }
 
                                     for (GregtechMetaWirelessCharger mEntityTemp : mChargerMap.values()) {
                                         if (mEntityTemp != null) {
@@ -80,53 +92,16 @@ public class ChargingHelper {
                                                     long mStartingEu = mEntityTemp.getEUVar();
                                                     long mCurrentEu = mEntityTemp.getEUVar();
                                                     long mEuUsed = 0;
-                                                    if (mEntityTemp.getMode() == 0) {
-                                                        if (!LR.isEmpty()
-                                                                && LR.containsKey(mPlayerMan.getDisplayName())) {
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mArmourContents,
-                                                                    mPlayerMan);
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mInventoryContents,
-                                                                    mPlayerMan);
-                                                        }
-                                                    } else if (mEntityTemp.getMode() == 1) {
-                                                        if (!LO.isEmpty()
-                                                                && LO.containsKey(mPlayerMan.getDisplayName())) {
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mArmourContents,
-                                                                    mPlayerMan);
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mInventoryContents,
-                                                                    mPlayerMan);
-                                                        }
-                                                    } else {
-                                                        if (!LR.isEmpty()
-                                                                && LR.containsKey(mPlayerMan.getDisplayName())) {
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mArmourContents,
-                                                                    mPlayerMan);
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mInventoryContents,
-                                                                    mPlayerMan);
-                                                        }
-                                                        if (!LO.isEmpty()
-                                                                && LO.containsKey(mPlayerMan.getDisplayName())) {
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mArmourContents,
-                                                                    mPlayerMan);
-                                                            mCurrentEu = chargeItems(
-                                                                    mEntityTemp,
-                                                                    mInventoryContents,
-                                                                    mPlayerMan);
-                                                        }
+                                                    if (canCharge(mEntityTemp, mPlayerMan, LR, LO)) {
+                                                        mCurrentEu -= chargeItems(
+                                                                mEntityTemp,
+                                                                mArmourContents,
+                                                                mPlayerMan);
+                                                        mCurrentEu -= chargeItems(
+                                                                mEntityTemp,
+                                                                mInventoryContents,
+                                                                mPlayerMan);
+                                                        mCurrentEu -= chargeItems(mEntityTemp, baubleSlots, mPlayerMan);
                                                     }
 
                                                     if ((mEuUsed = (mStartingEu - mCurrentEu)) <= 0
@@ -251,6 +226,20 @@ public class ChargingHelper {
         } else {
             Logger.WARNING("Key does not contain player?");
             return false;
+        }
+    }
+
+    protected boolean canCharge(GregtechMetaWirelessCharger charger, EntityPlayer chargeablePlayer,
+            Map<String, UUID> longRangeChargers, Map<String, UUID> shortRangeChargers) {
+        if (charger.getMode() == 0) {
+            return !longRangeChargers.isEmpty() && longRangeChargers.containsKey(chargeablePlayer.getDisplayName());
+        } else if (charger.getMode() == 1) {
+            return !shortRangeChargers.isEmpty() && shortRangeChargers.containsKey(chargeablePlayer.getDisplayName());
+        } else {
+            if (!longRangeChargers.isEmpty() && longRangeChargers.containsKey(chargeablePlayer.getDisplayName())) {
+                return true;
+            }
+            return !shortRangeChargers.isEmpty() && shortRangeChargers.containsKey(chargeablePlayer.getDisplayName());
         }
     }
 
