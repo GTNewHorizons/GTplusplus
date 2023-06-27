@@ -23,7 +23,6 @@ import gregtech.common.items.GT_MetaGenerated_Item_01;
 import gregtech.common.items.GT_MetaGenerated_Item_02;
 import gregtech.common.items.GT_MetaGenerated_Item_03;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
-import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.core.util.Utils;
@@ -161,20 +160,11 @@ public class ChargingHelper {
         if (mEntity == null) {
             return false;
         }
-        Logger.WARNING("trying to map new player");
         if (mValidPlayers.containsKey(mPlayer.getDisplayName())) {
-            Logger.WARNING("Key contains player already?");
             return false;
         } else {
-            Logger.WARNING("key not found, adding");
             Pair<GregtechMetaWirelessCharger, Byte> mEntry = new Pair<>(mEntity, (byte) mEntity.getMode());
-            if (mValidPlayers.put(mPlayer.getDisplayName(), mEntry) == null) {
-                Logger.WARNING("Added a Player to the Tick Map.");
-                return true;
-            } else {
-                Logger.WARNING("Tried to add player but it was already there?");
-                return false;
-            }
+            return mValidPlayers.put(mPlayer.getDisplayName(), mEntry) == null;
         }
     }
 
@@ -182,19 +172,10 @@ public class ChargingHelper {
         if (mEntity == null) {
             return false;
         }
-        Logger.WARNING("trying to remove player from map");
         if (mValidPlayers.containsKey(mPlayer.getDisplayName())) {
-            Logger.WARNING("key found, removing");
             Pair<GregtechMetaWirelessCharger, Byte> mEntry = new Pair<>(mEntity, (byte) mEntity.getMode());
-            if (mValidPlayers.remove(mPlayer, mEntry)) {
-                Logger.WARNING("Removed a Player to the Tick Map.");
-                return true;
-            } else {
-                Logger.WARNING("Tried to remove player but it was not there?");
-                return false;
-            }
+            return mValidPlayers.remove(mPlayer.getDisplayName(), mEntry);
         } else {
-            Logger.WARNING("Key does not contain player?");
             return false;
         }
     }
@@ -250,22 +231,13 @@ public class ChargingHelper {
         long mEuStored = mEntity.getEUVar();
         // For Inventory Contents
 
-        int mItemSlot = 0;
-
         for (ItemStack mTemp : mItems) {
-            mItemSlot++;
-            if (mTemp != null) {
-                Logger.WARNING("Slot " + mItemSlot + " contains " + mTemp.getDisplayName());
-            }
             // Is item Electrical
             if (isItemValid(mTemp)) {
-                Logger.WARNING("1");
-
                 // Transfer Limit
                 double mItemEuTLimit = ((IElectricItem) mTemp.getItem()).getTransferLimit(mTemp);
                 // Check if Tile has more or equal EU to what can be transferred into the item.
                 if (mEuStored >= mItemEuTLimit) {
-                    Logger.WARNING("2");
 
                     double mItemMaxCharge = ((IElectricItem) mTemp.getItem()).getMaxCharge(mTemp);
                     double mitemCurrentCharge = ElectricItem.manager.getCharge(mTemp);
@@ -274,8 +246,7 @@ public class ChargingHelper {
                         continue;
                     }
 
-                    // Try get charge direct from NBT for GT and IC2 stacks
-                    Logger.WARNING("3");
+                    // Try to get charge direct from NBT for GT and IC2 stacks
                     if (mTemp.getItem() instanceof GT_MetaGenerated_Tool_01
                             || mTemp.getItem() instanceof GT_MetaGenerated_Item_01
                             || mTemp.getItem() instanceof GT_MetaGenerated_Item_02
@@ -306,8 +277,6 @@ public class ChargingHelper {
                         mVoltageIncrease = mItemEuTLimit;
                     }
 
-                    Logger.WARNING("4");
-
                     int mMulti;
                     if ((mitemCurrentCharge + (mVoltageIncrease * 20)) <= (mItemMaxCharge - (mVoltageIncrease * 20))) {
                         mMulti = 20;
@@ -321,40 +290,19 @@ public class ChargingHelper {
                                 } else {
                                     mMulti = 1;
                                 }
-                    Logger.WARNING("5");
 
                     int mMultiVoltage = (int) (mMulti * mVoltageIncrease);
 
                     if ((mitemCurrentCharge + mMultiVoltage) <= mItemMaxCharge) {
-                        Logger.WARNING("6");
-                        int g;
-                        if ((g = GT_ModHandler.chargeElectricItem(mTemp, mMultiVoltage, Integer.MAX_VALUE, true, false))
+                        if (GT_ModHandler.chargeElectricItem(mTemp, mMultiVoltage, Integer.MAX_VALUE, true, false)
                                 > 0) {
-                            Logger.WARNING("6.5 - " + g + " - " + mMulti);
                             for (int i = 0; i < mMulti; i++) {
                                 ElectricItem.manager.charge(mTemp, mVoltageIncrease, Integer.MAX_VALUE, false, false);
                             }
                         }
                         if (ElectricItem.manager.getCharge(mTemp) > mitemCurrentCharge) {
-                            Logger.WARNING("7");
                             mEntity.setEUVar(mEuStored - (mVoltage * mMulti));
                             mEuStored = mEntity.getEUVar();
-                            Logger.WARNING(
-                                    "Charged " + mTemp.getDisplayName()
-                                            + " | Slot: "
-                                            + mItemSlot
-                                            + " | EU Multiplier: "
-                                            + mMulti
-                                            + " | EU/t input: "
-                                            + mVoltageIncrease
-                                            + " | EU/t consumed by Tile: "
-                                            + mVoltage
-                                            + " | Item Max Charge: "
-                                            + mItemMaxCharge
-                                            + " | Item Start Charge: "
-                                            + mitemCurrentCharge
-                                            + " | Item New Charge"
-                                            + ElectricItem.manager.getCharge(mTemp));
                             mChargedItems++;
                         }
                     }
@@ -363,30 +311,10 @@ public class ChargingHelper {
                     mitemCurrentCharge = ElectricItem.manager.getCharge(mTemp);
                     if (mitemCurrentCharge < mItemMaxCharge && mitemCurrentCharge >= (mItemMaxCharge - mVoltage)) {
                         int xDif = (int) (mItemMaxCharge - mitemCurrentCharge);
-                        Logger.WARNING("8 - " + xDif);
-                        int g;
-                        if ((g = GT_ModHandler.chargeElectricItem(mTemp, xDif, Integer.MAX_VALUE, true, false)) >= 0) {
-                            Logger.WARNING("8.5 - " + g);
+                        if (GT_ModHandler.chargeElectricItem(mTemp, xDif, Integer.MAX_VALUE, true, false) >= 0) {
                             if (ElectricItem.manager.getCharge(mTemp) >= mItemMaxCharge) {
-                                Logger.WARNING("9");
                                 mEntity.setEUVar(mEntity.getEUVar() - (xDif));
                                 mEuStored = mEntity.getEUVar();
-                                Logger.WARNING(
-                                        "Charged " + mTemp.getDisplayName()
-                                                + " | Slot: "
-                                                + mItemSlot
-                                                + " | EU Multiplier: "
-                                                + mMulti
-                                                + " | EU/t input: "
-                                                + mVoltageIncrease
-                                                + " | EU/t consumed by Tile: "
-                                                + mVoltage
-                                                + " | Item Max Charge: "
-                                                + mItemMaxCharge
-                                                + " | Item Start Charge: "
-                                                + mitemCurrentCharge
-                                                + " | Item New Charge"
-                                                + ElectricItem.manager.getCharge(mTemp));
                                 mChargedItems++;
                             }
                         }
@@ -408,12 +336,8 @@ public class ChargingHelper {
                         mChargedItems++;
                         mEuStored = mEntity.getEUVar();
                     }
-                } catch (Exception e) {
-                    Logger.WARNING("Failed charging of RF-Tool");
-                }
-            } else {
-                if (mTemp != null) {
-                    Logger.WARNING("Found Non-Valid item. " + mTemp.getDisplayName());
+                } catch (Exception ignored) {
+
                 }
             }
         }
