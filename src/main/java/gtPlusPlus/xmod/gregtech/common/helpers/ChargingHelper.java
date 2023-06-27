@@ -47,12 +47,7 @@ public class ChargingHelper {
         try {
             if (event.entity != null && event.entityLiving != null) {
                 if (event.entityLiving instanceof EntityPlayer mPlayerMan) {
-
-                    // Utils.LOG_WARNING("Found Player.");
-
                     if (Utils.isServer()) {
-                        // Utils.LOG_WARNING("Found Server-Side.");
-
                         mTickTimer++;
                         if (mTickTimer % mTickMultiplier == 0) {
 
@@ -89,17 +84,13 @@ public class ChargingHelper {
                                                 Map<String, UUID> LO = mEntityTemp.getLocalMap();
 
                                                 long mStartingEu = mEntityTemp.getEUVar();
-                                                long mCurrentEu = mEntityTemp.getEUVar();
                                                 if (canCharge(mEntityTemp, mPlayerMan, LR, LO)) {
-                                                    mCurrentEu -= chargeItems(mEntityTemp, mArmourContents, mPlayerMan);
-                                                    mCurrentEu -= chargeItems(
-                                                            mEntityTemp,
-                                                            mInventoryContents,
-                                                            mPlayerMan);
-                                                    mCurrentEu -= chargeItems(mEntityTemp, baubleSlots, mPlayerMan);
+                                                    chargeItems(mEntityTemp, mArmourContents);
+                                                    chargeItems(mEntityTemp, mInventoryContents);
+                                                    chargeItems(mEntityTemp, baubleSlots);
                                                 }
 
-                                                if (mStartingEu - mCurrentEu <= 0) {
+                                                if (mStartingEu - mEntityTemp.getEUVar() <= 0) {
                                                     long mMaxDistance;
                                                     if (mEntityTemp.getMode() == 0) {
                                                         mMaxDistance = (4 * GT_Values.V[mEntityTemp.getTier()]);
@@ -133,7 +124,6 @@ public class ChargingHelper {
                 }
             }
         } catch (Throwable t) {
-            // Utils.LOG_WARNING("State of Wireless Charger changed in an invalid way, this prevented a crash.");
             if (!mChargerMap.isEmpty()) {
                 for (BlockPos aPos : mChargerMap.keySet()) {
                     GregtechMetaWirelessCharger r = mChargerMap.get(aPos);
@@ -142,7 +132,6 @@ public class ChargingHelper {
                     }
                 }
             }
-            // t.printStackTrace();
         }
     }
 
@@ -189,7 +178,7 @@ public class ChargingHelper {
         }
     }
 
-    private static boolean removeValidPlayer(EntityPlayer mPlayer, GregtechMetaWirelessCharger mEntity) {
+    public static boolean removeValidPlayer(EntityPlayer mPlayer, GregtechMetaWirelessCharger mEntity) {
         if (mEntity == null) {
             return false;
         }
@@ -233,33 +222,32 @@ public class ChargingHelper {
                 mEntityTemp.getPositionOfEntity(mPlayerMan));
     }
 
-    private long chargeItems(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems, EntityPlayer mPlayer) {
+    private void chargeItems(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
         if (mEntity == null) {
-            return -100;
+            return;
         }
         if (mItems == null || mItems.length == 0) {
-            return mEntity.getEUVar();
+            mEntity.getEUVar();
+            return;
         }
-        long mInitialValue = mEntity.getEUVar();
-        long mReturnValue = chargeItemsEx(mEntity, mItems, mPlayer);
-        return Math.min(mReturnValue, mInitialValue);
+        chargeItemsEx(mEntity, mItems);
     }
 
-    public long chargeItemsEx(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems, EntityPlayer mPlayer) {
+    private void chargeItemsEx(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
 
         // Bad Entity
         if (mEntity == null) {
-            return -100;
+            return;
         }
         // Bad Inventory
         if (mItems == null || mItems.length == 0) {
-            return mEntity.getEUVar();
+            mEntity.getEUVar();
+            return;
         }
         // Set Variables to Charge
         int mChargedItems = 0;
         final long mVoltage = mEntity.maxEUInput();
         long mEuStored = mEntity.getEUVar();
-        final long mEuStoredOriginal = mEntity.getEUVar();
         // For Inventory Contents
 
         int mItemSlot = 0;
@@ -432,10 +420,10 @@ public class ChargingHelper {
 
         // Return Values
         if (mChargedItems < 1) {
-            return mEuStoredOriginal;
+            return;
         }
 
-        return mEntity.getEUVar();
+        mEntity.getEUVar();
     }
 
     private static boolean isItemValid(final ItemStack itemstack) {
