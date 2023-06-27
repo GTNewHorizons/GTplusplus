@@ -189,7 +189,7 @@ public class ChargingHelper {
         }
     }
 
-    public static boolean removeValidPlayer(EntityPlayer mPlayer, GregtechMetaWirelessCharger mEntity) {
+    private static boolean removeValidPlayer(EntityPlayer mPlayer, GregtechMetaWirelessCharger mEntity) {
         if (mEntity == null) {
             return false;
         }
@@ -210,7 +210,7 @@ public class ChargingHelper {
         }
     }
 
-    protected boolean canCharge(GregtechMetaWirelessCharger charger, EntityPlayer chargeablePlayer,
+    private boolean canCharge(GregtechMetaWirelessCharger charger, EntityPlayer chargeablePlayer,
             Map<String, UUID> longRangeChargers, Map<String, UUID> shortRangeChargers) {
         if (charger.getMode() == 0) {
             return !longRangeChargers.isEmpty() && longRangeChargers.containsKey(chargeablePlayer.getDisplayName());
@@ -224,7 +224,7 @@ public class ChargingHelper {
         }
     }
 
-    public double calculateDistance(GregtechMetaWirelessCharger mEntityTemp, EntityPlayer mPlayerMan) {
+    private double calculateDistance(GregtechMetaWirelessCharger mEntityTemp, EntityPlayer mPlayerMan) {
         if (mEntityTemp == null || mPlayerMan == null) {
             return 0;
         }
@@ -233,7 +233,7 @@ public class ChargingHelper {
                 mEntityTemp.getPositionOfEntity(mPlayerMan));
     }
 
-    public long chargeItems(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems, EntityPlayer mPlayer) {
+    private long chargeItems(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems, EntityPlayer mPlayer) {
         if (mEntity == null) {
             return -100;
         }
@@ -438,7 +438,7 @@ public class ChargingHelper {
         return mEntity.getEUVar();
     }
 
-    public static boolean isItemValid(final ItemStack itemstack) {
+    private static boolean isItemValid(final ItemStack itemstack) {
         if (itemstack == null) {
             return false;
         }
@@ -448,11 +448,7 @@ public class ChargingHelper {
         return itemstack.getItem() instanceof IElectricItem;
     }
 
-    public static boolean isItemValidRF(final ItemStack itemStack) {
+    private static boolean isItemValidRF(final ItemStack itemStack) {
         return itemStack != null && COFHCore.isModLoaded() && itemStack.getItem() instanceof IEnergyContainerItem;
-    }
-
-    public static boolean accepts(final ItemStack stack) {
-        return false;
     }
 }
