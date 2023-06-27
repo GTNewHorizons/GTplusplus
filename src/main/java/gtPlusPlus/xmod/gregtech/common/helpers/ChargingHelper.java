@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.Nonnull;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
@@ -203,30 +205,19 @@ public class ChargingHelper {
                 mEntityTemp.getPositionOfEntity(mPlayerMan));
     }
 
-    private void chargeItems(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
-        if (mEntity == null) {
-            return;
-        }
+    private void chargeItems(@Nonnull GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
         if (mItems == null || mItems.length == 0) {
-            mEntity.getEUVar();
             return;
         }
         chargeItemsEx(mEntity, mItems);
     }
 
-    private void chargeItemsEx(GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
-
-        // Bad Entity
-        if (mEntity == null) {
-            return;
-        }
+    private void chargeItemsEx(@Nonnull GregtechMetaWirelessCharger mEntity, ItemStack[] mItems) {
         // Bad Inventory
         if (mItems == null || mItems.length == 0) {
-            mEntity.getEUVar();
             return;
         }
         // Set Variables to Charge
-        int mChargedItems = 0;
         final long mVoltage = mEntity.maxEUInput();
         long mEuStored = mEntity.getEUVar();
         // For Inventory Contents
@@ -303,7 +294,6 @@ public class ChargingHelper {
                         if (ElectricItem.manager.getCharge(mTemp) > mitemCurrentCharge) {
                             mEntity.setEUVar(mEuStored - (mVoltage * mMulti));
                             mEuStored = mEntity.getEUVar();
-                            mChargedItems++;
                         }
                     }
 
@@ -315,7 +305,6 @@ public class ChargingHelper {
                             if (ElectricItem.manager.getCharge(mTemp) >= mItemMaxCharge) {
                                 mEntity.setEUVar(mEntity.getEUVar() - (xDif));
                                 mEuStored = mEntity.getEUVar();
-                                mChargedItems++;
                             }
                         }
                     }
@@ -333,7 +322,6 @@ public class ChargingHelper {
                                 false);
                         chargedPower = chargedPower * 100L / mEUtoRF;
                         mEntity.setEUVar(Math.max(mEntity.getEUVar() - chargedPower, 0));
-                        mChargedItems++;
                         mEuStored = mEntity.getEUVar();
                     }
                 } catch (Exception ignored) {
@@ -341,13 +329,6 @@ public class ChargingHelper {
                 }
             }
         }
-
-        // Return Values
-        if (mChargedItems < 1) {
-            return;
-        }
-
-        mEntity.getEUVar();
     }
 
     public static boolean isItemValid(final ItemStack itemstack) {
