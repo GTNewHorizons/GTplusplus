@@ -1,17 +1,12 @@
 package gtPlusPlus.xmod.pamsharvest.fishtrap;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import net.minecraft.item.ItemStack;
 
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_ModHandler;
-import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class FishTrapHandler {
 
