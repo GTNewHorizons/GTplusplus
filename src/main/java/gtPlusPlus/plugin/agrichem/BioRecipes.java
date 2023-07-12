@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import gregtech.api.util.GT_Recipe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -25,6 +24,7 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.item.ModItems;
@@ -835,18 +835,18 @@ public class BioRecipes {
         if (OreDictUtils.containsValidEntries("dustRockSalt")) {
             GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes.addRecipe(
                     false,
-                    new ItemStack[]{ ItemUtils.getItemStackOfAmountFromOreDict("dustRockSalt", 8),
-                                     ItemUtils.getSimpleStack(AgriculturalChem.mLithiumChloride, 10) },
-                    new ItemStack[]{ ItemUtils.getItemStackOfAmountFromOreDict("dustLithium", 2),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 3),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 3),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustTinyLithium", 5),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustPotassium", 2),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustSmallPotassium", 5) },
+                    new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("dustRockSalt", 8),
+                            ItemUtils.getSimpleStack(AgriculturalChem.mLithiumChloride, 10) },
+                    new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("dustLithium", 2),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 3),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 3),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustTinyLithium", 5),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustPotassium", 2),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustSmallPotassium", 5) },
                     null,
-                    new int[]{ 7500, 8000, 8500, 9000, 7500, 8500 },
-                    new FluidStack[]{ FluidUtils.getFluidStack(BioRecipes.mAir, 4000) },
-                    new FluidStack[]{ FluidUtils.getFluidStack(BioRecipes.mChlorine, 500) },
+                    new int[] { 7500, 8000, 8500, 9000, 7500, 8500 },
+                    new FluidStack[] { FluidUtils.getFluidStack(BioRecipes.mAir, 4000) },
+                    new FluidStack[] { FluidUtils.getFluidStack(BioRecipes.mChlorine, 500) },
                     60 * 30,
                     60,
                     0);
@@ -854,18 +854,18 @@ public class BioRecipes {
         if (OreDictUtils.containsValidEntries("dustPotash")) {
             GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes.addRecipe(
                     false,
-                    new ItemStack[]{ ItemUtils.getItemStackOfAmountFromOreDict("dustPotash", 10),
-                                     ItemUtils.getSimpleStack(AgriculturalChem.mLithiumChloride, 16) },
-                    new ItemStack[]{ ItemUtils.getItemStackOfAmountFromOreDict("dustLithium", 3),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 5),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 5),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustTinyLithium", 7),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustAsh", 2),
-                                     ItemUtils.getItemStackOfAmountFromOreDict("dustAsh", 2) },
+                    new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("dustPotash", 10),
+                            ItemUtils.getSimpleStack(AgriculturalChem.mLithiumChloride, 16) },
+                    new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("dustLithium", 3),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 5),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustSmallLithium", 5),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustTinyLithium", 7),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustAsh", 2),
+                            ItemUtils.getItemStackOfAmountFromOreDict("dustAsh", 2) },
                     null,
-                    new int[]{ 7500, 8000, 8500, 9000, 9000, 9000 },
-                    new FluidStack[]{ FluidUtils.getFluidStack(BioRecipes.mThermalWater, 2000) },
-                    new FluidStack[]{ FluidUtils.getFluidStack(BioRecipes.mChlorine, 250) },
+                    new int[] { 7500, 8000, 8500, 9000, 9000, 9000 },
+                    new FluidStack[] { FluidUtils.getFluidStack(BioRecipes.mThermalWater, 2000) },
+                    new FluidStack[] { FluidUtils.getFluidStack(BioRecipes.mChlorine, 250) },
                     45 * 30,
                     90,
                     0);
