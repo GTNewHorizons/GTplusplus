@@ -81,13 +81,10 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 4, 3, true)
                 .addController("Bottom Center").addCasingInfoMin("Thermal Processing Casing", 9, false)
                 .addCasingInfoMin("Thermal Containment Casing", 9, false)
-                .addInputBus("Any Thermal Containment Casing", 1)
-                .addInputHatch("Any Thermal Containment Casing", 1)
-                .addOutputBus("Any Thermal Containment Casing", 1)
-                .addEnergyHatch("Any Thermal Containment Casing", 1)
+                .addInputBus("Any Thermal Containment Casing", 1).addInputHatch("Any Thermal Containment Casing", 1)
+                .addOutputBus("Any Thermal Containment Casing", 1).addEnergyHatch("Any Thermal Containment Casing", 1)
                 .addMaintenanceHatch("Any Thermal Containment Casing", 1)
-                .addMufflerHatch("Any Thermal Containment Casing", 1)
-                .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addMufflerHatch("Any Thermal Containment Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 

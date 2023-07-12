@@ -72,14 +72,12 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
                 .addSeparator().beginStructureBlock(3, 3, 3, true).addController("Front middle at bottom")
                 .addCasingInfoMin("Structural Coke Oven Casings", 8, false)
                 .addCasingInfoMin("Heat Resistant/Proof Coke Oven Casings", 8, false)
-                .addInputBus("Any Structural Coke Oven Casing", 1)
-                .addOutputBus("Any Structural Coke Oven Casing", 1)
+                .addInputBus("Any Structural Coke Oven Casing", 1).addOutputBus("Any Structural Coke Oven Casing", 1)
                 .addInputHatch("Any Structural Coke Oven Casing", 1)
                 .addOutputHatch("Any Structural Coke Oven Casing", 1)
                 .addEnergyHatch("Any Structural Coke Oven Casing", 1)
                 .addMaintenanceHatch("Any Structural Coke Oven Casing", 1)
-                .addMufflerHatch("Any Structural Coke Oven Casing", 1)
-                .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addMufflerHatch("Any Structural Coke Oven Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
