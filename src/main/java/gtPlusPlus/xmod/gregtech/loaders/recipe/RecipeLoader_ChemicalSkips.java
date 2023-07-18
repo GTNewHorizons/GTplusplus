@@ -180,7 +180,7 @@ public class RecipeLoader_ChemicalSkips {
                         Materials.Grade2PurifiedWater.getFluid(10000L), Materials.Grade3PurifiedWater.getFluid(5000L),
                         Materials.Grade4PurifiedWater.getFluid(1000L) },
                 new ItemStack[] {},
-                new int[] { 2000, 2000, 2000, 2000, 2000 },
+                new int[] { 2500, 2500, 2500, 2500 },
                 20 * 20,
                 (int) TierEU.RECIPE_UHV,
                 2);
@@ -275,7 +275,7 @@ public class RecipeLoader_ChemicalSkips {
                         Materials.Grade6PurifiedWater.getFluid(10000L), Materials.Grade7PurifiedWater.getFluid(5000L),
                         Materials.Grade8PurifiedWater.getFluid(1000L) },
                 new ItemStack[] {},
-                new int[] { 2000, 2000, 2000, 2000, 2000 },
+                new int[] { 2500, 2500, 2500, 2500 },
                 20 * 20,
                 (int) TierEU.RECIPE_UIV,
                 4);
