@@ -17,6 +17,7 @@ import gregtech.api.enums.SoundResource;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
@@ -143,8 +144,8 @@ public class GregtechMetaTileEntity_Adv_Implosion
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        return checkRecipeGeneric((GT_Utility.getTier(this.getMaxInputVoltage()) / 2 + 1), 100, 100);
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setSpeedBonus(1F / 2F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
