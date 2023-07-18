@@ -31,6 +31,8 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.recipe.check.CheckRecipeResult;
+import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OverclockCalculator;
@@ -182,6 +184,13 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
     @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
+
+            @NotNull
+            @Override
+            protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
+                return recipe.mSpecialValue <= getCoilLevel().getHeat() ? CheckRecipeResultRegistry.SUCCESSFUL
+                        : CheckRecipeResultRegistry.insufficientHeat(recipe.mSpecialValue);
+            }
 
             @NotNull
             @Override
