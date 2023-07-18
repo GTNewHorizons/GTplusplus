@@ -150,7 +150,7 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setSpeedBonus(1F / 1.2F).setEuModifier(0.9F)
+        return new ProcessingLogic().setSpeedBonus(1F / 2.2F).setEuModifier(0.9F)
                 .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 

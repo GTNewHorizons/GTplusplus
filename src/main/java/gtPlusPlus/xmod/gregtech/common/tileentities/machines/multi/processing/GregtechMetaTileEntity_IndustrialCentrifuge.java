@@ -148,7 +148,7 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setEuModifier(0.9F).setSpeedBonus(1F / 1.25F)
+        return new ProcessingLogic().setEuModifier(0.9F).setSpeedBonus(1F / 2.25F)
                 .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 

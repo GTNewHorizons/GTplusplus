@@ -137,7 +137,7 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setSpeedBonus(1F / 2F).setEuModifier(0.75F)
+        return new ProcessingLogic().setSpeedBonus(1F / 3F).setEuModifier(0.75F)
                 .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 

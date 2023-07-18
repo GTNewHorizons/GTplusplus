@@ -190,7 +190,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
                 return super.createOverclockCalculator(recipe, helper).enableHeatOC().enableHeatDiscount()
                         .setRecipeHeat(recipe.mSpecialValue).setMultiHeat((int) getCoilLevel().getHeat());
             }
-        }.setSpeedBonus(1F / 1.2F).setEuModifier(0.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setSpeedBonus(1F / 2.2F).setEuModifier(0.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

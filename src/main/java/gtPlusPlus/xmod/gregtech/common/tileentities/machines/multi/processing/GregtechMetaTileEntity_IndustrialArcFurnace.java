@@ -190,7 +190,7 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setSpeedBonus(1F / 2.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
+        return new ProcessingLogic().setSpeedBonus(1F / 3.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

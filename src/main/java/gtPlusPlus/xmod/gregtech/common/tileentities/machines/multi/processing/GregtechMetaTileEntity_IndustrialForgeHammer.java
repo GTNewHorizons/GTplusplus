@@ -197,7 +197,7 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setMaxParallelSupplier(this::getMaxParallelRecipes);
+        return new ProcessingLogic().setSpeedBonus(1 / 2F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

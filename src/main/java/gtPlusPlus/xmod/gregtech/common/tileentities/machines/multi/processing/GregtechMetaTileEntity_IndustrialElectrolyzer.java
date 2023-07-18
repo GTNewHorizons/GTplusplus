@@ -130,7 +130,7 @@ public class GregtechMetaTileEntity_IndustrialElectrolyzer extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setSpeedBonus(1F / 1.8F).setEuModifier(0.9F)
+        return new ProcessingLogic().setSpeedBonus(1F / 2.8F).setEuModifier(0.9F)
                 .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
