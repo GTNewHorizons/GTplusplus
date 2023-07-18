@@ -5,6 +5,7 @@ GT5U.gui.text.no_water=§7Missing water
 GT5U.gui.text.no_lava=§7Missing lava
 GT5U.gui.text.no_air=§7Missing air
 GT5U.gui.text.no_co2=§7Missing CO2
+GT5U.gui.text.no_oxygen=§7Missing oxygen
 GT5U.gui.text.fuel_blacklisted=§7Fuel blacklisted
 GT5U.gui.text.no_catalyst=§7No valid catalyst
 
