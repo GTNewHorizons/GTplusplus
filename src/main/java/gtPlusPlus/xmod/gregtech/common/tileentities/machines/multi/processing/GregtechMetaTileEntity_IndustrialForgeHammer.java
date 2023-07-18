@@ -39,6 +39,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -195,18 +196,8 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        if (getAnvilTier() > 0) {
-            return checkRecipeGeneric(
-                    getStoredInputs().toArray(new ItemStack[0]),
-                    getCompactedFluids(),
-                    getMaxParallelRecipes(),
-                    100,
-                    100,
-                    10000);
-        }
-
-        return false;
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
