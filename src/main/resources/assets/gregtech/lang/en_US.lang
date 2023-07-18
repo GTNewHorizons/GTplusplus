@@ -2,6 +2,7 @@
 //Shit I stole from GTNH~
 
 GT5U.gui.text.no_water=§7Missing water
+GT5U.gui.text.no_lava=§7Missing lava
 GT5U.gui.text.fuel_blacklisted=§7Fuel blacklisted
 GT5U.gui.text.no_catalyst=§7No valid catalyst
 
