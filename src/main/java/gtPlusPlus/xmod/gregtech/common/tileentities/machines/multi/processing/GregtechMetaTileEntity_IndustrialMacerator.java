@@ -35,6 +35,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -366,8 +367,8 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 60, 7500);
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setSpeedBonus(1F / 1.6F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
