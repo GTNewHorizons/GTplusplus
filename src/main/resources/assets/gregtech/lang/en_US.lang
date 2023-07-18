@@ -3,6 +3,7 @@
 
 GT5U.gui.text.no_water=§7Missing water
 GT5U.gui.text.fuel_blacklisted=§7Fuel blacklisted
+GT5U.gui.text.no_catalyst=§7No valid catalyst
 
 GTPP.EBF.heat=Heat capacity
 
