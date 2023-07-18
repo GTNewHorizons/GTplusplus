@@ -10,13 +10,10 @@ import static gregtech.api.enums.GT_HatchElement.Muffler;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import java.util.ArrayList;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -27,7 +24,7 @@ import gregtech.api.enums.SoundResource;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -141,27 +138,8 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        for (GT_MetaTileEntity_Hatch_InputBus tBus : mInputBusses) {
-            ArrayList<ItemStack> tBusItems = new ArrayList<ItemStack>();
-            tBus.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tBus)) {
-                for (int i = tBus.getBaseMetaTileEntity().getSizeInventory() - 1; i >= 0; i--) {
-                    if (tBus.getBaseMetaTileEntity().getStackInSlot(i) != null)
-                        tBusItems.add(tBus.getBaseMetaTileEntity().getStackInSlot(i));
-                }
-            }
-
-            if (checkRecipeGeneric(
-                    tBusItems.toArray(new ItemStack[] {}),
-                    new FluidStack[] {},
-                    (4 * GT_Utility.getTier(this.getMaxInputVoltage())),
-                    100,
-                    500,
-                    10000))
-                return true;
-        }
-        return false;
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setSpeedBonus(1F / 6F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
