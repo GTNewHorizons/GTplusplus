@@ -329,7 +329,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     public static List<Pair<Block, Integer>> getAllCraftingTiers() {
-        return new ArrayList<Pair<Block, Integer>>() {
+        return new ArrayList<>() {
 
             {
                 add(Pair.of(ModBlocks.blockCasings5Misc, 7));
@@ -341,7 +341,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     public static List<Pair<Block, Integer>> getAllFocusingTiers() {
-        return new ArrayList<Pair<Block, Integer>>() {
+        return new ArrayList<>() {
 
             {
                 add(Pair.of(ModBlocks.blockCasings5Misc, 11));
@@ -358,14 +358,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 return -1;
             } else if (block == ModBlocks.blockCasings5Misc) { // Resonance Chambers
                 switch (meta) {
-                    case 7:
+                    case 7 -> {
                         return 1;
-                    case 8:
+                    }
+                    case 8 -> {
                         return 2;
-                    case 9:
+                    }
+                    case 9 -> {
                         return 3;
-                    case 10:
+                    }
+                    case 10 -> {
                         return 4;
+                    }
                 }
             }
             return -1;
@@ -378,14 +382,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 return -1;
             } else if (block == ModBlocks.blockCasings5Misc) { // Generation Coils
                 switch (meta) {
-                    case 11:
+                    case 11 -> {
                         return 1;
-                    case 12:
+                    }
+                    case 12 -> {
                         return 2;
-                    case 13:
+                    }
+                    case 13 -> {
                         return 3;
-                    case 14:
+                    }
+                    case 14 -> {
                         return 4;
+                    }
                 }
             }
             return -1;
@@ -576,12 +584,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         }
 
         if (runningTick % 20 == 0) {
+            int amount = (int) (getFocusingTier() * 4 * Math.sqrt(processingLogic.getCurrentParallels()));
             if (doFermium) {
-                FluidStack tFluid = new FluidStack(
-                        mFermium,
-                        (int) (getFocusingTier() * 4 * Math.sqrt(processingLogic.getCurrentParallels())));
-                FluidStack tLiquid = mFermiumHatch.drain(tFluid.amount, true);
-                if (tLiquid == null || tLiquid.amount < tFluid.amount) {
+                FluidStack tLiquid = mFermiumHatch.drain(amount, true);
+                if (tLiquid == null || tLiquid.amount < amount) {
                     doFermium = false;
                     criticalStopMachine();
                     return false;
@@ -589,11 +595,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
 
             if (doNeptunium) {
-                FluidStack tFluid = new FluidStack(
-                        mNeptunium,
-                        (int) (getFocusingTier() * 4 * Math.sqrt(processingLogic.getCurrentParallels())));
-                FluidStack tLiquid = mNeptuniumHatch.drain(tFluid.amount, true);
-                if (tLiquid == null || tLiquid.amount < tFluid.amount) {
+                FluidStack tLiquid = mNeptuniumHatch.drain(amount, true);
+                if (tLiquid == null || tLiquid.amount < amount) {
                     doNeptunium = false;
                     criticalStopMachine();
                     return false;
@@ -648,7 +651,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         Arrays.fill(tChances, aChancePerOutput);
 
         switch (difference) {
-            case 0:
+            case 0 -> {
                 for (int i = 0; i < tChances.length; i++) {
                     if (doNeptunium) {
                         if (i == aChanceIncreased) {
@@ -662,8 +665,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         tChances[i] += (10000 - tChances[i]) / 4;
                     }
                 }
-                break;
-            case 1:
+            }
+            case 1 -> {
                 for (int i = 0; i < tChances.length; i++) {
                     if (doNeptunium) {
                         if (i == aChanceIncreased) {
@@ -677,9 +680,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         tChances[i] += (10000 - tChances[i]) / 3;
                     }
                 }
-                break;
-            case 2:
-            case 3:
+            }
+            case 2, 3 -> {
                 for (int i = 0; i < tChances.length; i++) {
                     if (doNeptunium) {
                         if (i == aChanceIncreased) {
@@ -693,27 +695,9 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         tChances[i] += (10000 - tChances[i]) / 2;
                     }
                 }
-                break;
+            }
         }
         return tChances;
-    }
-
-    public boolean onWireCutterRightclick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer,
-            float aX, float aY, float aZ) {
-        if (aPlayer.isSneaking()) {
-            batchMode = !batchMode;
-            if (batchMode) {
-                GT_Utility.sendChatToPlayer(aPlayer, StatCollector.translateToLocal("misc.BatchModeTextOn"));
-            } else {
-                GT_Utility.sendChatToPlayer(aPlayer, StatCollector.translateToLocal("misc.BatchModeTextOff"));
-            }
-            return true;
-        }
-        inputSeparation = !inputSeparation;
-        GT_Utility.sendChatToPlayer(
-                aPlayer,
-                StatCollector.translateToLocal("GT5U.machines.separatebus") + " " + inputSeparation);
-        return true;
     }
 
     @Override
@@ -802,86 +786,86 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         // spotless:off
         Tessellator tes = Tessellator.instance;
         switch (side) {
-            case 0:
-                tes.addVertexWithUV(x + 3, y    , z + 7, maxU, maxV);
+            case 0 -> {
+                tes.addVertexWithUV(x + 3, y, z + 7, maxU, maxV);
                 tes.addVertexWithUV(x + 3, y + 4, z + 7, maxU, minV);
                 tes.addVertexWithUV(x - 3, y + 4, z + 7, minU, minV);
-                tes.addVertexWithUV(x - 3, y    , z + 7, minU, maxV);
-                tes.addVertexWithUV(x - 3, y    , z + 7, minU, maxV);
+                tes.addVertexWithUV(x - 3, y, z + 7, minU, maxV);
+                tes.addVertexWithUV(x - 3, y, z + 7, minU, maxV);
                 tes.addVertexWithUV(x - 3, y + 4, z + 7, minU, minV);
                 tes.addVertexWithUV(x + 3, y + 4, z + 7, maxU, minV);
-                tes.addVertexWithUV(x + 3, y    , z + 7, maxU, maxV);
-                break;
-            case 1:
-                tes.addVertexWithUV(x + 7, y    , z + 4, maxU, maxV);
+                tes.addVertexWithUV(x + 3, y, z + 7, maxU, maxV);
+            }
+            case 1 -> {
+                tes.addVertexWithUV(x + 7, y, z + 4, maxU, maxV);
                 tes.addVertexWithUV(x + 7, y + 4, z + 4, maxU, minV);
                 tes.addVertexWithUV(x + 7, y + 4, z - 4, minU, minV);
-                tes.addVertexWithUV(x + 7, y    , z - 4, minU, maxV);
-                tes.addVertexWithUV(x + 7, y    , z - 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z - 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z - 4, minU, maxV);
                 tes.addVertexWithUV(x + 7, y + 4, z - 4, minU, minV);
                 tes.addVertexWithUV(x + 7, y + 4, z + 4, maxU, minV);
-                tes.addVertexWithUV(x + 7, y    , z + 4, maxU, maxV);
-                break;
-            case 2:
-                tes.addVertexWithUV(x + 3, y    , z - 7, maxU, maxV);
+                tes.addVertexWithUV(x + 7, y, z + 4, maxU, maxV);
+            }
+            case 2 -> {
+                tes.addVertexWithUV(x + 3, y, z - 7, maxU, maxV);
                 tes.addVertexWithUV(x + 3, y + 4, z - 7, maxU, minV);
                 tes.addVertexWithUV(x - 3, y + 4, z - 7, minU, minV);
-                tes.addVertexWithUV(x - 3, y    , z - 7, minU, maxV);
-                tes.addVertexWithUV(x - 3, y    , z - 7, minU, maxV);
+                tes.addVertexWithUV(x - 3, y, z - 7, minU, maxV);
+                tes.addVertexWithUV(x - 3, y, z - 7, minU, maxV);
                 tes.addVertexWithUV(x - 3, y + 4, z - 7, minU, minV);
                 tes.addVertexWithUV(x + 3, y + 4, z - 7, maxU, minV);
-                tes.addVertexWithUV(x + 3, y    , z - 7, maxU, maxV);
-                break;
-            case 3:
-                tes.addVertexWithUV(x - 7, y    , z + 4, maxU, maxV);
+                tes.addVertexWithUV(x + 3, y, z - 7, maxU, maxV);
+            }
+            case 3 -> {
+                tes.addVertexWithUV(x - 7, y, z + 4, maxU, maxV);
                 tes.addVertexWithUV(x - 7, y + 4, z + 4, maxU, minV);
                 tes.addVertexWithUV(x - 7, y + 4, z - 4, minU, minV);
-                tes.addVertexWithUV(x - 7, y    , z - 4, minU, maxV);
-                tes.addVertexWithUV(x - 7, y    , z - 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z - 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z - 4, minU, maxV);
                 tes.addVertexWithUV(x - 7, y + 4, z - 4, minU, minV);
                 tes.addVertexWithUV(x - 7, y + 4, z + 4, maxU, minV);
-                tes.addVertexWithUV(x - 7, y    , z + 4, maxU, maxV); 
-                break;
-            case 4:
-                tes.addVertexWithUV(x - 3, y    , z + 7, maxU, maxV);
+                tes.addVertexWithUV(x - 7, y, z + 4, maxU, maxV);
+            }
+            case 4 -> {
+                tes.addVertexWithUV(x - 3, y, z + 7, maxU, maxV);
                 tes.addVertexWithUV(x - 3, y + 4, z + 7, maxU, minV);
                 tes.addVertexWithUV(x - 7, y + 4, z + 4, minU, minV);
-                tes.addVertexWithUV(x - 7, y    , z + 4, minU, maxV);
-                tes.addVertexWithUV(x - 7, y    , z + 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z + 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z + 4, minU, maxV);
                 tes.addVertexWithUV(x - 7, y + 4, z + 4, minU, minV);
                 tes.addVertexWithUV(x - 3, y + 4, z + 7, maxU, minV);
-                tes.addVertexWithUV(x - 3, y    , z + 7, maxU, maxV);
-                break;
-            case 5:
-                tes.addVertexWithUV(x - 3, y    , z - 7, maxU, maxV);
+                tes.addVertexWithUV(x - 3, y, z + 7, maxU, maxV);
+            }
+            case 5 -> {
+                tes.addVertexWithUV(x - 3, y, z - 7, maxU, maxV);
                 tes.addVertexWithUV(x - 3, y + 4, z - 7, maxU, minV);
                 tes.addVertexWithUV(x - 7, y + 4, z - 4, minU, minV);
-                tes.addVertexWithUV(x - 7, y    , z - 4, minU, maxV);
-                tes.addVertexWithUV(x - 7, y    , z - 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z - 4, minU, maxV);
+                tes.addVertexWithUV(x - 7, y, z - 4, minU, maxV);
                 tes.addVertexWithUV(x - 7, y + 4, z - 4, minU, minV);
                 tes.addVertexWithUV(x - 3, y + 4, z - 7, maxU, minV);
-                tes.addVertexWithUV(x - 3, y    , z - 7, maxU, maxV);
-                break;
-            case 6:
-                tes.addVertexWithUV(x + 3, y    , z + 7, maxU, maxV);
+                tes.addVertexWithUV(x - 3, y, z - 7, maxU, maxV);
+            }
+            case 6 -> {
+                tes.addVertexWithUV(x + 3, y, z + 7, maxU, maxV);
                 tes.addVertexWithUV(x + 3, y + 4, z + 7, maxU, minV);
                 tes.addVertexWithUV(x + 7, y + 4, z + 4, minU, minV);
-                tes.addVertexWithUV(x + 7, y    , z + 4, minU, maxV);
-                tes.addVertexWithUV(x + 7, y    , z + 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z + 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z + 4, minU, maxV);
                 tes.addVertexWithUV(x + 7, y + 4, z + 4, minU, minV);
                 tes.addVertexWithUV(x + 3, y + 4, z + 7, maxU, minV);
-                tes.addVertexWithUV(x + 3, y    , z + 7, maxU, maxV);
-                break;
-            case 7:
-                tes.addVertexWithUV(x + 3, y    , z - 7, maxU, maxV);
+                tes.addVertexWithUV(x + 3, y, z + 7, maxU, maxV);
+            }
+            case 7 -> {
+                tes.addVertexWithUV(x + 3, y, z - 7, maxU, maxV);
                 tes.addVertexWithUV(x + 3, y + 4, z - 7, maxU, minV);
                 tes.addVertexWithUV(x + 7, y + 4, z - 4, minU, minV);
-                tes.addVertexWithUV(x + 7, y    , z - 4, minU, maxV);
-                tes.addVertexWithUV(x + 7, y    , z - 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z - 4, minU, maxV);
+                tes.addVertexWithUV(x + 7, y, z - 4, minU, maxV);
                 tes.addVertexWithUV(x + 7, y + 4, z - 4, minU, minV);
                 tes.addVertexWithUV(x + 3, y + 4, z - 7, maxU, minV);
-                tes.addVertexWithUV(x + 3, y    , z - 7, maxU, maxV);
-                break;
+                tes.addVertexWithUV(x + 3, y, z - 7, maxU, maxV);
+            }
         }
     }
 
