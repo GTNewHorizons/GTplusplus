@@ -28,6 +28,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -111,14 +112,11 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
     }
 
     private int getSizeFromHint(ItemStack stackSize) {
-        switch (stackSize.stackSize) {
-            case 1:
-                return 3;
-            case 2:
-                return 5;
-            default:
-                return 7;
-        }
+        return switch (stackSize.stackSize) {
+            case 1 -> 3;
+            case 2 -> 5;
+            default -> 7;
+        };
     }
 
     @Override
@@ -191,8 +189,8 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        return this.checkRecipeGeneric(getMaxParallelRecipes(), 100, 250);
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setSpeedBonus(1F / 2.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
@@ -236,14 +234,6 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
 
     public byte getCasingMeta() {
         return 3;
-    }
-
-    public Block getCasingBlock2() {
-        return ModBlocks.blockCasings3Misc;
-    }
-
-    public byte getCasingMeta2() {
-        return 15;
     }
 
     public byte getCasingTextureIndex() {
