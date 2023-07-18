@@ -25,6 +25,7 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -168,8 +169,9 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        return checkRecipeGeneric(getMaxParallelRecipes(), getEuDiscountForParallelism(), 0);
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic().setEuModifier((100F - (GT_Utility.getTier(this.getMaxInputVoltage()) * 4)) / 100F)
+                .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
