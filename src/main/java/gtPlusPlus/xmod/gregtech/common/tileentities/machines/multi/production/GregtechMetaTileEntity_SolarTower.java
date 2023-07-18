@@ -19,6 +19,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
@@ -30,6 +32,8 @@ import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.recipe.check.CheckRecipeResult;
+import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -520,7 +524,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     private Fluid mHotSalt = null;
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
+    public @NotNull CheckRecipeResult checkProcessing() {
         this.mEfficiencyIncrease = 100;
         this.mMaxProgresstime = 200;
 
@@ -546,24 +550,8 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
             if (aHeaters > 0 && w.isDaytime()) {
                 if (w.isRaining() && this.getBaseMetaTileEntity().getBiome().rainfall > 0.0F) {
                     this.mHeatLevel += GT_Utility.safeInt((long) ((aHeaters / 2) * aEfficiency * (10 + aTier)));
-                    log(
-                            "Added Heat (rain): " + aHeaters / 2
-                                    + " * "
-                                    + aEfficiency
-                                    + " * "
-                                    + (10 + aTier)
-                                    + " = "
-                                    + (aHeaters * aEfficiency * (10 + aTier)));
                 } else {
                     this.mHeatLevel += GT_Utility.safeInt((long) (aHeaters * aEfficiency * (10 + aTier)));
-                    log(
-                            "Added Heat: " + aHeaters
-                                    + " * "
-                                    + aEfficiency
-                                    + " * "
-                                    + (10 + aTier)
-                                    + " = "
-                                    + (aHeaters * aEfficiency * (10 + aTier)));
                 }
             }
 
@@ -573,7 +561,6 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                     this.mHeatLevel = 100000;
                 } else {
                     this.mHeatLevel -= 10;
-                    log("Removed Heat: " + 10);
                 }
             }
         }
@@ -591,7 +578,6 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                     int aFluidAmount = Math.min(aFluid.amount, this.mHeatLevel);
 
                     this.mHeatLevel -= aFluidAmount;
-                    log("Removed Heat: " + (aFluidAmount));
                     this.depleteInput(FluidUtils.getFluidStack(mColdSalt, aFluidAmount));
                     this.addOutput(FluidUtils.getFluidStack(mHotSalt, aFluidAmount));
                     this.mHeatLevel = Math.max(this.mHeatLevel, 0);
@@ -600,9 +586,8 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                 }
             }
         }
-        log("Heat Level" + mHeatLevel);
 
-        return true;
+        return CheckRecipeResultRegistry.GENERATING;
     }
 
     @Override
