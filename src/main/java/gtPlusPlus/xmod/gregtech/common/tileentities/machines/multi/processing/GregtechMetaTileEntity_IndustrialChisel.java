@@ -10,12 +10,13 @@ import static gregtech.api.enums.GT_HatchElement.Muffler;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
+
+import org.jetbrains.annotations.NotNull;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -25,11 +26,11 @@ import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.recipe.check.FindRecipeResult;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_OverclockCalculator;
-import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
@@ -270,61 +271,20 @@ public class GregtechMetaTileEntity_IndustrialChisel
     }
 
     @Override
-    public boolean checkRecipe(final ItemStack aStack) {
-        GT_Recipe tRecipe = getRecipe();
-        if (tRecipe == null) return false;
+    protected ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic() {
 
-        ArrayList<ItemStack> aItems = this.getStoredInputs();
-
-        // Based on the Processing Array. A bit overkill, but very flexible.
-        ItemStack[] aItemInputs = aItems.toArray(new ItemStack[aItems.size()]);
-
-        // Reset outputs and progress stats
-        this.lEUt = 0;
-        this.mMaxProgresstime = 0;
-        this.mOutputItems = new ItemStack[] {};
-        this.mOutputFluids = new FluidStack[] {};
-        long tEnergy = getMaxInputEnergy();
-
-        // Remember last recipe - an optimization for findRecipe()
-        this.mLastRecipe = tRecipe;
-
-        int aMaxParallelRecipes = getMaxParallelRecipes();
-        int aEUPercent = getEuDiscountForParallelism();
-        int aSpeedBonusPercent = 200;
-
-        GT_ParallelHelper helper = new GT_ParallelHelper().setRecipe(tRecipe).setItemInputs(aItemInputs)
-                .setAvailableEUt(tEnergy).setMaxParallel(aMaxParallelRecipes).enableConsumption()
-                .enableOutputCalculation().setEUtModifier(aEUPercent / 100.0f).setController(this);
-
-        if (batchMode) {
-            helper.enableBatchMode(128);
-        }
-
-        helper.build();
-
-        if (helper.getCurrentParallel() == 0) {
-            return false;
-        }
-
-        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-        this.mEfficiencyIncrease = 10000;
-
-        GT_OverclockCalculator calculator = new GT_OverclockCalculator().setRecipeEUt(tRecipe.mEUt).setEUt(tEnergy)
-                .setDuration(tRecipe.mDuration).setEUtDiscount(aEUPercent / 100.0f)
-                .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
-                .setParallel((int) Math.floor(helper.getCurrentParallel() / helper.getDurationMultiplier()))
-                .calculate();
-        lEUt = -calculator.getConsumption();
-        mMaxProgresstime = (int) Math.ceil(calculator.getDuration() * helper.getDurationMultiplier());
-
-        mOutputItems = helper.getItemOutputs();
-
-        updateSlots();
-
-        // Play sounds (GT++ addition - GT multiblocks play no sounds)
-        startProcess();
-        return true;
+            @NotNull
+            @Override
+            protected FindRecipeResult findRecipe(GT_Recipe.GT_Recipe_Map map) {
+                GT_Recipe recipe = getRecipe();
+                if (recipe == null) {
+                    return FindRecipeResult.NOT_FOUND;
+                }
+                return FindRecipeResult.ofSuccess(recipe);
+            }
+        }.disableRecipeMap().setSpeedBonus(1F / 3F).setEuModifier(0.75F)
+                .setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
