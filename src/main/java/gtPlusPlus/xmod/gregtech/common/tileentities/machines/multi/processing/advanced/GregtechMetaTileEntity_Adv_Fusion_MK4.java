@@ -53,8 +53,8 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
                 .addInfo("Controller block for the Fusion Reactor Mk IV")
                 .addInfo("131072EU/t and 320M EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
-                .addInfo("number of energy hatches * cap, you can't do it").addSeparator()
-                .beginStructureBlock(15, 3, 15, false).addController("See diagram when placed")
+                .addInfo("number of energy hatches * cap, you can't do it").addInfo("Performs 4/4 overclocks")
+                .addSeparator().beginStructureBlock(15, 3, 15, false).addController("See diagram when placed")
                 .addCasingInfoMin("Fusion Machine Casings MK III", 79, false)
                 .addStructureInfo("Cover the coils with casing")
                 .addOtherStructurePart("Advanced Fusion Coils", "Center part of the ring")
@@ -111,7 +111,8 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK4 extends GT_MetaTileEntity_Fus
 
     @Override
     public int overclock(int mStartEnergy) {
-        return (mStartEnergy < 160000000) ? 3 : ((mStartEnergy < 320000000) ? 2 : (mStartEnergy < 640000000) ? 1 : 0);
+        return (mStartEnergy <= 160000000) ? 3
+                : ((mStartEnergy <= 320000000) ? 2 : (mStartEnergy <= 640000000) ? 1 : 0);
     }
 
     @Override

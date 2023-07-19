@@ -53,8 +53,8 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GT_MetaTileEntity_Fus
                 .addInfo("Controller block for the Fusion Reactor Mk V")
                 .addInfo("524,288EU/t and 1.28B EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
-                .addInfo("number of energy hatches * cap, you can't do it").addSeparator()
-                .beginStructureBlock(15, 3, 15, false).addController("See diagram when placed")
+                .addInfo("number of energy hatches * cap, you can't do it").addInfo("Performs 4/4 overclocks")
+                .addSeparator().beginStructureBlock(15, 3, 15, false).addController("See diagram when placed")
                 .addCasingInfoMin("Fusion Machine Casings MK IV", 79, false)
                 .addStructureInfo("Cover the coils with casing")
                 .addOtherStructurePart("Advanced Fusion Coils II", "Center part of the ring")
@@ -111,9 +111,9 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GT_MetaTileEntity_Fus
 
     @Override
     public int overclock(int mStartEnergy) {
-        return (mStartEnergy < 160_000_000) ? 4
-                : ((mStartEnergy < 320_000_000) ? 3
-                        : ((mStartEnergy < 640_000_000) ? 2 : ((mStartEnergy < 1_280_000_000) ? 1 : 0)));
+        return (mStartEnergy <= 160_000_000) ? 4
+                : ((mStartEnergy <= 320_000_000) ? 3
+                        : ((mStartEnergy <= 640_000_000) ? 2 : ((mStartEnergy <= 1_280_000_000) ? 1 : 0)));
     }
 
     @Override
