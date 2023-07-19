@@ -927,4 +927,9 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
     public int getTurbineDamageMultiplier() {
         return mFastMode ? 3 : 1;
     }
+
+    @Override
+    public boolean supportsBatchMode() {
+        return false;
+    }
 }
