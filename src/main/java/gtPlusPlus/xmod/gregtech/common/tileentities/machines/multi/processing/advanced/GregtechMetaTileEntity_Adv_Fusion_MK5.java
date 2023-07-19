@@ -11,6 +11,7 @@ import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
@@ -104,10 +105,15 @@ public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GT_MetaTileEntity_Fus
     }
 
     @Override
+    protected ProcessingLogic createProcessingLogic() {
+        return super.createProcessingLogic().setOverclock(2, 2);
+    }
+
+    @Override
     public int overclock(int mStartEnergy) {
-        return (mStartEnergy < 160_000_000) ? 32
-                : ((mStartEnergy < 320_000_000) ? 16
-                        : ((mStartEnergy < 640_000_000) ? 8 : ((mStartEnergy < 1_280_000_000) ? 4 : 1)));
+        return (mStartEnergy < 160_000_000) ? 4
+                : ((mStartEnergy < 320_000_000) ? 3
+                        : ((mStartEnergy < 640_000_000) ? 2 : ((mStartEnergy < 1_280_000_000) ? 1 : 0)));
     }
 
     @Override
