@@ -3,6 +3,7 @@ package gtPlusPlus.core.handler;
 import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.ExtraUtilities;
 import static gregtech.api.enums.Mods.OpenBlocks;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
 import static gregtech.api.enums.Mods.Thaumcraft;
 import static gregtech.api.enums.Mods.Witchery;
 
@@ -21,6 +22,7 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
+import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
 import gtPlusPlus.core.common.compat.COMPAT_Thaumcraft;
@@ -89,7 +91,6 @@ import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechLargeTurbinesAndHe
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechMolecularTransformer;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechNuclearSaltProcessingPlant;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechPollutionDevices;
-import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechPowerBreakers;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechPowerSubStation;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechQuantumForceTransformer;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechRTG;
@@ -200,7 +201,6 @@ public class COMPAT_HANDLER {
         GregtechIndustrialArcFurnace.run();
         GregtechSolarTower.run();
         GregtechLargeTurbinesAndHeatExchanger.run();
-        GregtechPowerBreakers.run();
         GregtechAlgaeContent.run();
         GregtechIndustrialAlloySmelter.run();
         GregtechIsaMill.run();
@@ -227,6 +227,9 @@ public class COMPAT_HANDLER {
         }
         if (ExtraUtilities.isModLoaded()) {
             COMPAT_ExtraUtils.OreDict();
+        }
+        if (PamsHarvestCraft.isModLoaded()) {
+            COMPAT_HarvestCraft.OreDict();
         }
         COMPAT_IC2.OreDict();
 

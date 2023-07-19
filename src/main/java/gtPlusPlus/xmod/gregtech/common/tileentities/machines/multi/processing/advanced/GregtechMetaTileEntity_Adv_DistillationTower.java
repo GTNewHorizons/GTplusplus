@@ -107,12 +107,10 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends
                                             .atLeast(layeredOutputHatch, Energy, Maintenance)
                                             .disallowOnly(ForgeDirection.UP, ForgeDirection.DOWN)
                                             .casingIndex(getCasingTextureId()).dot(2).build(),
-                                    onElementPass(
-                                            GregtechMetaTileEntity_Adv_DistillationTower::onTopLayerFound,
-                                            ofHatchAdder(
-                                                    GregtechMetaTileEntity_Adv_DistillationTower::addMufflerToMachineList,
-                                                    getCasingTextureId(),
-                                                    3)),
+                                    ofHatchAdder(
+                                            GregtechMetaTileEntity_Adv_DistillationTower::addMufflerToMachineList,
+                                            getCasingTextureId(),
+                                            3),
                                     ofBlock(GregTech_API.sBlockCasings4, 1)))
                     .addElement(
                             'c',
@@ -180,7 +178,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends
                 .addInfo("Distilery Mode require a full height tower").addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator().addCasingInfoMin("Clean Stainless Steel Machine Casing", 7, false)
                 .addInputBus("Bottom Casing", 1).addOutputBus("Bottom Casing", 1).addInputHatch("Bottom Casing", 1)
-                .addMaintenanceHatch("Bottom Casing", 1).addEnergyHatch("Bottom Casing", 1)
+                .addMaintenanceHatch("Any Casing", 1).addEnergyHatch("Any Casing", 1)
                 .addOutputHatch("One per layer except bottom", 2).addMufflerHatch("Top Casing", 3)
                 .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
