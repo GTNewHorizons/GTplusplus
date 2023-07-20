@@ -337,7 +337,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
                 }
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
-        }.setEuModifier(0F).disableRecipeMap().setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setEuModifier(0F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     private boolean isUsingCompost(ItemStack[] aItemInputs) {

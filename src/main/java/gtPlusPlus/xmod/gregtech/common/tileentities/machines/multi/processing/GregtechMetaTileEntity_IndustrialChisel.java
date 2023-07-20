@@ -283,8 +283,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
                 }
                 return FindRecipeResult.ofSuccess(recipe);
             }
-        }.disableRecipeMap().setSpeedBonus(1F / 3F).setEuModifier(0.75F)
-                .setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setSpeedBonus(1F / 3F).setEuModifier(0.75F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

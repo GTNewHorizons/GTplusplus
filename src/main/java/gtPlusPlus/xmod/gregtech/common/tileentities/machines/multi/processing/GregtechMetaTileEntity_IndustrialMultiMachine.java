@@ -286,8 +286,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                 }
                 return super.findRecipe(foundMap);
             }
-        }.disableRecipeMap().setSpeedBonus(1F / 3.5F).setEuModifier(0.8F)
-                .setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setSpeedBonus(1F / 3.5F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override
