@@ -14,6 +14,7 @@ import java.util.List;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
 import org.jetbrains.annotations.NotNull;
@@ -307,18 +308,18 @@ public class GregtechMetaTileEntity_IndustrialChisel
         return 75;
     }
 
-    private static String sChiselSound = null;
+    private static ResourceLocation sChiselSound = null;
 
-    private static String getChiselSound() {
+    private static ResourceLocation getChiselSound() {
         if (sChiselSound == null) {
-            sChiselSound = Carving.chisel.getVariationSound(Blocks.stone, 0);
+            sChiselSound = new ResourceLocation(Carving.chisel.getVariationSound(Blocks.stone, 0));
         }
         return sChiselSound;
     }
 
     @Override
-    public String getSound() {
-        return getChiselSound();
+    public void doSound(byte aIndex, double aX, double aY, double aZ) {
+        GT_Utility.doSoundAtClient(getChiselSound(), getTimeBetweenProcessSounds(), 1.0F, 1.0F, aX, aY, aZ);
     }
 
     @Override

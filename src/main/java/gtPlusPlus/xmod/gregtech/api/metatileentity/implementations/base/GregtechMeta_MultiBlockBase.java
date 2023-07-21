@@ -26,7 +26,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -410,18 +409,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     @Override
     public boolean explodesOnComponentBreak(ItemStack p0) {
         return false;
-    }
-
-    @Override
-    public void startSoundLoop(final byte aIndex, final double aX, final double aY, final double aZ) {
-        super.startSoundLoop(aIndex, aX, aY, aZ);
-        if (aIndex == 1) {
-            GT_Utility.doSoundAtClient(new ResourceLocation(getSound()), 10, 1.0F, aX, aY, aZ);
-        }
-    }
-
-    public String getSound() {
-        return "";
     }
 
     /**

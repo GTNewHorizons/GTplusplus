@@ -8,7 +8,6 @@ import static gregtech.api.GregTech_API.sBlockCasings4;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
@@ -146,14 +145,6 @@ public class GregtechMetaTileEntity_Adv_Implosion
     @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic().setSpeedBonus(1F / 2F).setMaxParallelSupplier(this::getMaxParallelRecipes);
-    }
-
-    @Override
-    public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
-        super.startSoundLoop(aIndex, aX, aY, aZ);
-        if (aIndex == 20) {
-            GT_Utility.doSoundAtClient(new ResourceLocation(getSound()), 10, 1.0F, aX, aY, aZ);
-        }
     }
 
     @Override
