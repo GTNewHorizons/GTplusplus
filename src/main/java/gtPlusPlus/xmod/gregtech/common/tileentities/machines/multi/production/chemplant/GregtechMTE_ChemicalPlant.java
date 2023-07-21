@@ -56,12 +56,15 @@ import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Triplet;
 import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.recipe.common.CI;
+import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
@@ -587,14 +590,32 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    @Override
-    public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        super.onPreTick(aBaseMetaTileEntity, aTick);
+    private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
+        for (int i = 0; i < parallelRecipes; i++) {
+            // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
+            if (isCatalystDamageable()
+                    && (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier)))) {
+                int damage = getDamage(aStack) + 1;
+                if (damage >= getMaxCatalystDurability()) {
+                    addOutput(CI.getEmptyCatalyst(1));
+                    aStack.stackSize -= 1;
+                } else {
+                    setDamage(aStack, damage);
+                }
+            }
+        }
+    }
+
+    private boolean isCatalystDamageable() {
+        return this.mCoilTier < 10 && this.mPipeCasingTier < 4;
     }
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
+
+            ItemStack catalystRecipe;
+            int maxParallelCatalyst;
 
             @NotNull
             @Override
@@ -603,7 +624,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                     return CheckRecipeResultRegistry.insufficientMachineTier(recipe.mSpecialValue);
                 }
                 // checks if it has a catalyst
-                ItemStack catalystRecipe = null;
+
                 boolean needsCalayst = false;
                 for (ItemStack item : recipe.mInputs) {
                     if (ItemUtils.isCatalyst(item)) {
@@ -619,14 +640,29 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 }
 
                 // checks if it has enough catalyst durability
-                ArrayList<ItemStack> catalysts;
-                int maxParallelCatalyst = maxParallel;
+                maxParallelCatalyst = maxParallel;
                 if (catalystRecipe != null) {
-                    catalysts = new ArrayList<>();
-                    maxParallelCatalyst = getCatalysts(inputItems, catalystRecipe, maxParallel, catalysts);
+                    maxParallelCatalyst = getCatalysts(inputItems, catalystRecipe, maxParallel);
                 }
-                maxParallel = maxParallelCatalyst;
+                maxParallel = Math.min(maxParallel, maxParallelCatalyst);
                 return CheckRecipeResultRegistry.SUCCESSFUL;
+            }
+
+            @NotNull
+            @Override
+            protected GT_ParallelHelper createParallelHelper(@NotNull GT_Recipe recipe) {
+                return super.createParallelHelper(recipe).enableBatchMode(maxParallelCatalyst);
+            }
+
+            @NotNull
+            @Override
+            public CheckRecipeResult process() {
+                CheckRecipeResult result = super.process();
+                if (result.wasSuccessful()) {
+                    damageCatalyst(catalystRecipe, calculatedParallels);
+                }
+                catalystRecipe = null;
+                return result;
             }
         };
     }
@@ -701,13 +737,15 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    private int getCatalysts(ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParrallel,
-            ArrayList<ItemStack> aOutPut) {
+    private int getCatalysts(ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParallel) {
+        if (!isCatalystDamageable()) {
+            return getMaxParallelRecipes();
+        }
         int allowedParallel = 0;
         for (final ItemStack aInput : aItemInputs) {
             if (aRecipeCatalyst.isItemEqual(aInput)) {
                 int aDurabilityRemaining = getMaxCatalystDurability() - getDamage(aInput);
-                return Math.min(aMaxParrallel, aDurabilityRemaining);
+                return Math.min(aMaxParallel, aDurabilityRemaining);
             }
         }
         return allowedParallel;
