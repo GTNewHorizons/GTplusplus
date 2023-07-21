@@ -84,7 +84,6 @@ import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIndustrialThermalC
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIndustrialTreeFarm;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIndustrialWashPlant;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIndustrialWiremill;
-import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIronBlastFurnace;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIsaMill;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechLFTR;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechLargeTurbinesAndHeatExchanger;
@@ -152,7 +151,6 @@ public class COMPAT_HANDLER {
         GregtechNuclearSaltProcessingPlant.run();
         GregtechSteamCondenser.run();
         GregtechSafeBlock.run();
-        GregtechIronBlastFurnace.run();
         GregtechIndustrialCentrifuge.run();
         GregtechIndustrialCokeOven.run();
         GregtechIndustrialPlatePress.run();
