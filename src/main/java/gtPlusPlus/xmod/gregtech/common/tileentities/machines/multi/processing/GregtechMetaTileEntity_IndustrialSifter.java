@@ -163,11 +163,6 @@ public class GregtechMetaTileEntity_IndustrialSifter
     }
 
     @Override
-    protected boolean doesMachineBoostOutput() {
-        return false;
-    }
-
-    @Override
     public int getMaxParallelRecipes() {
         return (4 * GT_Utility.getTier(this.getMaxInputVoltage()));
     }

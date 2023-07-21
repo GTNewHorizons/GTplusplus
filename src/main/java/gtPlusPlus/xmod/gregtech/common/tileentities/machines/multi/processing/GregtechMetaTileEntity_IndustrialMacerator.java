@@ -372,11 +372,6 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     }
 
     @Override
-    protected boolean doesMachineBoostOutput() {
-        return true;
-    }
-
-    @Override
     public int getMaxParallelRecipes() {
         final long tVoltage = getMaxInputVoltage();
         final byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
