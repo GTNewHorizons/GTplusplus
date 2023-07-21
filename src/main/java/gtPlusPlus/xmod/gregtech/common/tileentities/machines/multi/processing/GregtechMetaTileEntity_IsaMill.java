@@ -423,11 +423,6 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         return 1;
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
     /*
      * Milling Ball Handling
      */

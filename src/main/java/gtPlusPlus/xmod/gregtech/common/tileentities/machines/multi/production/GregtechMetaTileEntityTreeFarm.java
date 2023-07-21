@@ -252,11 +252,6 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public IStructureDefinition<GregtechMetaTileEntityTreeFarm> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMetaTileEntityTreeFarm>builder()

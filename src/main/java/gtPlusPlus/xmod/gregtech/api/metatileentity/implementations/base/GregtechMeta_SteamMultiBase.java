@@ -72,11 +72,6 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic().setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

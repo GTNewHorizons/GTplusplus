@@ -196,11 +196,6 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

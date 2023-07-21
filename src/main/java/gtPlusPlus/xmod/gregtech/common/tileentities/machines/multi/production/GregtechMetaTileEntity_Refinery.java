@@ -107,11 +107,6 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public boolean addMufflerToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity == null) {
             return false;

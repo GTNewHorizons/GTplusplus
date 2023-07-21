@@ -399,11 +399,6 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public void explodeMultiblock() {
         this.mInventory[1] = null;
         long explodevalue = MathUtils.randLong(Integer.MAX_VALUE, 8589934588L);

@@ -596,11 +596,6 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

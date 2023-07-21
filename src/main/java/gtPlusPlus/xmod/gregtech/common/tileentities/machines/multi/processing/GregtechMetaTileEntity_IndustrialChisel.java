@@ -304,11 +304,6 @@ public class GregtechMetaTileEntity_IndustrialChisel
         return (16 * GT_Utility.getTier(this.getMaxInputVoltage()));
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 75;
-    }
-
     private static ResourceLocation sChiselSound = null;
 
     private static ResourceLocation getChiselSound() {

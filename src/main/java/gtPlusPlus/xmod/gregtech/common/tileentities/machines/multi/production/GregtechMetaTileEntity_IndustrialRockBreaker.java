@@ -306,13 +306,9 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
             // Remember last recipe - an optimization for findRecipe()
             this.mLastRecipe = tRecipe;
 
-            int aMaxParallelRecipes = getMaxParallelRecipes();
-            int aEUPercent = getEuDiscountForParallelism();
-            int aSpeedBonusPercent = 200;
-
             GT_ParallelHelper helper = new GT_ParallelHelper().setRecipe(tRecipe).setItemInputs(aItemInputs)
-                    .setFluidInputs(aFluidInputs).setAvailableEUt(tEnergy).setMaxParallel(aMaxParallelRecipes)
-                    .enableConsumption().enableOutputCalculation().setEUtModifier(aEUPercent / 100.0f).setMachine(this);
+                    .setFluidInputs(aFluidInputs).setAvailableEUt(tEnergy).setMaxParallel(getMaxParallelRecipes())
+                    .enableConsumption().enableOutputCalculation().setEUtModifier(0.75F).setMachine(this);
 
             if (batchMode) {
                 helper.enableBatchMode(128);
@@ -328,8 +324,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
             this.mEfficiencyIncrease = 10000;
 
             GT_OverclockCalculator calculator = new GT_OverclockCalculator().setRecipeEUt(tRecipe.mEUt).setEUt(tEnergy)
-                    .setDuration(tRecipe.mDuration).setEUtDiscount(aEUPercent / 100.0f)
-                    .setSpeedBoost(100.0f / (100.0f + aSpeedBonusPercent))
+                    .setDuration(tRecipe.mDuration).setEUtDiscount(0.75F).setSpeedBoost(1F / 3F)
                     .setParallel((int) Math.floor(helper.getCurrentParallel() / helper.getDurationMultiplierDouble()))
                     .calculate();
             lEUt = -calculator.getConsumption();
@@ -347,11 +342,6 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
     @Override
     public int getMaxParallelRecipes() {
         return (8 * GT_Utility.getTier(this.getMaxInputVoltage()));
-    }
-
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 75;
     }
 
     @Override

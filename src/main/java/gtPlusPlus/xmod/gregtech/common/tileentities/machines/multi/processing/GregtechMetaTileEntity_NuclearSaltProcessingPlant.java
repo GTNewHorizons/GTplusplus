@@ -197,11 +197,6 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
-    @Override
     public String[] getExtraInfoData() {
         final String running = (this.mMaxProgresstime > 0 ? "Salt Plant running" : "Salt Plant stopped");
         final String maintenance = (this.getIdealStatus() == this.getRepairStatus() ? "No Maintenance issues"

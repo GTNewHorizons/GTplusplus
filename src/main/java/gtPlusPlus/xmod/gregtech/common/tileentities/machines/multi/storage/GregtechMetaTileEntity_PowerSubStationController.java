@@ -581,11 +581,6 @@ public class GregtechMetaTileEntity_PowerSubStationController
         return 1;
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
     private long drawEnergyFromHatch(MetaTileEntity aHatch) {
         if (!isValidMetaTileEntity(aHatch)) {
             return 0;

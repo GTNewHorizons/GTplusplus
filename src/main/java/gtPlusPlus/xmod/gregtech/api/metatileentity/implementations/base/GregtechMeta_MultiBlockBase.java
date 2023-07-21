@@ -286,13 +286,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
 
         mInfo.add(
-                StatCollector.translateToLocal("GTPP.CC.discount") + ": "
-                        + EnumChatFormatting.GREEN
-                        + (getEuDiscountForParallelism())
-                        + EnumChatFormatting.RESET
-                        + "%");
-
-        mInfo.add(
                 StatCollector.translateToLocal("GTPP.CC.parallel") + ": "
                         + EnumChatFormatting.GREEN
                         + (getMaxParallelRecipes())
@@ -393,8 +386,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     public static final String TAG_HIDE_MACHINE_TYPE = "TAG_HIDE_MACHINE_TYPE";
 
     public abstract int getMaxParallelRecipes();
-
-    public abstract int getEuDiscountForParallelism();
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack paramItemStack) {

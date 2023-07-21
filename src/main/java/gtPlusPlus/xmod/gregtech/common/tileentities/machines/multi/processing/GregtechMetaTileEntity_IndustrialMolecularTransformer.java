@@ -210,11 +210,6 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

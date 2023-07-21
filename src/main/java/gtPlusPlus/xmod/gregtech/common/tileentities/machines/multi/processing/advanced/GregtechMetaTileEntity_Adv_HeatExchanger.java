@@ -408,11 +408,6 @@ public class GregtechMetaTileEntity_Adv_HeatExchanger
         return 0;
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
     private static Block sFrame;
 
     public static Block getFrame() {

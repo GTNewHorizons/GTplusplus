@@ -156,11 +156,6 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends
         return (6 * GT_Utility.getTier(this.getMaxInputVoltage()));
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 90;
-    }
-
     public Block getCasingBlock() {
         return ModBlocks.blockCasingsMisc;
     }

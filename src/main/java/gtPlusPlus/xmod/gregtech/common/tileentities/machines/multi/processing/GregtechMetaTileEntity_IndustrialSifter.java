@@ -168,11 +168,6 @@ public class GregtechMetaTileEntity_IndustrialSifter
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 75;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

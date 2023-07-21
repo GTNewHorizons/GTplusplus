@@ -190,11 +190,6 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

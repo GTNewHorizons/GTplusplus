@@ -262,11 +262,6 @@ public class GregtechMetaTileEntity_MassFabricator
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 80;
-    }
-
-    @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         int aMode = this.mMode + 1;
         if (aMode > 1) {

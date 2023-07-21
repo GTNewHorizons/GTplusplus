@@ -177,8 +177,4 @@ public class GregtechMetaTileEntity_Adv_Implosion
         return (GT_Utility.getTier(this.getMaxInputVoltage()) / 2 + 1);
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
 }

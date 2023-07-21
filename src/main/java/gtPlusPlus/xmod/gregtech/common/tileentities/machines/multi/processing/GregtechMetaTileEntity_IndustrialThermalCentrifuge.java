@@ -146,11 +146,6 @@ public class GregtechMetaTileEntity_IndustrialThermalCentrifuge
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 80;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

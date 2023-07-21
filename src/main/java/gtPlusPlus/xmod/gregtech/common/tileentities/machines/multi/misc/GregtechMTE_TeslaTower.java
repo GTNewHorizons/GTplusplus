@@ -480,11 +480,6 @@ public class GregtechMTE_TeslaTower extends GregtechMeta_MultiBlockBase<Gregtech
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public void construct(ItemStack stackSize, boolean hintsOnly) {
         // TODO Auto-generated method stub
 

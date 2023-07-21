@@ -147,11 +147,6 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 75;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

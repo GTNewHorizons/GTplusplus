@@ -469,11 +469,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         return 2 * getPipeCasingTier();
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
     private int getSolidCasingTier() {
         return this.mSolidCasingTier;
     }

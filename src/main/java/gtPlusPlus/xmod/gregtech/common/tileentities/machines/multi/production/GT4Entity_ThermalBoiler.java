@@ -197,11 +197,6 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public boolean onRunningTick(ItemStack aStack) {
         if (this.lEUt > 0) {
             if (this.mSuperEfficencyIncrease > 0) {

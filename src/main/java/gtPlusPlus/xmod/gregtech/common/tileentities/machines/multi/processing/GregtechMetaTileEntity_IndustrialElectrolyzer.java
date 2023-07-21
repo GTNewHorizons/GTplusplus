@@ -154,8 +154,4 @@ public class GregtechMetaTileEntity_IndustrialElectrolyzer extends
         return 2 * GT_Utility.getTier(this.getMaxInputVoltage());
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 90;
-    }
 }

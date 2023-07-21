@@ -819,11 +819,6 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         super.onPreTick(aBaseMetaTileEntity, aTick);
         // Fix GT bug

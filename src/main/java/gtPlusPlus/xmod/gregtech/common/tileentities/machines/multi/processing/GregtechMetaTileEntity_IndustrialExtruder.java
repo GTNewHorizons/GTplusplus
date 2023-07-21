@@ -147,11 +147,6 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

@@ -188,11 +188,6 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return (100 - (GT_Utility.getTier(this.getMaxInputVoltage()) * 4));
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

@@ -296,11 +296,6 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 90;
-    }
-
-    @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         inputSeparation = !inputSeparation;
         aPlayer.addChatMessage(

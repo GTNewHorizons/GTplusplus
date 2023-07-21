@@ -160,11 +160,6 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 90;
-    }
-
-    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }

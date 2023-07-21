@@ -579,11 +579,6 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public boolean doesBindPlayerInventory() {
         return false;
     }

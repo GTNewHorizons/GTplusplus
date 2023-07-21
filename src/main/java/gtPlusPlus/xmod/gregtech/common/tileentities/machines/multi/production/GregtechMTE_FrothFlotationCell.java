@@ -115,11 +115,6 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public IStructureDefinition<GregtechMTE_FrothFlotationCell> getStructureDefinition() {
         if (STRUCTURE_DEFINITION == null) {
             STRUCTURE_DEFINITION = StructureDefinition.<GregtechMTE_FrothFlotationCell>builder().addShape(

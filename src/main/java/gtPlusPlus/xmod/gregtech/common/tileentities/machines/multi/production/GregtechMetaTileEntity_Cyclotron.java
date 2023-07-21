@@ -243,11 +243,6 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
-    @Override
     public boolean onRunningTick(ItemStack aStack) {
         if (this.mOutputBusses.size() > 0) {
             for (GT_MetaTileEntity_Hatch_OutputBus g : this.mOutputBusses) {

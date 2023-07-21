@@ -318,8 +318,4 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends
         return 0;
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
 }

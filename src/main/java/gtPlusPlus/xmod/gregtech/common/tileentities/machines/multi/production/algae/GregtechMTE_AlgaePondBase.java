@@ -201,11 +201,6 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         return 2;
     }
 
-    @Override
-    public int getEuDiscountForParallelism() {
-        return 0;
-    }
-
     public boolean checkForWater() {
 
         // Get Facing direction

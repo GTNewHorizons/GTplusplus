@@ -177,11 +177,6 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 50;
-    }
-
-    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
 

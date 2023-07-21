@@ -164,11 +164,6 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
-    @Override
     public String[] getExtraInfoData() {
         final String running = (this.mMaxProgresstime > 0 ? "Auto-Crafter running" : "Auto-Crafter stopped");
         final String maintenance = (this.getIdealStatus() == this.getRepairStatus() ? "No Maintenance issues"

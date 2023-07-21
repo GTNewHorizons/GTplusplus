@@ -181,11 +181,6 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends
     }
 
     @Override
-    public int getEuDiscountForParallelism() {
-        return 100;
-    }
-
-    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
 
