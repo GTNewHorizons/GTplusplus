@@ -686,7 +686,7 @@ public class GTPP_Recipe extends GT_Recipe {
                 0,
                 0,
                 0,
-                0,
+                1,
                 "",
                 0,
                 "",

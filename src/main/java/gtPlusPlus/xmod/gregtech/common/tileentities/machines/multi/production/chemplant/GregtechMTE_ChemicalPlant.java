@@ -23,7 +23,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -57,17 +56,12 @@ import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_OverclockCalculator;
-import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
-import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Triplet;
 import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
@@ -639,14 +633,13 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 maxParallel = maxParallelCatalyst;
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
-
-            @NotNull
-            @Override
-            protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe,
-                    @NotNull GT_ParallelHelper helper) {
-                return super.createOverclockCalculator(recipe, helper).setSpeedBoost(100F / (100F + getSpeedBonus()));
-            }
         };
+    }
+
+    @Override
+    protected void setupProcessingLogic(ProcessingLogic logic) {
+        super.setupProcessingLogic(logic);
+        logic.setSpeedBonus(100F / (100F + getSpeedBonus()));
     }
 
     @Override
@@ -713,59 +706,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    public GT_Recipe findRecipe(final GT_Recipe aRecipe, final long aVoltage, final long aSpecialValue,
-            ItemStack[] aInputs, final FluidStack[] aFluids) {
-        if (!mInitRecipeCache) {
-            initRecipeCaches();
-        }
-        if (this.getRecipeMap().mRecipeList.isEmpty()) {
-            log("No Recipes in Map to search through.");
-            return null;
-        } else {
-            log("Checking tier " + aSpecialValue + " recipes and below. Using Input Voltage of " + aVoltage + "V.");
-            log("We have " + aInputs.length + " Items and " + aFluids.length + " Fluids.");
-            // Try check the cached recipe first
-            if (aRecipe != null) {
-                if (aRecipe.isRecipeInputEqual(false, aFluids, aInputs)) {
-                    if (aRecipe.mEUt <= aVoltage) {
-                        Logger.INFO("Using cached recipe.");
-                        return aRecipe;
-                    }
-                }
-            }
-
-            // Get all recipes for the tier
-            AutoMap<AutoMap<GT_Recipe>> aMasterMap = new AutoMap<AutoMap<GT_Recipe>>();
-            for (long i = 0; i <= aSpecialValue; i++) {
-                aMasterMap.add(mTieredRecipeMap.get(i));
-            }
-            GT_Recipe aFoundRecipe = null;
-
-            // Iterate the tiers recipes until we find the one with all inputs matching
-            master: for (AutoMap<GT_Recipe> aTieredMap : aMasterMap) {
-                for (GT_Recipe aRecipeToCheck : aTieredMap) {
-                    if (aRecipeToCheck.isRecipeInputEqual(false, aFluids, aInputs)) {
-                        log("Found recipe with matching inputs!");
-                        if (aRecipeToCheck.mSpecialValue <= aSpecialValue) {
-                            if (aRecipeToCheck.mEUt <= aVoltage) {
-                                aFoundRecipe = aRecipeToCheck;
-                                break master;
-                            }
-                        }
-                    }
-                }
-            }
-
-            // If we found a recipe, return it
-            if (aFoundRecipe != null) {
-                log("Found valid recipe.");
-                return aFoundRecipe;
-            }
-        }
-        log("Did not find valid recipe.");
-        return null;
-    }
-
     private int getCatalysts(ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParrallel,
             ArrayList<ItemStack> aOutPut) {
         int allowedParallel = 0;
@@ -793,28 +733,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             }
         }
         return null;
-    }
-
-    private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
-        for (int i = 0; i < parallelRecipes; i++) {
-            // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
-            if (this.mCoilTier >= 10 && this.mPipeCasingTier >= 4) {
-                log("not consuming catalyst");
-            } else if (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier))) {
-                int damage = getDamage(aStack) + 1;
-                log("damage catalyst " + damage);
-                if (damage >= getMaxCatalystDurability()) {
-                    log("consume catalyst");
-                    addOutput(CI.getEmptyCatalyst(1));
-                    aStack.stackSize -= 1;
-                } else {
-                    log("damaging catalyst");
-                    setDamage(aStack, damage);
-                }
-            } else {
-                log("not consuming catalyst");
-            }
-        }
     }
 
     private int getDamage(ItemStack aStack) {
