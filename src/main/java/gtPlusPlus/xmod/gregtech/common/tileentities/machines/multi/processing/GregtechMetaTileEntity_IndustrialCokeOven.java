@@ -173,8 +173,13 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
 
     @Override
     protected ProcessingLogic createProcessingLogic() {
-        return new ProcessingLogic().setEuModifier((100F - (GT_Utility.getTier(this.getMaxInputVoltage()) * 4)) / 100F)
-                .setMaxParallelSupplier(this::getMaxParallelRecipes);
+        return new ProcessingLogic().setMaxParallelSupplier(this::getMaxParallelRecipes);
+    }
+
+    @Override
+    protected void setupProcessingLogic(ProcessingLogic logic) {
+        super.setupProcessingLogic(logic);
+        logic.setEuModifier((100F - (GT_Utility.getTier(getMaxInputVoltage()) * 4)) / 100F);
     }
 
     @Override

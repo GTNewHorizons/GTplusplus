@@ -178,15 +178,15 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
             protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe,
                     @NotNull GT_ParallelHelper helper) {
                 return super.createOverclockCalculator(recipe, helper)
-                        .setSpeedBoost(coilLevel.getTier() < 0 ? 1F : (float) getCoilDiscount(coilLevel));
+                        .setSpeedBoost((float) (1.0 - getCoilDiscount(coilLevel)));
             }
         }.setMaxParallel(MAX_PARALLELS);
     }
 
     @Override
     protected void setProcessingLogicPower(ProcessingLogic logic) {
-        logic.setAvailableVoltage(getAverageInputVoltage());
-        logic.setAvailableAmperage(getMaxInputAmps());
+        logic.setAvailableVoltage(getMaxInputEu());
+        logic.setAvailableAmperage(1);
     }
 
     @Override
@@ -239,6 +239,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
     public double getCoilDiscount(HeatingCoilLevel lvl) {
         // Since there are only 14 tiers (starting from 0), this is what the function is.
         double unRounded = (lvl != null ? lvl.getTier() : 0) / 130.0D;
+        if (unRounded < 0) return 1F;
         double rounded = Math.floor(unRounded * 1000) / 1000;
 
         return Math.max(0, rounded);

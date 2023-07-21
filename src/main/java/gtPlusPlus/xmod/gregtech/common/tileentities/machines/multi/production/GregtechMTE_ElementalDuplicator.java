@@ -22,6 +22,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
@@ -280,7 +281,10 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
             @NotNull
             @Override
-            protected FindRecipeResult findRecipe(GT_Recipe_Map map) {
+            protected FindRecipeResult findRecipe(@Nullable GT_Recipe_Map map) {
+                if (map == null) {
+                    return FindRecipeResult.NOT_FOUND;
+                }
                 try {
                     ItemStack aDataOrbStack = null;
                     recipe: for (GT_Recipe nRecipe : map.mRecipeList) {
@@ -315,7 +319,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
                 }
                 return FindRecipeResult.NOT_FOUND;
             }
-        }.setSpeedBonus(1F / 2F).setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setSpeedBonus(1F / 2F).enablePerfectOverclock().setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

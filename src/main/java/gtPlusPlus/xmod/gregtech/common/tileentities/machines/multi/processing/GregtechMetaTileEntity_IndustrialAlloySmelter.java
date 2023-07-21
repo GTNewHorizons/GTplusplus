@@ -193,7 +193,12 @@ public class GregtechMetaTileEntity_IndustrialAlloySmelter extends
             @Override
             protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe,
                     @NotNull GT_ParallelHelper helper) {
-                return super.createOverclockCalculator(recipe, helper).setSpeedBoost(100F / (100F + 5F * mLevel));
+                return super.createOverclockCalculator(recipe, helper).setSpeedBoost(100F / (100F + 5F * mLevel))
+                        .enableHeatOC().setRecipeHeat(0)
+                        // Need to multiply by 2 because heat OC is done only once every 1800 and this one does it once
+                        // every
+                        // 900
+                        .setMultiHeat((int) (getCoilLevel().getHeat() * 2));
             }
         }.setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

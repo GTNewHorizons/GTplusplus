@@ -252,7 +252,7 @@ public class GregtechMetaTileEntity_MassFabricator
                 }
                 return super.findRecipe(map);
             }
-        }.setSpeedBonus(1F / 1.8F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
+        }.setEuModifier(0.8F).enablePerfectOverclock().setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
 
     @Override

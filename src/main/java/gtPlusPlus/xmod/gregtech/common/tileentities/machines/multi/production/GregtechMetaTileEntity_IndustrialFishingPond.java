@@ -176,11 +176,9 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
     public @NotNull CheckRecipeResult checkProcessing() {
         ItemStack controllerStack = getControllerSlot();
         if (controllerStack != null) {
-            log("Found " + controllerStack.getDisplayName());
             if (controllerStack.getItem() == circuit) {
                 this.isUsingControllerCircuit = true;
                 this.mMode = controllerStack.getItemDamage();
-                log("Found Circuit!");
             } else {
                 this.isUsingControllerCircuit = false;
             }
@@ -188,15 +186,12 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
             this.isUsingControllerCircuit = false;
         }
         if (!hasGenerateRecipes) {
-            log("Generating Recipes.");
             generateRecipes();
         }
         if (hasGenerateRecipes) {
             if (!checkForWater()) {
                 return SimpleCheckRecipeResult.ofFailure("no_water");
             }
-
-            log("Trying to run recipe.");
             ItemStack[] tItemInputs = getStoredInputs().toArray(new ItemStack[0]);
             FluidStack[] tFluidInputs = getStoredFluids().toArray(new FluidStack[0]);
 
@@ -208,11 +203,6 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
             // Based on the Processing Array. A bit overkill, but very flexible.
             getCircuit(tItemInputs);
-
-            /*
-             * GT_Recipe tRecipe = this.getRecipeMap().findRecipe( getBaseMetaTileEntity(), mLastRecipe, false,
-             * gregtech.api.enums.GT_Values.V[tTier], aFluidInputs, aItemInputs);
-             */
 
             ItemStack[] mFishOutput = generateLoot(this.mMode);
             mFishOutput = removeNulls(mFishOutput);
@@ -253,6 +243,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
             mOutputItems = helper.getItemOutputs();
             mOutputFluids = helper.getFluidOutputs();
+            updateSlots();
 
             return CheckRecipeResultRegistry.SUCCESSFUL;
         }
@@ -353,19 +344,12 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
                     tBlock = aBaseMetaTileEntity.getBlockOffset(xDir + i, h, zDir + j);
                     if (tBlock == Blocks.water || tBlock == Blocks.flowing_water) {
                         ++tAmount;
-                        // log("Found Water");
                     }
                 }
             }
         }
 
-        boolean isValidWater = tAmount >= 60;
-        if (isValidWater) {
-            log("Filled structure.");
-        } else {
-            log("Did not fill structure.");
-        }
-        return isValidWater;
+        return tAmount >= 60;
     }
 
     private boolean isNotStaticWater(Block block, byte meta) {

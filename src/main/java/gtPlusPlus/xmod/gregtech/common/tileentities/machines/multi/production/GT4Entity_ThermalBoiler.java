@@ -188,7 +188,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
         }
         this.mMaxProgresstime = 0;
         this.lEUt = 0;
-        return CheckRecipeResultRegistry.NO_FUEL_FOUND;
+        return CheckRecipeResultRegistry.NO_RECIPE;
     }
 
     @Override

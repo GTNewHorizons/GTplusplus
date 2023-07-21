@@ -609,19 +609,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
             @NotNull
             @Override
-            public CheckRecipeResult process() {
-                CheckRecipeResult result = super.process();
-                if (result.wasSuccessful()) {
-                    for (GT_MetaTileEntity_Hatch_Catalysts h : mCatalystBuses) {
-                        h.updateSlots();
-                        h.tryFillUsageSlots();
-                    }
-                }
-                return result;
-            }
-
-            @NotNull
-            @Override
             protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
                 if (recipe.mSpecialValue > mSolidCasingTier) {
                     return CheckRecipeResultRegistry.insufficientMachineTier(recipe.mSpecialValue);
@@ -660,6 +647,15 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 return super.createOverclockCalculator(recipe, helper).setSpeedBoost(100F / (100F + getSpeedBonus()));
             }
         };
+    }
+
+    @Override
+    public void updateSlots() {
+        super.updateSlots();
+        for (GT_MetaTileEntity_Hatch_Catalysts h : mCatalystBuses) {
+            h.updateSlots();
+            h.tryFillUsageSlots();
+        }
     }
 
     private static final HashMap<Long, AutoMap<GT_Recipe>> mTieredRecipeMap = new HashMap<Long, AutoMap<GT_Recipe>>();
