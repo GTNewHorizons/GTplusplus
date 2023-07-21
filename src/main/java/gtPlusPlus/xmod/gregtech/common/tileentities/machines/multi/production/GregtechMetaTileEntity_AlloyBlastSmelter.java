@@ -130,8 +130,8 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_INDUCTION_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_INDUCTION_LOOP;
     }
 
     @Override

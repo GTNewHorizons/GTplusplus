@@ -28,6 +28,7 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.FindRecipeResult;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -268,6 +269,16 @@ public class GregtechMetaTileEntity_IndustrialChisel
 
         }
         return null;
+    }
+
+    @NotNull
+    @Override
+    public CheckRecipeResult checkProcessing() {
+        CheckRecipeResult result = super.checkProcessing();
+        if (result.wasSuccessful()) {
+            if (GT_Utility.isStringValid(getSound())) this.sendLoopStart((byte) 1);
+        }
+        return result;
     }
 
     @Override

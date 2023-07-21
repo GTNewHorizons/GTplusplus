@@ -33,8 +33,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.gtnewhorizon.structurelib.StructureLibAPI;
 import com.gtnewhorizon.structurelib.structure.AutoPlaceEnvironment;
 import com.gtnewhorizon.structurelib.structure.IStructureElement;
@@ -73,7 +71,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
@@ -423,10 +420,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         }
     }
 
-    public void startProcess() {
-        if (GT_Utility.isStringValid(getSound())) this.sendLoopStart((byte) 1);
-    }
-
     public String getSound() {
         return "";
     }
@@ -450,16 +443,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     protected void setProcessingLogicPower(ProcessingLogic logic) {
         logic.setAvailableVoltage(GT_Utility.roundDownVoltage(this.getMaxInputVoltage()));
         logic.setAvailableAmperage(1L);
-    }
-
-    @NotNull
-    @Override
-    public CheckRecipeResult checkProcessing() {
-        CheckRecipeResult result = super.checkProcessing();
-        if (result.wasSuccessful()) {
-            startProcess();
-        }
-        return result;
     }
 
     public long getMaxInputEnergy() {

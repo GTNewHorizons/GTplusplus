@@ -428,8 +428,8 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP;
     }
 
     @Override

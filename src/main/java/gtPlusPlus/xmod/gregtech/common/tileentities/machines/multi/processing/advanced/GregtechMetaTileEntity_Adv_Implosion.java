@@ -157,8 +157,8 @@ public class GregtechMetaTileEntity_Adv_Implosion
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.RANDOM_EXPLODE.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.RANDOM_EXPLODE;
     }
 
     @Override

@@ -147,8 +147,8 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP;
     }
 
     @Override

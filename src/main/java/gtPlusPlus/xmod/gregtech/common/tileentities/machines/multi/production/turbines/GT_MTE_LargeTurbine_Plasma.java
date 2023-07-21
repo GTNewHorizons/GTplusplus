@@ -188,7 +188,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                 this.mEfficiencyIncrease = 10;
                 // Overvoltage is handled inside the MultiBlockBase when pushing out to dynamos. no need to do it here.
                 // Play sounds (GT++ addition - GT multiblocks play no sounds)
-                startProcess();
+                enableAllTurbineHatches();
                 return CheckRecipeResultRegistry.GENERATING;
             }
         } catch (Throwable t) {

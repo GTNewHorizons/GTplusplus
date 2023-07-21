@@ -403,8 +403,8 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_MAGNETIZER_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_MAGNETIZER_LOOP;
     }
 
     @Override

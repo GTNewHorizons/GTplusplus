@@ -115,8 +115,8 @@ public class GregtechMetaTileEntity_IndustrialWireMill extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_RECYCLER_OP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_RECYCLER_OP;
     }
 
     @Override

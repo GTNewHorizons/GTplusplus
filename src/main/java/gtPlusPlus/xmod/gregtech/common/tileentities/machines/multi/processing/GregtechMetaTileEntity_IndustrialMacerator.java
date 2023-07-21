@@ -247,8 +247,8 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_MACERATOR_OP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_MACERATOR_OP;
     }
 
     @Override

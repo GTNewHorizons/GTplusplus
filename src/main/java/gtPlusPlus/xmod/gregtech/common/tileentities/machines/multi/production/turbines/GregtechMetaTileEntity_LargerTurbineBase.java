@@ -517,7 +517,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
                 this.mEfficiencyIncrease = 10;
                 // Overvoltage is handled inside the MultiBlockBase when pushing out to dynamos. no need to do it here.
                 // Play sounds (GT++ addition - GT multiblocks play no sounds)
-                startProcess();
+                enableAllTurbineHatches();
                 return CheckRecipeResultRegistry.GENERATING;
             }
         } catch (Throwable t) {
@@ -770,12 +770,6 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
         if (this.maxProgresstime() <= 0) {
             stopMachine();
         }
-    }
-
-    @Override
-    public void startProcess() {
-        super.startProcess();
-        enableAllTurbineHatches();
     }
 
     @Override

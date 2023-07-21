@@ -171,8 +171,8 @@ public class GregtechMetaTileEntity_IndustrialForgeHammer extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.RANDOM_ANVIL_USE.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.RANDOM_ANVIL_USE;
     }
 
     @Override

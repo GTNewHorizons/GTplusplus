@@ -113,8 +113,8 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_COMPRESSOR_OP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_COMPRESSOR_OP;
     }
 
     @Override

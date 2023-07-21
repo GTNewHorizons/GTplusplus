@@ -135,8 +135,8 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_INDUCTION_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_INDUCTION_LOOP;
     }
 
     @Override
@@ -345,8 +345,6 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
             mOutputItems = helper.getItemOutputs();
             mOutputFluids = helper.getFluidOutputs();
             updateSlots();
-
-            startProcess();
             return CheckRecipeResultRegistry.SUCCESSFUL;
         }
 

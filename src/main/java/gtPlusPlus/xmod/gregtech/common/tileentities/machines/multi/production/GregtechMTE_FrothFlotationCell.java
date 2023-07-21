@@ -85,8 +85,8 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
-    public String getSound() {
-        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP.toString();
+    protected SoundResource getProcessStartSound() {
+        return SoundResource.IC2_MACHINES_ELECTROFURNACE_LOOP;
     }
 
     @Override
