@@ -7,7 +7,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -86,7 +85,6 @@ import gtPlusPlus.GTplusplus;
 import gtPlusPlus.GTplusplus.INIT_PHASE;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.api.objects.minecraft.multi.SpecialMultiBehaviour;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
@@ -122,9 +120,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     public ArrayList<GT_MetaTileEntity_Hatch_OutputBattery> mDischargeHatches = new ArrayList<>();
     public ArrayList<GT_MetaTileEntity_Hatch> mAllEnergyHatches = new ArrayList<>();
     public ArrayList<GT_MetaTileEntity_Hatch> mAllDynamoHatches = new ArrayList<>();
-
-    // Custom Behaviour Map
-    private static final HashMap<String, SpecialMultiBehaviour> mCustomBehviours = new HashMap<>();
 
     public GregtechMeta_MultiBlockBase(final int aID, final String aName, final String aNameRegional) {
         super(aID, aName, aNameRegional);
