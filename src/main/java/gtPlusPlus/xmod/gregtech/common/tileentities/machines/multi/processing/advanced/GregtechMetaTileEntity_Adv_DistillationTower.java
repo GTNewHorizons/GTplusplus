@@ -372,7 +372,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends
     protected void setupProcessingLogic(ProcessingLogic logic) {
         super.setupProcessingLogic(logic);
         logic.setEuModifier(mMode == Mode.Distillery ? 0.15F : 1F);
-        logic.setEuModifier(mMode == Mode.Distillery ? 1F : 3.5F);
+        logic.setSpeedBonus(mMode == Mode.Distillery ? 1F : 1 / 3.5F);
     }
 
     @Override

@@ -634,10 +634,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return 0;
     }
 
-    public int getAmountOfOutputs() {
-        return 2;
-    }
-
     @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;

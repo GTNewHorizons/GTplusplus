@@ -201,7 +201,6 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
             long tEnergy = getMaxInputEnergy();
 
-            // Based on the Processing Array. A bit overkill, but very flexible.
             getCircuit(tItemInputs);
 
             ItemStack[] mFishOutput = generateLoot(this.mMode);

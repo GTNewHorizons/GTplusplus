@@ -299,15 +299,8 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 return CheckRecipeResultRegistry.NO_RECIPE;
             }
 
-            // Based on the Processing Array. A bit overkill, but very flexible.
             ItemStack[] aItemInputs = aItems.toArray(new ItemStack[0]);
             FluidStack[] aFluidInputs = new FluidStack[] {};
-
-            // Reset outputs and progress stats
-            this.lEUt = 0;
-            this.mMaxProgresstime = 0;
-            this.mOutputItems = new ItemStack[] {};
-            this.mOutputFluids = new FluidStack[] {};
 
             long tEnergy = getMaxInputEnergy();
             // Remember last recipe - an optimization for findRecipe()
