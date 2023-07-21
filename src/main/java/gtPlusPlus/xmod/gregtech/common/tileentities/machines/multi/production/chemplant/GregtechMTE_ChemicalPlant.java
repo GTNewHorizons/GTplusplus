@@ -651,7 +651,8 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             @NotNull
             @Override
             protected GT_ParallelHelper createParallelHelper(@NotNull GT_Recipe recipe) {
-                return super.createParallelHelper(recipe).enableBatchMode(maxParallelCatalyst);
+                return super.createParallelHelper(recipe)
+                        .enableBatchMode(isCatalystDamageable() ? maxParallelCatalyst : batchSize);
             }
 
             @NotNull
