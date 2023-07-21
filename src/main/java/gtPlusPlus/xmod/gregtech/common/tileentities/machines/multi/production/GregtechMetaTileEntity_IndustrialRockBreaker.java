@@ -273,7 +273,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
             if (!aHasLava) {
                 return SimpleCheckRecipeResult.ofFailure("no_lava");
             }
-            ItemStack aGuiCircuit = this.getGUIItemStack();
+            ItemStack aGuiCircuit = this.getControllerSlot();
             if (!ItemUtils.isControlCircuit(aGuiCircuit)) {
                 return CheckRecipeResultRegistry.NO_RECIPE;
             }
@@ -391,8 +391,8 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
     @Override
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> aInputs = super.getStoredInputs();
-        if (this.getGUIItemStack() != null) {
-            aInputs.add(this.getGUIItemStack());
+        if (this.getControllerSlot() != null) {
+            aInputs.add(this.getControllerSlot());
         }
         return aInputs;
     }

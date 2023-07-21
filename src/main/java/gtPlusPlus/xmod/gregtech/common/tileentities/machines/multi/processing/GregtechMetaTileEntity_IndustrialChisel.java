@@ -254,7 +254,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
                     }
                 }
             } else {
-                target = this.getGUIItemStack(); // Common buses
+                target = this.getControllerSlot(); // Common buses
                 for (int i = bus.getSizeInventory() - 1; i >= 0; i--) {
                     ItemStack itemsInSlot = bus.mInventory[i];
                     if (itemsInSlot != null) {

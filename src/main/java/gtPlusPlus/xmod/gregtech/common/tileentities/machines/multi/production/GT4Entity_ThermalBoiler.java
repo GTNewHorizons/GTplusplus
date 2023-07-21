@@ -111,7 +111,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
             ItemStack uStack = this.findItemInInventory(mLavaFilter);
             if (uStack != null) {
                 this.setGUIItemStack(uStack);
-                controllerStack = this.getGUIItemStack();
+                controllerStack = this.getControllerSlot();
             }
         }
 
@@ -342,7 +342,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         if (aBaseMetaTileEntity.isServerSide()) {
             // Reload Lava Filter
-            if (this.getGUIItemStack() == null) {
+            if (this.getControllerSlot() == null) {
                 if (this.mInputBusses.size() > 0) {
                     for (GT_MetaTileEntity_Hatch_InputBus aBus : this.mInputBusses) {
                         for (ItemStack aStack : aBus.mInventory) {

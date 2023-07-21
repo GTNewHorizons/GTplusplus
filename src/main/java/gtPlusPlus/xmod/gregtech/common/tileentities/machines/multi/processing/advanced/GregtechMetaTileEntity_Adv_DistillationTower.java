@@ -415,7 +415,7 @@ public class GregtechMetaTileEntity_Adv_DistillationTower extends
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         super.onPostTick(aBaseMetaTileEntity, aTick);
         if (aTick % 20 == 0 && !mUpgraded) {
-            ItemStack aGuiStack = this.getGUIItemStack();
+            ItemStack aGuiStack = this.getControllerSlot();
             if (aGuiStack != null) {
                 if (GT_Utility.areStacksEqual(aGuiStack, GregtechItemList.Distillus_Upgrade_Chip.get(1))) {
                     this.mUpgraded = true;

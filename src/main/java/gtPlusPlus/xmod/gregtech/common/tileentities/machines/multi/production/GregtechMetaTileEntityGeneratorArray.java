@@ -96,7 +96,7 @@ public class GregtechMetaTileEntityGeneratorArray
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        this.mMode = getModeFromInventorySlot(this.getGUIItemStack());
+        this.mMode = getModeFromInventorySlot(this.getControllerSlot());
         if (this.mMode == MODE_NONE) {
             return null;
         } else if (this.mMode == MODE_STEAM) {

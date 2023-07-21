@@ -831,8 +831,8 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     @Override
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> tItems = super.getStoredInputs();
-        if (this.getGUIItemStack() != null) {
-            tItems.add(this.getGUIItemStack());
+        if (this.getControllerSlot() != null) {
+            tItems.add(this.getControllerSlot());
         }
         for (GT_MetaTileEntity_Hatch_Catalysts tHatch : mCatalystBuses) {
             tHatch.mRecipeMap = getRecipeMap();

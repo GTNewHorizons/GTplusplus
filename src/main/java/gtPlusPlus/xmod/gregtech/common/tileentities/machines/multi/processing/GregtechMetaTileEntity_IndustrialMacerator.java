@@ -299,7 +299,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         super.onPostTick(aBaseMetaTileEntity, aTick);
         if (aTick % 20 == 0 && controllerTier == 1) {
-            ItemStack aGuiStack = this.getGUIItemStack();
+            ItemStack aGuiStack = this.getControllerSlot();
             if (aGuiStack != null) {
                 if (GT_Utility.areStacksEqual(aGuiStack, GregtechItemList.Maceration_Upgrade_Chip.get(1))) {
                     controllerTier = 2;
