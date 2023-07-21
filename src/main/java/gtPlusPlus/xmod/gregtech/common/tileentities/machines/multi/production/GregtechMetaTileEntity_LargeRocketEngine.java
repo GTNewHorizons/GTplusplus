@@ -268,30 +268,11 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends
         if (this.freeFuelTicks != 0 && this.mProgresstime == 0 && this.mEfficiency == 0) this.freeFuelTicks = 0;
 
         if (tFluids.size() > 0 && getRecipeMap() != null) {
-            FluidStack aCO2 = MISC_MATERIALS.CARBON_DIOXIDE.getFluidStack(this.boostEu ? 3 : 1);
-            FluidStack aCO2Fallback = FluidUtils.getWildcardFluidStack("carbondioxide", (this.boostEu ? 3 : 1));
-
-            boolean aHasCO2 = false;
-            for (FluidStack aFluid : tFluids) {
-                if (aCO2 != null && aFluid.isFluidEqual(aCO2)) {
-                    aHasCO2 = true;
-                    break;
+            if (this.mRuntime % 72 == 0) {
+                if (!consumeCO2()) {
+                    this.freeFuelTicks = 0;
+                    return SimpleCheckRecipeResult.ofFailure("no_co2");
                 }
-                if (aCO2Fallback != null && aFluid.isFluidEqual(aCO2Fallback)) {
-                    aHasCO2 = true;
-                    break;
-                }
-            }
-            if (aHasCO2) {
-                if (this.mRuntime % 72 == 0 || this.mRuntime == 0) {
-                    if (!consumeCO2()) {
-                        this.freeFuelTicks = 0;
-                        return SimpleCheckRecipeResult.ofFailure("no_co2");
-                    }
-                }
-            } else {
-                this.freeFuelTicks = 0;
-                return CheckRecipeResultRegistry.NO_RECIPE;
             }
             if (this.freeFuelTicks == 0) {
                 this.boostEu = consumeLOH();
@@ -375,12 +356,8 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends
     }
 
     public boolean consumeCO2() {
-        if (this.depleteInput(MISC_MATERIALS.CARBON_DIOXIDE.getFluidStack(this.boostEu ? 3 : 1))
-                || this.depleteInput(FluidUtils.getFluidStack("carbondioxide", (this.boostEu ? 3 : 1)))) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.depleteInput(MISC_MATERIALS.CARBON_DIOXIDE.getFluidStack(this.boostEu ? 3 : 1))
+                || this.depleteInput(FluidUtils.getFluidStack("carbondioxide", (this.boostEu ? 3 : 1)));
     }
 
     public boolean consumeLOH() {
