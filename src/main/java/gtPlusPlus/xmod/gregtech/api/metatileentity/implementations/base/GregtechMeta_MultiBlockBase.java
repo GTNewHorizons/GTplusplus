@@ -401,10 +401,6 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     public static final String TAG_HIDE_POLLUTION = "TAG_HIDE_POLLUTION";
     public static final String TAG_HIDE_MACHINE_TYPE = "TAG_HIDE_MACHINE_TYPE";
 
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
     public abstract int getMaxParallelRecipes();
 
     public abstract int getEuDiscountForParallelism();

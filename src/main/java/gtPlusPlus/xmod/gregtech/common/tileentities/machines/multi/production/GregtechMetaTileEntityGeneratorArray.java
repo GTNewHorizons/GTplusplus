@@ -327,11 +327,6 @@ public class GregtechMetaTileEntityGeneratorArray
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
-    @Override
     public int getMaxParallelRecipes() {
         return 1;
     }

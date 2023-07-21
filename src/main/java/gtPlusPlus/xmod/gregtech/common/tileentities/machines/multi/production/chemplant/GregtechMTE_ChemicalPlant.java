@@ -549,11 +549,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

@@ -183,11 +183,6 @@ public class GregtechMetaTileEntity_IndustrialSifter
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 16;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

@@ -394,11 +394,6 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 16;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

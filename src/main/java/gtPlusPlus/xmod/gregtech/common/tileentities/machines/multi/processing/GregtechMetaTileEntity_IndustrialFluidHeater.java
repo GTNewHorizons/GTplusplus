@@ -175,11 +175,6 @@ public class GregtechMetaTileEntity_IndustrialFluidHeater extends
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

@@ -200,11 +200,6 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 5;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

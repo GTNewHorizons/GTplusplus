@@ -83,11 +83,6 @@ public class GT4Entity_AutoCrafter extends GregtechMeta_MultiBlockBase<GT4Entity
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
-    @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType()).addInfo("Highly Advanced Assembling Machine")

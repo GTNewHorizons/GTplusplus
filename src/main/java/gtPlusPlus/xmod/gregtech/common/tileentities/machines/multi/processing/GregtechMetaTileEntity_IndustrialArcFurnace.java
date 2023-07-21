@@ -220,11 +220,6 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 1;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

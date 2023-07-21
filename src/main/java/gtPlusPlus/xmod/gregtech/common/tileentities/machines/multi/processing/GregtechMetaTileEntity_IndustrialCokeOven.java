@@ -203,11 +203,6 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 24;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

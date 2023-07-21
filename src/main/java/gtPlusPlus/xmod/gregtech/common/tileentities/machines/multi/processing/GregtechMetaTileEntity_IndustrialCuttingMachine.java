@@ -162,11 +162,6 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 2;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }

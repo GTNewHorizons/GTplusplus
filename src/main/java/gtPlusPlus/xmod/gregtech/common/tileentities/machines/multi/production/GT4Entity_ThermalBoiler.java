@@ -250,11 +250,6 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 7;
-    }
-
-    @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType()).addInfo("Thermal Boiler Controller")

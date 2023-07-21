@@ -197,11 +197,6 @@ public class GregtechMetaTileEntity_MassFabricator
     }
 
     @Override
-    public int getAmountOfOutputs() {
-        return 10;
-    }
-
-    @Override
     public boolean explodesOnComponentBreak(final ItemStack aStack) {
         return false;
     }
