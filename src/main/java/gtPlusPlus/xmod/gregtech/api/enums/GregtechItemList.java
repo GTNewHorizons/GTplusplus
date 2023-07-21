@@ -237,7 +237,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     GTPP_Casing_MAX,
 
     // IronBlastFurnace Machine_Bronze_BlastFurnace
-    Machine_Iron_BlastFurnace,
     Casing_IronPlatedBricks,
 
     // Large Centrifuge
@@ -362,9 +361,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     // industrial Ore-Washer
     Industrial_WashPlant,
     Casing_WashPlant,
-
-    // Generator Array
-    Generator_Array_Controller,
 
     // Cutting Factory Controller
     Industrial_CuttingFactoryController,
