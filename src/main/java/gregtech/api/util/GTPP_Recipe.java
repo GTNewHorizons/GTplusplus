@@ -486,7 +486,7 @@ public class GTPP_Recipe extends GT_Recipe {
                 "",
                 4,
                 4,
-                0,
+                1,
                 2,
                 1,
                 "Tier: ",

@@ -602,7 +602,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     private boolean isCatalystDamageable() {
-        return this.mCoilTier < 10 && this.mPipeCasingTier < 4;
+        return this.mCoilTier < 10 || this.mPipeCasingTier < 4;
     }
 
     @Override
