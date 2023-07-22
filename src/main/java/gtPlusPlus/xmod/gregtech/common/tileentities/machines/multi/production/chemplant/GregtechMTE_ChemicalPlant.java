@@ -649,11 +649,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
                     @Override
                     protected boolean tryConsumeRecipeInputs(GT_Recipe recipe, FluidStack[] fluids, ItemStack[] items) {
-                        if (catalystRecipe == null || getDamage(catalystRecipe) >= getMaxCatalystDurability()) {
+                        if (catalystRecipe != null && getDamage(catalystRecipe) >= getMaxCatalystDurability()) {
                             return false;
                         }
                         boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items);
-                        if (hasInputs) {
+                        if (hasInputs && catalystRecipe != null) {
                             damageCatalyst(catalystRecipe);
                         }
                         return true;
