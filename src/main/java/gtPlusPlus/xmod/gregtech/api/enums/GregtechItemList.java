@@ -209,11 +209,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Distillus_Upgrade_Chip,
     Maceration_Upgrade_Chip,
 
-    // Chips used to nerf my multis via custom behavioural attachments
-    Chip_MultiNerf_NoOutputBonus,
-    Chip_MultiNerf_NoSpeedBonus,
-    Chip_MultiNerf_NoEuBonus,
-
     // Milling Balls
     Milling_Ball_Alumina,
     Milling_Ball_Soapstone,
