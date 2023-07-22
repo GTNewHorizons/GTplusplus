@@ -361,10 +361,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Industrial_CuttingFactoryController,
     Casing_CuttingFactoryFrame,
 
-    // Tesla Tower
-    TelsaTower,
-    Casing_TeslaTower,
-
     // Large Extruder
     Industrial_Extruder,
     Casing_Extruder,
