@@ -23,6 +23,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidStack;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -585,18 +586,16 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    private void damageCatalyst(ItemStack aStack, int parallelRecipes) {
-        for (int i = 0; i < parallelRecipes; i++) {
-            // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
-            if (isCatalystDamageable()
-                    && (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier)))) {
-                int damage = getDamage(aStack) + 1;
-                if (damage >= getMaxCatalystDurability()) {
-                    addOutput(CI.getEmptyCatalyst(1));
-                    aStack.stackSize -= 1;
-                } else {
-                    setDamage(aStack, damage);
-                }
+    private void damageCatalyst(ItemStack aStack) {
+        // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
+        if (isCatalystDamageable()
+                && (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier)))) {
+            int damage = getDamage(aStack) + 1;
+            if (damage >= getMaxCatalystDurability()) {
+                addOutput(CI.getEmptyCatalyst(1));
+                aStack.stackSize -= 1;
+            } else {
+                setDamage(aStack, damage);
             }
         }
     }
@@ -646,19 +645,25 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             @NotNull
             @Override
             protected GT_ParallelHelper createParallelHelper(@NotNull GT_Recipe recipe) {
-                return super.createParallelHelper(recipe)
-                        .enableBatchMode(isCatalystDamageable() ? maxParallelCatalyst : batchSize);
-            }
+                return new GT_ParallelHelper() {
 
-            @NotNull
-            @Override
-            public CheckRecipeResult process() {
-                CheckRecipeResult result = super.process();
-                if (result.wasSuccessful()) {
-                    damageCatalyst(catalystRecipe, calculatedParallels);
-                }
-                catalystRecipe = null;
-                return result;
+                    @Override
+                    protected boolean tryConsumeRecipeInputs(GT_Recipe recipe, FluidStack[] fluids, ItemStack[] items) {
+                        if (getDamage(catalystRecipe) >= getMaxCatalystDurability()) {
+                            return false;
+                        }
+                        boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items);
+                        if (hasInputs) {
+                            damageCatalyst(catalystRecipe);
+                        }
+                        return false;
+                    }
+                }.setRecipe(recipe).setItemInputs(inputItems).setFluidInputs(inputFluids)
+                        .setAvailableEUt(availableVoltage * availableAmperage)
+                        .setMachine(machine, protectItems, protectFluids)
+                        .setRecipeLocked(recipeLockableMachine, isRecipeLocked).setMaxParallel(maxParallel)
+                        .setEUtModifier(euModifier).enableBatchMode(batchSize).enableConsumption()
+                        .enableOutputCalculation();
             }
         };
     }
