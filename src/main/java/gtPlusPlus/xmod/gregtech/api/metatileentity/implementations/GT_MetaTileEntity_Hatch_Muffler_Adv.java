@@ -110,7 +110,8 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
 
     @Override
     public boolean polluteEnvironment(MetaTileEntity unused) {
-        if (airCheck() && damageAirFilter()) {
+        if (airCheck()) {
+            damageAirFilter();
             int aEmission = this.calculatePollutionReduction(10000);
             PollutionUtils.addPollution(this.getBaseMetaTileEntity(), aEmission);
             // Logger.INFO("Outputting "+aEmission+"gbl");
