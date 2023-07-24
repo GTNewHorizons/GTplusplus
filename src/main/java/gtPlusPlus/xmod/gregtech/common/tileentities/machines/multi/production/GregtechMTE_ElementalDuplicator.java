@@ -474,7 +474,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
         // too.
         if (mRecipeMap.mMinimalInputItems == 0 && aFluids != null)
             for (FluidStack aFluid : aFluids) if (aFluid != null) {
-                Collection<GT_Recipe> tRecipes = mRecipeMap.mRecipeFluidMap.get(aFluid.getFluid());
+                Collection<GT_Recipe> tRecipes = mRecipeMap.mRecipeFluidMap.get(aFluid.getFluid().getName());
                 if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes) {
                     if (!tRecipe.mFakeRecipe
                             && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs)) {
