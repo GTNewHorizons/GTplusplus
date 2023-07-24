@@ -389,6 +389,10 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
         CheckRecipeResult result = super.checkProcessing();
         if (result.wasSuccessful()) {
             mFuelRemaining = getStoredFuel(mLastRecipe);
+            // We produce EU, so we negate the value, if negative
+            if (lEUt < 0) {
+                lEUt = -lEUt;
+            }
         }
         return result;
     }
