@@ -480,16 +480,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 doNeptunium = false;
                 final ItemStack controllerStack = getControllerSlot();
 
+                if (recipe.mSpecialValue <= getFocusingTier()) {
+                    if (mFermiumHatch != null && mFermiumHatch.getFluid() != null
+                            && mFermiumHatch.getFluid().getFluid() != null
+                            && mFermiumHatch.getFluid().getFluid().equals(mFermium)) {
+                        doFermium = true;
+                    }
+                }
                 if (recipe.mSpecialValue < getFocusingTier()) {
                     if (mNeptuniumHatch != null && mNeptuniumHatch.getFluid() != null
                             && mNeptuniumHatch.getFluid().getFluid() != null
                             && mNeptuniumHatch.getFluid().getFluid().equals(mNeptunium)) {
                         doNeptunium = true;
-                    }
-                    if (mFermiumHatch != null && mFermiumHatch.getFluid() != null
-                            && mFermiumHatch.getFluid().getFluid() != null
-                            && mFermiumHatch.getFluid().getFluid().equals(mFermium)) {
-                        doFermium = true;
                     }
                 }
 
@@ -613,10 +615,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     public int getMaxParallelRecipes() {
         return 64;
-    }
-
-    public int getEuDiscountForParallelism() {
-        return 0;
     }
 
     @Override
