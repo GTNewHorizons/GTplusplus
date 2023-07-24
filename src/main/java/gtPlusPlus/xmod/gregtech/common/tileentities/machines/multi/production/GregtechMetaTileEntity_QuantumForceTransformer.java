@@ -486,8 +486,6 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             && mFermiumHatch.getFluid().getFluid().equals(mFermium)) {
                         doFermium = true;
                     }
-                }
-                if (recipe.mSpecialValue < getFocusingTier()) {
                     if (mNeptuniumHatch != null && mNeptuniumHatch.getFluid() != null
                             && mNeptuniumHatch.getFluid().getFluid() != null
                             && mNeptuniumHatch.getFluid().getFluid().equals(mNeptunium)) {
