@@ -395,7 +395,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
      * @param aInputs              the Item Inputs
      * @return the Recipe it has found or null for no matching Recipe
      */
-    @Override
     public GT_Recipe findRecipe(IHasWorldObjectAndCoords aTileEntity, GT_Recipe aRecipe, boolean aNotUnificated,
             boolean aDontCheckStackSizes, long aVoltage, FluidStack[] aFluids, ItemStack aSpecialSlot,
             ItemStack... aInputs) {
