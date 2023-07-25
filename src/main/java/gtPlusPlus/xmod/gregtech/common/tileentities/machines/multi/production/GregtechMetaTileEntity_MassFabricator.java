@@ -239,7 +239,7 @@ public class GregtechMetaTileEntity_MassFabricator
                             GT_Recipe recipe = new GTPP_Recipe(
                                     false,
                                     new ItemStack[] { GT_Utility.copyAmount(1, item) },
-                                    aPotentialOutput == null ? null : new ItemStack[] { aPotentialOutput },
+                                    new ItemStack[] { aPotentialOutput },
                                     null,
                                     new int[] { 2000 },
                                     null,
