@@ -235,6 +235,7 @@ public class GregtechMetaTileEntity_MassFabricator
                             if (item == null || item.stackSize == 0) continue;
                             ItemStack aPotentialOutput = GT_ModHandler
                                     .getRecyclerOutput(GT_Utility.copyAmount(1, item), 0);
+                            if (aPotentialOutput == null) continue;
                             GT_Recipe recipe = new GTPP_Recipe(
                                     false,
                                     new ItemStack[] { GT_Utility.copyAmount(1, item) },
