@@ -567,7 +567,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             }
                             if (mat.getMolten(0) != null) {
                                 FluidStack fluid = mat.getMolten(0);
-                                for (int j =0; j < parallel; j++) {
+                                for (int j = 0; j < parallel; j++) {
                                     if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
                                         fluid.amount += item.stackSize * INGOTS;
                                     }
@@ -578,7 +578,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                                 fluids.add(fluid);
                             } else if (mat.getFluid(0) != null) {
                                 FluidStack fluid = mat.getFluid(0);
-                                for (int j =0; j < parallel; j++) {
+                                for (int j = 0; j < parallel; j++) {
                                     if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
                                         fluid.amount += item.stackSize * BUCKETS;
                                     }
