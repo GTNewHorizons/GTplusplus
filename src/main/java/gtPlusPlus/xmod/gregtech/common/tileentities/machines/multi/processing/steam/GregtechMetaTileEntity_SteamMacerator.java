@@ -132,8 +132,9 @@ public class GregtechMetaTileEntity_SteamMacerator
     @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
-            
-            @Override @Nonnull
+
+            @Override
+            @Nonnull
             public GT_ParallelHelper createParallelHelper(@Nonnull GT_Recipe recipe) {
                 return super.createParallelHelper(recipe).setCustomItemOutputCalculation(parallel -> {
                     ArrayList<ItemStack> items = new ArrayList<>();
