@@ -356,8 +356,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
 
             @NotNull
             @Override
-            protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe,
-                    @NotNull GT_ParallelHelper helper) {
+            protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe) {
                 return GT_OverclockCalculator.ofNoOverclock(recipe.mSpecialValue * 4L, recipe.mDuration);
             }
 

@@ -175,9 +175,8 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
 
             @NotNull
             @Override
-            protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe,
-                    @NotNull GT_ParallelHelper helper) {
-                return super.createOverclockCalculator(recipe, helper)
+            protected GT_OverclockCalculator createOverclockCalculator(@NotNull GT_Recipe recipe) {
+                return super.createOverclockCalculator(recipe)
                         .setSpeedBoost((float) (1.0 - getCoilDiscount(coilLevel)));
             }
         }.setMaxParallel(MAX_PARALLELS);
