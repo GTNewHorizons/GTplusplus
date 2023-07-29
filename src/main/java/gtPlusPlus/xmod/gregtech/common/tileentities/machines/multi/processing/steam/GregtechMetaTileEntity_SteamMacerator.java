@@ -138,11 +138,10 @@ public class GregtechMetaTileEntity_SteamMacerator
             public GT_ParallelHelper createParallelHelper(@Nonnull GT_Recipe recipe) {
                 return super.createParallelHelper(recipe).setCustomItemOutputCalculation(parallel -> {
                     ArrayList<ItemStack> items = new ArrayList<>();
-                    ItemStack output = recipe.getOutput(0);
-                    if (output != null) {
-                        output = output.copy();
-                        output.stackSize *= parallel;
-                        items.add(output);
+                    for (int i = 0; i < parallel; i++) {
+                        if (recipe.getOutputChance(0) > getBaseMetaTileEntity().getRandomNumber(10000)) {
+                            items.add(recipe.getOutput(0));
+                        }
                     }
                     return items.toArray(new ItemStack[0]);
                 });
