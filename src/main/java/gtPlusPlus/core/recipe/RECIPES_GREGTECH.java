@@ -1729,7 +1729,7 @@ public class RECIPES_GREGTECH {
         // Mixed Smash 1
         CORE.RA.addCyclotronRecipe(
                 CI.getNumberedCircuit(12),
-                FluidUtils.getFluidStack("plasma.beryllium", 2500),
+                Materials.Americium.getPlasma(2500),
                 new ItemStack[] { Particle.getBaseParticle(Particle.GRAVITON),
                         Particle.getBaseParticle(Particle.ETA_MESON), Particle.getBaseParticle(Particle.PION),
                         Particle.getBaseParticle(Particle.PROTON), Particle.getBaseParticle(Particle.NEUTRON),

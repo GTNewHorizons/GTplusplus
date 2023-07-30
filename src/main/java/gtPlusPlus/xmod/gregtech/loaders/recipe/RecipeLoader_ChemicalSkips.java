@@ -446,8 +446,8 @@ public class RecipeLoader_ChemicalSkips {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { CI.getNumberedCircuit(10), CI.getEmptyCatalyst(1),
-                        Particle.getBaseParticle(Particle.HIGGS_BOSON), Particle.getIon("Molybdenum", 0),
-                        Particle.getIon("Rhenium", 0), MaterialsUEVplus.Eternity.getNanite(16) },
+                        Particle.getBaseParticle(Particle.HIGGS_BOSON), Particle.getIon("Helium", 0),
+                        Particle.getIon("Hydrogen", 0), MaterialsUEVplus.Eternity.getNanite(16) },
                 FluidUtils.getFluidStack("molten.shirabon", 92160),
                 ItemUtils.getSimpleStack(GenericChem.mSynchrotronCapableCatalyst, 1),
                 60 * 20,
