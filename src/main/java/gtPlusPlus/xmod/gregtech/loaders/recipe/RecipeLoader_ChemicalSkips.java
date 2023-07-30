@@ -286,7 +286,7 @@ public class RecipeLoader_ChemicalSkips {
                 new ItemStack[] { ItemUtils.getSimpleStack(GenericChem.mSynchrotronCapableCatalyst, 0),
                         GregtechItemList.Laser_Lens_Special.get(1) },
                 new FluidStack[] { FluidUtils.getFluidStack("plasma.hydrogen", 30000),
-                        Materials.Helium.getPlasma(30000L), Materials.Beryllium.getPlasma(30000L),
+                        Materials.Helium.getPlasma(30000L), Materials.Americium.getPlasma(30000L),
                         new FluidStack(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getPlasma(), 30000) },
                 new FluidStack[] {},
                 new ItemStack[] { Particle.getBaseParticle(Particle.Z_BOSON),
