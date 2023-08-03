@@ -3,13 +3,11 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
@@ -48,8 +46,7 @@ public abstract class GT_MetaTileEntity_Hatch_FluidGenerator extends GT_MetaTile
     @Override
     public synchronized String[] getDescription() {
         mDescriptionArray[1] = "Capacity: " + GT_Utility.formatNumbers(getCapacity()) + "L";
-        final String[] hatchTierString = new String[] {
-                "Hatch Tier: " + GT_Values.TIER_COLORS[mTier] + GT_Values.VN[mTier] + EnumChatFormatting.RESET };
+        final String[] hatchTierString = new String[] { "Hatch Tier: " + GT_Utility.getColoredTierNameFromTier(mTier) };
 
         String[] aCustomTips = getCustomTooltip();
         final String[] desc = new String[mDescriptionArray.length + aCustomTips.length + 2];
