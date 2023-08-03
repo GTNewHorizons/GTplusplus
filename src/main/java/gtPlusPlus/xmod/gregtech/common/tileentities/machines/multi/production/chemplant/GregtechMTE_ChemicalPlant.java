@@ -542,16 +542,18 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    private void damageCatalyst(ItemStack aStack) {
+    private void damageCatalyst(ItemStack aStack, int minParallel) {
         // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
-        if (isCatalystDamageable()
-                && (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier)))) {
-            int damage = getDamage(aStack) + 1;
-            if (damage >= getMaxCatalystDurability()) {
-                addOutput(CI.getEmptyCatalyst(1));
-                aStack.stackSize -= 1;
-            } else {
-                setDamage(aStack, damage);
+        if (!isCatalystDamageable()) return;
+        for (int i = 0; i < minParallel; i++) {
+            if (MathUtils.randFloat(0, 10000000) / 10000000f < (1.2f - (0.2 * this.mPipeCasingTier))) {
+                int damage = getDamage(aStack) + 1;
+                if (damage >= getMaxCatalystDurability()) {
+                    addOutput(CI.getEmptyCatalyst(1));
+                    aStack.stackSize -= 1;
+                } else {
+                    setDamage(aStack, damage);
+                }
             }
         }
     }
@@ -611,7 +613,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                         }
                         boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items, minParallel);
                         if (hasInputs && catalystRecipe != null) {
-                            damageCatalyst(catalystRecipe);
+                            damageCatalyst(catalystRecipe, minParallel);
                         }
                         return hasInputs;
                     }
