@@ -604,22 +604,23 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 return new GT_ParallelHelper() {
 
                     @Override
-                    protected boolean tryConsumeRecipeInputs(GT_Recipe recipe, FluidStack[] fluids, ItemStack[] items) {
+                    protected boolean tryConsumeRecipeInputs(GT_Recipe recipe, FluidStack[] fluids, ItemStack[] items,
+                            int minParallel) {
                         if (catalystRecipe != null && getDamage(catalystRecipe) >= getMaxCatalystDurability()) {
                             return false;
                         }
-                        boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items);
+                        boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items, minParallel);
                         if (hasInputs && catalystRecipe != null) {
                             damageCatalyst(catalystRecipe);
                         }
-                        return true;
+                        return hasInputs;
                     }
                 }.setRecipe(recipe).setItemInputs(inputItems).setFluidInputs(inputFluids)
                         .setAvailableEUt(availableVoltage * availableAmperage)
                         .setMachine(machine, protectItems, protectFluids)
                         .setRecipeLocked(recipeLockableMachine, isRecipeLocked).setMaxParallel(maxParallel)
-                        .setEUtModifier(euModifier).enableBatchMode(batchSize).enableConsumption()
-                        .enableOutputCalculation();
+                        .setEUtModifier(euModifier).enableBatchMode(batchSize).setConsumption(true)
+                        .setOutputCalculation(true);
             }
         };
     }
