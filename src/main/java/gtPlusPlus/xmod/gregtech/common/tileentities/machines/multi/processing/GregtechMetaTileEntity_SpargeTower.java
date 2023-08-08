@@ -224,6 +224,11 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                             tRecipe.mFluidInputs[1]);
                     this.mOutputFluids = aFluidOutputs.toArray(new FluidStack[0]);
                     updateSlots();
+
+                    if (lEUt > 0) {
+                        lEUt = (-lEUt);
+                    }
+
                     return CheckRecipeResultRegistry.SUCCESSFUL;
                 }
             }
