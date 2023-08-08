@@ -163,7 +163,8 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
         mCasing = 0;
         if (checkPiece(mName, 1, 7, 0) && mCasing >= 7) {
             if (this.mInputHatches.size() >= 2 && this.mInputHatches.size() <= 4
-                    && this.mOutputHatches.size() >= 1 && this.mOutputHatches.size() <= 2
+                    && this.mOutputHatches.size() >= 1
+                    && this.mOutputHatches.size() <= 2
                     && this.mMufflerHatches.size() == 1
                     && this.mMaintenanceHatches.size() == 1
                     && this.mEnergyHatches.size() == 1) {

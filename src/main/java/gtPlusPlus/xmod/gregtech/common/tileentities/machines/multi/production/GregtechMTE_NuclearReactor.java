@@ -12,9 +12,6 @@ import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
 
-import gregtech.api.recipe.check.FindRecipeResult;
-import gregtech.api.recipe.check.SingleRecipeCheck;
-import gregtech.api.util.GT_ParallelHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -42,11 +39,14 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Outpu
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
+import gregtech.api.recipe.check.FindRecipeResult;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
+import gregtech.api.recipe.check.SingleRecipeCheck;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OverclockCalculator;
+import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.core.block.ModBlocks;
@@ -381,7 +381,8 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 }
 
                 FindRecipeResult findRecipeResult;
-                if (isRecipeLocked && recipeLockableMachine != null && recipeLockableMachine.getSingleRecipeCheck() != null) {
+                if (isRecipeLocked && recipeLockableMachine != null
+                        && recipeLockableMachine.getSingleRecipeCheck() != null) {
                     // Recipe checker is already built, we'll use it
                     SingleRecipeCheck singleRecipeCheck = recipeLockableMachine.getSingleRecipeCheck();
                     // Validate recipe here, otherwise machine will show "not enough output space"
@@ -389,9 +390,8 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                     if (singleRecipeCheck.checkRecipeInputs(false, 1, inputItems, inputFluids) == 0) {
                         return CheckRecipeResultRegistry.NO_RECIPE;
                     }
-                    findRecipeResult = FindRecipeResult.ofSuccess(
-                            recipeLockableMachine.getSingleRecipeCheck()
-                                    .getRecipe());
+                    findRecipeResult = FindRecipeResult
+                            .ofSuccess(recipeLockableMachine.getSingleRecipeCheck().getRecipe());
                 } else {
                     findRecipeResult = findRecipe(recipeMap);
                 }
@@ -420,8 +420,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 helper.setCalculator(calculator);
                 helper.build();
 
-                if (!helper.getResult()
-                        .wasSuccessful()) {
+                if (!helper.getResult().wasSuccessful()) {
                     return helper.getResult();
                 }
 
