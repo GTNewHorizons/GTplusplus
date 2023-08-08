@@ -12,6 +12,9 @@ import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
 
+import gregtech.api.recipe.check.FindRecipeResult;
+import gregtech.api.recipe.check.SingleRecipeCheck;
+import gregtech.api.util.GT_ParallelHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -361,6 +364,92 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
 
             @NotNull
             @Override
+            public CheckRecipeResult process() {
+                GT_Recipe_Map recipeMap;
+                if (recipeMapSupplier == null) {
+                    recipeMap = null;
+                } else {
+                    recipeMap = recipeMapSupplier.get();
+                }
+                if (lastRecipeMap != recipeMap) {
+                    lastRecipe = null;
+                    lastRecipeMap = recipeMap;
+                }
+
+                if (maxParallelSupplier != null) {
+                    maxParallel = maxParallelSupplier.get();
+                }
+
+                FindRecipeResult findRecipeResult;
+                if (isRecipeLocked && recipeLockableMachine != null && recipeLockableMachine.getSingleRecipeCheck() != null) {
+                    // Recipe checker is already built, we'll use it
+                    SingleRecipeCheck singleRecipeCheck = recipeLockableMachine.getSingleRecipeCheck();
+                    // Validate recipe here, otherwise machine will show "not enough output space"
+                    // even if recipe cannot be found
+                    if (singleRecipeCheck.checkRecipeInputs(false, 1, inputItems, inputFluids) == 0) {
+                        return CheckRecipeResultRegistry.NO_RECIPE;
+                    }
+                    findRecipeResult = FindRecipeResult.ofSuccess(
+                            recipeLockableMachine.getSingleRecipeCheck()
+                                    .getRecipe());
+                } else {
+                    findRecipeResult = findRecipe(recipeMap);
+                }
+
+                GT_Recipe recipe;
+                CheckRecipeResult result;
+                if (findRecipeResult.isSuccessful()) {
+                    recipe = findRecipeResult.getRecipeNonNull();
+                    result = validateRecipe(recipe);
+                    if (!result.wasSuccessful()) {
+                        return result;
+                    } else {
+                        lastRecipe = recipe;
+                    }
+                } else {
+                    if (findRecipeResult.getState() == FindRecipeResult.State.INSUFFICIENT_VOLTAGE) {
+                        return CheckRecipeResultRegistry.insufficientPower(findRecipeResult.getRecipeNonNull().mEUt);
+                    } else {
+                        resetMultiProcessing();
+                        return CheckRecipeResultRegistry.NO_RECIPE;
+                    }
+                }
+
+                GT_ParallelHelper helper = createParallelHelper(recipe);
+                GT_OverclockCalculator calculator = createOverclockCalculator(recipe);
+                helper.setCalculator(calculator);
+                helper.build();
+
+                if (!helper.getResult()
+                        .wasSuccessful()) {
+                    return helper.getResult();
+                }
+
+                calculatedParallels = helper.getCurrentParallel();
+
+                if (calculator.getConsumption() == Long.MAX_VALUE) {
+                    return CheckRecipeResultRegistry.POWER_OVERFLOW;
+                }
+                if (calculator.getDuration() == Integer.MAX_VALUE) {
+                    return CheckRecipeResultRegistry.DURATION_OVERFLOW;
+                }
+
+                calculatedEut = calculator.getConsumption();
+
+                double finalDuration = calculateDuration(recipe, helper, calculator);
+                if (finalDuration >= Integer.MAX_VALUE) {
+                    return CheckRecipeResultRegistry.DURATION_OVERFLOW;
+                }
+                duration = (int) finalDuration;
+
+                outputItems = helper.getItemOutputs();
+                outputFluids = helper.getFluidOutputs();
+
+                return result;
+            }
+
+            @NotNull
+            @Override
             protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
                 mFuelRemaining = getStoredFuel(recipe);
                 if (mFuelRemaining < 100) {
@@ -375,6 +464,12 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
         };
+    }
+
+    protected void resetMultiProcessing() {
+        this.mEfficiency = 0;
+        this.mLastRecipe = null;
+        stopMachine();
     }
 
     @Override
