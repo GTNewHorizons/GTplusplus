@@ -365,85 +365,10 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             @NotNull
             @Override
             public CheckRecipeResult process() {
-                GT_Recipe_Map recipeMap;
-                if (recipeMapSupplier == null) {
-                    recipeMap = null;
-                } else {
-                    recipeMap = recipeMapSupplier.get();
+                CheckRecipeResult result = super.process();
+                if (!result.wasSuccessful()) {
+                    resetMultiProcessing();
                 }
-                if (lastRecipeMap != recipeMap) {
-                    lastRecipe = null;
-                    lastRecipeMap = recipeMap;
-                }
-
-                if (maxParallelSupplier != null) {
-                    maxParallel = maxParallelSupplier.get();
-                }
-
-                FindRecipeResult findRecipeResult;
-                if (isRecipeLocked && recipeLockableMachine != null
-                        && recipeLockableMachine.getSingleRecipeCheck() != null) {
-                    // Recipe checker is already built, we'll use it
-                    SingleRecipeCheck singleRecipeCheck = recipeLockableMachine.getSingleRecipeCheck();
-                    // Validate recipe here, otherwise machine will show "not enough output space"
-                    // even if recipe cannot be found
-                    if (singleRecipeCheck.checkRecipeInputs(false, 1, inputItems, inputFluids) == 0) {
-                        return CheckRecipeResultRegistry.NO_RECIPE;
-                    }
-                    findRecipeResult = FindRecipeResult
-                            .ofSuccess(recipeLockableMachine.getSingleRecipeCheck().getRecipe());
-                } else {
-                    findRecipeResult = findRecipe(recipeMap);
-                }
-
-                GT_Recipe recipe;
-                CheckRecipeResult result;
-                if (findRecipeResult.isSuccessful()) {
-                    recipe = findRecipeResult.getRecipeNonNull();
-                    result = validateRecipe(recipe);
-                    if (!result.wasSuccessful()) {
-                        return result;
-                    } else {
-                        lastRecipe = recipe;
-                    }
-                } else {
-                    if (findRecipeResult.getState() == FindRecipeResult.State.INSUFFICIENT_VOLTAGE) {
-                        return CheckRecipeResultRegistry.insufficientPower(findRecipeResult.getRecipeNonNull().mEUt);
-                    } else {
-                        resetMultiProcessing();
-                        return CheckRecipeResultRegistry.NO_RECIPE;
-                    }
-                }
-
-                GT_ParallelHelper helper = createParallelHelper(recipe);
-                GT_OverclockCalculator calculator = createOverclockCalculator(recipe);
-                helper.setCalculator(calculator);
-                helper.build();
-
-                if (!helper.getResult().wasSuccessful()) {
-                    return helper.getResult();
-                }
-
-                calculatedParallels = helper.getCurrentParallel();
-
-                if (calculator.getConsumption() == Long.MAX_VALUE) {
-                    return CheckRecipeResultRegistry.POWER_OVERFLOW;
-                }
-                if (calculator.getDuration() == Integer.MAX_VALUE) {
-                    return CheckRecipeResultRegistry.DURATION_OVERFLOW;
-                }
-
-                calculatedEut = calculator.getConsumption();
-
-                double finalDuration = calculateDuration(recipe, helper, calculator);
-                if (finalDuration >= Integer.MAX_VALUE) {
-                    return CheckRecipeResultRegistry.DURATION_OVERFLOW;
-                }
-                duration = (int) finalDuration;
-
-                outputItems = helper.getItemOutputs();
-                outputFluids = helper.getFluidOutputs();
-
                 return result;
             }
 

@@ -18,6 +18,7 @@ import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -489,5 +490,14 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
             aLayerIndex++;
         }
         return aLayerIndex > 0;
+    }
+
+    @Override
+    public void loadNBTData(NBTTagCompound aNBT) {
+        super.loadNBTData(aNBT);
+        // Ensure that lEUt is negative from loaded NBT data, since this multi consumes EU
+        if (lEUt > 0) {
+            lEUt = (-lEUt);
+        }
     }
 }
