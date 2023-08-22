@@ -50,7 +50,7 @@ public class RecipeLoader_AlgaeFarm {
         Logger.INFO("Using recipe with index of " + aIndex + ". " + aComp);
         return aTemp.get(aIndex);
     }
-    
+
     public static int compostForTier(int aTier) {
         return aTier > 1 ? (int) Math.min(64, Math.pow(2, aTier - 1)) : 1;
     }
@@ -83,9 +83,7 @@ public class RecipeLoader_AlgaeFarm {
         if (aUsingCompost) {
             // Make it use 4 compost per tier if we have some available
             // Compost consumption maxes out at 1 stack per cycle
-            ItemStack aCompost = ItemUtils.getSimpleStack(
-                    AgriculturalChem.mCompost,
-                    compostForTier(aTier));
+            ItemStack aCompost = ItemUtils.getSimpleStack(AgriculturalChem.mCompost, compostForTier(aTier));
             aInputs = new ItemStack[] { aCompost };
             // Boost Tier by one if using compost so it gets a speed boost
             aTier++;
