@@ -61,7 +61,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     private int mCasing;
     private final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mPyrotheumHatches = new ArrayList<>();
 
-    private HeatingCoilLevel mHeatingCapacity;
+    private HeatingCoilLevel mHeatingCapacity = HeatingCoilLevel.None;
 
     public GregtechMetaTileEntity_Adv_EBF(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
