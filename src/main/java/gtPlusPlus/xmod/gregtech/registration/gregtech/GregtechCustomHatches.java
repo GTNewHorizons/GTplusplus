@@ -9,7 +9,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEn
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_AirIntake;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_AirIntake_Extreme;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_ControlCore;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy_RTG;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler_Adv;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Naquadah;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Reservoir;
@@ -27,7 +26,6 @@ public class GregtechCustomHatches {
             run2();
         }
         run3();
-        run4();
         run5(); // Chisel buses
     }
 
@@ -248,33 +246,6 @@ public class GregtechCustomHatches {
     private static GT_MetaTileEntity_SuperBus_Output makeOutputBus(int id, String unlocalizedName, String localizedName,
             int tier) {
         return new GT_MetaTileEntity_SuperBus_Output(id, unlocalizedName, localizedName, tier);
-    }
-
-    private static void run4() {
-        int aID = 31060;
-        // 41, "hatch.energy.tier.01", "LV Energy Hatch", 1
-        GT_MetaTileEntity_Hatch_Energy_RTG aHatch1 = new GT_MetaTileEntity_Hatch_Energy_RTG(
-                aID++,
-                "hatch.energy.rtg.tier.01",
-                "RTG Power Unit [LV]",
-                1,
-                9);
-        GT_MetaTileEntity_Hatch_Energy_RTG aHatch2 = new GT_MetaTileEntity_Hatch_Energy_RTG(
-                aID++,
-                "hatch.energy.rtg.tier.02",
-                "RTG Power Unit [MV]",
-                2,
-                9);
-        GT_MetaTileEntity_Hatch_Energy_RTG aHatch3 = new GT_MetaTileEntity_Hatch_Energy_RTG(
-                aID++,
-                "hatch.energy.rtg.tier.03",
-                "RTG Power Unit [HV]",
-                3,
-                9);
-
-        GregtechItemList.Hatch_RTG_LV.set(aHatch1.getStackForm(1L));
-        GregtechItemList.Hatch_RTG_MV.set(aHatch2.getStackForm(1L));
-        GregtechItemList.Hatch_RTG_HV.set(aHatch3.getStackForm(1L));
     }
 
     private static GT_MetaTileEntity_ChiselBus makeChiselBus(int id, String unlocalizedName, String localizedName,

@@ -536,9 +536,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Hatch_Input_Elemental_Duplicator,
 
     // RTG Hatch
-    Hatch_RTG_LV,
-    Hatch_RTG_MV,
-    Hatch_RTG_HV,
 
     // Battery hatches for PSS
     Hatch_Input_Battery_MV,
