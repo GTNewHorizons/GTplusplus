@@ -25,7 +25,6 @@ import gtPlusPlus.core.block.machine.Machine_PooCollector;
 import gtPlusPlus.core.block.machine.Machine_ProjectTable;
 import gtPlusPlus.core.block.machine.Machine_RoundRobinator;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox;
-import gtPlusPlus.core.block.machine.Machine_TradeTable;
 import gtPlusPlus.core.block.machine.VolumetricFlaskSetter;
 import gtPlusPlus.core.block.machine.bedrock.Mining_Head_Fake;
 import gtPlusPlus.core.block.machine.bedrock.Mining_Pipe_Fake;
@@ -76,7 +75,6 @@ public final class ModBlocks {
     public static Block blockHellfire;
     public static Block blockInfiniteFLuidTank;
     public static Block blockProjectTable;
-    public static Block blockTradeTable;
     public static Block blockModularTable;
 
     public static Block blockWitherGuard;
@@ -118,7 +116,6 @@ public final class ModBlocks {
         blockMiningExplosive = new MiningExplosives();
         blockHellfire = new HellFire();
         blockProjectTable = new Machine_ProjectTable();
-        blockTradeTable = new Machine_TradeTable();
         blockModularTable = new Machine_ModularityTable();
         blockWitherGuard = new BlockWitherProof();
         blockXpConverter = new BlockTankXpConverter();

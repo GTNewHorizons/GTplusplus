@@ -20,7 +20,6 @@ import gtPlusPlus.core.container.Container_PestKiller;
 import gtPlusPlus.core.container.Container_ProjectTable;
 import gtPlusPlus.core.container.Container_RoundRobinator;
 import gtPlusPlus.core.container.Container_SuperJukebox;
-import gtPlusPlus.core.container.Container_TradeTable;
 import gtPlusPlus.core.container.Container_VolumetricFlaskSetter;
 import gtPlusPlus.core.container.box.LunchBoxContainer;
 import gtPlusPlus.core.container.box.MagicBagContainer;
@@ -40,7 +39,6 @@ import gtPlusPlus.core.gui.machine.GUI_PestKiller;
 import gtPlusPlus.core.gui.machine.GUI_ProjectTable;
 import gtPlusPlus.core.gui.machine.GUI_RoundRobinator;
 import gtPlusPlus.core.gui.machine.GUI_SuperJukebox;
-import gtPlusPlus.core.gui.machine.GUI_TradeTable;
 import gtPlusPlus.core.gui.machine.GUI_VolumetricFlaskSetter;
 import gtPlusPlus.core.interfaces.IGuiManager;
 import gtPlusPlus.core.inventories.BaseInventoryBackpack;
@@ -57,7 +55,6 @@ import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
-import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 
 public class GuiHandler implements IGuiHandler {
 
@@ -67,7 +64,7 @@ public class GuiHandler implements IGuiHandler {
     public static final int GUI4 = 3; // Workbench
     public static final int GUI5 = 4; // Workbench Adv
     public static final int GUI6 = 5; // Fish trap
-    public static final int GUI7 = 6; // Trade table
+    public static final int GUI7 = 6; // None
     public static final int GUI8 = 7; // Circuit Programmer
     public static final int GUI9 = 8; // Grindle
     public static final int GUI10 = 9; // Universal Toolbox
@@ -116,8 +113,6 @@ public class GuiHandler implements IGuiHandler {
                 // return new Container_WorkbenchAdvanced(player.inventory, (TileEntityWorkbenchAdvanced) te);
             } else if (ID == GUI6) {
                 return new Container_FishTrap(player.inventory, (TileEntityFishTrap) te);
-            } else if (ID == GUI7) {
-                return new Container_TradeTable(player.inventory, (TileEntityTradeTable) te);
             } else if (ID == GUI8) {
                 return new Container_CircuitProgrammer(player.inventory, (TileEntityCircuitProgrammer) te);
             } else if (ID == GUI13) {
@@ -191,11 +186,6 @@ public class GuiHandler implements IGuiHandler {
                 // return new GUI_WorkbenchAdvanced(player.inventory, (TileEntityWorkbenchAdvanced) te);
             } else if (ID == GUI6) {
                 return new GUI_FishTrap(player.inventory, (TileEntityFishTrap) te);
-            } else if (ID == GUI7) {
-                return new GUI_TradeTable(
-                        player.inventory,
-                        (TileEntityTradeTable) te,
-                        ((TileEntityBase) te).getOwner());
             } else if (ID == GUI8) {
                 return new GUI_CircuitProgrammer(player.inventory, (TileEntityCircuitProgrammer) te);
             } else if (ID == GUI13) {
