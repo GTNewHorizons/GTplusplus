@@ -7,7 +7,6 @@ import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox
 import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
 import gtPlusPlus.core.tileentities.general.TileEntityEggBox;
-import gtPlusPlus.core.tileentities.general.TileEntityFirepit;
 import gtPlusPlus.core.tileentities.general.TileEntityFishTrap;
 import gtPlusPlus.core.tileentities.general.TileEntityInfiniteFluid;
 import gtPlusPlus.core.tileentities.general.TileEntityPlayerDoorBase;
@@ -29,7 +28,6 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityPooCollector.class, "TileEntityPooCollector");
         GameRegistry.registerTileEntity(TileEntityAdvPooCollector.class, "TileEntityAdvPooCollector");
         GameRegistry.registerTileEntity(TileEntityFishTrap.class, "TileFishTrap");
-        GameRegistry.registerTileEntity(TileEntityFirepit.class, "TileFirePit");
         GameRegistry.registerTileEntity(TileEntityInfiniteFluid.class, "TileInfiniteFluid");
         GameRegistry.registerTileEntity(TileEntityProjectTable.class, "TileProjectTable");
         GameRegistry.registerTileEntity(TileEntityTradeTable.class, "TileTradeTable");

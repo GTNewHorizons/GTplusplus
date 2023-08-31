@@ -8,7 +8,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.general.BlockCompressedObsidian;
 import gtPlusPlus.core.block.general.BlockNet;
 import gtPlusPlus.core.block.general.BlockTankXpConverter;
-import gtPlusPlus.core.block.general.FirePit;
 import gtPlusPlus.core.block.general.FluidTankInfinite;
 import gtPlusPlus.core.block.general.HellFire;
 import gtPlusPlus.core.block.general.LightGlass;
@@ -72,8 +71,6 @@ public final class ModBlocks {
     public static Fluid fluidSludge = new Fluid("fluid.sludge");
     public static Block blockFluidSludge;
 
-    public static Block blockFirePit;
-
     public static Block blockOreFluorite;
 
     public static Block blockMiningExplosive;
@@ -118,7 +115,6 @@ public final class ModBlocks {
         FluidRegistryHandler.registerFluids();
 
         // Workbench
-        blockFirePit = new FirePit();
         blockFishTrap = new FishTrap();
         blockInfiniteFLuidTank = new FluidTankInfinite();
         blockMiningExplosive = new MiningExplosives();
