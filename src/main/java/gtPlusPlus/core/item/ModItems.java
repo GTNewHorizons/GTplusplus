@@ -149,40 +149,22 @@ public final class ModItems {
     public static Item itemPlateBatteryAlloy;
     public static Item itemHeliumBlob;
     public static Item itemHydrogenBlob;
-    public static Item itemPLACEHOLDER_Circuit;
 
-    public static Item FuelRod_Empty;
-    public static Item FuelRod_Thorium;
-    public static Item FuelRod_Uranium;
-    public static Item FuelRod_Plutonium;
 
     public static Item itemBedLocator_Base;
     public static Item itemBaseItemWithCharge;
 
     public static Item RfEuBattery;
     public static Item itemPersonalCloakingDevice;
-    public static Item itemPersonalCloakingDeviceCharged;
     public static Item itemPersonalHealingDevice;
     public static Item itemPersonalFireProofDevice;
     public static Item itemSlowBuildingRing;
-
-    public static MultiPickaxeBase MP_GTMATERIAL;
-    public static MultiSpadeBase MS_GTMATERIAL;
-
-    public static ItemStack FluidCell;
 
     public static ItemBlueprint itemBlueprintBase;
 
     public static Item dustLithiumCarbonate;
     public static Item dustLithiumHydroxide;
     public static Item dustLithiumPeroxide;
-    public static Item dustLithiumFluoride;
-
-    public static Item dustUranium232;
-    public static Item dustUraniumTetraFluoride;
-    public static Item dustUraniumHexaFluoride;
-
-    public static Item dustBerylliumFluoride;
 
     public static Item dustQuicklime;
     public static Item dustCalciumHydroxide;
@@ -199,8 +181,6 @@ public final class ModItems {
 
     public static Item cellHydrogenChlorideMix;
 
-    public static BaseEuItem metaItem2;
-
     public static Item shardAer;
     public static Item shardIgnis;
     public static Item shardTerra;
@@ -213,28 +193,11 @@ public final class ModItems {
     public static Item itemZirconiumChlorideCinterPellet;
     public static Item dustZrCl4;
     public static Item dustCookedZrCl4;
-    public static Item dustZrF4;
-
-    public static Item dustNaBF4NaF;
-    public static Item dustLiFBeF2ZrF4UF4;
-    public static Item dustLiFBeF2ZrF4U235;
-    public static Item dustLiFBeF2ThF4UF4;
 
     public static Item dustCalciumSulfate;
 
     public static Item dustFertUN18;
     public static Item dustFertUN32;
-
-    // public static Fluid fluidFLiBeSalt;
-    // public static Fluid fluidFLiBeSaltBurnt;
-
-    public static Fluid fluidLftrCore1;
-    public static Fluid fluidLftrCore2;
-    public static Fluid fluidLftrCore3;
-    public static Fluid fluidLftrCore4;
-    public static Fluid fluidLftrBlanket1;
-    public static Fluid fluidLftrBlanket2;
-    public static Fluid fluidLftrBlanket3;
     public static Fluid fluidNuclearWaste;
 
     // Possibly missing base items that GT may be missing.
@@ -1165,18 +1128,9 @@ public final class ModItems {
         // Buffer Cores!
         Item itemBufferCore;
         for (int i = 1; i <= 10; i++) {
-            // Utils.LOG_INFO(""+i);
             itemBufferCore = new BufferCore("itemBufferCore", i).setCreativeTab(AddToCreativeTab.tabMachines);
             GameRegistry.registerItem(itemBufferCore, itemBufferCore.getUnlocalizedName());
-            // System.out.println("Buffer Core registration count is: "+i);
         }
-
-        itemPLACEHOLDER_Circuit = new Item().setUnlocalizedName("itemPLACEHOLDER_Circuit")
-                .setTextureName(GTPlusPlus.ID + ":itemPLACEHOLDER_Circuit");
-        GameRegistry.registerItem(itemPLACEHOLDER_Circuit, "itemPLACEHOLDER_Circuit");
-
-        // ItemBlockGtFrameBox = new ItemBlockGtFrameBox(ModBlocks.blockGtFrameSet1);
-        // GameRegistry.registerItem(ItemBlockGtFrameBox, "itemGtFrameBoxSet1");
 
         itemCustomBook = new ItemBaseBook();
         registerCustomTokens();
