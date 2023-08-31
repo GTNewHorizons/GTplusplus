@@ -17,7 +17,6 @@ import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
-import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 
 public class ModTileEntities {
 
@@ -30,7 +29,6 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityProjectTable.class, "TileProjectTable");
         GameRegistry.registerTileEntity(TileEntityModularityTable.class, "TileEntityModularityTable");
         GameRegistry.registerTileEntity(TileEntityXpConverter.class, "TileEntityXpConverter");
-        GameRegistry.registerTileEntity(TileEntityGenericSpawner.class, "TileEntityGenericSpawner");
         GameRegistry.registerTileEntity(TileEntityCircuitProgrammer.class, "TileCircuitProgrammer");
         GameRegistry.registerTileEntity(TileEntityPlayerDoorBase.class, "TilePlayerDoorBase");
         GameRegistry.registerTileEntity(TileEntityDecayablesChest.class, "TileDecayablesChest");

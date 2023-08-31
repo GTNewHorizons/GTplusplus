@@ -84,8 +84,6 @@ public final class ModBlocks {
     public static Block blockPlayerDoorCustom_Ice;
     public static Block blockPlayerDoorCustom_Cactus;
 
-    public static Block blockCustomMobSpawner;
-    public static Block blockCustomSuperLight;
     public static Block blockCustomJukebox;
 
     public static Block blockPooCollector;

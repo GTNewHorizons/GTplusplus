@@ -63,7 +63,6 @@ import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.sys.SystemUtils;
-import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 import ic2.core.Ic2Items;
 import ic2.core.init.InternalName;
 import ic2.core.item.resources.ItemCell;
@@ -821,30 +820,6 @@ public class Utils {
         } catch (NoSuchAlgorithmException e) {
             return null;
         }
-    }
-
-    public static boolean createNewMobSpawner(int aID, Entity aEntity) {
-        if (aEntity instanceof Entity) {
-            Class c = aEntity.getClass();
-            return createNewMobSpawner(aID, c);
-        }
-        return false;
-    }
-
-    public static boolean createNewMobSpawner(int aID, Class aEntity) {
-        Logger.INFO("[Spawn] Generating new spawner for entity with class (" + aEntity.getSimpleName() + ").");
-        if (TileEntityGenericSpawner.registerNewMobSpawner(aID, (Class<Entity>) aEntity)) {
-            EntityRegistration x = EntityRegistry.instance().lookupModSpawn((Class<? extends Entity>) aEntity, true);
-            if (x != null) {
-                Logger.INFO("[Spawn] Registration for " + x.getEntityName() + " successful");
-                return true;
-            } else {
-                Logger.INFO("[Spawn] Registration for " + aEntity.getSimpleName() + " successful");
-                return true;
-            }
-        }
-        Logger.INFO("[Spawn] Mob Spawner creation for " + aEntity.getName() + " failed");
-        return false;
     }
 
     public static long getMillisSince(long aStartTime, long aCurrentTime) {
