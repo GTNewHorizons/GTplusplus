@@ -38,7 +38,6 @@ import gtPlusPlus.core.recipe.ShapedRecipeObject;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaGarbageCollector;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_FluidCanning;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Recycling;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_ChemicalSkips;
@@ -130,13 +129,6 @@ public class COMPAT_HANDLER {
     }
 
     public static void registerGregtechMachines() {
-        // Debug
-        GregtechItemList.Garbage_Collector_Debug_Machine.set(
-                new GregtechMetaGarbageCollector(
-                        "garbagecollector.01.tier.single",
-                        "JVM Garbage Collector",
-                        "Useful for debugging or smoother performance on local servers").getStackForm(1L));
-
         // Free IDs
         /*
          * --- 859 to 868 --- 911 to 940
