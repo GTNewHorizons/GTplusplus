@@ -16,7 +16,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.item.base.itemblock.ItemBlockSpawner;
-import gtPlusPlus.plugin.villagers.Core_VillagerAdditions;
 import gtPlusPlus.plugin.villagers.tile.TileEntityGenericSpawner;
 
 public class BlockGenericSpawner extends BlockMobSpawner {
@@ -29,7 +28,6 @@ public class BlockGenericSpawner extends BlockMobSpawner {
         this.setBlockTextureName("mob_spawner");
         this.setResistance(2000.0F);
         GameRegistry.registerBlock(this, ItemBlockSpawner.class, "blockMobSpawnerEx");
-        Core_VillagerAdditions.mInstance.log("Registered Custom Spawner Block.");
     }
 
     /**
