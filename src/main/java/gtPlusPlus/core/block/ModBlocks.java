@@ -1,7 +1,6 @@
 package gtPlusPlus.core.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
 
 import gtPlusPlus.api.objects.Logger;
@@ -13,8 +12,6 @@ import gtPlusPlus.core.block.general.HellFire;
 import gtPlusPlus.core.block.general.LightGlass;
 import gtPlusPlus.core.block.general.MiningExplosives;
 import gtPlusPlus.core.block.general.antigrief.BlockWitherProof;
-import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneDetector;
-import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneTest;
 import gtPlusPlus.core.block.machine.CircuitProgrammer;
 import gtPlusPlus.core.block.machine.DecayablesChest;
 import gtPlusPlus.core.block.machine.FishTrap;
@@ -139,7 +136,5 @@ public final class ModBlocks {
 
         blockVolumetricFlaskSetter = new VolumetricFlaskSetter();
 
-        new BlockGenericRedstoneDetector();
-        new BlockGenericRedstoneTest();
     }
 }
