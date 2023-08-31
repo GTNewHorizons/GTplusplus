@@ -205,7 +205,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         71,
                         "Overflow Valve (ULV)",
-                        "Maximum void amount: 8000",
+                        "Maximum void amount: 8,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
@@ -213,7 +213,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         72,
                         "Overflow Valve (LV)",
-                        "Maximum void amount: 64000",
+                        "Maximum void amount: 64,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
@@ -221,7 +221,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         73,
                         "Overflow Valve (MV)",
-                        "Maximum void amount: 512000",
+                        "Maximum void amount: 512,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
@@ -229,7 +229,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         74,
                         "Overflow Valve (HV)",
-                        "Maximum void amount: 4096000",
+                        "Maximum void amount: 4,096,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
@@ -237,7 +237,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         75,
                         "Overflow Valve (EV)",
-                        "Maximum void amount: 32768000",
+                        "Maximum void amount: 32,768,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
@@ -245,7 +245,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                 this.addItem(
                         76,
                         "Overflow Valve (IV)",
-                        "Maximum void amount: 262144000",
+                        "Maximum void amount: 262,144,000",
                         new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
                                 getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
                                 getTcAspectStack(TC_Aspects.AQUA, 1L) }));
