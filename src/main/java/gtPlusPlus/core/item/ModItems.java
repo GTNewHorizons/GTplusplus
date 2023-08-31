@@ -32,7 +32,6 @@ import gtPlusPlus.core.block.base.BlockBaseModular;
 import gtPlusPlus.core.common.compat.COMPAT_Baubles;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.BaseEuItem;
-import gtPlusPlus.core.item.base.BaseItemBackpack;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
 import gtPlusPlus.core.item.base.BaseItemDamageable;
 import gtPlusPlus.core.item.base.BaseItemTCShard;
@@ -193,23 +192,6 @@ public final class ModItems {
     public static MultiSpadeBase MS_GTMATERIAL;
 
     public static ItemStack FluidCell;
-
-    public static BaseItemBackpack backpack_Red;
-    public static BaseItemBackpack backpack_Green;
-    public static BaseItemBackpack backpack_Blue;
-    public static BaseItemBackpack backpack_Yellow;
-    public static BaseItemBackpack backpack_Purple;
-    public static BaseItemBackpack backpack_Cyan;
-    public static BaseItemBackpack backpack_Maroon;
-    public static BaseItemBackpack backpack_Olive;
-    public static BaseItemBackpack backpack_DarkGreen;
-    public static BaseItemBackpack backpack_DarkPurple;
-    public static BaseItemBackpack backpack_Teal;
-    public static BaseItemBackpack backpack_Navy;
-    public static BaseItemBackpack backpack_Silver;
-    public static BaseItemBackpack backpack_Gray;
-    public static BaseItemBackpack backpack_Black;
-    public static BaseItemBackpack backpack_White;
 
     public static ItemBlueprint itemBlueprintBase;
 
@@ -452,28 +434,6 @@ public final class ModItems {
 
         // Load Wearable Items
         WearableLoader.run();
-
-        // Make some backpacks
-        // Primary colours
-        backpack_Red = new BaseItemBackpack("backpackRed", Utils.rgbtoHexValue(200, 0, 0));
-        backpack_Green = new BaseItemBackpack("backpackGreen", Utils.rgbtoHexValue(0, 200, 0));
-        backpack_Blue = new BaseItemBackpack("backpackBlue", Utils.rgbtoHexValue(0, 0, 200));
-        // Secondary Colours
-        backpack_Yellow = new BaseItemBackpack("backpackYellow", Utils.rgbtoHexValue(200, 200, 0));
-        backpack_Purple = new BaseItemBackpack("backpackPurple", Utils.rgbtoHexValue(200, 0, 200));
-        backpack_Cyan = new BaseItemBackpack("backpackCyan", Utils.rgbtoHexValue(0, 200, 200));
-        // Tertiary Colours
-        backpack_Maroon = new BaseItemBackpack("backpackMaroon", Utils.rgbtoHexValue(128, 0, 0));
-        backpack_Olive = new BaseItemBackpack("backpackOlive", Utils.rgbtoHexValue(128, 128, 0));
-        backpack_DarkGreen = new BaseItemBackpack("backpackDarkGreen", Utils.rgbtoHexValue(0, 128, 0));
-        backpack_DarkPurple = new BaseItemBackpack("backpackDarkPurple", Utils.rgbtoHexValue(128, 0, 128));
-        backpack_Teal = new BaseItemBackpack("backpackTeal", Utils.rgbtoHexValue(0, 128, 128));
-        backpack_Navy = new BaseItemBackpack("backpackNavy", Utils.rgbtoHexValue(0, 0, 128));
-        // Shades
-        backpack_Silver = new BaseItemBackpack("backpackSilver", Utils.rgbtoHexValue(192, 192, 192));
-        backpack_Gray = new BaseItemBackpack("backpackGray", Utils.rgbtoHexValue(128, 128, 128));
-        backpack_Black = new BaseItemBackpack("backpackBlack", Utils.rgbtoHexValue(20, 20, 20));
-        backpack_White = new BaseItemBackpack("backpackWhite", Utils.rgbtoHexValue(240, 240, 240));
 
         // Load Custom Box/bags
         boxTools = new UniversalToolBox("Tool Box");
