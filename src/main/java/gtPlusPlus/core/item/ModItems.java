@@ -167,14 +167,6 @@ public final class ModItems {
     public static Item itemBedLocator_Base;
     public static Item itemBaseItemWithCharge;
 
-    public static Item itemIngotRaisinBread;
-    public static Item itemHotIngotRaisinBread;
-
-    public static ItemFood itemFoodRaisinToast;
-    public static BaseItemHotFood itemHotFoodRaisinToast;
-    public static BaseItemFood itemFoodCurriedSausages;
-    public static BaseItemHotFood itemHotFoodCurriedSausages;
-
     public static Item RfEuBattery;
     public static Item itemPersonalCloakingDevice;
     public static Item itemPersonalCloakingDeviceCharged;
