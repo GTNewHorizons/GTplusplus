@@ -6,7 +6,6 @@ import net.minecraftforge.fluids.Fluid;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.general.BlockCompressedObsidian;
 import gtPlusPlus.core.block.general.BlockNet;
-import gtPlusPlus.core.block.general.BlockTankXpConverter;
 import gtPlusPlus.core.block.general.FluidTankInfinite;
 import gtPlusPlus.core.block.general.HellFire;
 import gtPlusPlus.core.block.general.LightGlass;
@@ -71,7 +70,6 @@ public final class ModBlocks {
     public static Block blockInfiniteFLuidTank;
     public static Block blockProjectTable;
     public static Block blockWitherGuard;
-    public static Block blockXpConverter;
     public static Block blockCompressedObsidian;
     public static Block blockNet;
 
@@ -108,7 +106,6 @@ public final class ModBlocks {
         blockHellfire = new HellFire();
         blockProjectTable = new Machine_ProjectTable();
         blockWitherGuard = new BlockWitherProof();
-        blockXpConverter = new BlockTankXpConverter();
         blockCompressedObsidian = new BlockCompressedObsidian();
         blockNet = new BlockNet();
 

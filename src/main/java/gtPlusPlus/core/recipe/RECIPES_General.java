@@ -266,16 +266,6 @@ public class RECIPES_General {
             Logger.INFO("Added a recipe for Wither Cages.");
         }
 
-        /*
-         * Logger.RECIPE("[Inspection] Xp Converter"); if (RecipeUtils.addShapedRecipe(
-         * getSimpleStack(Items.experience_bottle), ItemUtils.simpleMetaStack(ModBlocks.blockCompressedObsidian, 2, 1),
-         * getSimpleStack(Items.experience_bottle), ItemUtils.simpleMetaStack(ModBlocks.blockCompressedObsidian, 5, 1),
-         * getSimpleStack(Items.nether_star), ItemUtils.simpleMetaStack(ModBlocks.blockCompressedObsidian, 5, 1),
-         * getSimpleStack(Items.experience_bottle), ItemUtils.simpleMetaStack(ModBlocks.blockCompressedObsidian, 2, 1),
-         * getSimpleStack(Items.experience_bottle), ItemUtils.getSimpleStack(ModBlocks.blockXpConverter, 1))){
-         * Logger.INFO("Added a recipe for XP Converter."); }
-         */
-
         // Rope/Fiber/Net
         if (RecipeUtils.addShapelessGregtechRecipe(
                 new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDictNoBroken(CI.craftingToolKnife, 1),
