@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Vector;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -17,10 +16,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.container.Container_ProjectTable;
 import gtPlusPlus.core.inventories.projecttable.InventoryProjectMain;
 import gtPlusPlus.core.inventories.projecttable.InventoryProjectOutput;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.ModularArmourUtils;
-import gtPlusPlus.core.util.minecraft.ModularArmourUtils.BT;
-import gtPlusPlus.core.util.minecraft.ModularArmourUtils.Modifiers;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechItems;

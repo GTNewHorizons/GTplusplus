@@ -5,8 +5,6 @@ import static gregtech.client.GT_TooltipHandler.Tier.*;
 import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
 import static gtPlusPlus.core.util.Utils.getTcAspectStack;
 
-import net.minecraft.item.EnumAction;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
@@ -18,7 +16,6 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.objects.GT_MultiTexture;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
-import gregtech.api.util.GT_FoodStat;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.common.covers.GT_Cover_Arm;
 import gregtech.common.covers.GT_Cover_Conveyor;

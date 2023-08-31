@@ -1,6 +1,5 @@
 package gtPlusPlus.core.item;
 
-import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.Forestry;
 import static gregtech.api.enums.Mods.GTPlusPlus;
@@ -30,7 +29,6 @@ import gtPlusPlus.core.block.base.BasicBlock.BlockTypes;
 import gtPlusPlus.core.block.base.BlockBaseModular;
 import gtPlusPlus.core.common.compat.COMPAT_Baubles;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.BaseEuItem;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
 import gtPlusPlus.core.item.base.BaseItemDamageable;
 import gtPlusPlus.core.item.base.BaseItemTCShard;
@@ -79,8 +77,6 @@ import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
 import gtPlusPlus.core.item.tool.misc.SandstoneHammer;
-import gtPlusPlus.core.item.tool.staballoy.MultiPickaxeBase;
-import gtPlusPlus.core.item.tool.staballoy.MultiSpadeBase;
 import gtPlusPlus.core.item.tool.staballoy.StaballoyAxe;
 import gtPlusPlus.core.item.tool.staballoy.StaballoyPickaxe;
 import gtPlusPlus.core.item.wearable.WearableLoader;
@@ -149,7 +145,6 @@ public final class ModItems {
     public static Item itemPlateBatteryAlloy;
     public static Item itemHeliumBlob;
     public static Item itemHydrogenBlob;
-
 
     public static Item itemBedLocator_Base;
     public static Item itemBaseItemWithCharge;
@@ -259,7 +254,6 @@ public final class ModItems {
     public static Fluid fluidFertBasic;
     public static Fluid fluidFertUN32;
     public static Fluid fluidFertUN18;
-
 
     public static DustDecayable dustMolybdenum99;
     public static DustDecayable dustTechnetium99;

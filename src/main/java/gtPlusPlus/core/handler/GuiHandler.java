@@ -1,5 +1,10 @@
 package gtPlusPlus.core.handler;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.world.World;
+
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import gtPlusPlus.GTplusplus;
@@ -17,10 +22,6 @@ import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.world.World;
 
 public class GuiHandler implements IGuiHandler {
 
@@ -56,8 +57,7 @@ public class GuiHandler implements IGuiHandler {
         if (te != null) {
             if (ID == GUI1) {
                 return new Container_ProjectTable(player.inventory, (TileEntityProjectTable) te);
-            } else if (ID == GUI2) {
-            }
+            } else if (ID == GUI2) {}
         }
 
         if (te != null) {
