@@ -13,7 +13,6 @@ import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.EnumHelper;
@@ -38,8 +37,6 @@ import gtPlusPlus.core.item.base.BaseItemTCShard;
 import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.item.base.dusts.BaseItemDust;
 import gtPlusPlus.core.item.base.foil.BaseItemFoil;
-import gtPlusPlus.core.item.base.foods.BaseItemFood;
-import gtPlusPlus.core.item.base.foods.BaseItemHotFood;
 import gtPlusPlus.core.item.base.gears.BaseItemSmallGear;
 import gtPlusPlus.core.item.base.ingots.BaseItemIngot;
 import gtPlusPlus.core.item.base.ingots.BaseItemIngot_OLD;
@@ -73,7 +70,6 @@ import gtPlusPlus.core.item.general.ItemGenericToken;
 import gtPlusPlus.core.item.general.ItemHalfCompleteCasings;
 import gtPlusPlus.core.item.general.ItemLavaFilter;
 import gtPlusPlus.core.item.general.ItemMagicFeather;
-import gtPlusPlus.core.item.general.ItemSunnariumBit;
 import gtPlusPlus.core.item.general.books.ItemBaseBook;
 import gtPlusPlus.core.item.general.chassis.ItemBoilerChassis;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoil;
@@ -301,8 +297,6 @@ public final class ModItems {
     public static ItemGenericToken itemGenericToken;
 
     public static Item itemControlCore;
-
-    public static Item itemSunnariumBit;
 
     public static ItemStack itemHotTitaniumIngot;
 
@@ -1014,8 +1008,6 @@ public final class ModItems {
         itemLavaFilter = new ItemLavaFilter();
 
         itemControlCore = new ItemControlCore();
-
-        itemSunnariumBit = new ItemSunnariumBit();
 
         // Chemistry
         new CoalTar();
