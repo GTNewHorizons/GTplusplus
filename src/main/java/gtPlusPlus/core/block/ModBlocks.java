@@ -12,7 +12,6 @@ import gtPlusPlus.core.block.general.FluidTankInfinite;
 import gtPlusPlus.core.block.general.HellFire;
 import gtPlusPlus.core.block.general.LightGlass;
 import gtPlusPlus.core.block.general.MiningExplosives;
-import gtPlusPlus.core.block.general.PlayerDoors;
 import gtPlusPlus.core.block.general.antigrief.BlockWitherProof;
 import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneDetector;
 import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneTest;
@@ -128,18 +127,6 @@ public final class ModBlocks {
         blockCircuitProgrammer = new CircuitProgrammer();
 
         blockDecayablesChest = new DecayablesChest();
-
-        blockPlayerDoorWooden = new PlayerDoors(Material.wood, "door_wood", true);
-        blockPlayerDoorIron = new PlayerDoors(Material.iron, "door_iron", true);
-        blockPlayerDoorCustom_Glass = new PlayerDoors(Material.glass, "door_glass", false);
-        blockPlayerDoorCustom_Ice = new PlayerDoors(Material.ice, "door_ice", false);
-        blockPlayerDoorCustom_Cactus = new PlayerDoors(
-                Material.cactus,
-                "door_cactus",
-                false,
-                0.6f,
-                Block.soundTypeGrass,
-                "Cactus");
 
         // blockCustomSuperLight = new BlockSuperLight();
         blockCustomJukebox = new Machine_SuperJukebox();
