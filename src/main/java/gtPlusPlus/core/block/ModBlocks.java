@@ -21,7 +21,6 @@ import gtPlusPlus.core.block.machine.CircuitProgrammer;
 import gtPlusPlus.core.block.machine.DecayablesChest;
 import gtPlusPlus.core.block.machine.EggBox;
 import gtPlusPlus.core.block.machine.FishTrap;
-import gtPlusPlus.core.block.machine.HeliumGenerator;
 import gtPlusPlus.core.block.machine.Machine_ModularityTable;
 import gtPlusPlus.core.block.machine.Machine_PestKiller;
 import gtPlusPlus.core.block.machine.Machine_PooCollector;
@@ -65,7 +64,6 @@ public final class ModBlocks {
     public static Block blockCustomPipeGearCasings;
 
     public static Block blockMetaTileEntity;
-    public static Block blockHeliumGenerator;
     public static Block blockNHG;
     public static Block blockCharger;
 
@@ -120,7 +118,6 @@ public final class ModBlocks {
         FluidRegistryHandler.registerFluids();
 
         // Workbench
-        blockHeliumGenerator = new HeliumGenerator();
         blockFirePit = new FirePit();
         blockFishTrap = new FishTrap();
         blockInfiniteFLuidTank = new FluidTankInfinite();

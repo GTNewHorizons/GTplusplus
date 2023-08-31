@@ -65,7 +65,7 @@ import gtPlusPlus.core.tileentities.machines.TileEntityTradeTable;
 public class GuiHandler implements IGuiHandler {
 
     public static final int GUI1 = 0; // Project Table
-    public static final int GUI2 = 1; // Helium Generator
+    public static final int GUI2 = 1; // None
     public static final int GUI3 = 2; // BackpackHandler
     public static final int GUI4 = 3; // Workbench
     public static final int GUI5 = 4; // Workbench Adv
