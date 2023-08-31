@@ -38,7 +38,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.client.renderer.CustomItemBlockRenderer;
 import gtPlusPlus.core.client.renderer.CustomOreBlockRenderer;
-import gtPlusPlus.core.client.renderer.RenderBatKing;
 import gtPlusPlus.core.client.renderer.RenderDecayChest;
 import gtPlusPlus.core.client.renderer.RenderMiningExplosivesPrimed;
 import gtPlusPlus.core.client.renderer.RenderSickBlaze;
@@ -47,7 +46,6 @@ import gtPlusPlus.core.client.renderer.RenderToxinball;
 import gtPlusPlus.core.common.CommonProxy;
 import gtPlusPlus.core.common.compat.COMPAT_PlayerAPI;
 import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
-import gtPlusPlus.core.entity.monster.EntityBatKing;
 import gtPlusPlus.core.entity.monster.EntitySickBlaze;
 import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.entity.projectile.EntityHydrofluoricAcidPotion;
@@ -145,7 +143,6 @@ public class ClientProxy extends CommonProxy implements Runnable {
         RenderingRegistry.registerEntityRenderingHandler(
                 EntityHydrofluoricAcidPotion.class,
                 new RenderSnowball(ModItems.itemHydrofluoricPotion));
-        RenderingRegistry.registerEntityRenderingHandler(EntityBatKing.class, new RenderBatKing());
         RenderingRegistry
                 .registerEntityRenderingHandler(EntityThrowableBomb.class, new RenderSnowball(ModItems.itemBomb, 1));
         RenderingRegistry.registerEntityRenderingHandler(EntityLightningAttack.class, new RenderFireball(1F));
