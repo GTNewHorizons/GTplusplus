@@ -77,7 +77,6 @@ import gtPlusPlus.core.item.general.ItemLavaFilter;
 import gtPlusPlus.core.item.general.ItemMagicFeather;
 import gtPlusPlus.core.item.general.ItemSunnariumBit;
 import gtPlusPlus.core.item.general.books.ItemBaseBook;
-import gtPlusPlus.core.item.general.capture.ItemEntityCatcher;
 import gtPlusPlus.core.item.general.chassis.ItemBoilerChassis;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoil;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
@@ -303,7 +302,6 @@ public final class ModItems {
     public static Item itemGrindleTablet;
     public static Item itemRope;
     public static Item itemFiber;
-    public static Item itemDragonJar;
 
     // Unstable Elements & Related Content
     public static Item dustNeptunium238;
@@ -1031,7 +1029,6 @@ public final class ModItems {
         itemLavaFilter = new ItemLavaFilter();
 
         itemGrindleTablet = new BaseItemGrindle();
-        itemDragonJar = new ItemEntityCatcher();
 
         itemControlCore = new ItemControlCore();
 
