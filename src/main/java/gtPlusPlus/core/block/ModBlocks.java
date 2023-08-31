@@ -18,7 +18,6 @@ import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneDetector;
 import gtPlusPlus.core.block.general.redstone.BlockGenericRedstoneTest;
 import gtPlusPlus.core.block.machine.CircuitProgrammer;
 import gtPlusPlus.core.block.machine.DecayablesChest;
-import gtPlusPlus.core.block.machine.EggBox;
 import gtPlusPlus.core.block.machine.FishTrap;
 import gtPlusPlus.core.block.machine.Machine_ModularityTable;
 import gtPlusPlus.core.block.machine.Machine_PestKiller;
@@ -42,7 +41,6 @@ public final class ModBlocks {
 
     public static Block blockFishTrap;
     public static Block blockDecayablesChest;
-    public static Block blockEggBox;
 
     // Blocks
     // public static Block blockBloodSteel;
@@ -133,7 +131,6 @@ public final class ModBlocks {
         blockCircuitProgrammer = new CircuitProgrammer();
 
         blockDecayablesChest = new DecayablesChest();
-        blockEggBox = new EggBox();
 
         blockPlayerDoorWooden = new PlayerDoors(Material.wood, "door_wood", true);
         blockPlayerDoorIron = new PlayerDoors(Material.iron, "door_iron", true);

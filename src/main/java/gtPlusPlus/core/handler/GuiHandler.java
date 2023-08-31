@@ -13,7 +13,6 @@ import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox
 import gtPlusPlus.core.container.Container_BackpackBase;
 import gtPlusPlus.core.container.Container_CircuitProgrammer;
 import gtPlusPlus.core.container.Container_DecayablesChest;
-import gtPlusPlus.core.container.Container_EggBox;
 import gtPlusPlus.core.container.Container_FishTrap;
 import gtPlusPlus.core.container.Container_Grindle;
 import gtPlusPlus.core.container.Container_ModularityTable;
@@ -35,7 +34,6 @@ import gtPlusPlus.core.gui.item.box.MagicBagGui;
 import gtPlusPlus.core.gui.item.box.ToolBoxGui;
 import gtPlusPlus.core.gui.machine.GUI_CircuitProgrammer;
 import gtPlusPlus.core.gui.machine.GUI_DecayablesChest;
-import gtPlusPlus.core.gui.machine.GUI_EggBox;
 import gtPlusPlus.core.gui.machine.GUI_FishTrap;
 import gtPlusPlus.core.gui.machine.GUI_ModularityTable;
 import gtPlusPlus.core.gui.machine.GUI_PestKiller;
@@ -53,7 +51,6 @@ import gtPlusPlus.core.inventories.box.ToolBoxInventory;
 import gtPlusPlus.core.tileentities.base.TileEntityBase;
 import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
-import gtPlusPlus.core.tileentities.general.TileEntityEggBox;
 import gtPlusPlus.core.tileentities.general.TileEntityFishTrap;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
@@ -80,7 +77,7 @@ public class GuiHandler implements IGuiHandler {
     public static final int GUI14 = 13; // Super Jukebox
     public static final int GUI15 = 14; // Pest Killer
     public static final int GUI16 = 15; // Round-Robinator
-    public static final int GUI17 = 16; // Egg Box
+    public static final int GUI17 = 16; // None
     public static final int GUI18 = 17; // Volumetric Flask Setter
 
     public static void init() {
@@ -114,9 +111,7 @@ public class GuiHandler implements IGuiHandler {
         }
 
         if (te != null) {
-            if (ID == GUI4) {
-                // return new Container_Workbench(player.inventory, (TileEntityWorkbench) te);
-            } else if (ID == GUI5) {
+            if (ID == GUI5) {
                 Logger.INFO("sad");
                 // return new Container_WorkbenchAdvanced(player.inventory, (TileEntityWorkbenchAdvanced) te);
             } else if (ID == GUI6) {
@@ -133,8 +128,6 @@ public class GuiHandler implements IGuiHandler {
                 return new Container_PestKiller(player.inventory, (TileEntityPestKiller) te);
             } else if (ID == GUI16) {
                 return new Container_RoundRobinator(player.inventory, (TileEntityRoundRobinator) te);
-            } else if (ID == GUI17) {
-                return new Container_EggBox(player.inventory, (TileEntityEggBox) te);
             } else if (ID == GUI18) {
                 return new Container_VolumetricFlaskSetter(player.inventory, (TileEntityVolumetricFlaskSetter) te);
             }
@@ -213,8 +206,6 @@ public class GuiHandler implements IGuiHandler {
                 return new GUI_PestKiller(player.inventory, (TileEntityPestKiller) te);
             } else if (ID == GUI16) {
                 return new GUI_RoundRobinator(player.inventory, (TileEntityRoundRobinator) te);
-            } else if (ID == GUI17) {
-                return new GUI_EggBox(player.inventory, (TileEntityEggBox) te);
             } else if (ID == GUI18) {
                 return new GUI_VolumetricFlaskSetter(
                         new Container_VolumetricFlaskSetter(player.inventory, (TileEntityVolumetricFlaskSetter) te));

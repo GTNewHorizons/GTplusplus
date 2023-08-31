@@ -73,7 +73,6 @@ import gtPlusPlus.core.item.general.ItemControlCore;
 import gtPlusPlus.core.item.general.ItemEmpty;
 import gtPlusPlus.core.item.general.ItemGemShards;
 import gtPlusPlus.core.item.general.ItemGenericToken;
-import gtPlusPlus.core.item.general.ItemGiantEgg;
 import gtPlusPlus.core.item.general.ItemHalfCompleteCasings;
 import gtPlusPlus.core.item.general.ItemLavaFilter;
 import gtPlusPlus.core.item.general.ItemMagicFeather;
@@ -333,8 +332,6 @@ public final class ModItems {
     public static Item dustRadium226;
     public static Item dustProtactinium233;
 
-    public static ItemGiantEgg itemBigEgg;
-
     public static GregtechPump toolGregtechPump;
 
     public static ItemGenericToken itemGenericToken;
@@ -422,7 +419,7 @@ public final class ModItems {
                 EnumChatFormatting.AQUA,
                 false,
                 null);
-        itemBigEgg = new ItemGiantEgg();
+
         itemGenericToken = new ItemGenericToken();
         itemDummyResearch = new ItemDummyResearch();
         itemCustomSpawnEgg = new ItemCustomSpawnEgg();

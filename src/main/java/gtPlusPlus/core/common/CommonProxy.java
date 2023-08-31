@@ -24,7 +24,6 @@ import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.entity.InternalEntityRegistry;
-import gtPlusPlus.core.entity.monster.EntityGiantChickenBase;
 import gtPlusPlus.core.entity.monster.EntitySickBlaze;
 import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.fluids.FluidFactory;
@@ -205,7 +204,6 @@ public class CommonProxy {
 
     public void generateMobSpawners() {
         // Try register some test spawners
-        Utils.createNewMobSpawner(0, EntityGiantChickenBase.class);
         Utils.createNewMobSpawner(1, EntitySickBlaze.class);
         Utils.createNewMobSpawner(2, EntityStaballoyConstruct.class);
     }

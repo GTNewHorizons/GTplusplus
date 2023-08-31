@@ -112,7 +112,6 @@ public class NuclearChem extends ItemPackage {
         if (generateMutagenRecipe) {
             chemReator_CreateMutagen();
         }
-        chemReactor_MutagenWithEggs();
         return true;
     }
 
@@ -127,14 +126,4 @@ public class NuclearChem extends ItemPackage {
                 500);
     }
 
-    private static void chemReactor_MutagenWithEggs() {
-        CORE.RA.addChemicalRecipe(
-                CI.getNumberedCircuit(20),
-                ItemUtils.getSimpleStack(Items.egg, 2),
-                FluidUtils.getFluidStack(GeneticMutagen, 500),
-                null,
-                ItemUtils.getSimpleStack(ModItems.itemBigEgg, 2),
-                300 * 20,
-                500);
-    }
 }

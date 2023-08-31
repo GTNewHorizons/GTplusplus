@@ -1195,16 +1195,6 @@ public class RECIPES_Machines {
                     GregtechItemList.Energy_Buffer_RF_Convertor.get(1));
         }
 
-        // Egg Box
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.getNumberedAdvancedCircuit(8), CI.getTieredMachineHull(3),
-                        ItemUtils.getSimpleStack(Items.egg, 64), ItemUtils.getSimpleStack(ModItems.itemRope, 32),
-                        CI.getPlate(4, 8) },
-                FluidUtils.getFluidStack("mobessence", 4096),
-                ItemUtils.getSimpleStack(ModBlocks.blockEggBox, 1),
-                20 * 60,
-                480);
-
         // Flask Configurator
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { CI.getNumberedAdvancedCircuit(8), CI.getTieredMachineHull(2),
