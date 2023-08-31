@@ -171,10 +171,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Compressed_Fusion_Reactor,
 
     // Carbon Materials
-    NanoTube_Base_Substrate,
-    NanoTube_Finished,
-    Carbyne_Tube_Finished,
-    Carbyne_Sheet_Finished,
 
     // End Game Laser Engraver Lens
     Laser_Lens_WoodsGlass,

@@ -294,21 +294,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Hypervisor Matrix (Fusion)",
                         "A memory unit containing an RI (Restricted Intelligence)"));
 
-        // NanoTubes
-        GregtechItemList.NanoTube_Base_Substrate
-                .set(this.addItem(101, "Silicon Base Substrate", "Used in the production of Carbon Nanotubes"));
-        GregtechItemList.NanoTube_Finished.set(
-                this.addItem(102, "Carbon Nanotubes", "Multi-walled Zigzag nanotubes, possibly Carbon's final form"));
-        GregtechItemList.Carbyne_Tube_Finished.set(
-                this.addItem(
-                        103,
-                        "Linear Acetylenic Carbon (LAC/Carbyne)",
-                        "LAC chains grown inside Multi-walled Carbon Nanotubes, highly stable"));
-        GregtechItemList.Carbyne_Sheet_Finished.set(
-                this.addItem(
-                        104,
-                        "Carbyne Composite Panel",
-                        "Nanotubes which contain LAC, arranged side by side and compressed further"));
         GregtechItemList.Laser_Lens_Special
                 .set(this.addItem(105, "Quantum Anomaly", "Probably should shoot it with lasers"));
 
