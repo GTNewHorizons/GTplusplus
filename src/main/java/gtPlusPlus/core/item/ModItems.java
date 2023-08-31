@@ -64,7 +64,6 @@ import gtPlusPlus.core.item.food.BaseItemMetaFood;
 import gtPlusPlus.core.item.general.BaseItemGrindle;
 import gtPlusPlus.core.item.general.BufferCore;
 import gtPlusPlus.core.item.general.ItemAirFilter;
-import gtPlusPlus.core.item.general.ItemAreaClear;
 import gtPlusPlus.core.item.general.ItemBasicFirestarter;
 import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
 import gtPlusPlus.core.item.general.ItemBlueprint;
@@ -288,8 +287,6 @@ public final class ModItems {
     public static Item itemCircuitLFTR;
     public static Item itemBasicTurbine;
 
-    public static Item itemDebugAreaClear;
-
     public static Item itemGemShards;
     public static Item itemHalfCompleteCasings;
 
@@ -397,8 +394,6 @@ public final class ModItems {
         itemGenericToken = new ItemGenericToken();
         itemDummyResearch = new ItemDummyResearch();
         itemCustomSpawnEgg = new ItemCustomSpawnEgg();
-
-        itemDebugAreaClear = new ItemAreaClear();
 
         // Register meta item, because we need them for everything.
         MetaGeneratedGregtechItems.INSTANCE.generateMetaItems();
