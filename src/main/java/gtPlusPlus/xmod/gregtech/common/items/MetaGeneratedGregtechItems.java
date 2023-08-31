@@ -57,7 +57,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
         // Simplify life.
         registerComponents_ULV();
-        registerComponents_MAX();
 
         // Extruder Shape
         GregtechItemList.Shape_Extruder_WindmillShaft
@@ -451,88 +450,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[1][0],
                                 new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM) }),
                 new GT_Cover_Arm(1600, TextureFactory.of(OVERLAY_ARM)));
-
-        return true;
-    }
-
-    private boolean registerComponents_MAX() {
-        GregtechItemList.Electric_Pump_MAX.set(
-                this.addItem(
-                        3,
-                        "Electric Pump (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.ITER, 8L),
-                                getTcAspectStack(TC_Aspects.AQUA, 8L) }));
-        GregtechItemList.Electric_Motor_MAX.set(
-                this.addItem(
-                        7,
-                        "Electric Motor (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.MOTUS, 8L) }));
-        GregtechItemList.Conveyor_Module_MAX.set(
-                this.addItem(
-                        11,
-                        "Conveyor Module (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.ITER, 8L) }));
-        GregtechItemList.Electric_Piston_MAX.set(
-                this.addItem(
-                        15,
-                        "Electric Piston (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 16L), getTcAspectStack(TC_Aspects.MOTUS, 8L) }));
-        GregtechItemList.Robot_Arm_MAX.set(
-                this.addItem(
-                        19,
-                        "Robot Arm (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 16L), getTcAspectStack(TC_Aspects.MOTUS, 8L),
-                                getTcAspectStack("COGNITIO", 8L) }));
-        GregtechItemList.Field_Generator_MAX.set(
-                this.addItem(
-                        23,
-                        "Field Generator (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 16L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.TUTAMEN, 8L) }));
-        GregtechItemList.Emitter_MAX.set(
-                this.addItem(
-                        27,
-                        "Emitter (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.LUX, 8L) }));
-        GregtechItemList.Sensor_MAX.set(
-                this.addItem(
-                        31,
-                        "Sensor (MAX)",
-                        "",
-                        new Object[] { getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
-                                getTcAspectStack(TC_Aspects.MACHINA, 8L), getTcAspectStack(TC_Aspects.SENSUS, 8L) }));
-
-        GregTech_API.registerCover(
-                GregtechItemList.Electric_Pump_MAX.get(1L),
-                new GT_MultiTexture(
-                        new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[8][0],
-                                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PUMP) }),
-                new GT_Cover_Pump(524288, TextureFactory.of(OVERLAY_PUMP)));
-        GregTech_API.registerCover(
-                GregtechItemList.Conveyor_Module_MAX.get(1L),
-                new GT_MultiTexture(
-                        new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR) }),
-                new GT_Cover_Conveyor(4, 1, TextureFactory.of(OVERLAY_CONVEYOR)));
-        GregTech_API.registerCover(
-                GregtechItemList.Robot_Arm_MAX.get(1L),
-                new GT_MultiTexture(
-                        new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[4][0],
-                                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM) }),
-                new GT_Cover_Arm(4, TextureFactory.of(OVERLAY_ARM)));
 
         return true;
     }
