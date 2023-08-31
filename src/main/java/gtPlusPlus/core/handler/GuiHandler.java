@@ -6,19 +6,10 @@ import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox;
 import gtPlusPlus.core.container.*;
-import gtPlusPlus.core.container.box.LunchBoxContainer;
-import gtPlusPlus.core.container.box.MagicBagContainer;
-import gtPlusPlus.core.container.box.ToolBoxContainer;
 import gtPlusPlus.core.gui.beta.Gui_ID_Registry;
 import gtPlusPlus.core.gui.beta.MU_GuiId;
-import gtPlusPlus.core.gui.item.box.LunchBoxGui;
-import gtPlusPlus.core.gui.item.box.MagicBagGui;
-import gtPlusPlus.core.gui.item.box.ToolBoxGui;
 import gtPlusPlus.core.gui.machine.*;
 import gtPlusPlus.core.interfaces.IGuiManager;
-import gtPlusPlus.core.inventories.box.LunchBoxInventory;
-import gtPlusPlus.core.inventories.box.MagicBagInventory;
-import gtPlusPlus.core.inventories.box.ToolBoxInventory;
 import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
 import gtPlusPlus.core.tileentities.general.TileEntityFishTrap;
@@ -43,9 +34,9 @@ public class GuiHandler implements IGuiHandler {
     public static final int GUI7 = 6; // None
     public static final int GUI8 = 7; // Circuit Programmer
     public static final int GUI9 = 8; // None
-    public static final int GUI10 = 9; // Universal Toolbox
-    public static final int GUI11 = 10; // Auto Lunchbox
-    public static final int GUI12 = 11; // Bag for Magic Tools
+    public static final int GUI10 = 9; // None
+    public static final int GUI11 = 10; // None
+    public static final int GUI12 = 11; // None
     public static final int GUI13 = 12; // Decayables Chest
     public static final int GUI14 = 13; // Super Jukebox
     public static final int GUI15 = 14; // Pest Killer
@@ -92,17 +83,6 @@ public class GuiHandler implements IGuiHandler {
             }
         }
 
-        // Tool, lunch, magic
-        if (ID == GUI10) {
-            return new ToolBoxContainer(player, player.inventory, new ToolBoxInventory(player.getHeldItem()));
-        }
-        if (ID == GUI11) {
-            return new LunchBoxContainer(player, player.inventory, new LunchBoxInventory(player.getHeldItem()));
-        }
-        if (ID == GUI12) {
-            return new MagicBagContainer(player, player.inventory, new MagicBagInventory(player.getHeldItem()));
-        }
-
         return null;
     }
 
@@ -146,20 +126,6 @@ public class GuiHandler implements IGuiHandler {
                 return new GUI_VolumetricFlaskSetter(
                         new Container_VolumetricFlaskSetter(player.inventory, (TileEntityVolumetricFlaskSetter) te));
             }
-        }
-
-        // Tool, lunch, magic
-        if (ID == GUI10) {
-            return new ToolBoxGui(
-                    new ToolBoxContainer(player, player.inventory, new ToolBoxInventory(player.getHeldItem())));
-        }
-        if (ID == GUI11) {
-            return new LunchBoxGui(
-                    new LunchBoxContainer(player, player.inventory, new LunchBoxInventory(player.getHeldItem())));
-        }
-        if (ID == GUI12) {
-            return new MagicBagGui(
-                    new MagicBagContainer(player, player.inventory, new MagicBagInventory(player.getHeldItem())));
         }
 
         return null;
