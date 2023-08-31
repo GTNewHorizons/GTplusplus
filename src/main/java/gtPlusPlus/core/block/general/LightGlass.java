@@ -4,9 +4,12 @@ import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.Random;
 
+import codechicken.nei.api.API;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -28,7 +31,6 @@ public class LightGlass extends BlockAir {
     private int hex;
 
     public LightGlass(final boolean bool) {
-        // super("blockMFEffect", Material.air, bool);
         super();
         this.setCreativeTab(AddToCreativeTab.tabBlock);
         this.setBlockName("blockMFEffect");
@@ -38,9 +40,7 @@ public class LightGlass extends BlockAir {
         setStepSound(Block.soundTypeGlass);
         GameRegistry.registerBlock(this, "blockMFEffect");
 
-        /*
-         * this.setLightOpacity(0); this.setTickRandomly(true); this.setResistance(1);
-         */
+        API.hideItem(new ItemStack(this));
     }
 
     /**
