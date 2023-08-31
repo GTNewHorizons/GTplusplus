@@ -5,7 +5,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 
 import gtPlusPlus.core.item.tool.misc.box.ContainerBoxBase;
 import gtPlusPlus.core.item.tool.misc.box.CustomBoxInventory;
-import gtPlusPlus.core.item.tool.misc.box.UniversalToolBox;
 import gtPlusPlus.core.slots.SlotToolBox;
 
 public class ToolBoxContainer extends ContainerBoxBase {

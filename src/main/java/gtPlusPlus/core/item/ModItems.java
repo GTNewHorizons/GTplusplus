@@ -90,9 +90,6 @@ import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
 import gtPlusPlus.core.item.tool.misc.SandstoneHammer;
-import gtPlusPlus.core.item.tool.misc.box.AutoLunchBox;
-import gtPlusPlus.core.item.tool.misc.box.MagicToolBag;
-import gtPlusPlus.core.item.tool.misc.box.UniversalToolBox;
 import gtPlusPlus.core.item.tool.staballoy.MultiPickaxeBase;
 import gtPlusPlus.core.item.tool.staballoy.MultiSpadeBase;
 import gtPlusPlus.core.item.tool.staballoy.StaballoyAxe;
@@ -329,9 +326,6 @@ public final class ModItems {
     public static Fluid fluidFertUN32;
     public static Fluid fluidFertUN18;
 
-    public static Item boxTools;
-    public static Item boxFood;
-    public static Item boxMagic;
 
     public static DustDecayable dustMolybdenum99;
     public static DustDecayable dustTechnetium99;
@@ -434,11 +428,6 @@ public final class ModItems {
 
         // Load Wearable Items
         WearableLoader.run();
-
-        // Load Custom Box/bags
-        boxTools = new UniversalToolBox("Tool Box");
-        boxFood = new AutoLunchBox("Eatotron-9000");
-        boxMagic = new MagicToolBag("Mystic Bag");
 
         itemBlueprintBase = new ItemBlueprint("itemBlueprint");
 
