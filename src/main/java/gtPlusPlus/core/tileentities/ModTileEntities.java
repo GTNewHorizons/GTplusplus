@@ -12,7 +12,6 @@ import gtPlusPlus.core.tileentities.general.TileEntityPlayerDoorBase;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import gtPlusPlus.core.tileentities.general.TileEntityXpConverter;
 import gtPlusPlus.core.tileentities.machines.TileEntityAdvPooCollector;
-import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
@@ -27,7 +26,6 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityFishTrap.class, "TileFishTrap");
         GameRegistry.registerTileEntity(TileEntityInfiniteFluid.class, "TileInfiniteFluid");
         GameRegistry.registerTileEntity(TileEntityProjectTable.class, "TileProjectTable");
-        GameRegistry.registerTileEntity(TileEntityModularityTable.class, "TileEntityModularityTable");
         GameRegistry.registerTileEntity(TileEntityXpConverter.class, "TileEntityXpConverter");
         GameRegistry.registerTileEntity(TileEntityCircuitProgrammer.class, "TileCircuitProgrammer");
         GameRegistry.registerTileEntity(TileEntityPlayerDoorBase.class, "TilePlayerDoorBase");

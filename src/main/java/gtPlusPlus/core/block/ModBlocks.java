@@ -15,7 +15,6 @@ import gtPlusPlus.core.block.general.antigrief.BlockWitherProof;
 import gtPlusPlus.core.block.machine.CircuitProgrammer;
 import gtPlusPlus.core.block.machine.DecayablesChest;
 import gtPlusPlus.core.block.machine.FishTrap;
-import gtPlusPlus.core.block.machine.Machine_ModularityTable;
 import gtPlusPlus.core.block.machine.Machine_PestKiller;
 import gtPlusPlus.core.block.machine.Machine_PooCollector;
 import gtPlusPlus.core.block.machine.Machine_ProjectTable;
@@ -71,8 +70,6 @@ public final class ModBlocks {
     public static Block blockHellfire;
     public static Block blockInfiniteFLuidTank;
     public static Block blockProjectTable;
-    public static Block blockModularTable;
-
     public static Block blockWitherGuard;
     public static Block blockXpConverter;
     public static Block blockCompressedObsidian;
@@ -110,7 +107,6 @@ public final class ModBlocks {
         blockMiningExplosive = new MiningExplosives();
         blockHellfire = new HellFire();
         blockProjectTable = new Machine_ProjectTable();
-        blockModularTable = new Machine_ModularityTable();
         blockWitherGuard = new BlockWitherProof();
         blockXpConverter = new BlockTankXpConverter();
         blockCompressedObsidian = new BlockCompressedObsidian();

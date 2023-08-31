@@ -40,13 +40,9 @@ import gtPlusPlus.core.item.base.foil.BaseItemFoil;
 import gtPlusPlus.core.item.base.gears.BaseItemSmallGear;
 import gtPlusPlus.core.item.base.ingots.BaseItemIngot;
 import gtPlusPlus.core.item.base.ingots.BaseItemIngot_OLD;
-import gtPlusPlus.core.item.base.misc.BaseItemMisc;
-import gtPlusPlus.core.item.base.misc.BaseItemMisc.MiscTypes;
 import gtPlusPlus.core.item.base.plates.BaseItemPlate;
 import gtPlusPlus.core.item.base.plates.BaseItemPlateDouble;
 import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
-import gtPlusPlus.core.item.bauble.HealthBoostBauble;
-import gtPlusPlus.core.item.bauble.ModularBauble;
 import gtPlusPlus.core.item.bauble.MonsterKillerBaseBauble;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.item.chemistry.CoalTar;
@@ -210,9 +206,6 @@ public final class ModItems {
     public static Item shardTerra;
     public static Item shardAqua;
 
-    // Tc Compat for energy crystal recipes
-    public static Item shardDull;
-
     // Lighter
     public static Item itemBasicFireMaker;
 
@@ -280,7 +273,6 @@ public final class ModItems {
     public static Item itemSulfuricPotion;
     public static Item itemHydrofluoricPotion;
 
-    public static Item itemModularBauble;
     public static Item itemCustomBook;
 
     public static Item itemRope;
@@ -662,20 +654,8 @@ public final class ModItems {
 
         } catch (final Throwable r) {
             Logger.INFO("Failed to Generated a Material. " + r.getMessage());
-            // Utils.LOG_INFO("Failed to Generated a Material. "+r.getCause().getMessage());
-            // Utils.LOG_INFO("Failed to Generated a Material. "+r.getStackTrace()[0].getMethodName());
-            // Utils.LOG_INFO("Failed to Generated a Material. "+r.getStackTrace()[1].getMethodName());
             r.printStackTrace();
-            // System.exit(1);
         }
-
-        // TC Style Shards, for use in making energy crystal mix.
-        // A dull shard, able to be infused with an element.
-        shardDull = new BaseItemTCShard(
-                "Drained",
-                Utils.rgbtoHexValue(75, 75, 75),
-                new String[] { "Can be infused to create a magical shard.",
-                        "Obtained from Mining Stone/SandStone, Chopping Logs or Shovelling Dirt." });
 
         // Generates four elemental shards when TC is not installed.
         if (!Thaumcraft.isModLoaded()) {
@@ -1033,30 +1013,6 @@ public final class ModItems {
         itemDetCable = new CoreItem("itemDetCable", "Det. Cable", tabMisc);
         itemDetCable.setTextureName("string");
         itemBomb = new ItemThrowableBomb();
-
-        // Misc Items
-        @SuppressWarnings("unused")
-        Item tI;
-        tI = new BaseItemMisc("Chilly", new short[] { 0, 64, 196 }, 32, MiscTypes.POTION, new String[] { "It's Blue" });
-        tI = new BaseItemMisc(
-                "4000DC's",
-                new short[] { 180, 100, 30 },
-                1,
-                MiscTypes.BIGKEY,
-                new String[] { "It opens things." });
-        tI = new BaseItemMisc("Dull", new short[] { 64, 64, 64 }, 64, MiscTypes.GEM, null);
-        tI = new BaseItemMisc(
-                "Forest",
-                new short[] { 130, 164, 96 },
-                64,
-                MiscTypes.MUSHROOM,
-                new String[] { "You Found this on the ground.", "Definitely not sure if it's worth eating." });
-
-        // Baubles
-        if (Baubles.isModLoaded()) {
-            tI = new HealthBoostBauble();
-            itemModularBauble = new ModularBauble();
-        }
 
         // EnderIO Resources
         if ((EnderIO.isModLoaded() || LOAD_ALL_CONTENT)) {

@@ -14,7 +14,6 @@ import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
 import gtPlusPlus.core.tileentities.general.TileEntityFishTrap;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
-import gtPlusPlus.core.tileentities.machines.TileEntityModularityTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
@@ -58,7 +57,6 @@ public class GuiHandler implements IGuiHandler {
             if (ID == GUI1) {
                 return new Container_ProjectTable(player.inventory, (TileEntityProjectTable) te);
             } else if (ID == GUI2) {
-                return new Container_ModularityTable(player.inventory, (TileEntityModularityTable) te);
             }
         }
 
@@ -104,8 +102,6 @@ public class GuiHandler implements IGuiHandler {
         if (te != null) {
             if (ID == GUI1) {
                 return new GUI_ProjectTable(player.inventory, (TileEntityProjectTable) te);
-            } else if (ID == GUI2) {
-                return new GUI_ModularityTable(player.inventory, (TileEntityModularityTable) te);
             }
         }
 

@@ -24,15 +24,12 @@ import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.entity.InternalEntityRegistry;
-import gtPlusPlus.core.entity.monster.EntitySickBlaze;
-import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.fluids.FluidFactory;
 import gtPlusPlus.core.handler.BookHandler;
 import gtPlusPlus.core.handler.BurnableFuelHandler;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
 import gtPlusPlus.core.handler.COMPAT_IntermodStaging;
 import gtPlusPlus.core.handler.GuiHandler;
-import gtPlusPlus.core.handler.events.BlockEventHandler;
 import gtPlusPlus.core.handler.events.EnderDragonDeathHandler;
 import gtPlusPlus.core.handler.events.EntityDeathHandler;
 import gtPlusPlus.core.handler.events.GeneralTooltipEventHandler;
@@ -110,7 +107,6 @@ public class CommonProxy {
         // Prevents my Safes being destroyed.
         Utils.registerEvent(new PickaxeBlockBreakEventHandler());
         // Block Handler for all events.
-        Utils.registerEvent(new BlockEventHandler());
         Utils.registerEvent(new GeneralTooltipEventHandler());
         // Handles Tooltips for items giving custom multiblock behaviour
         Utils.registerEvent(new SpecialBehaviourTooltipHandler());
