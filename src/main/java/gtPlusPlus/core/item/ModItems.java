@@ -1438,30 +1438,6 @@ public final class ModItems {
         MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.FOIL, ALLOY.TRINIUM_REINFORCED_STEEL);
         MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.FOIL, ELEMENT.STANDALONE.CHRONOMATIC_GLASS);
 
-        // Dense Plates
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.POTIN);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.AQUATIC_STEEL);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.BRONZE);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.OSMIRIDIUM);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.QUANTUM);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.STEEL_BLACK);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.STAINLESS_STEEL);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.EGLIN_STEEL);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.MARAGING300);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ALLOY.TALONITE);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.HYPOGEN);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.RHUGNOR);
-        MaterialUtils
-                .generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.ADVANCED_NITINOL);
-        MaterialUtils
-                .generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.ASTRAL_TITANIUM);
-        MaterialUtils.generateComponentAndAssignToAMaterial(
-                ComponentTypes.PLATEHEAVY,
-                ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.WHITE_METAL);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.BLACK_METAL);
-        MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.PLATEHEAVY, ELEMENT.STANDALONE.GRANITE);
-
         // Special Sillyness
         if (true) {
 
