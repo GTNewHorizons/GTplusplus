@@ -61,7 +61,6 @@ import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.chemistry.StandardBaseParticles;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.food.BaseItemMetaFood;
-import gtPlusPlus.core.item.general.BaseItemGrindle;
 import gtPlusPlus.core.item.general.BufferCore;
 import gtPlusPlus.core.item.general.ItemAirFilter;
 import gtPlusPlus.core.item.general.ItemBasicFirestarter;
@@ -296,7 +295,6 @@ public final class ModItems {
     public static Item itemModularBauble;
     public static Item itemCustomBook;
 
-    public static Item itemGrindleTablet;
     public static Item itemRope;
     public static Item itemFiber;
 
@@ -1022,8 +1020,6 @@ public final class ModItems {
 
         itemAirFilter = new ItemAirFilter();
         itemLavaFilter = new ItemLavaFilter();
-
-        itemGrindleTablet = new BaseItemGrindle();
 
         itemControlCore = new ItemControlCore();
 
