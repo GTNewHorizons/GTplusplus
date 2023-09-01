@@ -24,7 +24,6 @@ import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.entity.InternalEntityRegistry;
-import gtPlusPlus.core.fluids.FluidFactory;
 import gtPlusPlus.core.handler.BookHandler;
 import gtPlusPlus.core.handler.BurnableFuelHandler;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
@@ -83,7 +82,6 @@ public class CommonProxy {
         ModItems.init();
         ModBlocks.init();
         CI.preInit();
-        FluidFactory.preInit();
         COMPAT_IntermodStaging.preInit(e);
         BookHandler.run();
         // Registration of entities and renderers
@@ -98,7 +96,6 @@ public class CommonProxy {
 
     public void init(final FMLInitializationEvent e) {
         CI.init();
-        FluidFactory.init();
 
         /**
          * Register the Event Handlers.
@@ -138,7 +135,6 @@ public class CommonProxy {
     public void postInit(final FMLPostInitializationEvent e) {
         Logger.INFO("Cleaning up, doing postInit.");
         PlayerCache.initCache();
-        FluidFactory.postInit();
 
         // Make Burnables burnable
         if (!CORE.burnables.isEmpty()) {
