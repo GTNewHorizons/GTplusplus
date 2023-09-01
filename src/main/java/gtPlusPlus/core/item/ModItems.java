@@ -98,7 +98,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.everglades.GTplusplus_Everglades;
-import gtPlusPlus.xmod.cofh.HANDLER_COFH;
 import gtPlusPlus.xmod.eio.material.MaterialEIO;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
@@ -149,7 +148,6 @@ public final class ModItems {
     public static Item itemBedLocator_Base;
     public static Item itemBaseItemWithCharge;
 
-    public static Item RfEuBattery;
     public static Item itemPersonalCloakingDevice;
     public static Item itemPersonalHealingDevice;
     public static Item itemPersonalFireProofDevice;
@@ -1098,11 +1096,6 @@ public final class ModItems {
             ModItems.itemPlateBatteryAlloy = ItemUtils
                     .generateSpecialUsePlate("BatteryAlloy", "Battery Alloy", new short[] { 35, 228, 141 }, 0);
         }
-
-        // UtilsItems.generateSpawnEgg("ic2", "boatcarbon", Utils.generateSingularRandomHexValue(),
-        // Utils.generateSingularRandomHexValue());
-
-        HANDLER_COFH.initItems();
 
         /*
          * Misc Items

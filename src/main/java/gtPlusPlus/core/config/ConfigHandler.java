@@ -1,7 +1,6 @@
 package gtPlusPlus.core.config;
 
 import static gregtech.api.enums.Mods.GregTech;
-import static gtPlusPlus.core.item.general.RF2EU_Battery.rfPerEU;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.MACHINE_INFO;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.baseMaxPollutionPerSecondRocketFuelGenerator;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.baseMinPollutionPerSecondRocketFuelGenerator;
@@ -389,15 +388,6 @@ public class ConfigHandler {
                 "Can run recipes for 9 different types of machines.");
         enableMultiblock_Cyclotron = config
                 .getBoolean("enableMultiblock_Cyclotron", GregTech.ID, true, "COMET - Scientific Cyclotron.");
-
-        // Options
-        rfPerEU = config.getInt(
-                "rfUsedPerEUForUniversalBatteries",
-                "configurables",
-                4,
-                1,
-                1000,
-                "How much RF is a single unit of EU worth? (Most mods use 4:1 ratio)");
 
         // Features
         enableCustomCapes = config.getBoolean("enableSupporterCape", "features", true, "Enables Custom GT++ Cape.");
