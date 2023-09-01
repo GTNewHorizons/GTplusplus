@@ -787,14 +787,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Rocket_Engine_IV,
     Rocket_Engine_LuV,
 
-    // GT4 Shelves
-    GT4_Shelf,
-    GT4_Shelf_Iron,
-    GT4_Shelf_FileCabinet,
-    GT4_Shelf_Desk,
-    GT4_Shelf_Compartment,
-    GT4_Shelf_Large,
-
     // Hi Amp Transformers
     Transformer_HA_LV_ULV,
     Transformer_HA_MV_LV,

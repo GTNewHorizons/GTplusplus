@@ -2389,35 +2389,6 @@ public class RECIPES_Machines {
                     RECIPE_SaltPlantController);
         }
 
-        // Shelves
-        RecipeUtils.addShapedGregtechRecipe(
-                "screwWood",
-                "plateWood",
-                "screwWood",
-                CI.craftingToolHammer_Hard,
-                "frameGtWood",
-                CI.craftingToolHammer_Soft,
-                "plateWood",
-                "plateWood",
-                "plateWood",
-                GregtechItemList.GT4_Shelf.get(2));
-
-        RecipeUtils.addShapelessGregtechRecipe(
-                new ItemStack[] { GregtechItemList.GT4_Shelf.get(1) },
-                GregtechItemList.GT4_Shelf_Compartment.get(1));
-        RecipeUtils.addShapelessGregtechRecipe(
-                new ItemStack[] { GregtechItemList.GT4_Shelf_Compartment.get(1) },
-                GregtechItemList.GT4_Shelf_Desk.get(1));
-        RecipeUtils.addShapelessGregtechRecipe(
-                new ItemStack[] { GregtechItemList.GT4_Shelf_Desk.get(1) },
-                GregtechItemList.GT4_Shelf_Iron.get(1));
-        RecipeUtils.addShapelessGregtechRecipe(
-                new ItemStack[] { GregtechItemList.GT4_Shelf_Iron.get(1) },
-                GregtechItemList.GT4_Shelf_FileCabinet.get(1));
-        RecipeUtils.addShapelessGregtechRecipe(
-                new ItemStack[] { GregtechItemList.GT4_Shelf_FileCabinet.get(1) },
-                GregtechItemList.GT4_Shelf.get(1));
-
         // Cyclotron
         if (CORE.ConfigSwitches.enableMultiblock_Cyclotron) {
             RECIPE_CyclotronController = GregtechItemList.COMET_Cyclotron.get(1);
