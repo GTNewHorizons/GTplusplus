@@ -54,7 +54,6 @@ public class ItemThrowableBomb extends CoreItem {
             mLighters.put(ItemList.Tool_Lighter_Invar_Used.get(1));
             mLighters.put(ItemList.Tool_Lighter_Platinum_Full.get(1));
             mLighters.put(ItemList.Tool_Lighter_Platinum_Used.get(1));
-            mLighters.put(ItemUtils.getSimpleStack(ModItems.itemBasicFireMaker));
         }
 
         // Unlit

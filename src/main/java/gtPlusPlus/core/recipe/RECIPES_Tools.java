@@ -16,7 +16,6 @@ public class RECIPES_Tools {
     // Outputs
     public static ItemStack RECIPE_SandStone = new ItemStack(Blocks.sandstone, 2);
     public static ItemStack RECIPE_Sand = new ItemStack(Blocks.sand, 4);
-    public static ItemStack RECIPE_FireStarter = ItemUtils.getSimpleStack(ModItems.itemBasicFireMaker);
 
     public static ItemStack RECIPE_DivisionSigil;
 
@@ -118,23 +117,4 @@ public class RECIPES_Tools {
     public static String plateDoubleNiChrome = "plateDoubleNichrome";
     public static String plateIridiumAlloy = "plateAlloyIridium";
 
-    public static final void loadRecipes() {
-
-        run();
-    }
-
-    private static void run() {
-        // Basic Firemaker
-        RecipeUtils.addShapedRecipe(
-                "cropWheat",
-                "cropWheat",
-                "cropWheat",
-                ItemUtils.getSimpleStack(Items.string),
-                stickWood,
-                ItemUtils.getSimpleStack(Items.string),
-                "cropWheat",
-                "cropWheat",
-                "cropWheat",
-                RECIPE_FireStarter);
-    }
 }

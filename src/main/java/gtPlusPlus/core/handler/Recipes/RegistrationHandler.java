@@ -18,7 +18,6 @@ public class RegistrationHandler {
     }
 
     private static final void init() {
-        RECIPES_Tools.loadRecipes();
         RECIPES_General.loadRecipes();
         RECIPES_Machines.loadRecipes();
         RECIPES_MachineComponents.loadRecipes();

@@ -54,7 +54,6 @@ import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.food.BaseItemMetaFood;
 import gtPlusPlus.core.item.general.BufferCore;
 import gtPlusPlus.core.item.general.ItemAirFilter;
-import gtPlusPlus.core.item.general.ItemBasicFirestarter;
 import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
 import gtPlusPlus.core.item.general.ItemBlueprint;
 import gtPlusPlus.core.item.general.ItemControlCore;
@@ -169,9 +168,6 @@ public final class ModItems {
     public static Item shardIgnis;
     public static Item shardTerra;
     public static Item shardAqua;
-
-    // Lighter
-    public static Item itemBasicFireMaker;
 
     // Zirconium
     public static Item itemZirconiumChlorideCinterPellet;
@@ -297,7 +293,7 @@ public final class ModItems {
         ZZZ_Empty = new ItemEmpty();
     }
 
-    public static final void init() {
+    public static void init() {
 
         itemDebugScanner = new DebugScanner();
         itemMagicFeather = new ItemMagicFeather();
@@ -333,9 +329,6 @@ public final class ModItems {
         // Register Old Helium Blob, this will be replaced when held by a player.
         itemHeliumBlob = new CoreItem("itemHeliumBlob", tabMisc, ItemUtils.getSimpleStack(itemHydrogenBlob))
                 .setTextureName(GTPlusPlus.ID + ":itemHydrogenBlob");
-
-        // Register this neato device, for making some fires.
-        itemBasicFireMaker = new ItemBasicFirestarter();
 
         // Register Rope
         itemFiber = new CoreItem("itemFiber", "Plant Fiber", tabMisc);
