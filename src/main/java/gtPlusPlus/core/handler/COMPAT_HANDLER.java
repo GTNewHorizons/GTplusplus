@@ -117,9 +117,6 @@ public class COMPAT_HANDLER {
         Logger.INFO("Registering Materials with OreDict.");
         // In-house
 
-        // tools
-        GT_OreDictUnificator.registerOre("craftingToolSandHammer", new ItemStack(ModItems.itemSandstoneHammer));
-
         for (int i = 1; i <= 10; i++) {
             GT_OreDictUnificator.registerOre(
                     "bufferCore_" + GT_Values.VN[i - 1],

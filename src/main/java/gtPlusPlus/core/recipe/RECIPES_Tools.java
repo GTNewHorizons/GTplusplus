@@ -14,10 +14,6 @@ import gtPlusPlus.core.util.minecraft.RecipeUtils;
 public class RECIPES_Tools {
 
     // Outputs
-    public static ItemStack RECIPE_StaballoyPickaxe = new ItemStack(ModItems.itemStaballoyPickaxe);
-    public static ItemStack RECIPE_StaballoyAxe = new ItemStack(ModItems.itemStaballoyAxe);
-    public static ItemStack RECIPE_SandstoneHammer = new ItemStack(ModItems.itemSandstoneHammer);
-    // public static ItemStack RECIPE_StaballoyIngot = new ItemStack(ModItems.itemIngotStaballoy);
     public static ItemStack RECIPE_SandStone = new ItemStack(Blocks.sandstone, 2);
     public static ItemStack RECIPE_Sand = new ItemStack(Blocks.sand, 4);
     public static ItemStack RECIPE_FireStarter = ItemUtils.getSimpleStack(ModItems.itemBasicFireMaker);
@@ -118,9 +114,6 @@ public class RECIPES_Tools {
     public static String craftingToolKnife = "craftingToolKnife";
     public static String craftingToolScrewdriver = "craftingToolScrewdriver";
 
-    public static ItemStack sandHammer = new ItemStack(ModItems.itemSandstoneHammer, 1, OreDictionary.WILDCARD_VALUE);
-    public static String craftingToolSandHammer = "craftingToolSandHammer";
-
     public static ItemStack personalCloakingDevice = ItemUtils.getSimpleStack(ModItems.itemPersonalCloakingDevice);
     public static String plateDoubleNiChrome = "plateDoubleNichrome";
     public static String plateIridiumAlloy = "plateAlloyIridium";
@@ -131,61 +124,6 @@ public class RECIPES_Tools {
     }
 
     private static void run() {
-        // Staballoy Pickaxe
-        RecipeUtils.addShapedRecipe(
-                plateStaballoy,
-                plateStaballoy,
-                ingotStaballoy,
-                craftingToolFile,
-                stickTungsten,
-                craftingToolHardHammer,
-                craftingToolWrench,
-                stickTungsten,
-                craftingToolHardHammer,
-                RECIPE_StaballoyPickaxe);
-
-        // Staballoy Axe
-        RecipeUtils.addShapedRecipe(
-                plateStaballoy,
-                ingotStaballoy,
-                craftingToolHardHammer,
-                plateStaballoy,
-                stickTungsten,
-                craftingToolHardHammer,
-                craftingToolFile,
-                stickTungsten,
-                craftingToolWrench,
-                RECIPE_StaballoyAxe);
-
-        // Cobble to Sand
-        RecipeUtils.addShapedRecipe(
-                CobbleStone,
-                CobbleStone,
-                CobbleStone,
-                CobbleStone,
-                sandHammer,
-                CobbleStone,
-                CobbleStone,
-                CobbleStone,
-                CobbleStone,
-                RECIPE_Sand);
-
-        // Sand to Sandstone
-        RecipeUtils.addShapedRecipe(Sand, Sand, Sand, Sand, sandHammer, Sand, Sand, Sand, Sand, RECIPE_SandStone);
-
-        // Sandstone Hammer
-        RecipeUtils.addShapedRecipe(
-                plateElectrum,
-                ingotElectrum,
-                plateElectrum,
-                craftingToolScrewdriver,
-                stickBronze,
-                craftingToolHardHammer,
-                null,
-                stickSteel,
-                null,
-                RECIPE_SandstoneHammer);
-
         // Basic Firemaker
         RecipeUtils.addShapedRecipe(
                 "cropWheat",

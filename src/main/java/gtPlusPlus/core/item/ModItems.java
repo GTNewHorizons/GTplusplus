@@ -76,9 +76,6 @@ import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
-import gtPlusPlus.core.item.tool.misc.SandstoneHammer;
-import gtPlusPlus.core.item.tool.staballoy.StaballoyAxe;
-import gtPlusPlus.core.item.tool.staballoy.StaballoyPickaxe;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
@@ -131,13 +128,7 @@ public final class ModItems {
     public static Item itemDustVibrantAlloy;
     public static Item itemDustConductiveIron;
 
-    // Staballoy
-    public static Item itemStaballoyPickaxe;
-    public static Item itemStaballoyAxe;
-    // Tools
-    public static Item itemSandstoneHammer;
     // Machine Related
-    public static Item itemBufferCore0;
     // Material related
     public static Item itemStickyRubber;
     public static Item itemIngotBatteryAlloy;
@@ -1096,21 +1087,6 @@ public final class ModItems {
             ModItems.itemPlateBatteryAlloy = ItemUtils
                     .generateSpecialUsePlate("BatteryAlloy", "Battery Alloy", new short[] { 35, 228, 141 }, 0);
         }
-
-        /*
-         * Misc Items
-         */
-
-        // Staballoy Equipment
-        itemStaballoyPickaxe = new StaballoyPickaxe("itemStaballoyPickaxe", STABALLOY)
-                .setCreativeTab(AddToCreativeTab.tabTools);
-        GameRegistry.registerItem(itemStaballoyPickaxe, itemStaballoyPickaxe.getUnlocalizedName());
-        itemStaballoyAxe = new StaballoyAxe("itemStaballoyAxe", STABALLOY).setCreativeTab(AddToCreativeTab.tabTools);
-        GameRegistry.registerItem(itemStaballoyAxe, itemStaballoyAxe.getUnlocalizedName());
-
-        // Sandstone Hammer
-        itemSandstoneHammer = new SandstoneHammer("itemSandstoneHammer").setCreativeTab(AddToCreativeTab.tabTools);
-        GameRegistry.registerItem(itemSandstoneHammer, itemSandstoneHammer.getUnlocalizedName());
 
         // Buffer Cores!
         Item itemBufferCore;
