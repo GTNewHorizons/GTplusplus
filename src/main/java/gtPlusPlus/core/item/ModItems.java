@@ -132,7 +132,6 @@ public final class ModItems {
     public static Item itemStickyRubber;
     public static Item itemIngotBatteryAlloy;
     public static Item itemPlateBatteryAlloy;
-    public static Item itemHeliumBlob;
     public static Item itemHydrogenBlob;
 
     public static Item itemBedLocator_Base;
@@ -327,8 +326,6 @@ public final class ModItems {
         itemHydrogenBlob = new CoreItem("itemHydrogenBlob", "Mysterious Hydrogen Blob", tabMisc)
                 .setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         // Register Old Helium Blob, this will be replaced when held by a player.
-        itemHeliumBlob = new CoreItem("itemHeliumBlob", tabMisc, ItemUtils.getSimpleStack(itemHydrogenBlob))
-                .setTextureName(GTPlusPlus.ID + ":itemHydrogenBlob");
 
         // Register Rope
         itemFiber = new CoreItem("itemFiber", "Plant Fiber", tabMisc);
