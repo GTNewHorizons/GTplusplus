@@ -157,6 +157,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
                                                     Energy).casingIndex(getCasingTextureIndex()).dot(1).build(),
                                             buildHatchAdder(GregtechMTE_ElementalDuplicator.class)
                                                     .hatchClass(GT_MetaTileEntity_Hatch_ElementalDataOrbHolder.class)
+                                                    .shouldReject(x -> x.mReplicatorDataOrbHatches.size() >= 1)
                                                     .adder(GregtechMTE_ElementalDuplicator::addDataOrbHatch)
                                                     .casingIndex(getCasingTextureIndex()).dot(1).build(),
                                             onElementPass(
