@@ -240,7 +240,6 @@ public class RECIPES_Machines {
 
         initModItems();
         tieredMachineHulls();
-        controlCores();
         energyCores();
         wirelessChargers();
         largeArcFurnace();
@@ -2933,76 +2932,6 @@ public class RECIPES_Machines {
         }
 
         Logger.INFO("Done loading recipes for the Various machine blocks.");
-    }
-
-    private static void controlCores() {
-
-        Material[] aMat_A = new Material[] { ALLOY.POTIN, ALLOY.ZIRCONIUM_CARBIDE, ALLOY.TANTALLOY_61,
-                ALLOY.INCONEL_792, ALLOY.STABALLOY, ALLOY.TALONITE, ALLOY.HASTELLOY_N, ALLOY.HG1223, ALLOY.LAFIUM,
-                ALLOY.PIKYONIUM };
-        Material[] aMat_B = new Material[] { ALLOY.TUMBAGA, ALLOY.SILICON_CARBIDE, ALLOY.EGLIN_STEEL, ALLOY.NICHROME,
-                ALLOY.TUNGSTEN_CARBIDE, ALLOY.STELLITE, ALLOY.HASTELLOY_C276, ALLOY.NITINOL_60, ALLOY.ZERON_100,
-                ALLOY.CINOBITE };
-
-        Item aBaseCore = ModItems.itemControlCore;
-        ItemStack[] aInputPrevTier = new ItemStack[] {
-                ItemUtils.getItemStackFromFQRN("miscutils:item.itemBufferCore2", 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 0, 1), ItemUtils.simpleMetaStack(aBaseCore, 1, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 2, 1), ItemUtils.simpleMetaStack(aBaseCore, 3, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 4, 1), ItemUtils.simpleMetaStack(aBaseCore, 5, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 6, 1), ItemUtils.simpleMetaStack(aBaseCore, 7, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 8, 1), };
-        ItemStack[] aOutput = new ItemStack[] { ItemUtils.simpleMetaStack(aBaseCore, 0, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 1, 1), ItemUtils.simpleMetaStack(aBaseCore, 2, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 3, 1), ItemUtils.simpleMetaStack(aBaseCore, 4, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 5, 1), ItemUtils.simpleMetaStack(aBaseCore, 6, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 7, 1), ItemUtils.simpleMetaStack(aBaseCore, 8, 1),
-                ItemUtils.simpleMetaStack(aBaseCore, 9, 1), };
-
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.machineHull_HV, aOutput[1], aMat_A[1].getGear(2), aMat_B[2].getPlateDouble(8),
-                        ItemUtils.getItemStackFromFQRN("miscutils:item.itemBufferCore" + ("1"), 2),
-                        ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(2), 5) },
-                aMat_B[3].getFluidStack(144 * 8), // Input Fluid
-                GregtechItemList.Hatch_Control_Core.get(1),
-                60 * 20 * 5,
-                MaterialUtils.getVoltageForTier(3));
-
-        for (int i = 0; i < 10; i++) {
-            ItemStack aPlateStack = aMat_A[i].getPlateDouble(8);
-            ItemStack aGearStack = aMat_B[i].getGear(2);
-            ItemStack aRodStack = aMat_A[i].getLongRod(8);
-            ItemStack aScrewStack = aMat_B[i].getScrew(32);
-
-            if (!ItemUtils.checkForInvalidItems(aPlateStack)) {
-                aPlateStack = aMat_A[i].getPlate(16);
-                if (!ItemUtils.checkForInvalidItems(aPlateStack)) {
-                    aPlateStack = aMat_B[i].getPlateDouble(8);
-                    if (!ItemUtils.checkForInvalidItems(aPlateStack)) {
-                        aPlateStack = aMat_B[i].getPlate(16);
-                    }
-                }
-            }
-            if (!ItemUtils.checkForInvalidItems(aGearStack)) {
-                aGearStack = aMat_A[i].getGear(4);
-            }
-            if (!ItemUtils.checkForInvalidItems(aRodStack)) {
-                aRodStack = aMat_B[i].getLongRod(16);
-            }
-            if (!ItemUtils.checkForInvalidItems(aScrewStack)) {
-                aScrewStack = aMat_A[i].getScrew(32);
-            }
-
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { CI.getEnergyCore(i, 4), aPlateStack, aGearStack, aRodStack, aScrewStack,
-                            ItemUtils.getItemStackOfAmountFromOreDict(
-                                    CI.getTieredCircuitOreDictName((int) (4 + Math.ceil((double) i / (double) 2))),
-                                    i * 2) },
-                    CI.getTieredFluid(i, 144 * 4 * (i + 1)), // Input Fluid
-                    aOutput[i],
-                    60 * 20 * 1 * (i + 1),
-                    MaterialUtils.getVoltageForTier(i));
-        }
     }
 
     private static void energyCores() {

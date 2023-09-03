@@ -60,17 +60,6 @@ public class AchievementHandler {
                 "",
                 true);
 
-        // Useful Info
-        boolean cores = CORE.ConfigSwitches.requireControlCores;
-        if (cores || GregtechMeta_MultiBlockBase.DEBUG_DISABLE_CORES_TEMPORARILY) {
-            this.registerAchievement(
-                    "hatch.control",
-                    -2,
-                    -2,
-                    GregtechItemList.Hatch_Control_Core.get(1),
-                    aBaseAchievementName,
-                    false);
-        }
         this.registerAchievement(
                 "hatch.dynamo.buffered",
                 2,
@@ -84,7 +73,7 @@ public class AchievementHandler {
                 -4,
                 -2,
                 GregtechItemList.Industrial_AlloyBlastSmelter.get(1),
-                cores ? "hatch.control" : aBaseAchievementName,
+                aBaseAchievementName,
                 true);
 
         // Material Advancement

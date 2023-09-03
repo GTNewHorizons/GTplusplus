@@ -5,16 +5,13 @@ import static gregtech.api.enums.Mods.Forestry;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Thaumcraft;
-import static gtPlusPlus.core.creative.AddToCreativeTab.tabMachines;
 import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
 import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -56,7 +53,6 @@ import gtPlusPlus.core.item.general.BufferCore;
 import gtPlusPlus.core.item.general.ItemAirFilter;
 import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
 import gtPlusPlus.core.item.general.ItemBlueprint;
-import gtPlusPlus.core.item.general.ItemControlCore;
 import gtPlusPlus.core.item.general.ItemEmpty;
 import gtPlusPlus.core.item.general.ItemGenericToken;
 import gtPlusPlus.core.item.general.ItemHalfCompleteCasings;
@@ -223,8 +219,6 @@ public final class ModItems {
     public static GregtechPump toolGregtechPump;
 
     public static ItemGenericToken itemGenericToken;
-
-    public static Item itemControlCore;
 
     public static ItemStack itemHotTitaniumIngot;
 
@@ -853,8 +847,6 @@ public final class ModItems {
 
         itemAirFilter = new ItemAirFilter();
         itemLavaFilter = new ItemLavaFilter();
-
-        itemControlCore = new ItemControlCore();
 
         // Chemistry
         new CoalTar();
