@@ -1,15 +1,8 @@
 package gtPlusPlus.core.util;
 
 import java.awt.*;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -17,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.xml.bind.DatatypeConverter;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -55,12 +46,10 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
-import gtPlusPlus.core.util.sys.SystemUtils;
 import ic2.core.Ic2Items;
 import ic2.core.init.InternalName;
 import ic2.core.item.resources.ItemCell;
@@ -656,28 +645,7 @@ public class Utils {
         return temp;
     }
 
-    public static ToolMaterial generateToolMaterial(final Material material) {
-        final String name = material.getLocalizedName();
-        final int harvestLevel = material.vHarvestLevel;
-        final int durability = (int) material.vDurability;
-        final float damage = material.vToolQuality;
-        final int efficiency = material.vToolQuality;
-        // int enchantability = material.mEnchantmentToolsLevel;
-        Logger.INFO(
-                "ToolMaterial stats for " + material.getLocalizedName()
-                        + " | harvestLevel:"
-                        + harvestLevel
-                        + " | durability:"
-                        + durability
-                        + " | toolQuality:"
-                        + damage
-                        + " | toolSpeed:"
-                        + damage);
-        final ToolMaterial temp = EnumHelper.addToolMaterial(name, harvestLevel, durability, efficiency, damage, 0);
-        return temp;
-    }
-
-    public static enum Versioning {
+    public enum Versioning {
 
         EQUAL(0),
         NEWER(1),
@@ -685,7 +653,7 @@ public class Utils {
 
         private final int versioningInfo;
 
-        private Versioning(final int versionStatus) {
+        Versioning(final int versionStatus) {
             this.versioningInfo = versionStatus;
         }
 
@@ -743,13 +711,12 @@ public class Utils {
                     Logger.INFO("WARNING: String for written Book too long! -> " + aPages[i]);
                     GT_Log.err.println(
                             new StringBuilder().append("WARNING: String for written Book too long! -> ")
-                                    .append(aPages[i]).toString());
+                                    .append(aPages[i]));
                 }
             } else {
                 Logger.INFO("WARNING: Too much Pages for written Book! -> " + aTitle);
                 GT_Log.err.println(
-                        new StringBuilder().append("WARNING: Too much Pages for written Book! -> ").append(aTitle)
-                                .toString());
+                        new StringBuilder().append("WARNING: Too much Pages for written Book! -> ").append(aTitle));
                 break;
             }
         }
@@ -762,74 +729,15 @@ public class Utils {
         rStack.setTagCompound(tNBT);
         GT_Log.out.println(
                 new StringBuilder().append("GT++_Mod: Added Book to Book++ List  -  Mapping: '").append(aMapping)
-                        .append("'  -  Name: '").append(aTitle).append("'  -  Author: '").append(aAuthor).append("'")
-                        .toString());
+                        .append("'  -  Name: '").append(aTitle).append("'  -  Author: '").append(aAuthor).append("'"));
         NBTUtils.createIntegerTagCompound(rStack, "stats", "mMeta", vMeta);
         CORE.sBookList.put(aMapping, rStack);
         Logger.INFO("Creating book: " + aTitle + " by " + aAuthor + ". Using Meta " + vMeta + ".");
         return GT_Utility.copy(new Object[] { rStack });
     }
 
-    public static SecureRandom generateSecureRandom() {
-        SecureRandom secRan;
-        String secRanType;
-
-        if (SystemUtils.isWindows()) {
-            secRanType = "Windows-PRNG";
-        } else {
-            secRanType = "NativePRNG";
-        }
-        try {
-            secRan = SecureRandom.getInstance(secRanType);
-            // Default constructor would have returned insecure SHA1PRNG algorithm, so make an explicit call.
-            byte[] b = new byte[64];
-            secRan.nextBytes(b);
-            return secRan;
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }
-    }
-
-    public static String calculateChecksumMD5(Object bytes) {
-        byte[] result = new byte[] {};
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutput out = null;
-        try {
-            out = new ObjectOutputStream(bos);
-            out.writeObject(bytes);
-            out.flush();
-            result = bos.toByteArray();
-        } catch (IOException e) {} finally {
-            try {
-                bos.close();
-            } catch (IOException e) {}
-        }
-        return calculateChecksumMD5(result);
-    }
-
-    public static String calculateChecksumMD5(byte[] bytes) {
-        MessageDigest md;
-        try {
-            md = MessageDigest.getInstance("MD5");
-            md.update(bytes);
-            byte[] digest = md.digest();
-            String myHash = DatatypeConverter.printHexBinary(digest).toUpperCase();
-            return myHash;
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }
-    }
-
     public static long getMillisSince(long aStartTime, long aCurrentTime) {
         return (aCurrentTime - aStartTime);
-    }
-
-    public static long getSecondsFromMillis(long aMillis) {
-        return (aMillis / 1000);
-    }
-
-    public static long getTicksFromSeconds(long aSeconds) {
-        return (aSeconds * 20);
     }
 
     public static byte getTier(long l) {

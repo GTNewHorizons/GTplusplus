@@ -100,13 +100,10 @@ import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechItems;
 
 public final class ModItems {
 
-    public static ToolMaterial STABALLOY = EnumHelper.addToolMaterial("Staballoy", 3, 2500, 7, 1.0F, 18);
-
     public static Item ZZZ_Empty;
     public static Item AAA_Broken;
 
     public static Item itemAlkalusDisk;
-    public static Item itemDebugShapeSpawner;
     public static ItemCustomSpawnEgg itemCustomSpawnEgg;
 
     // EnderIO
