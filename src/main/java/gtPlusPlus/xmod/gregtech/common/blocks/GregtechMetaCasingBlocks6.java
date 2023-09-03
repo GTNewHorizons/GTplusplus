@@ -20,8 +20,6 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.*;
 
 public class GregtechMetaCasingBlocks6 extends GregtechMetaCasingBlocksAbstract {
 
-
-
     public static boolean mConnectedMachineTextures = false;
     CasingTextureHandler6 TextureHandler = new CasingTextureHandler6();
 
