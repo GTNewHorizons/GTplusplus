@@ -128,7 +128,6 @@ public final class ModItems {
 
     // Machine Related
     // Material related
-    public static Item itemStickyRubber;
     public static Item itemIngotBatteryAlloy;
     public static Item itemPlateBatteryAlloy;
     public static Item itemHydrogenBlob;
@@ -272,8 +271,6 @@ public final class ModItems {
     public static MonsterKillerBaseBauble itemAmuletMonsterKiller_Nether;
     public static MonsterKillerBaseBauble itemAmuletMonsterKiller_Infernal;
 
-    public static CoreItem itemExquisiteIndustrialDiamond;
-
     public static BaseItemMetaFood itemMetaFood;
 
     public static ItemMagicFeather itemMagicFeather;
@@ -312,13 +309,6 @@ public final class ModItems {
 
         // Register meta item, because we need them for everything.
         MetaGeneratedGregtechItems.INSTANCE.generateMetaItems();
-
-        // Some Simple forms of materials
-        itemStickyRubber = new Item().setUnlocalizedName("itemStickyRubber").setCreativeTab(tabMachines)
-                .setTextureName(GTPlusPlus.ID + ":itemStickyRubber");
-        GameRegistry.registerItem(itemStickyRubber, "itemStickyRubber");
-        GT_OreDictUnificator
-                .registerOre("ingotRubber", ItemUtils.getItemStackFromFQRN(GTPlusPlus.ID + ":itemStickyRubber", 1));
 
         // Register Hydrogen Blobs first, so we can replace old helium blobs.
         itemHydrogenBlob = new CoreItem("itemHydrogenBlob", "Mysterious Hydrogen Blob", tabMisc)
@@ -824,21 +814,6 @@ public final class ModItems {
         if (!FluidRegistry.isFluidRegistered("xpjuice")) {
             FluidUtils.generateFluidNoPrefix("xpjuice", "xpjuice", 0, new short[] { 50, 150, 50, 100 });
         }
-
-        // Industrial Diamonds
-        itemExquisiteIndustrialDiamond = new CoreItem(
-                "IndustrialDiamondExquisite",
-                "High Quality Industrial Diamond",
-                tabMisc);
-        ItemStack tempStack = itemExquisiteIndustrialDiamond.getStack();
-        ItemUtils.addItemToOreDictionary(tempStack, "gemDiamond");
-        ItemUtils.addItemToOreDictionary(tempStack, "craftingIndustrialDiamond");
-        ItemUtils.addItemToOreDictionary(tempStack, "gemExquisiteDiamond");
-        ItemUtils.addItemToOreDictionary(tempStack, "craftingExquisiteIndustrialDiamond");
-
-        /*
-         * Decayable Materials
-         */
 
         dustNeptunium238 = new DustDecayable(
                 "dustNeptunium238",
