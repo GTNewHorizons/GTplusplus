@@ -1,26 +1,7 @@
 package gtPlusPlus.core.recipe;
 
-import static gregtech.api.enums.Mods.BartWorks;
-import static gregtech.api.enums.Mods.COFHCore;
-import static gregtech.api.enums.Mods.EternalSingularity;
-import static gregtech.api.enums.Mods.GoodGenerator;
-import static gregtech.api.enums.Mods.GregTech;
-import static gregtech.api.enums.Mods.Railcraft;
-import static gregtech.api.enums.Mods.RemoteIO;
-import static gregtech.api.enums.Mods.ZTones;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.github.technus.tectech.recipe.TT_recipeAdder;
 import com.github.technus.tectech.thing.CustomItemList;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -39,18 +20,23 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
-import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
-import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import static gregtech.api.enums.Mods.*;
 
 public class RECIPES_Machines {
 
@@ -245,7 +231,6 @@ public class RECIPES_Machines {
         largeArcFurnace();
         industrialVacuumFurnace();
         fakeMachineCasingCovers();
-        ztonesCoverRecipes();
         overflowValveCovers();
         superBuses();
         roundRobinators();
@@ -3255,34 +3240,6 @@ public class RECIPES_Machines {
         for (int i = 0; i < aMaxTier; i++) {
             GT_Values.RA
                     .addCutterRecipe(CI.getTieredMachineCasing(i), aTier[i], null, 20 * 5 * i, (int) GT_Values.V[i]);
-        }
-    }
-
-    private static void ztonesCoverRecipes() {
-        if (!ZTones.isModLoaded()) {
-            return;
-        }
-        Class ModBlocksClass = ReflectionUtils.getClass("com.riciJak.Ztones.init.ModBlocks");
-        Block agon = ReflectionUtils.getFieldValue(ReflectionUtils.getField(ModBlocksClass, "agonBlock"));
-        Block korp = ReflectionUtils.getFieldValue(ReflectionUtils.getField(ModBlocksClass, "korpBlock"));
-        Block jelt = ReflectionUtils.getFieldValue(ReflectionUtils.getField(ModBlocksClass, "jeltBlock"));
-        Block bitt = ReflectionUtils.getFieldValue(ReflectionUtils.getField(ModBlocksClass, "bittBlock"));
-        Block iszm = ReflectionUtils.getFieldValue(ReflectionUtils.getField(ModBlocksClass, "iszmBlock"));
-
-        // "agon", "iszm", "korp", "jelt", "bitt"
-
-        ItemStack[] aBlocks = new ItemStack[] { ItemUtils.getSimpleStack(agon), ItemUtils.getSimpleStack(iszm),
-                ItemUtils.getSimpleStack(korp), ItemUtils.getSimpleStack(jelt), ItemUtils.getSimpleStack(bitt) };
-        MetaCustomCoverItem[] aCovers = new MetaCustomCoverItem[] { CoverManager.Cover_Agon, CoverManager.Cover_Iszm,
-                CoverManager.Cover_Korp, CoverManager.Cover_Jelt, CoverManager.Cover_Bitt };
-
-        ItemStack aInputs[][] = new ItemStack[5][16];
-        ItemStack aOutputs[][] = new ItemStack[5][16];
-        for (int a = 0; a < 5; a++) {
-            for (int i = 0; i < 16; i++) {
-                aInputs[a][i] = ItemUtils.simpleMetaStack(aBlocks[a].getItem(), i, 1);
-                aOutputs[a][i] = ItemUtils.simpleMetaStack(aCovers[a], i, 9);
-            }
         }
     }
 
