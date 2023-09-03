@@ -58,7 +58,6 @@ import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
 import gtPlusPlus.core.item.general.ItemBlueprint;
 import gtPlusPlus.core.item.general.ItemControlCore;
 import gtPlusPlus.core.item.general.ItemEmpty;
-import gtPlusPlus.core.item.general.ItemGemShards;
 import gtPlusPlus.core.item.general.ItemGenericToken;
 import gtPlusPlus.core.item.general.ItemHalfCompleteCasings;
 import gtPlusPlus.core.item.general.ItemLavaFilter;
@@ -209,7 +208,6 @@ public final class ModItems {
     public static Item itemCircuitLFTR;
     public static Item itemBasicTurbine;
 
-    public static Item itemGemShards;
     public static Item itemHalfCompleteCasings;
 
     public static Item itemSulfuricPotion;
@@ -336,17 +334,6 @@ public final class ModItems {
 
         itemBlueprintBase = new ItemBlueprint("itemBlueprint");
 
-        itemGemShards = new ItemGemShards(
-                "itemGemShards",
-                "Gem Shards",
-                AddToCreativeTab.tabMisc,
-                32,
-                0,
-                "They glitter in the light",
-                EnumRarity.rare,
-                EnumChatFormatting.GRAY,
-                false,
-                Utils.rgbtoHexValue(182, 114, 18)).setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         itemHalfCompleteCasings = new ItemHalfCompleteCasings(
                 "itemHalfCompleteCasings",
                 AddToCreativeTab.tabMisc,
