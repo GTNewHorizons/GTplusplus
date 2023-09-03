@@ -20,8 +20,6 @@ import gtPlusPlus.core.block.machine.Machine_ProjectTable;
 import gtPlusPlus.core.block.machine.Machine_RoundRobinator;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox;
 import gtPlusPlus.core.block.machine.VolumetricFlaskSetter;
-import gtPlusPlus.core.block.machine.bedrock.Mining_Head_Fake;
-import gtPlusPlus.core.block.machine.bedrock.Mining_Pipe_Fake;
 import gtPlusPlus.core.fluids.FluidRegistryHandler;
 
 public final class ModBlocks {
@@ -29,17 +27,9 @@ public final class ModBlocks {
     public static Block blockRoundRobinator;
     public static Block blockCircuitProgrammer;
     public static Block blockVolumetricFlaskSetter;
-    public static Block blockFakeMiningPipe;
-    public static Block blockFakeMiningHead;
 
     public static Block blockFishTrap;
     public static Block blockDecayablesChest;
-
-    // Blocks
-    // public static Block blockBloodSteel;
-    // public static Block blockStaballoy;
-    // WIP TODO public static Block blockToolBuilder;
-    public static Block blockGriefSaver;
 
     public static Block blockCasingsMisc;
     public static Block blockCasings2Misc;
@@ -53,16 +43,10 @@ public final class ModBlocks {
     public static Block blockCustomMachineCasings;
     public static Block blockCustomPipeGearCasings;
 
-    public static Block blockMetaTileEntity;
-    public static Block blockNHG;
-    public static Block blockCharger;
-
     public static Block MatterFabricatorEffectBlock;
 
     public static Fluid fluidSludge = new Fluid("fluid.sludge");
     public static Block blockFluidSludge;
-
-    public static Block blockOreFluorite;
 
     public static Block blockMiningExplosive;
 
@@ -109,14 +93,10 @@ public final class ModBlocks {
         blockCompressedObsidian = new BlockCompressedObsidian();
         blockNet = new BlockNet();
 
-        blockFakeMiningPipe = new Mining_Pipe_Fake();
-        blockFakeMiningHead = new Mining_Head_Fake();
-
         blockCircuitProgrammer = new CircuitProgrammer();
 
         blockDecayablesChest = new DecayablesChest();
 
-        // blockCustomSuperLight = new BlockSuperLight();
         blockCustomJukebox = new Machine_SuperJukebox();
 
         blockPooCollector = new Machine_PooCollector();
