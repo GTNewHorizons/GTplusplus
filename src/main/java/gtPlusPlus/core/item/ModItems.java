@@ -368,20 +368,13 @@ public final class ModItems {
             MaterialGenerator.generate(ELEMENT.getInstance().THALLIUM);
 
             // RADIOACTIVE ELEMENTS
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().TECHNETIUM, false); // LFTR byproduct
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().POLONIUM, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().ASTATINE, false);
             // MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().RADON, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().FRANCIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().RADIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().PROMETHIUM, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().ACTINIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().PROTACTINIUM, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().NEPTUNIUM, false); // LFTR byproduct
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().CURIUM, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().BERKELIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().CALIFORNIUM, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().EINSTEINIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().FERMIUM, false);
 
             // Nuclear Isotopes
@@ -407,11 +400,6 @@ public final class ModItems {
             // in radioisotope thermoelectric generators (RTGs)
             // and radioisotope heater units - one gram of plutonium-238 generates approximately 0.5 W of thermal power.
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().PLUTONIUM238, false);
-
-            // RTG Fuel Materials
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().STRONTIUM90, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().POLONIUM210, false);
-            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().AMERICIUM241, false);
 
             // Custom Materials that will have standalone refinery processes
             MaterialGenerator.generate(ELEMENT.STANDALONE.ADVANCED_NITINOL, false);
@@ -844,22 +832,6 @@ public final class ModItems {
                         "Result: Uranium 233(" + StringUtils.superscript("233U") + ")" },
                 ELEMENT.getInstance().URANIUM233.getDust(1).getItem(),
                 6);
-        dustTechnetium99 = new DustDecayable(
-                "dustTechnetium99",
-                ELEMENT.getInstance().TECHNETIUM.getRgbAsHex(),
-                164500,
-                new String[] { "" + StringUtils.superscript("99Tc"),
-                        "Result: Ruthenium 99(" + StringUtils.superscript("99Ru") + ")" },
-                ELEMENT.getInstance().RUTHENIUM.getDust(1).getItem(),
-                4);
-        dustTechnetium99M = new DustDecayable(
-                "dustTechnetium99M",
-                ELEMENT.getInstance().TECHNETIUM.getRgbAsHex(),
-                8570,
-                new String[] { "" + StringUtils.superscript("99ᵐTc"),
-                        "Result: Technicium 99 (" + StringUtils.superscript("99Tc") + ")" },
-                dustTechnetium99,
-                4);
         dustMolybdenum99 = new DustDecayable(
                 "dustMolybdenum99",
                 ELEMENT.getInstance().MOLYBDENUM.getRgbAsHex(),
