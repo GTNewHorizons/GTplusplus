@@ -24,33 +24,16 @@ public class NuclearChem extends ItemPackage {
 
     public static ItemNuclearChemBase mNuclearChemItem1;
 
-    public static ItemStack mResidueUranium;
-    public static ItemStack mResiduePlutonium;
-    public static ItemStack mResidueFluorides;
-    public static ItemStack mResidueNobles;
 
     @Override
     public void items() {
 
         mNuclearChemItem1 = new ItemNuclearChemBase();
-        registerItemStacks();
         registerOreDict();
-    }
-
-    public void registerItemStacks() {
-
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 0, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 1, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 2, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 3, 1);
     }
 
     public void registerOreDict() {
 
-        ItemUtils.addItemToOreDictionary(mResidueUranium, "dustResidueUranium");
-        ItemUtils.addItemToOreDictionary(mResiduePlutonium, "dustResiduePlutonium");
-        ItemUtils.addItemToOreDictionary(mResidueFluorides, "dustResidueFluoride");
-        ItemUtils.addItemToOreDictionary(mResidueNobles, "dustResidueNoble");
     }
 
     @Override

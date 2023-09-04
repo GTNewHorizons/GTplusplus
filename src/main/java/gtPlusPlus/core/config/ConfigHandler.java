@@ -13,7 +13,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropFluoriteOre;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIngotTooltips;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIntegration;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableIC2Recipes;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableZombieReinforcement;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.dumpItemAndBlockData;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeBatteryAlloy;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeDivisionSigilRecipe;
@@ -391,11 +390,7 @@ public class ConfigHandler {
 
         // Features
         enableCustomCapes = config.getBoolean("enableSupporterCape", "features", true, "Enables Custom GT++ Cape.");
-        disableZombieReinforcement = config.getBoolean(
-                "disableZombieReinforcement",
-                "features",
-                false,
-                "Disables Zombie Reinforcement on hard difficutly.");
+
         enableWatchdogBGM = config.getInt(
                 "enableWatchdogBGM",
                 "features",
