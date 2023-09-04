@@ -1,12 +1,10 @@
 package gtPlusPlus.core.item;
 
-import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.Forestry;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Thaumcraft;
 import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
-import static gtPlusPlus.core.lib.CORE.LOAD_ALL_CONTENT;
 
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;

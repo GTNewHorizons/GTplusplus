@@ -1,13 +1,9 @@
 package gtPlusPlus.xmod.bartcrops.crops;
 
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.xmod.bartcrops.abstracts.BaseAestheticCrop;
 import ic2.api.crops.ICropTile;
 

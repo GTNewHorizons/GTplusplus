@@ -1,10 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.covers;
 
-import gtPlusPlus.core.lib.VanillaColours;
-import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
 import gtPlusPlus.xmod.gregtech.common.items.covers.MetaItemCoverCasings;
-
-import static gregtech.api.enums.Mods.ZTones;
 
 public class CoverManager {
 

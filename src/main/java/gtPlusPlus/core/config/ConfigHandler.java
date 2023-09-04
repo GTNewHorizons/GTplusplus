@@ -1,13 +1,14 @@
 package gtPlusPlus.core.config;
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.common.config.Configuration;
+import static gregtech.api.enums.Mods.GregTech;
+import static gtPlusPlus.core.lib.CORE.*;
+import static gtPlusPlus.core.lib.CORE.ConfigSwitches.*;
 
 import java.io.File;
 
-import static gregtech.api.enums.Mods.GregTech;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.*;
-import static gtPlusPlus.core.lib.CORE.*;
+import net.minecraftforge.common.config.Configuration;
+
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
 

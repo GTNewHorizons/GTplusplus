@@ -10,7 +10,7 @@ import gtPlusPlus.core.util.minecraft.MaterialUtils;
 
 public final class ELEMENT {
 
-    public static final String[] NAMES = new String[] { "Hydrogen", "Helium"};
+    public static final String[] NAMES = new String[] { "Hydrogen", "Helium" };
 
     // First 50 Elements
     public final Material HYDROGEN = MaterialUtils.generateMaterialFromGtENUM(Materials.Hydrogen);
@@ -458,7 +458,6 @@ public final class ELEMENT {
             StringUtils.superscript("238Pu"),
             2,
             false); // Not a GT Inherited Material
-
 
     public final Material MAGIC = MaterialUtils
             .generateMaterialFromGtENUM(Materials.Magic, new short[] { 10, 185, 140 });

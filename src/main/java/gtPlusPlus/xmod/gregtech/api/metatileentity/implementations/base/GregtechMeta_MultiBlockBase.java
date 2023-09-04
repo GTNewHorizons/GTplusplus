@@ -166,7 +166,8 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         long seconds = (this.mTotalRunTime / 20);
         int weeks = (int) (TimeUnit.SECONDS.toDays(seconds) / 7);
         int days = (int) (TimeUnit.SECONDS.toDays(seconds) - 7 * weeks);
-        long hours = TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days) - TimeUnit.DAYS.toHours(7L * weeks);
+        long hours = TimeUnit.SECONDS.toHours(seconds) - TimeUnit.DAYS.toHours(days)
+                - TimeUnit.DAYS.toHours(7L * weeks);
         long minutes = TimeUnit.SECONDS.toMinutes(seconds) - (TimeUnit.SECONDS.toHours(seconds) * 60);
         long second = TimeUnit.SECONDS.toSeconds(seconds) - (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
