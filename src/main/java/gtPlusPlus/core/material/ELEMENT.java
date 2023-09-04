@@ -552,6 +552,18 @@ public final class ELEMENT {
                 true,
                 "Fs⚶",
                 0); // Not a GT Inherited Material //funeris
+        public static final Material FORCE = new Material(
+                "Force",
+                MaterialState.SOLID,
+                TextureSets.ENRICHED.get(),
+                new short[] { 250, 250, 20, 0 },
+                4550,
+                6830,
+                63,
+                81,
+                true,
+                "Fc⚙",
+                0); // Not a GT Inherited Material
 
         // Runescape materials
         public static final Material BLACK_METAL = new Material(
