@@ -13,11 +13,9 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-import forestry.api.core.EnumHumidity;
-import gregtech.common.items.CombType;
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.common.BiomeDictionary;
+
 import org.apache.commons.lang3.text.WordUtils;
 
 import forestry.api.apiculture.BeeManager;
@@ -27,6 +25,7 @@ import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBee;
 import forestry.api.apiculture.IBeeGenome;
 import forestry.api.apiculture.IBeeMutationCustom;
+import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
@@ -41,6 +40,7 @@ import forestry.core.genetics.alleles.EnumAllele.Tolerance;
 import gregtech.api.enums.Materials;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_ModHandler;
+import gregtech.common.items.CombType;
 import gregtech.loaders.misc.GT_Bees;
 import gtPlusPlus.core.material.ELEMENT.STANDALONE;
 import gtPlusPlus.core.material.Material;
