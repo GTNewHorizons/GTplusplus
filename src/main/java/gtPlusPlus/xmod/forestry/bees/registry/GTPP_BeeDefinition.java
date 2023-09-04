@@ -13,8 +13,11 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.function.Consumer;
 
+import forestry.api.core.EnumHumidity;
+import gregtech.common.items.CombType;
 import net.minecraft.item.ItemStack;
 
+import net.minecraftforge.common.BiomeDictionary;
 import org.apache.commons.lang3.text.WordUtils;
 
 import forestry.api.apiculture.BeeManager;
@@ -82,7 +85,7 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
             }, dis -> {
                 IBeeMutationCustom tMutation = dis.registerMutation("STEEL", "GOLD", 10);
                 tMutation.restrictHumidity(ARID);
-                tMutation.restrictBiomeType(Type.HOT);
+                tMutation.restrictBiomeType(BiomeDictionary.Type.HOT);
             }),;
 
     private final GTPP_BranchDefinition branch;

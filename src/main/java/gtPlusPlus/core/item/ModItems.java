@@ -41,7 +41,6 @@ import gtPlusPlus.core.item.chemistry.CoalTar;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.item.chemistry.IonParticles;
 import gtPlusPlus.core.item.chemistry.MilledOreProcessing;
-import gtPlusPlus.core.item.chemistry.NuclearChem;
 import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.chemistry.StandardBaseParticles;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
@@ -810,9 +809,6 @@ public final class ModItems {
         // Chemistry
         new CoalTar();
         new RocketFuels();
-
-        // Nuclear Processing
-        new NuclearChem();
 
         // Farm Animal Fun
         new AgriculturalChem();
