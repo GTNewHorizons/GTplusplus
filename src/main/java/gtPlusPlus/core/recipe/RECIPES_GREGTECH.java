@@ -1261,17 +1261,6 @@ public class RECIPES_GREGTECH {
                     ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_9_CLOAKING, 1),
                     20 * 60 * 10,
                     (int) GT_Values.V[7]);
-
-            // Supreme Pizza Gloves
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { ItemUtils.getGregtechCircuit(19), ItemUtils.getSimpleStack(ModItems.itemRope, 32),
-                            ItemUtils.getItemStackOfAmountFromOreDict("gearGtSmallWroughtIron", 8),
-                            ItemUtils.getItemStackOfAmountFromOreDict("wireFineCopper", 32),
-                            ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(1), 2) },
-                    FluidUtils.getFluidStack("molten.rubber", 2000),
-                    ItemUtils.getSimpleStack(ModItems.itemPersonalFireProofDevice),
-                    20 * 60 * 5,
-                    30);
         }
     }
 
