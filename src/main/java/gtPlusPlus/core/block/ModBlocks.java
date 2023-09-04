@@ -5,7 +5,6 @@ import net.minecraftforge.fluids.Fluid;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.general.BlockCompressedObsidian;
-import gtPlusPlus.core.block.general.BlockNet;
 import gtPlusPlus.core.block.general.FluidTankInfinite;
 import gtPlusPlus.core.block.general.HellFire;
 import gtPlusPlus.core.block.general.LightGlass;
@@ -55,7 +54,6 @@ public final class ModBlocks {
     public static Block blockProjectTable;
     public static Block blockWitherGuard;
     public static Block blockCompressedObsidian;
-    public static Block blockNet;
 
     public static Block blockPlayerDoorWooden;
     public static Block blockPlayerDoorIron;
@@ -91,7 +89,6 @@ public final class ModBlocks {
         blockProjectTable = new Machine_ProjectTable();
         blockWitherGuard = new BlockWitherProof();
         blockCompressedObsidian = new BlockCompressedObsidian();
-        blockNet = new BlockNet();
 
         blockCircuitProgrammer = new CircuitProgrammer();
 

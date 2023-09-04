@@ -1092,33 +1092,7 @@ public class RECIPES_GREGTECH {
                 GregtechItemList.Bomb_Cast.get(4),
                 30,
                 120);
-        addAR(
-                ItemUtils.getSimpleStack(Items.redstone, 32),
-                ItemUtils.getSimpleStack(ModItems.itemRope, 16),
-                Materials.Glue.getFluid(500),
-                ItemUtils.getSimpleStack(ModItems.itemDetCable, 24),
-                30,
-                120);
 
-        /*
-         * addAR(ItemUtils.getItemStackOfAmountFromOreDict("plateIncoloy020", 16),
-         * ItemUtils.getItemStackOfAmountFromOreDict("frameGtIncoloyMA956", 4), null,
-         * GregtechItemList.Casing_Power_SubStation.get(4), 80, 120);
-         */
-
-        /*
-         * CORE.RA.addSixSlotAssemblingRecipe(new ItemStack[] { GregtechItemList.Casing_Multi_Use.get(1),
-         * ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 1),
-         * ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(4), 8), CI.sensor_HV, CI.emitter_HV,
-         * CI.fieldGenerator_HV, }, null, ItemUtils.getSimpleStack(Dimension_Everglades.blockPortalFrame), 20*20, 2048);
-         */
-
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { ItemUtils.getSimpleStack(ModItems.itemRope, 6), ItemUtils.getGregtechCircuit(6) },
-                null,
-                ItemUtils.getSimpleStack(ModBlocks.blockNet, 2),
-                1 * 20,
-                8);
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { ItemUtils.getSimpleStack(CI.explosiveITNT, 2),
                         ItemUtils.getSimpleStack(CI.explosiveTNT, 4), ELEMENT.getInstance().SULFUR.getDust(2),

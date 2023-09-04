@@ -205,9 +205,6 @@ public final class ModItems {
 
     public static Item itemCustomBook;
 
-    public static Item itemRope;
-    public static Item itemFiber;
-
     // Unstable Elements & Related Content
     public static Item dustNeptunium238;
     public static Item dustDecayedRadium226;
@@ -294,10 +291,6 @@ public final class ModItems {
         itemHydrogenBlob = new CoreItem("itemHydrogenBlob", "Mysterious Hydrogen Blob", tabMisc)
                 .setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         // Register Old Helium Blob, this will be replaced when held by a player.
-
-        // Register Rope
-        itemFiber = new CoreItem("itemFiber", "Plant Fiber", tabMisc);
-        itemRope = new CoreItem("itemRope", "Rope", tabMisc);
 
         // Load Wearable Items
         WearableLoader.run();
