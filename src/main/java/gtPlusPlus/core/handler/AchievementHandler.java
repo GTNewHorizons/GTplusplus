@@ -28,7 +28,6 @@ import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
 
 public class AchievementHandler {

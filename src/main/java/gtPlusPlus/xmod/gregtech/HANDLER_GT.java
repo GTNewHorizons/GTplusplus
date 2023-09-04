@@ -24,7 +24,6 @@ import gregtech.api.util.GT_Utility;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
-import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.everglades.gen.gt.WorldGen_GT;
