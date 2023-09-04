@@ -134,7 +134,6 @@ public class CORE {
         public static boolean dumpItemAndBlockData = false;
 
         // Tools
-        public static boolean enableSkookumChoochers = true;
         public static boolean enableMultiSizeTools = true;
 
         // Block Drops

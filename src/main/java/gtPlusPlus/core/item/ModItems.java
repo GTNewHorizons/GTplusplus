@@ -380,7 +380,6 @@ public final class ModItems {
             MaterialGenerator.generate(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN);
             MaterialGenerator.generate(ELEMENT.STANDALONE.HYPOGEN);
             MaterialGenerator.generate(ELEMENT.STANDALONE.CHRONOMATIC_GLASS);
-            MaterialGenerator.generate(ELEMENT.STANDALONE.FORCE);
 
             // Custom Materials that are from Runescape
             MaterialGenerator.generate(ELEMENT.STANDALONE.BLACK_METAL);

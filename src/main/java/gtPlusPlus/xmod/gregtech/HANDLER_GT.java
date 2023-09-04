@@ -41,7 +41,6 @@ import gtPlusPlus.xmod.gregtech.loaders.ProcessingAngleGrinder;
 import gtPlusPlus.xmod.gregtech.loaders.ProcessingElectricButcherKnife;
 import gtPlusPlus.xmod.gregtech.loaders.ProcessingElectricLighter;
 import gtPlusPlus.xmod.gregtech.loaders.ProcessingElectricSnips;
-import gtPlusPlus.xmod.gregtech.loaders.ProcessingToolHeadChoocher;
 import gtPlusPlus.xmod.gregtech.loaders.misc.AddCustomMachineToPA;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_AlgaeFarm;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_MolecularTransformer;
@@ -74,18 +73,12 @@ public class HANDLER_GT {
         // Register Tile Entities
         COMPAT_HANDLER.registerGregtechMachines();
 
-        // Only loads if the config option is true (default: true)
-        if (CORE.ConfigSwitches.enableSkookumChoochers) {
-            sMetaGeneratedToolInstance = MetaGeneratedGregtechTools.getInstance();
-        }
+        sMetaGeneratedToolInstance = MetaGeneratedGregtechTools.getInstance();
     }
 
     public static void postInit() {
 
         // Only loads if the config option is true (default: true)
-        if (CORE.ConfigSwitches.enableSkookumChoochers) {
-            new ProcessingToolHeadChoocher().run();
-        }
         new ProcessingAngleGrinder().run();
         new ProcessingElectricSnips().run();
         new ProcessingElectricButcherKnife().run();

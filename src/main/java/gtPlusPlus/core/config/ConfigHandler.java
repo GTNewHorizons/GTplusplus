@@ -83,11 +83,6 @@ public class ConfigHandler {
                 "Restores circuits and their recipes from Pre-5.09.28 times.");
 
         // Tools
-        enableSkookumChoochers = config.getBoolean(
-                "enableSkookumChoochers",
-                GregTech.ID,
-                true,
-                "Adds Custom GT Tools, called Skookum Choochers, functioning as a hard hammer and a wrench.");
         enableMultiSizeTools = config.getBoolean(
                 "enableMultiSizeTools",
                 GregTech.ID,
