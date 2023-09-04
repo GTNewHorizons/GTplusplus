@@ -25,6 +25,7 @@ public enum CustomCombs {
     // Materials which are hard, if not impossible to obtain.
     FLUORINE("fluorine", true, Materials.Fluorine, 25),
     COKE("coke", true, Materials._NULL, 50),
+    FORCE("force", true, Materials.Force, 50),
     NIKOLITE("nikolite", true, Materials.Nikolite, 75),
     MITHRIL("mithril", true, Materials.Mithril, 10),
     ADAMANTIUM("adamantium", true, Materials.Adamantium, 5),

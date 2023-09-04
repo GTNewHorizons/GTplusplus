@@ -65,7 +65,25 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
                 tMutation.restrictHumidity(ARID);
                 tMutation.requireResource(STANDALONE.DRAGON_METAL.getBlock(), 1);
                 tMutation.addMutationCondition(new GT_Bees.DimensionMutationCondition(1, "End")); // End Dim
-            });
+            }),
+    FORCE(GTPP_BranchDefinition.LEGENDARY, "Force", STANDALONE.FORCE, true, Utils.rgbtoHexValue(250, 250, 20),
+            Utils.rgbtoHexValue(200, 200, 5), beeSpecies -> {
+                beeSpecies.addProduct(GT_Bees.combs.getStackForType(CombType.STONE), 0.30f);
+                beeSpecies.addProduct(GT_Bees.combs.getStackForType(CombType.SALT), 0.15f);
+                beeSpecies.addSpecialty(GTPP_Bees.combs.getStackForType(GTPP_CombType.FORCE), 0.10f);
+                beeSpecies.setHumidity(EnumHumidity.NORMAL);
+                beeSpecies.setTemperature(EnumTemperature.HOT);
+                beeSpecies.setHasEffect();
+            }, template -> {
+                AlleleHelper.instance.set(template, LIFESPAN, Lifespan.NORMAL);
+                AlleleHelper.instance.set(template, EFFECT, AlleleEffect.effectAggressive);
+                AlleleHelper.instance.set(template, TEMPERATURE_TOLERANCE, Tolerance.BOTH_1);
+                AlleleHelper.instance.set(template, HUMIDITY_TOLERANCE, Tolerance.BOTH_1);
+            }, dis -> {
+                IBeeMutationCustom tMutation = dis.registerMutation("STEEL", "GOLD", 10);
+                tMutation.restrictHumidity(ARID);
+                tMutation.restrictBiomeType(Type.HOT);
+            }),;
 
     private final GTPP_BranchDefinition branch;
     private final GTPP_AlleleBeeSpecies species;
