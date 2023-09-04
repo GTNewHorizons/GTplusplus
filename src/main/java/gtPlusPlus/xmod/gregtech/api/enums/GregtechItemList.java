@@ -767,18 +767,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     // The max Steam condenser
     Condensor_MAX,
 
-    // Player owned Safes
-    GT_Safe_ULV,
-    GT_Safe_LV,
-    GT_Safe_MV,
-    GT_Safe_HV,
-    GT_Safe_EV,
-    GT_Safe_IV,
-    GT_Safe_LuV,
-    GT_Safe_ZPM,
-    GT_Safe_UV,
-    GT_Safe_MAX,
-
     // Rocket Engines
     Rocket_Engine_EV,
     Rocket_Engine_IV,

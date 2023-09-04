@@ -161,7 +161,6 @@ public class CORE {
 
         // Single Block Machines
         public static boolean enableMachine_SolarGenerators = false;
-        public static boolean enableMachine_Safes = true;
         public static boolean enableMachine_Dehydrators = true;
         public static boolean enableMachine_SteamConverter = true;
         public static boolean enableMachine_FluidTanks = true;
