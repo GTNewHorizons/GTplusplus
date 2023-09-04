@@ -153,7 +153,6 @@ public class CORE {
         public static boolean enableCustomCapes = false;
         public static boolean enableCustomCircuits = true;
         public static boolean enableOldGTcircuits = false;
-        public static boolean disableZombieReinforcement = false;
         public static int enableWatchdogBGM = CORE_Preloader.enableWatchdogBGM;
         public static boolean hideUniversalCells = true;
 

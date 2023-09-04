@@ -34,7 +34,6 @@ import gtPlusPlus.core.handler.events.EntityDeathHandler;
 import gtPlusPlus.core.handler.events.GeneralTooltipEventHandler;
 import gtPlusPlus.core.handler.events.PickaxeBlockBreakEventHandler;
 import gtPlusPlus.core.handler.events.PlayerSleepEventHandler;
-import gtPlusPlus.core.handler.events.ZombieBackupSpawnEventHandler;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
@@ -116,11 +115,6 @@ public class CommonProxy {
 
         Utils.registerEvent(new EnderDragonDeathHandler());
         Utils.registerEvent(new EntityDeathHandler());
-
-        if (ConfigSwitches.disableZombieReinforcement) {
-            // Make Zombie reinforcements stop showing up.
-            Utils.registerEvent(new ZombieBackupSpawnEventHandler());
-        }
 
         /**
          * End of Subscribe Event registration.
