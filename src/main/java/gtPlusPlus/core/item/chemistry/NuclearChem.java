@@ -21,8 +21,7 @@ public class NuclearChem extends ItemPackage {
     private static boolean generateMutagenRecipe = false;
 
     @Override
-    public void items() {
-    }
+    public void items() {}
 
     @Override
     public void blocks() {}

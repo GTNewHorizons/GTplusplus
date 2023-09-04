@@ -1,10 +1,10 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
-import gtPlusPlus.core.item.chemistry.NuclearChem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
+import gtPlusPlus.core.item.chemistry.NuclearChem;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
