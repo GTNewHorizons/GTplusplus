@@ -1,11 +1,9 @@
 package gtPlusPlus.core.item.chemistry;
 
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
-import gtPlusPlus.core.item.chemistry.general.ItemNuclearChemBase;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -22,13 +20,8 @@ public class NuclearChem extends ItemPackage {
     public static Fluid GeneticMutagen;
     private static boolean generateMutagenRecipe = false;
 
-    public static ItemNuclearChemBase mNuclearChemItem1;
-
-
     @Override
     public void items() {
-
-        mNuclearChemItem1 = new ItemNuclearChemBase();
         registerOreDict();
     }
 

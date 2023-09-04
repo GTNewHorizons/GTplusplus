@@ -121,8 +121,6 @@ public class ItemCustomComb extends Item {
         addSpecialCent(tComb, ItemUtils.getSimpleStack(GTPP_Bees.dropEthanolBlob), 5);
 
         // Misc Materials
-        tComb = getStackForType(CustomCombs.FORCE);
-        addSpecialCent(tComb, ItemUtils.getSimpleStack(GTPP_Bees.dropForceGem), 5);
         tComb = getStackForType(CustomCombs.FLUORINE);
         addSpecialCent(tComb, ItemUtils.getSimpleStack(GTPP_Bees.dropFluorineBlob), 5);
         tComb = getStackForType(CustomCombs.NIKOLITE);

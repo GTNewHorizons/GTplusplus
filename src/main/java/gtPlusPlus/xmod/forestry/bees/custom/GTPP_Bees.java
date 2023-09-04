@@ -65,7 +65,6 @@ public class GTPP_Bees {
     }
 
     private void setCustomItems() {
-        dropForceGem = new BaseItemMisc("Force", new short[] { 250, 250, 20 }, 64, MiscTypes.GEM, null);
         dropBiomassBlob = new BaseItemMisc("Biomass", new short[] { 33, 225, 24 }, 64, MiscTypes.DROP, null);
         dropEthanolBlob = new BaseItemMisc("Ethanol", new short[] { 255, 128, 0 }, 64, MiscTypes.DROP, null);
 

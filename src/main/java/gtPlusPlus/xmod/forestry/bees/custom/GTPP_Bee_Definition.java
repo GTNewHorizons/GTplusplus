@@ -228,37 +228,6 @@ public enum GTPP_Bee_Definition implements IBeeDefinition {
         }
     },
 
-    // Coke
-
-    // Force
-    FORCE(GTPP_Branch_Definition.METAL, "Force", true, Utils.rgbtoHexValue(250, 250, 20),
-            Utils.rgbtoHexValue(200, 200, 5)) {
-
-        @Override
-        protected void setSpeciesProperties(IAlleleBeeSpeciesCustom beeSpecies) {
-            beeSpecies.addProduct(getStoneComb(), 0.30f);
-            beeSpecies.addProduct(GTPP_Bees.combs.getStackForType(CustomCombs.SAND), 0.25f);
-            beeSpecies.addProduct(GTPP_Bees.combs.getStackForType(CustomCombs.FORCE), 0.25f);
-            beeSpecies.addProduct(GTPP_Bees.combs.getStackForType(CustomCombs.SALT), 0.05f);
-            beeSpecies.setHumidity(EnumHumidity.NORMAL);
-            beeSpecies.setTemperature(EnumTemperature.HOT);
-        }
-
-        @Override
-        protected void setAlleles(IAllele[] template) {
-            template = BeeDefinition.COMMON.getTemplate();
-        }
-
-        @Override
-        protected void registerMutations() {
-            IBeeMutationCustom tMutation = registerMutation(
-                    getGregtechBeeType("STEEL"),
-                    getGregtechBeeType("GOLD"),
-                    10);
-            tMutation.restrictBiomeType(Type.HOT);
-        }
-    },
-
     // Nikolite
     NIKOLITE(GTPP_Branch_Definition.METAL, "Nikolite", true, Utils.rgbtoHexValue(60, 180, 200),
             Utils.rgbtoHexValue(40, 150, 170)) {

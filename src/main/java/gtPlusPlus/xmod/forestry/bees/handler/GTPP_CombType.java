@@ -9,8 +9,7 @@ import gtPlusPlus.xmod.forestry.bees.registry.GTPP_Bees;
 
 public enum GTPP_CombType {
 
-    DRAGONBLOOD(0, "Dragon Blood", true, 30, Utils.rgbtoHexValue(220, 20, 20), Utils.rgbtoHexValue(20, 20, 20)),
-    FORCE(1, "Force", true, 30, Utils.rgbtoHexValue(250, 250, 20), Utils.rgbtoHexValue(200, 200, 5));
+    DRAGONBLOOD(0, "Dragon Blood", true, 30, Utils.rgbtoHexValue(220, 20, 20), Utils.rgbtoHexValue(20, 20, 20));
 
     public boolean mShowInList;
     public Material mMaterial;
