@@ -88,7 +88,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.everglades.GTplusplus_Everglades;
-import gtPlusPlus.xmod.eio.material.MaterialEIO;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechItems;
@@ -101,25 +100,6 @@ public final class ModItems {
     public static Item itemAlkalusDisk;
     public static ItemCustomSpawnEgg itemCustomSpawnEgg;
 
-    // EnderIO
-    public static Item itemPlateSoularium;
-    public static Item itemPlateRedstoneAlloy;
-    public static Item itemPlateElectricalSteel;
-    public static Item itemPlatePulsatingIron;
-    public static Item itemPlateEnergeticAlloy;
-    public static Item itemPlateVibrantAlloy;
-    public static Item itemPlateConductiveIron;
-    public static Item itemPlateDarkSteel;
-    public static Item itemDustSoularium;
-    public static Item itemDustRedstoneAlloy;
-    public static Item itemDustElectricalSteel;
-    public static Item itemDustPulsatingIron;
-    public static Item itemDustEnergeticAlloy;
-    public static Item itemDustVibrantAlloy;
-    public static Item itemDustConductiveIron;
-
-    // Machine Related
-    // Material related
     public static Item itemIngotBatteryAlloy;
     public static Item itemPlateBatteryAlloy;
     public static Item itemHydrogenBlob;
@@ -854,111 +834,6 @@ public final class ModItems {
         itemDetCable.setTextureName("string");
         itemBomb = new ItemThrowableBomb();
 
-        // EnderIO Resources
-        if ((EnderIO.isModLoaded() || LOAD_ALL_CONTENT)) {
-            Logger.INFO("EnderIO Found - Loading Resources.");
-            // Enderio Dusts
-            itemDustSoularium = ItemUtils.generateSpecialUseDusts(
-                    "Soularium",
-                    "Soularium",
-                    MaterialEIO.SOULARIUM.vChemicalFormula,
-                    MaterialEIO.SOULARIUM.getRgbAsHex())[0];
-            itemDustRedstoneAlloy = ItemUtils.generateSpecialUseDusts(
-                    "RedstoneAlloy",
-                    "Redstone Alloy",
-                    MaterialEIO.REDSTONE_ALLOY.vChemicalFormula,
-                    MaterialEIO.REDSTONE_ALLOY.getRgbAsHex())[0];
-            itemDustElectricalSteel = ItemUtils.generateSpecialUseDusts(
-                    "ElectricalSteel",
-                    "Electrical Steel",
-                    MaterialEIO.ELECTRICAL_STEEL.vChemicalFormula,
-                    MaterialEIO.ELECTRICAL_STEEL.getRgbAsHex())[0];
-            itemDustPulsatingIron = ItemUtils.generateSpecialUseDusts(
-                    "PulsatingIron",
-                    "Pulsating Iron",
-                    MaterialEIO.PULSATING_IRON.vChemicalFormula,
-                    MaterialEIO.PULSATING_IRON.getRgbAsHex())[0];
-            itemDustEnergeticAlloy = ItemUtils.generateSpecialUseDusts(
-                    "EnergeticAlloy",
-                    "Energetic Alloy",
-                    MaterialEIO.ENERGETIC_ALLOY.vChemicalFormula,
-                    MaterialEIO.ENERGETIC_ALLOY.getRgbAsHex())[0];
-            itemDustVibrantAlloy = ItemUtils.generateSpecialUseDusts(
-                    "VibrantAlloy",
-                    "Vibrant Alloy",
-                    MaterialEIO.VIBRANT_ALLOY.vChemicalFormula,
-                    MaterialEIO.VIBRANT_ALLOY.getRgbAsHex())[0];
-            itemDustConductiveIron = ItemUtils.generateSpecialUseDusts(
-                    "ConductiveIron",
-                    "Conductive Iron",
-                    MaterialEIO.CONDUCTIVE_IRON.vChemicalFormula,
-                    MaterialEIO.CONDUCTIVE_IRON.getRgbAsHex())[0];
-
-            // EnderIO Plates
-            itemPlateSoularium = ItemUtils.generateSpecialUsePlate(
-                    "Soularium",
-                    "Soularium",
-                    MaterialEIO.SOULARIUM.vChemicalFormula,
-                    MaterialEIO.SOULARIUM.getRgbAsHex(),
-                    0);
-            itemPlateRedstoneAlloy = ItemUtils.generateSpecialUsePlate(
-                    "RedstoneAlloy",
-                    "Redstone Alloy",
-                    MaterialEIO.REDSTONE_ALLOY.vChemicalFormula,
-                    MaterialEIO.REDSTONE_ALLOY.getRgbAsHex(),
-                    0);
-            itemPlateElectricalSteel = ItemUtils.generateSpecialUsePlate(
-                    "ElectricalSteel",
-                    "Electrical Steel",
-                    MaterialEIO.ELECTRICAL_STEEL.vChemicalFormula,
-                    MaterialEIO.ELECTRICAL_STEEL.getRgbAsHex(),
-                    0);
-            itemPlatePulsatingIron = ItemUtils.generateSpecialUsePlate(
-                    "PhasedIron",
-                    "Phased Iron",
-                    MaterialEIO.PULSATING_IRON.vChemicalFormula,
-                    MaterialEIO.PULSATING_IRON.getRgbAsHex(),
-                    0);
-            itemPlateEnergeticAlloy = ItemUtils.generateSpecialUsePlate(
-                    "EnergeticAlloy",
-                    "Energetic Alloy",
-                    MaterialEIO.ENERGETIC_ALLOY.vChemicalFormula,
-                    MaterialEIO.ENERGETIC_ALLOY.getRgbAsHex(),
-                    0);
-            itemPlateVibrantAlloy = ItemUtils.generateSpecialUsePlate(
-                    "VibrantAlloy",
-                    "Vibrant Alloy",
-                    MaterialEIO.VIBRANT_ALLOY.vChemicalFormula,
-                    MaterialEIO.VIBRANT_ALLOY.getRgbAsHex(),
-                    0);
-            itemPlateConductiveIron = ItemUtils.generateSpecialUsePlate(
-                    "ConductiveIron",
-                    "Conductive Iron",
-                    MaterialEIO.CONDUCTIVE_IRON.vChemicalFormula,
-                    MaterialEIO.CONDUCTIVE_IRON.getRgbAsHex(),
-                    0);
-
-            // Register odd naming conventions.
-            GT_OreDictUnificator.registerOre("dustPhasedGold", ItemUtils.getSimpleStack(itemDustVibrantAlloy));
-            GT_OreDictUnificator.registerOre("platePhasedGold", ItemUtils.getSimpleStack(itemPlateVibrantAlloy));
-            GT_OreDictUnificator.registerOre("dustPhasedIron", ItemUtils.getSimpleStack(itemDustPulsatingIron));
-            GT_OreDictUnificator.registerOre("platePhasedIron", ItemUtils.getSimpleStack(itemPlatePulsatingIron));
-            GT_OreDictUnificator
-                    .registerOre("blockVibrantAlloy", ItemUtils.getItemStackOfAmountFromOreDict("blockPhasedGold", 1));
-
-        } else {
-            /*
-             * Logger.WARNING("EnderIO not Found - Generating our own Resources.");
-             * MaterialGenerator.generate(MaterialEIO.CONDUCTIVE_IRON);
-             * MaterialGenerator.generate(MaterialEIO.PULSATING_IRON);
-             * MaterialGenerator.generate(MaterialEIO.REDSTONE_ALLOY);
-             * MaterialGenerator.generate(MaterialEIO.SOULARIUM);
-             * MaterialGenerator.generate(MaterialEIO.ELECTRICAL_STEEL);
-             * MaterialGenerator.generate(MaterialEIO.ENERGETIC_ALLOY);
-             * MaterialGenerator.generate(MaterialEIO.VIBRANT_ALLOY);
-             */
-        }
-
         // IC2 Exp
         Logger.INFO("IndustrialCraft2 Found - Loading Resources.");
 
@@ -976,8 +851,6 @@ public final class ModItems {
 
         // Special Item Handling Case
         if (ConfigSwitches.enableAlternativeBatteryAlloy) {
-            // ModItems.itemIngotBatteryAlloy = new BaseItemIngot("itemIngotBatteryAlloy", "Battery Alloy", new
-            // short[]{35, 228, 141}, 0); TODO
             ModItems.itemPlateBatteryAlloy = ItemUtils
                     .generateSpecialUsePlate("BatteryAlloy", "Battery Alloy", new short[] { 35, 228, 141 }, 0);
         }

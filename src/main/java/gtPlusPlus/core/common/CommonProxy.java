@@ -36,7 +36,6 @@ import gtPlusPlus.core.handler.events.PickaxeBlockBreakEventHandler;
 import gtPlusPlus.core.handler.events.PlayerSleepEventHandler;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.tileentities.ModTileEntities;
@@ -46,7 +45,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.player.PlayerCache;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
-import gtPlusPlus.xmod.eio.handler.HandlerTooltip_EIO;
 import gtPlusPlus.xmod.gregtech.api.util.SpecialBehaviourTooltipHandler;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 import gtPlusPlus.xmod.ic2.CustomInternalName;
@@ -106,8 +104,6 @@ public class CommonProxy {
         Utils.registerEvent(new GeneralTooltipEventHandler());
         // Handles Tooltips for items giving custom multiblock behaviour
         Utils.registerEvent(new SpecialBehaviourTooltipHandler());
-        // Handles Custom tooltips for EIO.
-        Utils.registerEvent(new HandlerTooltip_EIO());
         // Handles Sleep Benefits
         PlayerSleepEventHandler.init();
         // Handles Magic Feather

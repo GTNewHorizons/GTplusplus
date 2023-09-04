@@ -20,7 +20,6 @@ import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
-import gtPlusPlus.core.common.compat.COMPAT_EnderIO;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
 import gtPlusPlus.core.common.compat.COMPAT_IC2;
@@ -195,9 +194,6 @@ public class COMPAT_HANDLER {
     // InterMod
     public static void intermodOreDictionarySupport() {
 
-        if (EnderIO.isModLoaded()) {
-            COMPAT_EnderIO.OreDict();
-        }
         if (OpenBlocks.isModLoaded()) {
             COMPAT_OpenBlocks.OreDict();
         }
