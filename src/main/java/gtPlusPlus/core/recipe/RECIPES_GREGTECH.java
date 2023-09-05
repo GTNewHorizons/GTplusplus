@@ -6,10 +6,14 @@ import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
@@ -65,11 +69,10 @@ public class RECIPES_GREGTECH {
     private static void execute() {
         electrolyzerRecipes();
         assemblerRecipes();
-        fluidcannerRecipes();
+        fluidCannerRecipes();
         distilleryRecipes();
         extractorRecipes();
         fluidExtractorRecipes();
-        chemicalBathRecipes();
         chemicalReactorRecipes();
         dehydratorRecipes();
         blastFurnaceRecipes();
@@ -562,34 +565,19 @@ public class RECIPES_GREGTECH {
     }
 
     private static void electrolyzerRecipes() {
-        GT_Values.RA.addElectrolyzerRecipe(
-                ItemUtils.getSimpleStack(ModItems.dustDecayedRadium226, 1),
-                null,
-                null,
-                FluidUtils.getFluidStack("radon", 144),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                new int[] {},
-                20 * 90,
-                240);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(ModItems.dustDecayedRadium226, 1)).noItemOutputs()
+                .noFluidInputs().fluidOutputs(FluidUtils.getFluidStack("radon", 144))
+                .duration(1 * MINUTES + 30 * SECONDS).eut(TierEU.RECIPE_HV / 2).addTo(sElectrolyzerRecipes);
     }
 
     private static void extruderRecipes() {
         // Osmium Credits
-        if (GT_Values.RA.addExtruderRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("blockOsmium", 1),
-                ItemList.Shape_Mold_Credit.get(0),
-                ItemList.Credit_Greg_Osmium.get(1),
-                (int) Math.max(Materials.Osmium.getMass() * 2L * 20, 1),
-                1024)) {
-            Logger.WARNING("Extruder Recipe: Osmium Credit - Success");
-        } else {
-            Logger.WARNING("Extruder Recipe: Osmium Credit - Failed");
-        }
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getItemStackOfAmountFromOreDict("blockOsmium", 1),
+                        ItemList.Shape_Mold_Credit.get(0))
+                .itemOutputs(ItemList.Credit_Greg_Osmium.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(6 * MINUTES + 20 * SECONDS).eut(TierEU.RECIPE_EV / 2).addTo(sExtruderRecipes);
     }
 
     private static void blastSmelterRecipes() {
@@ -754,68 +742,24 @@ public class RECIPES_GREGTECH {
                 491520);
     }
 
-    private static void fluidcannerRecipes() {
+    private static void fluidCannerRecipes() {
         // Sulfuric Acid
-        CORE.RA.addFluidCannerRecipe(
-                ItemUtils.getSimpleStack(Items.glass_bottle),
-                ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion),
-                FluidUtils.getFluidStack("sulfuricacid", 250),
-                null);
-        CORE.RA.addFluidCannerRecipe(
-                ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion),
-                ItemUtils.getSimpleStack(Items.glass_bottle),
-                null,
-                FluidUtils.getFluidStack("sulfuricacid", 250));
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.glass_bottle))
+                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion))
+                .fluidInputs(Materials.SulfuricAcid.getFluid(250)).noFluidOutputs().duration(4).eut(1)
+                .addTo(sFluidCannerRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion))
+                .itemOutputs(ItemUtils.getSimpleStack(Items.glass_bottle)).noFluidInputs()
+                .fluidOutputs(Materials.SulfuricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
 
         // Hydrofluoric Acid
-        boolean addedGtExtraction = false;
-        // Try use Internal GT Fluid first
-        // Hydrofluoric Acid
-        CORE.RA.addFluidCannerRecipe(
-                ItemUtils.getSimpleStack(Items.glass_bottle),
-                ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250),
-                null);
-        addedGtExtraction = CORE.RA.addFluidCannerRecipe(
-                ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                ItemUtils.getSimpleStack(Items.glass_bottle),
-                null,
-                FluidUtils.getFluidStack("hydrofluoricacid_gt5u", 250));
-        // Add a Fill recipe for GT++ Acid
-        CORE.RA.addFluidCannerRecipe(
-                ItemUtils.getSimpleStack(Items.glass_bottle),
-                ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                FluidUtils.getFluidStack("hydrofluoricacid", 125),
-                null);
-        // Add an empty recipe, but only if we didn't for the standard GT HF. Prevents Fluid transformation exploits.
-        if (!addedGtExtraction) {
-            CORE.RA.addFluidCannerRecipe(
-                    ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion),
-                    ItemUtils.getSimpleStack(Items.glass_bottle),
-                    null,
-                    FluidUtils.getFluidStack("hydrofluoricacid", 125));
-        }
-
-        // Gelid Cryotheum
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustCryotheum", 1),
-                FluidUtils.getFluidStack("cryotheum", 250),
-                200,
-                240);
-
-        // Ender Fluid
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getSimpleStack(Items.ender_pearl),
-                FluidUtils.getFluidStack("ender", 250),
-                100,
-                30);
-
-        // Blazing Pyrotheum
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustPyrotheum", 1),
-                FluidUtils.getFluidStack("pyrotheum", 250),
-                200,
-                240);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.glass_bottle))
+                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion))
+                .fluidInputs(Materials.HydrofluoricAcid.getFluid(250)).noFluidOutputs().duration(4).eut(1)
+                .addTo(sFluidCannerRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion))
+                .itemOutputs(ItemUtils.getSimpleStack(Items.glass_bottle)).noFluidInputs()
+                .fluidOutputs(Materials.HydrofluoricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
     }
 
     private static void dehydratorRecipes() {
@@ -901,25 +845,17 @@ public class RECIPES_GREGTECH {
     private static void largeChemReactorRecipes() {
         // Styrene
         // C8H10 = C8H8 + 2H
-        CORE.RA.addMultiblockChemicalRecipe(
-                new ItemStack[] { CI.getNumberedCircuit(24) },
-                new FluidStack[] { FluidUtils.getFluidStack("fluid.ethylbenzene", 1000) },
-                new FluidStack[] { MaterialUtils.getMaterial("Styrene").getFluid(1000),
-                        Materials.Hydrogen.getGas(2000) },
-                null,
-                30,
-                30);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(24)).itemOutputs()
+                .fluidInputs(FluidUtils.getFluidStack("fluid.ethylbenzene", 1000))
+                .fluidOutputs(Materials.Styrene.getFluid(1000L), Materials.Hydrogen.getGas(2000))
+                .duration(1 * SECONDS + 10 * TICKS).eut(TierEU.RECIPE_LV).addTo(sMultiblockChemicalRecipes);
+
         // Short-cut Styrene
         // C6H6 + C2H4 = C8H8 + 2H
-        CORE.RA.addMultiblockChemicalRecipe(
-                new ItemStack[] { CI.getNumberedCircuit(24) },
-                new FluidStack[] { MaterialUtils.getMaterial("Ethylene").getGas(500),
-                        MaterialUtils.getMaterial("Benzene").getFluid(500) },
-                new FluidStack[] { MaterialUtils.getMaterial("Styrene").getFluid(500),
-                        Materials.Hydrogen.getGas(1000) },
-                null,
-                240,
-                120);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(24)).itemOutputs()
+                .fluidInputs(Materials.Ethylene.getGas(500L), Materials.Benzene.getFluid(500L))
+                .fluidOutputs(Materials.Styrene.getFluid(500L), Materials.Hydrogen.getGas(1000)).duration(12 * SECONDS)
+                .eut(TierEU.RECIPE_MV).addTo(sMultiblockChemicalRecipes);
     }
 
     private static void assemblerRecipes() {
@@ -1282,9 +1218,28 @@ public class RECIPES_GREGTECH {
                 ItemList.Battery_Hull_HV.get(4L, new Object[0]));
     }
 
-    private static void fluidExtractorRecipes() {}
+    private static void fluidExtractorRecipes() {
+        // Gelid Cryotheum
+        CORE.RA.addFluidExtractionRecipe(
+                ItemUtils.getItemStackOfAmountFromOreDict("dustCryotheum", 1),
+                FluidUtils.getFluidStack("cryotheum", 250),
+                200,
+                240);
 
-    private static void chemicalBathRecipes() {}
+        // Ender Fluid
+        CORE.RA.addFluidExtractionRecipe(
+                ItemUtils.getSimpleStack(Items.ender_pearl),
+                FluidUtils.getFluidStack("ender", 250),
+                100,
+                30);
+
+        // Blazing Pyrotheum
+        CORE.RA.addFluidExtractionRecipe(
+                ItemUtils.getItemStackOfAmountFromOreDict("dustPyrotheum", 1),
+                FluidUtils.getFluidStack("pyrotheum", 250),
+                200,
+                240);
+    }
 
     private static void centrifugeRecipes() {
 
