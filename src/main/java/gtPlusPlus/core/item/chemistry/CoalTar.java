@@ -2,7 +2,6 @@ package gtPlusPlus.core.item.chemistry;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
@@ -238,7 +237,7 @@ public class CoalTar extends ItemPackage {
                 ItemUtils.getItemStackOfAmountFromOreDict("cellNaphthalene", 2),
                 ItemUtils.getItemStackOfAmountFromOreDict("dustLithium", 5),
                 null,
-                FluidRegistry.getFluidStack("phtalicacid", 2500),
+                Materials.PhthalicAcid.getFluid(2500),
                 ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 2),
                 20 * 16);
     }
@@ -246,7 +245,7 @@ public class CoalTar extends ItemPackage {
     private static void recipePhthalicAcidToPhthalicAnhydride() {
         CORE.RA.addDehydratorRecipe(
                 new ItemStack[] { CI.getNumberedBioCircuit(15) },
-                FluidRegistry.getFluidStack("phtalicacid", 1000),
+                Materials.PhthalicAcid.getFluid(1000),
                 null,
                 new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("dustPhthalicAnhydride", 15) },
                 new int[] { 10000 },
