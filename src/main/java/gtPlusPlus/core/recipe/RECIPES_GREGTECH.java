@@ -4,6 +4,7 @@ import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
@@ -15,6 +16,7 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeBuilder.TICKS;
@@ -859,27 +861,23 @@ public class RECIPES_GREGTECH {
     }
 
     private static void assemblerRecipes() {
-        // ItemUtils.getSimpleStack(GregtechItemList.Casing_Vanadium_Redox.get(1)
-        addAR(
-                ItemUtils.getItemStackOfAmountFromOreDict("plateVanadium", 32),
-                ItemUtils.getItemStackOfAmountFromOreDict("frameGtVanadiumSteel", 8),
-                FluidUtils.getFluidStack("oxygen", 8000),
-                ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 0, 4),
-                16,
-                60);
-        addAR(
-                ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 0, 2),
-                ItemUtils.getItemStackOfAmountFromOreDict("plateVanadiumGallium", 8),
-                FluidUtils.getFluidStack("molten.tantalum", 144 * 4),
-                ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 8),
-                32,
-                120);
 
-        /*
-         * addAR(ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 1),
-         * ItemUtils.getItemStackOfAmountFromOreDict("plateDenseLead", 4), FluidUtils.getFluidStack("oxygen", 16000),
-         * ItemUtils.getSimpleStack(GregtechItemList.Casing_Vanadium_Redox.get(1), 1), 64, 240);
-         */
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Vanadium, 32L),
+                        GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.VanadiumSteel, 8L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 0, 4))
+                .fluidInputs(Materials.Oxygen.getGas(8000L)).noFluidOutputs().duration(16 * SECONDS)
+                .eut(TierEU.RECIPE_MV / 2).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 0, 2),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.VanadiumGallium, 8L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 0, 4))
+                .fluidInputs(Materials.Tantalum.getMolten(4 * INGOTS)).noFluidOutputs().duration(32 * SECONDS)
+                .eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
+
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 1),
                         ItemUtils.getItemStackOfAmountFromOreDict("plateDenseLead", 4),
