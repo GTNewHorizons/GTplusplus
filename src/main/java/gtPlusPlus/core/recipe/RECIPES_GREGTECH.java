@@ -3,6 +3,8 @@ package gtPlusPlus.core.recipe;
 import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -85,7 +87,7 @@ public class RECIPES_GREGTECH {
         packagerRecipes();
         alloySmelterRecipes();
 
-        /**
+        /*
          * Special Recipe handlers
          */
         RECIPES_SeleniumProcessing.init();
@@ -97,25 +99,12 @@ public class RECIPES_GREGTECH {
     private static void alloySmelterRecipes() {
 
         // Wood's Glass Laser Lens
-        GT_Values.RA.addAlloySmelterRecipe(
-                MISC_MATERIALS.WOODS_GLASS.getDust(5),
-                ItemList.Shape_Mold_Ball.get(0),
-                GregtechItemList.Laser_Lens_WoodsGlass.get(1),
-                20 * 300,
-                MaterialUtils.getVoltageForTier(3));
+        GT_Values.RA.stdBuilder().itemInputs(MISC_MATERIALS.WOODS_GLASS.getDust(5), ItemList.Shape_Mold_Ball.get(0))
+                .itemOutputs(GregtechItemList.Laser_Lens_WoodsGlass.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(5 * MINUTES).eut(TierEU.RECIPE_HV).addTo(sAlloySmelterRecipes);
     }
 
     private static void packagerRecipes() {}
-
-    private static void implosionRecipes() {
-
-        // GT_Values.RA.addImplosionRecipe(
-        // ItemUtils.getSimpleStack(ModItems.itemSunnariumBit, 9),
-        // 16,
-        // ItemUtils.getSimpleStack(AdvancedSolarPanel.itemSunnariumPart, 1),
-        // GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Glowstone, 8));
-
-    }
 
     private static void chemplantRecipes() {
 
