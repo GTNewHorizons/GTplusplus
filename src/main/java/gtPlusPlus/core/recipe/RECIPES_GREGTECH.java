@@ -1226,6 +1226,7 @@ public class RECIPES_GREGTECH {
         }
     }
 
+    @Deprecated
     private static boolean addAR(final ItemStack inputA, final ItemStack inputB, final FluidStack inputFluidA,
             final ItemStack outputA, final int seconds, final int voltage) {
         // return GT_Values.RA.addAssemblerRecipe(inputA, inputB, outputA,
