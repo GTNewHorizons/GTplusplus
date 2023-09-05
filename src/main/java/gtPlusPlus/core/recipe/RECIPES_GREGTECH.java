@@ -127,8 +127,8 @@ public class RECIPES_GREGTECH {
         // Advanced method for Nitric Acid Production
         CORE.RA.addChemicalPlantRecipe(
                 new ItemStack[] { CI.getNumberedAdvancedCircuit(17), CI.getPinkCatalyst(0), },
-                new FluidStack[] { FluidUtils.getFluidStack(GenericChem.Nitrogen_Dioxide, 4000),
-                        FluidUtils.getAir(4000), FluidUtils.getWater(2000), },
+                new FluidStack[] { Materials.NitrogenDioxide.getFluid(4000L), FluidUtils.getAir(4000),
+                        FluidUtils.getWater(2000), },
                 new ItemStack[] {},
                 new FluidStack[] { FluidUtils.getFluidStack("nitricacid", 4000), },
                 10 * 20,
@@ -165,11 +165,10 @@ public class RECIPES_GREGTECH {
         // 3NO2 + H2O = 2HNO3 + NO
         CORE.RA.addChemicalPlantRecipe(
                 new ItemStack[] { CI.getNumberedAdvancedCircuit(16), CI.getPinkCatalyst(0), },
-                new FluidStack[] { FluidUtils.getFluidStack(GenericChem.Nitrogen_Dioxide, 3000),
-                        FluidUtils.getDistilledWater(1000) },
+                new FluidStack[] { Materials.NitrogenDioxide.getFluid(3000L), FluidUtils.getDistilledWater(1000) },
                 new ItemStack[] {},
                 new FluidStack[] { FluidUtils.getFluidStack("nitricacid", 2000),
-                        FluidUtils.getFluidStack(GenericChem.Nitric_Oxide, 1000), },
+                        Materials.NitricOxide.getFluid(1000L), },
                 10 * 20,
                 480,
                 2);
