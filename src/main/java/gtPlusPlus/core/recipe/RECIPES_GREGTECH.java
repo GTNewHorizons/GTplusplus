@@ -4,7 +4,17 @@ import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,6 +28,7 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
 import gregtech.api.util.HotFuel;
 import gregtech.api.util.ThermalFuel;
 import gtPlusPlus.api.objects.Logger;
@@ -64,8 +75,6 @@ public class RECIPES_GREGTECH {
         blastFurnaceRecipes();
         largeChemReactorRecipes();
         fusionRecipes();
-        fissionFuelRecipes();
-        autoclaveRecipes();
         compressorRecipes();
         mixerRecipes();
         macerationRecipes();
@@ -73,8 +82,6 @@ public class RECIPES_GREGTECH {
         benderRecipes();
         cyclotronRecipes();
         blastSmelterRecipes();
-        sifterRecipes();
-        electroMagneticSeperatorRecipes();
         extruderRecipes();
         cuttingSawRecipes();
         breweryRecipes();
@@ -82,9 +89,8 @@ public class RECIPES_GREGTECH {
         assemblyLineRecipes();
         latheRecipes();
         vacuumFreezerRecipes();
-        fluidheaterRecipes();
+        fluidHeaterRecipes();
         chemplantRecipes();
-        packagerRecipes();
         alloySmelterRecipes();
 
         /*
@@ -103,8 +109,6 @@ public class RECIPES_GREGTECH {
                 .itemOutputs(GregtechItemList.Laser_Lens_WoodsGlass.get(1)).noFluidInputs().noFluidOutputs()
                 .duration(5 * MINUTES).eut(TierEU.RECIPE_HV).addTo(sAlloySmelterRecipes);
     }
-
-    private static void packagerRecipes() {}
 
     private static void chemplantRecipes() {
 
@@ -239,57 +243,47 @@ public class RECIPES_GREGTECH {
         }
     }
 
-    private static void fluidheaterRecipes() {
-        GT_Values.RA.addFluidHeaterRecipe(
-                CI.getNumberedCircuit(20),
-                FluidUtils.getWater(1000),
-                FluidUtils.getHotWater(1000),
-                30,
-                30);
+    private static void fluidHeaterRecipes() {
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(20)).noItemOutputs()
+                .fluidInputs(Materials.Water.getFluid(1000)).fluidOutputs(FluidUtils.getHotWater(1000))
+                .duration(1 * SECONDS + 10 * TICKS).eut(TierEU.RECIPE_LV).addTo(sFluidHeaterRecipes);
     }
 
     private static void vacuumFreezerRecipes() {
-        GT_Values.RA.addVacuumFreezerRecipe(
-                GregtechItemList.Bomb_Cast_Molten.get(1),
-                GregtechItemList.Bomb_Cast_Set.get(1),
-                20 * 30);
+        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Molten.get(1))
+                .itemOutputs(GregtechItemList.Bomb_Cast_Set.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(30 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sVacuumRecipes);
     }
 
     private static void latheRecipes() {
+        GT_Values.RA.stdBuilder().itemInputs(ALLOY.EGLIN_STEEL.getBlock(1))
+                .itemOutputs(GregtechItemList.Bomb_Cast_Mold.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(15 * MINUTES).eut(TierEU.RECIPE_MV).addTo(sLatheRecipes);
 
-        GT_Values.RA.addLatheRecipe(
-                ALLOY.EGLIN_STEEL.getBlock(1),
-                GregtechItemList.Bomb_Cast_Mold.get(1),
-                null,
-                20 * 60 * 15,
-                120);
-
-        GT_Values.RA.addLatheRecipe(
-                GregtechItemList.Bomb_Cast_Set.get(1),
-                GregtechItemList.Bomb_Cast_Broken.get(2),
-                ItemUtils.getSimpleStack(ModItems.itemBombCasing, 2),
-                20 * 60 * 5,
-                30);
+        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Set.get(1))
+                .itemOutputs(
+                        GregtechItemList.Bomb_Cast_Broken.get(2),
+                        ItemUtils.getSimpleStack(ModItems.itemBombCasing, 2))
+                .noFluidInputs().noFluidOutputs().duration(5 * MINUTES).eut(TierEU.RECIPE_LV).addTo(sLatheRecipes);
     }
 
     private static void fusionRecipes() {
-        // Hypogen Creation
-        GT_Values.RA.addFusionReactorRecipe(
-                ELEMENT.STANDALONE.DRAGON_METAL.getFluidStack(144),
-                ELEMENT.STANDALONE.RHUGNOR.getFluidStack(288),
-                ELEMENT.STANDALONE.HYPOGEN.getFluidStack(36),
-                2048 * 4,
-                MaterialUtils.getVoltageForTier(9),
-                600000000 * 2);
+        // Hypogen
+        GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
+                .fluidInputs(
+                        ELEMENT.STANDALONE.DRAGON_METAL.getFluidStack(144),
+                        ELEMENT.STANDALONE.RHUGNOR.getFluidStack(288))
+                .fluidOutputs(ELEMENT.STANDALONE.HYPOGEN.getFluidStack(36))
+                .duration(6 * MINUTES + 49 * SECONDS + 12 * TICKS).eut(TierEU.RECIPE_UHV)
+                .metadata(FUSION_THRESHOLD, 1_200_000_000).addTo(sFusionRecipes);
 
         // Rhugnor
-        GT_Values.RA.addFusionReactorRecipe(
-                MaterialUtils.getMaterial("Infinity", "Neutronium").getMolten(144),
-                ALLOY.QUANTUM.getFluidStack(288),
-                ELEMENT.STANDALONE.RHUGNOR.getFluidStack(144),
-                512,
-                MaterialUtils.getVoltageForTier(8),
-                2000000000);
+        GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
+                .fluidInputs(
+                        MaterialUtils.getMaterial("Infinity", "Neutronium").getMolten(144),
+                        ALLOY.QUANTUM.getFluidStack(288))
+                .fluidOutputs(ELEMENT.STANDALONE.RHUGNOR.getFluidStack(144)).duration(25 * SECONDS + 12 * TICKS)
+                .eut(TierEU.RECIPE_UV).metadata(FUSION_THRESHOLD, 2_000_000_000).addTo(sFusionRecipes);
     }
 
     private static void assemblyLineRecipes() {
@@ -336,7 +330,7 @@ public class RECIPES_GREGTECH {
                 (int) MaterialUtils.getVoltageForTier(8));
 
         /*
-         * Contianment casings
+         * Containment casings
          */
 
         ItemStack[] aGemCasings = new ItemStack[] { GregtechItemList.Battery_Casing_Gem_1.get(1),
@@ -495,111 +489,76 @@ public class RECIPES_GREGTECH {
                 GregtechItemList.TransmissionComponent_ZPM, GregtechItemList.TransmissionComponent_UV,
                 GregtechItemList.TransmissionComponent_MAX, };
         for (int i = 0; i < 10; i++) {
-            GT_Values.RA.addLaserEngraverRecipe(
-                    CI.getEmitter(i, 2),
-                    CI.getSensor(i, 2),
-                    aTransParts[i].get(1),
-                    20 * 5,
-                    MaterialUtils.getVoltageForTier(i));
+            GT_Values.RA.stdBuilder().itemInputs(CI.getEmitter(i, 2), CI.getSensor(i, 2))
+                    .itemOutputs(aTransParts[i].get(1)).noFluidInputs().noFluidOutputs().duration(5 * SECONDS)
+                    .eut(GT_Values.VP[i]).addTo(sLaserEngraverRecipes);
         }
 
-        GT_Values.RA.addLaserEngraverRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Tungsten, 6L),
-                GregtechItemList.Laser_Lens_Special.get(0),
-                ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getDust(1),
-                20 * 60 * 3,
-                MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.vTier));
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Tungsten, 6L),
+                        GregtechItemList.Laser_Lens_Special.get(0))
+                .itemOutputs(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.getDust(1)).noFluidInputs().noFluidOutputs()
+                .duration(3 * MINUTES).eut(MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.CELESTIAL_TUNGSTEN.vTier))
+                .addTo(sLaserEngraverRecipes);
 
-        GT_Values.RA.addLaserEngraverRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Titanium, 8L),
-                GregtechItemList.Laser_Lens_Special.get(0),
-                ELEMENT.STANDALONE.ASTRAL_TITANIUM.getDust(1),
-                20 * 60 * 2,
-                MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.ASTRAL_TITANIUM.vTier));
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Titanium, 8L),
+                        GregtechItemList.Laser_Lens_Special.get(0))
+                .itemOutputs(ELEMENT.STANDALONE.ASTRAL_TITANIUM.getDust(1)).noFluidInputs().noFluidOutputs()
+                .duration(2 * MINUTES).eut(MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.ASTRAL_TITANIUM.vTier))
+                .addTo(sLaserEngraverRecipes);
 
-        GT_Values.RA.addLaserEngraverRecipe(
-                ALLOY.NITINOL_60.getBlock(2),
-                GregtechItemList.Laser_Lens_Special.get(0),
-                ELEMENT.STANDALONE.ADVANCED_NITINOL.getBlock(1),
-                20 * 60 * 1,
-                MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.ADVANCED_NITINOL.vTier));
+        GT_Values.RA.stdBuilder().itemInputs(ALLOY.NITINOL_60.getBlock(2), GregtechItemList.Laser_Lens_Special.get(0))
+                .itemOutputs(ELEMENT.STANDALONE.ADVANCED_NITINOL.getBlock(1)).noFluidInputs().noFluidOutputs()
+                .duration(1 * MINUTES).eut(MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.ADVANCED_NITINOL.vTier))
+                .addTo(sLaserEngraverRecipes);
 
-        GT_Values.RA.addLaserEngraverRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 64L),
-                GregtechItemList.Laser_Lens_Special.get(0),
-                ELEMENT.STANDALONE.CHRONOMATIC_GLASS.getDust(1),
-                20 * 60 * 5,
-                MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.CHRONOMATIC_GLASS.vTier));
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 64L),
+                        GregtechItemList.Laser_Lens_Special.get(0))
+                .itemOutputs(ELEMENT.STANDALONE.CHRONOMATIC_GLASS.getDust(1)).noFluidInputs().noFluidOutputs()
+                .duration(5 * MINUTES).eut(MaterialUtils.getVoltageForTier(ELEMENT.STANDALONE.CHRONOMATIC_GLASS.vTier))
+                .addTo(sLaserEngraverRecipes);
 
-        GT_Values.RA.addLaserEngraverRecipe(
-                CI.getFieldGenerator(6, 1),
-                CI.getEmitter(7, 2),
-                ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_1_CONTAINMENT, 1),
-                20 * 60 * 5,
-                MaterialUtils.getVoltageForTier(5));
+        GT_Values.RA.stdBuilder().itemInputs(CI.getFieldGenerator(6, 1), CI.getEmitter(7, 2))
+                .itemOutputs(ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_1_CONTAINMENT, 1))
+                .noFluidInputs().noFluidOutputs().duration(5 * MINUTES).eut(TierEU.RECIPE_IV)
+                .addTo(sLaserEngraverRecipes);
 
         // Distillus Upgrade Chip
-        GT_Values.RA.addLaserEngraverRecipe(
-                GregtechItemList.Laser_Lens_WoodsGlass.get(0),
-                ItemUtils.simpleMetaStack(AgriculturalChem.mBioCircuit, 20, 1),
-                GregtechItemList.Distillus_Upgrade_Chip.get(1),
-                20 * 60 * 5,
-                MaterialUtils.getVoltageForTier(5));
-
-        // GT_Values.RA.addLaserEngraverRecipe(
-        // GregtechItemList.Laser_Lens_WoodsGlass.get(0),
-        // ItemUtils.simpleMetaStack(ModBlocks.blockCompressedObsidian, 8, 1),
-        // ItemUtils.getSimpleStack(ModItems.itemSunnariumBit, 3),
-        // 20 * 60 * 5,
-        // MaterialUtils.getVoltageForTier(3));
-
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Laser_Lens_WoodsGlass.get(0),
+                        ItemUtils.simpleMetaStack(AgriculturalChem.mBioCircuit, 20, 1))
+                .itemOutputs(GregtechItemList.Distillus_Upgrade_Chip.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(5 * MINUTES).eut(TierEU.RECIPE_IV).addTo(sLaserEngraverRecipes);
     }
 
     private static void breweryRecipes() {
-        CORE.RA.addBrewingRecipe(
-                14,
-                EnchantingUtils.getMobEssence(100),
-                EnchantingUtils.getLiquidXP(1332),
-                100,
-                120,
-                false);
-        CORE.RA.addBrewingRecipe(
-                14,
-                EnchantingUtils.getLiquidXP(1332),
-                EnchantingUtils.getMobEssence(100),
-                100,
-                120,
-                false);
-        CORE.RA.addBrewingRecipe(
-                ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest),
-                FluidUtils.getFluidStack("water", 100),
-                FluidUtils.getFluidStack("biomass", 100),
-                1200,
-                3,
-                false);
-        CORE.RA.addBrewingRecipe(
-                ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest),
-                FluidUtils.getFluidStack("honey", 100),
-                FluidUtils.getFluidStack("biomass", 150),
-                1200,
-                3,
-                false);
-        CORE.RA.addBrewingRecipe(
-                ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest),
-                FluidUtils.getFluidStack("juice", 100),
-                FluidUtils.getFluidStack("biomass", 150),
-                1200,
-                3,
-                false);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14)).noItemOutputs()
+                .fluidInputs(EnchantingUtils.getMobEssence(100)).fluidOutputs(EnchantingUtils.getLiquidXP(1332))
+                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sBrewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14)).noItemOutputs()
+                .fluidInputs(EnchantingUtils.getLiquidXP(1332)).fluidOutputs(EnchantingUtils.getMobEssence(100))
+                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sBrewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest))
+                .noItemOutputs().fluidInputs(Materials.Water.getFluid(100L))
+                .fluidOutputs(Materials.Biomass.getFluid(100L)).duration(1 * MINUTES).eut(3).addTo(sBrewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest))
+                .noItemOutputs().fluidInputs(Materials.Honey.getFluid(100L))
+                .fluidOutputs(Materials.Biomass.getFluid(100L)).duration(1 * MINUTES).eut(3).addTo(sBrewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest))
+                .noItemOutputs().fluidInputs(FluidUtils.getFluidStack("juice", 100))
+                .fluidOutputs(Materials.Biomass.getFluid(100L)).duration(1 * MINUTES).eut(3).addTo(sBrewingRecipes);
     }
 
     private static void cuttingSawRecipes() {
-        GT_Values.RA.addCutterRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("blockMeatRaw", 1), // Input
-                ItemUtils.getItemStackOfAmountFromOreDict("plateMeatRaw", 9), // Output
-                null,
-                16, // Time
-                8); // EU
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getItemStackOfAmountFromOreDict("blockMeatRaw", 1))
+                .itemOutputs(ItemUtils.getItemStackOfAmountFromOreDict("plateMeatRaw", 9)).noFluidInputs()
+                .noFluidOutputs().duration(16 * TICKS).eut(TierEU.RECIPE_ULV).addTo(sCutterRecipes);
     }
 
     private static void electrolyzerRecipes() {
@@ -961,14 +920,6 @@ public class RECIPES_GREGTECH {
                 null,
                 240,
                 120);
-    }
-
-    private static void fissionFuelRecipes() {
-        try {
-
-        } catch (final NullPointerException e) {
-            Logger.INFO("FAILED TO LOAD RECIPES - NULL POINTER SOMEWHERE");
-        }
     }
 
     private static void assemblerRecipes() {
@@ -1486,8 +1437,6 @@ public class RECIPES_GREGTECH {
         }
     }
 
-    private static void autoclaveRecipes() {}
-
     private static void benderRecipes() {
         if (CORE.ConfigSwitches.enableMultiblock_PowerSubstation) {
             GT_Values.RA.addBenderRecipe(
@@ -1611,7 +1560,7 @@ public class RECIPES_GREGTECH {
                 500 * 4,
                 500 * 20); // PO Special Value
 
-        /**
+        /*
          * Particle Science
          */
 
@@ -1841,10 +1790,4 @@ public class RECIPES_GREGTECH {
                 (int) MaterialUtils.getVoltageForTier(7),
                 250);
     }
-
-    private static void sifterRecipes() {}
-
-    private static void electroMagneticSeperatorRecipes() {}
-
-    private static void advancedMixerRecipes() {}
 }
