@@ -10,6 +10,7 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
@@ -21,6 +22,8 @@ import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
 import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
 
 import net.minecraft.init.Blocks;
@@ -35,6 +38,7 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_RecipeConstants;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.HotFuel;
 import gregtech.api.util.ThermalFuel;
@@ -1175,16 +1179,15 @@ public class RECIPES_GREGTECH {
                 FluidUtils.getSuperHeatedSteam(100000),
                 0);
 
-        /*
-         * HotFuel.addNewHotFuel( FluidUtils.getFluidStack("ic2hotcoolant", 100), GT_Values.NF, new ItemStack[]{}, new
-         * int[]{}, 0);
-         */
-
         ThermalFuel.addSteamTurbineFuel(FluidUtils.getFluidStack("steam", 1024));
 
-        GT_Values.RA.addFuel(ItemUtils.getSimpleStack(Items.lava_bucket), null, 32, 2);
-        GT_Values.RA.addFuel(ItemUtils.getIC2Cell(2), null, 32, 2);
-        GT_Values.RA.addFuel(ItemUtils.getIC2Cell(11), null, 24, 2);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.lava_bucket)).noItemOutputs()
+                .noFluidInputs().noFluidOutputs().metadata(FUEL_VALUE, 32).metadata(FUEL_TYPE, 2).duration(0).eut(0)
+                .addTo(GT_RecipeConstants.Fuel);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getIC2Cell(2)).noItemOutputs().noFluidInputs().noFluidOutputs()
+                .metadata(FUEL_VALUE, 32).metadata(FUEL_TYPE, 2).duration(0).eut(0).addTo(GT_RecipeConstants.Fuel);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getIC2Cell(11)).noItemOutputs().noFluidInputs().noFluidOutputs()
+                .metadata(FUEL_VALUE, 24).metadata(FUEL_TYPE, 2).duration(0).eut(0).addTo(GT_RecipeConstants.Fuel);
     }
 
     private static void extractorRecipes() {
@@ -1202,25 +1205,19 @@ public class RECIPES_GREGTECH {
 
     private static void fluidExtractorRecipes() {
         // Gelid Cryotheum
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustCryotheum", 1),
-                FluidUtils.getFluidStack("cryotheum", 250),
-                200,
-                240);
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Cryotheum, 1L))
+                .noItemOutputs().noFluidInputs().fluidOutputs(FluidUtils.getFluidStack("cryotheum", 250))
+                .duration(10 * SECONDS).eut(TierEU.RECIPE_HV / 2).addTo(sFluidExtractionRecipes);
 
         // Ender Fluid
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getSimpleStack(Items.ender_pearl),
-                FluidUtils.getFluidStack("ender", 250),
-                100,
-                30);
+        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.ender_pearl)).noItemOutputs()
+                .noFluidInputs().fluidOutputs(FluidUtils.getFluidStack("ender", 250)).duration(5 * SECONDS)
+                .eut(TierEU.RECIPE_LV).addTo(sFluidExtractionRecipes);
 
         // Blazing Pyrotheum
-        CORE.RA.addFluidExtractionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustPyrotheum", 1),
-                FluidUtils.getFluidStack("pyrotheum", 250),
-                200,
-                240);
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Pyrotheum, 1L))
+                .noItemOutputs().noFluidInputs().fluidOutputs(FluidUtils.getFluidStack("pyrotheum", 250))
+                .duration(10 * SECONDS).eut(TierEU.RECIPE_HV / 2).addTo(sFluidExtractionRecipes);
     }
 
     private static void centrifugeRecipes() {
