@@ -95,7 +95,6 @@ public class RECIPES_GREGTECH {
         mixerRecipes();
         macerationRecipes();
         centrifugeRecipes();
-        benderRecipes();
         cyclotronRecipes();
         blastSmelterRecipes();
         extruderRecipes();
@@ -1362,16 +1361,6 @@ public class RECIPES_GREGTECH {
                     10 * 20,
                     500,
                     Materials.Titanium.mBlastFurnaceTemp);
-        }
-    }
-
-    private static void benderRecipes() {
-        if (CORE.ConfigSwitches.enableMultiblock_PowerSubstation) {
-            GT_Values.RA.addBenderRecipe(
-                    ItemUtils.getItemStackOfAmountFromOreDict("ingotVanadium", 1),
-                    ItemUtils.getItemStackOfAmountFromOreDict("plateVanadium", 1),
-                    8,
-                    16);
         }
     }
 
