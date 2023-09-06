@@ -6,6 +6,7 @@ import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
@@ -15,6 +16,7 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.BUCKETS;
@@ -1222,58 +1224,47 @@ public class RECIPES_GREGTECH {
 
     private static void centrifugeRecipes() {
 
-        GT_Values.RA.addCentrifugeRecipe(
-                CI.getNumberedAdvancedCircuit(2),
-                MISC_MATERIALS.SOLAR_SALT_COLD.getCell(5),
-                null,
-                null,
-                MISC_MATERIALS.SODIUM_NITRATE.getDust(15),
-                MISC_MATERIALS.POTASSIUM_NITRATE.getDust(10),
-                CI.emptyCells(5),
-                null,
-                null,
-                null,
-                null,
-                20 * 30,
-                120);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(CI.getNumberedAdvancedCircuit(2), MISC_MATERIALS.SOLAR_SALT_COLD.getCell(1))
+                .itemOutputs(
+                        MISC_MATERIALS.SODIUM_NITRATE.getDust(3),
+                        MISC_MATERIALS.POTASSIUM_NITRATE.getDust(2),
+                        CI.emptyCells(1))
+                .noFluidInputs().noFluidOutputs().duration(6 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sCentrifugeRecipes);
     }
 
     private static void mixerRecipes() {
 
-        GT_Values.RA.addMixerRecipe(
-                CI.getNumberedAdvancedCircuit(2),
-                CI.emptyCells(5),
-                MISC_MATERIALS.SODIUM_NITRATE.getDust(15),
-                MISC_MATERIALS.POTASSIUM_NITRATE.getDust(10),
-                null,
-                null,
-                MISC_MATERIALS.SOLAR_SALT_COLD.getCell(5),
-                20 * 10,
-                120);
-        GT_Values.RA.addMixerRecipe(
-                CI.getNumberedAdvancedCircuit(2),
-                Materials.Titanium.getDust(9),
-                Materials.Carbon.getDust(9),
-                Materials.Potassium.getDust(9),
-                Materials.Lithium.getDust(9),
-                Materials.Sulfur.getDust(9),
-                Materials.Hydrogen.getGas(5000),
-                null,
-                ALLOY.LEAGRISIUM.getDust(50),
-                20 * 60,
-                (int) TierEU.RECIPE_EV);
-        GT_Values.RA.addMixerRecipe(
-                CI.getNumberedAdvancedCircuit(2),
-                Materials.Steel.getDust(16),
-                Materials.Molybdenum.getDust(1),
-                Materials.Titanium.getDust(1),
-                Materials.Nickel.getDust(4),
-                Materials.Cobalt.getDust(2),
-                GT_Values.NF,
-                null,
-                ALLOY.MARAGING250.getDust(24),
-                20 * 60,
-                (int) TierEU.RECIPE_EV);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.getNumberedAdvancedCircuit(2),
+                        CI.emptyCells(1),
+                        MISC_MATERIALS.SODIUM_NITRATE.getDust(3),
+                        MISC_MATERIALS.POTASSIUM_NITRATE.getDust(2))
+                .itemOutputs(MISC_MATERIALS.SOLAR_SALT_COLD.getCell(1)).noFluidInputs().noFluidOutputs()
+                .duration(2 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sMixerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.getNumberedAdvancedCircuit(2),
+                        Materials.Titanium.getDust(9),
+                        Materials.Carbon.getDust(9),
+                        Materials.Potassium.getDust(9),
+                        Materials.Lithium.getDust(9),
+                        Materials.Sulfur.getDust(9))
+                .itemOutputs(ALLOY.LEAGRISIUM.getDust(50)).fluidInputs(Materials.Hydrogen.getGas(5000)).noFluidOutputs()
+                .duration(1 * MINUTES).eut(TierEU.RECIPE_EV).addTo(sMixerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.getNumberedAdvancedCircuit(2),
+                        Materials.Steel.getDust(16),
+                        Materials.Molybdenum.getDust(1),
+                        Materials.Titanium.getDust(1),
+                        Materials.Nickel.getDust(4),
+                        Materials.Cobalt.getDust(2))
+                .itemOutputs(ALLOY.MARAGING250.getDust(24)).noFluidInputs().noFluidOutputs().duration(1 * MINUTES)
+                .eut(TierEU.RECIPE_EV).addTo(sMixerRecipes);
     }
 
     private static void chemicalReactorRecipes() {
