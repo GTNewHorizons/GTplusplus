@@ -7,6 +7,7 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
@@ -16,10 +17,12 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMaceratorRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.BUCKETS;
+import static gregtech.api.util.GT_RecipeBuilder.HOURS;
 import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
@@ -1373,36 +1376,32 @@ public class RECIPES_GREGTECH {
     }
 
     private static void compressorRecipes() {
-        GT_ModHandler.addCompressionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustClay", 1),
-                ItemUtils.getItemStackOfAmountFromOreDict("plateClay", 1));
-        GT_ModHandler.addCompressionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 1),
-                ItemUtils.getItemStackOfAmountFromOreDict("plateMeatRaw", 1));
-        GT_ModHandler.addCompressionRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 9),
-                ItemUtils.getItemStackOfAmountFromOreDict("blockMeatRaw", 1));
-        CORE.RA.addCompressorRecipe(
-                ItemList.FusionComputer_UV.get(9),
-                GregtechItemList.Compressed_Fusion_Reactor.get(1),
-                (int) GT_Values.V[7],
-                (int) GT_Values.V[8]);
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 1L))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Clay, 1L)).noFluidInputs()
+                .noFluidOutputs().duration(15 * SECONDS).eut(2).addTo(sCompressorRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.MeatRaw, 9L))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.block, Materials.MeatRaw, 1L)).noFluidInputs()
+                .noFluidOutputs().duration(15 * SECONDS).eut(2).addTo(sCompressorRecipes);
+
+        GT_Values.RA.stdBuilder().itemInputs(ItemList.FusionComputer_UV.get(9))
+                .itemOutputs(GregtechItemList.Compressed_Fusion_Reactor.get(1)).noFluidInputs().noFluidOutputs()
+                .duration(1 * HOURS + 50 * MINUTES).eut(TierEU.RECIPE_UV).addTo(sCompressorRecipes);
     }
 
     private static void macerationRecipes() {
 
-        GT_ModHandler.addPulverisationRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("blockMeatRaw", 1),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 9));
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.block, Materials.MeatRaw, 1L))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.MeatRaw, 9L)).noFluidInputs()
+                .noFluidOutputs().duration(44 * SECONDS).eut(4).addTo(sMaceratorRecipes);
 
-        GT_ModHandler.addPulverisationRecipe(
-                GregtechItemList.Bomb_Cast_Broken.get(1),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustClay", 3));
+        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Broken.get(1))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 3L)).noFluidInputs()
+                .noFluidOutputs().duration(20 * SECONDS).eut(2).addTo(sMaceratorRecipes);
 
         if (ItemUtils.simpleMetaStack("chisel:limestone", 0, 1) != null) {
-            GT_ModHandler.addPulverisationRecipe(
-                    ItemUtils.getItemStackOfAmountFromOreDict("limestone", 1),
-                    ItemUtils.getItemStackOfAmountFromOreDict("dustCalcite", 4));
+            GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getItemStackOfAmountFromOreDict("limestone", 1))
+                    .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Calcite, 4L)).noFluidInputs()
+                    .noFluidOutputs().duration(20 * SECONDS).eut(2).addTo(sMaceratorRecipes);
         }
     }
 
