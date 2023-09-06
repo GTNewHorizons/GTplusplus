@@ -27,6 +27,7 @@ import static gregtech.api.util.GT_RecipeBuilder.TICKS;
 import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
 import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
 import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
+import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -1270,49 +1271,48 @@ public class RECIPES_GREGTECH {
     private static void chemicalReactorRecipes() {
 
         // Bombs
-        GT_Values.RA.addChemicalRecipe(
-                ItemUtils.getSimpleStack(ModItems.itemBombCasing, 4),
-                ItemUtils.getSimpleStack(RocketFuels.Ammonium_Nitrate_Dust, 8),
-                Materials.Fuel.getFluid(1000),
-                null,
-                ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4),
-                300 * 20);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getSimpleStack(ModItems.itemBombCasing, 4),
+                        ItemUtils.getSimpleStack(RocketFuels.Ammonium_Nitrate_Dust, 8))
+                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4))
+                .fluidInputs(Materials.Fuel.getFluid(1000)).noFluidOutputs().duration(5 * MINUTES).eut(TierEU.RECIPE_LV)
+                .addTo(UniversalChemical);
 
-        GT_Values.RA.addChemicalRecipe(
-                ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4),
-                ItemUtils.getSimpleStack(ModItems.itemDetCable, 4),
-                FluidUtils.getFluidStack(RocketFuels.Kerosene, 100),
-                null,
-                ItemUtils.getSimpleStack(ModItems.itemBomb, 4),
-                10 * 20);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4),
+                        ItemUtils.getSimpleStack(ModItems.itemDetCable, 4))
+                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemBomb, 4))
+                .fluidInputs(FluidUtils.getFluidStack(RocketFuels.Kerosene, 100)).noFluidOutputs()
+                .duration(10 * SECONDS).eut(TierEU.RECIPE_LV).addTo(UniversalChemical);
 
-        GT_Values.RA.addChemicalRecipe(
-                CI.getNumberedAdvancedCircuit(21),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustApatite", 32),
-                FluidUtils.getFluidStack("sulfuricacid", 4000),
-                FluidUtils.getFluidStack("sulfuricapatite", 8000),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustSmallSulfur", 8),
-                20 * 20);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.getNumberedAdvancedCircuit(21),
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Apatite, 32L))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Sulfur, 8L))
+                .fluidInputs(FluidUtils.getFluidStack("sulfuricacid", 4000))
+                .fluidOutputs(FluidUtils.getFluidStack("sulfuricapatite", 8000)).duration(20 * SECONDS)
+                .eut(TierEU.RECIPE_LV).addTo(UniversalChemical);
 
         // KOH + HNO3 = KNO3 + H2O
-        GT_Values.RA.addChemicalRecipe(
-                ItemUtils.getSimpleStack(GenericChem.mPotassiumHydroxide, 3),
-                CI.getNumberedAdvancedCircuit(1),
-                Materials.NitricAcid.getFluid(1000),
-                Materials.Water.getFluid(1000),
-                MISC_MATERIALS.POTASSIUM_NITRATE.getDust(5),
-                100,
-                30);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getSimpleStack(GenericChem.mPotassiumHydroxide, 3),
+                        CI.getNumberedAdvancedCircuit(1))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.PotassiumNitrade, 5L))
+                .fluidInputs(Materials.NitricAcid.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000))
+                .duration(5 * SECONDS).eut(TierEU.RECIPE_LV).addTo(UniversalChemical);
 
         // Na2CO3 + 2HNO3 = 2NaNO3 + CO2 + H2O
-        GT_Values.RA.addChemicalRecipe(
-                ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 6),
-                CI.getNumberedAdvancedCircuit(1),
-                Materials.NitricAcid.getFluid(2000),
-                Materials.CarbonDioxide.getGas(1000),
-                MISC_MATERIALS.SODIUM_NITRATE.getDust(10),
-                100,
-                30);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getSimpleStack(AgriculturalChem.mSodiumCarbonate, 6),
+                        CI.getNumberedAdvancedCircuit(1))
+                .itemOutputs(MISC_MATERIALS.SODIUM_NITRATE.getDust(10)).fluidInputs(Materials.NitricAcid.getFluid(2000))
+                .fluidOutputs(Materials.CarbonDioxide.getGas(1000)).duration(5 * SECONDS).eut(TierEU.RECIPE_LV)
+                .addTo(UniversalChemical);
     }
 
     private static void blastFurnaceRecipes() {
