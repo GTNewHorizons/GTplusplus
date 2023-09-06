@@ -16,6 +16,7 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.BUCKETS;
 import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
@@ -878,177 +879,161 @@ public class RECIPES_GREGTECH {
                 .fluidInputs(Materials.Tantalum.getMolten(4 * INGOTS)).noFluidOutputs().duration(32 * SECONDS)
                 .eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
 
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateDenseLead", 4),
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemHalfCompleteCasings, 1, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Lead, 4L),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(3), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorHV", 2) },
-                FluidUtils.getFluidStack("oxygen", 16000),
-                ItemUtils.getSimpleStack(GregtechItemList.Casing_Vanadium_Redox.get(1), 1),
-                64,
-                240);
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 2L))
+                .itemOutputs(ItemUtils.getSimpleStack(GregtechItemList.Casing_Vanadium_Redox.get(1), 1))
+                .fluidInputs(Materials.Oxygen.getGas(16 * BUCKETS)).noFluidOutputs().duration(3 * SECONDS + 4 * TICKS)
+                .eut(TierEU.RECIPE_HV / 2).addTo(sAssemblerRecipes);
 
-        // Tier 2-6
-        ItemStack T1 = GregtechItemList.Casing_Vanadium_Redox.get(1);
-        ItemStack T2 = GregtechItemList.Casing_Vanadium_Redox_IV.get(1);
-        ItemStack T3 = GregtechItemList.Casing_Vanadium_Redox_LuV.get(1);
-        ItemStack T4 = GregtechItemList.Casing_Vanadium_Redox_ZPM.get(1);
-        ItemStack T5 = GregtechItemList.Casing_Vanadium_Redox_UV.get(1);
-        ItemStack T6 = GregtechItemList.Casing_Vanadium_Redox_MAX.get(1);
-
-        /*
-         * addAR(T1, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTitanium", 4),
-         * FluidUtils.getFluidStack("nitrogen", 16000), T2, 120, 2000);
-         */
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { T1, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTitanium", 4),
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Casing_Vanadium_Redox.get(1),
+                        GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Titanium, 4L),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(4), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorEV", 2) },
-                FluidUtils.getFluidStack("nitrogen", 16000),
-                T2,
-                120,
-                2000);
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 2L))
+                .itemOutputs(GregtechItemList.Casing_Vanadium_Redox_IV.get(1))
+                .fluidInputs(Materials.Nitrogen.getGas(16 * BUCKETS)).noFluidOutputs().duration(6 * SECONDS)
+                .eut(TierEU.RECIPE_EV).addTo(sAssemblerRecipes);
 
-        /*
-         * addAR(T2, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTungstenSteel", 4),
-         * FluidUtils.getFluidStack("helium", 8000), T3, 250, 8000);
-         */
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { T2, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseTungstenSteel", 4),
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Casing_Vanadium_Redox_IV.get(1),
+                        GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.TungstenSteel, 4L),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(5), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorIV", 2) },
-                FluidUtils.getFluidStack("helium", 8000),
-                T3,
-                250,
-                8000);
-        /*
-         * addAR(T3, ItemUtils.getItemStackOfAmountFromOreDict("plateAlloyIridium", 16),
-         * FluidUtils.getFluidStack("argon", 4000), T4, 500, 32000);
-         */
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { T3, ItemUtils.getItemStackOfAmountFromOreDict("plateAlloyIridium", 16),
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 2L))
+                .itemOutputs(GregtechItemList.Casing_Vanadium_Redox_LuV.get(1))
+                .fluidInputs(Materials.Helium.getGas(8 * BUCKETS)).noFluidOutputs().duration(12 * SECONDS + 10 * TICKS)
+                .eut(TierEU.RECIPE_IV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Casing_Vanadium_Redox_LuV.get(1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("plateAlloyIridium", 16),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorLuV", 2) },
-                FluidUtils.getFluidStack("argon", 4000),
-                T4,
-                500,
-                32000);
-        /*
-         * addAR(T4, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseNaquadah", 4),
-         * FluidUtils.getFluidStack("radon", 4000), T5, 1000, 128000);
-         */
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { T4, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseNaquadah", 4),
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorLuV, 2L))
+                .itemOutputs(GregtechItemList.Casing_Vanadium_Redox_ZPM.get(1))
+                .fluidInputs(Materials.Argon.getGas(4 * BUCKETS)).noFluidOutputs().duration(25 * SECONDS)
+                .eut(TierEU.RECIPE_LuV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Casing_Vanadium_Redox_ZPM.get(1),
+                        GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Naquadah, 4L),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(7), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorZPM", 2) },
-                FluidUtils.getFluidStack("radon", 4000),
-                T5,
-                1000,
-                128000);
-        /*
-         * addAR(T5, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseAmericium", 4),
-         * FluidUtils.getFluidStack("krypton", 500), T6, 2000, 512000);
-         */
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { T5, ItemUtils.getItemStackOfAmountFromOreDict("plateDenseAmericium", 4),
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorZPM, 2L))
+                .itemOutputs(GregtechItemList.Casing_Vanadium_Redox_UV.get(1))
+                .fluidInputs(Materials.Radon.getGas(4 * BUCKETS)).noFluidOutputs().duration(50 * SECONDS)
+                .eut(TierEU.RECIPE_ZPM).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Casing_Vanadium_Redox_UV.get(1),
+                        GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Americium, 4L),
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(8), 4),
-                        ItemUtils.getItemStackOfAmountFromOreDict("wireGt01SuperconductorUV", 2) },
-                FluidUtils.getFluidStack("krypton", 500),
-                T6,
-                2000,
-                512000);
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorUV, 2L))
+                .itemOutputs(GregtechItemList.Casing_Vanadium_Redox_MAX.get(1))
+                .fluidInputs(FluidUtils.getFluidStack("krypton", 500)).noFluidOutputs()
+                .duration(1 * MINUTES + 40 * SECONDS).eut(TierEU.RECIPE_UV).addTo(sAssemblerRecipes);
 
-        addAR(
-                ItemUtils.getItemStackOfAmountFromOreDict("dustClay", 32),
-                GregtechItemList.Bomb_Cast_Mold.get(0),
-                FluidUtils.getWater(4000),
-                GregtechItemList.Bomb_Cast.get(4),
-                30,
-                120);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 32L),
+                        GregtechItemList.Bomb_Cast_Mold.get(0))
+                .itemOutputs(GregtechItemList.Bomb_Cast.get(4)).fluidInputs(Materials.Water.getFluid(4000L))
+                .noFluidOutputs().duration(30 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
 
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { ItemUtils.getSimpleStack(CI.explosiveITNT, 2),
-                        ItemUtils.getSimpleStack(CI.explosiveTNT, 4), ELEMENT.getInstance().SULFUR.getDust(2),
-                        ELEMENT.getInstance().IRON.getFrameBox(1) },
-                null,
-                ItemUtils.getSimpleStack(ModBlocks.blockMiningExplosive, 3),
-                5 * 20,
-                60);
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { ItemUtils.getSimpleStack(Items.nether_star),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateTungstenSteel", 8),
-                        ItemUtils.getItemStackOfAmountFromOreDict("stickBlackSteel", 8) },
-                null,
-                ItemUtils.getSimpleStack(ModBlocks.blockWitherGuard, 64),
-                30 * 20,
-                500);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.getSimpleStack(CI.explosiveITNT, 2),
+                        ItemUtils.getSimpleStack(CI.explosiveTNT, 4),
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Sulfur, 2L),
+                        GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Iron, 1L))
+                .itemOutputs(ItemUtils.getSimpleStack(ModBlocks.blockMiningExplosive, 3)).noFluidInputs()
+                .noFluidOutputs().duration(5 * SECONDS).eut(TierEU.RECIPE_MV / 2).addTo(sAssemblerRecipes);
 
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.fluidRegulator_LV, CI.electricMotor_LV,
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.gem, Materials.NetherStar, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.TungstenSteel, 8L),
+                        GT_OreDictUnificator.get(OrePrefixes.stick, Materials.BlackSteel, 8L))
+                .itemOutputs(ItemUtils.getSimpleStack(ModBlocks.blockWitherGuard, 64)).noFluidInputs().noFluidOutputs()
+                .duration(30 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.fluidRegulator_LV,
+                        CI.electricMotor_LV,
                         CI.getTieredComponent(OrePrefixes.bolt, 1, 8),
-                        ItemUtils.getItemStackOfAmountFromOreDict("ringBrass", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("stickBrass", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateSteel", 2) },
-                null,
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 1, 1),
-                10 * 20,
-                30);
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.fluidRegulator_MV, CI.electricMotor_MV,
+                        GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Brass, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Brass, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 2L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 1, 1)).noFluidInputs()
+                .noFluidOutputs().duration(10 * SECONDS).eut(TierEU.RECIPE_LV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.fluidRegulator_MV,
+                        CI.electricMotor_MV,
                         CI.getTieredComponent(OrePrefixes.bolt, 2, 8),
-                        ItemUtils.getItemStackOfAmountFromOreDict("ringInvar", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("stickInvar", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateAluminium", 2) },
-                null,
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 2, 1),
-                10 * 20 * 2,
-                120);
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.fluidRegulator_HV, CI.electricMotor_HV,
+                        GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Invar, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Invar, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Aluminium, 2L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 2, 1)).noFluidInputs()
+                .noFluidOutputs().duration(20 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.fluidRegulator_HV,
+                        CI.electricMotor_HV,
                         CI.getTieredComponent(OrePrefixes.bolt, 3, 8),
-                        ItemUtils.getItemStackOfAmountFromOreDict("ringChrome", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("stickChrome", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateStainlessSteel", 2) },
-                null,
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 3, 1),
-                10 * 20 * 3,
-                480);
+                        GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Chrome, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Chrome, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 2L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 3, 1)).noFluidInputs()
+                .noFluidOutputs().duration(30 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
 
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.fluidRegulator_EV, CI.electricMotor_EV,
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        CI.fluidRegulator_EV,
+                        CI.electricMotor_EV,
                         CI.getTieredComponent(OrePrefixes.bolt, 4, 8),
-                        ItemUtils.getItemStackOfAmountFromOreDict("ringTitanium", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("stickTitanium", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("plateTungstenSteel", 2) },
-                null,
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 4, 1),
-                10 * 20 * 4,
-                1960);
+                        GT_OreDictUnificator.get(OrePrefixes.ring, Materials.Titanium, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Titanium, 1L),
+                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.TungstenSteel, 2L))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 4, 1)).noFluidInputs()
+                .noFluidOutputs().duration(40 * SECONDS).eut(TierEU.RECIPE_EV).addTo(sAssemblerRecipes);
 
-        GT_Values.RA.addAssemblerRecipe(
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 1, 1),
-                CI.getNumberedCircuit(20),
-                ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1000, 1),
-                30,
-                30);
-        GT_Values.RA.addAssemblerRecipe(
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 2, 1),
-                CI.getNumberedCircuit(20),
-                ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1001, 1),
-                120,
-                120);
-        GT_Values.RA.addAssemblerRecipe(
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 3, 1),
-                CI.getNumberedCircuit(20),
-                ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1002, 1),
-                480,
-                480);
-        GT_Values.RA.addAssemblerRecipe(
-                ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 4, 1),
-                CI.getNumberedCircuit(20),
-                ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1003, 1),
-                1820,
-                1820);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 1, 1),
+                        GT_Utility.getIntegratedCircuit(20))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1000, 1)).noFluidInputs()
+                .noFluidOutputs().duration(1 * SECONDS + 10 * TICKS).eut(TierEU.RECIPE_LV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 2, 1),
+                        GT_Utility.getIntegratedCircuit(20))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1001, 1)).noFluidInputs()
+                .noFluidOutputs().duration(6 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 3, 1),
+                        GT_Utility.getIntegratedCircuit(20))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1002, 1)).noFluidInputs()
+                .noFluidOutputs().duration(24 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
+
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        ItemUtils.simpleMetaStack(ModItems.itemGenericToken, 4, 1),
+                        GT_Utility.getIntegratedCircuit(20))
+                .itemOutputs(ItemUtils.simpleMetaStack(ModItems.toolGregtechPump, 1003, 1)).noFluidInputs()
+                .noFluidOutputs().duration(1 * MINUTES + 36 * SECONDS).eut(TierEU.RECIPE_EV).addTo(sAssemblerRecipes);
 
         // Low tier Charge Packs
 
@@ -1076,47 +1061,46 @@ public class RECIPES_GREGTECH {
 
             int aAS = i - 1;
 
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { aPackPlates[aAS], aPackRing[aAS], aPackWire[aAS], aPackCircuit[aAS],
-                            aPackBatteries[aAS], CI.getSensor(i, 4), },
-                    CI.getTieredFluid(i, (144 * 4)),
-                    aPackOutput[aAS],
-                    30 * 20 * i,
-                    (int) GT_Values.V[i]);
+            GT_Values.RA.stdBuilder()
+                    .itemInputs(
+                            aPackPlates[aAS],
+                            aPackRing[aAS],
+                            aPackWire[aAS],
+                            aPackCircuit[aAS],
+                            aPackBatteries[aAS],
+                            CI.getSensor(i, 4))
+                    .itemOutputs(aPackOutput[aAS]).fluidInputs(CI.getTieredFluid(i, (144 * 4))).noFluidOutputs()
+                    .duration(30 * i * SECONDS).eut(GT_Values.V[i]).addTo(sAssemblerRecipes);
         }
 
         if (Baubles.isModLoaded()) {
 
             // Turbine Housing Research Page
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { ItemUtils.getGregtechCircuit(17),
-                            ItemUtils.getItemStackOfAmountFromOreDict("plateTrinium", 64), CI.getSensor(6, 6),
-                            CI.getBolt(7, 64), ItemUtils.getItemStackOfAmountFromOreDict("wireFinePlatinum", 64),
-                            ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(7), 12) },
-                    CI.getAlternativeTieredFluid(7, 144 * 32),
-                    ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_8_TURBINE_AUTOMATION, 1),
-                    20 * 60 * 5,
-                    (int) GT_Values.V[6]);
+            GT_Values.RA.stdBuilder()
+                    .itemInputs(
+                            GT_Utility.getIntegratedCircuit(17),
+                            GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Trinium, 64L),
+                            CI.getSensor(6, 6),
+                            CI.getBolt(7, 64),
+                            GT_OreDictUnificator.get(OrePrefixes.wireFine, Materials.Platinum, 64L),
+                            ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(7), 12))
+                    .itemOutputs(
+                            ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_8_TURBINE_AUTOMATION, 1))
+                    .fluidInputs(CI.getAlternativeTieredFluid(7, 144 * 32)).noFluidOutputs().duration(5 * MINUTES)
+                    .eut(TierEU.RECIPE_LuV).addTo(sAssemblerRecipes);
 
             // Cloaking Device Research Page
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { ItemUtils.getGregtechCircuit(17),
-                            ItemUtils.getSimpleStack(ModItems.itemCircuitLFTR, 4), CI.getFieldGenerator(6, 16),
-                            ItemUtils.getItemStackOfAmountFromOreDict("wireFinePalladium", 32),
-                            ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 12) },
-                    CI.getAlternativeTieredFluid(7, 144 * 32),
-                    ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_9_CLOAKING, 1),
-                    20 * 60 * 10,
-                    (int) GT_Values.V[7]);
+            GT_Values.RA.stdBuilder()
+                    .itemInputs(
+                            GT_Utility.getIntegratedCircuit(17),
+                            ItemUtils.getSimpleStack(ModItems.itemCircuitLFTR, 4),
+                            CI.getFieldGenerator(6, 16),
+                            GT_OreDictUnificator.get(OrePrefixes.wireFine, Materials.Palladium, 32L),
+                            ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(6), 12))
+                    .itemOutputs(ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_9_CLOAKING, 1))
+                    .fluidInputs(CI.getAlternativeTieredFluid(7, 144 * 32)).noFluidOutputs().duration(10 * MINUTES)
+                    .eut(TierEU.RECIPE_ZPM).addTo(sAssemblerRecipes);
         }
-    }
-
-    @Deprecated
-    private static boolean addAR(final ItemStack inputA, final ItemStack inputB, final FluidStack inputFluidA,
-            final ItemStack outputA, final int seconds, final int voltage) {
-        // return GT_Values.RA.addAssemblerRecipe(inputA, inputB, outputA,
-        // seconds*20, voltage);
-        return GT_Values.RA.addAssemblerRecipe(inputA, inputB, inputFluidA, outputA, seconds * 20, voltage);
     }
 
     private static void distilleryRecipes() {
