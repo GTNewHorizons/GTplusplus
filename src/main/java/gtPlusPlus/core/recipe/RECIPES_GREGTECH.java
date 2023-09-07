@@ -5,6 +5,7 @@ import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
@@ -27,6 +28,7 @@ import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
 import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
 import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
 import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
@@ -1319,49 +1321,22 @@ public class RECIPES_GREGTECH {
 
     private static void blastFurnaceRecipes() {
 
-        // public boolean addBlastRecipe(
-        // ItemStack aInput1, ItemStack aInput2,
-        // FluidStack aFluidInput, FluidStack aFluidOutput,
-        // ItemStack aOutput1, ItemStack aOutput2,
-        // int aDuration, int aEUt, int aLevel)
-
         // Synthetic Graphite
-        GT_Values.RA.addBlastRecipe(
-                CI.getNumberedCircuit(22),
-                ALLOY.SILICON_CARBIDE.getDust(16),
-                ELEMENT.getInstance().NITROGEN.getFluidStack(4000),
-                GT_Values.NF,
-                ItemUtils.getItemStackOfAmountFromOreDict("dustGraphite", 8),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustSmallSilicon", 8),
-                60 * 20,
-                MaterialUtils.getVoltageForTier(5),
-                4500);
+        GT_Values.RA.stdBuilder().itemInputs(ALLOY.SILICON_CARBIDE.getDust(16), GT_Utility.getIntegratedCircuit(22))
+                .itemOutputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Graphite, 8L),
+                        GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Silicon, 8L))
+                .fluidInputs(Materials.Nitrogen.getGas(4000)).fluidOutputs().duration(1 * MINUTES).eut(TierEU.RECIPE_IV)
+                .metadata(COIL_HEAT, 4500).addTo(sBlastRecipes);
 
-        // Bomb Casings
-        GT_Values.RA.addBlastRecipe(
-                GregtechItemList.Bomb_Cast.get(4),
-                ALLOY.STEEL.getDust(16),
-                ELEMENT.getInstance().OXYGEN.getFluidStack(2000),
-                GT_Values.NF,
-                GregtechItemList.Bomb_Cast_Molten.get(4),
-                null,
-                4 * 60 * 20,
-                MaterialUtils.getVoltageForTier(3),
-                2800);
-
-        // Krypton Processing
-        if (ModItems.itemHotTitaniumIngot != null) {
-            GT_Values.RA.addBlastRecipe(
-                    ItemUtils.getItemStackOfAmountFromOreDict("ingotTitanium", 1),
-                    CI.getNumberedCircuit(16),
-                    GT_Values.NF,
-                    GT_Values.NF,
-                    ItemUtils.getItemStackOfAmountFromOreDict("ingotHotTitanium", 1),
-                    null,
-                    10 * 20,
-                    500,
-                    Materials.Titanium.mBlastFurnaceTemp);
-        }
+        // Bomb Cast (Hot)
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GregtechItemList.Bomb_Cast.get(4),
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Steel, 16L))
+                .itemOutputs(GregtechItemList.Bomb_Cast_Molten.get(4)).fluidInputs(Materials.Oxygen.getGas(2000))
+                .fluidOutputs().duration(4 * MINUTES).eut(TierEU.RECIPE_HV).metadata(COIL_HEAT, 2800)
+                .addTo(sBlastRecipes);
     }
 
     private static void compressorRecipes() {
