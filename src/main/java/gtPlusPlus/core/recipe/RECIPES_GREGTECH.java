@@ -10,6 +10,8 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistillationRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
@@ -1152,41 +1154,31 @@ public class RECIPES_GREGTECH {
 
     private static void distilleryRecipes() {
         Logger.INFO("Registering Distillery/Distillation Tower Recipes.");
-        GT_Values.RA.addDistilleryRecipe(
-                ItemList.Circuit_Integrated.getWithDamage(0L, 4L, new Object[0]),
-                FluidUtils.getFluidStack("air", 1000),
-                FluidUtils.getFluidStack("helium", 1),
-                400,
-                30,
-                false);
-        GT_Values.RA.addDistillationTowerRecipe(
-                FluidUtils.getFluidStack("air", 20000),
-                FluidUtils.getFluidStackArray("helium", 25),
-                ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob, 1),
-                200,
-                60);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(4)).noItemOutputs()
+                .fluidInputs(Materials.Air.getGas(1000L)).fluidOutputs(Materials.Helium.getGas(1L))
+                .duration(20 * SECONDS).eut(TierEU.RECIPE_LV).addTo(sDistilleryRecipes);
+
+        GT_Values.RA.stdBuilder().noItemInputs().itemOutputs(ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob, 1))
+                .fluidInputs(Materials.Air.getGas(20000L)).fluidOutputs(Materials.Helium.getGas(25L))
+                .duration(10 * SECONDS).eut(TierEU.RECIPE_MV / 2).addTo(sDistillationRecipes);
 
         // Apatite Distillation
         /*
          * so if you dissolve aparite in sulphuric acid you'll get a mixture of SO2, H2O, HF and HCl
          */
-        final FluidStack[] apatiteOutput = { FluidUtils.getFluidStack("sulfurousacid", 3800),
-                FluidUtils.getFluidStack("hydrogenchloride", 1000), FluidUtils.getFluidStack("hydrofluoricacid", 400) };
-        GT_Values.RA.addDistillationTowerRecipe(
-                FluidUtils.getFluidStack("sulfuricapatite", 5200),
-                apatiteOutput,
-                null,
-                45 * 20,
-                120);
 
-        final FluidStack[] sulfurousacidOutput = { FluidUtils.getFluidStack("sulfurdioxide", 500),
-                FluidUtils.getFluidStack("water", 500) };
-        GT_Values.RA.addDistillationTowerRecipe(
-                FluidUtils.getFluidStack("sulfurousacid", 1000),
-                sulfurousacidOutput,
-                null,
-                10 * 20,
-                60);
+        GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
+                .fluidInputs(FluidUtils.getFluidStack("sulfuricapatite", 5200))
+                .fluidOutputs(
+                        FluidUtils.getFluidStack("sulfurousacid", 3800),
+                        FluidUtils.getFluidStack("hydrogenchloride", 1000),
+                        FluidUtils.getFluidStack("hydrofluoricacid", 400))
+                .duration(45 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sDistillationRecipes);
+
+        GT_Values.RA.stdBuilder().noItemInputs().noItemOutputs()
+                .fluidInputs(FluidUtils.getFluidStack("sulfurousacid", 1000))
+                .fluidOutputs(Materials.SulfurDioxide.getGas(500), Materials.Water.getFluid(500)).duration(10 * SECONDS)
+                .eut(TierEU.RECIPE_MV / 2).addTo(sDistillationRecipes);
     }
 
     private static void addFuels() {
