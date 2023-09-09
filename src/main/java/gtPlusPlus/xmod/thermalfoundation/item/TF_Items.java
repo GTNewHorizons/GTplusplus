@@ -17,17 +17,11 @@ public class TF_Items {
 
     public static ItemBase itemMaterial;
     public static ItemStack rodBlizz;
-    public static ItemStack dustBlizz;
-    public static ItemStack dustPyrotheum;
-    public static ItemStack dustCryotheum;
     public static ItemBucket itemBucket;
     public static ItemStack bucketPyrotheum;
     public static ItemStack bucketCryotheum;
     public static ItemStack bucketEnder;
 
-    public static ItemStack itemDustBlizz;
-    public static ItemStack itemDustPyrotheum;
-    public static ItemStack itemDustCryotheum;
     public static ItemStack itemRodBlizz;
 
     public static void preInit() {
@@ -41,21 +35,10 @@ public class TF_Items {
         bucketCryotheum = itemBucket.addOreDictItem(2, "bucketCryotheum");
         bucketEnder = itemBucket.addOreDictItem(3, "bucketEnder", 1);
         rodBlizz = itemMaterial.addOreDictItem(1, "rodBlizz");
-        dustBlizz = itemMaterial.addOreDictItem(2, "dustBlizz");
-        dustPyrotheum = itemMaterial.addOreDictItem(3, "dustPyrotheum");
-        dustCryotheum = itemMaterial.addOreDictItem(4, "dustCryotheum");
-
-        if (ReflectionUtils.doesClassExist("cofh.core.util.energy.FurnaceFuelHandler")) {
-            FurnaceFuelHandler.registerFuel(dustPyrotheum, 2400); // cofh.core.util.energy.FurnaceFuelHandler.registerFuel(ItemStack,
-                                                                  // int)
-        }
 
         ItemUtils.addItemToOreDictionary(rodBlizz, "stickBlizz");
 
         itemRodBlizz = ItemUtils.simpleMetaStack(itemMaterial, 1, 1);
-        itemDustBlizz = ItemUtils.simpleMetaStack(itemMaterial, 2, 1);
-        itemDustPyrotheum = ItemUtils.simpleMetaStack(itemMaterial, 3, 1);
-        itemDustCryotheum = ItemUtils.simpleMetaStack(itemMaterial, 4, 1);
     }
 
     public static void init() {
