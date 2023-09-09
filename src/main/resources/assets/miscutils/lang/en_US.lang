@@ -1477,14 +1477,6 @@ item.dustPureYellorium.name=Purified Yellorium Dust
 
 //Shards
 item.itemDrained.name=Drained Shard
-item.itemAer.name=Aer Shard
-item.itemIgnis.name=Ignis Shard
-item.itemTerra.name=Terra Shard
-item.itemAqua.name=Aqua Shard
-item.itemDustInfusedAir.name=Infused Air Dust
-item.itemDustInfusedFire.name=Infused Fire Dust
-item.itemDustInfusedEarth.name=Infused Earth Dust
-item.itemDustInfusedWater.name=Infused Water Dust
 
 
 //Misc Material Items

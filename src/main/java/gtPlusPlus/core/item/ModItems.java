@@ -3,7 +3,6 @@ package gtPlusPlus.core.item;
 import static gregtech.api.enums.Mods.Forestry;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.GregTech;
-import static gregtech.api.enums.Mods.Thaumcraft;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.TICKS;
 import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
@@ -28,7 +27,6 @@ import gtPlusPlus.core.common.compat.COMPAT_Baubles;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
 import gtPlusPlus.core.item.base.BaseItemDamageable;
-import gtPlusPlus.core.item.base.BaseItemTCShard;
 import gtPlusPlus.core.item.base.CoreItem;
 import gtPlusPlus.core.item.base.dusts.BaseItemDust;
 import gtPlusPlus.core.item.base.foil.BaseItemFoil;
@@ -124,17 +122,7 @@ public final class ModItems {
 
     public static Item dustTumbagaMix;
 
-    public static Item dustAer;
-    public static Item dustIgnis;
-    public static Item dustTerra;
-    public static Item dustAqua;
-
     public static Item cellHydrogenChlorideMix;
-
-    public static Item shardAer;
-    public static Item shardIgnis;
-    public static Item shardTerra;
-    public static Item shardAqua;
 
     // Zirconium
     public static Item itemZirconiumChlorideCinterPellet;
@@ -508,32 +496,6 @@ public final class ModItems {
             Logger.INFO("Failed to Generated a Material. " + r.getMessage());
             r.printStackTrace();
         }
-
-        // Generates four elemental shards when TC is not installed.
-        if (!Thaumcraft.isModLoaded()) {
-            shardAer = new BaseItemTCShard("Aer", Utils.rgbtoHexValue(225, 225, 5));
-            shardIgnis = new BaseItemTCShard("Ignis", Utils.rgbtoHexValue(255, 5, 5));
-            shardTerra = new BaseItemTCShard("Terra", Utils.rgbtoHexValue(5, 255, 5));
-            shardAqua = new BaseItemTCShard("Aqua", Utils.rgbtoHexValue(5, 5, 255));
-        } else {
-            shardAer = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Air Shard", 0, 1)
-                    .getItem();
-            shardIgnis = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Fire Shard", 1, 1)
-                    .getItem();
-            shardAqua = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Warer Shard", 2, 1)
-                    .getItem();
-            shardTerra = ItemUtils
-                    .getItemStackWithMeta(Thaumcraft.isModLoaded(), "Thaumcraft:ItemShard", "Earth Shard", 3, 1)
-                    .getItem();
-        }
-        // Generates a set of four special dusts to be used in my recipes.
-        dustAer = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().AER, true)[0];
-        dustIgnis = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().IGNIS, true)[0];
-        dustTerra = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().TERRA, true)[0];
-        dustAqua = ItemUtils.generateSpecialUseDusts(ELEMENT.getInstance().AQUA, true)[0];
 
         ItemUtils.generateSpecialUseDusts(MISC_MATERIALS.WOODS_GLASS, false);
         cellHydrogenChlorideMix = MISC_MATERIALS.HYDROGEN_CHLORIDE_MIX.getCell(1).getItem();
