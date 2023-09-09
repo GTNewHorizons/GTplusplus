@@ -29,18 +29,6 @@ import gtPlusPlus.xmod.railcraft.utils.RailcraftUtils;
 public class HANDLER_Railcraft {
 
     public static void preInit() {
-        // Register Custom Coal Coke
-        ModItems.itemCoalCoke = new BaseItemBurnable(
-                "itemCoalCoke",
-                "Coking Coal",
-                tabMisc,
-                64,
-                0,
-                "Used for metallurgy.",
-                "fuelCoke",
-                3200,
-                0).setTextureName(GTPlusPlus.ID + ":burnables/itemCoalCoke");
-
         // Add in things that once existed in 1.5.2
         ModItems.itemCactusCharcoal = new BaseItemBurnable(
                 "itemCactusCharcoal",
