@@ -3,9 +3,11 @@ package gtPlusPlus.core.util.recipe;
 import static gtPlusPlus.core.slots.SlotIntegratedCircuit.isRegularProgrammableCircuit;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import net.minecraft.item.ItemStack;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import gnu.trove.map.hash.TCustomHashMap;
 import gnu.trove.set.hash.TCustomHashSet;
@@ -14,16 +16,16 @@ import gtPlusPlus.api.objects.Logger;
 
 public class GT_RecipeUtils {
 
-    public static GT_Recipe[] removeDuplicates(GT_Recipe[] inputRecipes, String recipeMapName) {
-        TCustomHashSet<GT_Recipe> recipes = new TCustomHashSet<>(RecipeHashStrat.RecipeHashingStrategy);
+    public static List<GT_Recipe> removeDuplicates(List<GT_Recipe> inputRecipes, String recipeMapName) {
+        TCustomHashSet<GT_Recipe> recipesHashSet = new TCustomHashSet<>(RecipeHashStrat.RecipeHashingStrategy);
         ArrayList<GT_Recipe> recipeOutput = new ArrayList<>();
-        ArrayList<GT_Recipe> removedRecipes = new ArrayList<>();
         TCustomHashMap<GT_Recipe, ItemStack> circuitMap = new TCustomHashMap<>(RecipeHashStrat.RecipeHashingStrategy);
-        // create a new input ItemStack array that does not contain programmable circuits if they were in the recipe
-        ArrayList<ItemStack> ItemInputsWithoutProgrammableCircuit = new ArrayList<>();
+        int removedRecipeCount = 0;
+
         for (GT_Recipe recipeInput : inputRecipes) {
             ItemStack savedCircuit = null;
-            ItemInputsWithoutProgrammableCircuit.clear();
+            // create a new input ItemStack array that does not contain programmable circuits if they were in the recipe
+            ArrayList<ItemStack> ItemInputsWithoutProgrammableCircuit = new ArrayList<>();
             // iterate over the recipe input items and add them all to a new array without any programmable circuits
             for (ItemStack itemStack : recipeInput.mInputs) {
                 if (itemStack == null) {
@@ -46,14 +48,14 @@ public class GT_RecipeUtils {
                     recipeInput.mDuration,
                     recipeInput.mEUt,
                     recipeInput.mSpecialValue);
-            if (!recipes.contains(newRecipe)) {
+            if (!recipesHashSet.contains(newRecipe)) {
                 // if the recipes customHashSet does not contain the new recipe then add it
-                recipes.add(newRecipe);
+                recipesHashSet.add(newRecipe);
             } else {
                 // add the removed recipe to the removal array with its original item inputs.
                 GT_Recipe recipeCopy = newRecipe.copy();
                 recipeCopy.mInputs = recipeInput.mInputs;
-                removedRecipes.add(recipeCopy);
+                removedRecipeCount++;
             }
             if (savedCircuit != null) {
                 // if the current recipe has a circuit and the recipe (without circuits) is already in the
@@ -72,16 +74,13 @@ public class GT_RecipeUtils {
         }
         // iterate over all recipes without duplicates and add them to the output. If the recipe had a programmable
         // circuit in it then add it back with its damage value coming from the circuit map.
-        for (GT_Recipe filteredRecipe : recipes.toArray(new GT_Recipe[0])) {
+        for (GT_Recipe filteredRecipe : recipesHashSet) {
             // check to see if the recipe is in the circuit map
             if (circuitMap.contains(filteredRecipe)) {
-                ArrayList<ItemStack> revertedInputItemStackArray = new ArrayList<>(
-                        Arrays.asList(filteredRecipe.mInputs));
                 // add the circuit back
-                revertedInputItemStackArray.add(circuitMap.get(filteredRecipe));
                 // update the item input array with the new input from
                 // ItemInputsWithoutProgrammableCircuit + circuit map circuit
-                filteredRecipe.mInputs = revertedInputItemStackArray.toArray(new ItemStack[0]);
+                filteredRecipe.mInputs = ArrayUtils.add(filteredRecipe.mInputs, circuitMap.get(filteredRecipe));
             }
             // if the recipe was not in the circuit map then just add it the output as no updates to the item input
             // needs to be made
@@ -91,8 +90,8 @@ public class GT_RecipeUtils {
         Logger.INFO(
                 "Recipe Array duplication removal process completed for '" + recipeMapName
                         + "': '"
-                        + removedRecipes.size()
+                        + removedRecipeCount
                         + "' removed.");
-        return recipeOutput.toArray(new GT_Recipe[0]);
+        return recipeOutput;
     }
 }

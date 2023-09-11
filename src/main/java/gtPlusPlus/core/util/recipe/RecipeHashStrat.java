@@ -1,8 +1,8 @@
 package gtPlusPlus.core.util.recipe;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -14,47 +14,46 @@ public class RecipeHashStrat {
 
     public static final HashingStrategy<GT_Recipe> RecipeHashingStrategy = new HashingStrategy<>() {
 
-        // Not implemented.
         @Override
-        public int computeHashCode(GT_Recipe stack) {
-            return 0;
+        public int computeHashCode(GT_Recipe recipe) {
+            return com.google.common.base.Objects.hashCode(recipe.mDuration, recipe.mEUt);
         }
 
         @Override
-        public boolean equals(GT_Recipe item1, GT_Recipe item2) {
-            return IsRecipeEqual(item1, item2);
+        public boolean equals(GT_Recipe recipe1, GT_Recipe recipe2) {
+            return IsRecipeEqual(recipe1, recipe2);
         }
     };
 
-    public static boolean IsRecipeEqual(GT_Recipe item1, GT_Recipe item2) {
-        // sort all the arrays for item1
-        RecipeHashStrat.sortItemStackArray(item1.mInputs);
-        RecipeHashStrat.sortItemStackArray(item1.mOutputs);
-        RecipeHashStrat.sortFluidStackArray(item1.mFluidInputs);
-        RecipeHashStrat.sortFluidStackArray(item1.mFluidOutputs);
-        // sort all the arrays for item2
-        RecipeHashStrat.sortItemStackArray(item2.mInputs);
-        RecipeHashStrat.sortItemStackArray(item2.mOutputs);
-        RecipeHashStrat.sortFluidStackArray(item2.mFluidInputs);
-        RecipeHashStrat.sortFluidStackArray(item2.mFluidOutputs);
+    public static boolean IsRecipeEqual(GT_Recipe recipe1, GT_Recipe recipe2) {
+        // sort all the arrays for recipe1
+        RecipeHashStrat.sortItemStackArray(recipe1.mInputs);
+        RecipeHashStrat.sortItemStackArray(recipe1.mOutputs);
+        RecipeHashStrat.sortFluidStackArray(recipe1.mFluidInputs);
+        RecipeHashStrat.sortFluidStackArray(recipe1.mFluidOutputs);
+        // sort all the arrays for recipe2
+        RecipeHashStrat.sortItemStackArray(recipe2.mInputs);
+        RecipeHashStrat.sortItemStackArray(recipe2.mOutputs);
+        RecipeHashStrat.sortFluidStackArray(recipe2.mFluidInputs);
+        RecipeHashStrat.sortFluidStackArray(recipe2.mFluidOutputs);
 
         // checks if the recipe EUt, Duration, inputs and outputs for both items and fluids are equal
-        if (item1.mEUt != item2.mEUt) {
+        if (recipe1.mEUt != recipe2.mEUt) {
             return false;
         }
-        if (item1.mDuration != item2.mDuration) {
+        if (recipe1.mDuration != recipe2.mDuration) {
             return false;
         }
-        if (!areItemsStackArraysEqual(item1.mInputs, item2.mInputs)) {
+        if (!areItemsStackArraysEqual(recipe1.mInputs, recipe2.mInputs)) {
             return false;
         }
-        if (!areItemsStackArraysEqual(item1.mOutputs, item2.mOutputs)) {
+        if (!areItemsStackArraysEqual(recipe1.mOutputs, recipe2.mOutputs)) {
             return false;
         }
-        if (!areFluidStackArraysEqual(item1.mFluidInputs, item2.mFluidInputs)) {
+        if (!areFluidStackArraysEqual(recipe1.mFluidInputs, recipe2.mFluidInputs)) {
             return false;
         }
-        if (!areFluidStackArraysEqual(item1.mFluidOutputs, item2.mFluidOutputs)) {
+        if (!areFluidStackArraysEqual(recipe1.mFluidOutputs, recipe2.mFluidOutputs)) {
             return false;
         }
         return true;
@@ -62,49 +61,49 @@ public class RecipeHashStrat {
     }
 
     public static void sortItemStackArray(ItemStack[] itemStackArray) {
-        Arrays.sort(itemStackArray, Comparator.comparing(ItemStack::toString));
+        Arrays.sort(
+                itemStackArray,
+                Comparator.comparing(ItemStack::getUnlocalizedName).thenComparing(itemStack -> itemStack.stackSize)
+                        .thenComparing(ItemStack::getItemDamage));
     }
 
     public static void sortFluidStackArray(FluidStack[] fluidStackArray) {
-        Arrays.sort(fluidStackArray, Comparator.comparing(FluidStack::toString));
+        Arrays.sort(
+                fluidStackArray,
+                Comparator.comparing(FluidStack::getFluidID).thenComparing(fluidStack -> fluidStack.amount));
     }
 
     public static boolean areItemsStackArraysEqual(ItemStack[] array1, ItemStack[] array2) {
         if (array1.length != array2.length) {
             return false;
         }
-        ArrayList<String> array1asStrings = new ArrayList<>();
-        ArrayList<String> array2asStrings = new ArrayList<>();
         for (int i = 0; i < array1.length; i++) {
-            if (array1[i] != null && array2[i] != null) {
-                array1asStrings.add(array1[i].toString());
-                array2asStrings.add(array2[i].toString());
-            } else {
+            if (!Objects.equals(array1[i].getItem(), array2[i].getItem())) {
+                return false;
+            }
+            if (!Objects.equals(array1[i].getItemDamage(), array2[i].getItemDamage())) {
+                return false;
+            }
+            if (!Objects.equals(array1[i].stackSize, array2[i].stackSize)) {
                 return false;
             }
         }
-        return array1asStrings.equals(array2asStrings);
+        return true;
     }
 
     public static boolean areFluidStackArraysEqual(FluidStack[] array1, FluidStack[] array2) {
         if (array1.length != array2.length) {
             return false;
         }
-        ArrayList<String> array1asStrings = new ArrayList<>();
-        ArrayList<String> array2asStrings = new ArrayList<>();
         for (int i = 0; i < array1.length; i++) {
-            if (array1[i] != null && array2[i] != null) {
-                array1asStrings.add(RecipeHashStrat.createUniqueFluidStackString(array1[i]));
-                array2asStrings.add(RecipeHashStrat.createUniqueFluidStackString(array2[i]));
-            } else {
+            // check if the string representation of both FluidStacks are not equal
+            if (!Objects.equals(array1[i].getFluid(), array2[i].getFluid())) {
+                return false;
+            }
+            if (!Objects.equals(array1[i].amount, array2[i].amount)) {
                 return false;
             }
         }
-        return array1asStrings.equals(array2asStrings);
-    }
-
-    // FluidStack really doesn't have an overridden toString huh...
-    public static String createUniqueFluidStackString(FluidStack fluidStack) {
-        return fluidStack.getUnlocalizedName() + ":" + fluidStack.amount;
+        return true;
     }
 }
