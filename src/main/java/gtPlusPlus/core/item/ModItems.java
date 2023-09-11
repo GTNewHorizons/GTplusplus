@@ -106,6 +106,7 @@ public final class ModItems {
 
     public static Item itemPersonalCloakingDevice;
     public static Item itemPersonalHealingDevice;
+    public static Item itemSupremePizzaGloves;
     public static Item itemSlowBuildingRing;
 
     public static ItemBlueprint itemBlueprintBase;

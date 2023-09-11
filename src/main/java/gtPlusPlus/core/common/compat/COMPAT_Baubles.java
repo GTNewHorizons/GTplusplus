@@ -13,6 +13,7 @@ import static gregtech.client.GT_TooltipHandler.Tier.UV;
 import static gregtech.client.GT_TooltipHandler.Tier.ZPM;
 import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
 
+import gtPlusPlus.core.item.bauble.FireProtectionBauble;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -35,6 +36,7 @@ public class COMPAT_Baubles {
         Logger.INFO("Baubles Found - Loading Wearables.");
         ModItems.itemPersonalCloakingDevice = new ItemCloakingDevice(0);
         ModItems.itemPersonalHealingDevice = new ItemHealingDevice();
+        ModItems.itemSupremePizzaGloves = new FireProtectionBauble();
 
         ModItems.itemChargePack_Low_1 = new BatteryPackBaseBauble(1);
         registerTieredTooltip(new ItemStack(ModItems.itemChargePack_Low_1, 1, OreDictionary.WILDCARD_VALUE), LV);
