@@ -13,13 +13,13 @@ import static gregtech.client.GT_TooltipHandler.Tier.UV;
 import static gregtech.client.GT_TooltipHandler.Tier.ZPM;
 import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
 
-import gtPlusPlus.core.item.bauble.FireProtectionBauble;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
+import gtPlusPlus.core.item.bauble.FireProtectionBauble;
 import gtPlusPlus.core.item.general.ItemCloakingDevice;
 import gtPlusPlus.core.item.general.ItemHealingDevice;
 import gtPlusPlus.core.item.general.ItemSlowBuildingRing;
