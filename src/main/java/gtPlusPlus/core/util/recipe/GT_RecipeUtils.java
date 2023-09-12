@@ -25,21 +25,21 @@ public class GT_RecipeUtils {
         for (GT_Recipe recipeInput : inputRecipes) {
             ItemStack savedCircuit = null;
             // create a new input ItemStack array that does not contain programmable circuits if they were in the recipe
-            ArrayList<ItemStack> ItemInputsWithoutProgrammableCircuit = new ArrayList<>();
+            ArrayList<ItemStack> itemInputsWithoutProgrammableCircuit = new ArrayList<>();
             // iterate over the recipe input items and add them all to a new array without any programmable circuits
             for (ItemStack itemStack : recipeInput.mInputs) {
                 if (itemStack == null) {
                     continue;
                 }
                 if (isRegularProgrammableCircuit(itemStack) == -1) {
-                    ItemInputsWithoutProgrammableCircuit.add(itemStack);
+                    itemInputsWithoutProgrammableCircuit.add(itemStack);
                 } else {
                     savedCircuit = itemStack;
                 }
             }
             GT_Recipe newRecipe = new GT_Recipe(
                     false,
-                    ItemInputsWithoutProgrammableCircuit.toArray(new ItemStack[0]),
+                    itemInputsWithoutProgrammableCircuit.toArray(new ItemStack[0]),
                     recipeInput.mOutputs,
                     recipeInput.mSpecialItems,
                     recipeInput.mChances,
@@ -52,9 +52,6 @@ public class GT_RecipeUtils {
                 // if the recipes customHashSet does not contain the new recipe then add it
                 recipesHashSet.add(newRecipe);
             } else {
-                // add the removed recipe to the removal array with its original item inputs.
-                GT_Recipe recipeCopy = newRecipe.copy();
-                recipeCopy.mInputs = recipeInput.mInputs;
                 removedRecipeCount++;
             }
             if (savedCircuit != null) {

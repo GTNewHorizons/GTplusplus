@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -21,11 +22,11 @@ public class RecipeHashStrat {
 
         @Override
         public boolean equals(GT_Recipe recipe1, GT_Recipe recipe2) {
-            return IsRecipeEqual(recipe1, recipe2);
+            return areRecipesEqual(recipe1, recipe2);
         }
     };
 
-    public static boolean IsRecipeEqual(GT_Recipe recipe1, GT_Recipe recipe2) {
+    public static boolean areRecipesEqual(GT_Recipe recipe1, GT_Recipe recipe2) {
         // sort all the arrays for recipe1
         RecipeHashStrat.sortItemStackArray(recipe1.mInputs);
         RecipeHashStrat.sortItemStackArray(recipe1.mOutputs);
@@ -63,8 +64,8 @@ public class RecipeHashStrat {
     public static void sortItemStackArray(ItemStack[] itemStackArray) {
         Arrays.sort(
                 itemStackArray,
-                Comparator.comparing(ItemStack::getUnlocalizedName).thenComparing(itemStack -> itemStack.stackSize)
-                        .thenComparing(ItemStack::getItemDamage));
+                Comparator.<ItemStack, Integer>comparing(itemStack -> Item.getIdFromItem(itemStack.getItem()))
+                        .thenComparing(ItemStack::getItemDamage).thenComparing(itemStack -> itemStack.stackSize));
     }
 
     public static void sortFluidStackArray(FluidStack[] fluidStackArray) {
