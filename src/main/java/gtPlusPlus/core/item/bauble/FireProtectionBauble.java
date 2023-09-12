@@ -3,8 +3,6 @@ package gtPlusPlus.core.item.bauble;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
