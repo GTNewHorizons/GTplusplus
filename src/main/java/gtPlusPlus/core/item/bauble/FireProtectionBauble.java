@@ -25,9 +25,6 @@ import gtPlusPlus.preloader.DevHelper;
 
 public class FireProtectionBauble extends BaseBauble {
 
-    public static HashMap<UUID, Boolean> mDataMap = new HashMap<UUID, Boolean>();
-    public static HashSet<UUID> mPlayerMap = new HashSet<UUID>();
-
     private static Field isImmuneToFire;
 
     static {
@@ -97,7 +94,6 @@ public class FireProtectionBauble extends BaseBauble {
         if (!aPlayer.worldObj.isRemote) {
             if (aPlayer instanceof EntityPlayer) {
                 EntityPlayer bPlayer = (EntityPlayer) aPlayer;
-                mPlayerMap.add(bPlayer.getUniqueID());
             }
         }
     }
@@ -110,7 +106,6 @@ public class FireProtectionBauble extends BaseBauble {
                 if (bPlayer.isPotionActive(Potion.fireResistance)) {
                     bPlayer.removePotionEffect(Potion.fireResistance.id);
                 }
-                mPlayerMap.remove(bPlayer.getUniqueID());
                 setEntityImmuneToFire(bPlayer, false);
             }
         }
