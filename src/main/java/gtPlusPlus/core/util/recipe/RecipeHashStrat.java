@@ -27,6 +27,7 @@ public class RecipeHashStrat {
     };
 
     public static boolean areRecipesEqual(GT_Recipe recipe1, GT_Recipe recipe2) {
+        // both item outputs use a copy to prevent interfering with chance based output orders
         // sort all the arrays for recipe1
         RecipeHashStrat.sortItemStackArray(recipe1.mInputs);
         ItemStack[] recipe1OutputCopy = recipe1.mOutputs.clone();
