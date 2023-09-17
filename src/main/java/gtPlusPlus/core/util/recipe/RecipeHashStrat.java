@@ -29,12 +29,15 @@ public class RecipeHashStrat {
     public static boolean areRecipesEqual(GT_Recipe recipe1, GT_Recipe recipe2) {
         // sort all the arrays for recipe1
         RecipeHashStrat.sortItemStackArray(recipe1.mInputs);
-        RecipeHashStrat.sortItemStackArray(recipe1.mOutputs);
+        ItemStack[] recipe1OutputCopy = recipe1.mOutputs.clone();
+        RecipeHashStrat.sortItemStackArray(recipe1OutputCopy);
         RecipeHashStrat.sortFluidStackArray(recipe1.mFluidInputs);
         RecipeHashStrat.sortFluidStackArray(recipe1.mFluidOutputs);
         // sort all the arrays for recipe2
+
         RecipeHashStrat.sortItemStackArray(recipe2.mInputs);
-        RecipeHashStrat.sortItemStackArray(recipe2.mOutputs);
+        ItemStack[] recipe2OutputCopy = recipe2.mOutputs.clone();
+        RecipeHashStrat.sortItemStackArray(recipe2OutputCopy);
         RecipeHashStrat.sortFluidStackArray(recipe2.mFluidInputs);
         RecipeHashStrat.sortFluidStackArray(recipe2.mFluidOutputs);
 
@@ -48,7 +51,7 @@ public class RecipeHashStrat {
         if (!areItemsStackArraysEqual(recipe1.mInputs, recipe2.mInputs)) {
             return false;
         }
-        if (!areItemsStackArraysEqual(recipe1.mOutputs, recipe2.mOutputs)) {
+        if (!areItemsStackArraysEqual(recipe1OutputCopy, recipe2OutputCopy)) {
             return false;
         }
         if (!areFluidStackArraysEqual(recipe1.mFluidInputs, recipe2.mFluidInputs)) {
