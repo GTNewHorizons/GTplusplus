@@ -1,16 +1,18 @@
 package gtPlusPlus.core.item.chemistry;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
+
 import net.minecraftforge.fluids.Fluid;
 
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.TierEU;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.item.chemistry.general.ItemNuclearChemBase;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class NuclearChem extends ItemPackage {
 
@@ -23,36 +25,8 @@ public class NuclearChem extends ItemPackage {
     public static Fluid GeneticMutagen;
     private static boolean generateMutagenRecipe = false;
 
-    public static ItemNuclearChemBase mNuclearChemItem1;
-
-    public static ItemStack mResidueUranium;
-    public static ItemStack mResiduePlutonium;
-    public static ItemStack mResidueFluorides;
-    public static ItemStack mResidueNobles;
-
     @Override
-    public void items() {
-
-        mNuclearChemItem1 = new ItemNuclearChemBase();
-        registerItemStacks();
-        registerOreDict();
-    }
-
-    public void registerItemStacks() {
-
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 0, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 1, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 2, 1);
-        mResidueUranium = ItemUtils.simpleMetaStack(mNuclearChemItem1, 3, 1);
-    }
-
-    public void registerOreDict() {
-
-        ItemUtils.addItemToOreDictionary(mResidueUranium, "dustResidueUranium");
-        ItemUtils.addItemToOreDictionary(mResiduePlutonium, "dustResiduePlutonium");
-        ItemUtils.addItemToOreDictionary(mResidueFluorides, "dustResidueFluoride");
-        ItemUtils.addItemToOreDictionary(mResidueNobles, "dustResidueNoble");
-    }
+    public void items() {}
 
     @Override
     public void blocks() {}
@@ -110,31 +84,18 @@ public class NuclearChem extends ItemPackage {
     @Override
     public boolean generateRecipes() {
         if (generateMutagenRecipe) {
-            chemReator_CreateMutagen();
+            chemReactor_CreateMutagen();
         }
-        chemReactor_MutagenWithEggs();
         return true;
     }
 
-    private static void chemReator_CreateMutagen() {
-        CORE.RA.addChemicalRecipe(
-                CI.getNumberedCircuit(20),
-                ItemUtils.getSimpleStack(Items.nether_star, 2),
-                FluidUtils.getMobEssence(5000),
-                FluidUtils.getFluidStack(GeneticMutagen, 8000),
-                null,
-                30 * 20,
-                500);
-    }
-
-    private static void chemReactor_MutagenWithEggs() {
-        CORE.RA.addChemicalRecipe(
-                CI.getNumberedCircuit(20),
-                ItemUtils.getSimpleStack(Items.egg, 2),
-                FluidUtils.getFluidStack(GeneticMutagen, 500),
-                null,
-                ItemUtils.getSimpleStack(ModItems.itemBigEgg, 2),
-                300 * 20,
-                500);
+    private static void chemReactor_CreateMutagen() {
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.gem, Materials.NetherStar, 2),
+                        GT_Utility.getIntegratedCircuit(20))
+                .noItemOutputs().fluidInputs(FluidUtils.getMobEssence(5000))
+                .fluidOutputs(FluidUtils.getFluidStack(GeneticMutagen, 8000)).duration(30 * SECONDS)
+                .eut(TierEU.RECIPE_HV).addTo(UniversalChemical);
     }
 }

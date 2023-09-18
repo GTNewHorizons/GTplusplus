@@ -3,10 +3,7 @@ package gtPlusPlus.core.item.bauble;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.UUID;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,9 +21,6 @@ import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.DevHelper;
 
 public class FireProtectionBauble extends BaseBauble {
-
-    public static HashMap<UUID, Boolean> mDataMap = new HashMap<UUID, Boolean>();
-    public static HashSet<UUID> mPlayerMap = new HashSet<UUID>();
 
     private static Field isImmuneToFire;
 
@@ -97,7 +91,6 @@ public class FireProtectionBauble extends BaseBauble {
         if (!aPlayer.worldObj.isRemote) {
             if (aPlayer instanceof EntityPlayer) {
                 EntityPlayer bPlayer = (EntityPlayer) aPlayer;
-                mPlayerMap.add(bPlayer.getUniqueID());
             }
         }
     }
@@ -110,7 +103,6 @@ public class FireProtectionBauble extends BaseBauble {
                 if (bPlayer.isPotionActive(Potion.fireResistance)) {
                     bPlayer.removePotionEffect(Potion.fireResistance.id);
                 }
-                mPlayerMap.remove(bPlayer.getUniqueID());
                 setEntityImmuneToFire(bPlayer, false);
             }
         }

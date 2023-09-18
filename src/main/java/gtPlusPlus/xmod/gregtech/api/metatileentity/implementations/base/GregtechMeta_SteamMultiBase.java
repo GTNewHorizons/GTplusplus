@@ -74,8 +74,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
     @Override
     protected void setProcessingLogicPower(ProcessingLogic logic) {
         logic.setAvailableVoltage(V[1]);
-        // We need to trick the GT_ParallelHelper we have enough amps for all recipe parallels, but also make sure we
-        // don't use them for overclocking so we will disable amperageOC
+        // We need to trick the GT_ParallelHelper we have enough amps for all recipe parallels.
         logic.setAvailableAmperage(getMaxParallelRecipes());
         logic.setAmperageOC(false);
     }
@@ -312,6 +311,11 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
             if (isValidMetaTileEntity(tHatch)) tHatch.updateSlots();
         for (GT_MetaTileEntity_Hatch_Steam_BusInput tHatch : mSteamInputs)
             if (isValidMetaTileEntity(tHatch)) tHatch.updateSlots();
+    }
+
+    @Override
+    public boolean supportsBatchMode() {
+        return false;
     }
 
     protected static <T extends GregtechMeta_SteamMultiBase<T>> GT_HatchElementBuilder<T> buildSteamInput(
