@@ -61,7 +61,8 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     private int mCasing;
     private final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mPyrotheumHatches = new ArrayList<>();
 
-    private HeatingCoilLevel mHeatingCapacity = HeatingCoilLevel.None;
+    private HeatingCoilLevel mHeatingLevel = HeatingCoilLevel.None;
+    private int mHeatingCapacity=0;
 
     public GregtechMetaTileEntity_Adv_EBF(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -102,7 +103,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     public String[] getExtraInfoData() {
         return new String[] { StatCollector.translateToLocal("GT5U.EBF.heat") + ": "
                 + EnumChatFormatting.GREEN
-                + GT_Utility.formatNumbers(mHeatingCapacity.getHeat())
+                + GT_Utility.formatNumbers(mHeatingLevel.getHeat())
                 + EnumChatFormatting.RESET
                 + " K" };
     }
@@ -156,7 +157,10 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         mCasing = 0;
         mPyrotheumHatches.clear();
         setCoilLevel(HeatingCoilLevel.None);
-        return checkPiece(mName, 1, 3, 0) && mCasing >= 8 && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
+
+        boolean isSuccess = checkPiece(mName, 1, 3, 0) && mCasing >= 8 && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
+        if(isSuccess) this.mHeatingCapacity = (int) getCoilLevel().getHeat() + 100 * (GT_Utility.getTier(getMaxInputVoltage()) - 2);
+        return isSuccess;
     }
 
     @Override
@@ -233,7 +237,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
             @NotNull
             @Override
             protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
-                return recipe.mSpecialValue <= getCoilLevel().getHeat() ? CheckRecipeResultRegistry.SUCCESSFUL
+                return recipe.mSpecialValue <= mHeatingCapacity ? CheckRecipeResultRegistry.SUCCESSFUL
                         : CheckRecipeResultRegistry.insufficientHeat(recipe.mSpecialValue);
             }
 
@@ -311,11 +315,11 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     }
 
     public HeatingCoilLevel getCoilLevel() {
-        return mHeatingCapacity;
+        return mHeatingLevel;
     }
 
     public void setCoilLevel(HeatingCoilLevel aCoilLevel) {
-        mHeatingCapacity = aCoilLevel;
+        mHeatingLevel = aCoilLevel;
     }
 
     @Override
