@@ -59,10 +59,10 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     public static String mHatchName = "Pyrotheum Hatch";
     private static IStructureDefinition<GregtechMetaTileEntity_Adv_EBF> STRUCTURE_DEFINITION = null;
     private int mCasing;
+    private int mHeatingCapacity;
     private final ArrayList<GT_MetaTileEntity_Hatch_CustomFluidBase> mPyrotheumHatches = new ArrayList<>();
 
     private HeatingCoilLevel mHeatingLevel = HeatingCoilLevel.None;
-    private int mHeatingCapacity=0;
 
     public GregtechMetaTileEntity_Adv_EBF(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -157,9 +157,11 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
         mCasing = 0;
         mPyrotheumHatches.clear();
         setCoilLevel(HeatingCoilLevel.None);
-
-        boolean isSuccess = checkPiece(mName, 1, 3, 0) && mCasing >= 8 && getCoilLevel() != HeatingCoilLevel.None && checkHatch();
-        if(isSuccess) this.mHeatingCapacity = (int) getCoilLevel().getHeat() + 100 * (GT_Utility.getTier(getMaxInputVoltage()) - 2);
+        boolean isSuccess = checkPiece(mName, 1, 3, 0) && mCasing >= 8
+                && getCoilLevel() != HeatingCoilLevel.None
+                && checkHatch();
+        if (isSuccess) this.mHeatingCapacity = (int) getCoilLevel().getHeat()
+                + 100 * (GT_Utility.getTier(getMaxInputVoltage()) - 2);
         return isSuccess;
     }
 
@@ -214,6 +216,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     protected IIconContainer getInactiveOverlay() {
         return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
     }
+
     @Override
     protected int getCasingTextureId() {
         return CASING_TEXTURE_ID;
