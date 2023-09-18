@@ -103,7 +103,7 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     public String[] getExtraInfoData() {
         return new String[] { StatCollector.translateToLocal("GT5U.EBF.heat") + ": "
                 + EnumChatFormatting.GREEN
-                + GT_Utility.formatNumbers(mHeatingLevel.getHeat())
+                + GT_Utility.formatNumbers(mHeatingCapacity)
                 + EnumChatFormatting.RESET
                 + " K" };
     }
@@ -214,7 +214,6 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     protected IIconContainer getInactiveOverlay() {
         return TexturesGtBlock.Overlay_Machine_Controller_Advanced;
     }
-
     @Override
     protected int getCasingTextureId() {
         return CASING_TEXTURE_ID;
