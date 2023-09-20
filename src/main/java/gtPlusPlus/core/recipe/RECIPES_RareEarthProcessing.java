@@ -11,11 +11,7 @@ import static gtPlusPlus.core.material.MISC_MATERIALS.HYDROGEN_CHLORIDE;
 import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_HIGH;
 import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_LOW;
 import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_MID;
-import static gtPlusPlus.core.material.MISC_MATERIALS.SALT_WATER;
-import static gtPlusPlus.core.material.MISC_MATERIALS.SODIUM_CHLORIDE;
-import static gtPlusPlus.core.material.MISC_MATERIALS.SODIUM_HYDROXIDE;
 
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -27,37 +23,16 @@ import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.material.ORES;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class RECIPES_RareEarthProcessing {
 
     public static void init() {
-
-        // Salt Check and Assignment
-        ItemStack mDustSalt = ItemUtils.getItemStackOfAmountFromOreDict("dustSalt", 1);
-        if (mDustSalt == null) {
-            MaterialUtils.generateSpecialDustAndAssignToAMaterial(SODIUM_CHLORIDE, false);
-            mDustSalt = SODIUM_CHLORIDE.getDust(1);
-        } else {
-            SODIUM_CHLORIDE.registerComponentForMaterial(OrePrefixes.dust, mDustSalt);
-        }
-
-        // Salt water Check and Assignment
-        FluidStack mSaltWater = FluidUtils.getFluidStack("saltwater", 1000);
-        if (mSaltWater == null) {
-            Fluid f = SALT_WATER.generateFluid();
-            SALT_WATER.registerComponentForMaterial(FluidUtils.getFluidStack(f, 1000));
-            mSaltWater = SALT_WATER.getFluidStack(1000);
-        } else {
-            SALT_WATER.registerComponentForMaterial(FluidUtils.getFluidStack(mSaltWater, 1000));
-        }
 
         // Brine Check and assignment
         FluidStack mBrine = FluidUtils.getFluidStack("brine", 1000);
@@ -67,20 +42,6 @@ public class RECIPES_RareEarthProcessing {
             mBrine = BRINE.getFluidStack(1000);
         } else {
             BRINE.registerComponentForMaterial(FluidUtils.getFluidStack(mBrine, 1000));
-        }
-
-        // Check Sodium Hydroxide Exists, generate if not.
-        ItemStack mDustSodiumHydroxide = ItemUtils.getItemStackOfAmountFromOreDict("dustSodiumHydroxide", 1);
-        if (mDustSodiumHydroxide == null) {
-            mDustSodiumHydroxide = ItemUtils.getItemStackOfAmountFromOreDict("dustSodiumHydroxide_GT5U", 1);
-            if (mDustSodiumHydroxide == null) {
-                MaterialUtils.generateSpecialDustAndAssignToAMaterial(SODIUM_HYDROXIDE, false);
-                mDustSodiumHydroxide = SODIUM_HYDROXIDE.getDust(1);
-            } else {
-                SODIUM_HYDROXIDE.registerComponentForMaterial(OrePrefixes.dust, mDustSodiumHydroxide);
-            }
-        } else {
-            SODIUM_HYDROXIDE.registerComponentForMaterial(OrePrefixes.dust, mDustSodiumHydroxide);
         }
 
         // Hydrogen Chloride Check and assignment
@@ -93,10 +54,9 @@ public class RECIPES_RareEarthProcessing {
         }
 
         // Add Process for creating Brine
-        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(mDustSalt, 16))
-                .fluidInputs(MISC_MATERIALS.SALT_WATER.getFluidStack(2000))
-                .fluidOutputs(FluidUtils.getFluidStack(mBrine, 4000)).duration(20 * SECONDS).eut(TierEU.RECIPE_MV)
-                .addTo(sBrewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Salt, 16L))
+                .fluidInputs(Materials.SaltWater.getFluid(2000L)).fluidOutputs(FluidUtils.getFluidStack(mBrine, 4000))
+                .duration(20 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sBrewingRecipes);
 
         // Chloralkali process
         GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(1), ItemList.Cell_Empty.get(2L))
