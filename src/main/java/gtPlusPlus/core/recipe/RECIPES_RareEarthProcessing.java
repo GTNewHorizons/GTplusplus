@@ -151,7 +151,7 @@ public class RECIPES_RareEarthProcessing {
         MaterialGenerator.generateOreMaterial(RARE_EARTH_HIGH);
 
         // industrial strength HCl
-        Fluid aHydrocholric = FluidUtils.getFluidStack("hydrogenchloride", 1).getFluid();
+        Fluid aHydrochloric = FluidUtils.getFluidStack("hydrogenchloride", 1).getFluid();
 
         // LV Rare Earth
         GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.RareEarth, 3L))
@@ -162,7 +162,7 @@ public class RECIPES_RareEarthProcessing {
         // HV Rare Earth
         GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.RareEarth, 3L))
                 .itemOutputs(RARE_EARTH_MID.getCrushed(2), RARE_EARTH_MID.getCrushed(2), RARE_EARTH_MID.getCrushed(2))
-                .outputChances(10000, 9000, 8000).fluidInputs(FluidUtils.getFluidStack(aHydrocholric, 1000))
+                .outputChances(10000, 9000, 8000).fluidInputs(FluidUtils.getFluidStack(aHydrochloric, 1000))
                 .duration(15 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sChemicalBathRecipes);
 
         // IV Rare Earth
