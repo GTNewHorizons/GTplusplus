@@ -200,6 +200,25 @@ public class RecipeLoader_NuclearFuelProcessing {
 
         // UF6 -> UF4 reduction
         // UF6 + LiFBeF2 + H2 -> LiFBeF2UF4 + HF
+        CORE.RA.addBlastRecipe(
+                new ItemStack[] { FLUORIDES.URANIUM_HEXAFLUORIDE.getCell(1), NUCLIDE.LiFBeF2.getCell(1) },
+                new FluidStack[] { ELEMENT.getInstance().HYDROGEN.getFluidStack(2000) },
+                new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("cellHydrofluoricAcid", 2) },
+                new FluidStack[] { NUCLIDE.LiFBeF2UF4.getFluidStack(3000) },
+                300 * 10,
+                MaterialUtils.getVoltageForTier(5),
+                5400);
+        // Alternative recipe to the above, for chemplant, to not use cells
+        CORE.RA.addChemicalPlantRecipe(
+                new ItemStack[] {},
+                new FluidStack[] { FLUORIDES.URANIUM_HEXAFLUORIDE.getFluidStack(1000),
+                        NUCLIDE.LiFBeF2.getFluidStack(1000), ELEMENT.getInstance().HYDROGEN.getFluidStack(2000) },
+                new ItemStack[] {},
+                new FluidStack[] { NUCLIDE.LiFBeF2UF4.getFluidStack(3000),
+                        FluidUtils.getFluidStack("hydrofluoricacid", 2000) },
+                300 * 10,
+                MaterialUtils.getVoltageForTier(5),
+                4);
 
         GT_Values.RA.stdBuilder().itemInputs(FLUORIDES.URANIUM_HEXAFLUORIDE.getCell(1), NUCLIDE.LiFBeF2.getCell(1))
                 .fluidInputs(Materials.Hydrogen.getGas(2000L))
