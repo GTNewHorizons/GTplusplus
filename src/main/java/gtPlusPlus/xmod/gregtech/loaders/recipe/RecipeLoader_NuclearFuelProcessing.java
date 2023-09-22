@@ -212,7 +212,7 @@ public class RecipeLoader_NuclearFuelProcessing {
                 300 * 10,
                 MaterialUtils.getVoltageForTier(5),
                 5400);
-
+        // Alternative recipe to the above, for chemplant, to not use cells
         CORE.RA.addChemicalPlantRecipe(
                 new ItemStack[] { },
                 new FluidStack[] {
