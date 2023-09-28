@@ -639,7 +639,9 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
     public void loadNBTData(NBTTagCompound aNBT) {
         super.loadNBTData(aNBT);
         this.mModeAlternative = aNBT.getBoolean("mModeAlternative");
-        this.mHarvestEnabled = aNBT.getBoolean("mHarvestEnabled");
+        if(aNBT.hasKey("mHarvestEnabled")) {
+            this.mHarvestEnabled = aNBT.getBoolean("mHarvestEnabled");
+        }
     }
 
     @Override
