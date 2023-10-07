@@ -230,20 +230,6 @@ public class AchievementHandler {
                 ItemUtils.getSimpleStack(ModItems.dustMolybdenum99),
                 "multi.cyclo",
                 false);
-        this.registerAchievement(
-                "decay.technetium99m",
-                14,
-                8,
-                ItemUtils.getSimpleStack(ModItems.dustTechnetium99M),
-                "multi.cyclo",
-                false);
-        this.registerAchievement(
-                "decay.technetium99",
-                15,
-                8,
-                ItemUtils.getSimpleStack(ModItems.dustTechnetium99),
-                "multi.cyclo",
-                false);
 
         AchievementPage.registerAchievementPage(
                 new AchievementPage(
