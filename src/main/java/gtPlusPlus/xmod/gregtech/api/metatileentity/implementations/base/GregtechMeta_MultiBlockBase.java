@@ -1179,7 +1179,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             setVoidingMode(getVoidingMode().nextInCollection(allowed));
             GT_Utility.sendChatToPlayer(
                     aPlayer,
-                    StatCollector.translateToLocal("GT5U.gui.button.voiding_mode") + " " +
+                    StatCollector.translateToLocal("GT5U.gui.button.voiding_mode") + " "
                             + StatCollector.translateToLocal(getVoidingMode().getTransKey()));
         }
         return true;
