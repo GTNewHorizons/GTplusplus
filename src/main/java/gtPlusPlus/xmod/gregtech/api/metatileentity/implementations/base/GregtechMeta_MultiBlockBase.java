@@ -1174,6 +1174,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
     @Override
     public boolean onSolderingToolRightClick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer,
             float aX, float aY, float aZ) {
+        super.onSolderingToolRightClick(side, wrenchingSide, aPlayer, aX, aY, aZ);
         if (supportsVoidProtection()) {
             Set<VoidingMode> allowed = getAllowedVoidingModes();
             setVoidingMode(getVoidingMode().nextInCollection(allowed));
@@ -1181,8 +1182,9 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                     aPlayer,
                     StatCollector.translateToLocal("GT5U.gui.button.voiding_mode") + " "
                             + StatCollector.translateToLocal(getVoidingMode().getTransKey()));
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
