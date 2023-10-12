@@ -120,12 +120,6 @@ public class BOP_Block_Registrator {
                     final ItemStack tPlanks = GT_Utility.copy(tStack);
                     tPlanks.stackSize = tPlanks.stackSize * 3 / 2;
                     GT_Values.RA.stdBuilder().itemInputs(new ItemStack(aStack.getItem(), 1, i))
-                            .fluidInputs(Materials.Lubricant.getFluid(1L))
-                            .itemOutputs(
-                                    GT_Utility.copy(tPlanks),
-                                    GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1L))
-                            .duration(10 * SECONDS).eut(8).addTo(sCutterRecipes);
-                    GT_Values.RA.stdBuilder().itemInputs(new ItemStack(aStack.getItem(), 1, i))
                             .itemOutputs(
                                     GT_Utility.copyAmount(
                                             GT_Mod.gregtechproxy.mNerfedWoodPlank ? ((long) tStack.stackSize)
@@ -152,12 +146,6 @@ public class BOP_Block_Registrator {
             if (tStack2 != null) {
                 final ItemStack tPlanks2 = GT_Utility.copy(tStack2);
                 tPlanks2.stackSize = tPlanks2.stackSize * 3 / 2;
-                GT_Values.RA.stdBuilder().itemInputs(GT_Utility.copyAmount(1L, aStack))
-                        .fluidInputs(Materials.Lubricant.getFluid(1L))
-                        .itemOutputs(
-                                GT_Utility.copy(tPlanks2),
-                                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1L))
-                        .duration(10 * SECONDS).eut(8).addTo(sCutterRecipes);
                 GT_Values.RA.stdBuilder().itemInputs(GT_Utility.copyAmount(1L, aStack))
                         .itemOutputs(
                                 GT_Utility.copyAmount(
