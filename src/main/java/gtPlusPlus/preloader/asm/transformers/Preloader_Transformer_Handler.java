@@ -25,18 +25,15 @@ import static gtPlusPlus.preloader.asm.ClassesToTransform.MINECRAFT_GAMESETTINGS
 import static gtPlusPlus.preloader.asm.ClassesToTransform.THAUMCRAFT_ITEM_WISP_ESSENCE;
 
 import java.io.File;
-import java.io.IOException;
 
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.launchwrapper.Launch;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 
-import cpw.mods.fml.relauncher.CoreModManager;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.DevHelper;
 import gtPlusPlus.preloader.Preloader_Logger;
 import gtPlusPlus.preloader.asm.AsmConfig;
@@ -69,49 +66,14 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_LUMINATOR);
     }
 
-    private static Boolean mObf = null;
-
-    public boolean checkObfuscated() {
-        if (mObf != null) {
-            return mObf;
-        }
-        boolean obfuscated = false;
-        try {
-            obfuscated = !(boolean) ReflectionHelper.findField(CoreModManager.class, "deobfuscatedEnvironment")
-                    .get(null);
-        } catch (IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
-            byte[] bs;
-            try {
-                bs = Launch.classLoader.getClassBytes("net.minecraft.world.World");
-                if (bs != null) {
-                    obfuscated = false;
-                } else {
-                    obfuscated = true;
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
-                obfuscated = false;
-            }
-        }
-        mObf = obfuscated;
-        return obfuscated;
-    }
-
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
-        // Is this environment obfuscated? (Extra checks just in case some weird stuff happens during the check)
-        final boolean obfuscated = checkObfuscated();
-
         // Fix LWJGL index array out of bounds on keybinding IDs
         if ((transformedName.equals(LWJGL_KEYBOARD) || transformedName.equals(MINECRAFT_GAMESETTINGS_OBF)
                 || transformedName.equals(MINECRAFT_GAMESETTINGS)) && AsmConfig.enabledLwjglKeybindingFix
         // Do not transform if using lwjgl3
                 && !ReflectionUtils.doesClassExist("org.lwjgl.system.Platform")) {
-            boolean isClientSettingsClass = false;
-            if (!transformedName.equals("org.lwjgl.input.Keyboard")) {
-                isClientSettingsClass = true;
-            }
+            boolean isClientSettingsClass = !transformedName.equals("org.lwjgl.input.Keyboard");
             Preloader_Logger.INFO("LWJGL Keybinding index out of bounds fix", "Transforming " + transformedName);
             return new ClassTransformer_LWJGL_Keyboard(basicClass, isClientSettingsClass).getWriter().toByteArray();
         }
@@ -131,7 +93,8 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
         }
 
         // Fix the OreDictionary COFH
-        if (transformedName.equals(COFH_ORE_DICTIONARY_ARBITER) && (AsmConfig.enableCofhPatch || !obfuscated)) {
+        if (transformedName.equals(COFH_ORE_DICTIONARY_ARBITER)
+                && (AsmConfig.enableCofhPatch || CORE_Preloader.DEV_ENVIRONMENT)) {
             Preloader_Logger.INFO("COFH", "Transforming " + transformedName);
             return new ClassTransformer_COFH_OreDictionaryArbiter(basicClass).getWriter().toByteArray();
         }
@@ -140,8 +103,10 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
         for (String y : IC2_WRENCH_PATCH_CLASS_NAMES) {
             if (transformedName.equals(y)) {
                 Preloader_Logger.INFO("IC2 getHarvestTool Patch", "Transforming " + transformedName);
-                return new ClassTransformer_IC2_GetHarvestTool(basicClass, obfuscated, transformedName).getWriter()
-                        .toByteArray();
+                return new ClassTransformer_IC2_GetHarvestTool(
+                        basicClass,
+                        !CORE_Preloader.DEV_ENVIRONMENT,
+                        transformedName).getWriter().toByteArray();
             }
         }
 
@@ -149,7 +114,8 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
         // Patching ItemWispEssence to allow invalid item handling
         if (transformedName.equals(THAUMCRAFT_ITEM_WISP_ESSENCE) && AsmConfig.enableTcAspectSafety) {
             Preloader_Logger.INFO("Thaumcraft WispEssence_Patch", "Transforming " + transformedName);
-            return new ClassTransformer_TC_ItemWispEssence(basicClass, obfuscated).getWriter().toByteArray();
+            return new ClassTransformer_TC_ItemWispEssence(basicClass, !CORE_Preloader.DEV_ENVIRONMENT).getWriter()
+                    .toByteArray();
         }
 
         return basicClass;
