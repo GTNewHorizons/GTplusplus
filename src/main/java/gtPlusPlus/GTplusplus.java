@@ -68,7 +68,6 @@ import gtPlusPlus.xmod.thaumcraft.commands.CommandDumpAspects;
         name = CORE.name,
         version = CORE.VERSION,
         dependencies = "required-after:Forge;" + " after:TConstruct;"
-                + " after:PlayerAPI;"
                 + " after:dreamcraft;"
                 + " after:IC2;"
                 + " required-after:gregtech;"

@@ -18,8 +18,6 @@ import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.Mods;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.handler.events.CustomMovementHandler;
-import gtPlusPlus.core.handler.events.SneakManager;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 @Optional.InterfaceList(
@@ -27,16 +25,14 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
                 @Optional.Interface(iface = "baubles.api.BaubleType", modid = Mods.Names.BAUBLES) })
 public class ItemSlowBuildingRing extends Item implements IBauble {
 
-    private final String unlocalizedName = "SlowBuildingRing";
-    CustomMovementHandler x;
-
     public ItemSlowBuildingRing() {
         this.setCreativeTab(AddToCreativeTab.tabMachines);
-        this.setUnlocalizedName(this.unlocalizedName);
+        String unlocalizedName = "SlowBuildingRing";
+        this.setUnlocalizedName(unlocalizedName);
         this.setMaxStackSize(1);
         this.setTextureName(GTPlusPlus.ID + ":" + "itemSlowBuildersRing");
         ItemUtils.getSimpleStack(this);
-        GameRegistry.registerItem(this, this.unlocalizedName);
+        GameRegistry.registerItem(this, unlocalizedName);
     }
 
     @Override
@@ -79,58 +75,23 @@ public class ItemSlowBuildingRing extends Item implements IBauble {
         return BaubleType.RING;
     }
 
-    @Override // TODO
-    public void onEquipped(final ItemStack arg0, final EntityLivingBase arg1) {
-        try {
-            EntityPlayer aPlayer;
-            if (arg1 instanceof EntityPlayer) {
-                aPlayer = (EntityPlayer) arg1;
-                SneakManager s = SneakManager.get(aPlayer);
-                s.putRingOn();
-            }
-        } catch (Throwable t) {
-            t.printStackTrace();
+    @Override
+    public void onWornTick(ItemStack itemstack, EntityLivingBase entity) {
+        if(entity instanceof EntityPlayer player) {
+
+            // Continuously set the sprinting flag to false to ensure the player doesn't sprint
+            player.setSprinting(false);
         }
     }
 
-    @Override // TODO
-    public void onUnequipped(final ItemStack arg0, final EntityLivingBase arg1) {
-        try {
-            EntityPlayer aPlayer;
-            if (arg1 instanceof EntityPlayer) {
-                aPlayer = (EntityPlayer) arg1;
-                SneakManager s = SneakManager.get(aPlayer);
-                s.takeRingOff();
-            }
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
+    @Override
+    public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
+
     }
 
-    @Override // TODO
-    public void onWornTick(final ItemStack arg0, final EntityLivingBase arg1) {
-        doEffect(arg1);
+    @Override
+    public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+
     }
 
-    private static void doEffect(final EntityLivingBase arg1) {
-        try {
-            // Get World
-            World aWorld = arg1.worldObj;
-            if (aWorld != null && !aWorld.isRemote) {
-                EntityPlayer aPlayer;
-                if (arg1 instanceof EntityPlayer) {
-                    aPlayer = (EntityPlayer) arg1;
-                    SneakManager s = SneakManager.get(aPlayer);
-                    if (!aPlayer.isSneaking()) {
-                        aPlayer.setSneaking(true);
-                    }
-                    if (aPlayer.isSprinting()) {
-                        aPlayer.setSprinting(false);
-                    }
-                }
-            }
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-    }
 }

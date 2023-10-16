@@ -1,7 +1,6 @@
 package gtPlusPlus.core.common.compat;
 
 import static gregtech.api.enums.Mods.Baubles;
-import static gregtech.api.enums.Mods.PlayerAPI;
 import static gregtech.client.GT_TooltipHandler.Tier.EV;
 import static gregtech.client.GT_TooltipHandler.Tier.HV;
 import static gregtech.client.GT_TooltipHandler.Tier.IV;
@@ -57,8 +56,6 @@ public class COMPAT_Baubles {
         ModItems.itemChargePack_High_4 = new BatteryPackBaseBauble(9);
         registerTieredTooltip(new ItemStack(ModItems.itemChargePack_High_4, 1, OreDictionary.WILDCARD_VALUE), UHV);
 
-        if (PlayerAPI.isModLoaded()) {
-            ModItems.itemSlowBuildingRing = new ItemSlowBuildingRing();
-        }
+        ModItems.itemSlowBuildingRing = new ItemSlowBuildingRing();
     }
 }
