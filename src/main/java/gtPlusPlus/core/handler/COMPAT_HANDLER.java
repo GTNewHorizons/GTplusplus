@@ -21,7 +21,6 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.common.compat.COMPAT_ExtraUtils;
 import gtPlusPlus.core.common.compat.COMPAT_HarvestCraft;
-import gtPlusPlus.core.common.compat.COMPAT_IC2;
 import gtPlusPlus.core.common.compat.COMPAT_OpenBlocks;
 import gtPlusPlus.core.common.compat.COMPAT_Thaumcraft;
 import gtPlusPlus.core.common.compat.COMPAT_Witchery;
@@ -33,7 +32,6 @@ import gtPlusPlus.core.recipe.RECIPES_GREGTECH;
 import gtPlusPlus.core.recipe.RECIPES_LaserEngraver;
 import gtPlusPlus.core.recipe.ShapedRecipeObject;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_FluidCanning;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Recycling;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_ChemicalSkips;
@@ -104,7 +102,6 @@ import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechWirelessChargers;
 
 public class COMPAT_HANDLER {
 
-    public static Queue<Object> RemoveRecipeQueue = new LinkedList<>();
     public static Queue<ShapedRecipeObject> AddRecipeQueue = new LinkedList<>();
     public static Boolean areInitItemsLoaded = false;
 
@@ -205,17 +202,9 @@ public class COMPAT_HANDLER {
         if (PamsHarvestCraft.isModLoaded()) {
             COMPAT_HarvestCraft.OreDict();
         }
-        COMPAT_IC2.OreDict();
 
         if (Witchery.isModLoaded()) {
             COMPAT_Witchery.OreDict();
-        }
-    }
-
-    public static void RemoveRecipesFromOtherMods() {
-        // Removal of Recipes
-        for (final Object item : RemoveRecipeQueue) {
-            RecipeUtils.removeCraftingRecipe(item);
         }
     }
 

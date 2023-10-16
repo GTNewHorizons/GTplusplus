@@ -16,7 +16,7 @@ public class RegistrationHandler {
         init();
     }
 
-    private static final void init() {
+    private static void init() {
         RECIPES_General.loadRecipes();
         RECIPES_Machines.loadRecipes();
         RECIPES_MachineComponents.loadRecipes();

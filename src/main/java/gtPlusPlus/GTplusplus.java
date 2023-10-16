@@ -39,15 +39,11 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.chunkloading.GTPP_ChunkManager;
 import gtPlusPlus.core.commands.CommandDebugChunks;
 import gtPlusPlus.core.commands.CommandEnableDebugWhileRunning;
-import gtPlusPlus.core.commands.CommandMath;
 import gtPlusPlus.core.common.CommonProxy;
 import gtPlusPlus.core.config.ConfigHandler;
 import gtPlusPlus.core.handler.BookHandler;
-import gtPlusPlus.core.handler.MobMentality;
 import gtPlusPlus.core.handler.PacketHandler;
 import gtPlusPlus.core.handler.Recipes.RegistrationHandler;
-import gtPlusPlus.core.handler.events.LoginEventHandler;
-import gtPlusPlus.core.handler.events.MissingMappingsEvent;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
@@ -173,11 +169,6 @@ public class GTplusplus implements ActionListener {
         CORE.DEVENV = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
         // Utils.LOG_INFO("User's Country: " + CORE.USER_COUNTRY);
 
-        Utils.registerEvent(new LoginEventHandler());
-        Utils.registerEvent(new MissingMappingsEvent());
-        Utils.registerEvent(new MobMentality());
-        Logger.INFO("Login Handler Initialized");
-
         proxy.preInit(event);
         Logger.INFO("Setting up our own GT_Proxy.");
         Meta_GT_Proxy.preInit();
@@ -238,7 +229,6 @@ public class GTplusplus implements ActionListener {
     @EventHandler
     public synchronized void serverStarting(final FMLServerStartingEvent event) {
         INIT_PHASE.SERVER_START.setPhaseActive(true);
-        event.registerServerCommand(new CommandMath());
         event.registerServerCommand(new CommandEnableDebugWhileRunning());
         event.registerServerCommand(new CommandDebugChunks());
         if (Thaumcraft.isModLoaded()) {

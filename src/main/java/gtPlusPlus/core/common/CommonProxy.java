@@ -32,7 +32,6 @@ import gtPlusPlus.core.handler.GuiHandler;
 import gtPlusPlus.core.handler.events.EnderDragonDeathHandler;
 import gtPlusPlus.core.handler.events.EntityDeathHandler;
 import gtPlusPlus.core.handler.events.GeneralTooltipEventHandler;
-import gtPlusPlus.core.handler.events.PickaxeBlockBreakEventHandler;
 import gtPlusPlus.core.handler.events.PlayerSleepEventHandler;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
@@ -99,8 +98,6 @@ public class CommonProxy {
          */
 
         // Prevents my Safes being destroyed.
-        Utils.registerEvent(new PickaxeBlockBreakEventHandler());
-        // Block Handler for all events.
         Utils.registerEvent(new GeneralTooltipEventHandler());
         // Handles Tooltips for items giving custom multiblock behaviour
         Utils.registerEvent(new SpecialBehaviourTooltipHandler());
@@ -134,8 +131,6 @@ public class CommonProxy {
         }
 
         // Compat Handling
-        Logger.INFO("Removing recipes from other mods.");
-        COMPAT_HANDLER.RemoveRecipesFromOtherMods();
         Logger.INFO("Initialising Handler, Then Adding Recipes");
         COMPAT_HANDLER.InitialiseHandlerThenAddRecipes();
         Logger.INFO("Loading Intermod staging.");

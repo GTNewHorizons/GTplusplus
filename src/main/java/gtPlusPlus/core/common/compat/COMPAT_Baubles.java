@@ -21,7 +21,6 @@ import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
 import gtPlusPlus.core.item.bauble.FireProtectionBauble;
 import gtPlusPlus.core.item.general.ItemCloakingDevice;
 import gtPlusPlus.core.item.general.ItemHealingDevice;
-import gtPlusPlus.core.item.general.ItemSlowBuildingRing;
 
 public class COMPAT_Baubles {
 
@@ -55,7 +54,5 @@ public class COMPAT_Baubles {
         registerTieredTooltip(new ItemStack(ModItems.itemChargePack_High_3, 1, OreDictionary.WILDCARD_VALUE), UV);
         ModItems.itemChargePack_High_4 = new BatteryPackBaseBauble(9);
         registerTieredTooltip(new ItemStack(ModItems.itemChargePack_High_4, 1, OreDictionary.WILDCARD_VALUE), UHV);
-
-        ModItems.itemSlowBuildingRing = new ItemSlowBuildingRing();
     }
 }

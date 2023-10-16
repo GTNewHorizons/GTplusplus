@@ -1,20 +1,5 @@
 package gtPlusPlus.core.util.minecraft;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.Materials;
 import gregtech.api.objects.ItemData;
@@ -29,19 +14,32 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.ShapedRecipe;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
-import gtPlusPlus.core.handler.Recipes.LateRegistrationHandler;
 import gtPlusPlus.core.handler.Recipes.RegistrationHandler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.data.ArrayUtils;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class RecipeUtils {
 
     public static int mInvalidID = 1;
 
-    public static boolean recipeBuilder(final Object slot_1, final Object slot_2, final Object slot_3,
-            final Object slot_4, final Object slot_5, final Object slot_6, final Object slot_7, final Object slot_8,
-            final Object slot_9, ItemStack resultItem) {
+    public static void recipeBuilder(final Object slot_1, final Object slot_2, final Object slot_3,
+                                     final Object slot_4, final Object slot_5, final Object slot_6, final Object slot_7, final Object slot_8,
+                                     final Object slot_9, ItemStack resultItem) {
 
         // Old Debug Code, useful for finding recipes loading too early.
         /*
@@ -74,7 +72,7 @@ public class RecipeUtils {
                                     ? resultItem.getDisplayName()
                                     : "Bad Output Item" + " | Please report this issue on Github.");
                     RegistrationHandler.recipesFailed++;
-                    return false;
+                    return;
                 }
 
         Object[] o = new Object[] { slot_1, slot_2, slot_3, slot_4, slot_5, slot_6, slot_7, slot_8, slot_9 };
@@ -86,12 +84,8 @@ public class RecipeUtils {
             if (COMPAT_HANDLER.mRecipesToGenerate.size() > size) {
                 if (!COMPAT_HANDLER.areInitItemsLoaded) {
                     RegistrationHandler.recipesSuccess++;
-                } else {
-                    LateRegistrationHandler.recipesSuccess++;
                 }
-                return true;
             }
-            return false;
         } catch (RuntimeException k) {
             // k.getMessage();
             // k.getClass();
@@ -102,10 +96,7 @@ public class RecipeUtils {
                             : "INVALID OUTPUT ITEM");
             if (!COMPAT_HANDLER.areInitItemsLoaded) {
                 RegistrationHandler.recipesFailed++;
-            } else {
-                LateRegistrationHandler.recipesFailed++;
             }
-            return false;
         }
     }
 
@@ -326,7 +317,6 @@ public class RecipeUtils {
             if ((is != null) && (is.getItem() == I)) {
                 items.remove();
                 Logger.RECIPE("Remove a recipe with " + I.getUnlocalizedName() + " as output.");
-                continue;
             }
         }
         Logger.RECIPE("All recipes should be gone?");
@@ -409,8 +399,6 @@ public class RecipeUtils {
         if (COMPAT_HANDLER.mGtRecipesToGenerate.size() > size) {
             if (!COMPAT_HANDLER.areInitItemsLoaded) {
                 RegistrationHandler.recipesSuccess++;
-            } else {
-                LateRegistrationHandler.recipesSuccess++;
             }
             return true;
         }
@@ -455,8 +443,6 @@ public class RecipeUtils {
         if (COMPAT_HANDLER.mGtRecipesToGenerate.size() > size) {
             if (!COMPAT_HANDLER.areInitItemsLoaded) {
                 RegistrationHandler.recipesSuccess++;
-            } else {
-                LateRegistrationHandler.recipesSuccess++;
             }
             return true;
         }
@@ -784,8 +770,6 @@ public class RecipeUtils {
         if (COMPAT_HANDLER.mRecipesToGenerate.size() > size) {
             if (!COMPAT_HANDLER.areInitItemsLoaded) {
                 RegistrationHandler.recipesSuccess++;
-            } else {
-                LateRegistrationHandler.recipesSuccess++;
             }
             return true;
         }

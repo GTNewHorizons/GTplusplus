@@ -8,11 +8,13 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class COMPAT_OpenBlocks {
 
+
+    // Todo move this code to openblocks itself
     public static void OreDict() {
         run();
     }
 
-    private static final void run() {
+    private static void run() {
 
         Item aGraveItem = ItemUtils.getItemFromFQRN("OpenBlocks:grave");
         if (aGraveItem == null) {
