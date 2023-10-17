@@ -9,7 +9,6 @@ import static org.objectweb.asm.Opcodes.RETURN;
 
 import java.util.ArrayList;
 
-import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 

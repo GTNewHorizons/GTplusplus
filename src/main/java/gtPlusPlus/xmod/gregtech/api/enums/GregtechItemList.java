@@ -702,7 +702,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Super_Chest_EV,
     Super_Chest_IV,
 
-
     // Wireless Chargers
     Charger_LV,
     Charger_MV,

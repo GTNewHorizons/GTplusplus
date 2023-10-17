@@ -170,13 +170,8 @@ public class BlockSuperLight extends BlockContainer {
                                 // Turning Lights on
                                 else if (enable && aLight == 0) {
                                     aBlocksToUpdate.put(new BlockPos(xOff, yOff, zOff, this.worldObj));
-                                    this.worldObj.setBlock(
-                                            xOff,
-                                            yOff,
-                                            zOff,
-                                            ModBlocks.MatterFabricatorEffectBlock,
-                                            0,
-                                            3);
+                                    this.worldObj
+                                            .setBlock(xOff, yOff, zOff, ModBlocks.MatterFabricatorEffectBlock, 0, 3);
                                     aLitCounter++;
                                 }
                                 // Turning Lights off

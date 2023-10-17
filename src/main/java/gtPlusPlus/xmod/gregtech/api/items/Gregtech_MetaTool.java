@@ -480,8 +480,7 @@ public abstract class Gregtech_MetaTool extends GT_MetaGenerated_Tool
         }
         this.doDamage(aStack, tStats.getToolDamagePerContainerCraft());
         aStack = aStack.stackSize > 0 ? aStack : null;
-        if (playSound) {
-        }
+        if (playSound) {}
         return aStack;
     }
 

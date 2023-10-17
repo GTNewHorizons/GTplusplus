@@ -243,8 +243,7 @@ public class TesseractHelper {
         return null;
     }
 
-    private static Map<Integer, GT_MetaTileEntity_TesseractTerminal> getTerminalOwnershipByPlayer(
-            EntityPlayer player) {
+    private static Map<Integer, GT_MetaTileEntity_TesseractTerminal> getTerminalOwnershipByPlayer(EntityPlayer player) {
         UUID playerIdentifier = player.getUniqueID();
         if (!sTesseractTerminalOwnershipMap.isEmpty() && playerIdentifier != null) {
             Set<Entry<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>>> players = sTesseractTerminalOwnershipMap

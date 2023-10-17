@@ -5,7 +5,6 @@ import static gregtech.api.enums.Mods.GTPlusPlus;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +18,7 @@ import baubles.api.BaubleType;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
 
 public class FireProtectionBauble extends BaseBauble {
 

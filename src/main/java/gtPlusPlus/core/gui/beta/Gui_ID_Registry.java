@@ -12,8 +12,7 @@ public class Gui_ID_Registry {
     private static final Map<Integer, MU_GuiId> idMap = new HashMap<Integer, MU_GuiId>();
     private static int nextId = 0;
 
-    static {
-    }
+    static {}
 
     private static void registerGuiHandlers(final Gui_Types MU_GuiType,
             final List<Class<? extends IGuiManagerMiscUtils>> guiHandlerClasses) {

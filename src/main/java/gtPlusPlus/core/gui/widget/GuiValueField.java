@@ -2,12 +2,12 @@ package gtPlusPlus.core.gui.widget;
 
 import java.lang.reflect.Field;
 
-import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiTextField;
 
 import gtPlusPlus.core.gui.machine.GUI_VolumetricFlaskSetter;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
 
 public class GuiValueField extends GuiTextField {
 
@@ -41,9 +41,8 @@ public class GuiValueField extends GuiTextField {
     }
 
     public int getLineScrollOffset() {
-        Field lineScrollOffset = ReflectionUtils.getField(
-                GuiTextField.class,
-                !CORE_Preloader.DEV_ENVIRONMENT ? "field_146225_q" : "lineScrollOffset");
+        Field lineScrollOffset = ReflectionUtils
+                .getField(GuiTextField.class, !CORE_Preloader.DEV_ENVIRONMENT ? "field_146225_q" : "lineScrollOffset");
         if (lineScrollOffset != null) {
             return (int) ReflectionUtils.getFieldValue(lineScrollOffset, this);
         }

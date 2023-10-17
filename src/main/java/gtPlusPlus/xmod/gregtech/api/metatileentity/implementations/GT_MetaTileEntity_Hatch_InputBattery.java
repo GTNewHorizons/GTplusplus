@@ -149,8 +149,7 @@ public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatc
                             }
                         }
                     }
-                } else {
-                }
+                } else {}
             }
         }
         super.onPostTick(aBaseMetaTileEntity, aTimer);
