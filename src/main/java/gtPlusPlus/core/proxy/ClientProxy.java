@@ -3,10 +3,8 @@ package gtPlusPlus.core.proxy;
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderFireball;
 import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -46,13 +44,11 @@ import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.entity.projectile.EntityHydrofluoricAcidPotion;
 import gtPlusPlus.core.entity.projectile.EntityLightningAttack;
 import gtPlusPlus.core.entity.projectile.EntitySulfuricAcidPotion;
-import gtPlusPlus.core.entity.projectile.EntityThrowableBomb;
 import gtPlusPlus.core.entity.projectile.EntityToxinballSmall;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
-import gtPlusPlus.core.util.minecraft.particles.EntityParticleFXMysterious;
 import gtPlusPlus.xmod.gregtech.common.render.GTPP_CapeRenderer;
 import gtPlusPlus.xmod.gregtech.common.render.GTPP_FlaskRenderer;
 import gtPlusPlus.xmod.gregtech.common.render.GTPP_Render_MachineBlock;
@@ -131,8 +127,6 @@ public class ClientProxy extends CommonProxy implements Runnable {
         RenderingRegistry.registerEntityRenderingHandler(
                 EntityHydrofluoricAcidPotion.class,
                 new RenderSnowball(ModItems.itemHydrofluoricPotion));
-        RenderingRegistry
-                .registerEntityRenderingHandler(EntityThrowableBomb.class, new RenderSnowball(ModItems.itemBomb, 1));
         RenderingRegistry.registerEntityRenderingHandler(EntityLightningAttack.class, new RenderFireball(1F));
 
         /**
@@ -153,22 +147,6 @@ public class ClientProxy extends CommonProxy implements Runnable {
     @Override
     public int addArmor(final String armor) {
         return RenderingRegistry.addNewArmourRendererPrefix(armor);
-    }
-
-    @Override
-    public void generateMysteriousParticles(final Entity theEntity) {
-        final double motionX = theEntity.worldObj.rand.nextGaussian() * 0.02D;
-        final double motionY = theEntity.worldObj.rand.nextGaussian() * 0.02D;
-        final double motionZ = theEntity.worldObj.rand.nextGaussian() * 0.02D;
-        final EntityFX particleMysterious = new EntityParticleFXMysterious(
-                theEntity.worldObj,
-                (theEntity.posX + (theEntity.worldObj.rand.nextFloat() * theEntity.width * 2.0F)) - theEntity.width,
-                theEntity.posY + 0.5D + (theEntity.worldObj.rand.nextFloat() * theEntity.height),
-                (theEntity.posZ + (theEntity.worldObj.rand.nextFloat() * theEntity.width * 2.0F)) - theEntity.width,
-                motionX,
-                motionY,
-                motionZ);
-        Minecraft.getMinecraft().effectRenderer.addEffect(particleMysterious);
     }
 
     @Override

@@ -70,11 +70,7 @@ public class CommonProxy {
         AddToCreativeTab.initialiseTabs();
         CustomInternalName.init();
 
-        // Moved from Init after Debug Loading.
-        // 29/01/18 - Alkalus
-        // Moved earlier into PreInit, so that Items exist before they're called upon in
-        // recipes.
-        // 20/03/18 - Alkalus
+
         ModItems.init();
         ModBlocks.init();
         CI.preInit();
@@ -93,10 +89,6 @@ public class CommonProxy {
     public void init(final FMLInitializationEvent e) {
         CI.init();
 
-        /**
-         * Register the Event Handlers.
-         */
-
         Utils.registerEvent(new GeneralTooltipEventHandler());
         // Handles Tooltips for items giving custom multiblock behaviour
         Utils.registerEvent(new SpecialBehaviourTooltipHandler());
@@ -107,10 +99,6 @@ public class CommonProxy {
 
         Utils.registerEvent(new EnderDragonDeathHandler());
         Utils.registerEvent(new EntityDeathHandler());
-
-        /**
-         * End of Subscribe Event registration.
-         */
 
         // Compat Handling
         COMPAT_HANDLER.registerMyModsOreDictEntries();
@@ -141,8 +129,6 @@ public class CommonProxy {
         Logger.INFO("Registering custom mob drops.");
         registerCustomMobDrops();
 
-        // Moved last in postInit().
-        // 12/12/19 - Alkalus
         // Moved last, to prevent recipes being generated post initialisation.
         Logger.INFO("Loading Gregtech API recipes.");
         COMPAT_HANDLER.startLoadingGregAPIBasedRecipes();
@@ -175,14 +161,7 @@ public class CommonProxy {
         return 0;
     }
 
-    public void generateMysteriousParticles(final Entity entity) {}
-
     public void registerCustomMobDrops() {
-
-        // Zombie
-        EntityUtils.registerDropsForMob(EntityZombie.class, ItemUtils.getSimpleStack(ModItems.itemBomb), 2, 10);
-        EntityUtils.registerDropsForMob(EntityZombie.class, ALLOY.TUMBAGA.getTinyDust(1), 1, 10);
-        EntityUtils.registerDropsForMob(EntityZombie.class, ALLOY.POTIN.getTinyDust(1), 1, 10);
 
         // Blazes
         if (ItemUtils.doesOreDictHaveEntryFor("dustPyrotheum")) {
@@ -196,22 +175,6 @@ public class CommonProxy {
                     ItemUtils.getItemStackOfAmountFromOreDict("dustPyrotheum", 1),
                     1,
                     10);
-        }
-
-        // Special mobs Support
-        if (ReflectionUtils.doesClassExist("toast.specialMobs.entity.zombie.EntityBrutishZombie")) {
-            Class<?> aBrutishZombie = ReflectionUtils.getClass("toast.specialMobs.entity.zombie.EntityBrutishZombie");
-            ItemStack aFortune1 = ItemUtils.getEnchantedBook(Enchantment.fortune, 1);
-            ItemStack aFortune2 = ItemUtils.getEnchantedBook(Enchantment.fortune, 1);
-            ItemStack aFortune3 = ItemUtils.getEnchantedBook(Enchantment.fortune, 1);
-            EntityUtils.registerDropsForMob(aBrutishZombie, aFortune1, 1, 100);
-            EntityUtils.registerDropsForMob(aBrutishZombie, aFortune2, 1, 50);
-            EntityUtils.registerDropsForMob(aBrutishZombie, aFortune3, 1, 1);
-            EntityUtils.registerDropsForMob(
-                    aBrutishZombie,
-                    ItemUtils.getItemStackOfAmountFromOreDict("ingotRedAlloy", 1),
-                    3,
-                    200);
         }
 
         // GalaxySpace Support
@@ -244,17 +207,6 @@ public class CommonProxy {
 
     protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<>();
 
-    public static void registerItemRendererGlobal(Item aItem, IItemRenderer aRenderer) {
-        GTplusplus.proxy.registerItemRenderer(aItem, aRenderer);
-    }
-
-    public void registerItemRenderer(Item aItem, IItemRenderer aRenderer) {
-        if (Utils.isServer()) {
-            return;
-        } else {
-            mItemRenderMappings.add(new Pair<>(aItem, aRenderer));
-        }
-    }
 
     public World getClientWorld() {
         return null;

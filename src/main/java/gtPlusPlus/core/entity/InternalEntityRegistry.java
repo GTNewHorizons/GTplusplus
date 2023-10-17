@@ -8,7 +8,6 @@ import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.entity.projectile.EntityHydrofluoricAcidPotion;
 import gtPlusPlus.core.entity.projectile.EntityLightningAttack;
 import gtPlusPlus.core.entity.projectile.EntitySulfuricAcidPotion;
-import gtPlusPlus.core.entity.projectile.EntityThrowableBomb;
 import gtPlusPlus.core.entity.projectile.EntityToxinballSmall;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
 import gtPlusPlus.core.util.Utils;
@@ -77,15 +76,6 @@ public class InternalEntityRegistry {
                 "sickBlaze",
                 Utils.rgbtoHexValue(40, 180, 40),
                 Utils.rgbtoHexValue(75, 75, 75));
-
-        EntityRegistry.registerModEntity(
-                EntityThrowableBomb.class,
-                "EntityThrowableBomb",
-                mEntityID++,
-                GTplusplus.instance,
-                64,
-                10,
-                true);
 
         EntityRegistry.registerModEntity(
                 EntityLightningAttack.class,

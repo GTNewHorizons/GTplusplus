@@ -63,7 +63,6 @@ import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
 import gtPlusPlus.core.item.general.throwables.ItemHydrofluoricAcidPotion;
 import gtPlusPlus.core.item.general.throwables.ItemSulfuricAcidPotion;
-import gtPlusPlus.core.item.general.throwables.ItemThrowableBomb;
 import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
@@ -225,7 +224,7 @@ public final class ModItems {
     public static CoreItem itemBombCasing;
     public static CoreItem itemBombUnf;
     public static CoreItem itemDetCable;
-    public static ItemThrowableBomb itemBomb;
+
 
     public static BaseItemMetaFood itemMetaFood;
 
@@ -747,7 +746,7 @@ public final class ModItems {
                 "dustNeptunium238",
                 Utils.rgbtoHexValue(175, 240, 75),
                 50640,
-                new String[] { "" + StringUtils.superscript("238Np"),
+                new String[] {StringUtils.superscript("238Np"),
                         "Result: Plutonium 238 (" + StringUtils.superscript("238Pu") + ")" },
                 ELEMENT.getInstance().PLUTONIUM238.getDust(1).getItem(),
                 5);
@@ -760,7 +759,7 @@ public final class ModItems {
                 "dustRadium226",
                 ELEMENT.getInstance().RADIUM.getRgbAsHex(),
                 90000,
-                new String[] { "" + StringUtils.superscript("226Ra"),
+                new String[] {StringUtils.superscript("226Ra"),
                         "Result: Radon (" + StringUtils.superscript("222Rn") + ")" },
                 ItemUtils.getSimpleStack(dustDecayedRadium226).getItem(),
                 5);
@@ -768,7 +767,7 @@ public final class ModItems {
                 "dustProtactinium233",
                 ELEMENT.getInstance().PROTACTINIUM.getRgbAsHex(),
                 32000,
-                new String[] { "" + StringUtils.superscript("233Pa"),
+                new String[] {StringUtils.superscript("233Pa"),
                         "Result: Uranium 233(" + StringUtils.superscript("233U") + ")" },
                 ELEMENT.getInstance().URANIUM233.getDust(1).getItem(),
                 6);
@@ -776,7 +775,7 @@ public final class ModItems {
                 "dustMolybdenum99",
                 ELEMENT.getInstance().MOLYBDENUM.getRgbAsHex(),
                 16450,
-                new String[] { "" + StringUtils.superscript("99Mo"),
+                new String[] {StringUtils.superscript("99Mo"),
                         "Result: Technicium 99ᵐ (" + StringUtils.superscript("99ᵐTc") + ")" },
                 dustTechnetium99M,
                 4);
@@ -817,7 +816,6 @@ public final class ModItems {
         itemBombUnf.setTextureName(GTPlusPlus.ID + ":bomb_casing");
         itemDetCable = new CoreItem("itemDetCable", "Det. Cable", tabMisc);
         itemDetCable.setTextureName("string");
-        itemBomb = new ItemThrowableBomb();
 
         // IC2 Exp
         Logger.INFO("IndustrialCraft2 Found - Loading Resources.");

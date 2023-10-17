@@ -1304,14 +1304,6 @@ public class RECIPES_GREGTECH {
 
         GT_Values.RA.stdBuilder()
                 .itemInputs(
-                        ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4),
-                        ItemUtils.getSimpleStack(ModItems.itemDetCable, 4))
-                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemBomb, 4))
-                .fluidInputs(FluidUtils.getFluidStack(RocketFuels.Kerosene, 100)).duration(10 * SECONDS)
-                .eut(TierEU.RECIPE_LV).addTo(UniversalChemical);
-
-        GT_Values.RA.stdBuilder()
-                .itemInputs(
                         CI.getNumberedAdvancedCircuit(21),
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Apatite, 32L))
                 .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Sulfur, 8L))
