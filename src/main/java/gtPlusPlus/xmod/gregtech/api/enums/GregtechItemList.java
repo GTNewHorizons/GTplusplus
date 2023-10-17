@@ -616,13 +616,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     // infinite Items
     Infinite_Item_Chest,
 
-    // GT4 Redstone
-    GT4_Redstone_Lamp,
-    GT4_Redstone_Button_Panel,
-    GT4_Redstone_Scale,
-    GT4_Redstone_Display,
-    GT4_Redstone_Circuit,
-
     // Gt4 Workbenches
     GT4_Workbench_Bronze,
     GT4_Workbench_Advanced,

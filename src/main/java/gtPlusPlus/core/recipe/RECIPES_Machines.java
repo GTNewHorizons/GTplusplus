@@ -249,10 +249,8 @@ public class RECIPES_Machines {
         chiselBuses();
 
         gt4FarmManager();
-        gt4Redstone();
         gt4Inventory();
 
-        // multiGeneratorArray();
         multiForgeHammer();
         multiMolecularTransformer();
         multiXlTurbines();
@@ -322,108 +320,6 @@ public class RECIPES_Machines {
                     aOutputMachines[i].get(1));
             aTier++;
         }
-    }
-
-    private static void gt4Redstone() {
-
-        RecipeUtils.addShapedRecipe(
-                "plateIron",
-                "plateGlass",
-                "plateIron",
-                "plateGlass",
-                ItemUtils.getSimpleStack(Blocks.redstone_lamp),
-                "plateGlass",
-                "plateIron",
-                "plateGlass",
-                "plateIron",
-                GregtechItemList.GT4_Redstone_Lamp.get(2));
-        RecipeUtils.addShapedRecipe(
-                "plateAluminium",
-                "plateGlass",
-                "plateAluminium",
-                "plateGlass",
-                ItemUtils.getSimpleStack(Blocks.redstone_lamp),
-                "plateGlass",
-                "plateAluminium",
-                "plateGlass",
-                "plateAluminium",
-                GregtechItemList.GT4_Redstone_Lamp.get(8));
-
-        RecipeUtils.addShapedRecipe(
-                "plateIron",
-                "plateIron",
-                "plateIron",
-                ItemUtils.getSimpleStack(Items.comparator),
-                ItemList.Cover_Screen.get(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateIron",
-                "plateIron",
-                "plateIron",
-                GregtechItemList.GT4_Redstone_Display.get(2));
-        RecipeUtils.addShapedRecipe(
-                "plateAluminium",
-                "plateAluminium",
-                "plateAluminium",
-                ItemUtils.getSimpleStack(Items.comparator),
-                ItemList.Cover_Screen.get(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateAluminium",
-                "plateAluminium",
-                "plateAluminium",
-                GregtechItemList.GT4_Redstone_Display.get(8));
-
-        RecipeUtils.addShapedRecipe(
-                "plateIron",
-                "plateIron",
-                "plateIron",
-                ItemUtils.getSimpleStack(Items.comparator),
-                ItemList.Cover_EnergyDetector.get(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateIron",
-                "plateIron",
-                "plateIron",
-                GregtechItemList.GT4_Redstone_Scale.get(2));
-        RecipeUtils.addShapedRecipe(
-                "plateAluminium",
-                "plateAluminium",
-                "plateAluminium",
-                ItemUtils.getSimpleStack(Items.comparator),
-                ItemList.Cover_EnergyDetector.get(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateAluminium",
-                "plateAluminium",
-                "plateAluminium",
-                GregtechItemList.GT4_Redstone_Scale.get(8));
-
-        CORE.RA.addSixSlotAssemblingRecipe(
-                new ItemStack[] { CI.getTieredMachineHull(1), ItemUtils.getSimpleStack(Blocks.stone_button, 16) },
-                null,
-                GregtechItemList.GT4_Redstone_Button_Panel.get(1),
-                800,
-                4);
-
-        RecipeUtils.addShapedRecipe(
-                "plateIron",
-                ItemUtils.getSimpleStack(Items.repeater),
-                "plateIron",
-                ItemUtils.getSimpleStack(Items.comparator),
-                CI.getTieredCircuitOreDictName(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateIron",
-                ItemUtils.getSimpleStack(Items.repeater),
-                "plateIron",
-                GregtechItemList.GT4_Redstone_Circuit.get(1));
-        RecipeUtils.addShapedRecipe(
-                "plateAluminium",
-                ItemUtils.getSimpleStack(Items.repeater),
-                "plateAluminium",
-                ItemUtils.getSimpleStack(Items.comparator),
-                CI.getTieredCircuitOreDictName(1),
-                ItemUtils.getSimpleStack(Items.comparator),
-                "plateAluminium",
-                ItemUtils.getSimpleStack(Items.repeater),
-                "plateAluminium",
-                GregtechItemList.GT4_Redstone_Circuit.get(2));
     }
 
     private static void gt4Inventory() {

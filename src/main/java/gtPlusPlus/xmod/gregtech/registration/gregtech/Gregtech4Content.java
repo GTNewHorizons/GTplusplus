@@ -31,7 +31,6 @@ public class Gregtech4Content {
         tesseracts();
         basic();
         automation();
-        redstone();
     }
 
     private static void workbenches() {
@@ -51,21 +50,6 @@ public class Gregtech4Content {
                         "Advanced Workbench",
                         3,
                         "Stores 64000L of fluid").getStackForm(1L));
-    }
-
-    private static void redstone() {
-        Logger.INFO("Gregtech 4 Content | Registering Redstone Blocks.");
-        GregtechItemList.GT4_Redstone_Lamp.set(new GT_MetaTileEntity_RedstoneLamp(31120).getStackForm(1L));
-        GregtechItemList.GT4_Redstone_Button_Panel
-                .set(new GT_MetaTileEntity_RedstoneButtonPanel(31121).getStackForm(1L));
-        GregtechItemList.GT4_Redstone_Scale.set(new GT_MetaTileEntity_RedstoneStrengthScale(31122).getStackForm(1L));
-        GregtechItemList.GT4_Redstone_Display.set(
-                new GT_MetaTileEntity_RedstoneStrengthDisplay(
-                        31123,
-                        "redstone.display.strength",
-                        "Redstone Display",
-                        "Displays Redstone Strength").getStackForm(1L));
-        GregtechItemList.GT4_Redstone_Circuit.set(new GT_MetaTileEntity_RedstoneCircuitBlock(31124).getStackForm(1L));
     }
 
     private static void automation() {
