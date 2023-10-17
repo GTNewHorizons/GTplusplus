@@ -172,7 +172,7 @@ public class RecipeGen_FluidCanning implements Runnable {
         }
     }
 
-    private final boolean addFluidExtractionRecipe(GT_Recipe aRecipe) {
+    private boolean addFluidExtractionRecipe(GT_Recipe aRecipe) {
         boolean result = false;
         CORE.crash();
         Logger.INFO(
@@ -209,7 +209,7 @@ public class RecipeGen_FluidCanning implements Runnable {
         return result;
     }
 
-    private final boolean addFluidCannerRecipe(GT_Recipe aRecipe) {
+    private boolean addFluidCannerRecipe(GT_Recipe aRecipe) {
         boolean result = false;
         int aCount1 = GT_Recipe_Map.sFluidCannerRecipes.mRecipeList.size();
         int aCount2 = aCount1;
@@ -255,7 +255,7 @@ public class RecipeGen_FluidCanning implements Runnable {
                 + " | ";
     }
 
-    private final int getMapSize(GT_Recipe_Map aMap) {
+    private int getMapSize(GT_Recipe_Map aMap) {
         return aMap.mRecipeList.size();
     }
 }

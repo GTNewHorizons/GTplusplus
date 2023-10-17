@@ -40,7 +40,7 @@ public class LeavesBase extends BlockLeaves {
         Blocks.fire.setFireInfo(this, 80, 150);
     }
 
-    private final void setVanillaVariable(Object toSet, Object value) {
+    private void setVanillaVariable(Object toSet, Object value) {
         toSet = value;
     }
 

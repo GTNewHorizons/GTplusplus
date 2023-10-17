@@ -221,7 +221,7 @@ public class BaseItemMetaFood extends ItemFood {
         BaseItemMetaFood.registerMetaFoods();
     }
 
-    private static final int getMetaKey(ItemStack aStack) {
+    private static int getMetaKey(ItemStack aStack) {
         return aStack.getItemDamage();
     }
 

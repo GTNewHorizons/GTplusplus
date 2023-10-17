@@ -278,7 +278,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
         return Math.max(reducedDamage, 0);
     }
 
-    private static final AutoMap<EntityLivingBase> getEntities(AutoMap<BlockPos> aPositionsToCheck, World aWorld) {
+    private static AutoMap<EntityLivingBase> getEntities(AutoMap<BlockPos> aPositionsToCheck, World aWorld) {
         AutoMap<EntityLivingBase> aEntities = new AutoMap<EntityLivingBase>();
         HashSet<Chunk> aChunksToCheck = new HashSet<Chunk>();
         if (!aPositionsToCheck.isEmpty()) {

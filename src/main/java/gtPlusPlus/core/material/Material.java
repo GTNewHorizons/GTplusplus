@@ -1245,7 +1245,7 @@ public class Material {
         return new int[] {};
     }
 
-    private final short getComponentCount(final MaterialStack[] inputs) {
+    private short getComponentCount(final MaterialStack[] inputs) {
 
         if (inputs == null || inputs.length < 1) {
             return 1;

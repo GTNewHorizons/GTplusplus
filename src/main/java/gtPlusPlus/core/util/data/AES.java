@@ -33,12 +33,12 @@ public class AES {
         secretKey = generateKey(key);
     }
 
-    private static final String getHashedString(String aString) {
+    private static String getHashedString(String aString) {
 
         return toHexString(getSHA(aString));
     }
 
-    private static final byte[] getSHA(String input) {
+    private static byte[] getSHA(String input) {
 
         MessageDigest md;
 
@@ -56,7 +56,7 @@ public class AES {
         return new byte[] {};
     }
 
-    private static final String toHexString(byte[] hash) {
+    private static String toHexString(byte[] hash) {
 
         BigInteger number = new BigInteger(1, hash);
 
@@ -70,7 +70,7 @@ public class AES {
         return hexString.toString();
     }
 
-    private final byte[] getBytes(String aKey) {
+    private byte[] getBytes(String aKey) {
 
         byte[] aKeyData;
 
@@ -111,7 +111,7 @@ public class AES {
         return new byte[] {};
     }
 
-    private final SecretKeySpec generateKey(byte[] aKey) {
+    private SecretKeySpec generateKey(byte[] aKey) {
 
         return new SecretKeySpec(aKey, "AES");
     }

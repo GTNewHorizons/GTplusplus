@@ -1209,7 +1209,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         tryTickWaitTimerDown();
     }
 
-    private final void tryTickWaitTimerDown() {
+    private void tryTickWaitTimerDown() {
         /*
          * if (mStartUpCheck > 10) { mStartUpCheck = 10; }
          */

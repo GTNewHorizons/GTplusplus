@@ -74,7 +74,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         return mTank;
     }
 
-    private final void setup() {
+    private void setup() {
         World w = this.worldObj;
         if (w != null) {
             Chunk c = w.getChunkFromBlockCoords(this.xCoord, this.zCoord);
@@ -491,7 +491,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         this.mNeedsUpdate = true;
     }
 
-    private final void updateTick() {
+    private void updateTick() {
         if (mNeedsUpdate) {
             if (mUpdateTick == 0) {
                 mUpdateTick = 4; // every 4 ticks it will send an update

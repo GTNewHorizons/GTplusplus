@@ -62,7 +62,7 @@ public class DevHelper {
         return null;
     }
 
-    private static final synchronized DevHelper getInstance() {
+    private static synchronized DevHelper getInstance() {
         return mInstance;
     }
 

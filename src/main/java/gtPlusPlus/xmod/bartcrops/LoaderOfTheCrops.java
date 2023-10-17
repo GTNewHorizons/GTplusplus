@@ -53,7 +53,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<CropCard> cropObjs() {
+    private static List<CropCard> cropObjs() {
         List<CropCard> p = new ArrayList<CropCard>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
@@ -63,7 +63,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<ItemStack> setBaseSeed() {
+    private static List<ItemStack> setBaseSeed() {
         List<ItemStack> p = new ArrayList<ItemStack>();
 
         for (int i = 0; i < mCropList.size(); ++i) {
@@ -73,7 +73,7 @@ public class LoaderOfTheCrops {
         return p;
     }
 
-    private static final List<String> setnames() {
+    private static List<String> setnames() {
         List<String> s = new ArrayList<String>();
 
         for (int i = 0; i < mCropList.size(); ++i) {

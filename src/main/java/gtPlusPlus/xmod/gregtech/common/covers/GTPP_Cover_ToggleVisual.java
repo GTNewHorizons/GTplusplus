@@ -153,7 +153,7 @@ public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
         return aCoverVar == VALUE_ON;
     }
 
-    private static final void trySetState(ForgeDirection side, int aState, ICoverable aTile) {
+    private static void trySetState(ForgeDirection side, int aState, ICoverable aTile) {
         // Try set cover state directly
         if (aTile instanceof IGregTechTileEntity gTileEntity) {
             gTileEntity.setCoverDataAtSide(side, new ISerializableObject.LegacyCoverData(aState));

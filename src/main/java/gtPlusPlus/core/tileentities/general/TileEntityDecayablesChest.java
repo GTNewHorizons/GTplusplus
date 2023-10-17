@@ -353,7 +353,7 @@ public class TileEntityDecayablesChest extends TileEntity implements ISidedInven
         this.checkForAdjacentChests();
     }
 
-    private final int updateSlots() {
+    private int updateSlots() {
         // Have slots changed?
         if (cachedChestType == 0) {
             return 0;

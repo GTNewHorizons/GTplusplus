@@ -148,7 +148,7 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
      * 
      * @return Sanitized {@link String}, containing no spaces or illegal characters.
      */
-    private final String getTileEntityNameForTexturePathing() {
+    private String getTileEntityNameForTexturePathing() {
         return Utils.sanitizeString(getTileEntityName().replace(" ", ""));
     }
 
@@ -175,7 +175,7 @@ public abstract class BasicTileBlockWithTooltip extends BlockContainer implement
     }
 
     @SideOnly(Side.CLIENT)
-    private final void handleTextures() {
+    private void handleTextures() {
 
         Logger.INFO("[TeTexture] Building Texture Maps for " + getTileEntityName() + ".");
 
