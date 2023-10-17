@@ -34,7 +34,7 @@ public enum CustomCombs {
     SALT("salt", true, Materials.Salt, 75),
     SAND("sand", true, Materials.Sand, 100),;
 
-    private static int[][] colours = new int[][] {
+    private static final int[][] colours = new int[][] {
             { Utils.rgbtoHexValue(75, 75, 75), Utils.rgbtoHexValue(125, 125, 125) }, // SILICON
             { Utils.rgbtoHexValue(55, 55, 55), Utils.rgbtoHexValue(75, 75, 75) }, // RUBBER
             { Utils.rgbtoHexValue(245, 245, 245), Utils.rgbtoHexValue(175, 175, 175) }, // PLASTIC
@@ -67,7 +67,7 @@ public enum CustomCombs {
     public boolean showInList;
     public Materials material;
     public int chance;
-    private String name;
+    private final String name;
 
     private CustomCombs(String pName, boolean show, Materials material, int chance) {
         this.name = pName;

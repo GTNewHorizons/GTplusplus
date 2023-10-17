@@ -28,7 +28,7 @@ public class GUI_RoundRobinator extends GuiContainer {
             GTPlusPlus.ID,
             "textures/gui/RoundRobinator.png");
     private TileEntityRoundRobinator mTile;
-    private Container_RoundRobinator mContainer;
+    private final Container_RoundRobinator mContainer;
     private static final Method mDrawItemStack;
 
     static {

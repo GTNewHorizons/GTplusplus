@@ -72,7 +72,7 @@ public class SystemUtils {
         SOLARIS(4),
         OTHER(0);
 
-        private int mID;
+        private final int mID;
 
         private OS(final int ID) {
             this.mID = ID;

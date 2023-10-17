@@ -694,7 +694,7 @@ public class ItemUtils {
         return outputs;
     }
 
-    private static Map<Item, String> mModidCache = new HashMap<Item, String>();
+    private static final Map<Item, String> mModidCache = new HashMap<Item, String>();
 
     private static String getModId(final Item item) {
         if (mModidCache.containsKey(item)) {

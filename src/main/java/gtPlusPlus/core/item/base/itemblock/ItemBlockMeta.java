@@ -18,7 +18,7 @@ import gtPlusPlus.api.objects.data.AutoMap;
 public class ItemBlockMeta extends ItemBlockWithMetadata {
 
     private final Block mBlock;
-    private HashMap<Integer, AutoMap<String>> aTooltips = new LinkedHashMap<Integer, AutoMap<String>>();
+    private final HashMap<Integer, AutoMap<String>> aTooltips = new LinkedHashMap<Integer, AutoMap<String>>();
 
     public ItemBlockMeta(final Block aBlock) {
         super(aBlock, aBlock);

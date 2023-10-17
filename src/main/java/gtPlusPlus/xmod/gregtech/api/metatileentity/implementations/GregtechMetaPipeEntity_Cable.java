@@ -16,7 +16,7 @@ import gregtech.api.util.GT_Utility;
 
 public class GregtechMetaPipeEntity_Cable extends GT_MetaPipeEntity_Cable implements IMetaTileEntityCable {
 
-    private static Textures.BlockIcons INSULATION_MEDIUM_PLUS;
+    private static final Textures.BlockIcons INSULATION_MEDIUM_PLUS;
 
     static {
         try {

@@ -15,7 +15,7 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 public class GregtechMetaCasingBlocksPipeGearbox extends GregtechMetaCasingBlocksAbstract {
 
-    private static HashMap<Integer, Integer> sMaterialMapping = new HashMap<Integer, Integer>();
+    private static final HashMap<Integer, Integer> sMaterialMapping = new HashMap<Integer, Integer>();
 
     public GregtechMetaCasingBlocksPipeGearbox() {
         super(GregtechMetaCasingItems.class, "gtplusplus.blockcasings.pipesgears", GT_Material_Casings.INSTANCE);

@@ -26,7 +26,7 @@ import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 
 public abstract class GregtechRocketFuelGeneratorBase extends GT_MetaTileEntity_BasicTank {
 
-    private boolean useFuel = false;
+    private final boolean useFuel = false;
     protected int pollMin, pollMax;
 
     public GregtechRocketFuelGeneratorBase(final int aID, final String aName, final String aNameRegional,

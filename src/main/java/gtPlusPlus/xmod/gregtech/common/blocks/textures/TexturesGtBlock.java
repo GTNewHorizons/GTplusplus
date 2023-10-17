@@ -17,9 +17,9 @@ import gtPlusPlus.core.lib.CORE;
 
 public class TexturesGtBlock {
 
-    private static boolean mAnimated = CORE.ConfigSwitches.enableAnimatedTextures;
+    private static final boolean mAnimated = CORE.ConfigSwitches.enableAnimatedTextures;
 
-    private static AutoMap<Runnable> mCustomiconMap = new AutoMap<Runnable>();
+    private static final AutoMap<Runnable> mCustomiconMap = new AutoMap<Runnable>();
 
     static {}
 

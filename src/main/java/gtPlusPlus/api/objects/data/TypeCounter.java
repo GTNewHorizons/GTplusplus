@@ -10,7 +10,7 @@ import gtPlusPlus.api.objects.Logger;
 
 public class TypeCounter<V> implements Set<V> {
 
-    private Map<String, InternalTypeCounterObject<V>> mInternalMap = new LinkedHashMap<String, InternalTypeCounterObject<V>>();
+    private final Map<String, InternalTypeCounterObject<V>> mInternalMap = new LinkedHashMap<String, InternalTypeCounterObject<V>>();
     private String mHighestValueKey;
     private int mHighestValue = 0;
     private final Class mClass;

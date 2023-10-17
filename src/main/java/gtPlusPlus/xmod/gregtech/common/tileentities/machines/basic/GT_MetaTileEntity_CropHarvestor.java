@@ -176,7 +176,7 @@ public class GT_MetaTileEntity_CropHarvestor extends GT_MetaTileEntity_BasicTank
         }
     }
 
-    private HashSet<ICropTile> mCropCache = new HashSet<ICropTile>();
+    private final HashSet<ICropTile> mCropCache = new HashSet<ICropTile>();
     private boolean mInvalidCache = false;
 
     public boolean doesInventoryHaveSpace() {

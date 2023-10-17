@@ -24,10 +24,10 @@ public class GUI_VolumetricFlaskSetter extends GuiContainer {
     private static final ResourceLocation mGuiTextures = new ResourceLocation(
             GTPlusPlus.ID,
             "textures/gui/VolumetricFlaskSetter.png");
-    private Container_VolumetricFlaskSetter mContainer;
+    private final Container_VolumetricFlaskSetter mContainer;
     private boolean mIsOpen = false;
     private GuiValueField mText;
-    private TileEntityVolumetricFlaskSetter mTile;
+    private final TileEntityVolumetricFlaskSetter mTile;
 
     public GUI_VolumetricFlaskSetter(Container_VolumetricFlaskSetter aContainer) {
         super(aContainer);

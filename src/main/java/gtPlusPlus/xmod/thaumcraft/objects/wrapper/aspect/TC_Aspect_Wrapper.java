@@ -25,7 +25,7 @@ import gtPlusPlus.xmod.thaumcraft.util.ThaumcraftUtils;
  */
 public class TC_Aspect_Wrapper {
 
-    private static Class mClass_Aspect;
+    private static final Class mClass_Aspect;
     private static Field mField_Aspects;
 
     private final String tag;
@@ -231,7 +231,7 @@ public class TC_Aspect_Wrapper {
     /**
      * Internal Map containing all the TC_Aspects.
      */
-    private static Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
+    private static final Map<String, TC_Aspect_Wrapper> mInternalAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
 
     /**
      * Public getter for all TC_Aspects

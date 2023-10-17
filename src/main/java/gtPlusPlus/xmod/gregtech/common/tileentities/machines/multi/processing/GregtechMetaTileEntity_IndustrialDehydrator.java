@@ -48,7 +48,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialDehydrator> implements ISurvivalConstructable {
 
     private static int CASING_TEXTURE_ID;
-    private static String mCasingName = "Vacuum Casing";
+    private static final String mCasingName = "Vacuum Casing";
     private HeatingCoilLevel mHeatingCapacity;
     private boolean mDehydratorMode = false;
     private int mCasing;

@@ -21,7 +21,7 @@ public class GTPP_AspectCompat {
 
     public static volatile Method m = null;
 
-    private static HashMap<String, TC_Aspect_Wrapper> mAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
+    private static final HashMap<String, TC_Aspect_Wrapper> mAspectCache = new LinkedHashMap<String, TC_Aspect_Wrapper>();
 
     public static TC_Aspect_Wrapper ASPECT_BALANCE;
     public static TC_Aspect_Wrapper ASPECT_LUST;

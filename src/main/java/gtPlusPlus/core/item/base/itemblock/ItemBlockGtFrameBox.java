@@ -20,8 +20,8 @@ import gtPlusPlus.core.util.sys.KeyboardUtils;
 public class ItemBlockGtFrameBox extends ItemBlock {
 
     protected int blockColour;
-    private Material mMaterial;
-    private int sRadiation;
+    private final Material mMaterial;
+    private final int sRadiation;
 
     public ItemBlockGtFrameBox(final Block block) {
         super(block);

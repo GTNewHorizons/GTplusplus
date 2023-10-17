@@ -32,7 +32,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 public class GregtechMetaTileEntity_SteamCompressor
         extends GregtechMeta_SteamMultiBase<GregtechMetaTileEntity_SteamCompressor> implements ISurvivalConstructable {
 
-    private String mCasingName = "Bronze Plated Bricks";
+    private final String mCasingName = "Bronze Plated Bricks";
     private static IStructureDefinition<GregtechMetaTileEntity_SteamCompressor> STRUCTURE_DEFINITION = null;
     private int mCasing;
 

@@ -36,7 +36,7 @@ public class MaterialUtils {
     public static short firstID = 791;
 
     @SuppressWarnings({ "rawtypes", "unused" })
-    private static Class[][] commonTypes = { { Materials.class, int.class, TextureSet.class, float.class, int.class,
+    private static final Class[][] commonTypes = { { Materials.class, int.class, TextureSet.class, float.class, int.class,
             int.class, int.class, int.class, int.class, int.class, int.class, String.class, int.class, int.class,
             int.class, int.class, boolean.class, boolean.class, int.class, int.class, int.class, Dyes.class, int.class,
             List.class, List.class } };
@@ -51,7 +51,7 @@ public class MaterialUtils {
         return null;
     }
 
-    private static Map<String, Material> mGeneratedMaterialMap = new HashMap();
+    private static final Map<String, Material> mGeneratedMaterialMap = new HashMap();
 
     public static Material generateMaterialFromGtENUM(final Materials material) {
         return generateMaterialFromGtENUM(material, null, null);

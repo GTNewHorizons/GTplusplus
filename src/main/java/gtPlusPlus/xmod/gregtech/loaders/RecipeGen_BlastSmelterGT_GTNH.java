@@ -21,8 +21,8 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class RecipeGen_BlastSmelterGT_GTNH {
 
-    private static Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<String, FluidStack>();
-    private static Map<String, String> mCachedHotToColdRegistry = new HashMap<String, String>();
+    private static final Map<String, FluidStack> mCachedIngotToFluidRegistry = new HashMap<String, FluidStack>();
+    private static final Map<String, String> mCachedHotToColdRegistry = new HashMap<String, String>();
 
     private static synchronized void setIngotToFluid(final ItemStackData stack, final FluidStack fluid) {
         if (stack != null && fluid != null) {

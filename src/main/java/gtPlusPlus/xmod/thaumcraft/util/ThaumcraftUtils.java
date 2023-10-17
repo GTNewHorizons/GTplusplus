@@ -38,7 +38,7 @@ import gtPlusPlus.xmod.thaumcraft.objects.wrapper.research.TC_ResearchPage_Wrapp
 
 public class ThaumcraftUtils {
 
-    private static Class<?> mClass_Aspect;
+    private static final Class<?> mClass_Aspect;
     private static Field mField_Aspects;
 
     static {

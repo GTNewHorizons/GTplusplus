@@ -36,7 +36,7 @@ public class BlockBaseModular extends BasicBlock {
     protected String thisBlockMaterialTranslatedName;
     protected final String thisBlockType;
 
-    private static HashMap<String, Block> sBlockCache = new HashMap<String, Block>();
+    private static final HashMap<String, Block> sBlockCache = new HashMap<String, Block>();
 
     public static Block getMaterialBlock(Material aMaterial, BlockTypes aType) {
         return sBlockCache.get(aMaterial.getUnlocalizedName() + "." + aType.name());
