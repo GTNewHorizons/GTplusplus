@@ -7,7 +7,6 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 import gtPlusPlus.preloader.CORE_Preloader;
-import gtPlusPlus.preloader.Preloader_Logger;
 import gtPlusPlus.preloader.asm.transformers.Preloader_Transformer_Handler;
 
 @SortingIndex(10097)
@@ -15,10 +14,6 @@ import gtPlusPlus.preloader.asm.transformers.Preloader_Transformer_Handler;
 @IFMLLoadingPlugin.TransformerExclusions("gtPlusPlus.preloader")
 @IFMLLoadingPlugin.Name(CORE_Preloader.NAME)
 public class Preloader_FMLLoadingPlugin implements IFMLLoadingPlugin {
-
-    static {
-        Preloader_Logger.INFO("Initializing IFMLLoadingPlugin");
-    }
 
     @Override
     public String getAccessTransformerClass() {
@@ -46,12 +41,7 @@ public class Preloader_FMLLoadingPlugin implements IFMLLoadingPlugin {
         File mcDir = (File) data.get("mcLocation");
         if (mcDir != null && mcDir.exists()) {
             CORE_Preloader.setMinecraftDirectory(mcDir);
-            Preloader_Logger.INFO("Set McDir via Preloader_FMLLoadingPlugin");
         }
         CORE_Preloader.DEBUG_MODE = AsmConfig.debugMode;
-        Preloader_Logger.INFO(
-                "Running on " + gtPlusPlus.preloader.CORE_Preloader.JAVA_VERSION
-                        + " | Development Environment: "
-                        + CORE_Preloader.DEV_ENVIRONMENT);
     }
 }
