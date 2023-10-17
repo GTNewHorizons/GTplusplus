@@ -178,7 +178,7 @@ public class PlayerUtils {
         return null;
     }
 
-    public static final EntityPlayer getPlayerEntityByName(final String aPlayerName) {
+    public static EntityPlayer getPlayerEntityByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
         if (player != null) {
             return player;
@@ -186,7 +186,7 @@ public class PlayerUtils {
         return null;
     }
 
-    public static final UUID getPlayersUUIDByName(final String aPlayerName) {
+    public static UUID getPlayersUUIDByName(final String aPlayerName) {
         final EntityPlayer player = PlayerUtils.getPlayer(aPlayerName);
         if (player != null) {
             return player.getUniqueID();

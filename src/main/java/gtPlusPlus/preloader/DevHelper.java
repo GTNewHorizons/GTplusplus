@@ -62,11 +62,11 @@ public class DevHelper {
         return null;
     }
 
-    private static final synchronized DevHelper getInstance() {
+    private static synchronized DevHelper getInstance() {
         return mInstance;
     }
 
-    public static final synchronized boolean isValidHelperObject() {
+    public static synchronized boolean isValidHelperObject() {
         return mIsValidHelper;
     }
 

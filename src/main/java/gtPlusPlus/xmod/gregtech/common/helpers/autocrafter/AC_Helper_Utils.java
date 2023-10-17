@@ -15,7 +15,7 @@ public class AC_Helper_Utils {
     public static final Map<Integer, GT4Entity_AutoCrafter> sAutocrafterMap = new HashMap<Integer, GT4Entity_AutoCrafter>();
 
     // Add Crafter
-    public static final int addCrafter(GT4Entity_AutoCrafter AC) {
+    public static int addCrafter(GT4Entity_AutoCrafter AC) {
         if (!sAutocrafterMap.containsValue(AC)) {
             int increase = sAutocrafterMap.size() + 1;
             sAutocrafterMap.put(increase, AC);
@@ -27,7 +27,7 @@ public class AC_Helper_Utils {
         return 0;
     }
 
-    public static final boolean removeCrafter(GT4Entity_AutoCrafter AC) {
+    public static boolean removeCrafter(GT4Entity_AutoCrafter AC) {
         if (!sAutocrafterMap.isEmpty()) {
             if (sAutocrafterMap.containsValue(AC)) {
                 sAutocrafterMap.remove(getIDByCrafter(AC));
@@ -37,7 +37,7 @@ public class AC_Helper_Utils {
         return false;
     }
 
-    public static final int getIDByCrafter(GT4Entity_AutoCrafter AC) {
+    public static int getIDByCrafter(GT4Entity_AutoCrafter AC) {
         if (!sAutocrafterMap.isEmpty()) {
             Set<Entry<Integer, GT4Entity_AutoCrafter>> players = sAutocrafterMap.entrySet();
             Iterator<Entry<Integer, GT4Entity_AutoCrafter>> i = players.iterator();

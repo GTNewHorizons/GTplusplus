@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class AutoMap<V> implements Iterable<V>, Cloneable, Serializable, Collection<V>, Queue<V>, List<V> {
+public class AutoMap<V> implements Iterable<V>, Serializable, Collection<V>, Queue<V>, List<V> {
 
     /**
      * The Internal Map

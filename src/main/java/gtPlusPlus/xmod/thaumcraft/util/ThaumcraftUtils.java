@@ -439,7 +439,7 @@ public class ThaumcraftUtils {
         }
     }
 
-    public static final synchronized TC_AspectList_Wrapper getAspectList_Ex(final List<GTPP_AspectStack> aAspects) {
+    public static synchronized TC_AspectList_Wrapper getAspectList_Ex(final List<GTPP_AspectStack> aAspects) {
         final TC_AspectList_Wrapper rAspects = new TC_AspectList_Wrapper();
         for (final GTPP_AspectStack tAspect : aAspects) {
             rAspects.add(tAspect.mAspect, tAspect.mAmount);

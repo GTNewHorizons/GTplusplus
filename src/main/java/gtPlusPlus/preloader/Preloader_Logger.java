@@ -17,7 +17,7 @@ public class Preloader_Logger {
         return gtPlusPlusLogger;
     }
 
-    public static final org.apache.logging.log4j.Logger getLogger() {
+    public static org.apache.logging.log4j.Logger getLogger() {
         return MODLOGGER;
     }
 

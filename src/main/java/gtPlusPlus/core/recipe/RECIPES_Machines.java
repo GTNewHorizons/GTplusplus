@@ -219,7 +219,7 @@ public class RECIPES_Machines {
     // Misc
     public static ItemStack INPUT_RCCokeOvenBlock;
 
-    public static final void loadRecipes() {
+    public static void loadRecipes() {
         run();
         Logger.INFO("Loading Recipes for the Various machine blocks.");
     }

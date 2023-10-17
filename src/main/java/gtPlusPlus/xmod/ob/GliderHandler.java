@@ -66,7 +66,7 @@ public class GliderHandler {
         }
     }
 
-    private static final boolean canPlayerGlideInThisDimension(EntityPlayer aPlayer) {
+    private static boolean canPlayerGlideInThisDimension(EntityPlayer aPlayer) {
         World aWorld = aPlayer.worldObj;
         if (aWorld == null) {
             return false;
@@ -85,7 +85,7 @@ public class GliderHandler {
         return true;
     }
 
-    static final void populateBlacklist() {
+    static void populateBlacklist() {
         if (!mDimensionalBlacklist.isEmpty()) {
             return;
         }

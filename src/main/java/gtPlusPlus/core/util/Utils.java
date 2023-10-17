@@ -59,11 +59,11 @@ public class Utils {
 
     public static final int WILDCARD_VALUE = Short.MAX_VALUE;
 
-    public static final boolean isServer() {
+    public static boolean isServer() {
         return FMLCommonHandler.instance().getEffectiveSide().isServer();
     }
 
-    public static final boolean isClient() {
+    public static boolean isClient() {
         return FMLCommonHandler.instance().getEffectiveSide().isClient();
     }
 

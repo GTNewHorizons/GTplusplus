@@ -22,7 +22,7 @@ public class PlayerCache {
 
     private static final File cache = new File("PlayerCache.dat");
 
-    public static final void initCache() {
+    public static void initCache() {
         if (CORE.PlayerCache == null) {
             try {
 

@@ -14,7 +14,7 @@ public class HANDLER_Tinkers {
 
     public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<BaseTinkersMaterial>();
 
-    public static final void postInit() {
+    public static void postInit() {
         if (TinkerConstruct.isModLoaded()) {
 
             Fluid pyrotheumFluid = FluidRegistry.getFluid("pyrotheum");
