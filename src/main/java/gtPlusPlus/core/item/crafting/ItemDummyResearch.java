@@ -33,8 +33,8 @@ public class ItemDummyResearch extends ItemGenericToken {
         RESEARCH_10_SPARGING("Gas Sparging", "Blowing gas for results"),
         RESEARCH_11_MOLECULAR_TRANSFORMER("Molecular Transformation", "Turning things into something better");
 
-        private String mName;
-        private String mDesc;
+        private final String mName;
+        private final String mDesc;
 
         private ASSEMBLY_LINE_RESEARCH(String aName, String aDesc) {
             mName = aName;

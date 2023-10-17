@@ -417,10 +417,10 @@ public class BaseItemComponent extends Item {
         FINEWIRE("FineWire", "Fine @ Wire", "wireFine", OrePrefixes.wireFine),
         PLATEDENSE("PlateDense", "Dense @ Plate", "plateDense", OrePrefixes.plateDense),;
 
-        private String COMPONENT_NAME;
-        private String DISPLAY_NAME;
-        private String OREDICT_NAME;
-        private OrePrefixes a_GT_EQUAL;
+        private final String COMPONENT_NAME;
+        private final String DISPLAY_NAME;
+        private final String OREDICT_NAME;
+        private final OrePrefixes a_GT_EQUAL;
 
         private ComponentTypes(final String LocalName, final String DisplayName, final String OreDictName,
                 final OrePrefixes aPrefix) {
