@@ -2,7 +2,6 @@ package gtPlusPlus.core.item.base;
 
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.GregTech;
-import static gregtech.api.enums.Mods.Thaumcraft;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -77,10 +76,6 @@ public class BaseItemComponent extends Item {
                 ItemUtils.getSimpleStack(this));
         if (componentType == ComponentTypes.GEAR) {
             GT_OreDictUnificator.registerOre("gear" + material.getUnlocalizedName(), ItemUtils.getSimpleStack(this));
-        }
-        if (Thaumcraft.isModLoaded()) {
-            if (componentMaterial.isRadioactive) {
-            }
         }
         registerComponent();
 
