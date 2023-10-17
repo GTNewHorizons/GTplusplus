@@ -48,7 +48,7 @@ public class Behaviour_Choocher extends Behaviour_None {
         }
 
         if (aPlayer.isSneaking()) {
-            boolean aModeNew = Utils.invertBoolean(inWrenchMode);
+            boolean aModeNew = !inWrenchMode;
             aStack.getTagCompound().setBoolean("aMode", aModeNew);
             PlayerUtils.messagePlayer(aPlayer, "Mode: " + (aModeNew ? "Wrench" : "Hammer"));
             return true;

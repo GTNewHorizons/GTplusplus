@@ -829,7 +829,7 @@ public class GregtechMetaTileEntity_PowerSubStationController
 
     @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        mIsOutputtingPower = Utils.invertBoolean(mIsOutputtingPower);
+        mIsOutputtingPower = !mIsOutputtingPower;
         if (mIsOutputtingPower) {
             PlayerUtils.messagePlayer(aPlayer, "Sub-Station is now outputting power from the controller.");
         } else {

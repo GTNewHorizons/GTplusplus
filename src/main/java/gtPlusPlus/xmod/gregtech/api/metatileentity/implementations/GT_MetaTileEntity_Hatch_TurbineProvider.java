@@ -166,7 +166,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
     public void onScrewdriverRightClick(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer != null) {
             if (KeyboardUtils.isCtrlKeyDown()) {
-                mDescending = Utils.invertBoolean(mDescending);
+                mDescending = !mDescending;
                 PlayerUtils.messagePlayer(aPlayer, "Direction: " + (mDescending ? "DOWN" : "UP"));
             } else {
                 int aAmount = 0;

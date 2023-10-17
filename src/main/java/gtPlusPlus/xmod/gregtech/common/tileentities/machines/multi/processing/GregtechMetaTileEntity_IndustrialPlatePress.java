@@ -177,7 +177,7 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
 
     @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        mFormingMode = Utils.invertBoolean(mFormingMode);
+        mFormingMode = !mFormingMode;
         if (mFormingMode) {
             PlayerUtils.messagePlayer(aPlayer, "Now running in Forming Press Mode.");
         } else {

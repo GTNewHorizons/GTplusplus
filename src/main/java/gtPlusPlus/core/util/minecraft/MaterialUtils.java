@@ -410,7 +410,7 @@ public class MaterialUtils {
     }
 
     public static void generateSpecialDustAndAssignToAMaterial(Material aMaterial, boolean generateMixerRecipes) {
-        Item[] aDusts = ItemUtils.generateSpecialUseDusts(aMaterial, false, Utils.invertBoolean(generateMixerRecipes));
+        Item[] aDusts = ItemUtils.generateSpecialUseDusts(aMaterial, false, !generateMixerRecipes);
         if (aDusts != null && aDusts.length > 0) {
             aMaterial.registerComponentForMaterial(OrePrefixes.dust, ItemUtils.getSimpleStack(aDusts[0]));
             aMaterial.registerComponentForMaterial(OrePrefixes.dustSmall, ItemUtils.getSimpleStack(aDusts[1]));

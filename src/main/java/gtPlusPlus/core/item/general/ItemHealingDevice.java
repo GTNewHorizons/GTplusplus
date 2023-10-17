@@ -395,7 +395,7 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
         boolean isShiftHeld = KeyboardUtils.isShiftKeyDown();
         if (isShiftHeld) {
             boolean oldState = getShowMessages(superStack);
-            boolean newState = Utils.invertBoolean(oldState);
+            boolean newState = !oldState;
             ItemHealingDevice.setShowMessages(superStack, newState);
             PlayerUtils.messagePlayer(aPlayer, (!oldState ? "Showing info messages" : "Hiding info messages"));
         }

@@ -175,7 +175,7 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
 
     @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        mCuttingMode = Utils.invertBoolean(mCuttingMode);
+        mCuttingMode = !mCuttingMode;
         String aMode = mCuttingMode ? "Cutting" : "Slicing";
         PlayerUtils.messagePlayer(aPlayer, "Mode: " + aMode);
         mLastRecipe = null;

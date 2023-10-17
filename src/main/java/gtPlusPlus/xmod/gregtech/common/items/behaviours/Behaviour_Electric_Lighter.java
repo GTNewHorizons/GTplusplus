@@ -70,7 +70,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                 Logger.INFO("Changing Mode");
                 boolean aCurrentMode = NBTUtils.getBoolean(aStack, "aFireballMode");
                 Logger.INFO("Is currently in Fireball mode? " + aCurrentMode);
-                boolean aNewMode = Utils.invertBoolean(aCurrentMode);
+                boolean aNewMode = !aCurrentMode;
                 Logger.INFO("Is now set to Fireball mode? " + aNewMode);
                 aStack.getTagCompound().setBoolean("aFireballMod", aNewMode);
                 // NBTUtils.setBoolean(aStack, "aFireballMode", aNewMode);
@@ -123,7 +123,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                 Logger.INFO("Changing Mode");
                 boolean aCurrentMode = NBTUtils.getBoolean(aStack, "aFireballMode");
                 Logger.INFO("Is currently in Fireball mode? " + aCurrentMode);
-                boolean aNewMode = Utils.invertBoolean(aCurrentMode);
+                boolean aNewMode = !aCurrentMode;
                 Logger.INFO("Is now set to Fireball mode? " + aNewMode);
                 aStack.getTagCompound().setBoolean("aFireballMode", aNewMode);
                 // NBTUtils.setBoolean(aStack, "aFireballMode", aNewMode);

@@ -75,7 +75,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                 || argString[0].toLowerCase().equals("?")) {
             Logger.INFO("Listing commands and their uses.");
             final EntityPlayer P = CommandUtils.getPlayer(S);
-            AsmConfig.disableAllLogging = Utils.invertBoolean(AsmConfig.disableAllLogging);
+            AsmConfig.disableAllLogging = !AsmConfig.disableAllLogging;
             PlayerUtils.messagePlayer(P, "The following are valid args for the '/gtpp' command:");
             PlayerUtils.messagePlayer(P, "?       - This help command.");
             PlayerUtils.messagePlayer(P, "logging - Toggles ALL GT++ logging for current session.");
@@ -88,13 +88,13 @@ public class CommandEnableDebugWhileRunning implements ICommand {
             Logger.INFO("Toggling Debug Mode.");
             final EntityPlayer P = CommandUtils.getPlayer(S);
             if (PlayerUtils.isPlayerOP(P)) {
-                CORE_Preloader.DEBUG_MODE = Utils.invertBoolean(CORE_Preloader.DEBUG_MODE);
+                CORE_Preloader.DEBUG_MODE = !CORE_Preloader.DEBUG_MODE;
                 PlayerUtils.messagePlayer(P, "Toggled GT++ Debug Mode - Enabled: " + CORE_Preloader.DEBUG_MODE);
             }
         } else if (argString[0].toLowerCase().equals("logging")) {
             Logger.INFO("Toggling Logging.");
             final EntityPlayer P = CommandUtils.getPlayer(S);
-            AsmConfig.disableAllLogging = Utils.invertBoolean(AsmConfig.disableAllLogging);
+            AsmConfig.disableAllLogging = !AsmConfig.disableAllLogging;
             PlayerUtils.messagePlayer(P, "Toggled GT++ Logging - Enabled: " + (!AsmConfig.disableAllLogging));
         }
         /*

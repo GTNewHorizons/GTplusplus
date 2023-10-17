@@ -760,17 +760,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
-    public boolean onSolderingToolRightclick(ForgeDirection side, byte aWrenchingSide, EntityPlayer aPlayer, float aX,
-            float aY, float aZ) {
-        this.mSaveRotor = Utils.invertBoolean(mSaveRotor);
-        if (mSaveRotor) {
-            PlayerUtils.messagePlayer(aPlayer, "Running in low efficiency mode, rotors will not break.");
-        } else {
-            PlayerUtils.messagePlayer(aPlayer, "Running in high efficiency mode, rotors will break.");
-        }
-        return true;
-    }
-
     @Override
     public void doSound(byte aIndex, double aX, double aY, double aZ) {
         if (aIndex == -120) {
@@ -779,12 +768,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         } else {
             super.doSound((byte) 0, aX, aY, aZ);
         }
-    }
-
-    @Override
-    public boolean canHaveInsufficientEnergy() {
-        // TODO Auto-generated method stub
-        return super.canHaveInsufficientEnergy();
     }
 
     @Override

@@ -863,7 +863,7 @@ public final class ModItems {
         // Custom GT++ Crafting Components
 
         /*
-         * Try generate dusts for missing rare earth materials if they don't exist
+         * Try to generate dusts for missing rare earth materials if they don't exist
          */
         if (!ItemUtils.checkForInvalidItems(ItemUtils.getItemStackOfAmountFromOreDictNoBroken("dustGadolinium", 1))) {
             ItemUtils.generateSpecialUseDusts(

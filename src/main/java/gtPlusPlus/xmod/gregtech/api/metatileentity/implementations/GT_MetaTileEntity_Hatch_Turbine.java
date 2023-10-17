@@ -334,7 +334,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
                 PlayerUtils.messagePlayer(aPlayer, "Using: " + aMat.mLocalizedName + " " + aSize);
             }
         } else {
-            this.mUsingAnimation = Utils.invertBoolean(mUsingAnimation);
+            this.mUsingAnimation = !mUsingAnimation;
             if (this.mUsingAnimation) {
                 PlayerUtils.messagePlayer(aPlayer, "Using Animated Turbine Texture.");
             } else {

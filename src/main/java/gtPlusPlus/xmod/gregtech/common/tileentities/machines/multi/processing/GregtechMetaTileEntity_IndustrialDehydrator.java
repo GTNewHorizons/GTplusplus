@@ -197,7 +197,7 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
 
     @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        mDehydratorMode = Utils.invertBoolean(mDehydratorMode);
+        mDehydratorMode = !mDehydratorMode;
         String aMode = mDehydratorMode ? "Dehydrator" : "Vacuum Furnace";
         PlayerUtils.messagePlayer(aPlayer, "Mode: " + aMode);
         mLastRecipe = null;

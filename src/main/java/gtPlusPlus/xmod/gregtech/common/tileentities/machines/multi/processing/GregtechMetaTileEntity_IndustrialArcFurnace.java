@@ -229,7 +229,7 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
     @Override
     public void onModeChangeByScrewdriver(ForgeDirection side, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (this.mSize > 5) {
-            this.mPlasmaMode = Utils.invertBoolean(mPlasmaMode);
+            this.mPlasmaMode = !mPlasmaMode;
             if (mPlasmaMode) {
                 PlayerUtils.messagePlayer(
                         aPlayer,
