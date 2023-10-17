@@ -1,7 +1,5 @@
 package gtPlusPlus.core.proxy;
 
-import static gregtech.api.enums.Mods.PlayerAPI;
-
 import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
@@ -22,7 +20,6 @@ import net.minecraftforge.fluids.FluidStack;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -32,7 +29,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.enums.Mods;
 import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
@@ -44,7 +40,6 @@ import gtPlusPlus.core.client.renderer.RenderSickBlaze;
 import gtPlusPlus.core.client.renderer.RenderStaballoyConstruct;
 import gtPlusPlus.core.client.renderer.RenderToxinball;
 import gtPlusPlus.core.common.CommonProxy;
-import gtPlusPlus.core.common.compat.COMPAT_PlayerAPI;
 import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
 import gtPlusPlus.core.entity.monster.EntitySickBlaze;
 import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
@@ -94,17 +89,10 @@ public class ClientProxy extends CommonProxy implements Runnable {
         }
         // Do this weird things for textures.
         GTplusplus.loadTextures();
-        // We boot up the sneak manager.
-        if (PlayerAPI.isModLoaded()) {
-            this.init_PlayerAPI_PRE();
-        }
     }
 
     @Override
     public void init(final FMLInitializationEvent e) {
-        if (PlayerAPI.isModLoaded()) {
-            this.init_PlayerAPI_INIT();
-        }
 
         /**
          * Custom Block Renderers
@@ -185,18 +173,6 @@ public class ClientProxy extends CommonProxy implements Runnable {
 
     @Override
     public void serverStarting(final FMLServerStartingEvent e) {}
-
-    @Optional.Method(modid = Mods.Names.PLAYER_API)
-    private void init_PlayerAPI_PRE() {
-        // Register player instance
-        COMPAT_PlayerAPI.clientProxy.initPre();
-    }
-
-    @Optional.Method(modid = Mods.Names.PLAYER_API)
-    private void init_PlayerAPI_INIT() {
-        // Register player instance
-        COMPAT_PlayerAPI.clientProxy.Init();
-    }
 
     public void onPreLoad() {
         /*
