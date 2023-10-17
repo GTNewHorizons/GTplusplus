@@ -13,7 +13,6 @@ import gtPlusPlus.preloader.Preloader_Logger;
 
 public class AsmConfig {
 
-    public static boolean loaded;
     public static Configuration config;
 
     public static boolean enableOreDictPatch;
@@ -30,11 +29,9 @@ public class AsmConfig {
     public static boolean disableAllLogging;
     public static boolean debugMode;
 
-    public AsmConfig(File file) {
-        if (!loaded) {
-            config = new Configuration(file);
-            syncConfig(true);
-        }
+    static {
+        config = new Configuration(new File("config/GTplusplus/asm.cfg"));
+        syncConfig(true);
     }
 
     public static void syncConfig(boolean load) {

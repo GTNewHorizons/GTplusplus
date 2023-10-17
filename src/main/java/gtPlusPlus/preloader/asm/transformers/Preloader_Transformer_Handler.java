@@ -24,8 +24,6 @@ import static gtPlusPlus.preloader.asm.ClassesToTransform.MINECRAFT_GAMESETTINGS
 import static gtPlusPlus.preloader.asm.ClassesToTransform.MINECRAFT_GAMESETTINGS_OBF;
 import static gtPlusPlus.preloader.asm.ClassesToTransform.THAUMCRAFT_ITEM_WISP_ESSENCE;
 
-import java.io.File;
-
 import net.minecraft.launchwrapper.IClassTransformer;
 
 import org.objectweb.asm.ClassReader;
@@ -40,11 +38,9 @@ import gtPlusPlus.preloader.asm.transformers.Preloader_ClassTransformer.OreDicti
 
 public class Preloader_Transformer_Handler implements IClassTransformer {
 
-    public static final AsmConfig mConfig;
     public static final AutoMap<String> IC2_WRENCH_PATCH_CLASS_NAMES = new AutoMap<String>();
 
     static {
-        mConfig = new AsmConfig(new File("config/GTplusplus/asm.cfg"));
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_BASE_TILE_ENTITY);
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_MACHINE1);
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_MACHINE2);
