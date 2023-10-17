@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import net.minecraft.launchwrapper.Launch;
 
 import gtPlusPlus.api.objects.data.Pair;
@@ -19,7 +20,8 @@ public class DevHelper {
     static {
         mInstance = new DevHelper();
         if (DevHelperInternals.init()) {
-            mIsValidHelper = true;
+            throw new RuntimeException();
+            //mIsValidHelper = true;
         } else {
             mIsValidHelper = false;
         }
@@ -38,7 +40,7 @@ public class DevHelper {
             } else {
                 deobfuscatedEnvironment = false;
             }
-        } catch (IOException e) {}
+        } catch (IOException ignored) {}
         return !deobfuscatedEnvironment;
     }
 

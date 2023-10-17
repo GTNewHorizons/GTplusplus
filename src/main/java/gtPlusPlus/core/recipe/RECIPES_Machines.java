@@ -236,7 +236,6 @@ public class RECIPES_Machines {
         overflowValveCovers();
         superBuses();
         roundRobinators();
-        chunkloaders();
         distillus();
         algaeFarm();
         chemPlant();
@@ -879,28 +878,6 @@ public class RECIPES_Machines {
                 20 * 600,
                 MaterialUtils.getVoltageForTier(6),
                 5);
-    }
-
-    private static void chunkloaders() {
-
-        ItemStack aOutputs[] = new ItemStack[] { GregtechItemList.GT_Chunkloader_HV.get(1L),
-                GregtechItemList.GT_Chunkloader_IV.get(1L), GregtechItemList.GT_Chunkloader_ZPM.get(1L), };
-
-        int aIndex = 0;
-
-        for (int i = 3; i < 8; i++) {
-            if (i == 4 || i == 6) {
-                continue;
-            }
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { CI.getNumberedAdvancedCircuit(21), CI.getElectricPiston(i, 10),
-                            CI.getFieldGenerator(i + 1, 6), CI.getPlate(i, 16), CI.getTransmissionComponent(i - 1, 8),
-                            CI.getTieredComponent(OrePrefixes.cableGt08, i, 16) },
-                    ALLOY.EGLIN_STEEL.getFluidStack(i * (144 * 4)),
-                    aOutputs[aIndex++].copy(),
-                    300 * 20,
-                    MaterialUtils.getVoltageForTier(i));
-        }
     }
 
     private static void overflowValveCovers() {
