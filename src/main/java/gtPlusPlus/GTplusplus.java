@@ -94,7 +94,7 @@ public class GTplusplus implements ActionListener {
         SERVER_START(POST_INIT),
         STARTED(SERVER_START);
 
-        protected boolean mIsPhaseActive = false;
+        private boolean mIsPhaseActive = false;
         private final INIT_PHASE mPrev;
 
         INIT_PHASE(INIT_PHASE aPreviousPhase) {

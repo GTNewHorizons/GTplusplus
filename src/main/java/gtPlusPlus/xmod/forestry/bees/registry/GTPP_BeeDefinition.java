@@ -146,7 +146,7 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         }
     }
 
-    protected static IAlleleBeeEffect getEffect(byte modid, String name) {
+    private static IAlleleBeeEffect getEffect(byte modid, String name) {
         String s;
         switch (modid) {
             case GTPP_Bees.EXTRABEES:
@@ -168,7 +168,7 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         return (IAlleleBeeEffect) AlleleManager.alleleRegistry.getAllele(s);
     }
 
-    protected static IAlleleFlowers getFlowers(byte modid, String name) {
+    private static IAlleleFlowers getFlowers(byte modid, String name) {
         String s;
         switch (modid) {
             case GTPP_Bees.EXTRABEES:
@@ -190,7 +190,7 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         return (IAlleleFlowers) AlleleManager.alleleRegistry.getAllele(s);
     }
 
-    protected static IAlleleBeeSpecies getSpecies(byte modid, String name) {
+    private static IAlleleBeeSpecies getSpecies(byte modid, String name) {
         String s;
         switch (modid) {
             case GTPP_Bees.EXTRABEES:
@@ -213,15 +213,15 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         return ret;
     }
 
-    protected final void setSpeciesProperties(GTPP_AlleleBeeSpecies species2) {
+    private final void setSpeciesProperties(GTPP_AlleleBeeSpecies species2) {
         this.mSpeciesProperties.accept(species2);
     }
 
-    protected final void setAlleles(IAllele[] template) {
+    private final void setAlleles(IAllele[] template) {
         this.mAlleles.accept(template);
     }
 
-    protected final void registerMutations() {
+    private final void registerMutations() {
         this.mMutations.accept(this);
     }
 
@@ -237,27 +237,27 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
         BeeManager.beeRoot.registerTemplate(template);
     }
 
-    protected final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2,
-            int chance) {
+    private final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2,
+                                                      int chance) {
         return registerMutation(parent1, parent2, chance, 1f);
     }
 
-    protected final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, IAlleleBeeSpecies parent2,
-            int chance) {
+    private final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, IAlleleBeeSpecies parent2,
+                                                      int chance) {
         return registerMutation(parent1, parent2, chance, 1f);
     }
 
-    protected final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, GTPP_BeeDefinition parent2,
-            int chance) {
+    private final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, GTPP_BeeDefinition parent2,
+                                                      int chance) {
         return registerMutation(parent1, parent2, chance, 1f);
     }
 
-    protected final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, GTPP_BeeDefinition parent2,
-            int chance) {
+    private final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, GTPP_BeeDefinition parent2,
+                                                      int chance) {
         return registerMutation(parent1, parent2, chance, 1f);
     }
 
-    protected final IBeeMutationCustom registerMutation(String parent1, String parent2, int chance) {
+    private final IBeeMutationCustom registerMutation(String parent1, String parent2, int chance) {
         return registerMutation(getGregtechBeeType(parent1), getGregtechBeeType(parent2), chance, 1f);
     }
 
@@ -266,28 +266,28 @@ public enum GTPP_BeeDefinition implements IBeeDefinition {
      * chancedivider This new function allows Mutation percentages under 1%. Set them as a fraction with chance /
      * chancedivider
      */
-    protected final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2,
-            int chance, float chancedivider) {
+    private final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, IAlleleBeeSpecies parent2,
+                                                      int chance, float chancedivider) {
         return new GTPP_Bee_Mutation(parent1, parent2, this.getTemplate(), chance, chancedivider);
     }
 
-    protected final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, IAlleleBeeSpecies parent2,
-            int chance, float chancedivider) {
+    private final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, IAlleleBeeSpecies parent2,
+                                                      int chance, float chancedivider) {
         return registerMutation(parent1.species, parent2, chance, chancedivider);
     }
 
-    protected final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, GTPP_BeeDefinition parent2,
-            int chance, float chancedivider) {
+    private final IBeeMutationCustom registerMutation(IAlleleBeeSpecies parent1, GTPP_BeeDefinition parent2,
+                                                      int chance, float chancedivider) {
         return registerMutation(parent1, parent2.species, chance, chancedivider);
     }
 
-    protected final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, GTPP_BeeDefinition parent2,
-            int chance, float chancedivider) {
+    private final IBeeMutationCustom registerMutation(GTPP_BeeDefinition parent1, GTPP_BeeDefinition parent2,
+                                                      int chance, float chancedivider) {
         return registerMutation(parent1.species, parent2, chance, chancedivider);
     }
 
-    protected final IBeeMutationCustom registerMutation(String parent1, String parent2, int chance,
-            float chancedivider) {
+    private final IBeeMutationCustom registerMutation(String parent1, String parent2, int chance,
+                                                      float chancedivider) {
         return registerMutation(getGregtechBeeType(parent1), getGregtechBeeType(parent2), chance, chancedivider);
     }
 
