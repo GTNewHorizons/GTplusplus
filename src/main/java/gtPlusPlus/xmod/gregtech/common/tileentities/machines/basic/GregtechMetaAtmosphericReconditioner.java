@@ -374,7 +374,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (this.mTier < 7) {
             mCurrentChunkPollution = PollutionUtils.getPollution(getBaseMetaTileEntity());
         } else {
-            AutoMap<Chunk> aSurrounding = new AutoMap<Chunk>();
+            AutoMap<Chunk> aSurrounding = new AutoMap<>();
             World aWorld = this.getBaseMetaTileEntity().getWorld();
             int xPos = this.getBaseMetaTileEntity().getXCoord();
             int zPos = this.getBaseMetaTileEntity().getZCoord();
@@ -599,7 +599,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         } else {
             int chunksWithRemoval = 0;
             int totalRemoved = 0;
-            AutoMap<Chunk> aSurrounding = new AutoMap<Chunk>();
+            AutoMap<Chunk> aSurrounding = new AutoMap<>();
             Chunk aThisChunk = this.getBaseMetaTileEntity().getWorld().getChunkFromBlockCoords(
                     this.getBaseMetaTileEntity().getXCoord(),
                     this.getBaseMetaTileEntity().getZCoord());
@@ -772,7 +772,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
 
     @Override
     public String[] getInfoData() {
-        AutoMap<String> aTooltipSuper = new AutoMap<String>();
+        AutoMap<String> aTooltipSuper = new AutoMap<>();
         for (String s : super.getInfoData()) {
             aTooltipSuper.put(s);
         }

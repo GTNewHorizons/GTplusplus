@@ -274,7 +274,7 @@ public class GT_MetaTileEntity_ElectricInventoryManager extends GT_MetaTileEntit
             for (int i = 0; i < 4; i++) {
                 final int ordinalRangeDirection = getRangeDirection(i).ordinal();
                 if (tTileEntities[ordinalRangeDirection] != null) {
-                    ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
+                    ArrayList<ItemStack> tList = new ArrayList<>();
                     ItemStack tStack;
                     tList.add(null);
 

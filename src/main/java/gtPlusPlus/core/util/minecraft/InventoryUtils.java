@@ -22,10 +22,9 @@ public class InventoryUtils {
     public static void dropInventoryItems(World world, int x, int y, int z, Block block) {
         TileEntity tileentity = world.getTileEntity(x, y, z);
 
-        if (tileentity != null && tileentity instanceof IInventory
+        if (tileentity != null && tileentity instanceof IInventory aTileInv
                 && ((IInventory) tileentity).getSizeInventory() > 0) {
 
-            IInventory aTileInv = (IInventory) tileentity;
             int aMinSlot = 0;
             int aMaxSlot = aTileInv.getSizeInventory() - 1;
 
@@ -78,7 +77,7 @@ public class InventoryUtils {
                 aBaseMetaTileEntity.getXCoord(),
                 aBaseMetaTileEntity.getYCoord(),
                 aBaseMetaTileEntity.getZCoord());
-        AutoMap<ItemStack> aInvContents = new AutoMap<ItemStack>();
+        AutoMap<ItemStack> aInvContents = new AutoMap<>();
         int aSize = mInv.getSizeInventory();
         for (int slot = 0; slot < aSize; slot++) {
             aInvContents.put(mInv.getStackInSlot(slot));

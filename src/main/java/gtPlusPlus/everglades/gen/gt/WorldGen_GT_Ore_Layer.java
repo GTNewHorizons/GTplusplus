@@ -28,7 +28,7 @@ import gtPlusPlus.xmod.gregtech.HANDLER_GT;
 
 public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
 
-    public static ArrayList<WorldGen_GT_Ore_Layer> sList = new ArrayList<WorldGen_GT_Ore_Layer>();
+    public static ArrayList<WorldGen_GT_Ore_Layer> sList = new ArrayList<>();
     public static int sWeight = 0;
     public final short mMinY;
     public final short mMaxY;
@@ -427,7 +427,7 @@ public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
 
     private String fString = "unset", ore1String = "unset", ore2String = "unset", ore3String = "unset",
             ore4String = "unset";
-    Map<Materials, String> gtOreMap = new HashMap<Materials, String>();
+    Map<Materials, String> gtOreMap = new HashMap<>();
 
     public boolean setOreBlock(World aWorld, int aX, int aY, int aZ, Block aMetaData, boolean isSmallOre, boolean air) {
         if (!air) {

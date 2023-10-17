@@ -21,8 +21,8 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
 
-    private static final Map<String, Integer> sConnectionStateForEntityMap = new ConcurrentHashMap<String, Integer>();
-    private static final Map<String, String> sPrefixMap = new ConcurrentHashMap<String, String>();
+    private static final Map<String, Integer> sConnectionStateForEntityMap = new ConcurrentHashMap<>();
+    private static final Map<String, String> sPrefixMap = new ConcurrentHashMap<>();
     private static final int VALUE_OFF = 0;
     private static final int VALUE_ON = 1;
 

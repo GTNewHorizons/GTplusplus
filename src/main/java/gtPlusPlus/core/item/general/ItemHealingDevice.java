@@ -290,10 +290,9 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
             // Try Heal
             if (this.getCharge(aBaubleStack) > 0) {
 
-                if (!(arg1 instanceof EntityPlayer)) {
+                if (!(arg1 instanceof EntityPlayer g)) {
                     return;
                 }
-                EntityPlayer g = (EntityPlayer) arg1;
                 // health Check
                 float hp = 0;
                 if (arg1.getHealth() < arg1.getMaxHealth()) {

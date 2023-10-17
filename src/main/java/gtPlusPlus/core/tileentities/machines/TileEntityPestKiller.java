@@ -52,7 +52,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
     private boolean mNeedsUpdate = false;
     private String mCustomName;
 
-    private static final AutoMap<Class<?>> mEntityMap = new AutoMap<Class<?>>();
+    private static final AutoMap<Class<?>> mEntityMap = new AutoMap<>();
 
     static {
         mEntityMap.put(EntityBat.class);
@@ -91,19 +91,20 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         int min = 0;
         int max = 0;
         switch (getTier()) {
-            case 1:
+            case 1 -> {
                 min = -2;
                 max = 3;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 min = -4;
                 max = 5;
-                break;
-            default:
-                // code block
+            }
+            default -> {
+            }
+            // code block
         }
         int aChunkCount = 0;
-        AutoMap<Entity> entities = new AutoMap<Entity>();
+        AutoMap<Entity> entities = new AutoMap<>();
         if (min != 0 && max != 0) {
             for (int x = min; x < max; x++) {
                 for (int z = min; z < max; z++) {

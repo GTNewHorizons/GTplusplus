@@ -19,7 +19,7 @@ public class TexturesGtBlock {
 
     private static boolean mAnimated = CORE.ConfigSwitches.enableAnimatedTextures;
 
-    private static AutoMap<Runnable> mCustomiconMap = new AutoMap<Runnable>();
+    private static AutoMap<Runnable> mCustomiconMap = new AutoMap<>();
 
     static {}
 

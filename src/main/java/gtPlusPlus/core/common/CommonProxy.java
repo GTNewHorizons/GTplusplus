@@ -81,12 +81,12 @@ public class CommonProxy {
         COMPAT_IntermodStaging.preInit(e);
         BookHandler.run();
         // Registration of entities and renderers
-        Logger.INFO("[Proxy] Calling Entity registrator.");
+        Logger.INFO("[Proxy] Calling Entity registration.");
         registerEntities();
-        Logger.INFO("[Proxy] Calling Tile Entity registrator.");
+        Logger.INFO("[Proxy] Calling Tile Entity registration.");
         registerTileEntities();
 
-        Logger.INFO("[Proxy] Calling Render registrator.");
+        Logger.INFO("[Proxy] Calling Render registration.");
         registerRenderThings();
     }
 
@@ -242,7 +242,7 @@ public class CommonProxy {
         }
     }
 
-    protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<Pair<Item, IItemRenderer>>();
+    protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<>();
 
     public static void registerItemRendererGlobal(Item aItem, IItemRenderer aRenderer) {
         GTplusplus.proxy.registerItemRenderer(aItem, aRenderer);
@@ -252,7 +252,7 @@ public class CommonProxy {
         if (Utils.isServer()) {
             return;
         } else {
-            mItemRenderMappings.add(new Pair<Item, IItemRenderer>(aItem, aRenderer));
+            mItemRenderMappings.add(new Pair<>(aItem, aRenderer));
         }
     }
 

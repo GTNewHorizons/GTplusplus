@@ -120,9 +120,9 @@ public class NBTUtils {
             }
 
             if (copyTags) {
-                for (int i = 0; i < stored.length; i++) {
-                    if (stored[i] != null && stored[i].hasTagCompound()) {
-                        rStack.setTagCompound((NBTTagCompound) stored[i].getTagCompound().copy());
+                for (ItemStack itemStack : stored) {
+                    if (itemStack != null && itemStack.hasTagCompound()) {
+                        rStack.setTagCompound((NBTTagCompound) itemStack.getTagCompound().copy());
                         break;
                     }
                 }

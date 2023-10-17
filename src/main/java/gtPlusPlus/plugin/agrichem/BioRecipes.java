@@ -454,13 +454,13 @@ public class BioRecipes {
                 16);
     }
 
-    public static final HashSet<GT_ItemStack> mFruits = new HashSet<GT_ItemStack>();
-    public static final HashSet<GT_ItemStack> mVege = new HashSet<GT_ItemStack>();
-    public static final HashSet<GT_ItemStack> mNuts = new HashSet<GT_ItemStack>();
-    public static final HashSet<GT_ItemStack> mSeeds = new HashSet<GT_ItemStack>();
+    public static final HashSet<GT_ItemStack> mFruits = new HashSet<>();
+    public static final HashSet<GT_ItemStack> mVege = new HashSet<>();
+    public static final HashSet<GT_ItemStack> mNuts = new HashSet<>();
+    public static final HashSet<GT_ItemStack> mSeeds = new HashSet<>();
 
-    public static final AutoMap<ItemStack> mList_Master_FruitVege = new AutoMap<ItemStack>();
-    public static final AutoMap<ItemStack> mList_Master_Seeds = new AutoMap<ItemStack>();
+    public static final AutoMap<ItemStack> mList_Master_FruitVege = new AutoMap<>();
+    public static final AutoMap<ItemStack> mList_Master_Seeds = new AutoMap<>();
 
     private static void processFermentationOreDict() {
         processOreDictEntry("listAllfruit", mFruits);
@@ -689,7 +689,7 @@ public class BioRecipes {
     private static void recipeAluminiumPellet() {
 
         // Ore Names, no prefix
-        AutoMap<String> aOreNames = new AutoMap<String>();
+        AutoMap<String> aOreNames = new AutoMap<>();
 
         aOreNames.put("Lazurite");
         aOreNames.put("Bauxite");
@@ -702,11 +702,11 @@ public class BioRecipes {
         aOreNames.put("GreenSapphire");
 
         // Voltage
-        HashMap<String, Integer> aOreData1 = new HashMap<String, Integer>();
+        HashMap<String, Integer> aOreData1 = new HashMap<>();
         // Input Count
-        HashMap<String, Integer> aOreData2 = new HashMap<String, Integer>();
+        HashMap<String, Integer> aOreData2 = new HashMap<>();
         // Output Count
-        HashMap<String, Integer> aOreData3 = new HashMap<String, Integer>();
+        HashMap<String, Integer> aOreData3 = new HashMap<>();
 
         aOreData1.put("Lazurite", 120);
         aOreData1.put("Bauxite", 90);
@@ -737,7 +737,7 @@ public class BioRecipes {
         aOreData3.put("GreenSapphire", 2);
 
         // Assemble all valid crushed ore types for making pellet mix
-        HashMap<String, ItemStack> aOreCache = new HashMap<String, ItemStack>();
+        HashMap<String, ItemStack> aOreCache = new HashMap<>();
         for (String aOreName : aOreNames) {
             String aTemp = aOreName;
             aOreName = "crushedPurified" + aOreName;

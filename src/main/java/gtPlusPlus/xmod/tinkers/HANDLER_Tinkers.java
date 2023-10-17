@@ -12,7 +12,7 @@ import gtPlusPlus.xmod.tinkers.util.TinkersUtils;
 
 public class HANDLER_Tinkers {
 
-    public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<BaseTinkersMaterial>();
+    public static AutoMap<BaseTinkersMaterial> mTinkerMaterials = new AutoMap<>();
 
     public static final void postInit() {
         if (TinkerConstruct.isModLoaded()) {

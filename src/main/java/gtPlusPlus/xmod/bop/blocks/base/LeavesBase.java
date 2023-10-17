@@ -52,9 +52,9 @@ public class LeavesBase extends BlockLeaves {
     @Override // Drops when Leaf is broken
     protected void func_150124_c(World world, int x, int y, int z, int meta, int randomChance) {
         Logger.INFO("Dropping Bonus Drops");
-        for (int i = 0; i < this.bonusDrops.length; ++i) {
-            if (this.bonusDrops[i] != null && world.rand.nextInt(randomChance) == 0) {
-                this.dropBlockAsItem(world, x, y, z, ItemUtils.getSimpleStack(this.bonusDrops[i], 1));
+        for (ItemStack bonusDrop : this.bonusDrops) {
+            if (bonusDrop != null && world.rand.nextInt(randomChance) == 0) {
+                this.dropBlockAsItem(world, x, y, z, ItemUtils.getSimpleStack(bonusDrop, 1));
             }
         }
     }

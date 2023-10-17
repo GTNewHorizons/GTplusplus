@@ -150,9 +150,9 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
                         .getField(OreDictionaryArbiter.class, "stackNames").get(null);
             } catch (Throwable t) {
                 oreIDs = HashBiMap.create();
-                oreStacks = new THashMap<Integer, ArrayList<ItemStack>>();
-                stackIDs = new THashMap<ItemWrapper, ArrayList<Integer>>();
-                stackNames = new THashMap<ItemWrapper, ArrayList<String>>();
+                oreStacks = new THashMap<>();
+                stackIDs = new THashMap<>();
+                stackNames = new THashMap<>();
             }
         }
 
@@ -165,13 +165,13 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
                     int arg1 = OreDictionary.getOreID(arg0);
                     oreIDs.put(arg0, Integer.valueOf(arg1));
                     if (!oreStacks.containsKey(Integer.valueOf(arg1))) {
-                        oreStacks.put(Integer.valueOf(arg1), new ArrayList<ItemStack>());
+                        oreStacks.put(Integer.valueOf(arg1), new ArrayList<>());
                     }
                     ((ArrayList<ItemStack>) oreStacks.get(Integer.valueOf(arg1))).add(arg);
                     ItemWrapper arg2 = ItemWrapper.fromItemStack(arg);
                     if (!stackIDs.containsKey(arg2)) {
-                        stackIDs.put(arg2, new ArrayList<Integer>());
-                        stackNames.put(arg2, new ArrayList<String>());
+                        stackIDs.put(arg2, new ArrayList<>());
+                        stackNames.put(arg2, new ArrayList<>());
                     }
                     ((ArrayList<Integer>) stackIDs.get(arg2)).add(Integer.valueOf(arg1));
                     ((ArrayList<String>) stackNames.get(arg2)).add(arg0);

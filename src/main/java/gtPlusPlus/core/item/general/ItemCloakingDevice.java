@@ -63,8 +63,7 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
                     continue;
                 }
                 if (is != null) {
-                    if (is.getItem() instanceof IElectricItem) {
-                        final IElectricItem electricItem = (IElectricItem) is.getItem();
+                    if (is.getItem() instanceof final IElectricItem electricItem) {
                         this.chargeEU = ElectricItem.manager.getCharge(is);
                     }
                 }

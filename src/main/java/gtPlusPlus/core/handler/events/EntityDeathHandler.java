@@ -19,8 +19,8 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class EntityDeathHandler {
 
-    private static final HashMap<Class, AutoMap<Triplet<ItemStack, Integer, Integer>>> mMobDropMap = new HashMap<Class, AutoMap<Triplet<ItemStack, Integer, Integer>>>();
-    private static final HashSet<Class> mInternalClassKeyCache = new HashSet<Class>();
+    private static final HashMap<Class, AutoMap<Triplet<ItemStack, Integer, Integer>>> mMobDropMap = new HashMap<>();
+    private static final HashSet<Class> mInternalClassKeyCache = new HashSet<>();
 
     /**
      * Provides the ability to provide custom drops upon the death of EntityLivingBase objects.
@@ -31,7 +31,7 @@ public class EntityDeathHandler {
      * @param aChance    - Chance out of 10000, where 100 is 1%. (1 = 0.01% - this is ok)
      */
     public static void registerDropsForMob(Class aMobClass, ItemStack aStack, int aMaxAmount, int aChance) {
-        Triplet<ItemStack, Integer, Integer> aData = new Triplet<ItemStack, Integer, Integer>(
+        Triplet<ItemStack, Integer, Integer> aData = new Triplet<>(
                 aStack,
                 aMaxAmount,
                 aChance);

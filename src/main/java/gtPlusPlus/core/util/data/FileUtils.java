@@ -108,7 +108,7 @@ public class FileUtils {
         try {
             return org.apache.commons.io.FileUtils.readLines(file, utf8);
         } catch (IOException e) {
-            return new ArrayList<String>();
+            return new ArrayList<>();
         }
     }
 }

@@ -89,8 +89,7 @@ public class FireProtectionBauble extends BaseBauble {
     @Override
     public void onEquipped(final ItemStack arg0, final EntityLivingBase aPlayer) {
         if (!aPlayer.worldObj.isRemote) {
-            if (aPlayer instanceof EntityPlayer) {
-                EntityPlayer bPlayer = (EntityPlayer) aPlayer;
+            if (aPlayer instanceof EntityPlayer bPlayer) {
             }
         }
     }
@@ -98,8 +97,7 @@ public class FireProtectionBauble extends BaseBauble {
     @Override
     public void onUnequipped(final ItemStack arg0, final EntityLivingBase aPlayer) {
         if (!aPlayer.worldObj.isRemote) {
-            if (aPlayer instanceof EntityPlayer) {
-                EntityPlayer bPlayer = (EntityPlayer) aPlayer;
+            if (aPlayer instanceof EntityPlayer bPlayer) {
                 if (bPlayer.isPotionActive(Potion.fireResistance)) {
                     bPlayer.removePotionEffect(Potion.fireResistance.id);
                 }
@@ -111,8 +109,7 @@ public class FireProtectionBauble extends BaseBauble {
     @Override
     public void onWornTick(final ItemStack aBaubleStack, final EntityLivingBase aPlayer) {
         if (!aPlayer.worldObj.isRemote) {
-            if (aPlayer instanceof EntityPlayer) {
-                EntityPlayer bPlayer = (EntityPlayer) aPlayer;
+            if (aPlayer instanceof EntityPlayer bPlayer) {
                 if (!fireImmune(bPlayer)) {
                     setEntityImmuneToFire(bPlayer, true);
                 }

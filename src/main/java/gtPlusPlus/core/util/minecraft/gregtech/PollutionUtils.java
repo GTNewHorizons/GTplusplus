@@ -21,7 +21,7 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class PollutionUtils {
 
-    public static AutoMap<FluidStack> mPollutionFluidStacks = new AutoMap<FluidStack>();
+    public static AutoMap<FluidStack> mPollutionFluidStacks = new AutoMap<>();
 
     public static boolean isPollutionEnabled() {
         return GT_Mod.gregtechproxy.mPollution;

@@ -70,14 +70,12 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
         World W = T.getWorld();
         Chunk C = W.getChunkFromBlockCoords(T.getXCoord(), T.getZCoord());
         for (Object o : C.chunkTileEntityMap.values()) {
-            if (o instanceof IGregTechTileEntity) {
-                IGregTechTileEntity G = (IGregTechTileEntity) o;
+            if (o instanceof IGregTechTileEntity G) {
                 final IMetaTileEntity aMetaTileEntity = G.getMetaTileEntity();
                 if (aMetaTileEntity == null) {
                     continue;
                 }
-                if (aMetaTileEntity instanceof GT_MetaTileEntity_LargeTurbine) {
-                    GT_MetaTileEntity_LargeTurbine aTurb = (GT_MetaTileEntity_LargeTurbine) aMetaTileEntity;
+                if (aMetaTileEntity instanceof GT_MetaTileEntity_LargeTurbine aTurb) {
                     for (GT_MetaTileEntity_Hatch_InputBus ee : aTurb.mInputBusses) {
                         if (ee.equals(this)) {
                             mParent = aTurb;

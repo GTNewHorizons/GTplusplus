@@ -68,8 +68,7 @@ public class TileEntityDecayablesChest extends TileEntity implements ISidedInven
                         if (inv == null) {
                             continue;
                         }
-                        if (inv.getItem() instanceof DustDecayable) {
-                            DustDecayable D = (DustDecayable) inv.getItem();
+                        if (inv.getItem() instanceof DustDecayable D) {
                             tryUpdateDecayable(D, inv, this.worldObj);
                         }
                     }

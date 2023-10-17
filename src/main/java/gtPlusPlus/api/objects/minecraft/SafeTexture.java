@@ -18,12 +18,12 @@ import gtPlusPlus.core.util.Utils;
 public class SafeTexture implements Runnable {
 
     @SideOnly(Side.CLIENT)
-    private static final HashMap<Integer, IIcon> mHashToIconCache = new HashMap<Integer, IIcon>();
+    private static final HashMap<Integer, IIcon> mHashToIconCache = new HashMap<>();
 
     @SideOnly(Side.CLIENT)
-    private static final HashMap<String, Integer> mPathToHashCash = new HashMap<String, Integer>();
+    private static final HashMap<String, Integer> mPathToHashCash = new HashMap<>();
 
-    private static final HashMap<String, SafeTexture> mTextureObjectCache = new HashMap<String, SafeTexture>();
+    private static final HashMap<String, SafeTexture> mTextureObjectCache = new HashMap<>();
 
     private final int mHash;
 

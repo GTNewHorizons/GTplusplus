@@ -174,7 +174,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
             // If player is invisible, don't render.
             if (GT_Utility.getFullInvisibility(aPlayer) || aPlayer.isInvisible()
-                    || GT_Utility.getPotion(aPlayer, Integer.valueOf(Potion.invisibility.id).intValue())) {
+                    || GT_Utility.getPotion(aPlayer, Integer.valueOf(Potion.invisibility.id))) {
                 aEvent.setCanceled(true);
                 return false;
             }
@@ -235,11 +235,11 @@ public class GTPP_CapeRenderer extends RenderPlayer {
         private static AES sAES;
 
         // UUID - Username
-        private static final AutoMap<Pair<String, String>> mOrangeCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mMiscCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mBetaTestCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mPatreonCapes = new AutoMap<Pair<String, String>>();
-        private static final AutoMap<Pair<String, String>> mDevCapes = new AutoMap<Pair<String, String>>();
+        private static final AutoMap<Pair<String, String>> mOrangeCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mMiscCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mBetaTestCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mPatreonCapes = new AutoMap<>();
+        private static final AutoMap<Pair<String, String>> mDevCapes = new AutoMap<>();
 
         private static boolean init() {
             CapeUtils.handleOldCapeCache();
@@ -335,7 +335,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
             if (aCache != null && !aCache.isEmpty()) {
                 return aCache;
             }
-            return new AutoMap<String>();
+            return new AutoMap<>();
         }
 
         private static File allocateTempFile() {
@@ -359,16 +359,16 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                 if (sAES == null) {
                     sAES = new AES();
                 }
-                AutoMap<String> aDecodedData = new AutoMap<String>();
+                AutoMap<String> aDecodedData = new AutoMap<>();
                 for (String aToDecode : aCacheData) {
                     aDecodedData.put(sAES.decode(aToDecode));
                 }
                 if (!aDecodedData.isEmpty()) {
-                    AutoMap<Pair<String, String>> aCapeType1 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType2 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType3 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType4 = new AutoMap<Pair<String, String>>();
-                    AutoMap<Pair<String, String>> aCapeType5 = new AutoMap<Pair<String, String>>();
+                    AutoMap<Pair<String, String>> aCapeType1 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType2 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType3 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType4 = new AutoMap<>();
+                    AutoMap<Pair<String, String>> aCapeType5 = new AutoMap<>();
                     boolean didProcessStringData = false;
                     Logger.INFO("Decoded String Count: " + aDecodedData.size());
                     for (String aToSplit : aDecodedData) {
@@ -378,55 +378,55 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                                 Integer aCapeTypeID2 = Integer.parseInt(aSplitData[0]);
                                 if (aCapeTypeID2 != null) {
                                     int aCapeTypeID = aCapeTypeID2;
-                                    Pair<String, String> aFinalString = new Pair<String, String>(
+                                    Pair<String, String> aFinalString = new Pair<>(
                                             "UUID: " + aSplitData[1],
                                             "Username: " + (aSplitData[2] != null && aSplitData[0].length() > 0
                                                     ? aSplitData[2]
                                                     : "Not Specified"));
                                     Logger.INFO("Cape Type: " + aCapeTypeID);
                                     switch (aCapeTypeID) {
-                                        case 0:
+                                        case 0 -> {
                                             aCapeType1.add(aFinalString);
                                             Logger.INFO(
                                                     "Added user to map " + aCapeTypeID
                                                             + ", map now holds "
                                                             + aCapeType1.size()
                                                             + " users.");
-                                            break;
-                                        case 1:
+                                        }
+                                        case 1 -> {
                                             aCapeType2.add(aFinalString);
                                             Logger.INFO(
                                                     "Added user to map " + aCapeTypeID
                                                             + ", map now holds "
                                                             + aCapeType2.size()
                                                             + " users.");
-                                            break;
-                                        case 2:
+                                        }
+                                        case 2 -> {
                                             aCapeType3.add(aFinalString);
                                             Logger.INFO(
                                                     "Added user to map " + aCapeTypeID
                                                             + ", map now holds "
                                                             + aCapeType3.size()
                                                             + " users.");
-                                            break;
-                                        case 3:
+                                        }
+                                        case 3 -> {
                                             aCapeType4.add(aFinalString);
                                             Logger.INFO(
                                                     "Added user to map " + aCapeTypeID
                                                             + ", map now holds "
                                                             + aCapeType4.size()
                                                             + " users.");
-                                            break;
-                                        case 4:
+                                        }
+                                        case 4 -> {
                                             aCapeType5.add(aFinalString);
                                             Logger.INFO(
                                                     "Added user to map " + aCapeTypeID
                                                             + ", map now holds "
                                                             + aCapeType5.size()
                                                             + " users.");
-                                            break;
-                                        default:
-                                            break;
+                                        }
+                                        default -> {
+                                        }
                                     }
                                 }
                             }

@@ -89,7 +89,7 @@ public class MaterialUtils {
                     radioactivity = (int) Math.min(Math.max((aProtons / 30), 1), 9);
                 }
             }
-            Logger.MATERIALS("[Debug] Calculated Radiation level to be " + radioactivity.intValue() + ".");
+            Logger.MATERIALS("[Debug] Calculated Radiation level to be " + radioactivity + ".");
             TextureSet iconSet = null;
             if (aCustomTextures == null) {
                 if (material.isRadioactive()) {
@@ -231,40 +231,24 @@ public class MaterialUtils {
     public static int getVoltageForTier(int aTier) {
         // aTier += 1; - Probably some logic to this, idk.
 
-        switch (aTier) {
-            case 0:
-                return 16;
-            case 1:
-                return 30;
-            case 2:
-                return 120;
-            case 3:
-                return 480;
-            case 4:
-                return 1920;
-            case 5:
-                return 7680;
-            case 6:
-                return 30720;
-            case 7:
-                return 122880;
-            case 8:
-                return 491520;
-            case 9:
-                return 1966080;
-            case 10:
-                return 7864320;
-            case 11:
-                return 31457280;
-            case 12:
-                return 125829120;
-            case 13:
-                return 503316480;
-            case 14:
-                return 2013265920;
-            default:
-                return Integer.MAX_VALUE;
-        }
+        return switch (aTier) {
+            case 0 -> 16;
+            case 1 -> 30;
+            case 2 -> 120;
+            case 3 -> 480;
+            case 4 -> 1920;
+            case 5 -> 7680;
+            case 6 -> 30720;
+            case 7 -> 122880;
+            case 8 -> 491520;
+            case 9 -> 1966080;
+            case 10 -> 7864320;
+            case 11 -> 31457280;
+            case 12 -> 125829120;
+            case 13 -> 503316480;
+            case 14 -> 2013265920;
+            default -> Integer.MAX_VALUE;
+        };
 
         /*
          * else { int newTier = aTier - 1; return (int) ((4*(Math.pow(4, newTier)))*7.5); }
@@ -289,7 +273,7 @@ public class MaterialUtils {
     }
 
     public static TextureSet getMostCommonTextureSet(List<Material> list) {
-        TypeCounter<TextureSet> aCounter = new TypeCounter<TextureSet>(TextureSet.class);
+        TypeCounter<TextureSet> aCounter = new TypeCounter<>(TextureSet.class);
         for (Material m : list) {
             TextureSet t = m.getTextureSet();
             if (t == null) {
@@ -345,7 +329,7 @@ public class MaterialUtils {
          */ }
 
     public static AutoMap<Material> getCompoundMaterialsRecursively_Speiger(Material toSearch) {
-        AutoMap<Material> resultList = new AutoMap<Material>();
+        AutoMap<Material> resultList = new AutoMap<>();
         if (toSearch.getComposites().isEmpty()) {
             resultList.put(toSearch);
             return resultList;
@@ -354,7 +338,7 @@ public class MaterialUtils {
 
         // Could be a Deque but i dont use the interface
         // enough to use it as default.
-        LinkedList<Material> toCheck = new LinkedList<Material>();
+        LinkedList<Material> toCheck = new LinkedList<>();
 
         toCheck.add(toSearch);
         int processed = 0;

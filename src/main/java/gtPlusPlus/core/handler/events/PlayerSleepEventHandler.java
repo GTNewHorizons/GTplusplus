@@ -24,8 +24,8 @@ public class PlayerSleepEventHandler {
 
     private static Field sEffectDuration = ReflectionUtils
             .getField(PotionEffect.class, !CORE_Preloader.DEV_ENVIRONMENT ? "field_76460_b" : "duration");
-    private static ArrayList<Potion> sPositiveEffects = new ArrayList<Potion>();
-    private static ArrayList<Potion> sNegativeEffects = new ArrayList<Potion>();
+    private static ArrayList<Potion> sPositiveEffects = new ArrayList<>();
+    private static ArrayList<Potion> sNegativeEffects = new ArrayList<>();
 
     public static void init() {
         Utils.registerEvent(new PlayerSleepEventHandler());

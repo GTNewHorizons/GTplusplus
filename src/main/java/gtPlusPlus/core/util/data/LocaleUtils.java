@@ -38,8 +38,7 @@ public class LocaleUtils {
             try {
 
                 if (C != null) {
-                    if (C instanceof Item) {
-                        Item R = (Item) C;
+                    if (C instanceof Item R) {
                         ItemStack IS = ItemUtils.getSimpleStack(R);
                         String modid = ItemUtils.getModId(IS);
                         if (modid.equals(GTPlusPlus.ID) || modid.equals(GTPlusPlusEverglades.ID)) {
@@ -57,8 +56,7 @@ public class LocaleUtils {
             try {
 
                 if (B != null) {
-                    if (B instanceof Block) {
-                        Block R = (Block) B;
+                    if (B instanceof Block R) {
                         ItemStack IS = ItemUtils.getSimpleStack(R);
                         String modid = ItemUtils.getModId(IS);
                         if (modid.equals(GTPlusPlus.ID) || modid.equals(GTPlusPlusEverglades.ID)) {

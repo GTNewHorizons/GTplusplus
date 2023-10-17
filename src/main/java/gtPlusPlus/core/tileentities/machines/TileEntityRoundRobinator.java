@@ -460,9 +460,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
         ItemStack[] aitemstack = this.aHopperInventory;
         int i = aitemstack.length;
 
-        for (int j = 0; j < i; ++j) {
-            ItemStack itemstack = aitemstack[j];
-
+        for (ItemStack itemstack : aitemstack) {
             if (itemstack != null) {
                 return false;
             }
@@ -525,12 +523,11 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     private boolean isInventoryFull(IInventory aInv, int ordinalSide) {
-        if (aInv instanceof ISidedInventory && ordinalSide > -1) {
-            ISidedInventory isidedinventory = (ISidedInventory) aInv;
+        if (aInv instanceof ISidedInventory isidedinventory && ordinalSide > -1) {
             int[] aint = isidedinventory.getAccessibleSlotsFromSide(ordinalSide);
 
-            for (int l = 0; l < aint.length; ++l) {
-                ItemStack itemstack1 = isidedinventory.getStackInSlot(aint[l]);
+            for (int i : aint) {
+                ItemStack itemstack1 = isidedinventory.getStackInSlot(i);
 
                 if (itemstack1 == null || itemstack1.stackSize != itemstack1.getMaxStackSize()) {
                     return false;
@@ -551,8 +548,7 @@ public class TileEntityRoundRobinator extends TileEntity implements ISidedInvent
     }
 
     public static ItemStack setStackInNeighbour(IInventory aNeighbour, ItemStack aStack, int ordinalSide) {
-        if (aNeighbour instanceof ISidedInventory && ordinalSide > -1) {
-            ISidedInventory isidedinventory = (ISidedInventory) aNeighbour;
+        if (aNeighbour instanceof ISidedInventory isidedinventory && ordinalSide > -1) {
             int[] aint = isidedinventory.getAccessibleSlotsFromSide(ordinalSide);
 
             for (int l = 0; l < aint.length && aStack != null && aStack.stackSize > 0; ++l) {

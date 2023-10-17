@@ -26,7 +26,7 @@ import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
 
 public class ItemThrowableBomb extends CoreItem {
 
-    private static AutoMap<ItemStack> mLighters = new AutoMap<ItemStack>();
+    private static AutoMap<ItemStack> mLighters = new AutoMap<>();
     public static IIcon[] icons = new IIcon[10];
 
     public ItemThrowableBomb() {

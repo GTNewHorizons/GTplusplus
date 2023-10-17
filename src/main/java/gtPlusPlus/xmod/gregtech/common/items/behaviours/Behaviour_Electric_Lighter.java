@@ -176,9 +176,8 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
                 Logger.WARNING("Preparing Lighter 2");
                 if (ChargingHelper.isItemValid(aStack)) {
                     Logger.WARNING("Preparing Lighter 3");
-                    if (aStack.getItem() instanceof IElectricItemManager) {
+                    if (aStack.getItem() instanceof IElectricItemManager aItemElec) {
                         Logger.WARNING("Preparing Lighter 4");
-                        IElectricItemManager aItemElec = (IElectricItemManager) aStack.getItem();
                         double aCharge = aItemElec.getCharge(aStack);
                         long aEuCost = 4096 * 2;
                         if (aCharge >= aEuCost) {
@@ -203,8 +202,7 @@ public class Behaviour_Electric_Lighter extends Behaviour_None {
         if (aStack != null) {
             if (aStack.getItem() instanceof MetaGeneratedGregtechTools) {
                 if (ChargingHelper.isItemValid(aStack)) {
-                    if (aStack.getItem() instanceof IElectricItemManager) {
-                        IElectricItemManager aItemElec = (IElectricItemManager) aStack.getItem();
+                    if (aStack.getItem() instanceof IElectricItemManager aItemElec) {
                         double aCharge = aItemElec.getCharge(aStack);
                         long aEuCost = 4096 * 2;
                         aUses = (int) (aCharge / aEuCost);

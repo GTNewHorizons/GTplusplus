@@ -130,7 +130,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                     String aItemDisplayName = ItemUtils.getItemName(aHeldItem);
                     String aItemUnlocalName = ItemUtils.getUnlocalizedItemName(aHeldItem);
                     String aNbtString = tryIterateNBTData(aHeldItem);
-                    AutoMap<String> aOreDictNames = new AutoMap<String>();
+                    AutoMap<String> aOreDictNames = new AutoMap<>();
 
                     int[] aOreIDs = OreDictionary.getOreIDs(aHeldItem);
                     for (int id : aOreIDs) {
@@ -151,7 +151,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
                         }
                     }
 
-                    AutoMap<String> aFluidContainerData = new AutoMap<String>();
+                    AutoMap<String> aFluidContainerData = new AutoMap<>();
                     FluidStack aHeldItemFluid = FluidContainerRegistry.getFluidForFilledItem(aHeldItem);
                     if (aHeldItemFluid != null) {
                         aFluidContainerData.put("FluidStack Unlocal Name: " + aHeldItemFluid.getUnlocalizedName());
@@ -214,7 +214,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
 
     @Override
     public List<?> addTabCompletionOptions(final ICommandSender var1, final String[] var2) {
-        ArrayList<String> aTabCompletes = new ArrayList<String>();
+        ArrayList<String> aTabCompletes = new ArrayList<>();
         aTabCompletes.add("?");
         aTabCompletes.add("logging");
         aTabCompletes.add("debug");
@@ -235,7 +235,7 @@ public class CommandEnableDebugWhileRunning implements ICommand {
 
     public static String tryIterateNBTData(ItemStack aStack) {
         try {
-            AutoMap<String> aItemDataTags = new AutoMap<String>();
+            AutoMap<String> aItemDataTags = new AutoMap<>();
             NBTTagCompound aNBT = NBTUtils.getNBT(aStack);
             if (aNBT != null) {
                 if (!aNBT.hasNoTags()) {

@@ -333,8 +333,8 @@ public class GTplusplus implements ActionListener {
         return false;
     }
 
-    private static final HashMap<String, Item> sMissingItemMappings = new HashMap<String, Item>();
-    private static final HashMap<String, Block> sMissingBlockMappings = new HashMap<String, Block>();
+    private static final HashMap<String, Item> sMissingItemMappings = new HashMap<>();
+    private static final HashMap<String, Block> sMissingBlockMappings = new HashMap<>();
 
     private static void processMissingMappings() {
         sMissingItemMappings.put("miscutils:Ammonium", GameRegistry.findItem(GTPlusPlus.ID, "itemCellAmmonium"));

@@ -98,13 +98,10 @@ public class AES {
 
                 return aKeyData;
 
-            } catch (NoSuchAlgorithmException e) {
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 
                 e.printStackTrace();
 
-            } catch (UnsupportedEncodingException e) {
-
-                e.printStackTrace();
             }
         }
 

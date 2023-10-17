@@ -62,7 +62,7 @@ public class CommandDebugChunks implements ICommand {
             return;
         }
 
-        Map<String, Integer> aTicketCounter = new LinkedHashMap<String, Integer>();
+        Map<String, Integer> aTicketCounter = new LinkedHashMap<>();
         for (Pair<String, String> f : ChunkDebugger.mChunkTicketsMap.values()) {
             String aMod = f.getKey();
             String aDim = f.getValue();
@@ -83,7 +83,7 @@ public class CommandDebugChunks implements ICommand {
             PlayerUtils.messagePlayer(P, x + " has " + aTicketCounter.get(x) + " tickets active.");
         }
 
-        Map<String, Integer> aChunkCounter = new LinkedHashMap<String, Integer>();
+        Map<String, Integer> aChunkCounter = new LinkedHashMap<>();
         for (Pair<String, String> f : ChunkDebugger.mChunksLoadedByModsMap.values()) {
             String aMod = f.getKey();
             String aDim = f.getValue();

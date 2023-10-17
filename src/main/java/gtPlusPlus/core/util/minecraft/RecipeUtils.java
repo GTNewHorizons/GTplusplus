@@ -240,35 +240,17 @@ public class RecipeUtils {
         for (int z = 0; z <= array.length; z++) {
             array[z].toString();
             switch (z) {
-                case 0:
-                    a = array[z];
-                    break;
-                case 1:
-                    b = array[z];
-                    break;
-                case 2:
-                    c = array[z];
-                    break;
-                case 3:
-                    d = array[z];
-                    break;
-                case 4:
-                    e = array[z];
-                    break;
-                case 5:
-                    f = array[z];
-                    break;
-                case 6:
-                    g = array[z];
-                    break;
-                case 7:
-                    h = array[z];
-                    break;
-                case 8:
-                    i = array[z];
-                    break;
-                default:
-                    break;
+                case 0 -> a = array[z];
+                case 1 -> b = array[z];
+                case 2 -> c = array[z];
+                case 3 -> d = array[z];
+                case 4 -> e = array[z];
+                case 5 -> f = array[z];
+                case 6 -> g = array[z];
+                case 7 -> h = array[z];
+                case 8 -> i = array[z];
+                default -> {
+                }
             }
             recipeBuilder(a, b, c, d, e, f, g, h, i, outPut);
         }
@@ -328,9 +310,8 @@ public class RecipeUtils {
         Logger.RECIPE("All recipes should be gone?");
         if (!items.hasNext()) {
             Logger.RECIPE("We iterated once, let's try again to double check.");
-            final Iterator<IRecipe> items2 = recipes.iterator();
-            while (items2.hasNext()) {
-                final ItemStack is = items2.next().getRecipeOutput();
+            for (IRecipe recipe : recipes) {
+                final ItemStack is = recipe.getRecipeOutput();
                 if ((is != null) && (is.getItem() == I)) {
                     items.remove();
                     Logger.RECIPE("REMOVING MISSED RECIPE - RECHECK CONSTRUCTORS");
@@ -533,7 +514,7 @@ public class RecipeUtils {
         if (m == null) {
             return new String[] {};
         }
-        AutoMap<String> result = new AutoMap<String>();
+        AutoMap<String> result = new AutoMap<>();
         result.put(m.toString());
         result.put("Input " + ItemUtils.getArrayStackNames(m.mInputs));
         result.put("Output " + ItemUtils.getArrayStackNames(m.mOutputs));
@@ -716,8 +697,7 @@ public class RecipeUtils {
             } else if (o instanceof String) {
                 Slots[i] = o;
                 aFullString += aFullStringExpanded.charAt(i);
-            } else if (o instanceof ItemData) {
-                ItemData aData = (ItemData) o;
+            } else if (o instanceof ItemData aData) {
                 ItemStack aStackFromGT = ItemUtils.getOrePrefixStack(aData.mPrefix, aData.mMaterial.mMaterial, 1);
                 Slots[i] = aStackFromGT;
                 aFullString += aFullStringExpanded.charAt(i);

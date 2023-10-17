@@ -44,8 +44,7 @@ public class EntityHydrofluoricAcidPotion extends EntityThrowable {
                 object.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), b0);
                 EntityUtils.setEntityOnFire(object.entityHit, 5);
 
-                if (object.entityHit instanceof EntityPlayer) {
-                    EntityPlayer mPlayer = (EntityPlayer) object.entityHit;
+                if (object.entityHit instanceof EntityPlayer mPlayer) {
                     mPlayer.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 200, 1));
                     mPlayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 300, 2));
                     mPlayer.addPotionEffect(new PotionEffect(Potion.confusion.getId(), 250, 2));

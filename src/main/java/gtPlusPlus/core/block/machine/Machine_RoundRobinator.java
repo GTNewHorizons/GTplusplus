@@ -107,7 +107,7 @@ public class Machine_RoundRobinator extends BasicTileBlockWithTooltip {
 
     @Override
     public CubicObject<String>[] getCustomTextureDirectoryObject() {
-        AutoMap<String[]> aTemp = new AutoMap<String[]>();
+        AutoMap<String[]> aTemp = new AutoMap<>();
         for (int i = 0; i < 5; i++) {
             String[] aTexData = new String[] { GTPlusPlus.ID + ":" + "TileEntities/RoundRobinator/Top_" + i,
                     GTPlusPlus.ID + ":" + "TileEntities/RoundRobinator/Top_" + i,
@@ -117,9 +117,9 @@ public class Machine_RoundRobinator extends BasicTileBlockWithTooltip {
                     GTPlusPlus.ID + ":" + "TileEntities/RoundRobinator/Side_" + i, };
             aTemp.put(aTexData);
         }
-        AutoMap<CubicObject<String>> aTemp2 = new AutoMap<CubicObject<String>>();
+        AutoMap<CubicObject<String>> aTemp2 = new AutoMap<>();
         for (String[] y : aTemp) {
-            aTemp2.put(new CubicObject<String>(y));
+            aTemp2.put(new CubicObject<>(y));
         }
         CubicObject<String>[] aTextureData = new CubicObject[] { aTemp2.get(0), aTemp2.get(1), aTemp2.get(2),
                 aTemp2.get(3), aTemp2.get(4) };

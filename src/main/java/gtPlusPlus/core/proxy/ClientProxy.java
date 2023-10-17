@@ -203,7 +203,7 @@ public class ClientProxy extends CommonProxy implements Runnable {
     }
 
     public void hideUniversalCells() {
-        ArrayList<ItemStack> itemList = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> itemList = new ArrayList<>();
         for (Fluid fluid : FluidRegistry.getRegisteredFluids().values()) {
             if (fluid == null) {
                 continue;

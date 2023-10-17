@@ -60,7 +60,7 @@ import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_ShapedCrafting;
 
 public class MaterialGenerator {
 
-    public static final AutoMap<Set<RunnableWithInfo<Material>>> mRecipeMapsToGenerate = new AutoMap<Set<RunnableWithInfo<Material>>>();
+    public static final AutoMap<Set<RunnableWithInfo<Material>>> mRecipeMapsToGenerate = new AutoMap<>();
 
     @SuppressWarnings("unused")
     private static volatile Item temp;
