@@ -1271,8 +1271,6 @@ public class Material {
                 // Utils.LOG_MATERIALS("length: "+inputs.length);
                 final long[] tempRatio = new long[tempInput.size()];
                 for (int x = 0; x < tempInput.size(); x++) {
-                    // tempPercentage = tempPercentage+inputs[x].percentageToUse;
-                    // this.mMaterialList.add(inputs[x]);
                     if (tempInput.get(x) != null) {
                         tempRatio[x] = tempInput.get(x).getPartsPerOneHundred();
                     }

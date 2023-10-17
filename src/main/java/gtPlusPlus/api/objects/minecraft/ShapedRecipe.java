@@ -72,11 +72,6 @@ public class ShapedRecipe {
                                     + " has incorrect number of inputs. Size: "
                                     + aInputs.length
                                     + ".");
-                    // Logger.RECIPE("[1234abcd] Reciped exists at location: "+ReflectionUtils.getMethodName(1));
-                    // Logger.RECIPE("[1234abcd] Reciped exists at location: "+ReflectionUtils.getMethodName(2));
-                    // Logger.RECIPE("[1234abcd] Reciped exists at location: "+ReflectionUtils.getMethodName(3));
-                    // Logger.RECIPE("[1234abcd] Reciped exists at location: "+ReflectionUtils.getMethodName(4));
-                    // Logger.RECIPE("Reciped exists at location: "+ReflectionUtils.getMethodName(1));
                 }
 
                 // Build a Pair for each slot

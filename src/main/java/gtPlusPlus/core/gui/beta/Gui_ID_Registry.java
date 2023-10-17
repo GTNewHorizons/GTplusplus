@@ -13,13 +13,6 @@ public class Gui_ID_Registry {
     private static int nextId = 0;
 
     static {
-        // registerGuiHandlers(Gui_Types.Tile, Arrays.asList(new Class[] {TileAlveary.class}));
-        // registerGuiHandlers(MU_GuiType.Item, Arrays.asList(new Class[] { ItemBackpack.class,
-        // ItemBackpackNaturalist.class, ItemBeealyzer.class, ItemCatalogue.class, ItemFlutterlyzer.class,
-        // ItemHabitatLocator.class, ItemImprinter.class, ItemInfuser.class, ItemLetter.class, ItemSolderingIron.class,
-        // ItemTreealyzer.class }));
-        // registerGuiHandlers(MU_GuiType.Entity, Arrays.asList(new Class[] { EntityMinecartApiary.class,
-        // EntityMinecartBeehouse.class }));
     }
 
     private static void registerGuiHandlers(final Gui_Types MU_GuiType,

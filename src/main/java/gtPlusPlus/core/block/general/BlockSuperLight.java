@@ -217,8 +217,6 @@ public class BlockSuperLight extends BlockContainer {
                 return;
             }
             for (BlockPos p : aUpdateMap) {
-                // this.worldObj.markBlockForUpdate(p.xPos, p.yPos, p.zPos);
-                // this.worldObj.markBlocksDirtyVertical(p_72975_1_, p_72975_2_, p_72975_3_, p_72975_4_);
             }
         }
     }

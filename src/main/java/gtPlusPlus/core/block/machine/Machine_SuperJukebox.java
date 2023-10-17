@@ -109,9 +109,6 @@ public class Machine_SuperJukebox extends BlockJukebox {
                 if (itemstack != null) {
 
                     aWorld.playAuxSFX(1005, aX, aY, aZ, Item.getIdFromItem(itemstack.getItem()));
-                    // aWorld.playRecord((String) null, aX, aY, aZ);
-                    // tileentityjukebox.func_145857_a((ItemStack) null);
-                    // aWorld.setBlockMetadataWithNotify(aX, aY, aZ, 0, 2);
                     /*
                      * float f = 0.7F; double d0 = (double) (aWorld.rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
                      * double d1 = (double) (aWorld.rand.nextFloat() * f) + (double) (1.0F - f) * 0.2D + 0.6D; double d2

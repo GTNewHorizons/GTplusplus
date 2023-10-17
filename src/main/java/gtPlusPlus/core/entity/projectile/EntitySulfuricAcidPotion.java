@@ -98,9 +98,6 @@ public class EntitySulfuricAcidPotion extends EntityThrowable {
                                 0.0D,
                                 0.0D);
 
-                        // GT_Pollution.addPollution(worldObj.getChunkFromBlockCoords(blockpos.xPos, blockpos.zPos),
-                        // mPol);
-
                         if (mBlockhit == Blocks.grass || mBlockhit == Blocks.mycelium) {
                             worldObj.setBlock(i, j + 1, h, Blocks.fire);
                             worldObj.setBlock(i, j, h, Blocks.dirt);

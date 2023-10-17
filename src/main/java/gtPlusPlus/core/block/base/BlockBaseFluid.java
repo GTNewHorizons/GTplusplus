@@ -75,8 +75,6 @@ public class BlockBaseFluid extends BlockFluidClassic {
     public void registerBlockIcons(IIconRegister iicon) {
         this.textureArray[0] = iicon.registerIcon(GTPlusPlus.ID + ":" + "fluid/" + "Fluid_" + this.name + "_Still");
         this.textureArray[1] = iicon.registerIcon(GTPlusPlus.ID + ":" + "fluid/" + "Fluid_" + this.name + "_Flow");
-        // IconRegistry.addIcon("Fluid" + this.name, this.modName + ":fluid/Fluid_" + this.name + "_Still", arg0);
-        // IconRegistry.addIcon("Fluid" + this.name + "1", this.modName + ":fluid/Fluid_" + this.name + "_Flow", arg0);
     }
 
     @Override

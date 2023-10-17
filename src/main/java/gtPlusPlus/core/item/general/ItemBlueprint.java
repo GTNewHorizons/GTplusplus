@@ -235,17 +235,13 @@ public class ItemBlueprint extends Item implements IItemBlueprint {
                     && !itemStack.stackTagCompound.getString("mName").equals("")) {
                         // Has Blueprint but invalid name set
                         Logger.WARNING("Has Blueprint but invalid name set");
-                        // itemStack.stackTagCompound = null;
-                        // createNBT(itemStack);
-                        return false;
+                return false;
                     } else
                 if (!itemStack.stackTagCompound.getBoolean("mBlueprint")
                         && itemStack.stackTagCompound.getString("mName").equals("")) {
                             // Has no Blueprint, but strangely has a name
                             Logger.WARNING("Has no Blueprint, but strangely has a name");
-                            // itemStack.stackTagCompound = null;
-                            // createNBT(itemStack);
-                            return false;
+                    return false;
                         }
             return false;
         } else if (!itemStack.hasTagCompound()) {

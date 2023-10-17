@@ -148,8 +148,6 @@ public class GenericChem extends ItemPackage {
                 "Phenolic Resin",
                 "HOC6H4CH2OH",
                 Utils.rgbtoHexValue(80, 40, 40))[0];
-        // MaterialGenerator.generate(BAKELITE, false);
-        // MaterialGenerator.generate(NYLON, false);
         MaterialGenerator.generate(TEFLON, false);
 
         mGenericChemItem1 = new ItemGenericChemBase();

@@ -144,8 +144,6 @@ public class RecipeGen_FluidCanning implements Runnable {
             recipe = aRecipe;
             disableOptional = aExtracting;
             isValid = true;
-            // Logger.INFO("Passed Validity Check. Hash: "+recipe.hashCode());
-            // Logger.INFO("Mapped as: "+(disableOptional ? "Extracting" : "Canning"));
             addRunnableToRecipeCache(this);
         } else {
             // Logger.INFO("Failed Validity Check.");

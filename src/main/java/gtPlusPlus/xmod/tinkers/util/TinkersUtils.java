@@ -300,12 +300,8 @@ public class TinkersUtils {
         Method m = null;
         if (aType == 0) {
             m = ReflectionUtils.getMethod(mTinkersRegistryInstance, "getTableCasting", new Class[] {});
-            // return ReflectionUtils.invokeVoid(getTiConDataInstance(1), "getTableCasting", new Class[] {}, new
-            // Object[] {});
         } else if (aType == 1) {
             m = ReflectionUtils.getMethod(mTinkersRegistryInstance, "getBasinCasting", new Class[] {});
-            // return ReflectionUtils.invokeVoid(getTiConDataInstance(1), "getBasinCasting", new Class[] {}, new
-            // Object[] {});
         } else {
             // return null;
         }

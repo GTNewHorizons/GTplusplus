@@ -97,7 +97,7 @@ public class GenerateDictionaries {
 
         private static final Charset utf8 = StandardCharsets.UTF_8;
 
-        private static final void log(String s) {
+        private static void log(String s) {
             System.out.println("[GTPP-Proguard] " + s);
         }
 
@@ -116,8 +116,6 @@ public class GenerateDictionaries {
             boolean blnCreated = false;
             log("Trying to use relative path " + aFile.getPath());
             try {
-                // log("Trying to use path "+aFile.getCanonicalPath());
-                // log("Trying to use absolute path "+aFile.getAbsolutePath());
                 blnCreated = aFile.createNewFile();
             } catch (IOException ioe) {
                 log("Error while creating a new empty file :" + ioe);

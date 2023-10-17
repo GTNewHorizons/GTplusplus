@@ -123,9 +123,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                                 getTcAspectStack(TC_Aspects.METALLUM, 48L),
                                 getTcAspectStack(TC_Aspects.POTENTIA, 64L) }));
         this.setElectricStats(32000 + tLastID, GT_Values.V[8] * 20 * 300 / 4, GT_Values.V[8], 8L, -3L, false);
-        // ItemUtils.addItemToOreDictionary(GregtechItemList.Battery_Gem_1.get(1), "batteryFutureBasic");
-        // ItemUtils.addItemToOreDictionary(GregtechItemList.Battery_Gem_2.get(1), "batteryFutureGood");
-        // ItemUtils.addItemToOreDictionary(GregtechItemList.Battery_Gem_3.get(1), "batteryFutureAdvanced");
 
         /*
          * GregtechItemList.Battery_RE_EV_Sodium.set(addItem(tLastID = 50, "Quad Cell Acid Battery", "Reusable", new
