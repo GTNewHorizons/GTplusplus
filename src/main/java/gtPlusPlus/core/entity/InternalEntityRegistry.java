@@ -20,8 +20,6 @@ public class InternalEntityRegistry {
     public static void registerEntities() {
         Logger.INFO("Registering GT++ Entities.");
 
-        // EntityRegistry.registerGlobalEntityID(EntityPrimedMiningExplosive.class, "MiningCharge",
-        // EntityRegistry.findGlobalUniqueEntityId(), Utils.rgbtoHexValue(0, 0, 0), Utils.rgbtoHexValue(125, 125, 125));
         EntityRegistry.registerModEntity(
                 EntityPrimedMiningExplosive.class,
                 "MiningCharge",
@@ -31,9 +29,6 @@ public class InternalEntityRegistry {
                 20,
                 true);
 
-        // EntityRegistry.registerGlobalEntityID(EntitySulfuricAcidPotion.class, "throwablePotionSulfuric",
-        // EntityRegistry.findGlobalUniqueEntityId(), Utils.rgbtoHexValue(200, 0, 200), Utils.rgbtoHexValue(125, 125,
-        // 125));
         EntityRegistry.registerModEntity(
                 EntitySulfuricAcidPotion.class,
                 "throwablePotionSulfuric",
@@ -43,8 +38,6 @@ public class InternalEntityRegistry {
                 20,
                 true);
 
-        // EntityRegistry.registerGlobalEntityID(EntityHydrofluoricAcidPotion.class, "throwablePotionHydrofluoric",
-        // EntityRegistry.findGlobalUniqueEntityId(), Utils.rgbtoHexValue(0, 0, 0), Utils.rgbtoHexValue(255, 255, 255));
         EntityRegistry.registerModEntity(
                 EntityHydrofluoricAcidPotion.class,
                 "throwablePotionHydrofluoric",
@@ -54,8 +47,6 @@ public class InternalEntityRegistry {
                 20,
                 true);
 
-        // EntityRegistry.registerGlobalEntityID(EntityToxinballSmall.class, "toxinBall",
-        // EntityRegistry.findGlobalUniqueEntityId(), Utils.rgbtoHexValue(0, 25, 0), Utils.rgbtoHexValue(0, 125, 0));
         EntityRegistry.registerModEntity(
                 EntityToxinballSmall.class,
                 "toxinBall",
@@ -65,8 +56,6 @@ public class InternalEntityRegistry {
                 20,
                 true);
 
-        // EntityRegistry.registerGlobalEntityID(EntityStaballoyConstruct.class, "constructStaballoy",
-        // EntityRegistry.findGlobalUniqueEntityId(), Utils.rgbtoHexValue(0, 75, 0), Utils.rgbtoHexValue(50, 220, 50));
         EntityRegistry.registerModEntity(
                 EntityStaballoyConstruct.class,
                 "constructStaballoy",

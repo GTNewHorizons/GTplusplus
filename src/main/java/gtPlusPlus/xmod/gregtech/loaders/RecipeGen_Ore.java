@@ -74,9 +74,7 @@ public class RecipeGen_Ore extends RecipeGen_Base {
 
         // Setup Bonuses
         ArrayList<Material> aMatComp = new ArrayList<Material>();
-        for (Material j : MaterialUtils.getCompoundMaterialsRecursively(material)) {
-            aMatComp.add(j);
-        }
+        aMatComp.addAll(MaterialUtils.getCompoundMaterialsRecursively(material));
 
         if (aMatComp.size() < 3) {
             while (aMatComp.size() < 3) {

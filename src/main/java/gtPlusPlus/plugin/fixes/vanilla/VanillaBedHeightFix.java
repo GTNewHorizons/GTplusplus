@@ -18,10 +18,8 @@ import gtPlusPlus.preloader.DevHelper;
 public class VanillaBedHeightFix implements IBugFix {
 
     private final Method mSleepInBedAt;
-    private final IPlugin mParent;
 
     public VanillaBedHeightFix(IPlugin minstance) {
-        mParent = minstance;
         if (DevHelper.isValidHelperObject()) {
             Method m;
             if (DevHelper.isObfuscatedEnvironment()) {
@@ -36,7 +34,7 @@ public class VanillaBedHeightFix implements IBugFix {
             }
             if (m != null) {
                 mSleepInBedAt = m;
-                mParent.log("Registering Bed Height Fix.");
+                minstance.log("Registering Bed Height Fix.");
                 Utils.registerEvent(this);
             } else {
                 mSleepInBedAt = null;

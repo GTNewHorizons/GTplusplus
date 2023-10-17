@@ -24,14 +24,13 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class CircuitProgrammer extends BasicTileBlockWithTooltip {
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 4;
-
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 4;
+        return mTooltipID;
     }
 
     public CircuitProgrammer() {

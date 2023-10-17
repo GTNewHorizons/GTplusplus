@@ -196,8 +196,6 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
         } else {
             // Logger.INFO("B2");
             if (this.getInventoryStack() == null) {
-                // Logger.INFO("D1");
-                // Logger.INFO("Empty - "+this.mInventory.length);
             } else {
                 // Logger.INFO("D2");
             }

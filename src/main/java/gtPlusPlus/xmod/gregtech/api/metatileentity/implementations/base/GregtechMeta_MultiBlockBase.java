@@ -159,9 +159,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             extra = new String[0];
         }
         if (extra.length > 0) {
-            for (String s : extra) {
-                mInfo.add(s);
-            }
+            mInfo.addAll(Arrays.asList(extra));
         }
 
         long seconds = (this.mTotalRunTime / 20);
@@ -1209,7 +1207,7 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
         tryTickWaitTimerDown();
     }
 
-    private final void tryTickWaitTimerDown() {
+    private void tryTickWaitTimerDown() {
         /*
          * if (mStartUpCheck > 10) { mStartUpCheck = 10; }
          */

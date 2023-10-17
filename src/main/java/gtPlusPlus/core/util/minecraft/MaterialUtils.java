@@ -154,8 +154,6 @@ public class MaterialUtils {
                     || ((material == Materials.InfusedAir) || (material == Materials.InfusedFire)
                             || (material == Materials.InfusedEarth)
                             || (material == Materials.InfusedWater))) {
-                // ModItems.itemBaseDecidust = UtilsItems.generateDecidust(material);
-                // ModItems.itemBaseCentidust = UtilsItems.generateCentidust(material);
                 Material M = new Material(
                         name,
                         materialState,

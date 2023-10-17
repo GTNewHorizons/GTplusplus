@@ -28,7 +28,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 
 public class MiningExplosion extends Explosion {
 
-    private final int field_77289_h = 16;
     private final Random explosionRNG = new XSTR();
     private final World worldObj;
 
@@ -60,17 +59,18 @@ public class MiningExplosion extends Explosion {
         double d6;
         double d7;
 
-        for (i = 0; i < this.field_77289_h; ++i) {
-            for (j = 0; j < this.field_77289_h; ++j) {
-                for (k = 0; k < this.field_77289_h; ++k) {
-                    if ((i == 0) || (i == (this.field_77289_h - 1))
+        int field_77289_h = 16;
+        for (i = 0; i < field_77289_h; ++i) {
+            for (j = 0; j < field_77289_h; ++j) {
+                for (k = 0; k < field_77289_h; ++k) {
+                    if ((i == 0) || (i == (field_77289_h - 1))
                             || (j == 0)
-                            || (j == (this.field_77289_h - 1))
+                            || (j == (field_77289_h - 1))
                             || (k == 0)
-                            || (k == (this.field_77289_h - 1))) {
-                        double d0 = ((i / (this.field_77289_h - 1.0F)) * 2.0F) - 1.0F;
-                        double d1 = ((j / (this.field_77289_h - 1.0F)) * 2.0F) - 1.0F;
-                        double d2 = ((k / (this.field_77289_h - 1.0F)) * 2.0F) - 1.0F;
+                            || (k == (field_77289_h - 1))) {
+                        double d0 = ((i / (field_77289_h - 1.0F)) * 2.0F) - 1.0F;
+                        double d1 = ((j / (field_77289_h - 1.0F)) * 2.0F) - 1.0F;
+                        double d2 = ((k / (field_77289_h - 1.0F)) * 2.0F) - 1.0F;
                         final double d3 = Math.sqrt((d0 * d0) + (d1 * d1) + (d2 * d2));
                         d0 /= d3;
                         d1 /= d3;

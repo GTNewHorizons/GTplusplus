@@ -42,14 +42,13 @@ public class Machine_ProjectTable extends BlockContainer implements ITileTooltip
     @SideOnly(Side.CLIENT)
     private IIcon textureFront;
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 3;
-
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 3;
+        return mTooltipID;
     }
 
     public Machine_ProjectTable() {

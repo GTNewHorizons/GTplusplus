@@ -31,7 +31,6 @@ import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_ToggleVisual;
 public class MetaCustomCoverItem extends Item {
 
     protected final IIcon[] icons;
-    private final String mModID;
     private final String mTextureSetName;
     protected final IIconContainer[] mTextures;
     private final short[][] mRGB;
@@ -40,20 +39,19 @@ public class MetaCustomCoverItem extends Item {
             short[][] aRGB) {
         super();
         icons = new IIcon[aTextureCount];
-        mModID = aModId;
         mTextureSetName = Utils.sanitizeString(aTextureSetName);
         mTextures = aTextures;
         mRGB = aRGB;
         this.setTextureName(GTPlusPlus.ID + ":" + "itemPlate");
         this.setHasSubtypes(true);
-        String unlocalizedName = "itemCustomMetaCover." + mModID + "." + mTextureSetName;
+        String unlocalizedName = "itemCustomMetaCover." + aModId + "." + mTextureSetName;
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(AddToCreativeTab.tabMisc);
         this.setMaxStackSize(1);
         GameRegistry.registerItem(this, unlocalizedName);
         registerCover();
         Logger.INFO(
-                "[Covers] Generated Custom covers for " + mModID
+                "[Covers] Generated Custom covers for " + aModId
                         + " using "
                         + aTextureCount
                         + " textures from "
@@ -65,7 +63,7 @@ public class MetaCustomCoverItem extends Item {
         return true;
     }
 
-    private final void registerCover() {
+    private void registerCover() {
         // CommonProxy.registerItemRendererGlobal(this, new CustomItemBlockRenderer());
         for (int i = 0; i < icons.length; i++) {
             ItemStack thisStack = ItemUtils.simpleMetaStack(this, i, 1);

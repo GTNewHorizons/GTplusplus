@@ -88,9 +88,6 @@ public class ClassTransformer_LWJGL_Keyboard {
         }
     }
 
-    @SuppressWarnings("rawtypes")
-    private static Class mKeyboard;
-
     private static Field mKeyName;
 
     @SuppressWarnings("rawtypes")
@@ -100,8 +97,7 @@ public class ClassTransformer_LWJGL_Keyboard {
         }
         Class aKeyboard = ReflectionUtils.getClass("org.lwjgl.input.Keyboard");
         if (aKeyboard != null) {
-            mKeyboard = aKeyboard;
-            Field aKeyName = ReflectionUtils.getField(mKeyboard, "keyName");
+            Field aKeyName = ReflectionUtils.getField(aKeyboard, "keyName");
             if (aKeyName != null) {
                 mKeyName = aKeyName;
             }

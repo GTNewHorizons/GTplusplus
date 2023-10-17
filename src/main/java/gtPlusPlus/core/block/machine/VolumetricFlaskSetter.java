@@ -26,14 +26,13 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class VolumetricFlaskSetter extends BasicTileBlockWithTooltip {
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 8;
-
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 8;
+        return mTooltipID;
     }
 
     @Override

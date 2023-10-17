@@ -27,8 +27,6 @@ public class Container_DecayablesChest extends Container {
     public static int FullSlotNumber = InventorySlotNumber + StorageSlotNumber; // All
     // slots
 
-    private final int[] slotStorage = new int[15];
-
     public Container_DecayablesChest(final InventoryPlayer inventory, final TileEntityDecayablesChest te) {
         this.tile_entity = te;
         this.inventoryChest = te.getInventory();
@@ -46,7 +44,8 @@ public class Container_DecayablesChest extends Container {
         // Storage Side
         for (var6 = 0; var6 < 3; var6++) {
             for (var7 = 0; var7 < 5; var7++) {
-                this.slotStorage[o] = o;
+                int[] slotStorage = new int[15];
+                slotStorage[o] = o;
                 this.addSlotToContainer(new Slot(this.inventoryChest, o++, 44 + (var7 * 18), 15 + (var6 * 18)));
             }
         }

@@ -87,11 +87,6 @@ public class ItemBlockGtBlock extends ItemBlock {
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
         return this.thisBlock.getLocalizedName();
-        // Logger.INFO("Unlocal Name: "+this.getUnlocalizedName());
-        // String aFormattedLangName = GetProperName();
-        // return
-        // GT_LanguageManager.addStringLocalization("block."+mMaterial.getUnlocalizedName()+"."+this.thisBlockType.name().toLowerCase()+".name",
-        // aFormattedLangName);
     }
 
     public int getRenderColor(final int aMeta) {

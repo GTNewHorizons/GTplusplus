@@ -45,7 +45,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
         mInit = init();
     }
 
-    private final boolean init() {
+    private boolean init() {
         if (mInit) {
             return false;
         }
@@ -165,7 +165,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
         }
     }
 
-    private final boolean renderCapeOnPlayer(RenderPlayerEvent.Specials.Pre aEvent, AbstractClientPlayer aPlayer) {
+    private boolean renderCapeOnPlayer(RenderPlayerEvent.Specials.Pre aEvent, AbstractClientPlayer aPlayer) {
         float aPartialTicks = aEvent.partialRenderTick;
         try {
             if (tResource == null && CORE.DEVENV) {
@@ -231,7 +231,6 @@ public class GTPP_CapeRenderer extends RenderPlayer {
 
     private static class CapeUtils {
 
-        private static final char SPLIT_CHARACTER = '§';
         private static AES sAES;
 
         // UUID - Username
@@ -372,6 +371,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                     boolean didProcessStringData = false;
                     Logger.INFO("Decoded String Count: " + aDecodedData.size());
                     for (String aToSplit : aDecodedData) {
+                        char SPLIT_CHARACTER = '§';
                         String[] aSplitData = aToSplit.split("" + SPLIT_CHARACTER);
                         if (aSplitData != null && aSplitData.length >= 2) {
                             if (aSplitData[0] != null) {

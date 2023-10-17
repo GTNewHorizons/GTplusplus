@@ -172,7 +172,7 @@ public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {
         }
     }
 
-    private final int getDamageToComponent(ItemStack aStack) {
+    private int getDamageToComponent(ItemStack aStack) {
         return 1;
     }
 

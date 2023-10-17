@@ -28,7 +28,6 @@ public class BaseItemIngotHot extends BaseItemIngot {
     private final ItemStack outputIngot;
     private final int tickCounter = 0;
     private final int tickCounterMax = 200;
-    private final int mTier;
 
     private IIcon base;
     private IIcon overlay;
@@ -37,7 +36,7 @@ public class BaseItemIngotHot extends BaseItemIngot {
         super(material, ComponentTypes.HOTINGOT);
         this.setTextureName(GTPlusPlus.ID + ":" + "itemIngotHot");
         this.outputIngot = material.getIngot(1);
-        this.mTier = material.vTier;
+        int mTier = material.vTier;
         this.generateRecipe();
     }
 
@@ -91,8 +90,6 @@ public class BaseItemIngotHot extends BaseItemIngot {
         } else {
             this.base = i.registerIcon(
                     GTPlusPlus.ID + ":" + "item" + BaseItemComponent.ComponentTypes.HOTINGOT.getComponent());
-            // this.overlay = i.registerIcon(GTPlusPlus.ID + ":" +
-            // "item"+BaseItemComponent.ComponentTypes.HOTINGOT.getComponent()+"_Overlay");
         }
         // this.overlay = cellMaterial.getFluid(1000).getFluid().get
     }

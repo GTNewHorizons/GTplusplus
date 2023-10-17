@@ -11,21 +11,19 @@ import gtPlusPlus.preloader.CORE_Preloader;
 
 public class VanillaBackgroundMusicFix implements IBugFix {
 
-    private final IPlugin mParent;
     private final boolean enabled;
     private MusicTocker mFixInstance;
 
     public VanillaBackgroundMusicFix(IPlugin minstance) {
-        mParent = minstance;
         if (CORE_Preloader.enableWatchdogBGM > 0 && Utils.isClient()) {
-            mParent.log("[BGM] Registering BGM delay Fix.");
+            minstance.log("[BGM] Registering BGM delay Fix.");
             enabled = true;
-            mFixInstance = new MusicTocker(mParent);
+            mFixInstance = new MusicTocker(minstance);
         } else if (CORE_Preloader.enableWatchdogBGM > 0 && Utils.isServer()) {
-            mParent.log("[BGM] Tried registering BGM delay Fix on Server, disabling.");
+            minstance.log("[BGM] Tried registering BGM delay Fix on Server, disabling.");
             enabled = false;
         } else {
-            mParent.log("[BGM] Not registering BGM delay Fix.");
+            minstance.log("[BGM] Not registering BGM delay Fix.");
             enabled = false;
         }
     }

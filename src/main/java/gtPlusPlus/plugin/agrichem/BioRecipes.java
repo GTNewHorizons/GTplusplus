@@ -64,14 +64,10 @@ import ic2.core.Ic2Items;
 
 public class BioRecipes {
 
-    private static Item mFert;
-    private static Item mDustDirt;
-
     private static Fluid mSalineWater;
     private static Fluid mDistilledWater;
     private static Fluid mThermalWater;
     private static Fluid mAir;
-    private static Fluid mSulfuricWasteWater;
     private static Fluid mAmmonia;
     private static Fluid mMethanol;
     private static Fluid mAceticAcid;
@@ -84,7 +80,6 @@ public class BioRecipes {
     private static Fluid mEthanol;
     private static Fluid mChlorine;
     private static Fluid mHydrogen;
-    private static Fluid mDilutedSulfuricAcid;
     private static Fluid mSulfuricAcid;
     private static Fluid mUrea;
     public static Fluid mFormaldehyde;
@@ -93,8 +88,6 @@ public class BioRecipes {
     private static Fluid mBenzene;
     private static Fluid mEthylbenzene;
     private static Fluid mStyrene;
-    private static Fluid mButanol;
-    private static Fluid mAcetone;
 
     private static ItemStack getGreenAlgaeRecipeChip() {
         return getBioChip(4);
@@ -127,8 +120,8 @@ public class BioRecipes {
     }
 
     private static void initRecipeVars() {
-        mFert = AgriculturalChem.dustOrganicFertilizer;
-        mDustDirt = AgriculturalChem.dustDirt;
+        Item mFert = AgriculturalChem.dustOrganicFertilizer;
+        Item mDustDirt = AgriculturalChem.dustDirt;
 
         // 5.08 Salt Water Solution ;)
         if (!FluidUtils.doesFluidExist("saltwater")) {
@@ -153,11 +146,11 @@ public class BioRecipes {
         mDistilledWater = FluidUtils.getDistilledWater(1).getFluid();
         mThermalWater = FluidUtils.getFluidStack("ic2hotwater", 1).getFluid();
         mAir = FluidUtils.getFluidStack("air", 1).getFluid();
-        mSulfuricWasteWater = FluidUtils.getFluidStack("sulfuricapatite", 1).getFluid();
+        Fluid mSulfuricWasteWater = FluidUtils.getFluidStack("sulfuricapatite", 1).getFluid();
         mAmmonia = MISC_MATERIALS.AMMONIA.getFluidStack(1).getFluid();
         mEthylene = FluidUtils.getFluidStack("ethylene", 1).getFluid();
         mEthanol = FluidUtils.getFluidStack("bioethanol", 1).getFluid();
-        mDilutedSulfuricAcid = FluidUtils.getFluidStack("dilutedsulfuricacid", 1).getFluid();
+        Fluid mDilutedSulfuricAcid = FluidUtils.getFluidStack("dilutedsulfuricacid", 1).getFluid();
         mSulfuricAcid = FluidUtils.getFluidStack("sulfuricacid", 1).getFluid();
         mFormaldehyde = FluidUtils.getFluidStack("fluid.formaldehyde", 1).getFluid();
         mMethane = FluidUtils.getFluidStack("methane", 1).getFluid();
@@ -175,8 +168,8 @@ public class BioRecipes {
         mUrea = AgrichemFluids.mUrea;
         mLiquidResin = AgrichemFluids.mLiquidResin;
         mFermentationBase = AgrichemFluids.mFermentationBase;
-        mButanol = AgrichemFluids.mButanol;
-        mAcetone = AgrichemFluids.mAcetone;
+        Fluid mButanol = AgrichemFluids.mButanol;
+        Fluid mAcetone = AgrichemFluids.mAcetone;
     }
 
     private static void recipeAlgaeBiomass() {

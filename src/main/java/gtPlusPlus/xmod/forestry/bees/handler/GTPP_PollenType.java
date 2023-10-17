@@ -12,11 +12,10 @@ public enum GTPP_PollenType {
     DRAGONBLOOD(0, "Dragon Blood", true, Utils.rgbtoHexValue(220, 20, 20), Utils.rgbtoHexValue(20, 20, 20));
 
     public boolean mShowInList;
-    public Material mMaterial;
+    public final Material mMaterial;
     public int mChance;
-    public int mID;
+    public final int mID;
 
-    private final String mName;
     private final String mNameUnlocal;
     private final int[] mColour;
 
@@ -30,13 +29,12 @@ public enum GTPP_PollenType {
 
     private GTPP_PollenType(int aID, String aName, boolean aShow, int... aColour) {
         this.mID = aID;
-        this.mName = aName;
         this.mNameUnlocal = aName.toLowerCase().replaceAll(" ", "");
         this.mShowInList = aShow;
         this.mColour = aColour;
         map(aID, this);
         this.mMaterial = GTPP_Bees.sMaterialMappings.get(aName.toLowerCase().replaceAll(" ", ""));
-        GT_LanguageManager.addStringLocalization("gtplusplus.pollen." + this.mNameUnlocal, this.mName + " Pollen");
+        GT_LanguageManager.addStringLocalization("gtplusplus.pollen." + this.mNameUnlocal, aName + " Pollen");
     }
 
     public void setHidden() {

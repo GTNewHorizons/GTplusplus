@@ -22,12 +22,6 @@ public class FakeWorld implements IBlockAccess {
 
     public HashMap<String, FakeBlockPos> mFakeWorldData = new HashMap<String, FakeBlockPos>();
 
-    /**
-     * Must be an odd number
-     */
-    private int aWorldSize = 99;
-
-    private final int aDistanceFromOrigin;
     private final int aWorldHeight;
 
     public FakeWorld() {
@@ -38,8 +32,11 @@ public class FakeWorld implements IBlockAccess {
         if (MathUtils.isNumberEven(aSize)) {
             aSize++;
         }
-        aWorldSize = aSize;
-        aDistanceFromOrigin = ((aWorldSize - 1) / 2);
+        /**
+         * Must be an odd number
+         */
+        int aWorldSize = aSize;
+        int aDistanceFromOrigin = ((aWorldSize - 1) / 2);
         aWorldHeight = aDistanceFromOrigin >= 255 ? 255 : aDistanceFromOrigin;
         Logger.WARNING("Created a Fake World with data:");
         Logger.WARNING("World Size: " + aWorldSize);

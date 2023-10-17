@@ -36,8 +36,6 @@ public class GregtechConduits {
 
     // 30000-30999
 
-    private static final int BaseWireID = 30600;
-    private static final int BasePipeID = 30700;
     private static int BasePipeHexadecupleID = 30100;
 
     public static void run() {
@@ -192,34 +190,36 @@ public class GregtechConduits {
 
     private static void run1() {
 
-        wireFactory("RedstoneAlloy", 32, BaseWireID + 45, 0, 2, 1, new short[] { 178, 34, 34, 0 });
+        int baseWireID = 30600;
+        wireFactory("RedstoneAlloy", 32, baseWireID + 45, 0, 2, 1, new short[] { 178, 34, 34, 0 });
 
         // need to go back id because fluid pipes already occupy
-        makeCustomWires(ELEMENT.STANDALONE.HYPOGEN, BaseWireID - 15, 0, 0, 8, GT_Values.V[11], false, true);
+        makeCustomWires(ELEMENT.STANDALONE.HYPOGEN, baseWireID - 15, 0, 0, 8, GT_Values.V[11], false, true);
 
     }
 
     private static void run2() {
-        generateNonGTFluidPipes(GT_Materials.Staballoy, ALLOY.STABALLOY, BasePipeID, 12500, 7500, true);
-        generateNonGTFluidPipes(GT_Materials.Tantalloy60, ALLOY.TANTALLOY_60, BasePipeID + 5, 10000, 4250, true);
-        generateNonGTFluidPipes(GT_Materials.Tantalloy61, ALLOY.TANTALLOY_61, BasePipeID + 10, 12000, 5800, true);
+        int basePipeID = 30700;
+        generateNonGTFluidPipes(GT_Materials.Staballoy, ALLOY.STABALLOY, basePipeID, 12500, 7500, true);
+        generateNonGTFluidPipes(GT_Materials.Tantalloy60, ALLOY.TANTALLOY_60, basePipeID + 5, 10000, 4250, true);
+        generateNonGTFluidPipes(GT_Materials.Tantalloy61, ALLOY.TANTALLOY_61, basePipeID + 10, 12000, 5800, true);
         if (Thaumcraft.isModLoaded()) {
-            generateNonGTFluidPipes(GT_Materials.Void, null, BasePipeID + 15, 1600, 25000, true);
+            generateNonGTFluidPipes(GT_Materials.Void, null, basePipeID + 15, 1600, 25000, true);
         }
-        generateGTFluidPipes(Materials.Europium, BasePipeID + 20, 12000, 7500, true);
-        generateNonGTFluidPipes(GT_Materials.Potin, ALLOY.POTIN, BasePipeID + 25, 500, 2000, true);
-        generateNonGTFluidPipes(GT_Materials.MaragingSteel300, ALLOY.MARAGING300, BasePipeID + 30, 14000, 2500, true);
-        generateNonGTFluidPipes(GT_Materials.MaragingSteel350, ALLOY.MARAGING350, BasePipeID + 35, 16000, 2500, true);
-        generateNonGTFluidPipes(GT_Materials.Inconel690, ALLOY.INCONEL_690, BasePipeID + 40, 15000, 4800, true);
-        generateNonGTFluidPipes(GT_Materials.Inconel792, ALLOY.INCONEL_792, BasePipeID + 45, 16000, 5500, true);
-        generateNonGTFluidPipes(GT_Materials.HastelloyX, ALLOY.HASTELLOY_X, BasePipeID + 50, 20000, 4200, true);
+        generateGTFluidPipes(Materials.Europium, basePipeID + 20, 12000, 7500, true);
+        generateNonGTFluidPipes(GT_Materials.Potin, ALLOY.POTIN, basePipeID + 25, 500, 2000, true);
+        generateNonGTFluidPipes(GT_Materials.MaragingSteel300, ALLOY.MARAGING300, basePipeID + 30, 14000, 2500, true);
+        generateNonGTFluidPipes(GT_Materials.MaragingSteel350, ALLOY.MARAGING350, basePipeID + 35, 16000, 2500, true);
+        generateNonGTFluidPipes(GT_Materials.Inconel690, ALLOY.INCONEL_690, basePipeID + 40, 15000, 4800, true);
+        generateNonGTFluidPipes(GT_Materials.Inconel792, ALLOY.INCONEL_792, basePipeID + 45, 16000, 5500, true);
+        generateNonGTFluidPipes(GT_Materials.HastelloyX, ALLOY.HASTELLOY_X, basePipeID + 50, 20000, 4200, true);
 
-        generateGTFluidPipes(Materials.Tungsten, BasePipeID + 55, 4320, 7200, true);
+        generateGTFluidPipes(Materials.Tungsten, basePipeID + 55, 4320, 7200, true);
         if (EnderIO.isModLoaded()) {
-            generateGTFluidPipes(Materials.DarkSteel, BasePipeID + 60, 2320, 2750, true);
+            generateGTFluidPipes(Materials.DarkSteel, basePipeID + 60, 2320, 2750, true);
         }
-        generateGTFluidPipes(Materials.Clay, BasePipeID + 65, 100, 500, false);
-        generateGTFluidPipes(Materials.Lead, BasePipeID + 70, 350, 1200, true);
+        generateGTFluidPipes(Materials.Clay, basePipeID + 65, 100, 500, false);
+        generateGTFluidPipes(Materials.Lead, basePipeID + 70, 350, 1200, true);
 
         generateNonGTFluidPipes(
                 GT_Materials.TriniumNaquadahCarbonite,
@@ -648,9 +648,6 @@ public class GregtechConduits {
             Logger.ERROR(Material.name() + " has defaulted to 8v.");
             V = 0;
         }
-        // makeWires(T, ID, 2L, 4L, 2L, GT_Values.V[V], true, false);
-        // makeSuperConductors(T, ID, insulatedLoss, uninsulatedLoss, Amps, GT_Values.V[V], true, false);
-        // makeWires(T, ID, bEC ? 2L : 2L, bEC ? 4L : 4L, 2L, gregtech.api.enums.GT_Values.V[V], true, false);
     }
 
     private static void generateGTFluidPipes(final Materials material, final int startID, final int transferRatePerSec,

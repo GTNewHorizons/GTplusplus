@@ -22,9 +22,6 @@ public class FluidItemBlock extends ItemBlock {
         this.blockColour = this.baseBlock.getRenderColor(1);
         this.name = this.baseBlock.getLocalizedName().replace("tile", "").replace("fluid", "").replace("name", "")
                 .replace("block", "").replace(".", "");
-        // GT_OreDictUnificator.registerOre("frameGt"+block.getUnlocalizedName().replace("tile.",
-        // "").replace("tile.BlockGtFrame", "").replace("-", "").replace("_", "").replace(" ", "").replace("FrameBox",
-        // ""), UtilsItems.getSimpleStack(this));
     }
 
     public int getRenderColor(final int aMeta) {

@@ -56,7 +56,6 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
     private int mCasing;
     private static IStructureDefinition<GregtechMTE_AlgaePondBase> STRUCTURE_DEFINITION = null;
     private int checkMeta;
-    private int minTierOfHatch;
     private static final Class<?> cofhWater;
 
     static {
@@ -154,7 +153,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
         mCasing = 0;
         mLevel = 0;
         checkMeta = 0;
-        minTierOfHatch = 100;
+        int minTierOfHatch = 100;
         if (checkPiece(mName, 4, 2, 0) && mCasing >= 64 && checkMeta > 0) {
             mLevel = checkMeta - 1;
             return mLevel <= minTierOfHatch;

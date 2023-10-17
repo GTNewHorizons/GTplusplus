@@ -32,33 +32,33 @@ public class TileBasicTank extends TileEntityBase implements IFluidHandler, IFlu
         return super.onPreTick(aTick);
     }
 
-    private final boolean canFillEx(ForgeDirection aSide, Fluid aFluid) {
+    private boolean canFillEx(ForgeDirection aSide, Fluid aFluid) {
         return this.fill(aSide, new FluidStack(aFluid, 1), false) == 1;
     }
 
-    private final boolean canDrainEx(ForgeDirection aSide, Fluid aFluid) {
+    private boolean canDrainEx(ForgeDirection aSide, Fluid aFluid) {
         return this.drain(aSide, new FluidStack(aFluid, 1), false) != null;
     }
 
-    private final FluidTankInfo[] getTankInfoEx(ForgeDirection aSide) {
+    private FluidTankInfo[] getTankInfoEx(ForgeDirection aSide) {
         return mTank.getCapacity() <= 0 ? new FluidTankInfo[0] : new FluidTankInfo[] { mTank.getInfo() };
     }
 
-    private final int fill_default(ForgeDirection aSide, FluidStack aFluid, boolean doFill) {
+    private int fill_default(ForgeDirection aSide, FluidStack aFluid, boolean doFill) {
         return mTank.fill(aFluid, doFill);
     }
 
-    private final int fillEx(ForgeDirection aSide, FluidStack aFluid, boolean doFill) {
+    private int fillEx(ForgeDirection aSide, FluidStack aFluid, boolean doFill) {
         return this.fill_default(aSide, aFluid, doFill);
     }
 
-    private final FluidStack drainEx(ForgeDirection aSide, FluidStack aFluid, boolean doDrain) {
+    private FluidStack drainEx(ForgeDirection aSide, FluidStack aFluid, boolean doDrain) {
         return mTank.getFluid() != null && aFluid != null && mTank.getFluid().isFluidEqual(aFluid)
                 ? mTank.drain(aFluid.amount, doDrain)
                 : null;
     }
 
-    private final FluidStack drainEx(ForgeDirection aSide, int maxDrain, boolean doDrain) {
+    private FluidStack drainEx(ForgeDirection aSide, int maxDrain, boolean doDrain) {
         return mTank.drain(maxDrain, doDrain);
     }
 

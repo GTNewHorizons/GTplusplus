@@ -22,7 +22,6 @@ public class EntitySickBlaze extends EntityMob {
     private int heightOffsetUpdateTime;
 
     private int field_70846_g;
-    private final int mDataWatcherID = 30;
 
     public EntitySickBlaze(World p_i1731_1_) {
         super(p_i1731_1_);
@@ -41,6 +40,7 @@ public class EntitySickBlaze extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
+        int mDataWatcherID = 30;
         this.dataWatcher.addObject(mDataWatcherID, new Byte((byte) 0));
     }
 

@@ -21,12 +21,10 @@ public class BaseItemPlasmaCell extends BaseItemComponent {
     private IIcon overlay;
     ComponentTypes PlasmaCell = ComponentTypes.PLASMACELL;
     private int tickCounter = 0;
-    private final int tickCounterMax = 200;
-    private final short[] fluidColour;
 
     public BaseItemPlasmaCell(final Material material) {
         super(material, ComponentTypes.PLASMACELL);
-        this.fluidColour = (short[]) material.getRGBA();
+        short[] fluidColour = (short[]) material.getRGBA();
     }
 
     @Override
@@ -63,9 +61,10 @@ public class BaseItemPlasmaCell extends BaseItemComponent {
             final boolean p_77663_5_) {
         if (this.componentMaterial != null) {
             if (!world.isRemote) {
-                if (this.tickCounter < this.tickCounterMax) {
+                int tickCounterMax = 200;
+                if (this.tickCounter < tickCounterMax) {
                     this.tickCounter++;
-                } else if (this.tickCounter >= this.tickCounterMax) {
+                } else if (this.tickCounter >= tickCounterMax) {
                     entityHolding.attackEntityFrom(DamageSource.onFire, 2);
                     this.tickCounter = 0;
                 }

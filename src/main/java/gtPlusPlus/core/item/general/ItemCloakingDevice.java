@@ -31,7 +31,6 @@ import ic2.api.item.IElectricItemManager;
                 @Optional.Interface(iface = "baubles.api.BaubleType", modid = Names.BAUBLES) })
 public class ItemCloakingDevice extends Item implements IElectricItem, IElectricItemManager, IBauble {
 
-    private final String unlocalizedName = "personalCloakingDevice";
     private final ItemStack thisStack;
     private static final int maxValueEU = 10000 * 20 * 500;
     protected double chargeEU = 0;
@@ -39,7 +38,8 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
     public ItemCloakingDevice(final double charge) {
         this.chargeEU = charge;
         this.setCreativeTab(AddToCreativeTab.tabMachines);
-        this.setUnlocalizedName(this.unlocalizedName);
+        String unlocalizedName = "personalCloakingDevice";
+        this.setUnlocalizedName(unlocalizedName);
         this.setMaxStackSize(1);
         this.setTextureName(GTPlusPlus.ID + ":" + "personalCloakingDevice");
         this.thisStack = ItemUtils.getSimpleStack(this);
@@ -47,7 +47,7 @@ public class ItemCloakingDevice extends Item implements IElectricItem, IElectric
         if (charge == (10000 * 20 * 500)) {
             this.setDamage(this.thisStack, 13);
         }
-        GameRegistry.registerItem(this, this.unlocalizedName + "-" + charge);
+        GameRegistry.registerItem(this, unlocalizedName + "-" + charge);
     }
 
     @Override

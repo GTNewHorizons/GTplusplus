@@ -238,9 +238,7 @@ public class BlockPos implements Serializable {
         AutoMap<BlockPos> h = getSimilarNeighbour(true);
         h.put(this);
         Set<BlockPos> result = new HashSet<BlockPos>();
-        for (BlockPos f : h.values()) {
-            result.add(f);
-        }
+        result.addAll(h.values());
         return result;
     }
 }

@@ -123,7 +123,7 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
         }
     }
 
-    private final void sort() {
+    private void sort() {
         List<DecayableRecipeNEI> g = new ArrayList<DecayableRecipeNEI>();
         for (CachedRecipe u : arecipes) {
             g.add((DecayableRecipeNEI) u);

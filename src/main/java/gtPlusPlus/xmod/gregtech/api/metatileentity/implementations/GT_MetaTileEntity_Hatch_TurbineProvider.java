@@ -64,7 +64,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
         }
     }
 
-    private final void tryFindParentTurbine() {
+    private void tryFindParentTurbine() {
         Logger.INFO("This turbine housing has no parent, searching world.");
         IGregTechTileEntity T = this.getBaseMetaTileEntity();
         World W = T.getWorld();
@@ -90,7 +90,7 @@ public class GT_MetaTileEntity_Hatch_TurbineProvider extends GT_MetaTileEntity_H
         }
     }
 
-    private final void tryRefillTurbine() {
+    private void tryRefillTurbine() {
         if (mParent == null) {
             tryFindParentTurbine();
         }

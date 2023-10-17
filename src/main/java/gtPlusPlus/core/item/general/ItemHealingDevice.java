@@ -37,16 +37,16 @@ import ic2.api.item.IElectricItemManager;
                 @Optional.Interface(iface = "baubles.api.BaubleType", modid = Mods.Names.BAUBLES) })
 public class ItemHealingDevice extends Item implements IElectricItem, IElectricItemManager, IBauble {
 
-    private final String unlocalizedName = "personalHealingDevice";
     private static final int maxValueEU = 1000000000;
     protected double chargeEU = 0;
 
     public ItemHealingDevice() {
         this.setCreativeTab(AddToCreativeTab.tabMachines);
-        this.setUnlocalizedName(this.unlocalizedName);
+        String unlocalizedName = "personalHealingDevice";
+        this.setUnlocalizedName(unlocalizedName);
         this.setMaxStackSize(1);
         this.setTextureName(GTPlusPlus.ID + ":" + "personalCloakingDevice");
-        GameRegistry.registerItem(this, this.unlocalizedName);
+        GameRegistry.registerItem(this, unlocalizedName);
     }
 
     @Override

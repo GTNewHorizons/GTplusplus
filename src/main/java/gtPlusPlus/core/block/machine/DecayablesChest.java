@@ -38,16 +38,15 @@ public class DecayablesChest extends BlockContainer implements ITileTooltip {
     @SideOnly(Side.CLIENT)
     private IIcon textureFront;
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 5;
-
     public final int field_149956_a = 0;
 
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 5;
+        return mTooltipID;
     }
 
     public DecayablesChest() {

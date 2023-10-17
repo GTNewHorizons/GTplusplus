@@ -217,9 +217,6 @@ public class StaballoySpade extends ItemSpade {
 
             // int heldItemDurability = heldItem.getDamage(1);
             Logger.WARNING("Total Loss: " + (int) DURABILITY_LOSS);
-            // heldItem.setDamage(heldStack, DURABILITY_LOSS);
-            // Utils.LOG_WARNING("|GID|Durability: "+heldItem.getItemDamage());
-            // Utils.LOG_WARNING("Durability: "+heldStack.getDamage(heldStack));
             Logger.WARNING("1x: " + (heldItem.getItemDamage()));
             final int itemdmg = heldItem.getItemDamage();
             final int maxdmg = heldItem.getMaxDamage();
@@ -316,8 +313,6 @@ public class StaballoySpade extends ItemSpade {
     public boolean checkFacing(final ItemStack aStack, final EntityPlayer aPlayer, final World world) {
         if (aPlayer != null) {
             final int direction = MathHelper.floor_double((aPlayer.rotationYaw * 4F) / 360F + 0.5D) & 3;
-            // Utils.LOG_WARNING("Player - F: "+direction);
-            // Utils.LOG_WARNING("Player - getLookVec(): "+localPlayer.getLookVec().yCoord);
 
             /*
              * if (localPlayer.getLookVec().yCoord > 0){ localPlayer.getLookVec().yCoord; }

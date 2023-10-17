@@ -79,11 +79,7 @@ public class BaseItemComponent extends Item {
             GT_OreDictUnificator.registerOre("gear" + material.getUnlocalizedName(), ItemUtils.getSimpleStack(this));
         }
         if (Thaumcraft.isModLoaded()) {
-            // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-            // TC_Aspect_Wrapper.generate(TC_Aspects.METALLUM.mAspect), 1);
             if (componentMaterial.isRadioactive) {
-                // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-                // TC_Aspect_Wrapper.generate(TC_Aspects.RADIO.mAspect), componentMaterial.vRadiationLevel);
             }
         }
         registerComponent();

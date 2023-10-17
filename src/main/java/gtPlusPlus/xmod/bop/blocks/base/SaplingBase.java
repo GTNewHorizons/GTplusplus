@@ -48,7 +48,7 @@ public class SaplingBase extends BlockSapling {
         this.setCreativeTab(AddToCreativeTab.tabBOP);
     }
 
-    private final void setVanillaVariable(Object toSet, Object value) {
+    private void setVanillaVariable(Object toSet, Object value) {
         toSet = value;
     }
 

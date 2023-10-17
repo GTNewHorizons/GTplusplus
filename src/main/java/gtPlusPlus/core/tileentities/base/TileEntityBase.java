@@ -311,21 +311,18 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     private final int[] mCoverSides = new int[] { 0, 0, 0, 0, 0, 0 };
     private final int[] mCoverData = new int[] { 0, 0, 0, 0, 0, 0 };
     private final int[] mTimeStatistics = new int[GregTech_API.TICKS_FOR_LAG_AVERAGING];
-    private boolean mHasEnoughEnergy = true;
     protected boolean mRunningThroughTick = false;
     protected boolean mInputDisabled = false;
     protected boolean mOutputDisabled = false;
     private final boolean mMuffler = false;
     private final boolean mLockUpgrade = false;
     private final boolean mActive = false;
-    private boolean mRedstone = false;
     private final boolean mWorkUpdate = false;
     private final boolean mSteamConverter = false;
     private boolean mInventoryChanged = false;
     private final boolean mWorks = true;
     private final boolean mNeedsUpdate = true;
     private final boolean mNeedsBlockUpdate = true;
-    private boolean mSendClientData = false;
     private final boolean oRedstone = false;
     private final boolean mEnergyStateReady = false;
     private final byte mColor = 0;
@@ -357,7 +354,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
      * Cover Support
      */
     public void issueClientUpdate() {
-        this.mSendClientData = true;
+        boolean mSendClientData = true;
     }
 
     protected final boolean canAccessData() {
@@ -410,8 +407,9 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public boolean decreaseStoredEnergyUnits(long aEnergy, boolean aIgnoreTooLessEnergy) {
+        boolean mHasEnoughEnergy = true;
         return !this.canAccessData() ? false
-                : (this.mHasEnoughEnergy = this.decreaseStoredEU(aEnergy, aIgnoreTooLessEnergy));
+                : (mHasEnoughEnergy = this.decreaseStoredEU(aEnergy, aIgnoreTooLessEnergy));
     }
 
     @Override
@@ -490,7 +488,7 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
     public boolean ignoreUnloadedChunks = true;
     public boolean isDead = false;
 
-    private final void clearNullMarkersFromTileEntityBuffer() {
+    private void clearNullMarkersFromTileEntityBuffer() {
         for (int i = 0; i < this.mBufferedTileEntities.length; ++i) {
             if (this.mBufferedTileEntities[i] == this) {
                 this.mBufferedTileEntities[i] = null;
@@ -940,7 +938,6 @@ public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregT
 
     @Override
     public void setGenericRedstoneOutput(boolean aOnOff) {
-        mRedstone = aOnOff;
     }
 
     @Override

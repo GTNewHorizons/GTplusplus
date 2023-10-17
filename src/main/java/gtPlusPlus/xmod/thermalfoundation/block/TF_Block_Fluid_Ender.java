@@ -18,7 +18,6 @@ public class TF_Block_Fluid_Ender extends BlockFluidCoFHBase {
 
     public static final int LEVELS = 4;
     public static final Material materialFluidEnder = new MaterialLiquid(MapColor.greenColor);
-    private static final boolean effect = true;
 
     public TF_Block_Fluid_Ender() {
         super(GTPlusPlus.ID, TF_Fluids.fluidEnder, materialFluidEnder, "ender");
@@ -43,6 +42,7 @@ public class TF_Block_Fluid_Ender extends BlockFluidCoFHBase {
     @Override
     public void onEntityCollidedWithBlock(World paramWorld, int paramInt1, int paramInt2, int paramInt3,
             Entity paramEntity) {
+        boolean effect = true;
         if ((!effect) || (paramWorld.isRemote)) {
             return;
         }

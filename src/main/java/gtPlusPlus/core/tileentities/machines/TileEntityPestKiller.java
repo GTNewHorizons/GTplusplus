@@ -40,7 +40,6 @@ import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class TileEntityPestKiller extends TileEntity implements ISidedInventory, IFluidHandler {
 
-    private final int mBaseTickRate = 20 * 30;
     private final InventoryPestKiller mInventory;
     private final FluidTank mTank;
     private int mChunkX;
@@ -74,7 +73,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         return mTank;
     }
 
-    private final void setup() {
+    private void setup() {
         World w = this.worldObj;
         if (w != null) {
             Chunk c = w.getChunkFromBlockCoords(this.xCoord, this.zCoord);
@@ -206,7 +205,8 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
                 handleInventory();
             }
         }
-        if (this.mTickCounter % this.mBaseTickRate == 0) {
+        int mBaseTickRate = 20 * 30;
+        if (this.mTickCounter % mBaseTickRate == 0) {
             tryKillPests();
         }
         updateTick();
@@ -491,7 +491,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
         this.mNeedsUpdate = true;
     }
 
-    private final void updateTick() {
+    private void updateTick() {
         if (mNeedsUpdate) {
             if (mUpdateTick == 0) {
                 mUpdateTick = 4; // every 4 ticks it will send an update

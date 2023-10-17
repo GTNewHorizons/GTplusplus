@@ -25,20 +25,20 @@ import gtPlusPlus.everglades.gen.gt.WorldGen_GT_Ore_Layer;
 
 public class ItemBlockOre extends ItemBlock {
 
-    private final BlockBaseOre mThisOre;
     private final Material mThisMaterial;
     private final int mThisRadiation;
     private final int mThisColour;
 
     public ItemBlockOre(final Block block) {
         super(block);
+        BlockBaseOre mThisOre;
         if (block instanceof BlockBaseOre) {
-            this.mThisOre = (BlockBaseOre) block;
-            this.mThisMaterial = this.mThisOre.getMaterialEx();
+            mThisOre = (BlockBaseOre) block;
+            this.mThisMaterial = mThisOre.getMaterialEx();
             this.mThisRadiation = this.mThisMaterial.vRadiationLevel;
             this.mThisColour = this.mThisMaterial.getRgbAsHex();
         } else {
-            this.mThisOre = null;
+            mThisOre = null;
             this.mThisMaterial = null;
             this.mThisRadiation = 0;
             this.mThisColour = Utils.rgbtoHexValue(255, 255, 255);

@@ -3,6 +3,7 @@ package gtPlusPlus.core.item.food;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -428,9 +429,7 @@ public class BaseItemMetaFood extends ItemFood {
     private static ArrayList<String> getOreDictNamesAsArrayList(String... aOreDictNames) {
         ArrayList<String> aPackage = new ArrayList<String>();
         if (aOreDictNames != null && aOreDictNames.length > 0) {
-            for (String aEffect : aOreDictNames) {
-                aPackage.add(aEffect);
-            }
+            aPackage.addAll(Arrays.asList(aOreDictNames));
         }
         return aPackage;
     }

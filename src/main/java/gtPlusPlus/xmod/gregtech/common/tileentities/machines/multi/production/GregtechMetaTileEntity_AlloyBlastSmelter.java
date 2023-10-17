@@ -44,8 +44,6 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 public class GregtechMetaTileEntity_AlloyBlastSmelter extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_AlloyBlastSmelter> implements ISurvivalConstructable {
 
-    private int mMode = 0;
-    private boolean isUsingControllerCircuit = false;
     private static Item circuit;
     private int mCasing;
     private static IStructureDefinition<GregtechMetaTileEntity_AlloyBlastSmelter> STRUCTURE_DEFINITION = null;
@@ -156,25 +154,26 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack aStack) {
+        boolean isUsingControllerCircuit = false;
         if (this.getBaseMetaTileEntity().isServerSide()) {
             // Get Controller Circuit
             if (circuit == null) {
                 circuit = CI.getNumberedCircuit(0).getItem();
             }
             if (aStack != null && aStack.getItem() == circuit) {
-                this.mMode = aStack.getItemDamage();
-                return this.isUsingControllerCircuit = true;
+                int mMode = aStack.getItemDamage();
+                return isUsingControllerCircuit = true;
             } else {
                 if (aStack == null) {
-                    this.isUsingControllerCircuit = false;
+                    isUsingControllerCircuit = false;
                     return true; // Allowed empty
                 }
                 Logger.WARNING("Not circuit in GUI inputs.");
-                return this.isUsingControllerCircuit = false;
+                return isUsingControllerCircuit = false;
             }
         }
         Logger.WARNING("No Circuit, clientside.");
-        return this.isUsingControllerCircuit = false;
+        return isUsingControllerCircuit = false;
     }
 
     @Override

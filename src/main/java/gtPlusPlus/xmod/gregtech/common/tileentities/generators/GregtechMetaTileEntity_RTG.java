@@ -326,8 +326,6 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
                 } else if (ItemStack.areItemStacksEqual(tFuel.mInputs[0], GregtechItemList.Pellet_RTG_SR90.get(1))) {
                     mTier2 = 1;
                 } else {
-                    // Utils.LOG_INFO("test:"+tFuel.mInputs[0].getDisplayName() + " | " +
-                    // (ItemStack.areItemStacksEqual(tFuel.mInputs[0], GregtechItemList.Pellet_RTG_PU238.get(1))));
                     mTier2 = 0;
                 }
                 ReflectionUtils.setByte(this, "mTier", mTier2);
@@ -345,8 +343,6 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
             this.mDaysRemaining = MathUtils.roundToClosestInt(mTicksToBurnFor / 20 / 60 / 3);
             Logger.WARNING("step | " + (int) (mTicksToBurnFor * getEfficiency() / 100L));
             return (int) (mTicksToBurnFor * getEfficiency() / 100L);
-            // return (int) (tFuel.mSpecialValue * 365L * getEfficiency() / 100L);
-            // return tFuel.mEUt;
         }
         Logger.WARNING("Not sure");
         return 0;

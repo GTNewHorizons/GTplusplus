@@ -85,7 +85,6 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     private int mCasing;
     private static IStructureDefinition<GregtechMetaTileEntityTreeFarm> STRUCTURE_DEFINITION = null;
 
-    private SAWTOOL mToolType;
     private ItemStack mSapling;
     private ItemStack mWood;
     private float heightModifier = 1.0f;
@@ -183,7 +182,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
             return SimpleCheckRecipeResult.ofFailure("no_saw");
         if (!checkSapling()) return SimpleCheckRecipeResult.ofFailure("no_sapling");
 
-        this.mToolType = TreeFarmHelper.isCorrectMachinePart(controllerStack);
+        SAWTOOL mToolType = TreeFarmHelper.isCorrectMachinePart(controllerStack);
 
         long tVoltage = getMaxInputVoltage();
         byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));

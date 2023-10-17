@@ -86,7 +86,7 @@ public abstract class TileEntityRedstoneHandler extends TileEntity implements IT
 
     private boolean mHasUpdatedRecently = false;
 
-    private final boolean init() {
+    private boolean init() {
         if (mTilePos == null) {
             try {
                 mTilePos = new BlockPos(this);

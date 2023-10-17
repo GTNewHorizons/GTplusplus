@@ -13,11 +13,10 @@ public enum GTPP_CombType {
     FORCE(1, "Force", true, 30, Utils.rgbtoHexValue(250, 250, 20), Utils.rgbtoHexValue(200, 200, 5));
 
     public boolean mShowInList;
-    public Material mMaterial;
-    public int mChance;
-    public int mID;
+    public final Material mMaterial;
+    public final int mChance;
+    public final int mID;
 
-    private final String mName;
     private final String mNameUnlocal;
     private final int[] mColour;
 
@@ -31,14 +30,13 @@ public enum GTPP_CombType {
 
     GTPP_CombType(int aID, String aName, boolean aShow, int aChance, int... aColour) {
         this.mID = aID;
-        this.mName = aName;
         this.mNameUnlocal = aName.toLowerCase().replaceAll(" ", "");
         this.mChance = aChance;
         this.mShowInList = aShow;
         this.mColour = aColour;
         map(aID, this);
         this.mMaterial = GTPP_Bees.sMaterialMappings.get(aName.toLowerCase().replaceAll(" ", ""));
-        GT_LanguageManager.addStringLocalization("gtplusplus.comb." + this.mNameUnlocal, this.mName + " Comb");
+        GT_LanguageManager.addStringLocalization("gtplusplus.comb." + this.mNameUnlocal, aName + " Comb");
     }
 
     public void setHidden() {

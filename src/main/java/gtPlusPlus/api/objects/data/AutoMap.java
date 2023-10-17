@@ -1,6 +1,7 @@
 package gtPlusPlus.api.objects.data;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -48,9 +49,7 @@ public class AutoMap<V> implements Iterable<V>, Serializable, Collection<V>, Que
         mInternalMap = new LinkedHashMap<Integer, V>();
         mInternalNameMap = new LinkedHashMap<String, Integer>();
         if (aList != null && aList.size() > 0) {
-            for (V obj : aList) {
-                add(obj);
-            }
+            this.addAll(aList);
         }
     }
 
@@ -63,9 +62,7 @@ public class AutoMap<V> implements Iterable<V>, Serializable, Collection<V>, Que
         mInternalMap = new LinkedHashMap<Integer, V>();
         mInternalNameMap = new LinkedHashMap<String, Integer>();
         if (aList != null && aList.size() > 0) {
-            for (V obj : aList) {
-                add(obj);
-            }
+            this.addAll(aList);
         }
     }
 
@@ -78,9 +75,7 @@ public class AutoMap<V> implements Iterable<V>, Serializable, Collection<V>, Que
         mInternalMap = new LinkedHashMap<Integer, V>();
         mInternalNameMap = new LinkedHashMap<String, Integer>();
         if (aList != null && aList.size() > 0) {
-            for (V obj : aList) {
-                add(obj);
-            }
+            this.addAll(aList);
         }
     }
 
@@ -93,9 +88,7 @@ public class AutoMap<V> implements Iterable<V>, Serializable, Collection<V>, Que
         mInternalMap = new LinkedHashMap<Integer, V>();
         mInternalNameMap = new LinkedHashMap<String, Integer>();
         if (aArray != null && aArray.length > 0) {
-            for (V obj : aArray) {
-                add(obj);
-            }
+            this.addAll(Arrays.asList(aArray));
         }
     }
 

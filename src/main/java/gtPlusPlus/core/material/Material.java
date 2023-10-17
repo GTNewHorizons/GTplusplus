@@ -74,7 +74,6 @@ public class Material {
     private int boilingPointC;
     private long vProtons;
     private long vNeutrons;
-    private long vMass;
     public int smallestStackSizeWhenProcessing; // Add a check for <=0 || > 64
     public int vTier;
     public int vVoltageMultiplier;
@@ -84,8 +83,6 @@ public class Material {
     public long vDurability;
     public int vToolQuality;
     public int vHarvestLevel;
-
-    private TC_Aspect_Wrapper[] vAspects;
 
     public BaseTinkersMaterial vTiConHandler;
 
@@ -419,10 +416,8 @@ public class Material {
                         for (int mnh = 0; mnh < 3; mnh++) {
                             AutoMap<Short> aDataSet = new AutoMap<Short>();
                             Set<Material> set4 = new HashSet<Material>();
-                            for (Material u : mMaterialSet) {
-                                // if (u.getState() == MaterialState.ORE || u.getState() == MaterialState.SOLID)
-                                set4.add(u);
-                            }
+                            // if (u.getState() == MaterialState.ORE || u.getState() == MaterialState.SOLID)
+                            set4.addAll(mMaterialSet);
                             for (Material e : set4) {
                                 aDataSet.put(e.getRGB()[mnh]);
                             }
@@ -531,9 +526,9 @@ public class Material {
                 this.vNeutrons = this.calculateNeutrons();
             }
 
-            this.vAspects = null;
+            TC_Aspect_Wrapper[] vAspects = null;
 
-            this.vMass = this.getMass();
+            long vMass = this.getMass();
 
             // Sets tool Durability
             if (durability != 0) {
@@ -702,7 +697,7 @@ public class Material {
                             + ratio);
             Logger.MATERIALS("Protons: " + this.vProtons);
             Logger.MATERIALS("Neutrons: " + this.vNeutrons);
-            Logger.MATERIALS("Mass: " + this.vMass + "/units");
+            Logger.MATERIALS("Mass: " + vMass + "/units");
             Logger.MATERIALS("Melting Point: " + this.meltingPointC + "C.");
             Logger.MATERIALS("Boiling Point: " + this.boilingPointC + "C.");
         } catch (Throwable t) {
@@ -1250,7 +1245,7 @@ public class Material {
         return new int[] {};
     }
 
-    private final short getComponentCount(final MaterialStack[] inputs) {
+    private short getComponentCount(final MaterialStack[] inputs) {
 
         if (inputs == null || inputs.length < 1) {
             return 1;
@@ -1276,8 +1271,6 @@ public class Material {
                 // Utils.LOG_MATERIALS("length: "+inputs.length);
                 final long[] tempRatio = new long[tempInput.size()];
                 for (int x = 0; x < tempInput.size(); x++) {
-                    // tempPercentage = tempPercentage+inputs[x].percentageToUse;
-                    // this.mMaterialList.add(inputs[x]);
                     if (tempInput.get(x) != null) {
                         tempRatio[x] = tempInput.get(x).getPartsPerOneHundred();
                     }

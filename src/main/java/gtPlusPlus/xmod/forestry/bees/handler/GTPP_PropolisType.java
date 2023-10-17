@@ -13,11 +13,10 @@ public enum GTPP_PropolisType {
     FORCE(1, "Force", true, Utils.rgbtoHexValue(250, 250, 20));
 
     public boolean mShowInList;
-    public Material mMaterial;
+    public final Material mMaterial;
     public int mChance;
-    public int mID;
+    public final int mID;
 
-    private final String mName;
     private final String mNameUnlocal;
     private final int mColour;
 
@@ -31,13 +30,12 @@ public enum GTPP_PropolisType {
 
     private GTPP_PropolisType(int aID, String aName, boolean aShow, int aColour) {
         this.mID = aID;
-        this.mName = aName;
         this.mNameUnlocal = aName.toLowerCase().replaceAll(" ", "");
         this.mShowInList = aShow;
         this.mColour = aColour;
         map(aID, this);
         this.mMaterial = GTPP_Bees.sMaterialMappings.get(aName.toLowerCase().replaceAll(" ", ""));
-        GT_LanguageManager.addStringLocalization("gtplusplus.propolis." + this.mNameUnlocal, this.mName + " Propolis");
+        GT_LanguageManager.addStringLocalization("gtplusplus.propolis." + this.mNameUnlocal, aName + " Propolis");
     }
 
     public void setHidden() {

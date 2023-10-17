@@ -17,14 +17,12 @@ public enum AlgaeDefinition {
     Paeophyta("Paeophyta", "Brown Algae", false, true, getRGB(94, 78, 47)),
     Xanthophyta("Xanthophyta", "Yellow-Green Algae", true, false, getRGB(118, 138, 16));
 
-    public final String mScientificName;
     public final String mSimpleName;
     public final boolean mSaltWater;
     public final boolean mFreshWater;
     public final int mColour;
 
     AlgaeDefinition(String aScientificName, String aSimpleName, boolean aFresh, boolean aSalt, int aColour) {
-        mScientificName = aScientificName;
         mSimpleName = aSimpleName;
         mFreshWater = aFresh;
         mSaltWater = aSalt;

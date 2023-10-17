@@ -142,14 +142,6 @@ public class BaseTinkersMaterial {
         int id = mID;
         if (id > 0) {
 
-            // Object aTinkersCustomMaterial = generateToolMaterial(mMaterial);
-            // Logger.INFO("[TiCon] Created Material: "+mLocalName);
-
-            // TinkersUtils.addToolMaterial(id, aTinkersCustomMaterial);
-            // TinkersUtils.addDefaultToolPartMaterial(id);
-            // TinkersUtils.addBowMaterial(id, calcBowDrawSpeed(mMaterial), 1.0F);
-            // TinkersUtils.addArrowMaterial(id, calcProjectileMass(mMaterial), calcProjectileFragility(mMaterial));
-
             NBTTagCompound tag = new NBTTagCompound();
             tag.setInteger("Id", id);
             tag.setString("Name", mUnlocalName);
@@ -215,8 +207,6 @@ public class BaseTinkersMaterial {
             return false;
         }
 
-        // Smeltery.addMelting(new ItemStack(ExtraUtils.unstableIngot, 1, 0), ExtraUtils.decorative1, 5, 850,
-        // aMaterial.getFluid(72));
         TinkersUtils.registerFluidType(mLocalName, aMatBlock, 0, aMelt, aFluid, true);
         TinkersUtils.addMelting(aMaterial.getBlock(1), aMatBlock, 0, aMelt, aMaterial.getFluidStack(144 * 9));
         TinkersUtils.addMelting(aMaterial.getIngot(1), aMatBlock, 0, aMelt, aMaterial.getFluidStack(144));
@@ -233,9 +223,6 @@ public class BaseTinkersMaterial {
         }
 
         boolean extended = TinkersUtils.generateCastingRecipes(aMaterial, aID);
-
-        // TConstructRegistry.getBasinCasting().addCastingRecipe(new ItemStack(ExtraUtils.decorative1, 1, 5), new
-        // FluidStack(unstable, 1296), (ItemStack)null, true, 100);
 
         return true;
     }

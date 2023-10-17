@@ -12,12 +12,6 @@ import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
 
 public class FR_Gregtech_Recipes {
 
-    private static final String rod_Electrum = "stickElectrum";
-    private static final String rod_LongElectrum = "stickLongElectrum";
-    private static final String foil_Electrum = "foilElectrum";
-    private static final String rod_Uranium = "stickUranium";
-    private static final String rod_LongUranium = "stickLongUranium";
-    private static final String foil_Uranium235 = "foilUranium235";
     private static final ItemStack hiveFrameAccelerated = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameAccelerated);
     private static final ItemStack hiveFrameMutagenic = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameMutagenic);
     private static final ItemStack hiveFrameVoid = ItemUtils.getSimpleStack(FR_ItemRegistry.hiveFrameVoid);
@@ -42,6 +36,9 @@ public class FR_Gregtech_Recipes {
 
     public static void registerItems() {
         // Magic Bee Like Frames
+        String foil_Electrum = "foilElectrum";
+        String rod_LongElectrum = "stickLongElectrum";
+        String rod_Electrum = "stickElectrum";
         RecipeUtils.addShapedGregtechRecipe(
                 rod_LongElectrum,
                 rod_Electrum,
@@ -54,6 +51,9 @@ public class FR_Gregtech_Recipes {
                 rod_Electrum,
                 hiveFrameAccelerated);
 
+        String foil_Uranium235 = "foilUranium235";
+        String rod_LongUranium = "stickLongUranium";
+        String rod_Uranium = "stickUranium";
         RecipeUtils.addShapedGregtechRecipe(
                 rod_LongUranium,
                 rod_Uranium,

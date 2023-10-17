@@ -37,9 +37,6 @@ public class ItemBlockGtFrameBox extends ItemBlock {
             sRadiation = 0;
         }
 
-        // GT_OreDictUnificator.registerOre("frameGt"+block.getUnlocalizedName().replace("tile.",
-        // "").replace("tile.BlockGtFrame", "").replace("-", "").replace("_", "").replace(" ", "").replace("FrameBox",
-        // ""), ItemUtils.getSimpleStack(this));
     }
 
     public int getRenderColor(final int aMeta) {

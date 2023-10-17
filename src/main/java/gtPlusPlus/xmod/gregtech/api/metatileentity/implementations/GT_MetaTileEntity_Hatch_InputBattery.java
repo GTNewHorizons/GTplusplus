@@ -150,9 +150,6 @@ public class GT_MetaTileEntity_Hatch_InputBattery extends GT_MetaTileEntity_Hatc
                         }
                     }
                 } else {
-                    // Utils.LOG_INFO("reCharger Slot Count = "+mMetaTileEntity.rechargerSlotCount());
-                    // Utils.LOG_INFO("getStoredEU = "+aBaseMetaTileEntity.getStoredEU());
-                    // Utils.LOG_INFO("getEUVar = "+mMetaTileEntity.getEUVar());
                 }
             }
         }

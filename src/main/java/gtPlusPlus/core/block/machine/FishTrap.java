@@ -36,14 +36,13 @@ public class FishTrap extends BlockContainer implements ITileTooltip {
     @SideOnly(Side.CLIENT)
     private IIcon textureFront;
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 0;
-
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 0;
+        return mTooltipID;
     }
 
     public FishTrap() {

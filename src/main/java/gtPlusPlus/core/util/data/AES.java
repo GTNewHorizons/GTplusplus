@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
 
-    private final String secret;;
+    ;
 
     private final SecretKeySpec secretKey;
 
@@ -26,9 +26,7 @@ public class AES {
 
     public AES(String aSecret) {
 
-        secret = aSecret;
-
-        key = getBytes(getHashedString(secret));
+        key = getBytes(getHashedString(aSecret));
 
         secretKey = generateKey(key);
     }
@@ -70,7 +68,7 @@ public class AES {
         return hexString.toString();
     }
 
-    private final byte[] getBytes(String aKey) {
+    private byte[] getBytes(String aKey) {
 
         byte[] aKeyData;
 
@@ -111,27 +109,9 @@ public class AES {
         return new byte[] {};
     }
 
-    private final SecretKeySpec generateKey(byte[] aKey) {
+    private SecretKeySpec generateKey(byte[] aKey) {
 
         return new SecretKeySpec(aKey, "AES");
-    }
-
-    public String encode(String strToEncrypt) {
-
-        try {
-
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-            return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
-
-        } catch (Exception e) {
-
-            System.out.println("Error while encrypting: " + e.toString());
-        }
-
-        return null;
     }
 
     public String decode(String strToDecrypt) {

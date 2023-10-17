@@ -377,9 +377,6 @@ public final class ModItems {
             MaterialGenerator.generate(ALLOY.TUNGSTEN_TITANIUM_CARBIDE);
 
             // LFTR Fuel components
-            // MaterialGenerator.generate(MISC_MATERIALS.HYDROXIDE); //LFTR fuel component
-            // MaterialGenerator.generate(MISC_MATERIALS.AMMONIA); //LFTR fuel component
-            // MaterialGenerator.generate(MISC_MATERIALS.AMMONIUM); //LFTR fuel component
             MaterialGenerator.generateNuclearDusts(FLUORIDES.AMMONIUM_BIFLUORIDE); // LFTR fuel component
             MaterialGenerator.generateNuclearDusts(FLUORIDES.BERYLLIUM_HYDROXIDE); // LFTR fuel component
             // MaterialGenerator.generateNuclearDusts(FLUORIDES.AMMONIUM_TETRAFLUOROBERYLLATE); // LFTR fuel component
@@ -612,12 +609,6 @@ public final class ModItems {
         // fluidLftrCore4 = FluidUtils.addGTFluidNoPrefix("LiFBeF2UF4", "LiFBeF2UF4", new short[]{50, 255, 100, 100}, 0,
         // 800, null, CI.emptyCells(1), 1000, true);
         // LFTR Blanket Fluid Processing
-        // fluidLftrBlanket1 = FluidUtils.addGTFluidNoPrefix("LiFThF4", "LiFThF4", new short[]{50, 150, 255, 50}, 0,
-        // 500, null, CI.emptyCells(1), 1000, true);
-        // fluidLftrBlanket2 = FluidUtils.addGTFluidNoPrefix("LiFBeF2ThF4", "LiFBeF2ThF4", new short[]{100, 150, 100,
-        // 100}, 0, 500, null, CI.emptyCells(1), 1000, true);
-        // fluidLftrBlanket3 = FluidUtils.addGTFluidNoPrefix("UF6F2", "UF6F2", new short[]{10, 150, 10, 100}, 0, 500,
-        // null, CI.emptyCells(1), 1000, true);
         fluidNuclearWaste = FluidUtils.addGTFluidNoPrefix(
                 "nuclear.waste",
                 "Nuclear Waste",
@@ -665,10 +656,6 @@ public final class ModItems {
          * GT_OreDictUnificator.registerOre("dustZrF4",
          * ItemUtils.getItemStackOfAmountFromOreDict("dustZirconiumTetrafluoride", 1));
          */
-        // GT_OreDictUnificator.registerOre("cellZrF4",
-        // ItemUtils.getItemStackOfAmountFromOreDict("cellZirconiumTetrafluoride", 1));
-        // GT_OreDictUnificator.registerOre("dustZrF4",
-        // ItemUtils.getItemStackOfAmountFromOreDict("dustZirconiumTetrafluoride", 1));
         fluidZrF4 = FluidUtils.generateFluidNoPrefix(
                 "ZirconiumTetrafluoride",
                 "Zirconium Tetrafluoride",

@@ -32,7 +32,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 public class GregtechMetaTileEntity_SteamCompressor
         extends GregtechMeta_SteamMultiBase<GregtechMetaTileEntity_SteamCompressor> implements ISurvivalConstructable {
 
-    private final String mCasingName = "Bronze Plated Bricks";
     private static IStructureDefinition<GregtechMetaTileEntity_SteamCompressor> STRUCTURE_DEFINITION = null;
     private int mCasing;
 
@@ -67,6 +66,7 @@ public class GregtechMetaTileEntity_SteamCompressor
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
+        String mCasingName = "Bronze Plated Bricks";
         tt.addMachineType(getMachineType()).addInfo("Controller Block for the Steam Compressor")
                 .addInfo("Compresses " + getMaxParallelRecipes() + " things at a time").addSeparator()
                 .beginStructureBlock(3, 3, 4, true).addController("Front center")

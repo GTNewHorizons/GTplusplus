@@ -65,8 +65,8 @@ public enum CustomCombs {
             { 0xEBA1EB, 0xF2C3F2 }, { 0x62626D, 0x161620 }, { 0xE6E6E6, 0xFFFFCC }, { 0xDADADA, 0xD1D1E0 },
             { 0x19AF19, 0x169E16 }, { 0x335C33, 0x6B8F00 }, { 0x003300, 0x002400 }, };
     public boolean showInList;
-    public Materials material;
-    public int chance;
+    public final Materials material;
+    public final int chance;
     private final String name;
 
     private CustomCombs(String pName, boolean show, Materials material, int chance) {

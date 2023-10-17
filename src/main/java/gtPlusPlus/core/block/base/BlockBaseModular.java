@@ -75,8 +75,6 @@ public class BlockBaseModular extends BasicBlock {
         this.thisBlockType = blockType.name().toUpperCase();
         this.setBlockName(this.getUnlocalizedProperName());
         int fx = getBlockTypeMeta();
-        // ItemBlockGtBlock.sNameCache.put("block."+blockMaterial.getUnlocalizedName()+"."+this.thisBlock.name().toLowerCase(),
-        // GetProperName());
         GameRegistry.registerBlock(
                 this,
                 ItemBlockGtBlock.class,

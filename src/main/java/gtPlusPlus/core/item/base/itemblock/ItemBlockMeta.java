@@ -39,9 +39,7 @@ public class ItemBlockMeta extends ItemBlockWithMetadata {
             if (!aTooltips.isEmpty()) {
                 AutoMap<String> h = aTooltips.get(stack.getItemDamage());
                 if (h != null && !h.isEmpty()) {
-                    for (String s : h) {
-                        list.add(s);
-                    }
+                    list.addAll(h);
                 }
             }
         }

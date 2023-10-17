@@ -23,11 +23,9 @@ import gtPlusPlus.core.creative.AddToCreativeTab;
 public class LightGlass extends BlockAir {
 
     private int state = 0;
-    private final int a = 255;
     private int r = 255;
     private int g = 0;
     private int b = 0;
-    private int hex;
 
     public LightGlass(final boolean bool) {
         super();
@@ -120,8 +118,9 @@ public class LightGlass extends BlockAir {
                 this.state = 0;
             }
         }
-        this.hex = (this.a << 24) + (this.r << 16) + (this.g << 8) + (this.b);
-        return this.hex;
+        int a = 255;
+        int hex = (a << 24) + (this.r << 16) + (this.g << 8) + (this.b);
+        return hex;
     }
 
     /**

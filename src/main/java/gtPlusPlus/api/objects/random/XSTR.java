@@ -28,7 +28,6 @@ public class XSTR extends Random implements Cloneable {
 
     private static final long serialVersionUID = 6208727693524452904L;
     private long seed;
-    private long last;
     private static final long GAMMA = 0x9e3779b97f4a7c15L;
     private static final int PROBE_INCREMENT = 0x9e3779b9;
     private static final long SEEDER_INCREMENT = 0xbb67ae8584caa73bL;
@@ -217,11 +216,11 @@ public class XSTR extends Random implements Cloneable {
          * * (long) r) >> 31); } else { for (int u = r; u - (r = u % bound) + m < 0; u = next(31)) ; } return r;
          */
         // speedup, new nextInt ~+40%
-        this.last = this.seed ^ (this.seed << 21);
-        this.last ^= (this.last >>> 35);
-        this.last ^= (this.last << 4);
-        this.seed = this.last;
-        final int out = (int) this.last % newBound;
+        long last = this.seed ^ (this.seed << 21);
+        last ^= (last >>> 35);
+        last ^= (last << 4);
+        this.seed = last;
+        final int out = (int) last % newBound;
         return (out < 0) ? -out : out;
     }
 

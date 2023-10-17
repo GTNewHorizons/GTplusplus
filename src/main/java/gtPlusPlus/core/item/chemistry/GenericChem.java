@@ -100,8 +100,6 @@ public class GenericChem extends ItemPackage {
     public static ItemGenericChemBase mGenericChemItem1;
     public static Item mAdvancedCircuit;
 
-    private ItemStack mCatalystCarrier;
-
     public static ItemStack mRedCatalyst;
     public static ItemStack mYellowCatalyst;
     public static ItemStack mBlueCatalyst;
@@ -148,8 +146,6 @@ public class GenericChem extends ItemPackage {
                 "Phenolic Resin",
                 "HOC6H4CH2OH",
                 Utils.rgbtoHexValue(80, 40, 40))[0];
-        // MaterialGenerator.generate(BAKELITE, false);
-        // MaterialGenerator.generate(NYLON, false);
         MaterialGenerator.generate(TEFLON, false);
 
         mGenericChemItem1 = new ItemGenericChemBase();
@@ -165,7 +161,7 @@ public class GenericChem extends ItemPackage {
 
     public void registerItemStacks() {
 
-        mCatalystCarrier = ItemUtils.simpleMetaStack(AgriculturalChem.mAgrichemItem1, 13, 1);
+        ItemStack mCatalystCarrier = ItemUtils.simpleMetaStack(AgriculturalChem.mAgrichemItem1, 13, 1);
 
         mRedCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 0, 1);
         mYellowCatalyst = ItemUtils.simpleMetaStack(mGenericChemItem1, 1, 1);

@@ -37,14 +37,13 @@ public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
     @SideOnly(Side.CLIENT)
     private IIcon textureFront;
 
-    /**
-     * Determines which tooltip is displayed within the itemblock.
-     */
-    private final int mTooltipID = 6;
-
     @Override
     public int getTooltipID() {
-        return this.mTooltipID;
+        /**
+         * Determines which tooltip is displayed within the itemblock.
+         */
+        int mTooltipID = 6;
+        return mTooltipID;
     }
 
     public Machine_PestKiller() {

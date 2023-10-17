@@ -67,8 +67,6 @@ public class ClassTransformer_Forge_ChunkLoading {
     String aWorld;
     String aEntity;
 
-    private static final boolean doesMethodAlreadyExist = false;
-
     public ClassTransformer_Forge_ChunkLoading(byte[] basicClass, boolean obfuscated) {
 
         ClassReader aTempReader = null;
@@ -86,6 +84,7 @@ public class ClassTransformer_Forge_ChunkLoading {
         reader = aTempReader;
         writer = aTempWriter;
 
+        boolean doesMethodAlreadyExist = false;
         if (reader != null && writer != null && !doesMethodAlreadyExist) {
 
             aChunkCoordIntPair = obfuscated ? DevHelper.getObfuscated("net/minecraft/world/ChunkCoordIntPair")

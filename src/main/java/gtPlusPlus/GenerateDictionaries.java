@@ -118,8 +118,6 @@ public class GenerateDictionaries {
             boolean blnCreated = false;
             log("Trying to use relative path " + aFile.getPath());
             try {
-                // log("Trying to use path "+aFile.getCanonicalPath());
-                // log("Trying to use absolute path "+aFile.getAbsolutePath());
                 blnCreated = aFile.createNewFile();
             } catch (IOException ioe) {
                 log("Error while creating a new empty file :" + ioe);

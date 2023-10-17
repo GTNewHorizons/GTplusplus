@@ -65,8 +65,6 @@ public class BlockSuperLight extends BlockContainer {
 
         private long mLastUpdateTick = 0;
 
-        private int mLitBlockCount = 0;
-
         private int[][][][] aLitBlocks = new int[50][10][50][1];
 
         private boolean mPowered = false;
@@ -208,7 +206,7 @@ public class BlockSuperLight extends BlockContainer {
                     }
                 }
             }
-            mLitBlockCount = aLitCounter;
+            int mLitBlockCount = aLitCounter;
             doLargeBlockUpdate(aBlocksToUpdate);
         }
 
@@ -217,8 +215,6 @@ public class BlockSuperLight extends BlockContainer {
                 return;
             }
             for (BlockPos p : aUpdateMap) {
-                // this.worldObj.markBlockForUpdate(p.xPos, p.yPos, p.zPos);
-                // this.worldObj.markBlocksDirtyVertical(p_72975_1_, p_72975_2_, p_72975_3_, p_72975_4_);
             }
         }
     }

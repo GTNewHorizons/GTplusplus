@@ -60,10 +60,6 @@ public class ClassTransformer_TT_ThaumicRestorer {
     private static boolean mInit = false;
 
     private static Class mTileRepairerClass;
-    private static Class mTTConfigHandler;
-    private static Class mTinkersConstructCompat;
-    private static Class mThaumicTinkerer;
-    private static Class mTCProxy;
 
     private static Method mIsTcTool;
     private static Method mGetTcDamage;
@@ -71,7 +67,6 @@ public class ClassTransformer_TT_ThaumicRestorer {
     private static Method mSparkle;
     private static Method mDrawEssentia;
 
-    private static Field mRepairTiconTools;
     private static Field mTicksExisted;
     private static Field mInventory;
     private static Field mTookLastTick;
@@ -106,10 +101,10 @@ public class ClassTransformer_TT_ThaumicRestorer {
         if (!mInit) {
             // Set the classes we need
             mTileRepairerClass = ReflectionUtils.getClass("thaumic.tinkerer.common.block.tile.TileRepairer");
-            mTTConfigHandler = ReflectionUtils.getClass("thaumic.tinkerer.common.core.handler.ConfigHandler");
-            mTinkersConstructCompat = ReflectionUtils.getClass("thaumic.tinkerer.common.compat.TinkersConstructCompat");
-            mThaumicTinkerer = ReflectionUtils.getClass("thaumic.tinkerer.common.ThaumicTinkerer");
-            mTCProxy = ReflectionUtils.getClass("thaumcraft.common.CommonProxy");
+            Class mTTConfigHandler = ReflectionUtils.getClass("thaumic.tinkerer.common.core.handler.ConfigHandler");
+            Class mTinkersConstructCompat = ReflectionUtils.getClass("thaumic.tinkerer.common.compat.TinkersConstructCompat");
+            Class mThaumicTinkerer = ReflectionUtils.getClass("thaumic.tinkerer.common.ThaumicTinkerer");
+            Class mTCProxy = ReflectionUtils.getClass("thaumcraft.common.CommonProxy");
             // Set the methods we need
             mIsTcTool = ReflectionUtils
                     .getMethod(mTinkersConstructCompat, "isTConstructTool", new Class[] { ItemStack.class });
@@ -121,7 +116,7 @@ public class ClassTransformer_TT_ThaumicRestorer {
                     .getMethod(mTCProxy, "sparkle", new Class[] { float.class, float.class, float.class, int.class });
             mDrawEssentia = ReflectionUtils.getMethod(mTileRepairerClass, "drawEssentia", new Class[] {});
             // Set the fields we need
-            mRepairTiconTools = ReflectionUtils.getField(mTTConfigHandler, "repairTConTools");
+            Field mRepairTiconTools = ReflectionUtils.getField(mTTConfigHandler, "repairTConTools");
             mTicksExisted = ReflectionUtils.getField(mTileRepairerClass, "ticksExisted");
             mInventory = ReflectionUtils.getField(mTileRepairerClass, "inventorySlots");
             mTookLastTick = ReflectionUtils.getField(mTileRepairerClass, "tookLastTick");

@@ -87,10 +87,6 @@ public class RecipeUtils {
                 }
             }
         } catch (RuntimeException k) {
-            // k.getMessage();
-            // k.getClass();
-            // k.printStackTrace();
-            // k.getLocalizedMessage();
             Logger.RECIPE(
                     "[Fix] Invalid Recipe detected for: " + resultItem != null ? resultItem.getUnlocalizedName()
                             : "INVALID OUTPUT ITEM");
