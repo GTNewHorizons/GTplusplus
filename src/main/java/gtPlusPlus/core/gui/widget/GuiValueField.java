@@ -8,7 +8,6 @@ import net.minecraft.client.gui.GuiTextField;
 
 import gtPlusPlus.core.gui.machine.GUI_VolumetricFlaskSetter;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.DevHelper;
 
 public class GuiValueField extends GuiTextField {
 

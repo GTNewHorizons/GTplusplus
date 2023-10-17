@@ -1,12 +1,5 @@
 package gtPlusPlus.plugin.fixes.vanilla;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import gtPlusPlus.preloader.CORE_Preloader;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.api.interfaces.IPlugin;
@@ -14,7 +7,12 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.plugin.fixes.interfaces.IBugFix;
-import gtPlusPlus.preloader.DevHelper;
+import gtPlusPlus.preloader.CORE_Preloader;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class VanillaBedHeightFix implements IBugFix {
 
@@ -23,25 +21,21 @@ public class VanillaBedHeightFix implements IBugFix {
 
     public VanillaBedHeightFix(IPlugin minstance) {
         mParent = minstance;
-        if (DevHelper.isValidHelperObject()) {
-            Method m;
-            if (!CORE_Preloader.DEV_ENVIRONMENT) {
-                m = ReflectionUtils.getMethod(EntityPlayer.class, "func_71018_a", int.class, int.class, int.class);
-            } else {
-                m = ReflectionUtils.getMethod(
-                        net.minecraft.entity.player.EntityPlayer.class,
-                        "sleepInBedAt",
-                        int.class,
-                        int.class,
-                        int.class);
-            }
-            if (m != null) {
-                mSleepInBedAt = m;
-                mParent.log("Registering Bed Height Fix.");
-                Utils.registerEvent(this);
-            } else {
-                mSleepInBedAt = null;
-            }
+        Method m;
+        if (!CORE_Preloader.DEV_ENVIRONMENT) {
+            m = ReflectionUtils.getMethod(EntityPlayer.class, "func_71018_a", int.class, int.class, int.class);
+        } else {
+            m = ReflectionUtils.getMethod(
+                    net.minecraft.entity.player.EntityPlayer.class,
+                    "sleepInBedAt",
+                    int.class,
+                    int.class,
+                    int.class);
+        }
+        if (m != null) {
+            mSleepInBedAt = m;
+            mParent.log("Registering Bed Height Fix.");
+            Utils.registerEvent(this);
         } else {
             mSleepInBedAt = null;
         }

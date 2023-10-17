@@ -19,7 +19,6 @@ import baubles.api.BaubleType;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.DevHelper;
 
 public class FireProtectionBauble extends BaseBauble {
 

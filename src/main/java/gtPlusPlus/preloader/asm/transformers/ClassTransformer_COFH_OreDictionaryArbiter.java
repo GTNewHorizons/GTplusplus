@@ -9,6 +9,7 @@ import static org.objectweb.asm.Opcodes.RETURN;
 
 import java.util.ArrayList;
 
+import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -29,7 +30,6 @@ import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.DevHelper;
 
 public class ClassTransformer_COFH_OreDictionaryArbiter {
 
@@ -75,14 +75,7 @@ public class ClassTransformer_COFH_OreDictionaryArbiter {
 
     public void injectMethod(String aMethodName) {
 
-        boolean isObfuscated;
-        try {
-            isObfuscated = Class.forName("net.minecraft.item.ItemStack") != null ? false : true;
-        } catch (ClassNotFoundException e) {
-            isObfuscated = true;
-        }
-        String aItemStack = isObfuscated ? DevHelper.getObfuscated("net/minecraft/item/ItemStack")
-                : "net/minecraft/item/ItemStack";
+        String aItemStack = "net/minecraft/item/ItemStack";
         MethodVisitor mv;
         if (aMethodName.equals("registerOreDictionaryEntry")) {
             FMLRelaunchLog.log(

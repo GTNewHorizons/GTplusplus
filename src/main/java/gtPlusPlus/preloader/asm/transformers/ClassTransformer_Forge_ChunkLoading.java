@@ -50,7 +50,6 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import gtPlusPlus.preloader.DevHelper;
 
 public class ClassTransformer_Forge_ChunkLoading {
 
@@ -88,11 +87,9 @@ public class ClassTransformer_Forge_ChunkLoading {
 
         if (reader != null && writer != null && !doesMethodAlreadyExist) {
 
-            aChunkCoordIntPair = obfuscated ? DevHelper.getObfuscated("net/minecraft/world/ChunkCoordIntPair")
-                    : "net/minecraft/world/ChunkCoordIntPair";
-            aWorld = obfuscated ? DevHelper.getObfuscated("net/minecraft/world/World") : "net/minecraft/world/World";
-            aEntity = obfuscated ? DevHelper.getObfuscated("net/minecraft/entity/Entity")
-                    : "net/minecraft/entity/Entity";
+            aChunkCoordIntPair = "net/minecraft/world/ChunkCoordIntPair";
+            aWorld = "net/minecraft/world/World";
+            aEntity = "net/minecraft/entity/Entity";
 
             injectMethod("forceChunk");
             injectMethod("unforceChunk");

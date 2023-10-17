@@ -37,7 +37,6 @@ import cpw.mods.fml.relauncher.CoreModManager;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.DevHelper;
 import gtPlusPlus.preloader.Preloader_Logger;
 import gtPlusPlus.preloader.asm.AsmConfig;
 import gtPlusPlus.preloader.asm.transformers.Preloader_ClassTransformer.OreDictionaryVisitor;
@@ -49,8 +48,6 @@ public class Preloader_Transformer_Handler implements IClassTransformer {
 
     static {
         mConfig = new AsmConfig(new File("config/GTplusplus/asm.cfg"));
-        Preloader_Logger.INFO("Config Location: " + AsmConfig.config.getConfigFile().getAbsolutePath());
-        Preloader_Logger.INFO("Is DevHelper Valid? " + DevHelper.mIsValidHelper);
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_BASE_TILE_ENTITY);
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_MACHINE1);
         IC2_WRENCH_PATCH_CLASS_NAMES.add(IC2_BLOCK_MACHINE2);
