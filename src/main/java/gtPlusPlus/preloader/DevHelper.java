@@ -42,31 +42,11 @@ public class DevHelper {
         return !deobfuscatedEnvironment;
     }
 
-    @SuppressWarnings("rawtypes")
-    public static Method getForgeMethod(Class c, String s, Class... varags) {
-        String s1, s2;
-        Method a, b;
-        s1 = s;
-        s2 = getSRG(s);
-        try {
-            a = ReflectionUtils.getMethod(c, s1, varags);
-            if (a != null) {
-                return a;
-            } else {
-                b = ReflectionUtils.getMethod(c, s2, varags);
-                if (b != null) {
-                    return b;
-                }
-            }
-        } catch (Exception e) {}
-        return null;
-    }
-
     private static synchronized DevHelper getInstance() {
         return mInstance;
     }
 
-    public static final synchronized boolean isValidHelperObject() {
+    public static synchronized boolean isValidHelperObject() {
         return mIsValidHelper;
     }
 
@@ -75,10 +55,6 @@ public class DevHelper {
         return aSRG != null ? aSRG : "BAD_SRG_NAME";
     }
 
-    public static String getForge(String mSrgName) {
-        String aForgeName = DevHelperInternals.srgToForge.get(mSrgName);
-        return aForgeName != null ? aForgeName : "BAD_FORGE_NAME";
-    }
 
     public static String getMinecraftClassName(String adeObName, boolean obfuscated) {
         if (obfuscated) {

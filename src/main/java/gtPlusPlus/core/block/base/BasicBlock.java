@@ -14,14 +14,6 @@ import gtPlusPlus.core.util.Utils;
 
 public class BasicBlock extends BlockContainer {
 
-    public BasicBlock(final String unlocalizedName, final Material material) {
-        this(BlockTypes.STANDARD, unlocalizedName, material, 2);
-    }
-
-    public BasicBlock(final BlockTypes type, final String unlocalizedName, final Material material) {
-        this(type, unlocalizedName, material, 2);
-    }
-
     public BasicBlock(BlockTypes type, final String unlocalizedName, final Material material, final int harvestLevel) {
         super(material);
         this.setBlockName(Utils.sanitizeString(unlocalizedName));
@@ -48,7 +40,7 @@ public class BasicBlock extends BlockContainer {
         private final String HARVEST_TOOL;
         private final SoundType soundOfBlock;
 
-        private BlockTypes(final String textureName, final String harvestTool, final SoundType blockSound) {
+        BlockTypes(final String textureName, final String harvestTool, final SoundType blockSound) {
             this.TEXTURE_NAME = textureName;
             this.HARVEST_TOOL = harvestTool;
             this.soundOfBlock = blockSound;
@@ -62,9 +54,6 @@ public class BasicBlock extends BlockContainer {
             return this.HARVEST_TOOL;
         }
 
-        public SoundType getBlockSoundType() {
-            return this.soundOfBlock;
-        }
     }
 
     @Override
