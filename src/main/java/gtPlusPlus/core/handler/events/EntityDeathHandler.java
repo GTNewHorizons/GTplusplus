@@ -37,7 +37,7 @@ public class EntityDeathHandler {
                 aChance);
         AutoMap<Triplet<ItemStack, Integer, Integer>> aDataMap = mMobDropMap.get(aMobClass);
         if (aDataMap == null) {
-            aDataMap = new AutoMap<Triplet<ItemStack, Integer, Integer>>();
+            aDataMap = new AutoMap<>();
         }
         aDataMap.put(aData);
         mMobDropMap.put(aMobClass, aDataMap);
@@ -49,9 +49,7 @@ public class EntityDeathHandler {
                         + ") as a valid drop for "
                         + aMobClass.getCanonicalName());
 
-        if (!mInternalClassKeyCache.contains(aMobClass)) {
-            mInternalClassKeyCache.add(aMobClass);
-        }
+        mInternalClassKeyCache.add(aMobClass);
     }
 
     private static ItemStack processItemDropTriplet(Triplet<ItemStack, Integer, Integer> aData) {
@@ -117,7 +115,6 @@ public class EntityDeathHandler {
 
     @SubscribeEvent
     public void onEntityDrop(LivingDropsEvent event) {
-        boolean aDidDrop = false;
         if (event == null || event.entityLiving == null) {
             return;
         }
@@ -125,9 +122,9 @@ public class EntityDeathHandler {
             EntityPlayer aPlayer = (EntityPlayer) event.entityLiving;
             dropMeatFromPlayer(aPlayer);
         } else {
-            for (Class c : mInternalClassKeyCache) {
+            for (Class<?> c : mInternalClassKeyCache) {
                 if (c.isInstance(event.entityLiving)) {
-                    aDidDrop = processDropsForMob(event.entityLiving);
+                    processDropsForMob(event.entityLiving);
                 }
             }
         }

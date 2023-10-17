@@ -43,10 +43,8 @@ import gtPlusPlus.core.commands.CommandMath;
 import gtPlusPlus.core.common.CommonProxy;
 import gtPlusPlus.core.config.ConfigHandler;
 import gtPlusPlus.core.handler.BookHandler;
-import gtPlusPlus.core.handler.MobMentality;
 import gtPlusPlus.core.handler.PacketHandler;
 import gtPlusPlus.core.handler.Recipes.RegistrationHandler;
-import gtPlusPlus.core.handler.events.LoginEventHandler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
@@ -87,7 +85,7 @@ import gtPlusPlus.xmod.thaumcraft.commands.CommandDumpAspects;
                 + " required-after:gtnhlib@[0.0.10,);")
 public class GTplusplus implements ActionListener {
 
-    public static enum INIT_PHASE {
+    public enum INIT_PHASE {
 
         SUPER(null),
         PRE_INIT(SUPER),
@@ -99,7 +97,7 @@ public class GTplusplus implements ActionListener {
         protected boolean mIsPhaseActive = false;
         private final INIT_PHASE mPrev;
 
-        private INIT_PHASE(INIT_PHASE aPreviousPhase) {
+        INIT_PHASE(INIT_PHASE aPreviousPhase) {
             mPrev = aPreviousPhase;
         }
 
@@ -170,11 +168,6 @@ public class GTplusplus implements ActionListener {
 
         // Check for Dev
         CORE.DEVENV = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
-        // Utils.LOG_INFO("User's Country: " + CORE.USER_COUNTRY);
-
-        Utils.registerEvent(new LoginEventHandler());
-        Utils.registerEvent(new MobMentality());
-        Logger.INFO("Login Handler Initialized");
 
         proxy.preInit(event);
         Logger.INFO("Setting up our own GT_Proxy.");
