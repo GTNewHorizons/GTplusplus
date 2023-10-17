@@ -3,6 +3,7 @@ package gtPlusPlus.plugin.fixes.vanilla;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 
@@ -24,7 +25,7 @@ public class VanillaBedHeightFix implements IBugFix {
         mParent = minstance;
         if (DevHelper.isValidHelperObject()) {
             Method m;
-            if (DevHelper.isObfuscatedEnvironment()) {
+            if (!CORE_Preloader.DEV_ENVIRONMENT) {
                 m = ReflectionUtils.getMethod(EntityPlayer.class, "func_71018_a", int.class, int.class, int.class);
             } else {
                 m = ReflectionUtils.getMethod(

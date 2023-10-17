@@ -28,21 +28,6 @@ public class DevHelper {
 
     public DevHelper() {}
 
-    public static boolean isObfuscatedEnvironment() {
-        // Are we in a 'decompiled' environment?
-        boolean deobfuscatedEnvironment = false;
-        byte[] bs;
-        try {
-            bs = Launch.classLoader.getClassBytes("net.minecraft.world.World");
-            if (bs != null) {
-                deobfuscatedEnvironment = true;
-            } else {
-                deobfuscatedEnvironment = false;
-            }
-        } catch (IOException ignored) {}
-        return !deobfuscatedEnvironment;
-    }
-
     public static synchronized boolean isValidHelperObject() {
         return mIsValidHelper;
     }

@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -23,7 +24,7 @@ import gtPlusPlus.preloader.DevHelper;
 public class PlayerSleepEventHandler {
 
     private static Field sEffectDuration = ReflectionUtils
-            .getField(PotionEffect.class, DevHelper.isObfuscatedEnvironment() ? "field_76460_b" : "duration");
+            .getField(PotionEffect.class, !CORE_Preloader.DEV_ENVIRONMENT ? "field_76460_b" : "duration");
     private static ArrayList<Potion> sPositiveEffects = new ArrayList<Potion>();
     private static ArrayList<Potion> sNegativeEffects = new ArrayList<Potion>();
 

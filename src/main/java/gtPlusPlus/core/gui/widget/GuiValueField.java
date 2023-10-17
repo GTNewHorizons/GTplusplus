@@ -2,6 +2,7 @@ package gtPlusPlus.core.gui.widget;
 
 import java.lang.reflect.Field;
 
+import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiTextField;
 
@@ -25,15 +26,6 @@ public class GuiValueField extends GuiTextField {
         mGUI = aGUI;
     }
 
-    public boolean canLoseFocus() {
-        Field canLoseFocus = ReflectionUtils
-                .getField(GuiTextField.class, DevHelper.isObfuscatedEnvironment() ? "field_146212_n" : "canLoseFocus");
-        if (canLoseFocus != null) {
-            return (boolean) ReflectionUtils.getFieldValue(canLoseFocus, this);
-        }
-        return true;
-    }
-
     @Override
     public boolean isFocused() {
         return super.isFocused();
@@ -42,9 +34,9 @@ public class GuiValueField extends GuiTextField {
     public boolean isBackgroundDrawingEnabled() {
         Field enableBackgroundDrawing = ReflectionUtils.getField(
                 GuiTextField.class,
-                DevHelper.isObfuscatedEnvironment() ? "field_146215_m" : "enableBackgroundDrawing");
+                !CORE_Preloader.DEV_ENVIRONMENT ? "field_146215_m" : "enableBackgroundDrawing");
         if (enableBackgroundDrawing != null) {
-            return (boolean) ReflectionUtils.getFieldValue(enableBackgroundDrawing, this);
+            return ReflectionUtils.getFieldValue(enableBackgroundDrawing, this);
         }
         return true;
     }
@@ -52,7 +44,7 @@ public class GuiValueField extends GuiTextField {
     public int getLineScrollOffset() {
         Field lineScrollOffset = ReflectionUtils.getField(
                 GuiTextField.class,
-                DevHelper.isObfuscatedEnvironment() ? "field_146225_q" : "lineScrollOffset");
+                !CORE_Preloader.DEV_ENVIRONMENT ? "field_146225_q" : "lineScrollOffset");
         if (lineScrollOffset != null) {
             return (int) ReflectionUtils.getFieldValue(lineScrollOffset, this);
         }

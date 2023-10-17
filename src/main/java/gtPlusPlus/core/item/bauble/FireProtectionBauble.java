@@ -5,6 +5,7 @@ import static gregtech.api.enums.Mods.GTPlusPlus;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import gtPlusPlus.preloader.CORE_Preloader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +27,7 @@ public class FireProtectionBauble extends BaseBauble {
 
     static {
         isImmuneToFire = ReflectionUtils
-                .getField(Entity.class, DevHelper.isObfuscatedEnvironment() ? "func_70045_F" : "isImmuneToFire");
+                .getField(Entity.class, !CORE_Preloader.DEV_ENVIRONMENT ? "func_70045_F" : "isImmuneToFire");
     }
 
     public static boolean fireImmune(Entity aEntity) {
