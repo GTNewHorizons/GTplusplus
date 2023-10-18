@@ -88,7 +88,6 @@ public class RECIPES_GREGTECH {
     private static void execute() {
         electrolyzerRecipes();
         assemblerRecipes();
-        fluidCannerRecipes();
         distilleryRecipes();
         extractorRecipes();
         fluidExtractorRecipes();
@@ -790,24 +789,6 @@ public class RECIPES_GREGTECH {
                 0,
                 20 * 120,
                 491520);
-    }
-
-    private static void fluidCannerRecipes() {
-        // Sulfuric Acid
-        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.glass_bottle))
-                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion))
-                .fluidInputs(Materials.SulfuricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
-        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(ModItems.itemSulfuricPotion))
-                .itemOutputs(ItemUtils.getSimpleStack(Items.glass_bottle))
-                .fluidOutputs(Materials.SulfuricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
-
-        // Hydrofluoric Acid
-        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.glass_bottle))
-                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion))
-                .fluidInputs(Materials.HydrofluoricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
-        GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(ModItems.itemHydrofluoricPotion))
-                .itemOutputs(ItemUtils.getSimpleStack(Items.glass_bottle))
-                .fluidOutputs(Materials.HydrofluoricAcid.getFluid(250)).duration(4).eut(1).addTo(sFluidCannerRecipes);
     }
 
     private static void dehydratorRecipes() {

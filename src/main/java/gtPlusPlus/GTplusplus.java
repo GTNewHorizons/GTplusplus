@@ -7,7 +7,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
 import java.util.HashMap;
 
 import net.minecraft.block.Block;
@@ -32,10 +31,8 @@ import gregtech.api.enums.Materials;
 import gregtech.api.util.FishPondFakeRecipe;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.SemiFluidFuelHandler;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.commands.CommandDebugChunks;
 import gtPlusPlus.core.commands.CommandEnableDebugWhileRunning;
 import gtPlusPlus.core.commands.CommandMath;
 import gtPlusPlus.core.common.CommonProxy;
@@ -47,7 +44,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.LocaleUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.nei.NEI_IMC_Sender;
 import gtPlusPlus.plugin.manager.Core_Manager;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
@@ -157,7 +153,6 @@ public class GTplusplus implements ActionListener {
         }
 
         // Give this a go mate.
-        // initAnalytics();
         setupMaterialBlacklist();
 
         // Handle GT++ Config
@@ -227,7 +222,6 @@ public class GTplusplus implements ActionListener {
         INIT_PHASE.SERVER_START.setPhaseActive(true);
         event.registerServerCommand(new CommandMath());
         event.registerServerCommand(new CommandEnableDebugWhileRunning());
-        event.registerServerCommand(new CommandDebugChunks());
         if (Thaumcraft.isModLoaded()) {
             event.registerServerCommand(new CommandDumpAspects());
         }
@@ -259,13 +253,10 @@ public class GTplusplus implements ActionListener {
 
     protected void generateGregtechRecipeMaps() {
 
-        int[] mValidCount = new int[] { 0, 0, 0 };
         int[] mInvalidCount = new int[] { 0, 0, 0, 0, 0, 0, 0 };
-        int[] mOriginalCount = new int[] { 0, 0, 0 };
 
         RecipeGen_BlastSmelterGT_GTNH.generateGTNHBlastSmelterRecipesFromEBFList();
         FishPondFakeRecipe.generateFishPondRecipes();
-        // GregtechMiniRaFusion.generateSlowFusionrecipes();
         SemiFluidFuelHandler.generateFuels();
 
         mInvalidCount[0] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
@@ -291,22 +282,7 @@ public class GTplusplus implements ActionListener {
                 GTPP_Recipe.GTPP_Recipe_Map.sNuclearSaltProcessingPlantRecipes);
     }
 
-    protected void dumpGtRecipeMap(final GT_Recipe_Map r) {
-        final Collection<GT_Recipe> x = r.mRecipeList;
-        Logger.INFO("Dumping " + r.mUnlocalizedName + " Recipes for Debug.");
-        for (final GT_Recipe newBo : x) {
-            Logger.INFO("========================");
-            Logger.INFO("Dumping Input: " + ItemUtils.getArrayStackNames(newBo.mInputs));
-            Logger.INFO("Dumping Inputs " + ItemUtils.getFluidArrayStackNames(newBo.mFluidInputs));
-            Logger.INFO("Dumping Duration: " + newBo.mDuration);
-            Logger.INFO("Dumping EU/t: " + newBo.mEUt);
-            Logger.INFO("Dumping Output: " + ItemUtils.getArrayStackNames(newBo.mOutputs));
-            Logger.INFO("Dumping Output: " + ItemUtils.getFluidArrayStackNames(newBo.mFluidOutputs));
-            Logger.INFO("========================");
-        }
-    }
-
-    private static boolean setupMaterialBlacklist() {
+    private static void setupMaterialBlacklist() {
         Material.invalidMaterials.put(Materials._NULL);
         Material.invalidMaterials.put(Materials.Clay);
         Material.invalidMaterials.put(Materials.Phosphorus);
@@ -327,10 +303,6 @@ public class GTplusplus implements ActionListener {
         Material.invalidMaterials.put(Materials.Soularium);
         Material.invalidMaterials.put(Materials.PhasedIron);
 
-        if (Material.invalidMaterials.size() > 0) {
-            return true;
-        }
-        return false;
     }
 
     private static final HashMap<String, Item> sMissingItemMappings = new HashMap<>();
@@ -405,16 +377,14 @@ public class GTplusplus implements ActionListener {
                 Item aReplacement = sMissingItemMappings.get(mapping.name);
                 if (aReplacement != null) {
                     remap(aReplacement, mapping);
-                } else {
-                    // Logger.INFO("Unable to remap: "+mapping.name+", item has no replacement mapping.");
                 }
+
             } else if (mapping.type == GameRegistry.Type.BLOCK) {
                 Block aReplacement = sMissingBlockMappings.get(mapping.name);
                 if (aReplacement != null) {
                     remap(aReplacement, mapping);
-                } else {
-                    // Logger.INFO("Unable to remap: "+mapping.name+", block has no replacement mapping.");
                 }
+
             }
         }
     }

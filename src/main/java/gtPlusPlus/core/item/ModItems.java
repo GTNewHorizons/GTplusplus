@@ -61,8 +61,6 @@ import gtPlusPlus.core.item.general.chassis.ItemBoilerChassis;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoil;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
-import gtPlusPlus.core.item.general.throwables.ItemHydrofluoricAcidPotion;
-import gtPlusPlus.core.item.general.throwables.ItemSulfuricAcidPotion;
 import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
@@ -178,9 +176,6 @@ public final class ModItems {
 
     public static Item itemHalfCompleteCasings;
 
-    public static Item itemSulfuricPotion;
-    public static Item itemHydrofluoricPotion;
-
     public static Item itemCustomBook;
 
     // Unstable Elements & Related Content
@@ -285,14 +280,8 @@ public final class ModItems {
                 EnumChatFormatting.GRAY,
                 false,
                 Utils.rgbtoHexValue(255, 255, 255)).setTextureName(GregTech.ID + ":" + "gt.metaitem.01/" + "761");
-        itemSulfuricPotion = new ItemSulfuricAcidPotion(
-                "itemSulfuricPotion",
-                "Throwable Vial of Sulfuric Acid",
-                "Burn your foes alive!").setTextureName(GTPlusPlus.ID + ":itemSulfuricAcidPotion");
-        itemHydrofluoricPotion = new ItemHydrofluoricAcidPotion(
-                "itemHydrofluoricPotion",
-                "Throwable Vial of Hydrofluoric Acid",
-                "They won't see this coming, nor anything after!").setTextureName(GTPlusPlus.ID + ":itemPotion");
+
+
         // Start meta Item Generation
         ItemsFoods.load();
 

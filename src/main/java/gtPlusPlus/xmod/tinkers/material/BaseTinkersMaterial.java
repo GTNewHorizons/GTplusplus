@@ -88,7 +88,7 @@ public class BaseTinkersMaterial {
     }
 
     private static String calcStyle(Material aMaterial) {
-        String aReturn = "" + EnumChatFormatting.WHITE;
+        String aReturn;
         int aTemp = aMaterial.getMeltingPointC();
         if (aTemp < 3600) {
             aReturn = "" + EnumChatFormatting.WHITE;
@@ -108,32 +108,6 @@ public class BaseTinkersMaterial {
 
     private static int calcColour(Material aMaterial) {
         return aMaterial.getRgbAsHex();
-    }
-
-    public Object generateToolMaterial(Material aMaterial) {
-        int level, dura, speed, dmg, reinf, primColour;
-        float handle, stonebound;
-        level = calcHarvestLevel(aMaterial);
-        dura = calcDurability(aMaterial);
-        speed = calcMiningSpeed(aMaterial);
-        dmg = calcAttack(aMaterial);
-        reinf = calcReinforced(aMaterial);
-        primColour = calcColour(aMaterial);
-        handle = calcHandleModifier(aMaterial);
-        // stonebound = calcHarvestLevel(aMaterial);
-        stonebound = 0;
-        return TinkersUtils.generateToolMaterial(
-                aMaterial.getLocalizedName(),
-                aMaterial.getUnlocalizedName(),
-                level,
-                dura,
-                speed,
-                dmg,
-                handle,
-                reinf,
-                stonebound,
-                calcStyle(aMaterial),
-                primColour);
     }
 
     public void generate() {
@@ -222,7 +196,7 @@ public class BaseTinkersMaterial {
                     .addCastingTableRecipe(aMaterial.getIngot(1), aMaterial.getFluidStack(144), ingotcast, false, 50);
         }
 
-        boolean extended = TinkersUtils.generateCastingRecipes(aMaterial, aID);
+        TinkersUtils.generateCastingRecipes(aMaterial, aID);
 
         return true;
     }
