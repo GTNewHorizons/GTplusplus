@@ -1,9 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.Materials;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GasSpargingRecipeMap;
@@ -11,6 +7,9 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.material.nuclear.NUCLIDE;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeLoader_LFTR {
 

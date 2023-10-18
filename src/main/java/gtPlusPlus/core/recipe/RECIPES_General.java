@@ -1,19 +1,5 @@
 package gtPlusPlus.core.recipe;
 
-import static gregtech.api.enums.Mods.EnderIO;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gtPlusPlus.core.recipe.common.CI.bitsd;
-import static gtPlusPlus.core.util.minecraft.ItemUtils.getSimpleStack;
-import static gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechConduits.generatePipeRecipes;
-import static gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechConduits.generateWireRecipes;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -35,6 +21,19 @@ import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gtPlusPlus.core.recipe.common.CI.bitsd;
+import static gtPlusPlus.core.util.minecraft.ItemUtils.getSimpleStack;
+import static gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechConduits.generatePipeRecipes;
+import static gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechConduits.generateWireRecipes;
 
 public class RECIPES_General {
 

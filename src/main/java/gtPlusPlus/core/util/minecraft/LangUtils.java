@@ -1,18 +1,17 @@
 package gtPlusPlus.core.util.minecraft;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 public class LangUtils {
 

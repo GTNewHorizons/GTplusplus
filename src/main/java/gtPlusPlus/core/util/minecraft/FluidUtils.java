@@ -1,20 +1,5 @@
 package gtPlusPlus.core.util.minecraft;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-
-import java.util.HashMap;
-
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidContainerItem;
-
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -28,6 +13,20 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialStack;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidContainerItem;
+
+import java.util.HashMap;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 
 public class FluidUtils {
 

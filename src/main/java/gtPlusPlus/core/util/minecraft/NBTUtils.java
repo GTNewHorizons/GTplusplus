@@ -1,14 +1,13 @@
 package gtPlusPlus.core.util.minecraft;
 
-import static gtPlusPlus.core.item.ModItems.ZZZ_Empty;
-
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_Utility;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_Utility;
+import static gtPlusPlus.core.item.ModItems.ZZZ_Empty;
 
 public class NBTUtils {
 

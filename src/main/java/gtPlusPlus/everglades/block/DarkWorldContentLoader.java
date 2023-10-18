@@ -1,20 +1,19 @@
 package gtPlusPlus.everglades.block;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.block.base.BlockBaseFluid;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.everglades.item.ItemBlockToxicEverglades;
+import gtPlusPlus.everglades.item.ItemEvergladesPortalTrigger;
+import net.minecraft.init.Blocks;
+import net.minecraftforge.fluids.FluidRegistry;
+
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.blockFluidLakes;
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.blockPortalFrame;
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.blockSecondLayer;
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.blockTopLayer;
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.portalBlock;
 import static gtPlusPlus.everglades.dimension.Dimension_Everglades.portalItem;
-
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fluids.FluidRegistry;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.block.base.BlockBaseFluid;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.everglades.item.ItemBlockToxicEverglades;
-import gtPlusPlus.everglades.item.ItemEvergladesPortalTrigger;
 
 public class DarkWorldContentLoader {
 

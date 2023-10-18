@@ -1,23 +1,5 @@
 package gtPlusPlus.xmod.gregtech.api.items;
 
-import static gregtech.api.enums.GT_Values.D1;
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.BitSet;
-import java.util.HashMap;
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
@@ -33,6 +15,23 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.xmod.gregtech.api.interfaces.internal.Interface_ItemBehaviour;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.HashMap;
+import java.util.List;
+
+import static gregtech.api.enums.GT_Values.D1;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public abstract class Gregtech_MetaItem extends Gregtech_MetaItem_Base {
 

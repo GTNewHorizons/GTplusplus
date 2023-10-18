@@ -1,7 +1,12 @@
 package gtPlusPlus.core.tileentities.machines;
 
-import java.util.List;
-
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.objects.minecraft.BTF_FluidTank;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.tileentities.base.TileEntityBase;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,13 +24,7 @@ import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.minecraft.BTF_FluidTank;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.tileentities.base.TileEntityBase;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import java.util.List;
 
 public abstract class TileEntityBaseFluidCollector extends TileEntityBase implements IFluidHandler {
 

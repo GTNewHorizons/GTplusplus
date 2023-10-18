@@ -1,25 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.GT_HatchElement.Energy;
-import static gregtech.api.enums.GT_HatchElement.InputHatch;
-import static gregtech.api.enums.GT_HatchElement.Maintenance;
-import static gregtech.api.enums.GT_HatchElement.Muffler;
-import static gregtech.api.enums.GT_HatchElement.OutputBus;
-import static gregtech.api.enums.GT_HatchElement.OutputHatch;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
-import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
-
-import net.minecraft.item.ItemStack;
-
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
@@ -33,6 +17,20 @@ import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import net.minecraft.item.ItemStack;
+
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.InputHatch;
+import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.GT_HatchElement.Muffler;
+import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.enums.GT_HatchElement.OutputHatch;
+import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
 
 public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_Refinery>
         implements ISurvivalConstructable {

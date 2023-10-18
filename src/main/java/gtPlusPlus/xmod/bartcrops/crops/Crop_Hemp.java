@@ -1,11 +1,10 @@
 package gtPlusPlus.xmod.bartcrops.crops;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.bartcrops.abstracts.BaseAestheticCrop;
 import ic2.api.crops.ICropTile;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class Crop_Hemp extends BaseAestheticCrop {
 

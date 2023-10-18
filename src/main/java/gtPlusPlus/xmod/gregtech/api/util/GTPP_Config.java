@@ -1,14 +1,13 @@
 package gtPlusPlus.xmod.gregtech.api.util;
 
-import static gregtech.api.enums.GT_Values.E;
-
+import gregtech.api.GregTech_API;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Utility;
+import static gregtech.api.enums.GT_Values.E;
 
 public class GTPP_Config implements Runnable {
 

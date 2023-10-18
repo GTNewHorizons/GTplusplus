@@ -1,14 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistillationRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TierEU;
@@ -21,6 +12,14 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistillationRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
 
 public class RecipeLoader_NuclearFuelProcessing {
 

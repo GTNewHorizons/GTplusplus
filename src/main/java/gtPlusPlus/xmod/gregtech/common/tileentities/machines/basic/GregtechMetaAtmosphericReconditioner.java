@@ -1,25 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic;
 
-import static gregtech.api.enums.GT_Values.V;
-
-import java.util.Collections;
-import java.util.HashMap;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.DrawableWidget;
 import com.gtnewhorizons.modularui.common.widget.FakeSyncWidget;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
-
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.SoundResource;
 import gregtech.api.enums.Textures;
@@ -43,6 +28,18 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.Collections;
+import java.util.HashMap;
+
+import static gregtech.api.enums.GT_Values.V;
 
 public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_BasicMachine {
 

@@ -1,13 +1,5 @@
 package gtPlusPlus.core.tileentities.machines;
 
-import java.util.List;
-import java.util.Vector;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-
 import gregtech.api.enums.ItemList;
 import gregtech.common.items.GT_MetaGenerated_Item_01;
 import gtPlusPlus.api.objects.Logger;
@@ -21,6 +13,13 @@ import ic2.api.network.INetworkDataProvider;
 import ic2.api.network.INetworkUpdateListener;
 import ic2.api.tile.IWrenchable;
 import ic2.core.IC2;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+
+import java.util.List;
+import java.util.Vector;
 
 public class TileEntityProjectTable extends TileEntity
         implements INetworkDataProvider, INetworkUpdateListener, IWrenchable {

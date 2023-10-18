@@ -1,7 +1,15 @@
 package gtPlusPlus.core.block.machine;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.handler.GuiHandler;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
+import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
+import gtPlusPlus.core.util.minecraft.InventoryUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -15,16 +23,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.handler.GuiHandler;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockBasicTile;
-import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
-import gtPlusPlus.core.util.minecraft.InventoryUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class Machine_PestKiller extends BlockContainer implements ITileTooltip {
 

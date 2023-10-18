@@ -1,9 +1,8 @@
 package gtPlusPlus.everglades.item;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,9 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemEvergladesPortalTrigger extends Item {
 

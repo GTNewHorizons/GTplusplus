@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.advanced;
 
-import java.lang.reflect.Method;
-
-import net.minecraft.block.Block;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.TAE;
 import gregtech.api.enums.Textures;
@@ -26,6 +21,10 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.block.Block;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import java.lang.reflect.Method;
 
 public class GregtechMetaTileEntity_Adv_Fusion_MK5 extends GT_MetaTileEntity_FusionComputer {
 

@@ -1,8 +1,14 @@
 package gtPlusPlus.xmod.gregtech.common.tools;
 
-import java.util.Arrays;
-import java.util.List;
-
+import gregtech.GT_Mod;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.SoundResource;
+import gregtech.api.enums.Textures.ItemIcons;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.common.items.behaviors.Behaviour_None;
+import gregtech.common.tools.GT_Tool;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtTools;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,15 +21,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.event.world.BlockEvent;
 
-import gregtech.GT_Mod;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.SoundResource;
-import gregtech.api.enums.Textures.ItemIcons;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.common.items.behaviors.Behaviour_None;
-import gregtech.common.tools.GT_Tool;
-import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtTools;
+import java.util.Arrays;
+import java.util.List;
 
 public class TOOL_Gregtech_AngleGrinder extends GT_Tool {
 

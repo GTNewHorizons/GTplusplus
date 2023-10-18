@@ -1,15 +1,13 @@
 package gtPlusPlus.xmod.gregtech.api.gui.widget;
 
-import net.minecraft.item.ItemStack;
-
 import com.gtnewhorizons.modularui.api.forge.IItemHandlerModifiable;
 import com.gtnewhorizons.modularui.common.internal.wrapper.BaseSlot;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
-
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import ic2.api.info.Info;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
+import net.minecraft.item.ItemStack;
 
 public class ElectricSlotWidget extends SlotWidget {
 

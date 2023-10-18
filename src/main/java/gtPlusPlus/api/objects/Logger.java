@@ -1,12 +1,11 @@
 package gtPlusPlus.api.objects;
 
-import org.apache.logging.log4j.LogManager;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.asm.AsmConfig;
+import org.apache.logging.log4j.LogManager;
 
 public class Logger {
 

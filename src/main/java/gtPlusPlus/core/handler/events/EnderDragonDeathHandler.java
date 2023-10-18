@@ -1,13 +1,12 @@
 package gtPlusPlus.core.handler.events;
 
-import net.minecraft.entity.boss.EntityDragon;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import net.minecraft.entity.boss.EntityDragon;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 public class EnderDragonDeathHandler {
 

@@ -1,5 +1,9 @@
 package gtPlusPlus.core.tileentities.machines;
 
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.item.chemistry.AgriculturalChem;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityChicken;
@@ -13,11 +17,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
-
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.item.chemistry.AgriculturalChem;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class TileEntityAdvPooCollector extends TileEntityBaseFluidCollector {
 

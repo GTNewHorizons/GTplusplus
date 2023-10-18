@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import static gregtech.api.enums.Textures.BlockIcons.MACHINE_CASINGS;
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_OUT;
-
-import net.minecraftforge.common.util.ForgeDirection;
-
 import gregtech.api.enums.SoundResource;
 import gregtech.api.enums.Textures;
 import gregtech.api.enums.Textures.BlockIcons.CustomIcon;
@@ -15,6 +10,10 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import static gregtech.api.enums.Textures.BlockIcons.MACHINE_CASINGS;
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_OUT;
 
 @SuppressWarnings("deprecation")
 public class GT_MetaTileEntity_Dehydrator extends GT_MetaTileEntity_BasicMachine_GT_Recipe {

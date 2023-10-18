@@ -1,13 +1,12 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntity_SolarTower;
 import gtPlusPlus.xmod.gregtech.common.tileentities.misc.TileEntitySolarHeater;
+import net.minecraftforge.fluids.FluidStack;
 
 public class GregtechSolarTower {
 

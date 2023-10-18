@@ -1,16 +1,5 @@
 package gtPlusPlus.xmod.forestry.bees.items;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,6 +9,16 @@ import forestry.api.apiculture.IBeeHousing;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.IHiveFrame;
 import gtPlusPlus.core.creative.AddToCreativeTab;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class MB_ItemFrame extends Item implements IHiveFrame {
 

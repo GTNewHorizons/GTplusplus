@@ -1,14 +1,13 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.IIconContainer;
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.IIconContainer;
-import gtPlusPlus.api.objects.Logger;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public final class TexturesGtTools {
 

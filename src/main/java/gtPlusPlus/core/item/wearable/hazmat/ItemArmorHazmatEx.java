@@ -1,13 +1,12 @@
 package gtPlusPlus.core.item.wearable.hazmat;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemStack;
-
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.ic2.CustomInternalName;
 import ic2.core.IC2;
 import ic2.core.init.InternalName;
 import ic2.core.item.armor.ItemArmorHazmat;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
 
 public class ItemArmorHazmatEx extends ItemArmorHazmat {
 

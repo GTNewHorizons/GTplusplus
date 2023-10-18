@@ -1,11 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -15,6 +9,10 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class GregtechMetaTileEntity_BasicWasher extends GT_MetaTileEntity_BasicMachine {
 

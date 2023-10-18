@@ -1,12 +1,5 @@
 package gtPlusPlus.core.common;
 
-import net.minecraft.entity.monster.EntityBlaze;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
-
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -42,6 +35,12 @@ import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.xmod.gregtech.api.util.SpecialBehaviourTooltipHandler;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 import gtPlusPlus.xmod.ic2.CustomInternalName;
+import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.client.IItemRenderer;
 
 public class CommonProxy {
 

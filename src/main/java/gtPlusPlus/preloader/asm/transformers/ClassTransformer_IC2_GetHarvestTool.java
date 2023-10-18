@@ -1,18 +1,8 @@
 package gtPlusPlus.preloader.asm.transformers;
 
-import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
-import static org.objectweb.asm.Opcodes.ALOAD;
-import static org.objectweb.asm.Opcodes.ARETURN;
-import static org.objectweb.asm.Opcodes.ASM5;
-import static org.objectweb.asm.Opcodes.ILOAD;
-import static org.objectweb.asm.Opcodes.INVOKESTATIC;
-import static org.objectweb.asm.Opcodes.IRETURN;
-
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -20,7 +10,15 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import java.util.Random;
+
+import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
+import static org.objectweb.asm.Opcodes.ALOAD;
+import static org.objectweb.asm.Opcodes.ARETURN;
+import static org.objectweb.asm.Opcodes.ASM5;
+import static org.objectweb.asm.Opcodes.ILOAD;
+import static org.objectweb.asm.Opcodes.INVOKESTATIC;
+import static org.objectweb.asm.Opcodes.IRETURN;
 
 public class ClassTransformer_IC2_GetHarvestTool {
 

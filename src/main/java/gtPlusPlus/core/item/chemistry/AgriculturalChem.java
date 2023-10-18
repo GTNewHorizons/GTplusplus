@@ -1,25 +1,5 @@
 package gtPlusPlus.core.item.chemistry;
 
-import static gregtech.api.enums.Mods.BiomesOPlenty;
-import static gregtech.api.enums.Mods.Forestry;
-import static gregtech.api.enums.Mods.TinkerConstruct;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -40,6 +20,25 @@ import gtPlusPlus.plugin.agrichem.BioRecipes;
 import gtPlusPlus.plugin.agrichem.item.algae.ItemAgrichemBase;
 import gtPlusPlus.plugin.agrichem.item.algae.ItemAlgaeBase;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.TinkerConstruct;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCompressorRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
 
 public class AgriculturalChem extends ItemPackage {
 

@@ -1,5 +1,15 @@
 package gtPlusPlus.core.block.machine;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.handler.GuiHandler;
+import gtPlusPlus.core.inventories.Inventory_SuperJukebox;
+import gtPlusPlus.core.util.math.MathUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukebox;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,17 +24,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.handler.GuiHandler;
-import gtPlusPlus.core.inventories.Inventory_SuperJukebox;
-import gtPlusPlus.core.util.math.MathUtils;
 
 public class Machine_SuperJukebox extends BlockJukebox {
 

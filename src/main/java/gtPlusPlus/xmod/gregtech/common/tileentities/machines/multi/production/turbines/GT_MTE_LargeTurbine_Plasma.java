@@ -1,15 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
-import org.jetbrains.annotations.NotNull;
-
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -23,6 +13,14 @@ import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTurbineBase {

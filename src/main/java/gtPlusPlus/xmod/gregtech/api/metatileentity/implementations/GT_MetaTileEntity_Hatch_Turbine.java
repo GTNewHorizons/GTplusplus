@@ -1,19 +1,8 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST5;
-import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST_ACTIVE5;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.SoundResource;
@@ -33,6 +22,14 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GregtechMetaTileEntity_LargerTurbineBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.ArrayUtils;
+
+import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST5;
+import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_ST_ACTIVE5;
 
 @SuppressWarnings("deprecation")
 public class GT_MetaTileEntity_Hatch_Turbine extends GT_MetaTileEntity_Hatch {

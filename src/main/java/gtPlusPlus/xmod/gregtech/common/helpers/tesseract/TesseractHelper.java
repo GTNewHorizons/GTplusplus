@@ -1,7 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.helpers.tesseract;
 
-import static gtPlusPlus.core.lib.CORE.sTesseractGeneratorOwnershipMap;
-import static gtPlusPlus.core.lib.CORE.sTesseractTerminalOwnershipMap;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractGenerator;
+import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractTerminal;
+import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,11 +11,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
-import net.minecraft.entity.player.EntityPlayer;
-
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractGenerator;
-import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractTerminal;
+import static gtPlusPlus.core.lib.CORE.sTesseractGeneratorOwnershipMap;
+import static gtPlusPlus.core.lib.CORE.sTesseractTerminalOwnershipMap;
 
 public class TesseractHelper {
 

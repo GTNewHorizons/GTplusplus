@@ -1,13 +1,12 @@
 package gtPlusPlus.xmod.gregtech.api.util;
 
-import java.util.HashMap;
-
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import gregtech.api.util.GT_Utility;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import gregtech.api.util.GT_Utility;
+import java.util.HashMap;
 
 public class SpecialBehaviourTooltipHandler {
 

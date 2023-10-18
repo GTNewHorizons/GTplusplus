@@ -1,9 +1,8 @@
 package gtPlusPlus.core.item.general.chassis;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.Utils;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -11,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.Utils;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemBoilerChassis extends Item {
 

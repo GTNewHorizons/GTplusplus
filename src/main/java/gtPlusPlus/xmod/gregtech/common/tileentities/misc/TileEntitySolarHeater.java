@@ -1,12 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.misc;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -17,6 +10,11 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntity_SolarTower;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class TileEntitySolarHeater extends GT_MetaTileEntity_TieredMachineBlock {
 

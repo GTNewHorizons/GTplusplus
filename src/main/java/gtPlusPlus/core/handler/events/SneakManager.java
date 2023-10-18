@@ -1,10 +1,9 @@
 package gtPlusPlus.core.handler.events;
 
-import java.util.concurrent.ConcurrentHashMap;
-
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.entity.player.EntityPlayer;
 
-import gtPlusPlus.api.objects.Logger;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SneakManager {
 

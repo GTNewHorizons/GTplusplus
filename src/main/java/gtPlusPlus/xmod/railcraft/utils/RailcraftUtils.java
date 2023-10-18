@@ -1,10 +1,9 @@
 package gtPlusPlus.xmod.railcraft.utils;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import mods.railcraft.common.util.crafting.BlastFurnaceCraftingManager;
 import mods.railcraft.common.util.crafting.CokeOvenCraftingManager;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 public class RailcraftUtils {
 

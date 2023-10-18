@@ -1,14 +1,13 @@
 package gtPlusPlus.everglades.world;
 
-import net.minecraft.util.Vec3;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.chunk.IChunkProvider;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.everglades.chunk.ChunkProviderModded;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderMod extends WorldProvider {
 

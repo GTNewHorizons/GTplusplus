@@ -1,5 +1,27 @@
 package gtPlusPlus.xmod.gregtech.common.render;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.interfaces.tileentity.IPipeRenderedTileEntity;
+import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
+import gregtech.api.metatileentity.MetaPipeEntity;
+import gregtech.common.blocks.GT_Block_Machines;
+import gregtech.common.render.GT_Renderer_Block;
+import gtPlusPlus.xmod.gregtech.common.helpers.GT_MethodHelper;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
+import org.lwjgl.opengl.GL11;
+
+import java.util.EnumMap;
+import java.util.EnumSet;
+
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_DOWN;
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_EAST;
 import static gregtech.api.interfaces.metatileentity.IConnectable.CONNECTED_NORTH;
@@ -14,30 +36,6 @@ import static net.minecraftforge.common.util.ForgeDirection.NORTH;
 import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
 import static net.minecraftforge.common.util.ForgeDirection.UP;
 import static net.minecraftforge.common.util.ForgeDirection.WEST;
-
-import java.util.EnumMap;
-import java.util.EnumSet;
-
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.ITexture;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IPipeRenderedTileEntity;
-import gregtech.api.interfaces.tileentity.ITexturedTileEntity;
-import gregtech.api.metatileentity.MetaPipeEntity;
-import gregtech.common.blocks.GT_Block_Machines;
-import gregtech.common.render.GT_Renderer_Block;
-import gtPlusPlus.xmod.gregtech.common.helpers.GT_MethodHelper;
 
 public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
 

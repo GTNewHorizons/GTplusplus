@@ -1,7 +1,8 @@
 package gtPlusPlus.core.block.general.fluids;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
@@ -11,9 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class BlockFluidSludge extends BlockFluidClassic {
 

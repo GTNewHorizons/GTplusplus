@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.TAE;
@@ -17,6 +12,10 @@ import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import ic2.core.init.BlocksItems;
 import ic2.core.init.InternalName;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class Meta_GT_Proxy {
 

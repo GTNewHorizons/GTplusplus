@@ -1,14 +1,13 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
 
 public class GT_MetaTileEntity_Hatch_AirIntake extends GT_MetaTileEntity_Hatch_FluidGenerator {
 

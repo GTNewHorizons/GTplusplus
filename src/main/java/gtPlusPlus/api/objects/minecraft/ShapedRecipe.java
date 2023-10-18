@@ -1,13 +1,12 @@
 package gtPlusPlus.api.objects.minecraft;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ShapedRecipe {
 

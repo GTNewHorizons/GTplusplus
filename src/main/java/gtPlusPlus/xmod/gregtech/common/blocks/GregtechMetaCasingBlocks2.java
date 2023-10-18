@@ -1,14 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.blocks;
 
-import java.util.List;
-
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
 import gregtech.api.enums.TAE;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Utility;
@@ -17,6 +8,14 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.CasingTextureHandler2;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.storage.GregtechMetaTileEntity_PowerSubStationController;
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+
+import java.util.List;
 
 public class GregtechMetaCasingBlocks2 extends GregtechMetaCasingBlocksAbstract {
 

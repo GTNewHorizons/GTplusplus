@@ -1,20 +1,19 @@
 package gtPlusPlus.xmod.forestry.bees.items.output;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import forestry.api.core.Tabs;
+import gtPlusPlus.xmod.forestry.bees.handler.GTPP_PollenType;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import forestry.api.core.Tabs;
-import gtPlusPlus.xmod.forestry.bees.handler.GTPP_PollenType;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class GTPP_Pollen extends Item {
 

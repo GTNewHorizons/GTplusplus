@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.blocks;
 
-import java.util.HashMap;
-
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.Textures;
@@ -12,6 +7,10 @@ import gregtech.api.util.GT_LanguageManager;
 import gregtech.common.blocks.GT_Material_Casings;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+
+import java.util.HashMap;
 
 public class GregtechMetaCasingBlocksPipeGearbox extends GregtechMetaCasingBlocksAbstract {
 

@@ -1,14 +1,13 @@
 package gtPlusPlus.xmod.gregtech.api.objects;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.objects.GT_ArrayList;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
+import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GregtechItemData {
 

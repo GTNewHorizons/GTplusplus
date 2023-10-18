@@ -1,9 +1,5 @@
 package gtPlusPlus.core.network.packet;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
@@ -12,6 +8,9 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.network.handler.AbstractServerMessageHandler;
 import gtPlusPlus.core.tileentities.general.TileEntityVolumetricFlaskSetter;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class Packet_VolumetricFlaskGui extends AbstractServerMessageHandler<Packet_VolumetricFlaskGui>
         implements AbstractPacket {

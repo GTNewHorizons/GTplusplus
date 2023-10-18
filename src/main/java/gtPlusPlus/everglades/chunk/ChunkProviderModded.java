@@ -1,8 +1,7 @@
 package gtPlusPlus.everglades.chunk;
 
-import java.util.List;
-import java.util.Random;
-
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -31,8 +30,8 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import java.util.List;
+import java.util.Random;
 
 public class ChunkProviderModded implements IChunkProvider {
 

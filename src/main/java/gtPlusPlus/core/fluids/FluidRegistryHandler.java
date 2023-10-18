@@ -1,14 +1,13 @@
 package gtPlusPlus.core.fluids;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gtPlusPlus.core.block.ModBlocks.blockFluidSludge;
-import static gtPlusPlus.core.block.ModBlocks.fluidSludge;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.block.general.fluids.BlockFluidSludge;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.block.general.fluids.BlockFluidSludge;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gtPlusPlus.core.block.ModBlocks.blockFluidSludge;
+import static gtPlusPlus.core.block.ModBlocks.fluidSludge;
 
 public class FluidRegistryHandler {
 

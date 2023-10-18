@@ -1,7 +1,13 @@
 package gtPlusPlus.core.block.machine;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
+import gregtech.common.items.GT_MetaGenerated_Tool_01;
+import gtPlusPlus.GTplusplus;
+import gtPlusPlus.api.objects.minecraft.CubicObject;
+import gtPlusPlus.core.block.base.BasicTileBlockWithTooltip;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.handler.GuiHandler;
+import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,14 +19,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import gregtech.common.items.GT_MetaGenerated_Tool_01;
-import gtPlusPlus.GTplusplus;
-import gtPlusPlus.api.objects.minecraft.CubicObject;
-import gtPlusPlus.core.block.base.BasicTileBlockWithTooltip;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.handler.GuiHandler;
-import gtPlusPlus.core.tileentities.general.TileEntityCircuitProgrammer;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class CircuitProgrammer extends BasicTileBlockWithTooltip {
 

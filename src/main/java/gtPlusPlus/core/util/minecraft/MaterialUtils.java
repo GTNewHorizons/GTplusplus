@@ -1,14 +1,5 @@
 package gtPlusPlus.core.util.minecraft;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import gregtech.api.enums.Element;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -29,6 +20,14 @@ import gtPlusPlus.core.material.state.MaterialState;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.StringUtils;
 import gtPlusPlus.core.util.math.MathUtils;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class MaterialUtils {
 

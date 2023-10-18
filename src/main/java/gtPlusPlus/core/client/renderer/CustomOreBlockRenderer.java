@@ -1,5 +1,10 @@
 package gtPlusPlus.core.client.renderer;
 
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import gregtech.api.interfaces.ITexture;
+import gtPlusPlus.api.interfaces.ITexturedBlock;
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -8,14 +13,7 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import gregtech.api.interfaces.ITexture;
-import gtPlusPlus.api.interfaces.ITexturedBlock;
-import gtPlusPlus.api.objects.Logger;
 
 public class CustomOreBlockRenderer implements ISimpleBlockRenderingHandler {
 

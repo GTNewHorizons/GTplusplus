@@ -1,5 +1,10 @@
 package gtPlusPlus.core.util.minecraft;
 
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.handler.events.EntityDeathHandler;
+import ic2.core.IC2Potion;
+import ic2.core.item.armor.ItemArmorHazmat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -10,12 +15,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.handler.events.EntityDeathHandler;
-import ic2.core.IC2Potion;
-import ic2.core.item.armor.ItemArmorHazmat;
 
 public class EntityUtils {
 

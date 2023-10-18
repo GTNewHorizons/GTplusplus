@@ -1,16 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.storage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
@@ -24,6 +13,16 @@ import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GT_MetaTileEntity_TieredTank extends GT_MetaTileEntity_BasicTank {
 

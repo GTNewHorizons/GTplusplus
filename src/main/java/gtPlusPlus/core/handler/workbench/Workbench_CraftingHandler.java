@@ -1,9 +1,5 @@
 package gtPlusPlus.core.handler.workbench;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,6 +10,10 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Workbench_CraftingHandler {
 

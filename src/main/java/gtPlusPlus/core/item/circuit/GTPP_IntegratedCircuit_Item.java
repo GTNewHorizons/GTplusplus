@@ -1,13 +1,16 @@
 package gtPlusPlus.core.item.circuit;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
-
+import com.gtnewhorizons.modularui.api.UIInfos;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.interfaces.INetworkUpdatableItem;
+import gregtech.api.net.GT_Packet_UpdateItem;
+import gregtech.api.objects.XSTR;
+import gregtech.api.util.GT_LanguageManager;
+import gregtech.api.util.GT_Utility;
+import gregtech.common.gui.modularui.uifactory.SelectItemUIFactory;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,21 +26,15 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.FakePlayer;
-
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.gtnewhorizons.modularui.api.UIInfos;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.GT_Values;
-import gregtech.api.interfaces.INetworkUpdatableItem;
-import gregtech.api.net.GT_Packet_UpdateItem;
-import gregtech.api.objects.XSTR;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.api.util.GT_Utility;
-import gregtech.common.gui.modularui.uifactory.SelectItemUIFactory;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class GTPP_IntegratedCircuit_Item extends Item implements INetworkUpdatableItem {
 

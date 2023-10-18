@@ -1,17 +1,6 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 
-import static gregtech.api.enums.Textures.BlockIcons.FLUID_IN_SIGN;
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.gtnewhorizons.modularui.common.widget.FluidSlotWidget;
-
 import gregtech.GT_Mod;
 import gregtech.api.gui.modularui.GT_UIInfos;
 import gregtech.api.interfaces.ITexture;
@@ -22,6 +11,15 @@ import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.enums.Textures.BlockIcons.FLUID_IN_SIGN;
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
 
 public class GT_MetaTileEntity_Hatch_CustomFluidBase extends GT_MetaTileEntity_Hatch {
 

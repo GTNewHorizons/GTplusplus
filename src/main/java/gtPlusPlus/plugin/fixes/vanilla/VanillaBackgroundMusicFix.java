@@ -1,13 +1,13 @@
 package gtPlusPlus.plugin.fixes.vanilla;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import gtPlusPlus.api.interfaces.IPlugin;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.plugin.fixes.interfaces.IBugFix;
 import gtPlusPlus.plugin.fixes.vanilla.music.MusicTocker;
 import gtPlusPlus.preloader.CORE_Preloader;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class VanillaBackgroundMusicFix implements IBugFix {
 

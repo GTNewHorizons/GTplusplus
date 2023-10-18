@@ -1,20 +1,18 @@
 package gtPlusPlus.core.gui.machine;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox;
 import gtPlusPlus.core.container.Container_SuperJukebox;
 import gtPlusPlus.core.gui.GUI_Base_Tile_Entity;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @SideOnly(Side.CLIENT)
 public class GUI_SuperJukebox extends GUI_Base_Tile_Entity {

@@ -1,10 +1,10 @@
 package gtPlusPlus.everglades.gen.gt;
 
-import java.util.Hashtable;
-
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.ORES;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
+
+import java.util.Hashtable;
 
 public class WorldGen_Ores {
 

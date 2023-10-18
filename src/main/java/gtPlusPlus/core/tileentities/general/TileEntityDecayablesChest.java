@@ -1,16 +1,15 @@
 package gtPlusPlus.core.tileentities.general;
 
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.inventories.Inventory_DecayablesChest;
+import gtPlusPlus.core.item.materials.DustDecayable;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.inventories.Inventory_DecayablesChest;
-import gtPlusPlus.core.item.materials.DustDecayable;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class TileEntityDecayablesChest extends TileEntity implements ISidedInventory {
 

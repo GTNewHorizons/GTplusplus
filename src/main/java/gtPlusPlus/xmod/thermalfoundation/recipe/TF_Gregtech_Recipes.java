@@ -1,21 +1,20 @@
 package gtPlusPlus.xmod.thermalfoundation.recipe;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeBuilder.TICKS;
-
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
 
 public class TF_Gregtech_Recipes {
 

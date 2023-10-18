@@ -1,21 +1,5 @@
 package gtPlusPlus.xmod.forestry.bees.registry;
 
-import static forestry.api.apiculture.EnumBeeChromosome.CAVE_DWELLING;
-import static forestry.api.apiculture.EnumBeeChromosome.EFFECT;
-import static forestry.api.apiculture.EnumBeeChromosome.FERTILITY;
-import static forestry.api.apiculture.EnumBeeChromosome.FLOWERING;
-import static forestry.api.apiculture.EnumBeeChromosome.FLOWER_PROVIDER;
-import static forestry.api.apiculture.EnumBeeChromosome.HUMIDITY_TOLERANCE;
-import static forestry.api.apiculture.EnumBeeChromosome.LIFESPAN;
-import static forestry.api.apiculture.EnumBeeChromosome.NOCTURNAL;
-import static forestry.api.apiculture.EnumBeeChromosome.SPEED;
-import static forestry.api.apiculture.EnumBeeChromosome.TEMPERATURE_TOLERANCE;
-import static forestry.api.apiculture.EnumBeeChromosome.TERRITORY;
-import static forestry.api.apiculture.EnumBeeChromosome.TOLERANT_FLYER;
-
-import java.util.Arrays;
-import java.util.function.Consumer;
-
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.genetics.IAllele;
@@ -29,6 +13,22 @@ import forestry.core.genetics.alleles.EnumAllele.Lifespan;
 import forestry.core.genetics.alleles.EnumAllele.Speed;
 import forestry.core.genetics.alleles.EnumAllele.Territory;
 import forestry.core.genetics.alleles.EnumAllele.Tolerance;
+
+import java.util.Arrays;
+import java.util.function.Consumer;
+
+import static forestry.api.apiculture.EnumBeeChromosome.CAVE_DWELLING;
+import static forestry.api.apiculture.EnumBeeChromosome.EFFECT;
+import static forestry.api.apiculture.EnumBeeChromosome.FERTILITY;
+import static forestry.api.apiculture.EnumBeeChromosome.FLOWERING;
+import static forestry.api.apiculture.EnumBeeChromosome.FLOWER_PROVIDER;
+import static forestry.api.apiculture.EnumBeeChromosome.HUMIDITY_TOLERANCE;
+import static forestry.api.apiculture.EnumBeeChromosome.LIFESPAN;
+import static forestry.api.apiculture.EnumBeeChromosome.NOCTURNAL;
+import static forestry.api.apiculture.EnumBeeChromosome.SPEED;
+import static forestry.api.apiculture.EnumBeeChromosome.TEMPERATURE_TOLERANCE;
+import static forestry.api.apiculture.EnumBeeChromosome.TERRITORY;
+import static forestry.api.apiculture.EnumBeeChromosome.TOLERANT_FLYER;
 
 public enum GTPP_BranchDefinition {
 

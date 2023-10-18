@@ -1,8 +1,8 @@
 package gtPlusPlus.api.objects.data.weakref;
 
-import java.util.WeakHashMap;
-
 import gtPlusPlus.api.objects.data.AutoMap;
+
+import java.util.WeakHashMap;
 
 public class WeakAutoMap<T> extends AutoMap<T> {
 

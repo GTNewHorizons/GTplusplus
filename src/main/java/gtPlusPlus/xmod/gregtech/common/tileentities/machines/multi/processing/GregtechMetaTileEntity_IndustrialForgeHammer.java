@@ -1,5 +1,34 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
+import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
+import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
+import com.gtnewhorizon.structurelib.structure.ITierConverter;
+import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.enums.SoundResource;
+import gregtech.api.enums.TAE;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlocksTiered;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
@@ -15,38 +44,6 @@ import static gregtech.api.enums.Mods.EnderIO;
 import static gregtech.api.enums.Mods.Railcraft;
 import static gregtech.api.enums.Mods.ThaumicBases;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-
-import org.apache.commons.lang3.tuple.Pair;
-
-import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
-import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
-import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
-import com.gtnewhorizon.structurelib.structure.ITierConverter;
-import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.api.enums.SoundResource;
-import gregtech.api.enums.TAE;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.logic.ProcessingLogic;
-import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
-import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class GregtechMetaTileEntity_IndustrialForgeHammer extends

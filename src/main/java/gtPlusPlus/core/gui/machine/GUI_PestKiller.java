@@ -1,9 +1,11 @@
 package gtPlusPlus.core.gui.machine;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.awt.Color;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.container.Container_PestKiller;
+import gtPlusPlus.core.material.MISC_MATERIALS;
+import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
+import gtPlusPlus.core.util.math.MathUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -11,15 +13,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.IFluidTank;
-
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.container.Container_PestKiller;
-import gtPlusPlus.core.material.MISC_MATERIALS;
-import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
-import gtPlusPlus.core.util.math.MathUtils;
+import java.awt.Color;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @SideOnly(Side.CLIENT)
 public class GUI_PestKiller extends GuiContainer {

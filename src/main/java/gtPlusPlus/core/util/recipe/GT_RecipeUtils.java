@@ -1,18 +1,16 @@
 package gtPlusPlus.core.util.recipe;
 
-import static gtPlusPlus.core.slots.SlotIntegratedCircuit.isRegularProgrammableCircuit;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.item.ItemStack;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import gnu.trove.map.hash.TCustomHashMap;
 import gnu.trove.set.hash.TCustomHashSet;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.Logger;
+import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static gtPlusPlus.core.slots.SlotIntegratedCircuit.isRegularProgrammableCircuit;
 
 public class GT_RecipeUtils {
 

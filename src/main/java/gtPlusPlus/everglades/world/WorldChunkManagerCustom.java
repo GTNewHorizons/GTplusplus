@@ -1,9 +1,8 @@
 package gtPlusPlus.everglades.world;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.everglades.biome.GenLayerEverglades;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
@@ -16,9 +15,9 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.everglades.biome.GenLayerEverglades;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class WorldChunkManagerCustom extends WorldChunkManager {
 

@@ -1,10 +1,6 @@
 package gtPlusPlus.everglades.world;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
+import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
@@ -15,7 +11,10 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
-import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class TeleporterDimensionMod extends Teleporter {
 

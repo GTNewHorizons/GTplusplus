@@ -1,8 +1,8 @@
 package gtPlusPlus.api.objects.data;
 
-import java.io.Serializable;
-
 import com.google.common.base.Objects;
+
+import java.io.Serializable;
 
 public class Pair<K, V> implements Serializable {
 

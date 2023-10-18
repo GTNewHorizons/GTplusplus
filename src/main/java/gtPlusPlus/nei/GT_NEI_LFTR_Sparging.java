@@ -1,19 +1,5 @@
 package gtPlusPlus.nei;
 
-import java.awt.Rectangle;
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import org.lwjgl.opengl.GL11;
-
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.GuiCraftingRecipe;
@@ -31,6 +17,18 @@ import gregtech.api.util.GasSpargingRecipe;
 import gregtech.api.util.GasSpargingRecipeMap;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.client.Minecraft;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.Rectangle;
+import java.lang.ref.SoftReference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GT_NEI_LFTR_Sparging extends TemplateRecipeHandler {
 

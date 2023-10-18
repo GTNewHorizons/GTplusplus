@@ -1,16 +1,15 @@
 package gtPlusPlus.xmod.bartcrops;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.bartcrops.crops.Crop_Hemp;
 import ic2.api.crops.CropCard;
 import ic2.api.crops.Crops;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Mostly borrowed from the Crops++ Crop Loader.

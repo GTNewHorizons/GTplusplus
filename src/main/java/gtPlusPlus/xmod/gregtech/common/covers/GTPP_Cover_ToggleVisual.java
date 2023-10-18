@@ -1,14 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.covers;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.objects.XSTR;
@@ -18,6 +9,14 @@ import gregtech.api.util.ISerializableObject;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class GTPP_Cover_ToggleVisual extends GT_CoverBehavior {
 

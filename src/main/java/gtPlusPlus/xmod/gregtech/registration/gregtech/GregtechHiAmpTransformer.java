@@ -1,7 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -10,6 +8,7 @@ import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMetaTransformerHiAmp;
+import net.minecraft.item.ItemStack;
 
 public class GregtechHiAmpTransformer {
 

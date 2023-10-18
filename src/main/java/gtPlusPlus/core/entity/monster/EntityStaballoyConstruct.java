@@ -1,7 +1,11 @@
 package gtPlusPlus.core.entity.monster;
 
-import java.lang.reflect.Field;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.core.world.explosions.ExplosionHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -26,12 +30,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.village.Village;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.core.world.explosions.ExplosionHandler;
+import java.lang.reflect.Field;
 
 public class EntityStaballoyConstruct extends EntityIronGolem {
 

@@ -1,10 +1,10 @@
 package gtPlusPlus.core.item.general;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.HashMap;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_LanguageManager;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.CoreItem;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,11 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.util.GT_LanguageManager;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.CoreItem;
+import java.util.HashMap;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemGenericToken extends CoreItem {
 

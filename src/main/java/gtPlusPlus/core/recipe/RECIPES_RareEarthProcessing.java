@@ -1,20 +1,5 @@
 package gtPlusPlus.core.recipe;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gtPlusPlus.core.material.MISC_MATERIALS.BRINE;
-import static gtPlusPlus.core.material.MISC_MATERIALS.HYDROGEN_CHLORIDE;
-import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_HIGH;
-import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_LOW;
-import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_MID;
-
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -29,6 +14,20 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBrewingRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gtPlusPlus.core.material.MISC_MATERIALS.BRINE;
+import static gtPlusPlus.core.material.MISC_MATERIALS.HYDROGEN_CHLORIDE;
+import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_HIGH;
+import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_LOW;
+import static gtPlusPlus.core.material.MISC_MATERIALS.RARE_EARTH_MID;
 
 public class RECIPES_RareEarthProcessing {
 

@@ -1,9 +1,11 @@
 package gtPlusPlus.core.tileentities.general;
 
-import static gregtech.api.enums.Mods.PamsHarvestCraft;
-
-import java.util.Random;
-
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.inventories.InventoryFishTrap;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -14,12 +16,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.FishingHooks;
 
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.inventories.InventoryFishTrap;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import java.util.Random;
+
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
 
 public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
 

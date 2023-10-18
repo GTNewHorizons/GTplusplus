@@ -1,17 +1,5 @@
 package gtPlusPlus.everglades.gen.gt;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-
 import cpw.mods.fml.common.IWorldGenerator;
 import gregtech.api.objects.XSTR;
 import gregtech.api.util.GT_Log;
@@ -20,6 +8,17 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import gtPlusPlus.xmod.gregtech.HANDLER_GT;
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Random;
 
 public class WorldGen_GT_Base implements IWorldGenerator {
 

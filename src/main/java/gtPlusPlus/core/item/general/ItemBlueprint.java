@@ -1,9 +1,12 @@
 package gtPlusPlus.core.item.general;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.interfaces.IItemBlueprint;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -15,13 +18,9 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.interfaces.IItemBlueprint;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemBlueprint extends Item implements IItemBlueprint {
 

@@ -1,18 +1,5 @@
 package gtPlusPlus;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.Names;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.HashMap;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.launchwrapper.Launch;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -52,6 +39,18 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtTools;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_BlastSmelterGT_GTNH;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_MultisUsingFluidInsteadOfCells;
 import gtPlusPlus.xmod.thaumcraft.commands.CommandDumpAspects;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.launchwrapper.Launch;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.Names;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
 
 @Mod(
         modid = Names.G_T_PLUS_PLUS,

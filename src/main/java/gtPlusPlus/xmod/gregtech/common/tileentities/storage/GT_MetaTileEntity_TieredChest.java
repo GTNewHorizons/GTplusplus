@@ -1,18 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.storage;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.DrawableWidget;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
 import com.gtnewhorizons.modularui.common.widget.TextWidget;
-
 import gregtech.api.enums.Textures.BlockIcons;
 import gregtech.api.gui.modularui.GT_UIInfos;
 import gregtech.api.gui.modularui.GT_UITextures;
@@ -24,6 +16,11 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_TieredMachi
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class GT_MetaTileEntity_TieredChest extends GT_MetaTileEntity_TieredMachineBlock implements IAddUIWidgets {
 

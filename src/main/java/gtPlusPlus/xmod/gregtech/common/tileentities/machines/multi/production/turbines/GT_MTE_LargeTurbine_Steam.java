@@ -1,15 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
-import static gtPlusPlus.core.lib.CORE.RANDOM;
-
-import java.util.ArrayList;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.GT_Mod;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -19,6 +9,15 @@ import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.ArrayList;
+
+import static gtPlusPlus.core.lib.CORE.RANDOM;
 
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Steam extends GregtechMetaTileEntity_LargerTurbineBase {

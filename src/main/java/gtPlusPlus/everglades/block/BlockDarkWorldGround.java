@@ -1,11 +1,10 @@
 package gtPlusPlus.everglades.block;
 
-import static gregtech.api.enums.Mods.Minecraft;
-
-import net.minecraft.block.BlockGrass;
-
 import gtPlusPlus.api.interfaces.ITileTooltip;
 import gtPlusPlus.core.creative.AddToCreativeTab;
+import net.minecraft.block.BlockGrass;
+
+import static gregtech.api.enums.Mods.Minecraft;
 
 public class BlockDarkWorldGround extends BlockGrass implements ITileTooltip {
 

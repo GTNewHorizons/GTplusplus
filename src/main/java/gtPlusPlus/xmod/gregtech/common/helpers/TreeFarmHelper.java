@@ -1,8 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
-import net.minecraft.item.ItemStack;
-
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
+import net.minecraft.item.ItemStack;
 
 public class TreeFarmHelper {
 

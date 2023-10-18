@@ -1,20 +1,5 @@
 package gtPlusPlus.everglades.gen.gt;
 
-import static gtPlusPlus.everglades.gen.gt.WorldGen_GT_Base.debugWorldGen;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.util.GT_Log;
@@ -25,6 +10,20 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import gtPlusPlus.xmod.gregtech.HANDLER_GT;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+import static gtPlusPlus.everglades.gen.gt.WorldGen_GT_Base.debugWorldGen;
 
 public class WorldGen_GT_Ore_Layer extends WorldGen_GT {
 

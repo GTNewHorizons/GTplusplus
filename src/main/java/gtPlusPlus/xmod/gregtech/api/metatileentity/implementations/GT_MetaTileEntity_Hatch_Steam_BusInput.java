@@ -1,16 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import static gregtech.api.enums.Textures.BlockIcons.ITEM_IN_SIGN;
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
-
 import gregtech.GT_Mod;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.modularui.GT_UIInfos;
@@ -23,6 +14,13 @@ import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import static gregtech.api.enums.Textures.BlockIcons.ITEM_IN_SIGN;
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
 
 public class GT_MetaTileEntity_Hatch_Steam_BusInput extends GT_MetaTileEntity_Hatch {
 

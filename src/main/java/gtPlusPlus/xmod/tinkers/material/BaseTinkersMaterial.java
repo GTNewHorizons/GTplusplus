@@ -1,22 +1,21 @@
 package gtPlusPlus.xmod.tinkers.material;
 
-import static gregtech.api.enums.Mods.TinkerConstruct;
-import static gtPlusPlus.core.util.math.MathUtils.safeCast_LongToInt;
-
-import java.util.HashMap;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.fluids.Fluid;
-
 import cpw.mods.fml.common.event.FMLInterModComms;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.xmod.tinkers.HANDLER_Tinkers;
 import gtPlusPlus.xmod.tinkers.util.TinkersUtils;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.fluids.Fluid;
+
+import java.util.HashMap;
+
+import static gregtech.api.enums.Mods.TinkerConstruct;
+import static gtPlusPlus.core.util.math.MathUtils.safeCast_LongToInt;
 
 public class BaseTinkersMaterial {
 

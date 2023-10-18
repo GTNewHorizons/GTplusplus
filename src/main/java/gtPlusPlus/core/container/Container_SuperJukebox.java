@@ -1,13 +1,5 @@
 package gtPlusPlus.core.container;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.api.objects.Logger;
@@ -16,6 +8,13 @@ import gtPlusPlus.core.block.machine.Machine_SuperJukebox.TileEntitySuperJukebox
 import gtPlusPlus.core.inventories.Inventory_SuperJukebox;
 import gtPlusPlus.core.slots.SlotJukebox;
 import gtPlusPlus.core.slots.SlotNoInput;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class Container_SuperJukebox extends Container {
 

@@ -1,14 +1,13 @@
 package gtPlusPlus.core.util.minecraft;
 
-import java.util.ArrayList;
-
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.ShapelessRecipes;
 
-import gtPlusPlus.api.objects.Logger;
+import java.util.ArrayList;
 
 public class ShapelessUtils {
 

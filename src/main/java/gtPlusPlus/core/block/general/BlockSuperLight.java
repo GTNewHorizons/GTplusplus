@@ -1,7 +1,12 @@
 package gtPlusPlus.core.block.general;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockContainer;
@@ -14,13 +19,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.block.ModBlocks;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class BlockSuperLight extends BlockContainer {
 

@@ -1,14 +1,5 @@
 package gtPlusPlus.everglades;
 
-import static gregtech.api.enums.Mods.GTPlusPlusEverglades;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.config.Configuration;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -30,6 +21,14 @@ import gtPlusPlus.everglades.gen.gt.WorldGen_Ores;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.xmod.gregtech.HANDLER_GT;
 import gtPlusPlus.xmod.gregtech.api.util.GTPP_Config;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.config.Configuration;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import static gregtech.api.enums.Mods.GTPlusPlusEverglades;
 
 @Mod(
         modid = Mods.Names.G_T_PLUS_PLUS_EVERGLADES,

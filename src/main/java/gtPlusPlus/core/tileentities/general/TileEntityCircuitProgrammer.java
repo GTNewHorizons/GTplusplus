@@ -1,5 +1,10 @@
 package gtPlusPlus.core.tileentities.general;
 
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.inventories.InventoryCircuitProgrammer;
+import gtPlusPlus.core.recipe.common.CI;
+import gtPlusPlus.core.slots.SlotIntegratedCircuit;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -8,12 +13,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.inventories.InventoryCircuitProgrammer;
-import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.slots.SlotIntegratedCircuit;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class TileEntityCircuitProgrammer extends TileEntity implements ISidedInventory {
 

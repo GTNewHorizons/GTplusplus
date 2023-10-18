@@ -1,22 +1,5 @@
 package gtPlusPlus.core.material;
 
-import static gregtech.api.enums.GT_Values.M;
-import static gregtech.api.enums.Mods.TinkerConstruct;
-import static gtPlusPlus.core.util.math.MathUtils.safeCast_LongToInt;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TextureSet;
@@ -33,6 +16,22 @@ import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.xmod.tinkers.material.BaseTinkersMaterial;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import static gregtech.api.enums.GT_Values.M;
+import static gregtech.api.enums.Mods.TinkerConstruct;
+import static gtPlusPlus.core.util.math.MathUtils.safeCast_LongToInt;
 
 public class Material {
 

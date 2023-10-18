@@ -1,20 +1,5 @@
 package gtPlusPlus.core.item.chemistry;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
-import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
-import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
-
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -43,6 +28,20 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.plugin.agrichem.BioRecipes;
 import gtPlusPlus.plugin.agrichem.block.AgrichemFluids;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
 
 public class GenericChem extends ItemPackage {
 

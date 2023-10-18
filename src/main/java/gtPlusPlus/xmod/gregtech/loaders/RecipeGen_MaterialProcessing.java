@@ -1,11 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
@@ -18,6 +12,11 @@ import gtPlusPlus.core.material.MaterialStack;
 import gtPlusPlus.core.material.state.MaterialState;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class RecipeGen_MaterialProcessing extends RecipeGen_Base {
 

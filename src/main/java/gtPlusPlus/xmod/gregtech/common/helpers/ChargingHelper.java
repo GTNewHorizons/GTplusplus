@@ -1,20 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
-import static gregtech.api.GregTech_API.mEUtoRF;
-import static gregtech.api.enums.Mods.*;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-
 import baubles.api.BaublesApi;
 import cofh.api.energy.IEnergyContainerItem;
 import cpw.mods.fml.common.eventhandler.EventPriority;
@@ -33,6 +18,20 @@ import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaWirelessCharger;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+
+import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import static gregtech.api.GregTech_API.mEUtoRF;
+import static gregtech.api.enums.Mods.Baubles;
+import static gregtech.api.enums.Mods.COFHCore;
 
 public class ChargingHelper {
 

@@ -1,22 +1,20 @@
 package gtPlusPlus.preloader.asm;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.GregTech;
-
-import java.io.File;
-import java.util.Collections;
-
-import net.minecraftforge.common.config.Configuration;
-
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.LoadController;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.Preloader_Logger;
+import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
+import java.util.Collections;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
 
 public class Preloader_DummyContainer extends DummyModContainer {
 

@@ -1,10 +1,10 @@
 package gtPlusPlus.core.common.compat;
 
-import static gregtech.api.enums.Mods.ForbiddenMagic;
-
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+
+import static gregtech.api.enums.Mods.ForbiddenMagic;
 
 public class COMPAT_Thaumcraft {
 

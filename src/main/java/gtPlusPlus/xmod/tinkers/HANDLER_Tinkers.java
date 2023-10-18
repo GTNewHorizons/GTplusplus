@@ -1,14 +1,13 @@
 package gtPlusPlus.xmod.tinkers;
 
-import static gregtech.api.enums.Mods.TinkerConstruct;
-
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.xmod.tinkers.material.BaseTinkersMaterial;
 import gtPlusPlus.xmod.tinkers.util.TinkersDryingRecipe;
 import gtPlusPlus.xmod.tinkers.util.TinkersUtils;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+
+import static gregtech.api.enums.Mods.TinkerConstruct;
 
 public class HANDLER_Tinkers {
 

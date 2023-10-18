@@ -1,5 +1,8 @@
 package gtPlusPlus.core.util.data;
 
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.util.Utils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -10,9 +13,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
-
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.util.Utils;
 
 public class FileUtils {
 

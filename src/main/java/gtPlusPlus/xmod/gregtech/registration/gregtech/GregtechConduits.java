@@ -1,15 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import static gregtech.api.enums.Mods.EnderIO;
-import static gregtech.api.enums.Mods.Thaumcraft;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -31,6 +21,15 @@ import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaPipeEntityFluid;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GregtechMetaPipeEntity_Cable;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+
+import static gregtech.api.enums.Mods.EnderIO;
+import static gregtech.api.enums.Mods.Thaumcraft;
 
 public class GregtechConduits {
 

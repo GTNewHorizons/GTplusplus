@@ -1,16 +1,15 @@
 package gtPlusPlus.api.objects.minecraft;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gtPlusPlus.api.objects.data.AutoMap;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gtPlusPlus.api.objects.data.AutoMap;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BlockPos implements Serializable {
 

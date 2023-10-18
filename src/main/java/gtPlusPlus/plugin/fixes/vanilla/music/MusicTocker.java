@@ -1,14 +1,5 @@
 package gtPlusPlus.plugin.fixes.vanilla.music;
 
-import java.lang.reflect.Field;
-import java.util.Random;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.MusicTicker;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.util.MathHelper;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.objects.XSTR;
@@ -16,6 +7,14 @@ import gtPlusPlus.api.interfaces.IPlugin;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
+import net.minecraft.client.audio.MusicTicker;
+import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.util.MathHelper;
+
+import java.lang.reflect.Field;
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class MusicTocker extends MusicTicker implements Runnable {

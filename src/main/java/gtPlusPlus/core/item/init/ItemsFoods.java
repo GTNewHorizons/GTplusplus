@@ -1,17 +1,16 @@
 package gtPlusPlus.core.item.init;
 
+import gtPlusPlus.core.item.ModItems;
+import gtPlusPlus.core.item.food.BaseItemMetaFood;
+import gtPlusPlus.core.util.minecraft.EntityUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.ItemStack;
-
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.item.food.BaseItemMetaFood;
-import gtPlusPlus.core.util.minecraft.EntityUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.RecipeUtils;
 
 public class ItemsFoods {
 

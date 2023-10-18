@@ -1,11 +1,10 @@
 package gtPlusPlus.core.common.compat;
 
-import static gregtech.api.enums.Mods.Witchery;
-
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.item.ItemStack;
+
+import static gregtech.api.enums.Mods.Witchery;
 
 public class COMPAT_Witchery {
 

@@ -1,9 +1,5 @@
 package gtPlusPlus.xmod.forestry.bees.registry;
 
-import static gregtech.api.enums.Mods.Forestry;
-
-import java.util.HashMap;
-
 import gregtech.GT_Mod;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
@@ -16,6 +12,10 @@ import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Comb;
 import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Drop;
 import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Pollen;
 import gtPlusPlus.xmod.forestry.bees.items.output.GTPP_Propolis;
+
+import java.util.HashMap;
+
+import static gregtech.api.enums.Mods.Forestry;
 
 public class GTPP_Bees {
 

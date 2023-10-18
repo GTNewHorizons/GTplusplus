@@ -1,16 +1,5 @@
 package gtPlusPlus.core.handler;
 
-import static gregtech.api.enums.Mods.ExtraUtilities;
-import static gregtech.api.enums.Mods.PamsHarvestCraft;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.enums.Mods.Witchery;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -97,6 +86,16 @@ import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechThreadedBuffers;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechTieredFluidTanks;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechTreeFarmerTE;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechWirelessChargers;
+import net.minecraft.item.ItemStack;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+
+import static gregtech.api.enums.Mods.ExtraUtilities;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gregtech.api.enums.Mods.Witchery;
 
 public class COMPAT_HANDLER {
 

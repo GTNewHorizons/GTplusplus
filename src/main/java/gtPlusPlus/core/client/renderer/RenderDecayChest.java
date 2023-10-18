@@ -1,14 +1,5 @@
 package gtPlusPlus.core.client.renderer;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,6 +7,13 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.client.model.ModelDecayChest;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @SideOnly(Side.CLIENT)
 public class RenderDecayChest extends TileEntitySpecialRenderer {

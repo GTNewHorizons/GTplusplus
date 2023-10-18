@@ -1,7 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.interfaces.internal;
 
-import java.util.List;
-
+import gregtech.api.enums.SubTag;
+import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaItem_Base;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,8 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import gregtech.api.enums.SubTag;
-import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaItem_Base;
+import java.util.List;
 
 public interface Interface_ItemBehaviour<E extends Item> {
 

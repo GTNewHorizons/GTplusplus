@@ -1,11 +1,10 @@
 package gtPlusPlus.core.block.general;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,11 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class BlockCompressedObsidian extends BlockObsidian {
 

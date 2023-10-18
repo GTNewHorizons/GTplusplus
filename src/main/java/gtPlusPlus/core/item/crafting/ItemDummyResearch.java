@@ -1,21 +1,20 @@
 package gtPlusPlus.core.item.crafting;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.general.ItemGenericToken;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemDummyResearch extends ItemGenericToken {
 

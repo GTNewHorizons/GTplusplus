@@ -1,13 +1,5 @@
 package gtPlusPlus.xmod.gregtech;
 
-import static gregtech.api.enums.Mods.AdvancedSolarPanel;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Element;
@@ -42,6 +34,13 @@ import gtPlusPlus.xmod.gregtech.loaders.misc.AddCustomMachineToPA;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_AlgaeFarm;
 import gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_MolecularTransformer;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechConduits;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 
 public class HANDLER_GT {
 

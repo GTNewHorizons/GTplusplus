@@ -1,11 +1,10 @@
 package gtPlusPlus.xmod.forestry.bees.handler;
 
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.util.GT_LanguageManager;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.xmod.forestry.bees.registry.GTPP_Bees;
+import net.minecraft.item.ItemStack;
 
 public enum GTPP_PropolisType {
 

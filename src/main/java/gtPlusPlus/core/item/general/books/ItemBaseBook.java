@@ -1,13 +1,13 @@
 package gtPlusPlus.core.item.general.books;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gtPlusPlus.core.handler.BookHandler.mBookMap;
-import static gtPlusPlus.core.util.Utils.addBookTitleLocalization;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.handler.BookHandler;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.minecraft.NBTUtils;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,14 +18,13 @@ import net.minecraft.item.ItemWritableBook;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.handler.BookHandler;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.minecraft.NBTUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gtPlusPlus.core.handler.BookHandler.mBookMap;
+import static gtPlusPlus.core.util.Utils.addBookTitleLocalization;
 
 public class ItemBaseBook extends ItemWritableBook {
 

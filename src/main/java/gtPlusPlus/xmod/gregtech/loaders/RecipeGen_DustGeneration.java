@@ -1,11 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.util.GT_ModHandler;
@@ -22,6 +16,11 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class RecipeGen_DustGeneration extends RecipeGen_Base {
 

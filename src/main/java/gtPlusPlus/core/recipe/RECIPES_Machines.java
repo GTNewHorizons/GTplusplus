@@ -1,17 +1,7 @@
 package gtPlusPlus.core.recipe;
 
-import static gregtech.api.enums.Mods.*;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.github.technus.tectech.recipe.TT_recipeAdder;
 import com.github.technus.tectech.thing.CustomItemList;
-
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -39,6 +29,20 @@ import gtPlusPlus.everglades.dimension.Dimension_Everglades;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.covers.CoverManager;
 import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import static gregtech.api.enums.Mods.BartWorks;
+import static gregtech.api.enums.Mods.COFHCore;
+import static gregtech.api.enums.Mods.EternalSingularity;
+import static gregtech.api.enums.Mods.GoodGenerator;
+import static gregtech.api.enums.Mods.GregTech;
+import static gregtech.api.enums.Mods.Railcraft;
+import static gregtech.api.enums.Mods.RemoteIO;
 
 public class RECIPES_Machines {
 

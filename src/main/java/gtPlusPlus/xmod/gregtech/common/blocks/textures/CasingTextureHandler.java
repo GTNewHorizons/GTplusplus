@@ -1,11 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 
+import gregtech.api.enums.Textures;
+import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import gregtech.api.enums.Textures;
-import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks;
 
 public class CasingTextureHandler {
 

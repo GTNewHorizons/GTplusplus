@@ -1,12 +1,5 @@
 package gtPlusPlus.core.recipe;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.HOURS;
-import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OreDictNames;
@@ -18,6 +11,12 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import net.minecraft.item.ItemStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.HOURS;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 
 public class RECIPES_LaserEngraver implements IOreRecipeRegistrator {
 

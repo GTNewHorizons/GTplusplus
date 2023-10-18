@@ -1,9 +1,8 @@
 package gtPlusPlus.core.item.general;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.Utils;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,9 +12,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.Utils;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ItemBasicScrubberTurbine extends Item {
 

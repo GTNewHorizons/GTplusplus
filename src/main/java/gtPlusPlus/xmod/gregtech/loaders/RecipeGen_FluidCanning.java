@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
-import java.util.HashSet;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
@@ -14,6 +9,10 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.HashSet;
 
 public class RecipeGen_FluidCanning implements Runnable {
 

@@ -1,9 +1,10 @@
 package gtPlusPlus.core.item.wearable.armour.tinfoil;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.core.item.wearable.armour.ArmourLoader;
+import gtPlusPlus.core.item.wearable.armour.base.BaseArmourHelm;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,11 +27,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.core.item.wearable.armour.ArmourLoader;
-import gtPlusPlus.core.item.wearable.armour.base.BaseArmourHelm;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class ArmourTinFoilHat extends BaseArmourHelm {
 

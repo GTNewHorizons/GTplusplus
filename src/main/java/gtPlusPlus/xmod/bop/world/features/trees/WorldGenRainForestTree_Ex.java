@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.bop.world.features.trees;
 
-import java.util.Random;
-
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -9,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import gtPlusPlus.api.objects.Logger;
+import java.util.Random;
 
 public class WorldGenRainForestTree_Ex extends WorldGenAbstractTree {
 

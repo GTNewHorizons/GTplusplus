@@ -1,10 +1,9 @@
 package gtPlusPlus.xmod.thermalfoundation.fluid;
 
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.item.EnumRarity;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-
-import gtPlusPlus.api.objects.Logger;
 
 public class TF_Fluids {
 

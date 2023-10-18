@@ -1,19 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.covers;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidHandler;
-
 import com.gtnewhorizons.modularui.api.drawable.Text;
 import com.gtnewhorizons.modularui.api.math.MathExpression;
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.common.widget.TextWidget;
 import com.gtnewhorizons.modularui.common.widget.textfield.BaseTextFieldWidget;
-
 import gregtech.api.gui.modularui.GT_CoverUIBuildContext;
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.util.GT_CoverBehavior;
@@ -21,6 +12,13 @@ import gregtech.api.util.GT_Utility;
 import gregtech.api.util.ISerializableObject;
 import gregtech.common.gui.modularui.widget.CoverDataControllerWidget;
 import gregtech.common.gui.modularui.widget.CoverDataFollower_TextFieldWidget;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidHandler;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GTPP_Cover_Overflow extends GT_CoverBehavior {
 

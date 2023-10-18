@@ -1,11 +1,5 @@
 package gtPlusPlus.plugin.fixes.vanilla;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.api.interfaces.IPlugin;
@@ -14,6 +8,11 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.plugin.fixes.interfaces.IBugFix;
 import gtPlusPlus.preloader.CORE_Preloader;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class VanillaBedHeightFix implements IBugFix {
 

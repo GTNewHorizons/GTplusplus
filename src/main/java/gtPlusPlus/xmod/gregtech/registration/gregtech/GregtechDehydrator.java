@@ -1,10 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-
-import net.minecraft.item.ItemStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -19,6 +14,10 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Dehydrator;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.GregtechMetaTileEntity_IndustrialDehydrator;
+import net.minecraft.item.ItemStack;
+
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 
 public class GregtechDehydrator {
 

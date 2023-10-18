@@ -1,11 +1,5 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
@@ -19,6 +13,11 @@ import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class RecipeGen_Fluorite extends RecipeGen_Base {
 

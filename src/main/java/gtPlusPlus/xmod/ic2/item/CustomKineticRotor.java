@@ -1,9 +1,12 @@
 package gtPlusPlus.xmod.ic2.item;
 
-import static gregtech.api.enums.Mods.EnderIO;
-
-import java.util.List;
-
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import ic2.api.item.IKineticRotor;
+import ic2.core.IC2;
+import ic2.core.block.kineticgenerator.gui.GuiWaterKineticGenerator;
+import ic2.core.block.kineticgenerator.gui.GuiWindKineticGenerator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,13 +16,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import ic2.api.item.IKineticRotor;
-import ic2.core.IC2;
-import ic2.core.block.kineticgenerator.gui.GuiWaterKineticGenerator;
-import ic2.core.block.kineticgenerator.gui.GuiWindKineticGenerator;
+import java.util.List;
+
+import static gregtech.api.enums.Mods.EnderIO;
 
 public class CustomKineticRotor extends Item implements IKineticRotor {
 

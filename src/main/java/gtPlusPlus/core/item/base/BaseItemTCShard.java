@@ -1,21 +1,20 @@
 package gtPlusPlus.core.item.base;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
-import java.util.List;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+import java.util.List;
+
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class BaseItemTCShard extends Item {
 

@@ -1,17 +1,16 @@
 package gtPlusPlus.preloader.asm.transformers;
 
-import static org.objectweb.asm.Opcodes.ALOAD;
-import static org.objectweb.asm.Opcodes.ASM5;
-import static org.objectweb.asm.Opcodes.IFEQ;
-import static org.objectweb.asm.Opcodes.INVOKESTATIC;
-import static org.objectweb.asm.Opcodes.RETURN;
-
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import static org.objectweb.asm.Opcodes.ALOAD;
+import static org.objectweb.asm.Opcodes.ASM5;
+import static org.objectweb.asm.Opcodes.IFEQ;
+import static org.objectweb.asm.Opcodes.INVOKESTATIC;
+import static org.objectweb.asm.Opcodes.RETURN;
 
 public class Preloader_ClassTransformer {
 

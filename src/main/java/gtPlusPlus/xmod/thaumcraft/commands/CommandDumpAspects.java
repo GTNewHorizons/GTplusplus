@@ -1,18 +1,17 @@
 package gtPlusPlus.xmod.thaumcraft.commands;
 
-import static gtPlusPlus.core.util.minecraft.PlayerUtils.messagePlayer;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import net.minecraft.command.ICommand;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.player.EntityPlayer;
-
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.commands.CommandUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.thaumcraft.objects.ThreadAspectScanner;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static gtPlusPlus.core.util.minecraft.PlayerUtils.messagePlayer;
 
 public class CommandDumpAspects implements ICommand {
 

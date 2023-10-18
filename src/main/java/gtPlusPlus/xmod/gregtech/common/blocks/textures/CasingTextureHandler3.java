@@ -1,8 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 
-import net.minecraft.util.IIcon;
-
 import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingBlocks3;
+import net.minecraft.util.IIcon;
 
 public class CasingTextureHandler3 {
 

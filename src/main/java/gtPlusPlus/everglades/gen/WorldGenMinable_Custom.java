@@ -1,16 +1,15 @@
 package gtPlusPlus.everglades.gen;
 
-import static gtPlusPlus.core.lib.CORE.PI;
-
-import java.util.Random;
-
+import gtPlusPlus.api.objects.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-import gtPlusPlus.api.objects.Logger;
+import java.util.Random;
+
+import static gtPlusPlus.core.lib.CORE.PI;
 
 public class WorldGenMinable_Custom extends WorldGenMinable {
 

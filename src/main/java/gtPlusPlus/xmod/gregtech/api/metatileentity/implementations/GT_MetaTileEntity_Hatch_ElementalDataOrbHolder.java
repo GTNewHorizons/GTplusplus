@@ -1,16 +1,8 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import java.util.ArrayList;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.SlotGroup;
-
 import gregtech.api.enums.ItemList;
 import gregtech.api.gui.modularui.GT_UIInfos;
 import gregtech.api.gui.modularui.GT_UITextures;
@@ -25,6 +17,12 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
 
 public class GT_MetaTileEntity_Hatch_ElementalDataOrbHolder extends GT_MetaTileEntity_Hatch
         implements IConfigurationCircuitSupport {

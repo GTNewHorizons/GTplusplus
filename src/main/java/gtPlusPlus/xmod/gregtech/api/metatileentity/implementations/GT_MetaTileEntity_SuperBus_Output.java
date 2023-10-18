@@ -1,18 +1,16 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
-import net.minecraft.inventory.IInventory;
-
 import com.gtnewhorizons.modularui.api.screen.ModularWindow.Builder;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.Scrollable;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
-
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
+import net.minecraft.inventory.IInventory;
 
 public class GT_MetaTileEntity_SuperBus_Output extends GT_MetaTileEntity_Hatch_OutputBus {
 
