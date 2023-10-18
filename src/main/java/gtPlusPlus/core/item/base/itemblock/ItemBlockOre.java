@@ -1,5 +1,17 @@
 package gtPlusPlus.core.item.base.itemblock;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
+
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.block.base.BlockBaseOre;
 import gtPlusPlus.core.lib.CORE;
@@ -10,17 +22,6 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.everglades.gen.gt.WorldGen_GT_Ore_Layer;
-import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ItemBlockOre extends ItemBlock {
 

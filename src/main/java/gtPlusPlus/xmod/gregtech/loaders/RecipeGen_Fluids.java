@@ -1,5 +1,8 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
@@ -7,9 +10,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class RecipeGen_Fluids extends RecipeGen_Base {
 

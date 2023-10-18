@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.forestry;
 
+import static gregtech.api.enums.Mods.ExtraTrees;
+import static gregtech.api.enums.Mods.Forestry;
+
+import net.minecraft.item.ItemStack;
+
 import binnie.extratrees.genetics.ExtraTreeSpecies;
 import cpw.mods.fml.common.Optional;
 import forestry.api.arboriculture.EnumGermlingType;
@@ -12,10 +17,6 @@ import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
 import gtPlusPlus.xmod.forestry.bees.recipe.FR_Gregtech_Recipes;
 import gtPlusPlus.xmod.forestry.bees.registry.GTPP_Bees;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
-import net.minecraft.item.ItemStack;
-
-import static gregtech.api.enums.Mods.ExtraTrees;
-import static gregtech.api.enums.Mods.Forestry;
 
 public class HANDLER_FR {
 

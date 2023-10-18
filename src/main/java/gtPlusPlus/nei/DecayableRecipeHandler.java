@@ -1,5 +1,17 @@
 package gtPlusPlus.nei;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
+
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
@@ -10,17 +22,6 @@ import gtPlusPlus.core.item.base.dusts.BaseItemDustUnique;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.lib.VanillaColours;
 import gtPlusPlus.nei.handlers.NeiTextureHandler;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
-
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
 
 public class DecayableRecipeHandler extends TemplateRecipeHandler {
 

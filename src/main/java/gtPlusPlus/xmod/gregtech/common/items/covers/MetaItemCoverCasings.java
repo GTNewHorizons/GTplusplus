@@ -1,16 +1,17 @@
 package gtPlusPlus.xmod.gregtech.common.items.covers;
 
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.Textures;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Textures;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.xmod.gregtech.common.items.MetaCustomCoverItem;
 
 public class MetaItemCoverCasings extends MetaCustomCoverItem {
 

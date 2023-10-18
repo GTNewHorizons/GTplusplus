@@ -1,11 +1,12 @@
 package gtPlusPlus.nei;
 
-import cpw.mods.fml.common.event.FMLInterModComms;
-import net.minecraft.nbt.NBTTagCompound;
-
 import static gregtech.api.enums.Mods.AdvancedSolarPanel;
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.NotEnoughItems;
+
+import net.minecraft.nbt.NBTTagCompound;
+
+import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class NEI_IMC_Sender {
 

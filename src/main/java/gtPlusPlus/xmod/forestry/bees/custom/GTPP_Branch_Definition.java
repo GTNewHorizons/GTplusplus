@@ -1,11 +1,11 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
 import gtPlusPlus.api.objects.Logger;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public enum GTPP_Branch_Definition {
 

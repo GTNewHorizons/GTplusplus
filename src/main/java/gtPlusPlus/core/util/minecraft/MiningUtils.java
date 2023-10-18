@@ -1,14 +1,15 @@
 package gtPlusPlus.core.util.minecraft;
 
-import gregtech.common.GT_Worldgen_GT_Ore_Layer;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import java.util.HashMap;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import java.util.HashMap;
+import gregtech.common.GT_Worldgen_GT_Ore_Layer;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class MiningUtils {
 

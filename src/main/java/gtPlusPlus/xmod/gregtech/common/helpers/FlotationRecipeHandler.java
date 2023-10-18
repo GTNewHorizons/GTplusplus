@@ -1,14 +1,15 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
+import java.util.HashMap;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.material.Material;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.HashMap;
 
 public class FlotationRecipeHandler {
 

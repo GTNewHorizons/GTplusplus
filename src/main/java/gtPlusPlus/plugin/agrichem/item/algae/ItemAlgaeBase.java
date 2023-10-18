@@ -1,11 +1,9 @@
 package gtPlusPlus.plugin.agrichem.item.algae;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.plugin.agrichem.AlgaeDefinition;
-import gtPlusPlus.plugin.agrichem.IAlgalItem;
-import gtPlusPlus.plugin.agrichem.logic.AlgaeGeneticData;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -18,9 +16,12 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.plugin.agrichem.AlgaeDefinition;
+import gtPlusPlus.plugin.agrichem.IAlgalItem;
+import gtPlusPlus.plugin.agrichem.logic.AlgaeGeneticData;
 
 public class ItemAlgaeBase extends Item implements IAlgalItem {
 

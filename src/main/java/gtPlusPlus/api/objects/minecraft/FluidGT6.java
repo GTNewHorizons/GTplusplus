@@ -1,9 +1,10 @@
 package gtPlusPlus.api.objects.minecraft;
 
-import gregtech.api.GregTech_API;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraftforge.fluids.Fluid;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gregtech.api.GregTech_API;
 
 public class FluidGT6 extends Fluid implements Runnable {
 

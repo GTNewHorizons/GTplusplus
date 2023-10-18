@@ -1,14 +1,15 @@
 package gtPlusPlus.core.util.recipe;
 
-import gnu.trove.strategy.HashingStrategy;
-import gregtech.api.util.GT_Recipe;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Objects;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
+import gnu.trove.strategy.HashingStrategy;
+import gregtech.api.util.GT_Recipe;
 
 public class RecipeHashStrat {
 

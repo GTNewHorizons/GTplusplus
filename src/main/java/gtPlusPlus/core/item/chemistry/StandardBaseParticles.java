@@ -1,10 +1,10 @@
 package gtPlusPlus.core.item.chemistry;
 
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.item.base.misc.BaseItemParticle;
-import gtPlusPlus.core.material.Particle;
-import gtPlusPlus.core.material.Particle.ElementaryGroup;
-import gtPlusPlus.core.util.Utils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.HashMap;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -12,10 +12,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-import java.util.HashMap;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.item.base.misc.BaseItemParticle;
+import gtPlusPlus.core.material.Particle;
+import gtPlusPlus.core.material.Particle.ElementaryGroup;
+import gtPlusPlus.core.util.Utils;
 
 public class StandardBaseParticles extends BaseItemParticle {
 

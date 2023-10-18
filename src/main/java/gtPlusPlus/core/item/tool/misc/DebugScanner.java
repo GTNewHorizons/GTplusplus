@@ -1,8 +1,7 @@
 package gtPlusPlus.core.item.tool.misc;
 
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.CoreItem;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -12,7 +11,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.CoreItem;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class DebugScanner extends CoreItem {
 

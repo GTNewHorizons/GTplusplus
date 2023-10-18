@@ -1,13 +1,5 @@
 package gtPlusPlus.core.container;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.inventories.projecttable.InventoryProjectMain;
-import gtPlusPlus.core.inventories.projecttable.InventoryProjectOutput;
-import gtPlusPlus.core.slots.SlotCraftingNoCollect;
-import gtPlusPlus.core.slots.SlotDataStick;
-import gtPlusPlus.core.slots.SlotNoInput;
-import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -18,6 +10,15 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
+
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.inventories.projecttable.InventoryProjectMain;
+import gtPlusPlus.core.inventories.projecttable.InventoryProjectOutput;
+import gtPlusPlus.core.slots.SlotCraftingNoCollect;
+import gtPlusPlus.core.slots.SlotDataStick;
+import gtPlusPlus.core.slots.SlotNoInput;
+import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
 
 public class Container_ProjectTable extends Container {
 

@@ -1,8 +1,15 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import net.minecraftforge.common.util.ForgeDirection;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.ProgressBar;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.enums.SteamVariant;
@@ -16,10 +23,6 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.generators.GregtechMetaSolarGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
-import org.apache.commons.lang3.ArrayUtils;
-
-import static gregtech.api.enums.GT_Values.V;
 
 public class GregtechMetaTileEntitySolarGenerator extends GregtechMetaSolarGenerator {
 

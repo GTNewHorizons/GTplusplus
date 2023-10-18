@@ -1,12 +1,12 @@
 package gtPlusPlus.core.item.base;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.List;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class BaseItemWithDamageValue extends Item {
 

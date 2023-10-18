@@ -1,13 +1,14 @@
 package gtPlusPlus.nei.handlers;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import org.lwjgl.opengl.GL11;
 
 /**
  * Based on crazypants.enderio.gui.IconEIO

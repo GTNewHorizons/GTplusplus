@@ -1,9 +1,10 @@
 package gtPlusPlus.api.objects.minecraft;
 
-import gtPlusPlus.core.util.minecraft.EntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+
+import gtPlusPlus.core.util.minecraft.EntityUtils;
 
 /**
  * Generates an AABB around an entity.

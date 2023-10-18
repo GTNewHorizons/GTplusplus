@@ -1,18 +1,19 @@
 package gtPlusPlus.core.item.base.misc;
 
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.CoreItem;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.CoreItem;
 
 public abstract class BaseItemParticle extends CoreItem {
 

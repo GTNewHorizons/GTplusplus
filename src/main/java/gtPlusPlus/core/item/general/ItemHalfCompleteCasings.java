@@ -1,14 +1,15 @@
 package gtPlusPlus.core.item.general;
 
-import gtPlusPlus.core.item.base.BaseItemColourable;
-import gtPlusPlus.core.util.Utils;
+import java.util.List;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
-import java.util.List;
+import gtPlusPlus.core.item.base.BaseItemColourable;
+import gtPlusPlus.core.util.Utils;
 
 public class ItemHalfCompleteCasings extends BaseItemColourable {
 

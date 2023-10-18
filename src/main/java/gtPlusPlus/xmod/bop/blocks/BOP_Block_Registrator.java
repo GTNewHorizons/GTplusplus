@@ -1,5 +1,15 @@
 package gtPlusPlus.xmod.bop.blocks;
 
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.loaders.oreprocessing.ProcessingLog.addPyrolyeOvenRecipes;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
@@ -18,15 +28,6 @@ import gtPlusPlus.xmod.bop.blocks.pine.SaplingPineTree;
 import gtPlusPlus.xmod.bop.blocks.rainforest.LeavesRainforestTree;
 import gtPlusPlus.xmod.bop.blocks.rainforest.LogRainforestTree;
 import gtPlusPlus.xmod.bop.blocks.rainforest.SaplingRainforestTree;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCutterRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.loaders.oreprocessing.ProcessingLog.addPyrolyeOvenRecipes;
 
 public class BOP_Block_Registrator {
 

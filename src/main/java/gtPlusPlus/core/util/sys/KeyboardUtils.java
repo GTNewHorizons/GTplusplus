@@ -1,6 +1,7 @@
 package gtPlusPlus.core.util.sys;
 
 import net.minecraft.client.Minecraft;
+
 import org.lwjgl.input.Keyboard;
 
 public class KeyboardUtils {

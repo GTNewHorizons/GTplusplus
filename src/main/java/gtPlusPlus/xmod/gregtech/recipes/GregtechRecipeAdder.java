@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.gregtech.recipes;
 
+import static gregtech.api.enums.GT_Values.RA;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.enums.GT_Values;
@@ -24,10 +29,6 @@ import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.interfaces.internal.IGregtech_RecipeAdder;
 import gtPlusPlus.xmod.gregtech.common.helpers.FlotationRecipeHandler;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import static gregtech.api.enums.GT_Values.RA;
 
 public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 

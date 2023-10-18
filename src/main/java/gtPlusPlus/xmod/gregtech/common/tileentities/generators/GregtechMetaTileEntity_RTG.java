@@ -1,5 +1,14 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -15,13 +24,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator {
 
@@ -126,7 +128,9 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
                     if (this.mInventory[getStackDisplaySlot()] == null)
                         this.mInventory[getStackDisplaySlot()] = new ItemStack(Blocks.fire, 1);
                     this.mInventory[getStackDisplaySlot()].setStackDisplayName(
-                            "Generating: " + GT_Utility.formatNumbers(aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU())
+                            "Generating: "
+                                    + GT_Utility.formatNumbers(
+                                            aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU())
                                     + " EU");
                 }
             } else {
@@ -366,10 +370,11 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     @Override
     public String[] getInfoData() {
         return new String[] { "RTG - Running at tier " + this.mTier,
-                "Active: " + this.getBaseMetaTileEntity().isActive(), "Current Output: " + GT_Utility.formatNumbers(mVoltage) + " EU/t",
+                "Active: " + this.getBaseMetaTileEntity().isActive(),
+                "Current Output: " + GT_Utility.formatNumbers(mVoltage) + " EU/t",
                 "Days of Fuel remaining: " + GT_Utility.formatNumbers(mTicksToBurnFor / 20 / 60 / 20),
                 "Hours of Fuel remaining: " + GT_Utility.formatNumbers(mTicksToBurnFor / 20 / 60 / 60),
                 "Ticks of " + this.mVoltage + "v remaining: " + mTicksToBurnFor,
-                this.mCurrentRecipe.mInputs[0].getDisplayName() + " x1"};
+                this.mCurrentRecipe.mInputs[0].getDisplayName() + " x1" };
     }
 }

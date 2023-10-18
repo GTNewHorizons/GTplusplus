@@ -1,12 +1,13 @@
 package gtPlusPlus.core.gui.widget;
 
-import gtPlusPlus.core.gui.machine.GUI_VolumetricFlaskSetter;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.CORE_Preloader;
+import java.lang.reflect.Field;
+
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiTextField;
 
-import java.lang.reflect.Field;
+import gtPlusPlus.core.gui.machine.GUI_VolumetricFlaskSetter;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
 
 public class GuiValueField extends GuiTextField {
 

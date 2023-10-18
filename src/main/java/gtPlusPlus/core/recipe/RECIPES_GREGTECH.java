@@ -1,42 +1,5 @@
 package gtPlusPlus.core.recipe;
 
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.ItemList;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
-import gregtech.api.enums.TierEU;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_RecipeConstants;
-import gregtech.api.util.GT_Utility;
-import gregtech.api.util.HotFuel;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.block.ModBlocks;
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.item.chemistry.AgriculturalChem;
-import gtPlusPlus.core.item.chemistry.GenericChem;
-import gtPlusPlus.core.item.chemistry.IonParticles;
-import gtPlusPlus.core.item.crafting.ItemDummyResearch;
-import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.material.ALLOY;
-import gtPlusPlus.core.material.ELEMENT;
-import gtPlusPlus.core.material.MISC_MATERIALS;
-import gtPlusPlus.core.material.ORES;
-import gtPlusPlus.core.material.Particle;
-import gtPlusPlus.core.material.nuclear.FLUORIDES;
-import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.minecraft.EnchantingUtils;
-import gtPlusPlus.core.util.minecraft.FluidUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.MaterialUtils;
-import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
 import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.api.enums.Mods.NewHorizonsCoreMod;
@@ -72,6 +35,44 @@ import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_TIME;
 import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.TierEU;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_RecipeConstants;
+import gregtech.api.util.GT_Utility;
+import gregtech.api.util.HotFuel;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.block.ModBlocks;
+import gtPlusPlus.core.item.ModItems;
+import gtPlusPlus.core.item.chemistry.AgriculturalChem;
+import gtPlusPlus.core.item.chemistry.GenericChem;
+import gtPlusPlus.core.item.chemistry.IonParticles;
+import gtPlusPlus.core.item.crafting.ItemDummyResearch;
+import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.material.ALLOY;
+import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.MISC_MATERIALS;
+import gtPlusPlus.core.material.ORES;
+import gtPlusPlus.core.material.Particle;
+import gtPlusPlus.core.material.nuclear.FLUORIDES;
+import gtPlusPlus.core.recipe.common.CI;
+import gtPlusPlus.core.util.minecraft.EnchantingUtils;
+import gtPlusPlus.core.util.minecraft.FluidUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.MaterialUtils;
+import gtPlusPlus.xmod.bop.blocks.BOP_Block_Registrator;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class RECIPES_GREGTECH {
 
@@ -448,7 +449,7 @@ public class RECIPES_GREGTECH {
                                 CI.getTieredComponent(OrePrefixes.cableGt12, h - 1, 16),
                                 CI.getTieredComponent(OrePrefixes.screw, h, 16),
                                 CI.getTieredComponent(OrePrefixes.bolt, h - 2, 32),
-                                CI.getFieldGenerator(h-1, 1))
+                                CI.getFieldGenerator(h - 1, 1))
                         .fluidInputs(
                                 CI.getTieredFluid(h, 144 * 4 * 8),
                                 CI.getTertiaryTieredFluid(h - 1, 144 * 4 * 8),
@@ -510,15 +511,14 @@ public class RECIPES_GREGTECH {
     private static void laserEngraverRecipes() {
 
         // Laser Sensors and Emitters together
-        GregtechItemList[] aTransParts = new GregtechItemList[] {
-                GregtechItemList.TransmissionComponent_LV, GregtechItemList.TransmissionComponent_MV,
-                GregtechItemList.TransmissionComponent_HV, GregtechItemList.TransmissionComponent_EV,
-                GregtechItemList.TransmissionComponent_IV, GregtechItemList.TransmissionComponent_LuV,
-                GregtechItemList.TransmissionComponent_ZPM, GregtechItemList.TransmissionComponent_UV,
-                GregtechItemList.TransmissionComponent_UHV, };
+        GregtechItemList[] aTransParts = new GregtechItemList[] { GregtechItemList.TransmissionComponent_LV,
+                GregtechItemList.TransmissionComponent_MV, GregtechItemList.TransmissionComponent_HV,
+                GregtechItemList.TransmissionComponent_EV, GregtechItemList.TransmissionComponent_IV,
+                GregtechItemList.TransmissionComponent_LuV, GregtechItemList.TransmissionComponent_ZPM,
+                GregtechItemList.TransmissionComponent_UV, GregtechItemList.TransmissionComponent_UHV, };
         for (int i = 1; i < aTransParts.length; i++) {
             GT_Values.RA.stdBuilder().itemInputs(CI.getEmitter(i, 2), CI.getSensor(i, 2))
-                    .itemOutputs(aTransParts[i-1].get(1)).duration(5 * SECONDS).eut(GT_Values.VP[i])
+                    .itemOutputs(aTransParts[i - 1].get(1)).duration(5 * SECONDS).eut(GT_Values.VP[i])
                     .addTo(sLaserEngraverRecipes);
         }
 
@@ -1241,7 +1241,6 @@ public class RECIPES_GREGTECH {
     }
 
     private static void chemicalReactorRecipes() {
-
 
         GT_Values.RA.stdBuilder()
                 .itemInputs(

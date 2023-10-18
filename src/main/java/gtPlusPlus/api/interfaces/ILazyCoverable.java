@@ -1,8 +1,9 @@
 package gtPlusPlus.api.interfaces;
 
+import net.minecraftforge.common.util.ForgeDirection;
+
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public interface ILazyCoverable extends ICoverable {
 

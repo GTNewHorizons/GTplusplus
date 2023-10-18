@@ -1,11 +1,9 @@
 package gtPlusPlus.xmod.thermalfoundation.block;
 
-import cofh.core.fluid.BlockFluidInteractive;
-import cofh.lib.util.BlockWrapper;
-import cofh.lib.util.helpers.DamageHelper;
-import cofh.lib.util.helpers.ServerHelper;
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -23,9 +21,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.Random;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cofh.core.fluid.BlockFluidInteractive;
+import cofh.lib.util.BlockWrapper;
+import cofh.lib.util.helpers.DamageHelper;
+import cofh.lib.util.helpers.ServerHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
 
 public class TF_Block_Fluid_Cryotheum extends BlockFluidInteractive {
 

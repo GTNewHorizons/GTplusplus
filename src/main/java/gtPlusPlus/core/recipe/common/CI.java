@@ -1,5 +1,9 @@
 package gtPlusPlus.core.recipe.common;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -18,9 +22,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import ic2.core.Ic2Items;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 
 public class CI {
 
@@ -651,8 +652,7 @@ public class CI {
                     // All Invalid?
                     // Let's add a special error ingot.
                     if (!ItemUtils.checkForInvalidItems(aReturn)) {
-                        aReturn = ItemUtils
-                                .getErrorStack(1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
+                        aReturn = ItemUtils.getErrorStack(1, (aPrefix + m.getLocalizedName() + " x" + aAmount));
                     }
                 }
             }
@@ -954,7 +954,7 @@ public class CI {
         GregtechItemList[] aHulls = new GregtechItemList[] { GregtechItemList.GTPP_Casing_ULV,
                 GregtechItemList.GTPP_Casing_LV, GregtechItemList.GTPP_Casing_MV, GregtechItemList.GTPP_Casing_HV,
                 GregtechItemList.GTPP_Casing_EV, GregtechItemList.GTPP_Casing_IV, GregtechItemList.GTPP_Casing_LuV,
-                GregtechItemList.GTPP_Casing_ZPM, GregtechItemList.GTPP_Casing_UV, GregtechItemList.GTPP_Casing_UHV};
+                GregtechItemList.GTPP_Casing_ZPM, GregtechItemList.GTPP_Casing_UV, GregtechItemList.GTPP_Casing_UHV };
         return aHulls[aTier].get(aAmount);
     }
 
@@ -963,12 +963,11 @@ public class CI {
     }
 
     public static ItemStack getTransmissionComponent(int aTier, int aAmount) {
-        GregtechItemList[] aTransParts = new GregtechItemList[] {
-                GregtechItemList.TransmissionComponent_LV, GregtechItemList.TransmissionComponent_MV,
-                GregtechItemList.TransmissionComponent_HV, GregtechItemList.TransmissionComponent_EV,
-                GregtechItemList.TransmissionComponent_IV, GregtechItemList.TransmissionComponent_LuV,
-                GregtechItemList.TransmissionComponent_ZPM, GregtechItemList.TransmissionComponent_UV,
-                GregtechItemList.TransmissionComponent_UHV, };
+        GregtechItemList[] aTransParts = new GregtechItemList[] { GregtechItemList.TransmissionComponent_LV,
+                GregtechItemList.TransmissionComponent_MV, GregtechItemList.TransmissionComponent_HV,
+                GregtechItemList.TransmissionComponent_EV, GregtechItemList.TransmissionComponent_IV,
+                GregtechItemList.TransmissionComponent_LuV, GregtechItemList.TransmissionComponent_ZPM,
+                GregtechItemList.TransmissionComponent_UV, GregtechItemList.TransmissionComponent_UHV, };
         return aTransParts[aTier].get(aAmount);
     }
 

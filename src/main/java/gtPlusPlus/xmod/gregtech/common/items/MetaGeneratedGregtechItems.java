@@ -1,11 +1,14 @@
 package gtPlusPlus.xmod.gregtech.common.items;
 
+import static gregtech.client.GT_TooltipHandler.Tier.EV;
+import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
+import static gtPlusPlus.core.util.Utils.getTcAspectStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TC_Aspects;
 import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.ITexture;
 import gregtech.api.objects.GT_MultiTexture;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_ModHandler;
@@ -19,10 +22,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaItem_X32;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow;
-
-import static gregtech.client.GT_TooltipHandler.Tier.EV;
-import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
-import static gtPlusPlus.core.util.Utils.getTcAspectStack;
 
 public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 
@@ -110,7 +109,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         getTcAspectStack(TC_Aspects.POTENTIA, 64L)));
         this.setElectricStats(32000 + tLastID, GT_Values.V[8] * 20 * 300 / 4, GT_Values.V[8], 8L, -3L, false);
 
-
         // RTG Pellet
         GregtechItemList.Pellet_RTG_PU238.set(
                 this.addItem(
@@ -168,7 +166,8 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Overflow Valve (LV)",
                         "Maximum void amount: 64,000",
                         getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
+                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                        getTcAspectStack(TC_Aspects.ITER, 1L),
                         getTcAspectStack(TC_Aspects.AQUA, 1L)));
         GregtechItemList.Cover_Overflow_MV.set(
                 this.addItem(
@@ -176,7 +175,8 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Overflow Valve (MV)",
                         "Maximum void amount: 512,000",
                         getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
+                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                        getTcAspectStack(TC_Aspects.ITER, 1L),
                         getTcAspectStack(TC_Aspects.AQUA, 1L)));
         GregtechItemList.Cover_Overflow_HV.set(
                 this.addItem(
@@ -184,7 +184,8 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Overflow Valve (HV)",
                         "Maximum void amount: 4,096,000",
                         getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
+                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                        getTcAspectStack(TC_Aspects.ITER, 1L),
                         getTcAspectStack(TC_Aspects.AQUA, 1L)));
         GregtechItemList.Cover_Overflow_EV.set(
                 this.addItem(
@@ -192,7 +193,8 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Overflow Valve (EV)",
                         "Maximum void amount: 32,768,000",
                         getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
+                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                        getTcAspectStack(TC_Aspects.ITER, 1L),
                         getTcAspectStack(TC_Aspects.AQUA, 1L)));
         GregtechItemList.Cover_Overflow_IV.set(
                 this.addItem(
@@ -200,7 +202,8 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Overflow Valve (IV)",
                         "Maximum void amount: 262,144,000",
                         getTcAspectStack(TC_Aspects.ELECTRUM, 1L),
-                        getTcAspectStack(TC_Aspects.MACHINA, 1L), getTcAspectStack(TC_Aspects.ITER, 1L),
+                        getTcAspectStack(TC_Aspects.MACHINA, 1L),
+                        getTcAspectStack(TC_Aspects.ITER, 1L),
                         getTcAspectStack(TC_Aspects.AQUA, 1L)));
 
         GregTech_API.registerCover(
@@ -270,12 +273,11 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         "Allows UV & IF to pass through, blocks visible light spectrums"));
 
         int aStartID = 141;
-        GregtechItemList[] aTransParts = new GregtechItemList[] {
-                GregtechItemList.TransmissionComponent_LV, GregtechItemList.TransmissionComponent_MV,
-                GregtechItemList.TransmissionComponent_HV, GregtechItemList.TransmissionComponent_EV,
-                GregtechItemList.TransmissionComponent_IV, GregtechItemList.TransmissionComponent_LuV,
-                GregtechItemList.TransmissionComponent_ZPM, GregtechItemList.TransmissionComponent_UV,
-                GregtechItemList.TransmissionComponent_UHV, };
+        GregtechItemList[] aTransParts = new GregtechItemList[] { GregtechItemList.TransmissionComponent_LV,
+                GregtechItemList.TransmissionComponent_MV, GregtechItemList.TransmissionComponent_HV,
+                GregtechItemList.TransmissionComponent_EV, GregtechItemList.TransmissionComponent_IV,
+                GregtechItemList.TransmissionComponent_LuV, GregtechItemList.TransmissionComponent_ZPM,
+                GregtechItemList.TransmissionComponent_UV, GregtechItemList.TransmissionComponent_UHV, };
         for (int aIndex = 0; aIndex < aTransParts.length; aIndex++) {
             aTransParts[aIndex].set(
                     this.addItem(

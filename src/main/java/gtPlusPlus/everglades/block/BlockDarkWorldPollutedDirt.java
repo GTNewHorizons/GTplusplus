@@ -1,14 +1,15 @@
 package gtPlusPlus.everglades.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.core.creative.AddToCreativeTab;
+import static gregtech.api.enums.Mods.Minecraft;
+
 import net.minecraft.block.BlockDirt;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 
-import static gregtech.api.enums.Mods.Minecraft;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.core.creative.AddToCreativeTab;
 
 public class BlockDarkWorldPollutedDirt extends BlockDirt implements ITileTooltip {
 

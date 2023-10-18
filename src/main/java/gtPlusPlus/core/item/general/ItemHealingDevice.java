@@ -1,5 +1,20 @@
 package gtPlusPlus.core.item.general;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.FoodStats;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import cpw.mods.fml.common.Optional;
@@ -16,20 +31,6 @@ import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import ic2.api.item.IElectricItemManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.FoodStats;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @Optional.InterfaceList(
         value = { @Optional.Interface(iface = "baubles.api.IBauble", modid = Mods.Names.BAUBLES),
@@ -135,7 +136,11 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
         list.add("");
 
         list.add(EnumChatFormatting.GREEN + aString1 + EnumChatFormatting.GRAY);
-        list.add(EnumChatFormatting.GREEN + aString2 + GT_Utility.formatNumbers(EUPerOperation) + aString3 + EnumChatFormatting.GRAY);
+        list.add(
+                EnumChatFormatting.GREEN + aString2
+                        + GT_Utility.formatNumbers(EUPerOperation)
+                        + aString3
+                        + EnumChatFormatting.GRAY);
         list.add(EnumChatFormatting.GREEN + aString4 + EnumChatFormatting.GRAY);
         list.add(EnumChatFormatting.RED + aString5 + EnumChatFormatting.GRAY);
 
@@ -165,7 +170,8 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
                         + aEU
                         + "] ["
                         + EnumChatFormatting.YELLOW
-                        + GT_Utility.formatNumbers(MathUtils.findPercentage(this.getCharge(stack), this.getMaxCharge(stack)))
+                        + GT_Utility.formatNumbers(
+                                MathUtils.findPercentage(this.getCharge(stack), this.getMaxCharge(stack)))
                         + EnumChatFormatting.GRAY
                         + "%]");
         list.add(EnumChatFormatting.GOLD + aString6 + EnumChatFormatting.GRAY);
@@ -283,8 +289,7 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
                         }
                     }
                 }
-                if (this.getCharge(baubleStack)
-                        <= (this.getMaxCharge(baubleStack) - getTransferLimit(baubleStack))) {
+                if (this.getCharge(baubleStack) <= (this.getMaxCharge(baubleStack) - getTransferLimit(baubleStack))) {
                     continue;
                 } else {
                     break;
@@ -328,16 +333,22 @@ public class ItemHealingDevice extends Item implements IElectricItem, IElectricI
                             (EntityPlayer) arg1,
                             "Your NanoBooster Whirs! Leaving you feeling stronger.");
 
-                    if (hp > 0) PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + GT_Utility.formatNumbers(hp) + " hp.");
+                    if (hp > 0) PlayerUtils
+                            .messagePlayer((EntityPlayer) arg1, "Healed " + GT_Utility.formatNumbers(hp) + " hp.");
 
-                    if (hunger > 0) PlayerUtils.messagePlayer((EntityPlayer) arg1, "Healed " + GT_Utility.formatNumbers(hunger) + " hunger.");
+                    if (hunger > 0) PlayerUtils.messagePlayer(
+                            (EntityPlayer) arg1,
+                            "Healed " + GT_Utility.formatNumbers(hunger) + " hunger.");
 
-                    if (saturation > 0)
-                        PlayerUtils.messagePlayer((EntityPlayer) arg1, "Satured Hunger by " + GT_Utility.formatNumbers(saturation) + ".");
+                    if (saturation > 0) PlayerUtils.messagePlayer(
+                            (EntityPlayer) arg1,
+                            "Satured Hunger by " + GT_Utility.formatNumbers(saturation) + ".");
 
                     if (hp > 0 || hunger > 0 || saturation > 0) PlayerUtils.messagePlayer(
                             (EntityPlayer) arg1,
-                            "You check it's remaining uses, it has " + GT_Utility.formatNumbers(secondsLeft(baubleStack)) + " seconds left.");
+                            "You check it's remaining uses, it has "
+                                    + GT_Utility.formatNumbers(secondsLeft(baubleStack))
+                                    + " seconds left.");
                 }
             }
         }

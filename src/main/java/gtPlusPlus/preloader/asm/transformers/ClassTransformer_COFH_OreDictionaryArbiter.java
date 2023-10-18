@@ -1,16 +1,17 @@
 package gtPlusPlus.preloader.asm.transformers;
 
-import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.util.ItemWrapper;
-import com.google.common.base.Strings;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import gnu.trove.map.TMap;
-import gnu.trove.map.hash.THashMap;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
+import static org.objectweb.asm.Opcodes.ACC_STATIC;
+import static org.objectweb.asm.Opcodes.ALOAD;
+import static org.objectweb.asm.Opcodes.ASM5;
+import static org.objectweb.asm.Opcodes.INVOKESTATIC;
+import static org.objectweb.asm.Opcodes.RETURN;
+
+import java.util.ArrayList;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -18,14 +19,16 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 
-import java.util.ArrayList;
+import com.google.common.base.Strings;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
-import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
-import static org.objectweb.asm.Opcodes.ACC_STATIC;
-import static org.objectweb.asm.Opcodes.ALOAD;
-import static org.objectweb.asm.Opcodes.ASM5;
-import static org.objectweb.asm.Opcodes.INVOKESTATIC;
-import static org.objectweb.asm.Opcodes.RETURN;
+import cofh.core.util.oredict.OreDictionaryArbiter;
+import cofh.lib.util.ItemWrapper;
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import gnu.trove.map.TMap;
+import gnu.trove.map.hash.THashMap;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class ClassTransformer_COFH_OreDictionaryArbiter {
 

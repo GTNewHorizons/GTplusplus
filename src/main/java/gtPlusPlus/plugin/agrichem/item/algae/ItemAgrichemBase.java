@@ -1,10 +1,11 @@
 package gtPlusPlus.plugin.agrichem.item.algae;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.OreDictUtils;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,11 +19,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.OreDictUtils;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class ItemAgrichemBase extends Item {
 

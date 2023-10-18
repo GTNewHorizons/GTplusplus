@@ -1,5 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators.ULV;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.interfaces.ITexture;
@@ -7,9 +11,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.common.tileentities.generators.GT_MetaTileEntity_DieselGenerator;
 import gtPlusPlus.core.lib.CORE;
-import org.apache.commons.lang3.ArrayUtils;
-
-import static gregtech.api.enums.GT_Values.V;
 
 public class GT_MetaTileEntity_ULV_CombustionGenerator extends GT_MetaTileEntity_DieselGenerator {
 

@@ -1,12 +1,12 @@
 package gtPlusPlus.api.objects.data;
 
-import gtPlusPlus.api.objects.Logger;
-
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+
+import gtPlusPlus.api.objects.Logger;
 
 public class TypeCounter<V> implements Set<V> {
 

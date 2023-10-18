@@ -1,9 +1,10 @@
 package gtPlusPlus.core.item.chemistry;
 
-import gregtech.api.enums.Materials;
-import gtPlusPlus.core.item.base.misc.BaseItemParticle;
-import gtPlusPlus.core.material.ELEMENT;
-import gtPlusPlus.core.util.Utils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.HashMap;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -12,10 +13,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 
-import java.util.HashMap;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gregtech.api.enums.Materials;
+import gtPlusPlus.core.item.base.misc.BaseItemParticle;
+import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.util.Utils;
 
 public class IonParticles extends BaseItemParticle {
 

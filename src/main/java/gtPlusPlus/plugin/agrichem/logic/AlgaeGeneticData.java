@@ -1,7 +1,8 @@
 package gtPlusPlus.plugin.agrichem.logic;
 
-import gtPlusPlus.api.objects.data.AutoMap;
 import net.minecraft.nbt.NBTTagCompound;
+
+import gtPlusPlus.api.objects.data.AutoMap;
 
 public class AlgaeGeneticData {
 

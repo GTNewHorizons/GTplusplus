@@ -1,11 +1,11 @@
 package gtPlusPlus.xmod.thermalfoundation;
 
+import static gregtech.api.enums.Mods.COFHCore;
+
 import gtPlusPlus.xmod.thermalfoundation.block.TF_Blocks;
 import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
 import gtPlusPlus.xmod.thermalfoundation.item.TF_Items;
 import gtPlusPlus.xmod.thermalfoundation.recipe.TF_Gregtech_Recipes;
-
-import static gregtech.api.enums.Mods.COFHCore;
 
 public class HANDLER_TF {
 

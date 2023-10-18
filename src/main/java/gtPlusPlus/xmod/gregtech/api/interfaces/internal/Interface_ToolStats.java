@@ -1,9 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.interfaces.internal;
 
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.interfaces.IToolStats;
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaTool;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -13,7 +11,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.world.BlockEvent;
 
-import java.util.List;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.interfaces.IToolStats;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaTool;
 
 /**
  * The Stats for GT Tools. Not including any Material Modifiers.

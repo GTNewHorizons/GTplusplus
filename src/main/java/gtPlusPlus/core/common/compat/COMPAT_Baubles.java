@@ -1,14 +1,5 @@
 package gtPlusPlus.core.common.compat;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
-import gtPlusPlus.core.item.bauble.FireProtectionBauble;
-import gtPlusPlus.core.item.general.ItemCloakingDevice;
-import gtPlusPlus.core.item.general.ItemHealingDevice;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import static gregtech.api.enums.Mods.Baubles;
 import static gregtech.client.GT_TooltipHandler.Tier.EV;
 import static gregtech.client.GT_TooltipHandler.Tier.HV;
@@ -20,6 +11,16 @@ import static gregtech.client.GT_TooltipHandler.Tier.UHV;
 import static gregtech.client.GT_TooltipHandler.Tier.UV;
 import static gregtech.client.GT_TooltipHandler.Tier.ZPM;
 import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.item.ModItems;
+import gtPlusPlus.core.item.bauble.BatteryPackBaseBauble;
+import gtPlusPlus.core.item.bauble.FireProtectionBauble;
+import gtPlusPlus.core.item.general.ItemCloakingDevice;
+import gtPlusPlus.core.item.general.ItemHealingDevice;
 
 public class COMPAT_Baubles {
 

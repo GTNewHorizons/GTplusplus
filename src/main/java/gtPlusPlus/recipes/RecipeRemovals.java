@@ -1,5 +1,15 @@
 package gtPlusPlus.recipes;
 
+import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
+
+import java.util.Collection;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import advsolar.common.AdvancedSolarPanel;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Mods;
@@ -11,14 +21,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.Collection;
-
-import static gtPlusPlus.core.util.minecraft.MaterialUtils.getMaterialName;
 
 public class RecipeRemovals {
 

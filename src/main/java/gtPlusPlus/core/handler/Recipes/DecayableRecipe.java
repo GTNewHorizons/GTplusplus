@@ -1,9 +1,10 @@
 package gtPlusPlus.core.handler.Recipes;
 
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
 
 public class DecayableRecipe {
 
