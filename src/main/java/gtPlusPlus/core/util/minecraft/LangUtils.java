@@ -17,12 +17,8 @@ import gtPlusPlus.core.util.reflect.ReflectionUtils;
 
 public class LangUtils {
 
-    public static boolean rewriteEntryForLanguageRegistry(String aKey, String aNewValue) {
-        return rewriteEntryForLanguageRegistry("en_US", aKey, aNewValue);
-    }
-
     @SuppressWarnings("unchecked")
-    public static boolean rewriteEntryForLanguageRegistry(String aLang, String aKey, String aNewValue) {
+    public static void rewriteEntryForLanguageRegistry(String aLang, String aKey, String aNewValue) {
         LanguageRegistry aInstance = LanguageRegistry.instance();
         Field aModLanguageData = ReflectionUtils.getField(LanguageRegistry.class, "modLanguageData");
         if (aModLanguageData != null) {
@@ -45,11 +41,10 @@ public class LangUtils {
                         ReflectionUtils.setField(aInstance, aModLanguageData, aProps);
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (IllegalArgumentException | IllegalAccessException ignored) {
 
             }
         }
-        return false;
     }
 
     /**
@@ -64,20 +59,10 @@ public class LangUtils {
         return "Bad Block Name";
     }
 
-    public static String getLocalizedNameOfItem(Item aItem, int aMeta) {
-        if (aItem != null) {
-            return getLocalizedNameOfItemStack(ItemUtils.simpleMetaStack(aItem, aMeta, 1));
-        }
-        return "Bad Item Name";
-    }
-
     public static String getLocalizedNameOfItemStack(ItemStack aStack) {
         String aUnlocalized;
         if (aStack != null) {
             aUnlocalized = ItemUtils.getUnlocalizedItemName(aStack) + "." + aStack.getItemDamage() + ".name";
-            if (aUnlocalized == null || aUnlocalized.length() <= 0) {
-                return "Bad Locale Data";
-            }
             String mCacheKey = aUnlocalized;
             if (mLocaleCache.containsKey(mCacheKey)) {
                 // Recache the key if it's invalid.
@@ -86,7 +71,7 @@ public class LangUtils {
                     mLocaleCache.remove(mCacheKey);
                     String mNew;
                     try {
-                        mNew = ("" + StatCollector
+                        mNew = (StatCollector
                                 .translateToLocal(aStack.getItem().getUnlocalizedNameInefficiently(aStack) + ".name"))
                                         .trim();
                         if (aStack.hasTagCompound()) {
@@ -113,7 +98,7 @@ public class LangUtils {
                 Logger.INFO("Cached New Value. TranslatedName: " + unlocalizedName);
                 if (blockName.toLowerCase().contains(".name") || blockName.toLowerCase().contains("|")) {
                     try {
-                        blockName = ("" + StatCollector
+                        blockName = (StatCollector
                                 .translateToLocal(aStack.getItem().getUnlocalizedNameInefficiently(aStack) + ".name"))
                                         .trim();
                         if (aStack.hasTagCompound()) {

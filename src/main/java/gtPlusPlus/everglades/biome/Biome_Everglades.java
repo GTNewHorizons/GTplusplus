@@ -36,16 +36,6 @@ public class Biome_Everglades {
         BiomeManager.addSpawnBiome(biome);
     }
 
-    public void generateNether(World world, Random random, int chunkX, int chunkZ) {}
-
-    public void generateSurface(World world, Random random, int chunkX, int chunkZ) {}
-
-    public void registerRenderers() {}
-
-    public int addFuel(ItemStack fuel) {
-        return 0;
-    }
-
     public void serverLoad(FMLServerStartingEvent event) {}
 
     public void preInit(FMLPreInitializationEvent event) {}
@@ -85,33 +75,6 @@ public class Biome_Everglades {
             this.spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
         }
 
-        private synchronized boolean setBiomeID() {
-            try {
-                Field mInternalBiomeList = ReflectionUtils.getField(BiomeGenBase.class, "biomeList");
-                BiomeGenBase[] mOriginalList = (BiomeGenBase[]) mInternalBiomeList.get(null);
-                BiomeGenBase[] mTempList = new BiomeGenBase[mOriginalList.length];
-                for (int index = 0; index < mTempList.length; index++) {
-                    mTempList[index] = mOriginalList[index];
-                }
-                return false;
-            } catch (Exception e) {
-                Logger.REFLECTION(
-                        "Could not access 'biomeList' field in " + BiomeGenBase.class.getCanonicalName() + ".");
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        @SideOnly(Side.CLIENT)
-        public int getBiomeGrassColor() {
-            return 0x111f11;
-        }
-
-        @SideOnly(Side.CLIENT)
-        public int getBiomeFoliageColor() {
-            return 0x111f11;
-        }
-
         @Override
         @SideOnly(Side.CLIENT)
         public int getSkyColorByTemp(float par1) {
@@ -120,7 +83,6 @@ public class Biome_Everglades {
 
         @SuppressWarnings({ "unchecked", "unused" })
         private boolean addToMonsterSpawnLists(Class<?> EntityClass, int a, int b, int c) {
-            // this.spawnableMonsterList.add(new SpawnListEntry(EntityClass, a, b, c));
             this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityClass, a, b, c));
             return true;
         }
