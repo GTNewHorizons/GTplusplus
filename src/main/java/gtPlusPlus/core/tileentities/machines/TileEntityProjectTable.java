@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Vector;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -29,7 +27,6 @@ public class TileEntityProjectTable extends TileEntity
 
     public InventoryProjectMain inventoryGrid;
     public InventoryProjectOutput inventoryOutputs;
-
 
     private Container_ProjectTable container;
 

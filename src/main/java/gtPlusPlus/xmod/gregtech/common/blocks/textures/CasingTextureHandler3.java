@@ -11,40 +11,40 @@ public class CasingTextureHandler3 {
             return switch (aMeta) {
                 case 0 ->
                     // Aquatic Casing
-                        TexturesGtBlock.TEXTURE_METAL_PANEL_B.getIcon();
+                    TexturesGtBlock.TEXTURE_METAL_PANEL_B.getIcon();
                 case 1 ->
                     // Inconel Reinforced Casing
-                        TexturesGtBlock.TEXTURE_METAL_PANEL_D.getIcon();
+                    TexturesGtBlock.TEXTURE_METAL_PANEL_D.getIcon();
                 case 2 ->
                     // Multi-Use Casing
-                        TexturesGtBlock.TEXTURE_METAL_PANEL_C.getIcon();
+                    TexturesGtBlock.TEXTURE_METAL_PANEL_C.getIcon();
                 case 3 ->
                     // Trinium Plated Mining Platform Casing
-                        TexturesGtBlock.Casing_Trinium_Naquadah_Vent.getIcon();
+                    TexturesGtBlock.Casing_Trinium_Naquadah_Vent.getIcon();
                 case 4 ->
                     // Vanadium Redox IV
-                        TexturesGtBlock.Casing_Redox_2.getIcon();
+                    TexturesGtBlock.Casing_Redox_2.getIcon();
                 case 5 ->
                     // Vanadium Redox LuV
-                        TexturesGtBlock.Casing_Redox_3.getIcon();
+                    TexturesGtBlock.Casing_Redox_3.getIcon();
                 case 6 ->
                     // Vanadium Redox ZPM
-                        TexturesGtBlock.Casing_Redox_4.getIcon();
+                    TexturesGtBlock.Casing_Redox_4.getIcon();
                 case 7 ->
                     // Vanadium Redox UV
-                        TexturesGtBlock.Casing_Redox_5.getIcon();
+                    TexturesGtBlock.Casing_Redox_5.getIcon();
                 case 8 ->
                     // Vanadium Redox MAX
-                        TexturesGtBlock.Casing_Redox_6.getIcon();
+                    TexturesGtBlock.Casing_Redox_6.getIcon();
                 case 9 ->
                     // Amazon Warehouse Casing
-                        TexturesGtBlock.TEXTURE_CASING_AMAZON.getIcon();
+                    TexturesGtBlock.TEXTURE_CASING_AMAZON.getIcon();
                 case 10 ->
                     // Adv. Vac. Freezer
-                        TexturesGtBlock.TEXTURE_CASING_ADVANCED_CRYOGENIC.getIcon();
+                    TexturesGtBlock.TEXTURE_CASING_ADVANCED_CRYOGENIC.getIcon();
                 case 11 ->
                     // Adv. EBF
-                        TexturesGtBlock.TEXTURE_CASING_ADVANCED_VOLCNUS.getIcon();
+                    TexturesGtBlock.TEXTURE_CASING_ADVANCED_VOLCNUS.getIcon();
                 case 12 -> TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_II.getIcon();
                 case 13 -> TexturesGtBlock.TEXTURE_CASING_FUSION_COIL_II_INNER.getIcon();
                 case 14 -> TexturesGtBlock.TEXTURE_CASING_FUSION_CASING_ULTRA.getIcon();

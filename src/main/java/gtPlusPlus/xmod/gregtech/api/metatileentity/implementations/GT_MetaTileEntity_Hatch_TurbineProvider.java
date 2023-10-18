@@ -20,7 +20,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input
 import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeTurbine;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GregtechMetaTileEntity_LargerTurbineBase;

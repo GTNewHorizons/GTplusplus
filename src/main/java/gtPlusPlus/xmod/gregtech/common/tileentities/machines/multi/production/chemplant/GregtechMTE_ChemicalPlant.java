@@ -99,10 +99,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     public static boolean registerMachineCasingForTier(int aTier, Block aBlock, int aMeta, int aCasingTextureID) {
-        Triplet<Block, Integer, Integer> aCasingData = new Triplet<>(
-                aBlock,
-                aMeta,
-                aCasingTextureID);
+        Triplet<Block, Integer, Integer> aCasingData = new Triplet<>(aBlock, aMeta, aCasingTextureID);
         if (mTieredBlockRegistry.containsKey(aTier)) {
             CORE.crash(
                     "Tried to register a Machine casing for tier " + aTier

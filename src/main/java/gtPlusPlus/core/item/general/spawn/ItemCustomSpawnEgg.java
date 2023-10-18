@@ -30,7 +30,6 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class ItemCustomSpawnEgg extends ItemMonsterPlacer {

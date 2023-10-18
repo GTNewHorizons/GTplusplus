@@ -425,8 +425,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                                                             + aCapeType5.size()
                                                             + " users.");
                                         }
-                                        default -> {
-                                        }
+                                        default -> {}
                                     }
                                 }
                             }

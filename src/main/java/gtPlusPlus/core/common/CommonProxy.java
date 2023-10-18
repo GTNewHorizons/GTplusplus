@@ -1,9 +1,6 @@
 package gtPlusPlus.core.common;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityBlaze;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,7 +14,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.GTplusplus;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Pair;
@@ -35,7 +31,6 @@ import gtPlusPlus.core.handler.events.GeneralTooltipEventHandler;
 import gtPlusPlus.core.handler.events.PlayerSleepEventHandler;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.tileentities.ModTileEntities;
 import gtPlusPlus.core.util.Utils;
@@ -69,7 +64,6 @@ public class CommonProxy {
 
         AddToCreativeTab.initialiseTabs();
         CustomInternalName.init();
-
 
         ModItems.init();
         ModBlocks.init();
@@ -206,7 +200,6 @@ public class CommonProxy {
     }
 
     protected final AutoMap<Pair<Item, IItemRenderer>> mItemRenderMappings = new AutoMap<>();
-
 
     public World getClientWorld() {
         return null;

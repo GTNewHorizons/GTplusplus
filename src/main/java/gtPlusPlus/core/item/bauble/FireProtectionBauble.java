@@ -89,8 +89,7 @@ public class FireProtectionBauble extends BaseBauble {
     @Override
     public void onEquipped(final ItemStack arg0, final EntityLivingBase aPlayer) {
         if (!aPlayer.worldObj.isRemote) {
-            if (aPlayer instanceof EntityPlayer bPlayer) {
-            }
+            if (aPlayer instanceof EntityPlayer bPlayer) {}
         }
     }
 

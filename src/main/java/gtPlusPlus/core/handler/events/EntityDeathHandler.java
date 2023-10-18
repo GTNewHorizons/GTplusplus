@@ -31,10 +31,7 @@ public class EntityDeathHandler {
      * @param aChance    - Chance out of 10000, where 100 is 1%. (1 = 0.01% - this is ok)
      */
     public static void registerDropsForMob(Class aMobClass, ItemStack aStack, int aMaxAmount, int aChance) {
-        Triplet<ItemStack, Integer, Integer> aData = new Triplet<>(
-                aStack,
-                aMaxAmount,
-                aChance);
+        Triplet<ItemStack, Integer, Integer> aData = new Triplet<>(aStack, aMaxAmount, aChance);
         AutoMap<Triplet<ItemStack, Integer, Integer>> aDataMap = mMobDropMap.get(aMobClass);
         if (aDataMap == null) {
             aDataMap = new AutoMap<>();

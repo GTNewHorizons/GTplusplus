@@ -1,7 +1,5 @@
 package gtPlusPlus.core.container;
 
-import java.util.Iterator;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

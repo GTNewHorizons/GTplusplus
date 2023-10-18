@@ -11,7 +11,6 @@ import gregtech.api.items.GT_MetaBase_Item;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.common.items.behaviors.Behaviour_None;
 import gregtech.common.items.behaviors.Behaviour_Wrench;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 

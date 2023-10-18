@@ -3,7 +3,6 @@ package gtPlusPlus.core.util.minecraft;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static net.minecraftforge.fluids.FluidRegistry.getFluidStack;
 
 import java.util.HashMap;
 
@@ -464,7 +463,7 @@ public class FluidUtils {
     }
 
     public static Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
-                                               final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2) {
+            final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2) {
         return generateFluidNonMolten(
                 unlocalizedName,
                 localizedName,
@@ -477,8 +476,8 @@ public class FluidUtils {
     }
 
     public static Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
-                                               final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2,
-                                               final boolean aGenerateCell) {
+            final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2,
+            final boolean aGenerateCell) {
         return generateFluidNonMolten(
                 unlocalizedName,
                 localizedName,
@@ -531,12 +530,12 @@ public class FluidUtils {
     }
 
     public static Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
-                                              final int MeltingPoint, final short[] RGBA) {
+            final int MeltingPoint, final short[] RGBA) {
         return generateFluidNoPrefix(unlocalizedName, localizedName, MeltingPoint, RGBA, true);
     }
 
     public static Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
-                                              final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
+            final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
         Fluid gtFluid;
         if (FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1) == null) {
             Logger.WARNING("Generating our own fluid.");
@@ -556,8 +555,8 @@ public class FluidUtils {
         return gtFluid;
     }
 
-    public static Fluid generateGas(final String unlocalizedName, final String localizedName,
-                                    final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
+    public static Fluid generateGas(final String unlocalizedName, final String localizedName, final int MeltingPoint,
+            final short[] RGBA, final boolean aGenerateCell) {
         Fluid gtFluid;
         if (FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1) == null) {
             Logger.WARNING("Generating our own gas.");

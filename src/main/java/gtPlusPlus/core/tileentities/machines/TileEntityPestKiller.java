@@ -99,8 +99,7 @@ public class TileEntityPestKiller extends TileEntity implements ISidedInventory,
                 min = -4;
                 max = 5;
             }
-            default -> {
-            }
+            default -> {}
             // code block
         }
         int aChunkCount = 0;

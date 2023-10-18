@@ -1282,13 +1282,13 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
             @Nullable
             @Override
             public BlocksToPlace getBlocksToPlace(T t, World world, int x, int y, int z, ItemStack trigger,
-                                                  AutoPlaceEnvironment env) {
+                    AutoPlaceEnvironment env) {
                 return BlocksToPlace.create(aBlock, getMeta(trigger));
             }
 
             @Override
             public PlaceResult survivalPlaceBlock(T t, World world, int x, int y, int z, ItemStack trigger,
-                                                  AutoPlaceEnvironment env) {
+                    AutoPlaceEnvironment env) {
                 if (world.getBlock(x, y, z) == aBlock) {
                     if (world.getBlockMetadata(x, y, z) == getMeta(trigger)) {
                         return PlaceResult.SKIP;

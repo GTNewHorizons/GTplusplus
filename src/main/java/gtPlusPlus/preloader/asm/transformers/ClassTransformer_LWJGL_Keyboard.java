@@ -112,7 +112,7 @@ public class ClassTransformer_LWJGL_Keyboard {
         if (init()) {
             try {
                 Object o = mKeyName.get(null);
-                if (o instanceof String[] y) {
+                if (o instanceof String[]y) {
                     return y;
                 }
             } catch (IllegalArgumentException | IllegalAccessException e) {}

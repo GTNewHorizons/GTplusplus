@@ -834,8 +834,7 @@ public class Material {
                     sets.put(r.getStackMaterial());
                 }
             }
-            TextureSet mostUsedTypeTextureSet = MaterialUtils
-                    .getMostCommonTextureSet(new ArrayList<>(sets.values()));
+            TextureSet mostUsedTypeTextureSet = MaterialUtils.getMostCommonTextureSet(new ArrayList<>(sets.values()));
             if (mostUsedTypeTextureSet != null && mostUsedTypeTextureSet instanceof TextureSet) {
                 Logger.MATERIALS(
                         "Set textureset for " + this.localizedName + " to be " + mostUsedTypeTextureSet.mSetName + ".");

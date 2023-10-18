@@ -1,14 +1,14 @@
 package gtPlusPlus.core.util.math;
 
+import java.text.NumberFormat;
+import java.util.Map;
+import java.util.Random;
+
 import gregtech.api.enums.GT_Values;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.Utils;
-
-import java.text.NumberFormat;
-import java.util.Map;
-import java.util.Random;
 
 public class MathUtils {
 
@@ -493,7 +493,6 @@ public class MathUtils {
     public static int balance(int aInput, int aMin, int aMax) {
         return Math.max(Math.min(aInput, aMax), aMin);
     }
-
 
     /**
      * Returns the smaller of two {@code Number}s. That is, the result the argument closer to the value of

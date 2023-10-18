@@ -31,7 +31,8 @@ public class MetaGeneratedGregtechTools extends GT_MetaGenerated_Tool {
                 "Angle Grinder",
                 "Hand-held electric filing device",
                 new TOOL_Gregtech_AngleGrinder(),
-                GregtechToolDictNames.craftingToolAngleGrinder, ToolDictNames.craftingToolFile,
+                GregtechToolDictNames.craftingToolAngleGrinder,
+                ToolDictNames.craftingToolFile,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L));

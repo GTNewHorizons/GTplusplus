@@ -23,7 +23,6 @@ import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Mods;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;

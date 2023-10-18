@@ -134,59 +134,59 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
 
                     .addShape(
                             STRUCTURE_PIECE_TOP,
-                            (new String[][]{{"     ", "     ", "  ~  ", "     ", "     "},
-                                    {"     ", "  s  ", " sss ", "  s  ", "     "},
-                                    {"  c  ", " ccc ", "ccscc", " ccc ", "  c  "},
-                                    {"  c  ", " ccc ", "ccscc", " ccc ", "  c  "},
-                                    {"  c  ", " ccc ", "ccscc", " ccc ", "  c  "},
-                                    {"  c  ", " ccc ", "ccscc", " ccc ", "  c  "},
-                                    {"  c  ", " ccc ", "ccscc", " ccc ", "  c  "},}))
+                            (new String[][] { { "     ", "     ", "  ~  ", "     ", "     " },
+                                    { "     ", "  s  ", " sss ", "  s  ", "     " },
+                                    { "  c  ", " ccc ", "ccscc", " ccc ", "  c  " },
+                                    { "  c  ", " ccc ", "ccscc", " ccc ", "  c  " },
+                                    { "  c  ", " ccc ", "ccscc", " ccc ", "  c  " },
+                                    { "  c  ", " ccc ", "ccscc", " ccc ", "  c  " },
+                                    { "  c  ", " ccc ", "ccscc", " ccc ", "  c  " }, }))
                     .addShape(
                             STRUCTURE_PIECE_TOWER,
-                            (new String[][]{{" i ", "isi", " i "}, {" i ", "isi", " i "}, {" i ", "isi", " i "},
-                                    {" i ", "isi", " i "}, {" i ", "isi", " i "}, {" i ", "isi", " i "},
-                                    {" i ", "isi", " i "}, {" i ", "isi", " i "}, {" i ", "isi", " i "},
-                                    {" i ", "isi", " i "}, {" i ", "isi", " i "}, {" i ", "isi", " i "},
-                                    {" i ", "isi", " i "}, {" i ", "isi", " i "}, {" i ", "isi", " i "},}))
+                            (new String[][] { { " i ", "isi", " i " }, { " i ", "isi", " i " }, { " i ", "isi", " i " },
+                                    { " i ", "isi", " i " }, { " i ", "isi", " i " }, { " i ", "isi", " i " },
+                                    { " i ", "isi", " i " }, { " i ", "isi", " i " }, { " i ", "isi", " i " },
+                                    { " i ", "isi", " i " }, { " i ", "isi", " i " }, { " i ", "isi", " i " },
+                                    { " i ", "isi", " i " }, { " i ", "isi", " i " }, { " i ", "isi", " i " }, }))
                     .addShape(
                             STRUCTURE_PIECE_BASE,
-                            (new String[][]{
-                                    {"           ", "           ", "     t     ", "    ttt    ", "   ttstt   ",
+                            (new String[][] {
+                                    { "           ", "           ", "     t     ", "    ttt    ", "   ttstt   ",
                                             "  ttssstt  ", "   ttstt   ", "    ttt    ", "     t     ", "           ",
-                                            "           "},
-                                    {"           ", "           ", "     t     ", "    ttt    ", "   tssst   ",
+                                            "           " },
+                                    { "           ", "           ", "     t     ", "    ttt    ", "   tssst   ",
                                             "  ttssstt  ", "   tssst   ", "    ttt    ", "     t     ", "           ",
-                                            "           "},
-                                    {"           ", "     t     ", "    ttt    ", "   ttttt   ", "  ttssstt  ",
+                                            "           " },
+                                    { "           ", "     t     ", "    ttt    ", "   ttttt   ", "  ttssstt  ",
                                             " tttsssttt ", "  ttssstt  ", "   ttttt   ", "    ttt    ", "     t     ",
-                                            "           "},
-                                    {"           ", "     t     ", "    ttt    ", "   ttttt   ", "  ttssstt  ",
+                                            "           " },
+                                    { "           ", "     t     ", "    ttt    ", "   ttttt   ", "  ttssstt  ",
                                             " tttsssttt ", "  ttssstt  ", "   ttttt   ", "    ttt    ", "     t     ",
-                                            "           "},
-                                    {"    hhh    ", "   ttttt   ", "  ttttttt  ", " ttttttttt ", "htttsssttth",
+                                            "           " },
+                                    { "    hhh    ", "   ttttt   ", "  ttttttt  ", " ttttttttt ", "htttsssttth",
                                             "htttsssttth", "htttsssttth", " ttttttttt ", "  ttttttt  ", "   ttttt   ",
-                                            "    hhh    "},
-                                    {"    hhh    ", "   ttttt   ", "  ttttttt  ", " ttttttttt ", "httttttttth",
+                                            "    hhh    " },
+                                    { "    hhh    ", "   ttttt   ", "  ttttttt  ", " ttttttttt ", "httttttttth",
                                             "httttttttth", "httttttttth", " ttttttttt ", "  ttttttt  ", "   ttttt   ",
-                                            "    hhh    "},}))
+                                            "    hhh    " }, }))
                     .addShape(
                             SOLAR_HEATER_RING_1,
-                            (new String[][]{{"     ggggg     ", "    g     g    ", "   g       g   ",
+                            (new String[][] { { "     ggggg     ", "    g     g    ", "   g       g   ",
                                     "  g         g  ", " g           g ", "g             g", "g             g",
                                     "g             g", "g             g", "g             g", " g           g ",
-                                    "  g         g  ", "   g       g   ", "    g     g    ", "     ggggg     ",}}))
+                                    "  g         g  ", "   g       g   ", "    g     g    ", "     ggggg     ", } }))
                     .addShape(
                             SOLAR_HEATER_RING_2,
-                            (new String[][]{{"     ggggggggg     ", "    g         g    ", "   g           g   ",
+                            (new String[][] { { "     ggggggggg     ", "    g         g    ", "   g           g   ",
                                     "  g             g  ", " g               g ", "g                 g",
                                     "g                 g", "g                 g", "g                 g",
                                     "g                 g", "g                 g", "g                 g",
                                     "g                 g", "g                 g", " g               g ",
                                     "  g             g  ", "   g           g   ", "    g         g    ",
-                                    "     ggggggggg     ",}}))
+                                    "     ggggggggg     ", } }))
                     .addShape(
                             SOLAR_HEATER_RING_3,
-                            (new String[][]{{"     ggggggggggggg     ", "    g             g    ",
+                            (new String[][] { { "     ggggggggggggg     ", "    g             g    ",
                                     "   g               g   ", "  g                 g  ", " g                   g ",
                                     "g                     g", "g                     g", "g                     g",
                                     "g                     g", "g                     g", "g                     g",
@@ -194,10 +194,10 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                                     "g                     g", "g                     g", "g                     g",
                                     "g                     g", " g                   g ", "  g                 g  ",
                                     "   g               g   ", "    g             g    ",
-                                    "     ggggggggggggg     ",}}))
+                                    "     ggggggggggggg     ", } }))
                     .addShape(
                             SOLAR_HEATER_RING_4,
-                            (new String[][]{{"     ggggggggggggggggg     ", "    g                 g    ",
+                            (new String[][] { { "     ggggggggggggggggg     ", "    g                 g    ",
                                     "   g                   g   ", "  g                     g  ",
                                     " g                       g ", "g                         g",
                                     "g                         g", "g                         g",
@@ -210,10 +210,10 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                                     "g                         g", "g                         g",
                                     " g                       g ", "  g                     g  ",
                                     "   g                   g   ", "    g                 g    ",
-                                    "     ggggggggggggggggg     ",}}))
+                                    "     ggggggggggggggggg     ", } }))
                     .addShape(
                             SOLAR_HEATER_RING_5,
-                            (new String[][]{{"     ggggggggggggggggggggg     ", "    g                     g    ",
+                            (new String[][] { { "     ggggggggggggggggggggg     ", "    g                     g    ",
                                     "   g                       g   ", "  g                         g  ",
                                     " g                           g ", "g                             g",
                                     "g                             g", "g                             g",
@@ -228,7 +228,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
                                     "g                             g", "g                             g",
                                     " g                           g ", "  g                         g  ",
                                     "   g                       g   ", "    g                     g    ",
-                                    "     ggggggggggggggggggggg     ",}}))
+                                    "     ggggggggggggggggggggg     ", } }))
                     .addElement(
                             'g',
                             lazy(

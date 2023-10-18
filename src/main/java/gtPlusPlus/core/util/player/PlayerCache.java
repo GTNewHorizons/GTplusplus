@@ -5,15 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
-
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;

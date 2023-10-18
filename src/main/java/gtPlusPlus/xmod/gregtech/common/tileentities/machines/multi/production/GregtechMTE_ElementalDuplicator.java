@@ -501,7 +501,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
     public static ItemStack getSpecialSlotStack(GT_Recipe aRecipe) {
         ItemStack aStack = null;
         if (aRecipe.mSpecialItems != null) {
-            if (aRecipe.mSpecialItems instanceof ItemStack[] aTempStackArray) {
+            if (aRecipe.mSpecialItems instanceof ItemStack[]aTempStackArray) {
                 aStack = aTempStackArray[0];
             }
         }

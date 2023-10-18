@@ -499,7 +499,7 @@ public class GT_MetaTileEntity_ElectricAutoWorkbench extends GT_MetaTileEntity_B
                             for (int i = mCurrentSlot + 1; i < 18; i++) {
                                 if (mInventory[i] != null && mInventory[i].getItem() == tTempStack.getItem()
                                         && mInventory[mCurrentSlot].getItemDamage() + mInventory[i].getItemDamage()
-                                        > tTempStack.getMaxDamage()) {
+                                                > tTempStack.getMaxDamage()) {
                                     tRecipe[0] = tTempStack;
                                     tRecipe[1] = GT_Utility.copy(mInventory[i]);
                                     if (GT_ModHandler.getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), tRecipe)
@@ -525,8 +525,8 @@ public class GT_MetaTileEntity_ElectricAutoWorkbench extends GT_MetaTileEntity_B
                             }
                             for (byte i = 0, j = 0; i < 18 && j < 9
                                     && (j < 2 || GT_ModHandler
-                                    .getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), tRecipe)
-                                    == null); i++) {
+                                            .getAllRecipeOutput(getBaseMetaTileEntity().getWorld(), tRecipe)
+                                            == null); i++) {
                                 tRecipe[j] = mInventory[(mCurrentSlot + i) % 18];
                                 if (tRecipe[j] != null) {
                                     tRecipe[j] = GT_Utility.copy(tRecipe[j]);

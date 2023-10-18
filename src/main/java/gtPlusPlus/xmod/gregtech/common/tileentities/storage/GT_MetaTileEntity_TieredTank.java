@@ -29,7 +29,13 @@ public class GT_MetaTileEntity_TieredTank extends GT_MetaTileEntity_BasicTank {
 
     public GT_MetaTileEntity_TieredTank(final int aID, final String aName, final String aNameRegional,
             final int aTier) {
-        super(aID, aName, aNameRegional, aTier, 3, "Stores " + GT_Utility.formatNumbers(((int) (Math.pow(2, aTier) * 32000))) + "L of fluid");
+        super(
+                aID,
+                aName,
+                aNameRegional,
+                aTier,
+                3,
+                "Stores " + GT_Utility.formatNumbers(((int) (Math.pow(2, aTier) * 32000))) + "L of fluid");
     }
 
     public GT_MetaTileEntity_TieredTank(final String aName, final int aTier, final String[] aDescription,
@@ -136,8 +142,7 @@ public class GT_MetaTileEntity_TieredTank extends GT_MetaTileEntity_BasicTank {
                     0 + "L", this.getCapacity() + "L" };
         }
         return new String[] { GT_Values.VOLTAGE_NAMES[this.mTier] + " Fluid Tank", "Stored Fluid:",
-                this.mFluid.getLocalizedName(), this.mFluid.amount + "L",
-                this.getCapacity() + "L" };
+                this.mFluid.getLocalizedName(), this.mFluid.amount + "L", this.getCapacity() + "L" };
     }
 
     @Override

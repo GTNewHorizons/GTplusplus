@@ -248,29 +248,25 @@ public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_Basi
                     case 0 -> {
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency -= 64;
                     }
                     case 1 -> {
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency += 64;
                     }
                     case 2 -> {
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency -= 512;
                     }
                     case 3 -> {
                         try {
                             CORE.sTesseractGeneratorOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency += 512;
                     }
                 }

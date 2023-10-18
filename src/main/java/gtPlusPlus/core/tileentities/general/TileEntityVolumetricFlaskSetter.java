@@ -89,21 +89,21 @@ public class TileEntityVolumetricFlaskSetter extends TileEntity implements ISide
     private int getCapacityForSlot(int aSlot) {
         return switch (aSlot) {
             case 0 -> // 16
-                    16;
+                16;
             case 1 -> // 36
-                    36;
+                36;
             case 2 -> // 144
-                    144;
+                144;
             case 3 -> // 432
-                    432;
+                432;
             case 4 -> // 576
-                    576;
+                576;
             case 5 -> // 720
-                    720;
+                720;
             case 6 -> // 864
-                    864;
+                864;
             case 7 -> // Custom
-                    getCustomValue();
+                getCustomValue();
             default -> 1000;
         };
     }

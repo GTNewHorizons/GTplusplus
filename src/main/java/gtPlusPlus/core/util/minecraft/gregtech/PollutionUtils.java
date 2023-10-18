@@ -37,7 +37,8 @@ public class PollutionUtils {
 
     public static void addPollution(IHasWorldObjectAndCoords aTileOfSomeSort, int pollutionValue) {
         if (GT_Mod.gregtechproxy.mPollution) {
-            Chunk c = aTileOfSomeSort.getWorld().getChunkFromBlockCoords(aTileOfSomeSort.getXCoord(), aTileOfSomeSort.getZCoord());
+            Chunk c = aTileOfSomeSort.getWorld()
+                    .getChunkFromBlockCoords(aTileOfSomeSort.getXCoord(), aTileOfSomeSort.getZCoord());
             addPollution(c, pollutionValue);
         }
     }
@@ -67,7 +68,8 @@ public class PollutionUtils {
         if (aTileOfSomeSort == null) {
             return;
         }
-        Chunk c = aTileOfSomeSort.getWorld().getChunkFromBlockCoords(aTileOfSomeSort.getXCoord(), aTileOfSomeSort.getZCoord());
+        Chunk c = aTileOfSomeSort.getWorld()
+                .getChunkFromBlockCoords(aTileOfSomeSort.getXCoord(), aTileOfSomeSort.getZCoord());
         nullifyPollution(c);
     }
 

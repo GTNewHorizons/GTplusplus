@@ -14,7 +14,6 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistillationRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;

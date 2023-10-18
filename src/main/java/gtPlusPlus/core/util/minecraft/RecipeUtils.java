@@ -36,9 +36,9 @@ public class RecipeUtils {
 
     public static int mInvalidID = 1;
 
-    public static void recipeBuilder(final Object slot_1, final Object slot_2, final Object slot_3,
-                                     final Object slot_4, final Object slot_5, final Object slot_6, final Object slot_7, final Object slot_8,
-                                     final Object slot_9, ItemStack resultItem) {
+    public static void recipeBuilder(final Object slot_1, final Object slot_2, final Object slot_3, final Object slot_4,
+            final Object slot_5, final Object slot_6, final Object slot_7, final Object slot_8, final Object slot_9,
+            ItemStack resultItem) {
 
         if (resultItem == null) {
             Logger.RECIPE(
@@ -351,7 +351,6 @@ public class RecipeUtils {
             return rReturn;
         }
     }
-
 
     public static void addSmeltingRecipe(ItemStack aStackInput, ItemStack aStackOutput, float aXpGained) {
 

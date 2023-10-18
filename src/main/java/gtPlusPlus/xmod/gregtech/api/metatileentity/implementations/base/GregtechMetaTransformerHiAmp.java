@@ -12,7 +12,6 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Transformer;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class GregtechMetaTransformerHiAmp extends GT_MetaTileEntity_Transformer {

@@ -1,5 +1,30 @@
 package gtPlusPlus.core.util;
 
+import java.awt.*;
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.apache.commons.lang3.EnumUtils;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.TC_Aspects;
@@ -16,29 +41,6 @@ import gtPlusPlus.core.util.minecraft.NBTUtils;
 import ic2.core.Ic2Items;
 import ic2.core.init.InternalName;
 import ic2.core.item.resources.ItemCell;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.EnumUtils;
-
-import java.awt.*;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 
 public class Utils {
 
@@ -257,7 +259,27 @@ public class Utils {
 
         // List of characters to remove
         final HashSet<Character> toRemoveSet = new HashSet<>();
-        Collections.addAll(toRemoveSet, ' ', '-', '_', '~', '?', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']');
+        Collections.addAll(
+                toRemoveSet,
+                ' ',
+                '-',
+                '_',
+                '~',
+                '?',
+                '!',
+                '@',
+                '#',
+                '$',
+                '%',
+                '^',
+                '&',
+                '*',
+                '(',
+                ')',
+                '{',
+                '}',
+                '[',
+                ']');
 
         // Remove characters from the toRemoveSet if they are in dontRemove
         for (char e : dontRemove) {
@@ -274,7 +296,6 @@ public class Utils {
 
         return sanitized.toString();
     }
-
 
     public static String sanitizeString(final String input) {
         String temp;
@@ -315,25 +336,23 @@ public class Utils {
     }
 
     public static String addBookTitleLocalization(final String aTitle) {
-        return GT_LanguageManager.addStringLocalization(
-                "Book." + aTitle + ".Name",
-                aTitle,
-                !GregTech_API.sPostloadFinished);
+        return GT_LanguageManager
+                .addStringLocalization("Book." + aTitle + ".Name", aTitle, !GregTech_API.sPostloadFinished);
     }
 
     public static String[] addBookPagesLocalization(final String aTitle, final String[] aPages) {
         String[] aLocalizationPages = new String[aPages.length];
         for (byte i = 0; i < aPages.length; i = (byte) (i + 1)) {
             aLocalizationPages[i] = GT_LanguageManager.addStringLocalization(
-                    "Book." + aTitle + ".Page" +
-                            ((i < 10) ? "0" + i : Byte.valueOf(i)),
+                    "Book." + aTitle + ".Page" + ((i < 10) ? "0" + i : Byte.valueOf(i)),
                     aPages[i],
                     !GregTech_API.sPostloadFinished);
         }
         return aLocalizationPages;
     }
 
-    public static ItemStack getWrittenBook(ItemStack book, int ID, String mapping, String title, String author, String[] pages) {
+    public static ItemStack getWrittenBook(ItemStack book, int ID, String mapping, String title, String author,
+            String[] pages) {
 
         if (GT_Utility.isStringInvalid(mapping)) {
             return null;
@@ -374,13 +393,20 @@ public class Utils {
             }
         }
 
-        String credits = String.format("Credits to %s for writing this Book. This was Book Nr. %d at its creation. Gotta get 'em all!", author, ID);
+        String credits = String.format(
+                "Credits to %s for writing this Book. This was Book Nr. %d at its creation. Gotta get 'em all!",
+                author,
+                ID);
         NBTList.appendTag(new NBTTagString(credits));
         NBT.setTag("pages", NBTList);
 
         stack.setTagCompound(NBT);
 
-        String logMessage = String.format("GT++_Mod: Added Book to Book++ List  -  Mapping: '%s'  -  Name: '%s'  -  Author: '%s'", mapping, title, author);
+        String logMessage = String.format(
+                "GT++_Mod: Added Book to Book++ List  -  Mapping: '%s'  -  Name: '%s'  -  Author: '%s'",
+                mapping,
+                title,
+                author);
         GT_Log.out.println(logMessage);
 
         NBTUtils.createIntegerTagCompound(stack, "stats", "mMeta", ID);

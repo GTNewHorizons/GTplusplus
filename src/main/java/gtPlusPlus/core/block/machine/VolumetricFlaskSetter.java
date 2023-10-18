@@ -151,7 +151,7 @@ public class VolumetricFlaskSetter extends BasicTileBlockWithTooltip {
                 GTPlusPlus.ID + ":" + "metro/" + "TEXTURE_METAL_PANEL_H",
                 GTPlusPlus.ID + ":" + "metro/" + "TEXTURE_METAL_PANEL_H",
                 GTPlusPlus.ID + ":" + "metro/" + "TEXTURE_METAL_PANEL_H" };
-        CubicObject<String>[] aTextureData = new CubicObject[] {new CubicObject<>(aTexData) };
+        CubicObject<String>[] aTextureData = new CubicObject[] { new CubicObject<>(aTexData) };
         return aTextureData;
     }
 }

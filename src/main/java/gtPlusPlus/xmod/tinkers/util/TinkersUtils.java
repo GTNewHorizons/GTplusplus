@@ -103,7 +103,6 @@ public class TinkersUtils {
                 new Object[] { fluid, power, duration });
     }
 
-
     public static boolean registerFluidType(String name, Block block, int meta, int baseTemperature, Fluid fluid,
             boolean isToolpart) {
         if (mMethodCache.get("registerFluidType") == null) {
@@ -140,8 +139,7 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addMelting").invoke(null, input, block, metadata, temperature, liquid);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
-        }
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {}
     }
 
     public static void addMelting(Object type, ItemStack input, int temperatureDifference, int fluidAmount) {
@@ -152,12 +150,10 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addMelting").invoke(null, type, input, temperatureDifference, fluidAmount);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
-        }
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {}
     }
 
-    public static void addBasinRecipe(ItemStack output, FluidStack metal, ItemStack cast, boolean consume,
-                                      int delay) {
+    public static void addBasinRecipe(ItemStack output, FluidStack metal, ItemStack cast, boolean consume, int delay) {
         if (mMethodCache.get("addBasinRecipe") == null) {
             Method m = ReflectionUtils.getMethod(
                     ReflectionUtils.getClass("tconstruct.library.crafting.LiquidCasting"),
@@ -171,12 +167,11 @@ public class TinkersUtils {
         }
         try {
             mMethodCache.get("addBasinRecipe").invoke(getCastingInstance(0), output, metal, cast, consume, delay);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
-        }
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {}
     }
 
     public static void addCastingTableRecipe(ItemStack output, FluidStack metal, ItemStack cast, boolean consume,
-                                             int delay) {
+            int delay) {
         if (mMethodCache.get("addCastingTableRecipe") == null) {
             Method m = ReflectionUtils.getMethod(
                     ReflectionUtils.getClass("tconstruct.library.crafting.LiquidCasting"),
@@ -191,8 +186,7 @@ public class TinkersUtils {
         try {
             mMethodCache.get("addCastingTableRecipe")
                     .invoke(getCastingInstance(1), output, metal, cast, consume, delay);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {
-        }
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {}
     }
 
     /**
@@ -210,8 +204,7 @@ public class TinkersUtils {
             m = ReflectionUtils.getMethod(mTinkersRegistryInstance, "getTableCasting", new Class[] {});
         } else if (aType == 1) {
             m = ReflectionUtils.getMethod(mTinkersRegistryInstance, "getBasinCasting", new Class[] {});
-        }  // return null;
-
+        } // return null;
 
         if (m != null) {
             try {
@@ -267,7 +260,6 @@ public class TinkersUtils {
         mDryingRackRecipes = aData;
         return aData;
     }
-
 
     public static Object generateToolMaterial(String name, String localizationString, int level, int durability,
             int speed, int damage, float handle, int reinforced, float stonebound, String style, int primaryColor) {

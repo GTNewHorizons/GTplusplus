@@ -201,29 +201,25 @@ public class GT_MetaTileEntity_TesseractTerminal extends GT_MetaTileEntity_Basic
                     case 0 -> {
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency -= 64;
                     }
                     case 1 -> {
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency += 64;
                     }
                     case 2 -> {
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency -= 512;
                     }
                     case 3 -> {
                         try {
                             CORE.sTesseractTerminalOwnershipMap.get(mOwner).remove(this.mFrequency);
-                        } catch (Throwable t) {
-                        }
+                        } catch (Throwable t) {}
                         this.mFrequency += 512;
                     }
                 }

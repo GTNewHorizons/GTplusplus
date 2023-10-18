@@ -67,7 +67,6 @@ import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
@@ -220,7 +219,6 @@ public final class ModItems {
     public static CoreItem itemBombUnf;
     public static CoreItem itemDetCable;
 
-
     public static BaseItemMetaFood itemMetaFood;
 
     public static ItemMagicFeather itemMagicFeather;
@@ -280,7 +278,6 @@ public final class ModItems {
                 EnumChatFormatting.GRAY,
                 false,
                 Utils.rgbtoHexValue(255, 255, 255)).setTextureName(GregTech.ID + ":" + "gt.metaitem.01/" + "761");
-
 
         // Start meta Item Generation
         ItemsFoods.load();
@@ -735,7 +732,7 @@ public final class ModItems {
                 "dustNeptunium238",
                 Utils.rgbtoHexValue(175, 240, 75),
                 50640,
-                new String[] {StringUtils.superscript("238Np"),
+                new String[] { StringUtils.superscript("238Np"),
                         "Result: Plutonium 238 (" + StringUtils.superscript("238Pu") + ")" },
                 ELEMENT.getInstance().PLUTONIUM238.getDust(1).getItem(),
                 5);
@@ -748,7 +745,7 @@ public final class ModItems {
                 "dustRadium226",
                 ELEMENT.getInstance().RADIUM.getRgbAsHex(),
                 90000,
-                new String[] {StringUtils.superscript("226Ra"),
+                new String[] { StringUtils.superscript("226Ra"),
                         "Result: Radon (" + StringUtils.superscript("222Rn") + ")" },
                 ItemUtils.getSimpleStack(dustDecayedRadium226).getItem(),
                 5);
@@ -756,7 +753,7 @@ public final class ModItems {
                 "dustProtactinium233",
                 ELEMENT.getInstance().PROTACTINIUM.getRgbAsHex(),
                 32000,
-                new String[] {StringUtils.superscript("233Pa"),
+                new String[] { StringUtils.superscript("233Pa"),
                         "Result: Uranium 233(" + StringUtils.superscript("233U") + ")" },
                 ELEMENT.getInstance().URANIUM233.getDust(1).getItem(),
                 6);
@@ -764,7 +761,7 @@ public final class ModItems {
                 "dustMolybdenum99",
                 ELEMENT.getInstance().MOLYBDENUM.getRgbAsHex(),
                 16450,
-                new String[] {StringUtils.superscript("99Mo"),
+                new String[] { StringUtils.superscript("99Mo"),
                         "Result: Technicium 99ᵐ (" + StringUtils.superscript("99ᵐTc") + ")" },
                 dustTechnetium99M,
                 4);

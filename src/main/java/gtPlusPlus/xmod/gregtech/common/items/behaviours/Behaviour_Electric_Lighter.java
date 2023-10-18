@@ -20,7 +20,6 @@ import gregtech.common.items.behaviors.Behaviour_None;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.entity.projectile.EntityLightningAttack;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.NBTUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;

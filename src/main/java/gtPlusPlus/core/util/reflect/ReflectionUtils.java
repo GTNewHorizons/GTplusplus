@@ -695,7 +695,7 @@ public class ReflectionUtils {
                 Map<Type, Type> outerTypeMap = new HashMap<>();
                 extractTypeArguments(outerTypeMap, outerClass);
                 for (Map.Entry<Type, Type> entry : outerTypeMap.entrySet()) {
-                    if (!(entry.getKey() instanceof TypeVariable<?> foundType)) {
+                    if (!(entry.getKey() instanceof TypeVariable<?>foundType)) {
                         continue;
                     }
                     if (foundType.getName().equals(actualType.getName())
@@ -714,7 +714,7 @@ public class ReflectionUtils {
     }
 
     private static boolean isInnerClass(GenericDeclaration outerDeclaration, GenericDeclaration innerDeclaration) {
-        if (!(outerDeclaration instanceof Class<?> outerClass) || !(innerDeclaration instanceof Class<?> innerClass)) {
+        if (!(outerDeclaration instanceof Class<?>outerClass) || !(innerDeclaration instanceof Class<?>innerClass)) {
             return false;
         }
         while ((innerClass = innerClass.getEnclosingClass()) != null) {

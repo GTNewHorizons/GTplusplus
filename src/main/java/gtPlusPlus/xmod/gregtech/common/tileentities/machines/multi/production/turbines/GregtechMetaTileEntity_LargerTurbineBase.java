@@ -141,16 +141,16 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
                     // m = muffler
                     .addShape(
                             STRUCTURE_PIECE_MAIN,
-                            (new String[][]{
-                                    {"ccchccc", "ccccccc", "ccmmmcc", "ccm~mcc", "ccmmmcc", "ccccccc", "ccchccc"},
-                                    {"ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc"},
-                                    {"ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc"},
-                                    {"ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc"},
-                                    {"ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc"},
-                                    {"ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc"},
-                                    {"ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc"},
-                                    {"ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc"},
-                                    {"ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc"},}))
+                            (new String[][] {
+                                    { "ccchccc", "ccccccc", "ccmmmcc", "ccm~mcc", "ccmmmcc", "ccccccc", "ccchccc" },
+                                    { "ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc" },
+                                    { "ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc" },
+                                    { "ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc" },
+                                    { "ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc" },
+                                    { "ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc" },
+                                    { "ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc" },
+                                    { "ctchctc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "cscccsc", "ctchctc" },
+                                    { "ccchccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccccccc", "ccchccc" }, }))
                     .addElement('c', lazy(t -> ofBlock(t.getCasingBlock(), t.getCasingMeta())))
                     .addElement('s', lazy(t -> ofBlock(t.getShaftBlock(), t.getTurbineShaftMeta())))
                     .addElement(

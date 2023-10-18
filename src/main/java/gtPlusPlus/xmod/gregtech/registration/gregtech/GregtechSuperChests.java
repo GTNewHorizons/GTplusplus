@@ -1,6 +1,5 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
-import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.GT_MetaTileEntity_TieredChest;
 
