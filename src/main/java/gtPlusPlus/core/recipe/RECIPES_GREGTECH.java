@@ -448,7 +448,7 @@ public class RECIPES_GREGTECH {
                                 CI.getTieredComponent(OrePrefixes.cableGt12, h - 1, 16),
                                 CI.getTieredComponent(OrePrefixes.screw, h, 16),
                                 CI.getTieredComponent(OrePrefixes.bolt, h - 2, 32),
-                                CI.getFieldGenerator(h, 1))
+                                CI.getFieldGenerator(h-1, 1))
                         .fluidInputs(
                                 CI.getTieredFluid(h, 144 * 4 * 8),
                                 CI.getTertiaryTieredFluid(h - 1, 144 * 4 * 8),
