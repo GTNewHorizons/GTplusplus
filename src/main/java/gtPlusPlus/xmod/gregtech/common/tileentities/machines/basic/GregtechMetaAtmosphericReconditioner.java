@@ -53,14 +53,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
 
     protected boolean mSaveRotor = false;
 
-    private static final HashMap<Byte, ItemStack> mConveyorMap = new HashMap<>();
-
-    static {
-        for (byte i = 0; i < 9; i++) {
-            mConveyorMap.put(i, CI.getConveyor(i, 1));
-        }
-    }
-
     public GregtechMetaAtmosphericReconditioner(int aID, String aName, String aNameRegional, int aTier) {
         super(
                 aID,
@@ -87,12 +79,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         super(aName, aTier, 2, aDescription, aTextures, 2, 0);
         mPollutionEnabled = PollutionUtils.isPollutionEnabled();
     }
-
-    /*
-     * public GregtechMetaAtmosphericReconditioner(String aName, int aTier, String[] aDescription, ITexture[][][]
-     * aTextures, String aGUIName, String aNEIName) { super(aName, aTier, 2, aDescription, aTextures, 2, 0, aGUIName,
-     * aNEIName); }
-     */
 
     @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
@@ -678,10 +664,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (filter == null) {
             return false;
         }
-        if (filter.getItem() instanceof ItemAirFilter) {
-            return true;
-        }
-        return false;
+        return filter.getItem() instanceof ItemAirFilter;
     }
 
     public boolean damageAirFilter() {
@@ -888,7 +871,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                                 .setPos(106, 24))
                 .widget(
                         new SlotWidget(inventoryHandler, 7)
-                                .setFilter(stack -> GT_Utility.areStacksEqual(stack, mConveyorMap.get(mTier), true))
+                                .setFilter(stack -> GT_Utility.areStacksEqual(stack, CI.getConveyor(mTier, 1), true))
                                 .setPos(124, 62));
         builder.widget(
                 new DrawableWidget().setDrawable(GT_UITextures.PICTURE_INFORMATION)

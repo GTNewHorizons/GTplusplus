@@ -16,7 +16,6 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.item.chemistry.IonParticles;
-import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch.ASSEMBLY_LINE_RESEARCH;
 import gtPlusPlus.core.lib.CORE;
@@ -56,11 +55,9 @@ import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFusionRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMaceratorRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
 import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.BUCKETS;
 import static gregtech.api.util.GT_RecipeBuilder.HOURS;
 import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
@@ -513,15 +510,15 @@ public class RECIPES_GREGTECH {
     private static void laserEngraverRecipes() {
 
         // Laser Sensors and Emitters together
-        GregtechItemList[] aTransParts = new GregtechItemList[] { GregtechItemList.TransmissionComponent_ULV,
+        GregtechItemList[] aTransParts = new GregtechItemList[] {
                 GregtechItemList.TransmissionComponent_LV, GregtechItemList.TransmissionComponent_MV,
                 GregtechItemList.TransmissionComponent_HV, GregtechItemList.TransmissionComponent_EV,
                 GregtechItemList.TransmissionComponent_IV, GregtechItemList.TransmissionComponent_LuV,
                 GregtechItemList.TransmissionComponent_ZPM, GregtechItemList.TransmissionComponent_UV,
-                GregtechItemList.TransmissionComponent_MAX, };
-        for (int i = 0; i < 10; i++) {
+                GregtechItemList.TransmissionComponent_UHV, };
+        for (int i = 1; i < aTransParts.length; i++) {
             GT_Values.RA.stdBuilder().itemInputs(CI.getEmitter(i, 2), CI.getSensor(i, 2))
-                    .itemOutputs(aTransParts[i].get(1)).duration(5 * SECONDS).eut(GT_Values.VP[i])
+                    .itemOutputs(aTransParts[i-1].get(1)).duration(5 * SECONDS).eut(GT_Values.VP[i])
                     .addTo(sLaserEngraverRecipes);
         }
 

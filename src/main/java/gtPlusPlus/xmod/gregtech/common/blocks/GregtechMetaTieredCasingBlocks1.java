@@ -62,7 +62,7 @@ public class GregtechMetaTieredCasingBlocks1 extends GregtechMetaCasingBlocksAbs
         GregtechItemList.GTPP_Casing_LuV.set(new ItemStack(this, 1, 6));
         GregtechItemList.GTPP_Casing_ZPM.set(new ItemStack(this, 1, 7));
         GregtechItemList.GTPP_Casing_UV.set(new ItemStack(this, 1, 8));
-        GregtechItemList.GTPP_Casing_MAX.set(new ItemStack(this, 1, 9));
+        GregtechItemList.GTPP_Casing_UHV.set(new ItemStack(this, 1, 9));
     }
 
     @Override

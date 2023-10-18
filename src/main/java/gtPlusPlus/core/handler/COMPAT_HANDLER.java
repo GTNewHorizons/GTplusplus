@@ -37,7 +37,6 @@ import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechCyclotron;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechDehydrator;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechEnergyBuffer;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechFactoryGradeReplacementMultis;
-import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechGeneratorsULV;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechGeothermalThermalGenerator;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechHiAmpTransformer;
 import gtPlusPlus.xmod.gregtech.registration.gregtech.GregtechIndustrialAlloySmelter;
@@ -122,7 +121,6 @@ public class COMPAT_HANDLER {
          */
 
         new RECIPES_LaserEngraver();
-        GregtechGeneratorsULV.run();
         GregtechEnergyBuffer.run();
         GregtechLFTR.run();
         GregtechNuclearSaltProcessingPlant.run();

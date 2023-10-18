@@ -19,7 +19,6 @@ public class RegistrationHandler {
     private static void init() {
         RECIPES_General.loadRecipes();
         RECIPES_Machines.loadRecipes();
-        RECIPES_MachineComponents.loadRecipes();
         RECIPE_Batteries.loadRecipes();
         Logger.INFO("Loaded: " + recipesSuccess + " Failed: " + recipesFailed);
         COMPAT_HANDLER.areInitItemsLoaded = true;

@@ -52,18 +52,7 @@ public enum GregtechItemList implements GregtechItemContainer {
     Sensor_ZPM,
     Sensor_UV,
 
-    // ULV Components
-    Electric_Motor_ULV,
-    Electric_Pump_ULV,
-    Conveyor_Module_ULV,
-    Electric_Piston_ULV,
-    Robot_Arm_ULV,
-    Field_Generator_ULV,
-    Emitter_ULV,
-    Sensor_ULV,
-
     // Mixed Components
-    TransmissionComponent_ULV,
     TransmissionComponent_LV,
     TransmissionComponent_MV,
     TransmissionComponent_HV,
@@ -72,7 +61,7 @@ public enum GregtechItemList implements GregtechItemContainer {
     TransmissionComponent_LuV,
     TransmissionComponent_ZPM,
     TransmissionComponent_UV,
-    TransmissionComponent_MAX,
+    TransmissionComponent_UHV,
 
     // Recipe Circuit
     Circuit_BioRecipeSelector,
@@ -202,7 +191,7 @@ public enum GregtechItemList implements GregtechItemContainer {
     GTPP_Casing_LuV,
     GTPP_Casing_ZPM,
     GTPP_Casing_UV,
-    GTPP_Casing_MAX,
+    GTPP_Casing_UHV,
 
     // IronBlastFurnace Machine_Bronze_BlastFurnace
     Casing_IronPlatedBricks,
@@ -544,7 +533,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Hatch_Muffler_Adv_MAX,
 
     // Super Input Busses
-    Hatch_SuperBus_Input_ULV,
     Hatch_SuperBus_Input_LV,
     Hatch_SuperBus_Input_MV,
     Hatch_SuperBus_Input_HV,
@@ -556,7 +544,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Hatch_SuperBus_Input_MAX,
 
     // Super Output Busses
-    Hatch_SuperBus_Output_ULV,
     Hatch_SuperBus_Output_LV,
     Hatch_SuperBus_Output_MV,
     Hatch_SuperBus_Output_HV,
@@ -568,10 +555,9 @@ public enum GregtechItemList implements GregtechItemContainer {
     Hatch_SuperBus_Output_MAX,
 
     // Chisel Buses for Industrial Chisel
-    GT_MetaTileEntity_ChiselBus_I,
-    GT_MetaTileEntity_ChiselBus_II,
-    GT_MetaTileEntity_ChiselBus_III,
-    GT_MetaTileEntity_ChiselBus_IV,
+    GT_MetaTileEntity_ChiselBus_LV,
+    GT_MetaTileEntity_ChiselBus_MV,
+    GT_MetaTileEntity_ChiselBus_HV,
 
     // ----------------------------------------------------------------------------
 
@@ -593,11 +579,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     /**
      * Single Block Tile Entities
      */
-
-    // ULV Generators
-    Generator_Diesel_ULV,
-    Generator_Gas_Turbine_ULV,
-    Generator_Steam_Turbine_ULV,
 
     // Crate Box
     CrateStorage,
@@ -652,7 +633,6 @@ public enum GregtechItemList implements GregtechItemContainer {
 
     // Fancy Pollution Devices
     Pollution_Detector,
-    Pollution_Cleaner_ULV,
     Pollution_Cleaner_LV,
     Pollution_Cleaner_MV,
     Pollution_Cleaner_HV,
@@ -692,7 +672,7 @@ public enum GregtechItemList implements GregtechItemContainer {
     Charger_LuV,
     Charger_ZPM,
     Charger_UV,
-    Charger_MAX,
+    Charger_UHV,
 
     // Reactor Processing Unit
     ReactorProcessingUnit_IV,
@@ -817,7 +797,6 @@ public enum GregtechItemList implements GregtechItemContainer {
      */
 
     // Fluid Void Covers
-    Cover_Overflow_ULV,
     Cover_Overflow_LV,
     Cover_Overflow_MV,
     Cover_Overflow_HV,
