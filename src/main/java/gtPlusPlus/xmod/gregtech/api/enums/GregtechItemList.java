@@ -616,10 +616,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     // infinite Items
     Infinite_Item_Chest,
 
-    // Gt4 Workbenches
-    GT4_Workbench_Bronze,
-    GT4_Workbench_Advanced,
-
     // GT4 automation
     GT4_Electric_Auto_Workbench_LV,
     GT4_Electric_Auto_Workbench_MV,
@@ -739,21 +735,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Energy_Buffer_1by1_ZPM,
     Energy_Buffer_1by1_UV,
     Energy_Buffer_1by1_MAX,
-
-    // Cobble Generators
-    Cobble_Generator_ULV,
-    Cobble_Generator_LV,
-    Cobble_Generator_MV,
-    Cobble_Generator_HV,
-    Cobble_Generator_EV,
-    Cobble_Generator_IV,
-    Cobble_Generator_LuV,
-    Cobble_Generator_ZPM,
-    Cobble_Generator_UV,
-    Cobble_Generator_MAX,
-
-    // The max Steam condenser
-    Condensor_MAX,
 
     // Rocket Engines
     Rocket_Engine_EV,

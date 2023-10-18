@@ -43,10 +43,6 @@ import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 public class RECIPES_Machines {
 
     // Outputs
-    // static ItemStack RECIPE_BufferCore_ULV = new ItemStack(GregtechEnergyBuffer.itemBufferCore);
-    public static ItemStack RECIPE_SteamCondenser;
-    public static ItemStack RECIPE_IronBlastFurnace;
-    public static ItemStack RECIPE_IronPlatedBricks;
     public static ItemStack RECIPE_Buffer_ULV = GregtechItemList.Energy_Buffer_1by1_ULV.get(1);
     public static ItemStack RECIPE_Buffer_LV = GregtechItemList.Energy_Buffer_1by1_LV.get(1);
     public static ItemStack RECIPE_Buffer_MV = GregtechItemList.Energy_Buffer_1by1_MV.get(1);
@@ -324,45 +320,13 @@ public class RECIPES_Machines {
 
     private static void gt4Inventory() {
 
-        ItemList[] aEnergyHatches = new ItemList[] { ItemList.Hatch_Energy_LV, ItemList.Hatch_Energy_MV,
-                ItemList.Hatch_Energy_HV, ItemList.Hatch_Energy_EV, ItemList.Hatch_Energy_IV, ItemList.Hatch_Energy_LuV,
-                ItemList.Hatch_Energy_ZPM, ItemList.Hatch_Energy_UV };
-
-        ItemList[] aRegulators = new ItemList[] { ItemList.Automation_Regulator_LV, ItemList.Automation_Regulator_MV,
-                ItemList.Automation_Regulator_HV, ItemList.Automation_Regulator_EV, ItemList.Automation_Regulator_IV,
-                ItemList.Automation_Regulator_LuV, ItemList.Automation_Regulator_ZPM,
-                ItemList.Automation_Regulator_UV };
-
-        GregtechItemList[] aOutputInventoryManager = new GregtechItemList[] {
-                GregtechItemList.GT4_Electric_Inventory_Manager_LV, GregtechItemList.GT4_Electric_Inventory_Manager_MV,
-                GregtechItemList.GT4_Electric_Inventory_Manager_HV, GregtechItemList.GT4_Electric_Inventory_Manager_EV,
-                GregtechItemList.GT4_Electric_Inventory_Manager_IV, GregtechItemList.GT4_Electric_Inventory_Manager_LuV,
-                GregtechItemList.GT4_Electric_Inventory_Manager_ZPM,
-                GregtechItemList.GT4_Electric_Inventory_Manager_UV };
-
-        int aTier = 1;
-        for (int i = 0; i < 8; i++) {
-            RecipeUtils.addShapedRecipe(
-                    CI.getTieredCircuitOreDictName(aTier),
-                    aRegulators[i].get(1),
-                    CI.getTieredCircuitOreDictName(aTier),
-                    CI.getRobotArm(aTier, 1),
-                    CI.getTieredMachineHull(aTier),
-                    CI.getRobotArm(aTier, 1),
-                    CI.getTieredCircuitOreDictName(aTier),
-                    aEnergyHatches[i].get(1),
-                    CI.getTieredCircuitOreDictName(aTier),
-                    aOutputInventoryManager[i].get(1));
-            aTier++;
-        }
-
         GregtechItemList[] aOutputElectricCraftingTable = new GregtechItemList[] {
                 GregtechItemList.GT4_Electric_Auto_Workbench_LV, GregtechItemList.GT4_Electric_Auto_Workbench_MV,
                 GregtechItemList.GT4_Electric_Auto_Workbench_HV, GregtechItemList.GT4_Electric_Auto_Workbench_EV,
                 GregtechItemList.GT4_Electric_Auto_Workbench_IV, GregtechItemList.GT4_Electric_Auto_Workbench_LuV,
                 GregtechItemList.GT4_Electric_Auto_Workbench_ZPM, GregtechItemList.GT4_Electric_Auto_Workbench_UV };
 
-        aTier = 1;
+        int aTier = 1;
         for (int i = 0; i < 8; i++) {
             RecipeUtils.addShapedRecipe(
                     ItemUtils.getOrePrefixStack(OrePrefixes.plate, CI.tieredMaterials[aTier], 1),
@@ -956,22 +920,6 @@ public class RECIPES_Machines {
                 "cableGt01RedAlloy",
                 ALLOY.TUMBAGA.getGear(1),
                 GregtechItemList.Generator_Diesel_ULV.get(1));
-
-        // Steam Condenser
-        if (CORE.ConfigSwitches.enableMachine_SteamConverter) {
-            RECIPE_SteamCondenser = GregtechItemList.Condensor_MAX.get(1);
-            RecipeUtils.addShapedGregtechRecipe(
-                    pipeLargeCopper,
-                    pipeHugeSteel,
-                    pipeLargeCopper,
-                    plateEnergeticAlloy,
-                    CI.electricPump_HV,
-                    plateEnergeticAlloy,
-                    plateEnergeticAlloy,
-                    pipeLargeCopper,
-                    plateEnergeticAlloy,
-                    RECIPE_SteamCondenser);
-        }
 
         ItemStack aBronzeBricks = ItemUtils.simpleMetaStack(GregTech_API.sBlockCasings1, 10, 1);
         // Steam Macerator Multi
