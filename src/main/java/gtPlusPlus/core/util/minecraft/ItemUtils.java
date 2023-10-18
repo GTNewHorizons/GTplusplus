@@ -16,7 +16,6 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.item.base.dusts.BaseItemDustUnique;
-import gtPlusPlus.core.item.base.plates.BaseItemPlate_OLD;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.lib.CORE;
@@ -30,8 +29,6 @@ import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaTool;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_DustGeneration;
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -456,20 +453,6 @@ public class ItemUtils {
         return output;
     }
 
-    public static Item generateSpecialUsePlate(final String internalName, final String displayName, final short[] rgb,
-            final int radioactivity) {
-        return generateSpecialUsePlate(
-                internalName,
-                displayName,
-                Utils.rgbtoHexValue(rgb[0], rgb[1], rgb[2]),
-                radioactivity);
-    }
-
-    public static Item generateSpecialUsePlate(final String internalName, final String displayName, final int rgb,
-            final int radioactivity) {
-        return new BaseItemPlate_OLD(internalName, displayName, rgb, radioactivity);
-    }
-
     public static Item[] generateSpecialUseDusts(final Material material, final boolean onlyLargeDust) {
         return generateSpecialUseDusts(material, onlyLargeDust, false);
     }
@@ -536,44 +519,6 @@ public class ItemUtils {
             sRadiation = 1;
         }
         return sRadiation;
-    }
-
-    public static String getArrayStackNames(ArrayList<?> aStack) {
-        Object aType = aStack.get(0);
-        if (aType instanceof FluidStack) {
-            FluidStack[] aItems = new FluidStack[aStack.size()];
-            for (int i = 0; i < aItems.length; i++) {
-                aItems[i] = (FluidStack) aStack.get(i);
-            }
-            return getArrayStackNames(aItems);
-        }
-        if (aType instanceof ItemStack) {
-            ItemStack[] aItems = new ItemStack[aStack.size()];
-            for (int i = 0; i < aItems.length; i++) {
-                aItems[i] = (ItemStack) aStack.get(i);
-            }
-            return getArrayStackNames(aItems);
-        }
-        return "";
-    }
-
-    public static String getArrayStackNames(final AutoMap<?> aStack) {
-        Object aType = aStack.get(0);
-        if (aType instanceof FluidStack) {
-            FluidStack[] aItems = new FluidStack[aStack.size()];
-            for (int i = 0; i < aItems.length; i++) {
-                aItems[i] = (FluidStack) aStack.get(i);
-            }
-            return getArrayStackNames(aItems);
-        }
-        if (aType instanceof ItemStack) {
-            ItemStack[] aItems = new ItemStack[aStack.size()];
-            for (int i = 0; i < aItems.length; i++) {
-                aItems[i] = (ItemStack) aStack.get(i);
-            }
-            return getArrayStackNames(aItems);
-        }
-        return "";
     }
 
     public static String getArrayStackNames(final FluidStack[] aStack) {

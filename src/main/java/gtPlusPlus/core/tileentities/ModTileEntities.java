@@ -13,7 +13,6 @@ import gtPlusPlus.core.tileentities.machines.TileEntityAdvPooCollector;
 import gtPlusPlus.core.tileentities.machines.TileEntityPestKiller;
 import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
 import gtPlusPlus.core.tileentities.machines.TileEntityProjectTable;
-import gtPlusPlus.core.tileentities.machines.TileEntityRoundRobinator;
 
 public class ModTileEntities {
 
@@ -29,7 +28,6 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntitySuperJukebox.class, "TileEntitySuperJukebox");
         GameRegistry.registerTileEntity(TileEntitySuperLight.class, "TileEntitySuperLight");
         GameRegistry.registerTileEntity(TileEntityPestKiller.class, "TileEntityPestKiller");
-        GameRegistry.registerTileEntity(TileEntityRoundRobinator.class, "TileEntityRoundRobinator");
 
         GameRegistry.registerTileEntity(TileEntityVolumetricFlaskSetter.class, "TileEntityVolumetricFlaskSetter");
     }

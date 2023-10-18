@@ -30,10 +30,7 @@ public class TileEntityProjectTable extends TileEntity
     public InventoryProjectMain inventoryGrid;
     public InventoryProjectOutput inventoryOutputs;
 
-    /** The crafting matrix inventory (3x3). */
-    public InventoryCrafting craftMatrix;
 
-    public IInventory craftResult;
     private Container_ProjectTable container;
 
     public TileEntityProjectTable() {

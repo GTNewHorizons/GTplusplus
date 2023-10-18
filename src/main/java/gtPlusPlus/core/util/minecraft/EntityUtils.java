@@ -29,11 +29,6 @@ public class EntityUtils {
         return aEntity.isImmuneToFire();
     }
 
-    public static int getFacingDirection(final Entity entity) {
-        final int d = MathHelper.floor_double((entity.rotationYaw * 4.0F) / 360 + 0.50) & 3;
-        return d;
-    }
-
     public static BlockPos findBlockPosUnderEntity(final Entity parEntity) {
         final int blockX = MathHelper.floor_double(parEntity.posX);
         final int blockY = MathHelper.floor_double(parEntity.boundingBox.minY) - 1;
@@ -70,7 +65,7 @@ public class EntityUtils {
                 && aEntity.getCreatureAttribute() != EnumCreatureAttribute.UNDEAD
                 && aEntity.getCreatureAttribute() != EnumCreatureAttribute.ARTHROPOD
                 && !ItemArmorHazmat.hasCompleteHazmat(aEntity)) {
-            PotionEffect tEffect = null;
+            PotionEffect tEffect;
             aEntity.addPotionEffect(
                     new PotionEffect(
                             Potion.moveSlowdown.id,
@@ -136,11 +131,6 @@ public class EntityUtils {
 
     public static void doDamage(Entity entity, DamageSource dmg, int i) {
         entity.attackEntityFrom(dmg, i);
-    }
-
-    public static double getDistance(Entity p1, Entity p2) {
-        return Math
-                .sqrt(Math.pow(p1.posX - p2.posX, 2) + Math.pow(p1.posY - p2.posY, 2) + Math.pow(p1.posZ - p2.posZ, 2));
     }
 
     /**

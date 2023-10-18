@@ -74,7 +74,7 @@ public class FileUtils {
         }
     }
 
-    public static boolean appendListToFile(File file, List<String> content) {
+    public static void appendListToFile(File file, List<String> content) {
         try {
             long oldSize;
             long newSize;
@@ -88,11 +88,9 @@ public class FileUtils {
                         e.printStackTrace();
                     }
                     newSize = Files.size(p);
-                    return newSize > oldSize;
                 }
             }
-        } catch (IOException e) {}
-        return false;
+        } catch (IOException ignored) {}
     }
 
     /**

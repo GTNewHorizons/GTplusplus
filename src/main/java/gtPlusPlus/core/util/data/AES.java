@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
 
-    private final String secret;;
+    private final String secret;
 
     private final SecretKeySpec secretKey;
 
@@ -113,24 +113,6 @@ public class AES {
         return new SecretKeySpec(aKey, "AES");
     }
 
-    public String encode(String strToEncrypt) {
-
-        try {
-
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-            return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
-
-        } catch (Exception e) {
-
-            System.out.println("Error while encrypting: " + e.toString());
-        }
-
-        return null;
-    }
-
     public String decode(String strToDecrypt) {
 
         try {
@@ -141,7 +123,7 @@ public class AES {
 
             return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
 

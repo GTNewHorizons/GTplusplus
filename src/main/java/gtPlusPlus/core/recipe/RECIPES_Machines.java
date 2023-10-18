@@ -231,7 +231,6 @@ public class RECIPES_Machines {
         fakeMachineCasingCovers();
         overflowValveCovers();
         superBuses();
-        roundRobinators();
         distillus();
         algaeFarm();
         chemPlant();
@@ -3171,50 +3170,4 @@ public class RECIPES_Machines {
         }
     }
 
-    private static void roundRobinators() {
-
-        RecipeUtils.addShapedGregtechRecipe(
-                ItemUtils.getSimpleStack(Blocks.hopper),
-                "circuitPrimitive",
-                ItemUtils.getSimpleStack(Blocks.hopper),
-                CI.craftingToolWrench,
-                CI.machineCasing_ULV,
-                CI.craftingToolScrewdriver,
-                ItemUtils.getSimpleStack(Blocks.hopper),
-                "circuitPrimitive",
-                ItemUtils.getSimpleStack(Blocks.hopper),
-                ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 0, 1));
-
-        ItemStack[] aRobinators = new ItemStack[] { ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 0, 1),
-                ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 1, 1),
-                ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 2, 1),
-                ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 3, 1),
-                ItemUtils.simpleMetaStack(ModBlocks.blockRoundRobinator, 4, 1), };
-
-        for (int i = 0; i < 5; i++) {
-            if (i == 0) {
-                CORE.RA.addSixSlotAssemblingRecipe(
-                        new ItemStack[] { CI.getNumberedCircuit(17), CI.getTieredMachineCasing(0),
-                                ItemUtils.getSimpleStack(Blocks.hopper, 4),
-                                CI.getTieredComponent(OrePrefixes.circuit, 0, 2) },
-                        GT_Values.NF, // Input Fluid
-                        aRobinators[i],
-                        45 * 10 * 1,
-                        8);
-                continue;
-            }
-            int aTier = i + 1;
-            ItemStack[] aInputs = new ItemStack[] { aRobinators[i - 1], CI.getTieredMachineHull(aTier, 1),
-                    CI.getConveyor(aTier, 2), CI.getElectricMotor(aTier, 2),
-                    CI.getTieredComponent(OrePrefixes.plate, aTier, 4),
-                    CI.getTieredComponent(OrePrefixes.circuit, i, 2), };
-
-            CORE.RA.addSixSlotAssemblingRecipe(
-                    aInputs,
-                    GT_Values.NF, // Input Fluid
-                    aRobinators[i],
-                    45 * 10 * 1 * (i + 1),
-                    MaterialUtils.getVoltageForTier(i));
-        }
-    }
 }

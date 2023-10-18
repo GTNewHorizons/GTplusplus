@@ -97,7 +97,7 @@ public final class ModItems {
     public static ItemCustomSpawnEgg itemCustomSpawnEgg;
 
     public static Item itemIngotBatteryAlloy;
-    public static Item itemPlateBatteryAlloy;
+
     public static Item itemHydrogenBlob;
 
     public static Item itemBedLocator_Base;
@@ -819,12 +819,6 @@ public final class ModItems {
             }
         } catch (final Throwable T) {
             Logger.INFO("Baubles Not Found - Skipping Resources.");
-        }
-
-        // Special Item Handling Case
-        if (ConfigSwitches.enableAlternativeBatteryAlloy) {
-            ModItems.itemPlateBatteryAlloy = ItemUtils
-                    .generateSpecialUsePlate("BatteryAlloy", "Battery Alloy", new short[] { 35, 228, 141 }, 0);
         }
 
         // Buffer Cores!
