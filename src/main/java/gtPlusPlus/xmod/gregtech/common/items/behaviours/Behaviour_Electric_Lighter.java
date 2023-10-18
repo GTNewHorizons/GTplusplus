@@ -1,5 +1,16 @@
 package gtPlusPlus.xmod.gregtech.common.items.behaviours;
 
+import java.util.List;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import codechicken.lib.math.MathHelper;
 import gregtech.api.enums.SoundResource;
 import gregtech.api.items.GT_MetaBase_Item;
@@ -14,16 +25,6 @@ import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;
 import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
 import ic2.api.item.IElectricItemManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
 
 public class Behaviour_Electric_Lighter extends Behaviour_None {
 

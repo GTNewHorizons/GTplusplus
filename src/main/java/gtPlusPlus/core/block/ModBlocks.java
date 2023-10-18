@@ -1,5 +1,8 @@
 package gtPlusPlus.core.block;
 
+import net.minecraft.block.Block;
+import net.minecraftforge.fluids.Fluid;
+
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.general.BlockCompressedObsidian;
 import gtPlusPlus.core.block.general.FluidTankInfinite;
@@ -16,8 +19,6 @@ import gtPlusPlus.core.block.machine.Machine_ProjectTable;
 import gtPlusPlus.core.block.machine.Machine_SuperJukebox;
 import gtPlusPlus.core.block.machine.VolumetricFlaskSetter;
 import gtPlusPlus.core.fluids.FluidRegistryHandler;
-import net.minecraft.block.Block;
-import net.minecraftforge.fluids.Fluid;
 
 public final class ModBlocks {
 

@@ -1,11 +1,12 @@
 package gtPlusPlus.plugin.fixes.vanilla;
 
-import gtPlusPlus.api.interfaces.IPlugin;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.plugin.manager.Core_Manager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import gtPlusPlus.api.interfaces.IPlugin;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.plugin.manager.Core_Manager;
 
 // Called by Core_Manager#veryEarlyInit
 @SuppressWarnings("unused")

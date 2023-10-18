@@ -1,11 +1,12 @@
 package gtPlusPlus.everglades.block;
 
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.core.creative.AddToCreativeTab;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.core.creative.AddToCreativeTab;
 
 public class BlockDarkWorldPortalFrame extends Block implements ITileTooltip {
 

@@ -1,7 +1,15 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidTankInfo;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.gtnewhorizons.modularui.api.drawable.IDrawable;
 import com.gtnewhorizons.modularui.api.drawable.UITexture;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -17,11 +25,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidTankInfo;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class GT_MetaTileEntity_Boiler_Base extends GT_MetaTileEntity_Boiler {
 

@@ -1,5 +1,26 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.automation;
 
+import static gtPlusPlus.core.lib.CORE.sTesseractGeneratorOwnershipMap;
+import static gtPlusPlus.core.lib.CORE.sTesseractTerminalOwnershipMap;
+
+import java.util.UUID;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTankInfo;
+import net.minecraftforge.fluids.IFluidHandler;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IDigitalChest;
@@ -15,25 +36,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.helpers.tesseract.TesseractHelper;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidTankInfo;
-import net.minecraftforge.fluids.IFluidHandler;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.UUID;
-
-import static gtPlusPlus.core.lib.CORE.sTesseractGeneratorOwnershipMap;
-import static gtPlusPlus.core.lib.CORE.sTesseractTerminalOwnershipMap;
 
 public class GT_MetaTileEntity_TesseractGenerator extends GT_MetaTileEntity_BasicTank {
 

@@ -1,9 +1,11 @@
 package gtPlusPlus.xmod.bartworks;
 
+import net.minecraft.item.ItemStack;
+
 import com.github.bartimaeusnek.bartworks.system.material.Werkstoff;
 import com.github.bartimaeusnek.bartworks.system.material.WerkstoffLoader;
+
 import gregtech.api.enums.OrePrefixes;
-import net.minecraft.item.ItemStack;
 
 public class BW_Utils {
 

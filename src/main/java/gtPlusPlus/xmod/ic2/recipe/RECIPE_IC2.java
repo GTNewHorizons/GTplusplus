@@ -1,5 +1,12 @@
 package gtPlusPlus.xmod.ic2.recipe;
 
+import static gregtech.api.enums.Mods.EnderIO;
+import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolHardHammer;
+import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolWrench;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -18,12 +25,6 @@ import gtPlusPlus.core.util.minecraft.RecipeUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.ic2.item.IC2_Items;
 import ic2.core.Ic2Items;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-
-import static gregtech.api.enums.Mods.EnderIO;
-import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolHardHammer;
-import static gtPlusPlus.core.recipe.RECIPES_Tools.craftingToolWrench;
 
 public class RECIPE_IC2 {
 

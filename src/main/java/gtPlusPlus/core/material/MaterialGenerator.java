@@ -1,5 +1,12 @@
 package gtPlusPlus.core.material;
 
+import java.util.Set;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
@@ -50,12 +57,6 @@ import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Plasma;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Plates;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_Recycling;
 import gtPlusPlus.xmod.gregtech.loaders.RecipeGen_ShapedCrafting;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import java.util.Set;
 
 public class MaterialGenerator {
 

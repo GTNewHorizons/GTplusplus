@@ -1,6 +1,10 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import com.github.bartimaeusnek.bartworks.system.material.Werkstoff;
+
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GTPP_Recipe;
@@ -9,8 +13,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaTileEntity_BasicWasher;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 
 public class GregtechSimpleWasher {
 

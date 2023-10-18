@@ -1,5 +1,14 @@
 package gtPlusPlus.core.item.base.cell;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidStack;
+
 import gtPlusPlus.core.item.base.BaseItemComponent;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
@@ -7,14 +16,6 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import ic2.core.Ic2Items;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.GregTech;
 
 public class BaseItemCell extends BaseItemComponent {
 

@@ -1,11 +1,10 @@
 package gtPlusPlus.core.item.materials;
 
-import gregtech.api.util.GT_OreDictUnificator;
-import gtPlusPlus.core.handler.Recipes.DecayableRecipe;
-import gtPlusPlus.core.item.base.BaseItemTickable;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.minecraft.EntityUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GregTech;
+import static gtPlusPlus.core.util.minecraft.ItemUtils.getSimpleStack;
+
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,10 +12,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GregTech;
-import static gtPlusPlus.core.util.minecraft.ItemUtils.getSimpleStack;
+import gregtech.api.util.GT_OreDictUnificator;
+import gtPlusPlus.core.handler.Recipes.DecayableRecipe;
+import gtPlusPlus.core.item.base.BaseItemTickable;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.util.minecraft.EntityUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class DustDecayable extends BaseItemTickable {
 

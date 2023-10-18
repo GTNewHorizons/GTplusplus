@@ -1,12 +1,13 @@
 package gtPlusPlus.xmod.gregtech.common.helpers;
 
-import gregtech.api.enums.ItemList;
-import gregtech.common.items.GT_VolumetricFlask;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
+
+import gregtech.api.enums.ItemList;
+import gregtech.common.items.GT_VolumetricFlask;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class VolumetricFlaskHelper {
 

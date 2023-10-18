@@ -1,18 +1,11 @@
 package gtPlusPlus.core.block.base;
 
-import appeng.core.CreativeTab;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.api.objects.minecraft.CubicObject;
-import gtPlusPlus.api.objects.minecraft.SafeTexture;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.minecraft.InventoryUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -28,11 +21,19 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import appeng.core.CreativeTab;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.objects.minecraft.CubicObject;
+import gtPlusPlus.api.objects.minecraft.SafeTexture;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.minecraft.InventoryUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public abstract class BasicTileBlockWithTooltip extends BlockContainer implements ITileTooltip {
 

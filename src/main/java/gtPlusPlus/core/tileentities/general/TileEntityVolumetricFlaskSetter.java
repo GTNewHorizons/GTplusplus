@@ -1,12 +1,5 @@
 package gtPlusPlus.core.tileentities.general;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.container.Container_VolumetricFlaskSetter;
-import gtPlusPlus.core.inventories.Inventory_VolumetricFlaskSetter;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -16,6 +9,14 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.FluidStack;
+
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.container.Container_VolumetricFlaskSetter;
+import gtPlusPlus.core.inventories.Inventory_VolumetricFlaskSetter;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 
 public class TileEntityVolumetricFlaskSetter extends TileEntity implements ISidedInventory {
 

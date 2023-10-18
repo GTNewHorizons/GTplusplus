@@ -1,9 +1,10 @@
 package gtPlusPlus.xmod.gregtech.api.interfaces.internal;
 
-import gregtech.api.enums.Materials;
-import gtPlusPlus.core.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
+
+import gregtech.api.enums.Materials;
+import gtPlusPlus.core.material.Material;
 
 @SuppressWarnings("UnusedReturnValue")
 public interface IGregtech_RecipeAdder {

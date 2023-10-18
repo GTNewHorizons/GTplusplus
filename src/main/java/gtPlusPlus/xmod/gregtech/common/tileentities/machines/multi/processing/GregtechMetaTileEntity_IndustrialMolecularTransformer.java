@@ -1,10 +1,24 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.InputBus;
+import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.GT_HatchElement.Muffler;
+import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import com.gtnewhorizon.structurelib.alignment.IAlignmentLimits;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -17,18 +31,6 @@ import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static gregtech.api.enums.GT_HatchElement.Energy;
-import static gregtech.api.enums.GT_HatchElement.InputBus;
-import static gregtech.api.enums.GT_HatchElement.Maintenance;
-import static gregtech.api.enums.GT_HatchElement.Muffler;
-import static gregtech.api.enums.GT_HatchElement.OutputBus;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 public class GregtechMetaTileEntity_IndustrialMolecularTransformer
         extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMolecularTransformer>

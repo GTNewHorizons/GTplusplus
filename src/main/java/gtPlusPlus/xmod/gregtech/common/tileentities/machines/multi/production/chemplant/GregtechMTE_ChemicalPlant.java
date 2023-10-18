@@ -1,5 +1,32 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.chemplant;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.withChannel;
+import static gregtech.api.enums.GT_HatchElement.InputBus;
+import static gregtech.api.enums.GT_HatchElement.InputHatch;
+import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.enums.GT_HatchElement.OutputHatch;
+import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
+import static gregtech.api.util.GT_StructureUtility.ofCoil;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import javax.annotation.Nullable;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.jetbrains.annotations.NotNull;
+
 import com.gtnewhorizon.structurelib.StructureLibAPI;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.AutoPlaceEnvironment;
@@ -8,6 +35,7 @@ import com.gtnewhorizon.structurelib.structure.IStructureElement;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureUtility;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.HeatingCoilLevel;
 import gregtech.api.enums.SoundResource;
@@ -42,30 +70,6 @@ import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.nbthandlers.GT_MetaTileEntity_Hatch_Catalysts;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
-import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.withChannel;
-import static gregtech.api.enums.GT_HatchElement.InputBus;
-import static gregtech.api.enums.GT_HatchElement.InputHatch;
-import static gregtech.api.enums.GT_HatchElement.Maintenance;
-import static gregtech.api.enums.GT_HatchElement.OutputBus;
-import static gregtech.api.enums.GT_HatchElement.OutputHatch;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
-import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
-import static gregtech.api.util.GT_StructureUtility.ofCoil;
 
 public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<GregtechMTE_ChemicalPlant>
         implements ISurvivalConstructable {

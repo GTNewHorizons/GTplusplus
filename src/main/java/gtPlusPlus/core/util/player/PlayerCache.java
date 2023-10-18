@@ -1,8 +1,5 @@
 package gtPlusPlus.core.util.player;
 
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.lib.CORE;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,6 +9,9 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.UUID;
+
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.lib.CORE;
 
 public class PlayerCache {
 

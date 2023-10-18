@@ -1,5 +1,20 @@
 package gtPlusPlus.core.tileentities.base;
 
+import java.util.UUID;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.IFluidHandler;
+
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
@@ -17,20 +32,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.BTF_Inventory;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import ic2.api.Direction;
-import net.minecraft.block.Block;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.IFluidHandler;
-
-import java.util.UUID;
 
 public class TileEntityBase extends TileEntity implements ILazyCoverable, IGregTechDeviceInformation, IDescribable {
 

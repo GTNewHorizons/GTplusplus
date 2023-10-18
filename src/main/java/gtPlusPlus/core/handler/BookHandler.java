@@ -1,5 +1,14 @@
 package gtPlusPlus.core.handler;
 
+import static gtPlusPlus.core.util.Utils.addBookPagesLocalization;
+import static gtPlusPlus.core.util.Utils.addBookTitleLocalization;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
@@ -7,14 +16,6 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static gtPlusPlus.core.util.Utils.addBookPagesLocalization;
-import static gtPlusPlus.core.util.Utils.addBookTitleLocalization;
 
 public class BookHandler {
 

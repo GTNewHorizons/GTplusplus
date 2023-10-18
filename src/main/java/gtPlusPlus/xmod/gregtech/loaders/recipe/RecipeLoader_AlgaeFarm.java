@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.gregtech.loaders.recipe;
 
+import java.util.HashMap;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
@@ -9,10 +14,6 @@ import gtPlusPlus.api.objects.data.WeightedCollection;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import java.util.HashMap;
 
 public class RecipeLoader_AlgaeFarm {
 

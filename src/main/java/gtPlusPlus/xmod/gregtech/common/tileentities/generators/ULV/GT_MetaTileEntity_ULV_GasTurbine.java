@@ -1,5 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators.ULV;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.interfaces.IIconContainer;
@@ -10,9 +14,6 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.common.tileentities.generators.GT_MetaTileEntity_GasTurbine;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import org.apache.commons.lang3.ArrayUtils;
-
-import static gregtech.api.enums.GT_Values.V;
 
 public class GT_MetaTileEntity_ULV_GasTurbine extends GT_MetaTileEntity_GasTurbine {
 

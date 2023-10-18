@@ -1,14 +1,5 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures.turbine;
 
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
-import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaSpecialMultiCasings;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_SS1;
 import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_SS2;
 import static gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_SS3;
@@ -99,6 +90,16 @@ import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.OV
 import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.OVERLAY_SC_TURBINE8_ACTIVE;
 import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.OVERLAY_SC_TURBINE9;
 import static gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock.OVERLAY_SC_TURBINE9_ACTIVE;
+
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
+import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaSpecialMultiCasings;
 
 public class LargeTurbineTextureHandler {
 

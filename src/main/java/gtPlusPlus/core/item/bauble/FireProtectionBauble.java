@@ -1,10 +1,10 @@
 package gtPlusPlus.core.item.bauble;
 
-import baubles.api.BaubleType;
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.CORE_Preloader;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.lang.reflect.Field;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,10 +14,11 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-import java.lang.reflect.Field;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import baubles.api.BaubleType;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
 
 public class FireProtectionBauble extends BaseBauble {
 

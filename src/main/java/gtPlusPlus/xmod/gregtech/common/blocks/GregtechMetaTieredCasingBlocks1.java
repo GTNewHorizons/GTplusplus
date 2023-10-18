@@ -1,11 +1,7 @@
 package gtPlusPlus.xmod.gregtech.common.blocks;
 
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.Textures;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.common.blocks.GT_Material_Casings;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +9,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import java.util.List;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Textures;
+import gregtech.api.util.GT_LanguageManager;
+import gregtech.common.blocks.GT_Material_Casings;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 public class GregtechMetaTieredCasingBlocks1 extends GregtechMetaCasingBlocksAbstract {
 

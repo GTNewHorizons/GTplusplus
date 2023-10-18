@@ -1,5 +1,18 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+
+import java.util.List;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,18 +23,6 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeBuilder.TICKS;
 
 public class ItemCustomComb extends Item {
 

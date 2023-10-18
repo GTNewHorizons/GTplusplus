@@ -1,15 +1,16 @@
 package gtPlusPlus.xmod.gregtech.api.enums;
 
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.xmod.gregtech.api.interfaces.GregtechItemContainer;
+import static gregtech.api.enums.GT_Values.W;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static gregtech.api.enums.GT_Values.W;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.xmod.gregtech.api.interfaces.GregtechItemContainer;
 
 /**
  * Class containing all non-OreDict Items of GregTech.

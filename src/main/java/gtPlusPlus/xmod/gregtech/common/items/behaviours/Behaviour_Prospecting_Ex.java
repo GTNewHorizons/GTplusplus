@@ -1,5 +1,16 @@
 package gtPlusPlus.xmod.gregtech.common.items.behaviours;
 
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.IFluidBlock;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.SoundResource;
@@ -12,16 +23,6 @@ import gregtech.api.util.GT_Utility;
 import gregtech.common.blocks.GT_Block_Ores;
 import gregtech.common.blocks.GT_TileEntity_Ores;
 import gregtech.common.items.behaviors.Behaviour_Prospecting;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.IFluidBlock;
-
-import java.util.Random;
 
 public class Behaviour_Prospecting_Ex extends Behaviour_Prospecting {
 

@@ -1,20 +1,21 @@
 package gtPlusPlus.xmod.bartcrops.abstracts;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import ic2.api.crops.CropCard;
-import ic2.api.crops.ICropTile;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import speiger.src.crops.api.ICropCardInfo;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import ic2.api.crops.CropCard;
+import ic2.api.crops.ICropTile;
+import speiger.src.crops.api.ICropCardInfo;
 
 public abstract class BaseCrop extends CropCard implements ICropCardInfo {
 

@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
@@ -17,9 +22,6 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_BasicGenerator {
 

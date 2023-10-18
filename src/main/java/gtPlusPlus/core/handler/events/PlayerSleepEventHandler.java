@@ -1,5 +1,16 @@
 package gtPlusPlus.core.handler.events;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.potion.GtPotionEffect;
@@ -8,16 +19,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class PlayerSleepEventHandler {
 

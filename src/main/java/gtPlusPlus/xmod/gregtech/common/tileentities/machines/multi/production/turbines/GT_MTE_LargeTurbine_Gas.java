@@ -1,5 +1,18 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines;
 
+import static gtPlusPlus.core.lib.CORE.RANDOM;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.jetbrains.annotations.NotNull;
+
 import gregtech.api.enums.Materials;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -10,17 +23,6 @@ import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import static gtPlusPlus.core.lib.CORE.RANDOM;
 
 @SuppressWarnings("deprecation")
 public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbineBase {

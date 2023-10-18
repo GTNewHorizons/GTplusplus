@@ -1,8 +1,12 @@
 package gtPlusPlus.core.world.explosions;
 
-import gregtech.api.objects.XSTR;
-import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
-import gtPlusPlus.core.util.math.MathUtils;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentProtection;
@@ -18,12 +22,9 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import gregtech.api.objects.XSTR;
+import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
+import gtPlusPlus.core.util.math.MathUtils;
 
 public class MiningExplosion extends Explosion {
 

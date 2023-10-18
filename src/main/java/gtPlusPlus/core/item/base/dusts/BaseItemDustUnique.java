@@ -1,5 +1,17 @@
 package gtPlusPlus.core.item.base.dusts;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
+import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_LanguageManager;
@@ -10,17 +22,6 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.data.StringUtils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.GregTech;
-import static gtPlusPlus.core.creative.AddToCreativeTab.tabMisc;
 
 public class BaseItemDustUnique extends Item {
 

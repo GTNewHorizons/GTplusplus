@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
+import static gtPlusPlus.core.recipe.common.CI.bitsd;
+
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -7,8 +9,6 @@ import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_DynamoBuffer;
-
-import static gtPlusPlus.core.recipe.common.CI.bitsd;
 
 public class GregtechBufferDynamos {
 

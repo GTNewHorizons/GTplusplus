@@ -1,5 +1,9 @@
 package gtPlusPlus.xmod.gregtech.common.blocks;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.TAE;
@@ -10,9 +14,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.objects.GTPP_CopiedBlockTexture;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGrinderMultiblock;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 
 public class GregtechMetaCasingBlocks5 extends GregtechMetaCasingBlocksAbstract {
 

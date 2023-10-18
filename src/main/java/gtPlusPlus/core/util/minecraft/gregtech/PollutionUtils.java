@@ -1,5 +1,11 @@
 package gtPlusPlus.core.util.minecraft.gregtech;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.GT_Mod;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -12,10 +18,6 @@ import gtPlusPlus.core.material.MISC_MATERIALS;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class PollutionUtils {
 

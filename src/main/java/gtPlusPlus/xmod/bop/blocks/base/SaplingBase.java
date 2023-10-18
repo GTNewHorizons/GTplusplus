@@ -1,12 +1,10 @@
 package gtPlusPlus.xmod.bop.blocks.base;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,10 +20,13 @@ import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import java.util.List;
-import java.util.Random;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class SaplingBase extends BlockSapling {
 

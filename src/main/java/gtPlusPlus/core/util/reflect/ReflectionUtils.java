@@ -1,11 +1,5 @@
 package gtPlusPlus.core.util.reflect;
 
-import com.google.common.reflect.ClassPath;
-import com.gtnewhorizon.gtnhlib.reflect.Fields;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.util.data.StringUtils;
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -21,6 +15,14 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import com.google.common.reflect.ClassPath;
+import com.gtnewhorizon.gtnhlib.reflect.Fields;
+
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.util.data.StringUtils;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class ReflectionUtils {

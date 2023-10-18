@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
+import static gregtech.api.enums.Mods.GoodGenerator;
+
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
@@ -9,8 +11,6 @@ import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.tu
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GT_MTE_LargeTurbine_SCSteam;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GT_MTE_LargeTurbine_SHSteam;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.turbines.GT_MTE_LargeTurbine_Steam;
-
-import static gregtech.api.enums.Mods.GoodGenerator;
 
 public class GregtechLargeTurbinesAndHeatExchanger {
 

@@ -1,10 +1,5 @@
 package gtPlusPlus.core.config;
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.common.config.Configuration;
-
-import java.io.File;
-
 import static gregtech.api.enums.Mods.GregTech;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.MACHINE_INFO;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.baseMaxPollutionPerSecondRocketFuelGenerator;
@@ -116,6 +111,12 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.showHiddenNEIItems;
 import static gtPlusPlus.core.lib.CORE.EVERGLADESBIOME_ID;
 import static gtPlusPlus.core.lib.CORE.EVERGLADES_ID;
 import static gtPlusPlus.core.lib.CORE.turbineCutoffBase;
+
+import java.io.File;
+
+import net.minecraftforge.common.config.Configuration;
+
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
 

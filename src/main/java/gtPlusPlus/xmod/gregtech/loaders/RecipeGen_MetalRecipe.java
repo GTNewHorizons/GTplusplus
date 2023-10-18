@@ -1,5 +1,8 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.util.GT_ModHandler;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
@@ -8,9 +11,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class RecipeGen_MetalRecipe extends RecipeGen_Base {
 

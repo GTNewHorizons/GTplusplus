@@ -1,5 +1,10 @@
 package gtPlusPlus.recipes;
 
+import java.util.ArrayList;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_ModHandler;
@@ -10,10 +15,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.AddGregtechRecipe;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.ArrayList;
 
 public class CokeAndPyrolyseOven {
 

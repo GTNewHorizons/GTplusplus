@@ -1,15 +1,9 @@
 package gtPlusPlus.core.block.base;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.enums.Mods;
-import gtPlusPlus.core.client.renderer.particle.EntityDropParticleFX;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
-import gtPlusPlus.core.util.Utils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
@@ -20,9 +14,16 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
-import java.util.Random;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.enums.Mods;
+import gtPlusPlus.core.client.renderer.particle.EntityDropParticleFX;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
+import gtPlusPlus.core.util.Utils;
 
 public class BlockBaseFluid extends BlockFluidClassic {
 

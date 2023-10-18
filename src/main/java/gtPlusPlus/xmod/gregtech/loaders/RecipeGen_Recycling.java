@@ -1,5 +1,17 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
+import static gregtech.api.enums.GT_Values.L;
+import static gregtech.api.enums.GT_Values.M;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import org.apache.commons.lang3.reflect.FieldUtils;
+
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_ModHandler;
@@ -14,16 +26,6 @@ import gtPlusPlus.core.material.state.MaterialState;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-import org.apache.commons.lang3.reflect.FieldUtils;
-
-import java.util.ArrayList;
-import java.util.Map;
-
-import static gregtech.api.enums.GT_Values.L;
-import static gregtech.api.enums.GT_Values.M;
 
 public class RecipeGen_Recycling implements Runnable {
 

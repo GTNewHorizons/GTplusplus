@@ -1,15 +1,17 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
+import net.minecraft.util.EnumChatFormatting;
+
 import com.gtnewhorizons.modularui.api.screen.ModularWindow;
 import com.gtnewhorizons.modularui.api.screen.UIBuildContext;
 import com.gtnewhorizons.modularui.common.widget.Scrollable;
 import com.gtnewhorizons.modularui.common.widget.SlotWidget;
+
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.modularui.IAddUIWidgets;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import net.minecraft.util.EnumChatFormatting;
 
 public class GT_MetaTileEntity_ChiselBus extends GT_MetaTileEntity_Hatch_InputBus implements IAddUIWidgets {
 

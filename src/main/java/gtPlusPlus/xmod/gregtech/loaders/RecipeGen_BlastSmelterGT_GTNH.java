@@ -1,5 +1,15 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.ItemStackData;
@@ -8,14 +18,6 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class RecipeGen_BlastSmelterGT_GTNH {
 

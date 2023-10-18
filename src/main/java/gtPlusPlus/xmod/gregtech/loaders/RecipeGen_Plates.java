@@ -1,5 +1,10 @@
 package gtPlusPlus.xmod.gregtech.loaders;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -11,10 +16,6 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.item.ItemStack;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class RecipeGen_Plates extends RecipeGen_Base {
 

@@ -1,11 +1,12 @@
 package gtPlusPlus.core.handler.events;
 
-import advsolar.common.AdvancedSolarPanel;
-import cpw.mods.fml.common.Optional;
-import gregtech.api.enums.Mods;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+
+import advsolar.common.AdvancedSolarPanel;
+import cpw.mods.fml.common.Optional;
+import gregtech.api.enums.Mods;
 
 public class GeneralTooltipEventHandler {
 

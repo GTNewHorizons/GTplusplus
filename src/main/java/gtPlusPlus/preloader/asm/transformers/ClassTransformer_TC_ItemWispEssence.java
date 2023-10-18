@@ -1,14 +1,5 @@
 package gtPlusPlus.preloader.asm.transformers;
 
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import org.apache.logging.log4j.Level;
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodVisitor;
-
 import static org.objectweb.asm.Opcodes.AALOAD;
 import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
 import static org.objectweb.asm.Opcodes.ACONST_NULL;
@@ -40,6 +31,16 @@ import static org.objectweb.asm.Opcodes.L2I;
 import static org.objectweb.asm.Opcodes.LDIV;
 import static org.objectweb.asm.Opcodes.LREM;
 import static org.objectweb.asm.Opcodes.NEW;
+
+import org.apache.logging.log4j.Level;
+import org.objectweb.asm.AnnotationVisitor;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Label;
+import org.objectweb.asm.MethodVisitor;
+
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
 
 public class ClassTransformer_TC_ItemWispEssence {
 

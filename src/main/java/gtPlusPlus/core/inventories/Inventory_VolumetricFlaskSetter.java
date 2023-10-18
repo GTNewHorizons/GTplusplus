@@ -1,11 +1,12 @@
 package gtPlusPlus.core.inventories;
 
-import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+
+import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 
 public class Inventory_VolumetricFlaskSetter implements IInventory {
 

@@ -1,12 +1,12 @@
 package gtPlusPlus.xmod.gregtech.api.gui;
 
-import com.gtnewhorizons.modularui.api.drawable.AdaptableUITexture;
-import com.gtnewhorizons.modularui.api.drawable.UITexture;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import com.gtnewhorizons.modularui.api.drawable.AdaptableUITexture;
+import com.gtnewhorizons.modularui.api.drawable.UITexture;
 
 public class GTPP_UITextures {
 

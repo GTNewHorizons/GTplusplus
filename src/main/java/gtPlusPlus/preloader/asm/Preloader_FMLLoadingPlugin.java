@@ -1,13 +1,13 @@
 package gtPlusPlus.preloader.asm;
 
+import java.io.File;
+import java.util.Map;
+
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.preloader.asm.transformers.Preloader_Transformer_Handler;
-
-import java.io.File;
-import java.util.Map;
 
 @SortingIndex(10097)
 @MCVersion(value = "1.7.10")

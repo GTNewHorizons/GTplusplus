@@ -1,15 +1,10 @@
 package gtPlusPlus.core.block.machine;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
-import gtPlusPlus.core.tileentities.machines.TileEntityAdvPooCollector;
-import gtPlusPlus.core.tileentities.machines.TileEntityBaseFluidCollector;
-import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,10 +16,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.base.itemblock.ItemBlockMeta;
+import gtPlusPlus.core.tileentities.machines.TileEntityAdvPooCollector;
+import gtPlusPlus.core.tileentities.machines.TileEntityBaseFluidCollector;
+import gtPlusPlus.core.tileentities.machines.TileEntityPooCollector;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.PlayerUtils;
 
 public class Machine_PooCollector extends BlockContainer {
 

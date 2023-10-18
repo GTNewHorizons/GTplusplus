@@ -1,5 +1,39 @@
 package gtPlusPlus.plugin.agrichem;
 
+import static gregtech.api.enums.Mods.Forestry;
+import static gregtech.api.enums.Mods.Railcraft;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtractorRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMaceratorRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
+import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -27,39 +61,6 @@ import gtPlusPlus.plugin.agrichem.block.AgrichemFluids;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.railcraft.utils.RailcraftUtils;
 import ic2.core.Ic2Items;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
-import static gregtech.api.enums.Mods.Forestry;
-import static gregtech.api.enums.Mods.Railcraft;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sBlastRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtractorRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sExtruderRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sLatheRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMaceratorRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMultiblockChemicalRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.MINUTES;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeBuilder.TICKS;
-import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
-import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
-import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
-import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
 
 public class BioRecipes {
 

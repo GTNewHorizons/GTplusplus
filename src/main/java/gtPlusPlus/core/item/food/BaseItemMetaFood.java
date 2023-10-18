@@ -1,12 +1,11 @@
 package gtPlusPlus.core.item.food;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.api.objects.data.AutoMap;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.EntityUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -20,11 +19,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.ModItems;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.EntityUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class BaseItemMetaFood extends ItemFood {
 

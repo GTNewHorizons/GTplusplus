@@ -1,5 +1,14 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.generators;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import cofh.api.energy.IEnergyStorage;
@@ -19,14 +28,6 @@ import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.tileentities.storage.GregtechMetaEnergyBuffer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import static gregtech.api.enums.GT_Values.V;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!

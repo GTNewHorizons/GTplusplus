@@ -1,5 +1,12 @@
 package gtPlusPlus.xmod.gregtech.common.items;
 
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_ARM;
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_CONVEYOR;
+import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PUMP;
+import static gregtech.client.GT_TooltipHandler.Tier.EV;
+import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
+import static gtPlusPlus.core.util.Utils.getTcAspectStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
@@ -29,13 +36,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 import gtPlusPlus.xmod.gregtech.api.items.Gregtech_MetaItem_X32;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.covers.GTPP_Cover_Overflow;
-
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_ARM;
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_CONVEYOR;
-import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PUMP;
-import static gregtech.client.GT_TooltipHandler.Tier.EV;
-import static gregtech.client.GT_TooltipHandler.registerTieredTooltip;
-import static gtPlusPlus.core.util.Utils.getTcAspectStack;
 
 public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
 

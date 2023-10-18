@@ -1,5 +1,23 @@
 package gtPlusPlus.xmod.forestry.bees.registry;
 
+import static forestry.api.apiculture.EnumBeeChromosome.EFFECT;
+import static forestry.api.apiculture.EnumBeeChromosome.HUMIDITY_TOLERANCE;
+import static forestry.api.apiculture.EnumBeeChromosome.LIFESPAN;
+import static forestry.api.apiculture.EnumBeeChromosome.SPECIES;
+import static forestry.api.apiculture.EnumBeeChromosome.TEMPERATURE_TOLERANCE;
+import static forestry.api.core.EnumHumidity.ARID;
+import static gregtech.api.enums.Mods.Forestry;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.function.Consumer;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.BiomeDictionary;
+
+import org.apache.commons.lang3.text.WordUtils;
+
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeType;
 import forestry.api.apiculture.IAlleleBeeEffect;
@@ -30,22 +48,6 @@ import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.xmod.forestry.bees.handler.GTPP_CombType;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.BiomeDictionary;
-import org.apache.commons.lang3.text.WordUtils;
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.function.Consumer;
-
-import static forestry.api.apiculture.EnumBeeChromosome.EFFECT;
-import static forestry.api.apiculture.EnumBeeChromosome.HUMIDITY_TOLERANCE;
-import static forestry.api.apiculture.EnumBeeChromosome.LIFESPAN;
-import static forestry.api.apiculture.EnumBeeChromosome.SPECIES;
-import static forestry.api.apiculture.EnumBeeChromosome.TEMPERATURE_TOLERANCE;
-import static forestry.api.core.EnumHumidity.ARID;
-import static gregtech.api.enums.Mods.Forestry;
 
 public enum GTPP_BeeDefinition implements IBeeDefinition {
 

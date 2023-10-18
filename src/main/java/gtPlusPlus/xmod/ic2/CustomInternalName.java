@@ -1,7 +1,8 @@
 package gtPlusPlus.xmod.ic2;
 
-import ic2.core.init.InternalName;
 import net.minecraftforge.common.util.EnumHelper;
+
+import ic2.core.init.InternalName;
 
 public class CustomInternalName {
 

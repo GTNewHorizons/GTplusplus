@@ -1,15 +1,14 @@
 package gtPlusPlus.core.item.general;
 
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.Phase;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.item.ModItems;
-import gtPlusPlus.core.item.base.CoreItem;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.lang.ref.WeakReference;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.WeakHashMap;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -21,14 +20,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
-import java.lang.ref.WeakReference;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.WeakHashMap;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.Phase;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.item.ModItems;
+import gtPlusPlus.core.item.base.CoreItem;
 
 public class ItemMagicFeather extends CoreItem {
 

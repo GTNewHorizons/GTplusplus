@@ -1,12 +1,13 @@
 package gtPlusPlus.xmod.gregtech.common.blocks;
 
-import gregtech.api.util.GT_LanguageManager;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-import java.util.List;
+import gregtech.api.util.GT_LanguageManager;
 
 public abstract class GregtechMetaItemCasingsAbstract extends ItemBlock {
 

@@ -1,5 +1,21 @@
 package gtPlusPlus.xmod.gregtech.api.enums;
 
+import static gregtech.api.enums.GT_Values.B;
+import static gregtech.api.enums.GT_Values.D2;
+import static gregtech.api.enums.GT_Values.M;
+import static gtPlusPlus.core.util.Utils.getTcAspectStack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.Element;
@@ -19,21 +35,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.interfaces.internal.Interface_OreRecipeRegistrator;
 import gtPlusPlus.xmod.gregtech.api.objects.GregtechItemData;
 import gtPlusPlus.xmod.gregtech.api.objects.GregtechMaterialStack;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-
-import static gregtech.api.enums.GT_Values.B;
-import static gregtech.api.enums.GT_Values.D2;
-import static gregtech.api.enums.GT_Values.M;
-import static gtPlusPlus.core.util.Utils.getTcAspectStack;
 
 public enum GregtechOrePrefixes {
 

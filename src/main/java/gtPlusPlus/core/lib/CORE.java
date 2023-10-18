@@ -1,23 +1,6 @@
 package gtPlusPlus.core.lib;
 
-import com.mojang.authlib.GameProfile;
-import cpw.mods.fml.common.FMLCommonHandler;
-import gregtech.api.objects.XSTR;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.data.Pair;
-import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import gtPlusPlus.preloader.CORE_Preloader;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
-import gtPlusPlus.xmod.gregtech.api.interfaces.internal.IGregtech_RecipeAdder;
-import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractGenerator;
-import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractTerminal;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.util.FakePlayerFactory;
+import static gregtech.api.enums.Mods.GTPlusPlus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +12,26 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.util.FakePlayerFactory;
+
+import com.mojang.authlib.GameProfile;
+
+import cpw.mods.fml.common.FMLCommonHandler;
+import gregtech.api.objects.XSTR;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.data.Pair;
+import gtPlusPlus.core.util.reflect.ReflectionUtils;
+import gtPlusPlus.preloader.CORE_Preloader;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
+import gtPlusPlus.xmod.gregtech.api.interfaces.internal.IGregtech_RecipeAdder;
+import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractGenerator;
+import gtPlusPlus.xmod.gregtech.common.tileentities.automation.GT_MetaTileEntity_TesseractTerminal;
 
 public class CORE {
 

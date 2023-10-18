@@ -1,9 +1,9 @@
 package gtPlusPlus.core.item.chemistry.general;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.api.util.GT_Utility;
-import gtPlusPlus.core.item.chemistry.GenericChem;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -16,9 +16,10 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.util.GT_Utility;
+import gtPlusPlus.core.item.chemistry.GenericChem;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 
 public class ItemGenericChemBase extends Item {
 

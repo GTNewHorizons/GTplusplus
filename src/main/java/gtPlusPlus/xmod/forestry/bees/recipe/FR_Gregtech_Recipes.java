@@ -1,13 +1,14 @@
 package gtPlusPlus.xmod.forestry.bees.recipe;
 
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import gtPlusPlus.core.util.minecraft.RecipeUtils;
-import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
+import static gregtech.api.enums.Mods.MagicBees;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import static gregtech.api.enums.Mods.MagicBees;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import gtPlusPlus.core.util.minecraft.RecipeUtils;
+import gtPlusPlus.xmod.forestry.bees.items.FR_ItemRegistry;
 
 public class FR_Gregtech_Recipes {
 

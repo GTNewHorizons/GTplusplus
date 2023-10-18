@@ -1,10 +1,7 @@
 package gtPlusPlus.core.block.general.antigrief;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.Utils;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,7 +16,11 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.Utils;
 
 public class BlockWitherProof extends Block {
 

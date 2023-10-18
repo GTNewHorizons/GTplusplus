@@ -1,5 +1,15 @@
 package gtPlusPlus.xmod.forestry.bees.custom;
 
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Locale;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.BiomeDictionary.Type;
+
+import org.apache.commons.lang3.reflect.FieldUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.apiculture.EnumBeeType;
@@ -22,14 +32,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.BiomeDictionary.Type;
-import org.apache.commons.lang3.reflect.FieldUtils;
-import org.apache.commons.lang3.text.WordUtils;
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Locale;
 
 public enum GTPP_Bee_Definition implements IBeeDefinition {
 

@@ -1,14 +1,7 @@
 package gtPlusPlus.everglades.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gtPlusPlus.api.interfaces.ITileTooltip;
-import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.api.objects.minecraft.BlockPos;
-import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.util.Utils;
-import gtPlusPlus.everglades.dimension.Dimension_Everglades;
-import gtPlusPlus.everglades.world.TeleporterDimensionMod;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -23,7 +16,15 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.api.interfaces.ITileTooltip;
+import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.util.Utils;
+import gtPlusPlus.everglades.dimension.Dimension_Everglades;
+import gtPlusPlus.everglades.world.TeleporterDimensionMod;
 
 public class BlockEvergladesPortal extends BlockBreakable implements ITileTooltip {
 

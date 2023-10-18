@@ -1,15 +1,10 @@
 package gtPlusPlus.core.item.general;
 
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.GameRegistry;
-import gtPlusPlus.core.creative.AddToCreativeTab;
-import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.ItemUtils;
-import ic2.api.item.ElectricItem;
-import ic2.api.item.IElectricItem;
-import ic2.api.item.IElectricItemManager;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.Names;
+
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,10 +15,16 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.Names;
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.GameRegistry;
+import gtPlusPlus.core.creative.AddToCreativeTab;
+import gtPlusPlus.core.util.math.MathUtils;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
+import ic2.api.item.ElectricItem;
+import ic2.api.item.IElectricItem;
+import ic2.api.item.IElectricItemManager;
 
 @Optional.InterfaceList(
         value = { @Optional.Interface(iface = "baubles.api.IBauble", modid = Names.BAUBLES),

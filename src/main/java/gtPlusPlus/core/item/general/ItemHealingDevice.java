@@ -1,5 +1,20 @@
 package gtPlusPlus.core.item.general;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import java.util.List;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.FoodStats;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import cpw.mods.fml.common.Optional;
@@ -15,20 +30,6 @@ import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import ic2.api.item.IElectricItemManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.FoodStats;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-
-import java.util.List;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @Optional.InterfaceList(
         value = { @Optional.Interface(iface = "baubles.api.IBauble", modid = Mods.Names.BAUBLES),

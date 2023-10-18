@@ -1,15 +1,17 @@
 package gtPlusPlus.core.gui.machine;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gtPlusPlus.core.container.Container_FishTrap;
 import gtPlusPlus.core.tileentities.general.TileEntityFishTrap;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
 
 @SideOnly(Side.CLIENT)
 public class GUI_FishTrap extends GuiContainer {

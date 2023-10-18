@@ -1,5 +1,16 @@
 package gtPlusPlus.core.block.base;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GregTech;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,16 +25,6 @@ import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.IBlockAccess;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.GregTech;
 
 public class BlockBaseModular extends BasicBlock {
 

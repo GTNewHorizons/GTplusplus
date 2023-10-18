@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
+import static gtPlusPlus.core.recipe.common.CI.bitsd;
+
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -8,8 +10,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.generators.ULV.GT_MetaTileEntity_ULV_CombustionGenerator;
 import gtPlusPlus.xmod.gregtech.common.tileentities.generators.ULV.GT_MetaTileEntity_ULV_GasTurbine;
 import gtPlusPlus.xmod.gregtech.common.tileentities.generators.ULV.GT_MetaTileEntity_ULV_SteamTurbine;
-
-import static gtPlusPlus.core.recipe.common.CI.bitsd;
 
 public class GregtechGeneratorsULV {
 

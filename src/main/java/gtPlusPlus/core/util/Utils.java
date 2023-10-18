@@ -1,5 +1,30 @@
 package gtPlusPlus.core.util;
 
+import java.awt.Color;
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.apache.commons.lang3.EnumUtils;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.TC_Aspects;
@@ -16,29 +41,6 @@ import gtPlusPlus.core.util.minecraft.NBTUtils;
 import ic2.core.Ic2Items;
 import ic2.core.init.InternalName;
 import ic2.core.item.resources.ItemCell;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import org.apache.commons.lang3.EnumUtils;
-
-import java.awt.Color;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 
 public class Utils {
 

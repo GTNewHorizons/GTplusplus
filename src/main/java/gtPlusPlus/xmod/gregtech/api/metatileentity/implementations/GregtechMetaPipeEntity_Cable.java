@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
+import net.minecraftforge.common.util.ForgeDirection;
+
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.TextureSet;
@@ -11,7 +13,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Cable;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaPipeEntity_Cable extends GT_MetaPipeEntity_Cable implements IMetaTileEntityCable {
 

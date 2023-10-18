@@ -1,9 +1,49 @@
 package gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
+import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.InputBus;
+import static gregtech.api.enums.GT_HatchElement.InputHatch;
+import static gregtech.api.enums.GT_HatchElement.Maintenance;
+import static gregtech.api.enums.GT_HatchElement.Muffler;
+import static gregtech.api.enums.GT_HatchElement.OutputBus;
+import static gregtech.api.enums.GT_HatchElement.OutputHatch;
+import static gregtech.api.enums.Mods.BiomesOPlenty;
+import static gregtech.api.enums.Mods.ForbiddenMagic;
+import static gregtech.api.enums.Mods.GTPlusPlus;
+import static gregtech.api.enums.Mods.GalaxySpace;
+import static gregtech.api.enums.Mods.IndustrialCraft2;
+import static gregtech.api.enums.Mods.Natura;
+import static gregtech.api.enums.Mods.PamsHarvestCraft;
+import static gregtech.api.enums.Mods.PamsHarvestTheNether;
+import static gregtech.api.enums.Mods.TaintedMagic;
+import static gregtech.api.enums.Mods.Thaumcraft;
+import static gregtech.api.enums.Mods.ThaumicBases;
+import static gregtech.api.enums.Mods.TinkerConstruct;
+import static gregtech.api.enums.Mods.TwilightForest;
+import static gregtech.api.enums.Mods.Witchery;
+import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTEnergy;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.annotation.Nonnull;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
+import org.jetbrains.annotations.NotNull;
+
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+
 import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.arboriculture.ITree;
 import forestry.api.arboriculture.TreeManager;
@@ -33,42 +73,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper;
 import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper.SAWTOOL;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.GT_HatchElement.Energy;
-import static gregtech.api.enums.GT_HatchElement.InputBus;
-import static gregtech.api.enums.GT_HatchElement.InputHatch;
-import static gregtech.api.enums.GT_HatchElement.Maintenance;
-import static gregtech.api.enums.GT_HatchElement.Muffler;
-import static gregtech.api.enums.GT_HatchElement.OutputBus;
-import static gregtech.api.enums.GT_HatchElement.OutputHatch;
-import static gregtech.api.enums.Mods.BiomesOPlenty;
-import static gregtech.api.enums.Mods.ForbiddenMagic;
-import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.GalaxySpace;
-import static gregtech.api.enums.Mods.IndustrialCraft2;
-import static gregtech.api.enums.Mods.Natura;
-import static gregtech.api.enums.Mods.PamsHarvestCraft;
-import static gregtech.api.enums.Mods.PamsHarvestTheNether;
-import static gregtech.api.enums.Mods.TaintedMagic;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.enums.Mods.ThaumicBases;
-import static gregtech.api.enums.Mods.TinkerConstruct;
-import static gregtech.api.enums.Mods.TwilightForest;
-import static gregtech.api.enums.Mods.Witchery;
-import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
-import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTEnergy;
 
 public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntityTreeFarm>
         implements ISurvivalConstructable {

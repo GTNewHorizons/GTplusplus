@@ -1,5 +1,7 @@
 package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations;
 
+import net.minecraftforge.common.util.ForgeDirection;
+
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.SubTag;
@@ -9,7 +11,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Fluid;
 import gregtech.api.render.TextureFactory;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class GregtechMetaPipeEntityFluid extends GT_MetaPipeEntity_Fluid {
 
