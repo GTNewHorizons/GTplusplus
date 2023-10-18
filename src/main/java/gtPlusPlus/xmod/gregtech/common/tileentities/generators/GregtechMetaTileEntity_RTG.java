@@ -126,7 +126,7 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
                     if (this.mInventory[getStackDisplaySlot()] == null)
                         this.mInventory[getStackDisplaySlot()] = new ItemStack(Blocks.fire, 1);
                     this.mInventory[getStackDisplaySlot()].setStackDisplayName(
-                            "Generating: " + (aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU())
+                            "Generating: " + GT_Utility.formatNumbers(aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU())
                                     + " EU");
                 }
             } else {
@@ -175,8 +175,8 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
                 this.mDescriptionArray,
                 "Fuel is measured in minecraft days (Check with Scanner)",
                 "RTG changes output voltage depending on fuel",
-                "Generates power at " + this.getEfficiency() + "% Efficiency per tick",
-                "Output Voltage: " + this.getOutputTier() + " EU/t",
+                "Generates power at " + GT_Utility.formatNumbers(this.getEfficiency()) + "% Efficiency per tick",
+                "Output Voltage: " + GT_Utility.formatNumbers(this.getOutputTier()) + " EU/t",
                 CORE.GT_Tooltip.get());
     }
 
@@ -308,7 +308,6 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
             this.mCurrentRecipe = tFuel;
             int voltage = tFuel.mEUt;
             this.mVoltage = voltage;
-            int sfsf = this.mTier;
             // this.mDaysRemaining = tFuel.mSpecialValue*365;
 
             // Do some voodoo.
@@ -367,12 +366,10 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
     @Override
     public String[] getInfoData() {
         return new String[] { "RTG - Running at tier " + this.mTier,
-                "Active: " + this.getBaseMetaTileEntity().isActive(), "Current Output: " + this.mVoltage + " EU/t",
-                "Days of Fuel remaining: " + (mTicksToBurnFor / 20 / 60 / 20),
-                "Hours of Fuel remaining: " + (mTicksToBurnFor / 20 / 60 / 60),
-                "Ticks of " + this.mVoltage + "v remaining: " + (mTicksToBurnFor),
-                "Current Recipe input: " + this.mCurrentRecipe != null
-                        ? this.mCurrentRecipe.mInputs[0].getDisplayName() + " x1"
-                        : "NUll" };
+                "Active: " + this.getBaseMetaTileEntity().isActive(), "Current Output: " + GT_Utility.formatNumbers(mVoltage) + " EU/t",
+                "Days of Fuel remaining: " + GT_Utility.formatNumbers(mTicksToBurnFor / 20 / 60 / 20),
+                "Hours of Fuel remaining: " + GT_Utility.formatNumbers(mTicksToBurnFor / 20 / 60 / 60),
+                "Ticks of " + this.mVoltage + "v remaining: " + mTicksToBurnFor,
+                this.mCurrentRecipe.mInputs[0].getDisplayName() + " x1"};
     }
 }

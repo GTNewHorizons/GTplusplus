@@ -175,13 +175,6 @@ public enum GregtechItemList implements GregtechItemContainer {
     Laser_Lens_WoodsGlass,
     Laser_Lens_Special,
 
-    // Bombs
-    Bomb_Cast,
-    Bomb_Cast_Molten,
-    Bomb_Cast_Set,
-    Bomb_Cast_Broken,
-    Bomb_Cast_Mold,
-
     // Pellet Mold
     Pellet_Mold,
 

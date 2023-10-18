@@ -106,7 +106,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
         }
         if (getTurbineType().equals("Plasma")) {
             tt.addInfo("Plasma fuel efficiency is lower for high tier turbines when using low-grade plasmas")
-                    .addInfo("Efficiency = ((FuelValue / 200000)^2) / (EU per Turbine)");
+                    .addInfo("Efficiency = ((FuelValue / 200,000)^2) / (EU per Turbine)");
         }
         tt.addPollutionAmount(getPollutionPerSecond(null)).addInfo("Pollution is 3x higher in Fast Mode").addSeparator()
                 .beginStructureBlock(7, 9, 7, false).addController("Top Middle")
@@ -601,7 +601,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
             tDura = MathUtils.safeInt(
                     (long) (100.0f / GT_MetaGenerated_Tool.getToolMaxDamage(aTurbine)
                             * (GT_MetaGenerated_Tool.getToolDamage(aTurbine)) + 1));
-            aTurbineDamage.append(EnumChatFormatting.RED).append(tDura).append(EnumChatFormatting.RESET).append("% | ");
+            aTurbineDamage.append(EnumChatFormatting.RED).append(GT_Utility.formatNumbers(tDura)).append(EnumChatFormatting.RESET).append("% | ");
         }
 
         long storedEnergy = 0;
@@ -619,27 +619,27 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
                 // 8 Lines available for information panels
                 tRunning + ": "
                         + EnumChatFormatting.RED
-                        + ((lEUt * mEfficiency) / 10000)
+                        + GT_Utility.formatNumbers(((lEUt * mEfficiency) / 10000))
                         + EnumChatFormatting.RESET
                         + " EU/t",
                 tMaintenance,
                 StatCollector.translateToLocal("GT5U.turbine.efficiency") + ": "
                         + EnumChatFormatting.YELLOW
-                        + (mEfficiency / 100F)
+                        + GT_Utility.formatNumbers((mEfficiency / 100F))
                         + EnumChatFormatting.RESET
                         + "%",
                 StatCollector.translateToLocal("GT5U.multiblock.energy") + ": "
                         + EnumChatFormatting.GREEN
-                        + storedEnergy
+                        + GT_Utility.formatNumbers(storedEnergy)
                         + EnumChatFormatting.RESET
                         + " EU / "
                         + EnumChatFormatting.YELLOW
-                        + maxEnergy
+                        + GT_Utility.formatNumbers(maxEnergy)
                         + EnumChatFormatting.RESET
                         + " EU",
                 StatCollector.translateToLocal("GT5U.turbine.flow") + ": "
                         + EnumChatFormatting.YELLOW
-                        + MathUtils.safeInt((long) realOptFlow)
+                        + GT_Utility.formatNumbers(MathUtils.safeInt((long) realOptFlow))
                         + EnumChatFormatting.RESET
                         + " L/s"
                         + EnumChatFormatting.YELLOW
@@ -649,18 +649,18 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
                         + ")",
                 StatCollector.translateToLocal("GT5U.turbine.fuel") + ": "
                         + EnumChatFormatting.GOLD
-                        + storedFluid
+                        + GT_Utility.formatNumbers(storedFluid)
                         + EnumChatFormatting.RESET
                         + "L",
                 StatCollector.translateToLocal("GT5U.turbine.dmg") + ": " + aTurbineDamage,
                 StatCollector.translateToLocal("GT5U.multiblock.pollution") + ": "
                         + EnumChatFormatting.GREEN
-                        + mPollutionReduction
+                        + GT_Utility.formatNumbers(mPollutionReduction)
                         + EnumChatFormatting.RESET
                         + " %" };
         if (!aIsSteam) ret[4] = StatCollector.translateToLocal("GT5U.turbine.flow") + ": "
                 + EnumChatFormatting.YELLOW
-                + MathUtils.safeInt((long) realOptFlow)
+                + GT_Utility.formatNumbers(MathUtils.safeInt((long) realOptFlow))
                 + EnumChatFormatting.RESET
                 + " L/t";
         return ret;

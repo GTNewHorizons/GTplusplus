@@ -427,7 +427,7 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
         super.getWailaBody(itemStack, currentTip, accessor, config);
         final NBTTagCompound tag = accessor.getNBTData();
         if (tag.hasKey("tier")) {
-            currentTip.add("Tier: " + EnumChatFormatting.YELLOW + tag.getInteger("tier") + EnumChatFormatting.RESET);
+            currentTip.add("Tier: " + EnumChatFormatting.YELLOW + GT_Utility.formatNumbers(tag.getInteger("tier")) + EnumChatFormatting.RESET);
         }
     }
 }

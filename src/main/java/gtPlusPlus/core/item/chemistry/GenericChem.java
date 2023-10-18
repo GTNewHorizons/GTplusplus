@@ -94,7 +94,6 @@ public class GenericChem extends ItemPackage {
      */
 
     // Phenol Byproducts
-    public Item PhenolicResins; // https://en.wikipedia.org/wiki/Phenol_formaldehyde_resin
 
     public static ItemGenericChemBase mGenericChemItem1;
     public static Item mAdvancedCircuit;
@@ -142,11 +141,7 @@ public class GenericChem extends ItemPackage {
 
     @Override
     public void items() {
-        PhenolicResins = ItemUtils.generateSpecialUseDusts(
-                "phenolicresins",
-                "Phenolic Resin",
-                "HOC6H4CH2OH",
-                Utils.rgbtoHexValue(80, 40, 40))[0];
+
         MaterialGenerator.generate(TEFLON, false);
 
         mGenericChemItem1 = new ItemGenericChemBase();

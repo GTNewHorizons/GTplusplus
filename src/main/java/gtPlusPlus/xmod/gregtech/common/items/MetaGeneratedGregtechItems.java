@@ -299,16 +299,6 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
         this.setElectricStats(32000 + tLastID, (64000000000L * 16), GT_Values.V[9], 9L, -3L, false);
 
         /*
-         * Bombs
-         */
-        GregtechItemList.Bomb_Cast.set(this.addItem(111, "Bomb Cast", "Used in the production of Bombs"));
-        GregtechItemList.Bomb_Cast_Molten.set(this.addItem(112, "Bomb Cast (Hot)", "Consider cooling this off"));
-        GregtechItemList.Bomb_Cast_Set
-                .set(this.addItem(113, "Bomb Cast (Set)", "Break it open for the goodies inside!"));
-        GregtechItemList.Bomb_Cast_Broken.set(this.addItem(114, "Bomb Cast (Broken)", "This is probably just junk"));
-        GregtechItemList.Bomb_Cast_Mold.set(this.addItem(115, "Mold (Bomb Cast)", "Used in the production of Bombs"));
-
-        /*
          * High Tier 'Saws' for the tree Farm
          */
 

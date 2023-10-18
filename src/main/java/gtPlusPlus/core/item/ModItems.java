@@ -214,10 +214,6 @@ public final class ModItems {
 
     public static ItemDummyResearch itemDummyResearch;
 
-    public static CoreItem itemBombCasing;
-    public static CoreItem itemBombUnf;
-    public static CoreItem itemDetCable;
-
     public static BaseItemMetaFood itemMetaFood;
 
     public static ItemMagicFeather itemMagicFeather;
@@ -793,14 +789,6 @@ public final class ModItems {
 
         // Milled Ore Processing
         new MilledOreProcessing();
-
-        // Bombs
-        itemBombCasing = new CoreItem("itemBombCasing", "Bomb Casing", tabMisc);
-        itemBombCasing.setTextureName(GTPlusPlus.ID + ":bomb_casing");
-        itemBombUnf = new CoreItem("itemBombUnf", "Bomb (unf)", tabMisc);
-        itemBombUnf.setTextureName(GTPlusPlus.ID + ":bomb_casing");
-        itemDetCable = new CoreItem("itemDetCable", "Det. Cable", tabMisc);
-        itemDetCable.setTextureName("string");
 
         // IC2 Exp
         Logger.INFO("IndustrialCraft2 Found - Loading Resources.");

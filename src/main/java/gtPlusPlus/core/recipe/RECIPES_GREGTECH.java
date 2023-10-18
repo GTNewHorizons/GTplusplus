@@ -105,8 +105,6 @@ public class RECIPES_GREGTECH {
         breweryRecipes();
         laserEngraverRecipes();
         assemblyLineRecipes();
-        latheRecipes();
-        vacuumFreezerRecipes();
         fluidHeaterRecipes();
         chemplantRecipes();
         alloySmelterRecipes();
@@ -265,24 +263,6 @@ public class RECIPES_GREGTECH {
         GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(20))
                 .fluidInputs(Materials.Water.getFluid(1000)).fluidOutputs(FluidUtils.getHotWater(1000))
                 .duration(1 * SECONDS + 10 * TICKS).eut(TierEU.RECIPE_LV).addTo(sFluidHeaterRecipes);
-    }
-
-    private static void vacuumFreezerRecipes() {
-        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Molten.get(1))
-                .itemOutputs(GregtechItemList.Bomb_Cast_Set.get(1)).duration(30 * SECONDS).eut(TierEU.RECIPE_MV)
-                .addTo(sVacuumRecipes);
-    }
-
-    private static void latheRecipes() {
-        GT_Values.RA.stdBuilder().itemInputs(ALLOY.EGLIN_STEEL.getBlock(1))
-                .itemOutputs(GregtechItemList.Bomb_Cast_Mold.get(1)).duration(15 * MINUTES).eut(TierEU.RECIPE_MV)
-                .addTo(sLatheRecipes);
-
-        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Set.get(1))
-                .itemOutputs(
-                        GregtechItemList.Bomb_Cast_Broken.get(2),
-                        ItemUtils.getSimpleStack(ModItems.itemBombCasing, 2))
-                .duration(5 * MINUTES).eut(TierEU.RECIPE_LV).addTo(sLatheRecipes);
     }
 
     private static void fusionRecipes() {
@@ -965,13 +945,6 @@ public class RECIPES_GREGTECH {
 
         GT_Values.RA.stdBuilder()
                 .itemInputs(
-                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 32L),
-                        GregtechItemList.Bomb_Cast_Mold.get(0))
-                .itemOutputs(GregtechItemList.Bomb_Cast.get(4)).fluidInputs(Materials.Water.getFluid(4000L))
-                .duration(30 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
-
-        GT_Values.RA.stdBuilder()
-                .itemInputs(
                         ItemUtils.getSimpleStack(CI.explosiveITNT, 2),
                         ItemUtils.getSimpleStack(CI.explosiveTNT, 4),
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Sulfur, 2L),
@@ -1272,14 +1245,6 @@ public class RECIPES_GREGTECH {
 
     private static void chemicalReactorRecipes() {
 
-        // Bombs
-        GT_Values.RA.stdBuilder()
-                .itemInputs(
-                        ItemUtils.getSimpleStack(ModItems.itemBombCasing, 4),
-                        ItemUtils.getSimpleStack(RocketFuels.Ammonium_Nitrate_Dust, 8))
-                .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemBombUnf, 4))
-                .fluidInputs(Materials.Fuel.getFluid(1000)).duration(5 * MINUTES).eut(TierEU.RECIPE_LV)
-                .addTo(UniversalChemical);
 
         GT_Values.RA.stdBuilder()
                 .itemInputs(
@@ -1319,14 +1284,6 @@ public class RECIPES_GREGTECH {
                 .fluidInputs(Materials.Nitrogen.getGas(4000)).fluidOutputs().duration(1 * MINUTES).eut(TierEU.RECIPE_IV)
                 .metadata(COIL_HEAT, 4500).addTo(sBlastRecipes);
 
-        // Bomb Cast (Hot)
-        GT_Values.RA.stdBuilder()
-                .itemInputs(
-                        GregtechItemList.Bomb_Cast.get(4),
-                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Steel, 16L))
-                .itemOutputs(GregtechItemList.Bomb_Cast_Molten.get(4)).fluidInputs(Materials.Oxygen.getGas(2000))
-                .fluidOutputs().duration(4 * MINUTES).eut(TierEU.RECIPE_HV).metadata(COIL_HEAT, 2800)
-                .addTo(sBlastRecipes);
     }
 
     private static void compressorRecipes() {
@@ -1347,10 +1304,6 @@ public class RECIPES_GREGTECH {
         GT_Values.RA.stdBuilder().itemInputs(GT_OreDictUnificator.get(OrePrefixes.block, Materials.MeatRaw, 1L))
                 .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.MeatRaw, 9L)).duration(44 * SECONDS)
                 .eut(4).addTo(sMaceratorRecipes);
-
-        GT_Values.RA.stdBuilder().itemInputs(GregtechItemList.Bomb_Cast_Broken.get(1))
-                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 3L)).duration(20 * SECONDS)
-                .eut(2).addTo(sMaceratorRecipes);
 
         if (ItemUtils.simpleMetaStack("chisel:limestone", 0, 1) != null) {
             GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getItemStackOfAmountFromOreDict("limestone", 1))
