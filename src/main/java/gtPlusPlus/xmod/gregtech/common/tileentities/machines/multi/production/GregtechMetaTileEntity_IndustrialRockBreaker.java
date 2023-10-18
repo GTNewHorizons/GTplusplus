@@ -13,6 +13,9 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.ArrayList;
 
+import gregtech.api.util.GT_LanguageManager;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
+import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -74,6 +77,10 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
         return "Rock Breaker";
     }
 
+    private static final String casingBaseName = GT_LanguageManager.getTranslation("gtplusplus.blockcasings.2.0.name");
+    private static final String casingMiddleName = GT_LanguageManager.getTranslation("gtplusplus.blockcasings.2.11.name");
+    private static final String anyBaseCasing = "Any " + casingBaseName;
+
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
@@ -81,12 +88,12 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 .addInfo("Speed: +200% | EU Usage: 75% | Parallel: Tier x 8").addInfo("Circuit goes in the GUI slot")
                 .addInfo("1 = cobble, 2 = stone, 3 = obsidian").addInfo("Supply Water/Lava")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 4, 3, true)
-                .addController("Bottom Center").addCasingInfoMin("Thermal Processing Casing", 9, false)
-                .addCasingInfoMin("Thermal Containment Casing", 9, false)
-                .addInputBus("Any Thermal Containment Casing", 1).addInputHatch("Any Thermal Containment Casing", 1)
-                .addOutputBus("Any Thermal Containment Casing", 1).addEnergyHatch("Any Thermal Containment Casing", 1)
-                .addMaintenanceHatch("Any Thermal Containment Casing", 1)
-                .addMufflerHatch("Any Thermal Containment Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addController("Bottom Center").addCasingInfoMin(casingBaseName, 9, false)
+                .addCasingInfoExactly(casingMiddleName, 16, false)
+                .addInputBus(anyBaseCasing, 1).addInputHatch(anyBaseCasing, 1)
+                .addOutputBus(anyBaseCasing, 1).addEnergyHatch(anyBaseCasing, 1)
+                .addMaintenanceHatch(anyBaseCasing, 1)
+                .addMufflerHatch(anyBaseCasing, 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
