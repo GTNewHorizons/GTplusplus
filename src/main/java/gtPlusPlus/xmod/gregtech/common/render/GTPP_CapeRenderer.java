@@ -262,8 +262,7 @@ public class GTPP_CapeRenderer extends RenderPlayer {
                     if (shouldDownloadCapeList()) {
                         downloadCapeList();
                     }
-                } catch (Exception ignored) {
-                }
+                } catch (Exception ignored) {}
                 cacheReady = true;
             });
             return true;
