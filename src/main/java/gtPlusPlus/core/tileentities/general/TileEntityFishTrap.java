@@ -14,6 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.FishingHooks;
 
+import gregtech.api.enums.Materials;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
@@ -173,15 +174,9 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
         } else if (lootWeight == 100) {
             final int rareLoot = MathUtils.randInt(1, 10);
             if (rareLoot <= 4) {
-                loot = ItemUtils.getItemStackOfAmountFromOreDictNoBroken("nuggetIron", 1);
-                if (loot == null) {
-                    loot = ItemUtils.getItemStackOfAmountFromOreDictNoBroken("ingotIron", 1);
-                }
+                loot = Materials.Iron.getNuggets(1);
             } else if (rareLoot <= 7) {
-                loot = ItemUtils.getItemStackOfAmountFromOreDictNoBroken("nuggetGold", 1);
-                if (loot == null) {
-                    loot = ItemUtils.getItemStackOfAmountFromOreDictNoBroken("ingotGold", 1);
-                }
+                loot = ItemUtils.getSimpleStack(Items.gold_nugget);
             } else if (rareLoot <= 9) {
                 loot = ItemUtils.getSimpleStack(Items.emerald);
             } else {
