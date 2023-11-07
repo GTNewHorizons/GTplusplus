@@ -787,19 +787,6 @@ public class TexturesGtBlock {
     public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_TOP_ACTIVE = new CustomIcon(
             "TileEntities/ReactorColdTrap/OVERLAY_TOP_ACTIVE");
 
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_FRONT = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_FRONT");
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_FRONT_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_FRONT_ACTIVE");
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_SIDE = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_SIDE");
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_SIDE_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_SIDE_ACTIVE");
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_TOP = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_TOP");
-    public static final CustomIcon OVERLAY_REACTOR_PROCESSINGUNIT_TOP_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorProcessingUnit/OVERLAY_TOP_ACTIVE");
-
     // Overlay Arrays
     public static ITexture[] OVERLAYS_ENERGY_OUT_BUFFER = new ITexture[] {
             new GT_RenderedTexture((IIconContainer) OVERLAY_ENERGY_OUT_BUFFER, new short[] { 220, 220, 220, 0 }),

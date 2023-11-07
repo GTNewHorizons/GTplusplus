@@ -1,10 +1,13 @@
 package gtPlusPlus.xmod.gregtech.registration.gregtech;
 
+import gregtech.api.enums.SoundResource;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.SpecialEffects;
+import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaTileEntity_ReactorColdTrap;
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaTileEntity_ReactorProcessingUnit;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.GregtechMetaTileEntity_SpargeTower;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMTE_NuclearReactor;
 
@@ -24,11 +27,39 @@ public class GregtechLFTR {
                         .getStackForm(1L));
         // Reactor Processing Units
         GregtechItemList.ReactorProcessingUnit_IV.set(
-                new GregtechMetaTileEntity_ReactorProcessingUnit(31031, "rpu.tier.01", "Reactor Processing Unit I", 5)
-                        .getStackForm(1L));
+                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        31031,
+                        "rpu.tier.01",
+                        "Reactor Processing Unit I",
+                        5,
+                        new String[] { "Processes Nuclear things", CORE.GT_Tooltip.get() },
+                        GTPP_Recipe.GTPP_Recipe_Map.sReactorProcessingUnitRecipes,
+                        2,
+                        9,
+                        true,
+                        SoundResource.NONE,
+                        false,
+                        false,
+                        SpecialEffects.NONE,
+                        "REACTOR_PROCESSING_UNIT",
+                        null).getStackForm(1L));
         GregtechItemList.ReactorProcessingUnit_ZPM.set(
-                new GregtechMetaTileEntity_ReactorProcessingUnit(31032, "rpu.tier.02", "Reactor Processing Unit II", 7)
-                        .getStackForm(1L));
+                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        31032,
+                        "rpu.tier.02",
+                        "Reactor Processing Unit II",
+                        7,
+                        new String[] { "Processes Nuclear things", CORE.GT_Tooltip.get() },
+                        GTPP_Recipe.GTPP_Recipe_Map.sReactorProcessingUnitRecipes,
+                        2,
+                        9,
+                        true,
+                        SoundResource.NONE,
+                        false,
+                        false,
+                        SpecialEffects.NONE,
+                        "REACTOR_PROCESSING_UNIT",
+                        null).getStackForm(1L));
         // Cold Traps
         GregtechItemList.ColdTrap_IV.set(
                 new GregtechMetaTileEntity_ReactorColdTrap(31033, "coldtrap.tier.01", "Cold Trap I", 5)
