@@ -773,20 +773,6 @@ public class TexturesGtBlock {
     public static final CustomIcon TEXTURE_TECH_PANEL_RADIOACTIVE_ALT = new CustomIcon(
             "TileEntities/DecayablesChest_top");
 
-    // LFTR Single blocks
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_FRONT = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_FRONT");
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_FRONT_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_FRONT_ACTIVE");
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_SIDE = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_SIDE");
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_SIDE_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_SIDE_ACTIVE");
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_TOP = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_TOP");
-    public static final CustomIcon OVERLAY_REACTOR_COLDTRAP_TOP_ACTIVE = new CustomIcon(
-            "TileEntities/ReactorColdTrap/OVERLAY_TOP_ACTIVE");
-
     // Overlay Arrays
     public static ITexture[] OVERLAYS_ENERGY_OUT_BUFFER = new ITexture[] {
             new GT_RenderedTexture((IIconContainer) OVERLAY_ENERGY_OUT_BUFFER, new short[] { 220, 220, 220, 0 }),

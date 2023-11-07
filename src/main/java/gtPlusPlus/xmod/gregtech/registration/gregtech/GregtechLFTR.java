@@ -7,7 +7,6 @@ import gregtech.api.util.GTPP_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic.GregtechMetaTileEntity_ReactorColdTrap;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.processing.GregtechMetaTileEntity_SpargeTower;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMTE_NuclearReactor;
 
@@ -62,11 +61,39 @@ public class GregtechLFTR {
                         null).getStackForm(1L));
         // Cold Traps
         GregtechItemList.ColdTrap_IV.set(
-                new GregtechMetaTileEntity_ReactorColdTrap(31033, "coldtrap.tier.01", "Cold Trap I", 5)
-                        .getStackForm(1L));
+                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        31033,
+                        "coldtrap.tier.01",
+                        "Cold Trap I",
+                        5,
+                        new String[] { "Just like the Arctic", "Does not require ice cubes", CORE.GT_Tooltip.get() },
+                        GTPP_Recipe.GTPP_Recipe_Map.sColdTrapRecipes,
+                        2,
+                        9,
+                        true,
+                        SoundResource.NONE,
+                        false,
+                        false,
+                        SpecialEffects.NONE,
+                        "COLD_TRAP",
+                        null).getStackForm(1L));
         GregtechItemList.ColdTrap_ZPM.set(
-                new GregtechMetaTileEntity_ReactorColdTrap(31034, "coldtrap.tier.02", "Cold Trap II", 7)
-                        .getStackForm(1L));
+                new GT_MetaTileEntity_BasicMachine_GT_Recipe(
+                        31034,
+                        "coldtrap.tier.02",
+                        "Cold Trap II",
+                        7,
+                        new String[] { "Just like the Arctic", "Does not require ice cubes", CORE.GT_Tooltip.get() },
+                        GTPP_Recipe.GTPP_Recipe_Map.sColdTrapRecipes,
+                        2,
+                        9,
+                        true,
+                        SoundResource.NONE,
+                        false,
+                        false,
+                        SpecialEffects.NONE,
+                        "COLD_TRAP",
+                        null).getStackForm(1L));
         // Sparge Tower
         GregtechItemList.Controller_Sparge_Tower.set(
                 new GregtechMetaTileEntity_SpargeTower(31035, "sparge.controller.single", "Sparge Tower Controller")
