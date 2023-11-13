@@ -658,44 +658,6 @@ public class RECIPES_GREGTECH {
                 20 * 300,
                 4000);
 
-        // Ruthenium Roasting
-        CORE.RA.addBlastSmelterRecipe(
-                new ItemStack[] { ItemUtils.getGregtechCircuit(19),
-                        ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedIridium", 8),
-                        ELEMENT.getInstance().CARBON.getDust(32), },
-                Materials.SulfuricAcid.getFluid(2000),
-                ELEMENT.getInstance().RUTHENIUM.getFluidStack(288),
-                0,
-                20 * 300,
-                8000);
-        CORE.RA.addBlastSmelterRecipe(
-                new ItemStack[] { ItemUtils.getGregtechCircuit(19),
-                        ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedOsmium", 8),
-                        ELEMENT.getInstance().CARBON.getDust(32), },
-                Materials.SulfuricAcid.getFluid(2000),
-                ELEMENT.getInstance().RUTHENIUM.getFluidStack(288),
-                0,
-                20 * 300,
-                8000);
-        CORE.RA.addBlastSmelterRecipe(
-                new ItemStack[] { ItemUtils.getGregtechCircuit(19),
-                        ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedPlatinum", 8),
-                        ELEMENT.getInstance().CARBON.getDust(32), },
-                Materials.SulfuricAcid.getFluid(2000),
-                ELEMENT.getInstance().RUTHENIUM.getFluidStack(288),
-                0,
-                20 * 300,
-                8000);
-        CORE.RA.addBlastSmelterRecipe(
-                new ItemStack[] { ItemUtils.getGregtechCircuit(19),
-                        ItemUtils.getItemStackOfAmountFromOreDict("crushedPurifiedCooperite", 8),
-                        ELEMENT.getInstance().CARBON.getDust(32), },
-                Materials.SulfuricAcid.getFluid(8000),
-                ELEMENT.getInstance().RUTHENIUM.getFluidStack(144),
-                0,
-                20 * 300,
-                8000);
-
         // Rhenium Roasting
         CORE.RA.addBlastSmelterRecipe(
                 new ItemStack[] { ItemUtils.getGregtechCircuit(20),
@@ -764,6 +726,21 @@ public class RECIPES_GREGTECH {
                 0,
                 20 * 120,
                 491520);
+
+        // molten precious metals alloy
+        CORE.RA.addBlastSmelterRecipe(
+                new ItemStack[] { ItemUtils.getGregtechCircuit(6),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRuthenium", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustRhodium", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustPalladium", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustPlatinum", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustOsmium", 1),
+                        ItemUtils.getItemStackOfAmountFromOreDict("dustIridium", 1) },
+                GT_Values.NF,
+                FluidUtils.getFluidStack("molten.precious metals alloy", 864),
+                0,
+                20 * 540,
+                7864320);
     }
 
     private static void dehydratorRecipes() {
