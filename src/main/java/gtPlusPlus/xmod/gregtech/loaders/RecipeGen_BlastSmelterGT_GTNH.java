@@ -173,7 +173,7 @@ public class RecipeGen_BlastSmelterGT_GTNH {
                 time = x.mDuration;
                 enabled = x.mEnabled;
                 special = x.mSpecialValue;
-                //black list apply
+                // black list apply
                 if (blacklist.contains(x.mInputs[0].getUnlocalizedName())) {
                     continue;
                 }
