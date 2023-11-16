@@ -17,7 +17,6 @@ public class NEI_IMC_Sender {
         sendHandler("gtpp.recipe.rocketenginefuel", "gregtech:gt.blockmachines:793");
         sendHandler("gtpp.recipe.cyclotron", "gregtech:gt.blockmachines:828");
         sendHandler("gtpp.recipe.chemicaldehydrator", "gregtech:gt.blockmachines:911");
-        sendHandler("gtpp.recipe.slowfusionreactor", "gregtech:gt.blockmachines:31015");
         sendHandler("gtpp.recipe.RTGgenerators", "gregtech:gt.blockmachines:869");
         sendHandler("gtpp.recipe.cokeoven", "gregtech:gt.blockmachines:791");
         sendHandler("gtpp.recipe.semifluidgeneratorfuels", "gregtech:gt.blockmachines:837");
@@ -38,9 +37,6 @@ public class NEI_IMC_Sender {
         sendHandler("gtpp.recipe.fluidchemicaleactor", "gregtech:gt.blockmachines:998");
 
         sendCatalyst("GTPP_Decayables", "miscutils:blockDecayablesChest");
-
-        sendHandler("gtpp.recipe.geothermalfuel", "gregtech:gt.blockmachines:830");
-        sendCatalyst("gtpp.recipe.geothermalfuel", "gregtech:gt.blockmachines:830");
 
         sendHandler("gtpp.recipe.thermalgeneratorfuel", "gregtech:gt.blockmachines:875", 1);
         sendCatalyst("gtpp.recipe.thermalgeneratorfuel", "gregtech:gt.blockmachines:875");

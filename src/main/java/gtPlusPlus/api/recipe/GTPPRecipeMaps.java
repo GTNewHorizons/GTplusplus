@@ -89,22 +89,6 @@ public class GTPPRecipeMaps {
                     .setProgressBar(GT_UITextures.PROGRESSBAR_ARROW_MULTIPLE, ProgressBar.Direction.RIGHT)
                     .setUsualFluidInputCount(6).setUsualFluidOutputCount(6);
 
-    public static final GT_Recipe.GT_Recipe_Map sGeoThermalFuels = new GT_Recipe.GT_Recipe_Map(
-            new HashSet<>(10),
-            "gtpp.recipe.geothermalfuel",
-            "GeoThermal Fuel",
-            null,
-            "",
-            1,
-            1,
-            0,
-            0,
-            1,
-            "Fuel Value: ",
-            1000,
-            " EU",
-            true,
-            true).useModularUI(true);
     public static final GT_Recipe.GT_Recipe_Map sChemicalDehydratorRecipes = new GT_Recipe.GT_Recipe_Map(
             new HashSet<>(200),
             "gtpp.recipe.chemicaldehydrator",
@@ -435,24 +419,6 @@ public class GTPPRecipeMaps {
             E,
             1,
             E,
-            true,
-            true).useModularUI(true);
-
-    // Mini Fusion
-    public static final GT_Recipe.GT_Recipe_Map sSlowFusionRecipes = new GT_Recipe.GT_Recipe_Map(
-            new HashSet<>(50),
-            "gtpp.recipe.slowfusionreactor",
-            "Mimir - Slow Fusion",
-            null,
-            "",
-            0,
-            0,
-            0,
-            2,
-            1,
-            "Start: ",
-            1,
-            " EU",
             true,
             true).useModularUI(true);
 
