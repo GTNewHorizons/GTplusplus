@@ -47,11 +47,11 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.render.TextureFactory;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OverclockCalculator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
@@ -384,7 +384,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes;
+        return GTPPRecipeMaps.sAlloyBlastSmelterRecipes;
     }
 
     public HeatingCoilLevel getCoilLevel() {

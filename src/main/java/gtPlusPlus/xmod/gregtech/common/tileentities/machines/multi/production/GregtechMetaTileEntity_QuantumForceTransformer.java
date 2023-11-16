@@ -66,11 +66,11 @@ import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.render.TextureFactory;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -435,7 +435,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceTransformerRecipes;
+        return GTPPRecipeMaps.sQuantumForceTransformerRecipes;
     }
 
     @Override

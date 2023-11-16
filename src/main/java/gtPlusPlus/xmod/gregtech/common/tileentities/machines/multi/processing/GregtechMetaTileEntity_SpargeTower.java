@@ -38,13 +38,13 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.GasSpargingRecipe;
 import gregtech.api.util.GasSpargingRecipeMap;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
@@ -171,10 +171,10 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        if (GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
+        if (GTPPRecipeMaps.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
             generateRecipes();
         }
-        return GTPP_Recipe_Map.sSpargeTowerRecipes;
+        return GTPPRecipeMaps.sSpargeTowerRecipes;
     }
 
     private static boolean generateRecipes() {
@@ -190,9 +190,9 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     aRecipe.mDuration,
                     aRecipe.mEUt,
                     0);
-            GTPP_Recipe_Map.sSpargeTowerRecipes.add(newRecipe);
+            GTPPRecipeMaps.sSpargeTowerRecipes.add(newRecipe);
         }
-        return !GTPP_Recipe_Map.sSpargeTowerRecipes.mRecipeList.isEmpty();
+        return !GTPPRecipeMaps.sSpargeTowerRecipes.mRecipeList.isEmpty();
     }
 
     @Override

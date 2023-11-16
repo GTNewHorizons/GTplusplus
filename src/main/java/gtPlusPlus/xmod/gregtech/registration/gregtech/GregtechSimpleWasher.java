@@ -13,10 +13,10 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.SoundResource;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.SpecialEffects;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.data.Quad;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
@@ -82,7 +82,7 @@ public class GregtechSimpleWasher {
                             0,
                             new String[] { "It's like an automatic Cauldron for washing dusts.",
                                     "§cDEPRECATED: No recipe.§r Make a Simple Washer I.", CORE.GT_Tooltip.get() },
-                            GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes,
+                            GTPPRecipeMaps.sSimpleWasherRecipes,
                             1,
                             1,
                             true,
@@ -103,7 +103,7 @@ public class GregtechSimpleWasher {
                                 i + 1,
                                 new String[] { "It's like an automatic Cauldron for washing dusts.",
                                         CORE.GT_Tooltip.get() },
-                                GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes,
+                                GTPPRecipeMaps.sSimpleWasherRecipes,
                                 1,
                                 1,
                                 true,
@@ -145,11 +145,11 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(dustPure, dustClean);
         }
 
-        return GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
+        return GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
     }
 
     private static boolean generateDirtyCrushedRecipes() {
-        int mRecipeCount = GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size();
+        int mRecipeCount = GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size();
         // Generate Recipe Map for the Dust Washer.
         ItemStack crushedClean;
         ItemStack crushedDirty;
@@ -165,7 +165,7 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(crushedDirty, crushedClean);
         }
 
-        return GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
+        return GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
     }
 
     private static void addSimpleWashRecipe(ItemStack aInput, ItemStack aOutput) {
@@ -181,7 +181,7 @@ public class GregtechSimpleWasher {
                     5,
                     8,
                     0);
-            GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.addRecipe(aRecipe);
+            GTPPRecipeMaps.sSimpleWasherRecipes.addRecipe(aRecipe);
         }
     }
 }

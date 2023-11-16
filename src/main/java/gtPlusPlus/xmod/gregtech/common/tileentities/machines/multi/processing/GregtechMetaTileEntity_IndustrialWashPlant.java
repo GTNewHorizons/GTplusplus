@@ -39,11 +39,11 @@ import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -166,7 +166,7 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
         return mMode == 0 ? GT_Recipe.GT_Recipe_Map.sOreWasherRecipes
-                : mMode == 1 ? GTPP_Recipe_Map.sSimpleWasherRecipes : GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
+                : mMode == 1 ? GTPPRecipeMaps.sSimpleWasherRecipes : GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
     }
 
     @Override

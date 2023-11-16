@@ -19,11 +19,11 @@ import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.item.base.BaseItemComponent;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
@@ -283,7 +283,7 @@ public class RocketFuels extends ItemPackage {
             if (aFuelRecipe != null) {
                 mValidRocketFuelNames.add(FluidRegistry.getFluidName(aFuelRecipe.mFluidInputs[0].getFluid()));
                 mValidRocketFuels.put(mID, aFuelRecipe.mFluidInputs[0].getFluid());
-                GTPP_Recipe.GTPP_Recipe_Map.sRocketFuels.add(aFuelRecipe);
+                GTPPRecipeMaps.sRocketFuels.add(aFuelRecipe);
             }
         }
     }

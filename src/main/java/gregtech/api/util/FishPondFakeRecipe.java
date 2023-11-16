@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
@@ -71,6 +72,6 @@ public class FishPondFakeRecipe {
                 0, // No Eu produced
                 0);
         Logger.INFO("Fishing [" + circuit + "]: " + ItemUtils.getArrayStackNames(outputItems));
-        GTPP_Recipe.GTPP_Recipe_Map.sFishPondRecipes.addRecipe(x, false, false, false);
+        GTPPRecipeMaps.sFishPondRecipes.addRecipe(x, false, false, false);
     }
 }

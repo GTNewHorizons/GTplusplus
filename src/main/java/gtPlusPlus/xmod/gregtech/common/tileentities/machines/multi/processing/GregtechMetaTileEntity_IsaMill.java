@@ -43,13 +43,13 @@ import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.api.objects.minecraft.BlockPos;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.general.ItemGenericChemBase;
 import gtPlusPlus.core.lib.CORE;
@@ -201,7 +201,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes;
+        return GTPPRecipeMaps.sOreMillRecipes;
     }
 
     @Override

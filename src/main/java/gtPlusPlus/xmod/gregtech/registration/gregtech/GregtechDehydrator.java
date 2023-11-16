@@ -15,9 +15,9 @@ import gregtech.api.enums.SoundResource;
 import gregtech.api.enums.TierEU;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.SpecialEffects;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ALLOY;
@@ -69,7 +69,7 @@ public class GregtechDehydrator {
                         "Basic Dehydrator I",
                         2,
                         new String[] { "This dehydrates your Grapes into Raisins.", CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,
@@ -90,7 +90,7 @@ public class GregtechDehydrator {
                         "Basic Dehydrator II",
                         3,
                         new String[] { "This dehydrates your Grapes into Raisins.", CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,
@@ -113,7 +113,7 @@ public class GregtechDehydrator {
                         4,
                         new String[] { "A hangover is the way your body reacts to dehydration.",
                                 CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,
@@ -134,7 +134,7 @@ public class GregtechDehydrator {
                         5,
                         new String[] { "A hangover is the way your body reacts to dehydration.",
                                 CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,
@@ -154,7 +154,7 @@ public class GregtechDehydrator {
                         "Chemical Dehydrator III",
                         6,
                         new String[] { "You could probably make space icecream with this..", CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,
@@ -174,7 +174,7 @@ public class GregtechDehydrator {
                         "Chemical Dehydrator IV",
                         7,
                         new String[] { "You can definitely make space icecream with this..", CORE.GT_Tooltip.get() },
-                        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
+                        GTPPRecipeMaps.sChemicalDehydratorRecipes,
                         2,
                         9,
                         true,

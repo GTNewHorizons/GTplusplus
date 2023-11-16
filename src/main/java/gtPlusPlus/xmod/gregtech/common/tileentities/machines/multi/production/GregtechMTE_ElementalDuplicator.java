@@ -42,13 +42,13 @@ import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.recipe.check.FindRecipeResult;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_ElementalDataOrbHolder;
@@ -284,7 +284,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GTPP_Recipe_Map.sElementalDuplicatorRecipes;
+        return GTPPRecipeMaps.sElementalDuplicatorRecipes;
     }
 
     @Override

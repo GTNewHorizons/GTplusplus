@@ -29,10 +29,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.Materials;
 import gregtech.api.util.FishPondFakeRecipe;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.SemiFluidFuelHandler;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.commands.CommandEnableDebugWhileRunning;
 import gtPlusPlus.core.commands.CommandMath;
 import gtPlusPlus.core.common.CommonProxy;
@@ -261,25 +261,25 @@ public class GTplusplus implements ActionListener {
 
         mInvalidCount[0] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT);
+                GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT);
         mInvalidCount[1] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT);
+                GTPPRecipeMaps.sMultiblockElectrolyzerRecipes_GT);
         mInvalidCount[2] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 GT_Recipe.GT_Recipe_Map.sVacuumRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sAdvFreezerRecipes_GT);
+                GTPPRecipeMaps.sAdvFreezerRecipes_GT);
         mInvalidCount[3] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 GT_Recipe.GT_Recipe_Map.sMixerRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sMultiblockMixerRecipes_GT);
+                GTPPRecipeMaps.sMultiblockMixerRecipes_GT);
         mInvalidCount[4] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sMultiblockChemicalDehydratorRecipes);
+                GTPPRecipeMaps.sChemicalDehydratorRecipes,
+                GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes);
         mInvalidCount[5] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPP_Recipe.GTPP_Recipe_Map.sColdTrapRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sNuclearSaltProcessingPlantRecipes);
+                GTPPRecipeMaps.sColdTrapRecipes,
+                GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes);
         mInvalidCount[6] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPP_Recipe.GTPP_Recipe_Map.sReactorProcessingUnitRecipes,
-                GTPP_Recipe.GTPP_Recipe_Map.sNuclearSaltProcessingPlantRecipes);
+                GTPPRecipeMaps.sReactorProcessingUnitRecipes,
+                GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes);
     }
 
     private static void setupMaterialBlacklist() {

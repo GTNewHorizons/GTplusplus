@@ -9,8 +9,6 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
-import gregtech.api.util.GTPP_Recipe;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
@@ -19,6 +17,7 @@ import gregtech.api.util.GT_Utility;
 import gregtech.api.util.SemiFluidFuelHandler;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialGenerator;
@@ -59,7 +58,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 Math.max(1, aEUt),
                 0);
-        GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.add(aSpecialRecipe);
+        GTPPRecipeMaps.sCokeOvenRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -90,7 +89,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        GTPP_Recipe.GTPP_Recipe_Map.sCokeOvenRecipes.add(aSpecialRecipe);
+        GTPPRecipeMaps.sCokeOvenRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -112,7 +111,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUt,
                 0);
-        GTPP_Recipe_Map.sMatterFab2Recipes.addRecipe(aRecipe);
+        GTPPRecipeMaps.sMatterFab2Recipes.addRecipe(aRecipe);
         return true;
     }
 
@@ -136,7 +135,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        GTPP_Recipe.GTPP_Recipe_Map.sChemicalDehydratorRecipes.add(aSpecialRecipe);
+        GTPPRecipeMaps.sChemicalDehydratorRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -293,7 +292,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe.GTPP_Recipe_Map.sAlloyBlastSmelterRecipes.addRecipe(
+        GTPPRecipeMaps.sAlloyBlastSmelterRecipes.addRecipe(
                 aOptimizeRecipe,
                 aInput,
                 aOutputStack,
@@ -323,7 +322,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             aFluidOutput = new FluidStack[0];
         }
 
-        GTPP_Recipe.GTPP_Recipe_Map.sQuantumForceTransformerRecipes.add(
+        GTPPRecipeMaps.sQuantumForceTransformerRecipes.add(
                 new GT_Recipe(
                         false,
                         aInput,
@@ -371,7 +370,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         final FluidStack[] inputs = { aInput1, aInput2, aInput3, aInput4, aInput5, aInput6, aInput7, aInput8, aInput9 };
         final FluidStack[] outputs = { aOutput1, aOutput2 };
 
-        GTPP_Recipe.GTPP_Recipe_Map.sFissionFuelProcessing.addRecipe(
+        GTPPRecipeMaps.sFissionFuelProcessing.addRecipe(
                 aOptimise,
                 new ItemStack[] {},
                 new ItemStack[] {},
@@ -418,7 +417,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 aSpecialValue);
-        GTPP_Recipe.GTPP_Recipe_Map.sCyclotronRecipes.add(aSpecialRecipe);
+        GTPPRecipeMaps.sCyclotronRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -474,7 +473,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT.addRecipe(aRecipe);
+        GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT.addRecipe(aRecipe);
         return true;
     }
 
@@ -506,7 +505,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sMultiblockElectrolyzerRecipes_GT.addRecipe(aRecipe);
+        GTPPRecipeMaps.sMultiblockElectrolyzerRecipes_GT.addRecipe(aRecipe);
         return true;
     }
 
@@ -538,7 +537,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sAdvFreezerRecipes_GT.addRecipe(aRecipe);
+        GTPPRecipeMaps.sAdvFreezerRecipes_GT.addRecipe(aRecipe);
         return false;
     }
 
@@ -568,7 +567,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sMultiblockMixerRecipes_GT.addRecipe(aRecipe);
+        GTPPRecipeMaps.sMultiblockMixerRecipes_GT.addRecipe(aRecipe);
         return true;
     }
 
@@ -599,7 +598,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sMultiblockChemicalDehydratorRecipes.addRecipe(aRecipe);
+        GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes.addRecipe(aRecipe);
         return true;
     }
 
@@ -813,7 +812,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     public boolean addVacuumFurnaceRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aLevel) {
         if (aInputs != null && aOutputs != null) {
-            GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes.addRecipe(
+            GTPPRecipeMaps.sVacuumFurnaceRecipes.addRecipe(
                     false,
                     aInputs,
                     aOutputs,
@@ -864,7 +863,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             CORE.crash();
         }
 
-        GTPP_Recipe.GTPP_Recipe_Map.sChemicalPlantRecipes.addRecipe(
+        GTPPRecipeMaps.sChemicalPlantRecipes.addRecipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -1037,7 +1036,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     aTime[i],
                     aEU,
                     0);
-            GTPP_Recipe.GTPP_Recipe_Map.sOreMillRecipes.add(aOreRecipe);
+            GTPPRecipeMaps.sOreMillRecipes.add(aOreRecipe);
         }
         return true;
     }
@@ -1072,7 +1071,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aTime,
                 aEU,
                 0);
-        GTPP_Recipe.GTPP_Recipe_Map.sFlotationCellRecipes.add(aRecipe);
+        GTPPRecipeMaps.sFlotationCellRecipes.add(aRecipe);
         return true;
     }
 
@@ -1097,7 +1096,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
     @Override
     public boolean addFuelForRTG(ItemStack aFuelPellet, int aFuelDays, int aVoltage) {
-        GTPP_Recipe.GTPP_Recipe_Map.sRTGFuels.addRecipe(
+        GTPPRecipeMaps.sRTGFuels.addRecipe(
                 true,
                 new ItemStack[] { aFuelPellet },
                 new ItemStack[] {},
@@ -1125,7 +1124,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEU,
                 0);
 
-        GTPP_Recipe_Map.sColdTrapRecipes.add(aRecipe);
+        GTPPRecipeMaps.sColdTrapRecipes.add(aRecipe);
         return true;
     }
 
@@ -1144,7 +1143,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEU,
                 0);
 
-        GTPP_Recipe_Map.sReactorProcessingUnitRecipes.add(aRecipe);
+        GTPPRecipeMaps.sReactorProcessingUnitRecipes.add(aRecipe);
         return true;
     }
 
@@ -1175,7 +1174,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aDuration,
                 aEUtick,
                 aSpecial);
-        GTPP_Recipe.GTPP_Recipe_Map.sNuclearSaltProcessingPlantRecipes.addRecipe(aRecipe);
+        GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes.addRecipe(aRecipe);
         return true;
     }
 
@@ -1236,7 +1235,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEUt,
                 0);
 
-        GTPP_Recipe_Map.sMolecularTransformerRecipes.add(aRecipe);
+        GTPPRecipeMaps.sMolecularTransformerRecipes.add(aRecipe);
         return true;
     }
 

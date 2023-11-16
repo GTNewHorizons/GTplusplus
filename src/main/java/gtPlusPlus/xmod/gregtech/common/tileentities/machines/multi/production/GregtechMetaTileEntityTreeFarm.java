@@ -56,12 +56,12 @@ import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.VoidProtectionHelper;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
@@ -550,7 +550,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     private static int sRecipeID = 0;
 
     public static boolean addFakeRecipeToNEI(@Nonnull ItemStack aSapling, ItemStack aLog) {
-        int aRecipes = GTPP_Recipe_Map.sTreeSimFakeRecipes.mRecipeList.size();
+        int aRecipes = GTPPRecipeMaps.sTreeSimFakeRecipes.mRecipeList.size();
         Logger.INFO(
                 "Adding Tree Growth Simulation for " + aSapling.getDisplayName()
                         + " -> "
@@ -560,7 +560,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         Logger.INFO("" + aOutputs);
         ItemStack inputStack = aSapling.copy();
         inputStack.stackSize = 0;
-        GTPP_Recipe_Map.sTreeSimFakeRecipes.addFakeRecipe(
+        GTPPRecipeMaps.sTreeSimFakeRecipes.addFakeRecipe(
                 false,
                 new ItemStack[] { inputStack },
                 aOutput,
@@ -571,7 +571,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 1,
                 sRecipeID++,
                 0);
-        return GTPP_Recipe_Map.sTreeSimFakeRecipes.mRecipeList.size() > aRecipes;
+        return GTPPRecipeMaps.sTreeSimFakeRecipes.mRecipeList.size() > aRecipes;
     }
 
     public int hasLiquidFert() {

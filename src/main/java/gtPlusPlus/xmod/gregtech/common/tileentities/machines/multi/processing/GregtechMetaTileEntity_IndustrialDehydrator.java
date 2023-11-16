@@ -33,10 +33,10 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OverclockCalculator;
 import gregtech.api.util.GT_Recipe;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
@@ -145,8 +145,8 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return mDehydratorMode ? GTPP_Recipe.GTPP_Recipe_Map.sMultiblockChemicalDehydratorRecipes
-                : GTPP_Recipe.GTPP_Recipe_Map.sVacuumFurnaceRecipes;
+        return mDehydratorMode ? GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes
+                : GTPPRecipeMaps.sVacuumFurnaceRecipes;
     }
 
     @Override

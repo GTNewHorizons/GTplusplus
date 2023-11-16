@@ -16,11 +16,11 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicGenerator;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 
 public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_BasicGenerator {
@@ -64,7 +64,7 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipes() {
         // Logger.WARNING("Fuel Count: "+Gregtech_Recipe_Map.sSemiFluidLiquidFuels.mRecipeList.size());
-        return GTPP_Recipe_Map.sSemiFluidLiquidFuels;
+        return GTPPRecipeMaps.sSemiFluidLiquidFuels;
     }
 
     @Override

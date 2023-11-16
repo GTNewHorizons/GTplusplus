@@ -14,7 +14,6 @@ import gregtech.api.enums.Element;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
@@ -22,6 +21,7 @@ import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.handler.COMPAT_HANDLER;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
@@ -142,7 +142,7 @@ public class HANDLER_GT {
                                     aRecipe.mDuration,
                                     aRecipe.mEUt,
                                     aRecipe.mFluidInputs[0].amount);
-                            GTPP_Recipe_Map.sElementalDuplicatorRecipes.add(aNewRecipe);
+                            GTPPRecipeMaps.sElementalDuplicatorRecipes.add(aNewRecipe);
 
                             Logger.INFO(
                                     "[EM] Generated recipe for " + tMaterial.mLocalizedName
@@ -159,7 +159,7 @@ public class HANDLER_GT {
                 Logger.INFO("[EM] Bad Data Orb. " + RecipeUtils.getRecipeInfo(aRecipe));
             }
         }
-        int aSize = GTPP_Recipe_Map.sElementalDuplicatorRecipes.mRecipeList.size();
+        int aSize = GTPPRecipeMaps.sElementalDuplicatorRecipes.mRecipeList.size();
         Logger.INFO(
                 "[EM] Generated " + aSize
                         + "/"

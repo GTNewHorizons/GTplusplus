@@ -1,6 +1,6 @@
 package gregtech.api.util;
 
-import static gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map.sSemiFluidLiquidFuels;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.sSemiFluidLiquidFuels;
 
 import java.util.HashMap;
 

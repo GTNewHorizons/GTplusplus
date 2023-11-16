@@ -36,13 +36,13 @@ import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.FindRecipeResult;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -213,8 +213,7 @@ public class GregtechMetaTileEntity_MassFabricator
      */
     @Override
     public GT_Recipe_Map getRecipeMap() {
-        return this.mMode == MODE_SCRAP ? GT_Recipe_Map.sRecyclerRecipes
-                : GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes;
+        return this.mMode == MODE_SCRAP ? GT_Recipe_Map.sRecyclerRecipes : GTPPRecipeMaps.sMatterFab2Recipes;
     }
 
     @Override

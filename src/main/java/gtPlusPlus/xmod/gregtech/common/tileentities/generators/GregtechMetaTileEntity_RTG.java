@@ -15,10 +15,10 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicGenerator;
 import gregtech.api.objects.GT_RenderedTexture;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
@@ -219,7 +219,7 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipes() {
-        return GTPP_Recipe.GTPP_Recipe_Map.sRTGFuels;
+        return GTPPRecipeMaps.sRTGFuels;
     }
 
     @Override

@@ -14,10 +14,10 @@ import advsolar.common.AdvancedSolarPanel;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Mods;
 import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gtPlusPlus.api.objects.Logger;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.RecipeUtils;
@@ -124,7 +124,7 @@ public class RecipeRemovals {
             aRareEarthCentrifuging.mEnabled = false;
             aRareEarthCentrifuging.mHidden = true;
             GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes.mRecipeList.remove(aRareEarthCentrifuging);
-            GTPP_Recipe.GTPP_Recipe_Map.sMultiblockCentrifugeRecipes_GT.mRecipeList.remove(aRareEarthCentrifuging);
+            GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT.mRecipeList.remove(aRareEarthCentrifuging);
             Logger.INFO("Removed vanilla GT Rare Earth processing.");
         }
 

@@ -38,9 +38,9 @@ import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
@@ -107,7 +107,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GTPP_Recipe.GTPP_Recipe_Map.sFlotationCellRecipes;
+        return GTPPRecipeMaps.sFlotationCellRecipes;
     }
 
     @Override
