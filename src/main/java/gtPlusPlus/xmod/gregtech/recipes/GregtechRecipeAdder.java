@@ -48,7 +48,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 true,
                 new ItemStack[] { aInput1, aInput2 },
                 new ItemStack[] { aOutput },
@@ -79,7 +79,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addCokeOvenRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack[] aFluidInputs,
             FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUt) {
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 true,
                 new ItemStack[] { aInput1, aInput2 },
                 aOutputs,
@@ -101,7 +101,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             Logger.WARNING("Something was null, returning false");
             return false;
         }
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] {},
                 new ItemStack[] {},
@@ -125,7 +125,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 true,
                 aInput,
                 aOutputItems,
@@ -407,7 +407,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 true,
                 aInputs,
                 aOutput,
@@ -430,7 +430,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 true,
                 new ItemStack[] { aInput1, aInput2, aInput3, aInput4 },
                 new ItemStack[] { aOutput1, aOutput2, aOutput3, aOutput4 },
@@ -463,7 +463,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -495,7 +495,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -527,7 +527,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -557,7 +557,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -588,7 +588,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -645,7 +645,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if (aCircuit < 0 || aCircuit > 24) {
             aCircuit = 22;
         }
-        GT_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { input1, input2 },
                 new ItemStack[] { output, output2 },
@@ -833,7 +833,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addUvLaserRecipe(ItemStack aInput1, ItemStack aOutput, int time, long eu) {
         // Generate Special Laser Recipe
-        GT_Recipe u = new GTPP_Recipe(
+        GT_Recipe u = new GT_Recipe(
                 false,
                 new ItemStack[] { aInput1, GregtechItemList.Laser_Lens_WoodsGlass.get(0), },
                 new ItemStack[] { aOutput },
@@ -881,7 +881,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addBlastRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int time, long eu, int aHeat) {
-        GTPP_Recipe aSpecialRecipe = new GTPP_Recipe(
+        GT_Recipe aSpecialRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -939,7 +939,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addExtractorRecipe(ItemStack aInput, ItemStack aOutput, int aChance, int aDuration, int aEUt) {
         if (aInput != null && aOutput != null) {
-            GT_Recipe aRecipe = new GTPP_Recipe(
+            GT_Recipe aRecipe = new GT_Recipe(
                     false,
                     new ItemStack[] { aInput.copy() },
                     new ItemStack[] { aOutput.copy() },
@@ -1026,7 +1026,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         int[] aTime = new int[] { 2400, 3000, 1200, 1500 };
 
         for (int i = 0; i < 4; i++) {
-            GTPP_Recipe aOreRecipe = new GTPP_Recipe(
+            GT_Recipe aOreRecipe = new GT_Recipe(
                     false,
                     aInputArray[i],
                     aOutputArray[i],
@@ -1060,7 +1060,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
 
         FlotationRecipeHandler.registerOreType(aMat);
 
-        GT_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { ItemUtils.getSimpleStack(aXanthate, 32), aMat.getMilled(64), aMat.getMilled(64),
                         aMat.getMilled(64), aMat.getMilled(64), },
@@ -1113,7 +1113,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addColdTrapRecipe(int aCircuit, ItemStack aInput, FluidStack aFluidInput, ItemStack[] aOutputs,
             int[] aChances, FluidStack aFluidOutput, int aTime, int aEU) {
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedAdvancedCircuit(aCircuit), aInput },
                 aOutputs,
@@ -1132,7 +1132,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addReactorProcessingUnitRecipe(ItemStack aInput1, ItemStack aInput2, FluidStack aFluidInput,
             ItemStack[] aOutputs, int[] aChances, FluidStack aFluidOutput, int aTime, int aEU) {
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { aInput1, aInput2 },
                 aOutputs,
@@ -1164,7 +1164,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
             return false;
         }
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 aInputs,
                 aOutputs,
@@ -1203,7 +1203,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if (aInput == null || aOutput == null) {
             return false;
         }
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { aInput },
                 new ItemStack[] { aOutput },
@@ -1224,7 +1224,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if (aInput == null || aOutput == null) {
             return false;
         }
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 false,
                 new ItemStack[] { aInput },
                 new ItemStack[] { aOutput },

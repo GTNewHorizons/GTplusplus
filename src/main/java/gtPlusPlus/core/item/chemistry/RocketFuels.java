@@ -21,6 +21,7 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.item.base.BaseItemComponent;
@@ -215,10 +216,10 @@ public class RocketFuels extends ItemPackage {
     }
 
     private static void addRocketFuelsToMap() {
-        HashMap<Integer, GTPP_Recipe> mRocketFuels = new LinkedHashMap<>();
+        HashMap<Integer, GT_Recipe> mRocketFuels = new LinkedHashMap<>();
         mRocketFuels.put(
                 0,
-                new GTPP_Recipe(
+                new GT_Recipe(
                         true,
                         new ItemStack[] {},
                         new ItemStack[] {},
@@ -232,7 +233,7 @@ public class RocketFuels extends ItemPackage {
 
         mRocketFuels.put(
                 1,
-                new GTPP_Recipe(
+                new GT_Recipe(
                         true,
                         new ItemStack[] {},
                         new ItemStack[] {},
@@ -246,7 +247,7 @@ public class RocketFuels extends ItemPackage {
 
         mRocketFuels.put(
                 2,
-                new GTPP_Recipe(
+                new GT_Recipe(
                         true,
                         new ItemStack[] {},
                         new ItemStack[] {},
@@ -260,7 +261,7 @@ public class RocketFuels extends ItemPackage {
 
         mRocketFuels.put(
                 3,
-                new GTPP_Recipe(
+                new GT_Recipe(
                         true,
                         new ItemStack[] {},
                         new ItemStack[] {},
@@ -278,7 +279,7 @@ public class RocketFuels extends ItemPackage {
 
         mValidRocketFuelNames.add(FluidRegistry.getFluidName(Diesel));
         for (int mID : mRocketFuels.keySet()) {
-            GTPP_Recipe aFuelRecipe = mRocketFuels.get(mID);
+            GT_Recipe aFuelRecipe = mRocketFuels.get(mID);
             if (aFuelRecipe != null) {
                 mValidRocketFuelNames.add(FluidRegistry.getFluidName(aFuelRecipe.mFluidInputs[0].getFluid()));
                 mValidRocketFuels.put(mID, aFuelRecipe.mFluidInputs[0].getFluid());

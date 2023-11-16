@@ -7,7 +7,6 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
@@ -145,7 +144,7 @@ public class RecipeGen_MultisUsingFluidInsteadOfCells {
                     aInvalidRecipesToConvert++;
                     continue; // Skip this recipe entirely if we find an item we don't like
                 }
-                GT_Recipe aNewRecipe = new GTPP_Recipe(
+                GT_Recipe aNewRecipe = new GT_Recipe(
                         false,
                         aNewItemInputs,
                         aNewItemOutputs,

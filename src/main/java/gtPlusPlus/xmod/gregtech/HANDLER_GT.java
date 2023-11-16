@@ -14,7 +14,6 @@ import gregtech.api.enums.Element;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -132,7 +131,7 @@ public class HANDLER_GT {
                                     aUsingFluid = true;
                                 }
                             }
-                            GTPP_Recipe aNewRecipe = new GTPP_Recipe(
+                            GT_Recipe aNewRecipe = new GT_Recipe(
                                     false,
                                     new ItemStack[] {},
                                     new ItemStack[] { !aUsingFluid ? aOutputItem : null },

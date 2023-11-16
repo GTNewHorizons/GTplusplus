@@ -6,7 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gtPlusPlus.api.interfaces.RunnableWithInfo;
@@ -110,7 +109,7 @@ public class RecipeGen_FluidCanning implements Runnable {
 
         // Check validity
 
-        GTPP_Recipe aRecipe = new GTPP_Recipe(
+        GT_Recipe aRecipe = new GT_Recipe(
                 true,
                 new ItemStack[] { aInput },
                 new ItemStack[] { aOutput },

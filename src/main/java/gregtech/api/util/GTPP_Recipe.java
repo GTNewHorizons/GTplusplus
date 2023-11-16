@@ -21,7 +21,6 @@ import gregtech.api.gui.modularui.GT_UITextures;
 import gregtech.common.gui.modularui.UIHelper;
 import gregtech.nei.GT_NEI_DefaultHandler.FixedPositionedStack;
 import gregtech.nei.NEIRecipeInfo;
-import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -49,59 +48,6 @@ public class GTPP_Recipe extends GT_Recipe {
                 aDuration,
                 aEUt,
                 aSpecialValue);
-        // Logger.SPECIFIC_WARNING(this.getClass().getName()+" | [GregtechRecipe]", "Created new recipe instance for
-        // "+ItemUtils.getArrayStackNames(aInputs), 167);
-    }
-
-    public GTPP_Recipe(final ItemStack aInput1, final ItemStack aOutput1, final int aFuelValue, final int aType) {
-        this(aInput1, aOutput1, null, null, null, aFuelValue, aType);
-    }
-
-    // aSpecialValue = EU per Liter! If there is no Liquid for this Object, then it gets multiplied with 1000!
-    public GTPP_Recipe(final ItemStack aInput1, final ItemStack aOutput1, final ItemStack aOutput2,
-            final ItemStack aOutput3, final ItemStack aOutput4, final int aSpecialValue, final int aType) {
-        this(
-                true,
-                new ItemStack[] { aInput1 },
-                new ItemStack[] { aOutput1, aOutput2, aOutput3, aOutput4 },
-                null,
-                null,
-                null,
-                null,
-                0,
-                0,
-                Math.max(1, aSpecialValue));
-
-        Logger.WARNING("Switch case method for adding fuels");
-        if ((this.mInputs.length > 0) && (aSpecialValue > 0)) {
-            switch (aType) {
-                // Diesel Generator
-                case 0:
-                    Logger.WARNING("Added fuel " + aInput1.getDisplayName() + " is ROCKET FUEL - continuing");
-                    GTPP_Recipe_Map.sRocketFuels.addRecipe(this);
-                    break;
-                // Gas Turbine
-                case 1:
-                    GTPP_Recipe_Map.sGeoThermalFuels.addRecipe(this);
-                    break;
-                // Thermal Generator
-                case 2:
-                    GTPP_Recipe_Map.sRTGFuels.addRecipe(this);
-                    break;
-                // Plasma Generator
-                case 4:
-                    // Gregtech_Recipe_Map.sPlasmaFuels.addRecipe(this);
-                    break;
-                // Magic Generator
-                case 5:
-                    // Gregtech_Recipe_Map.sMagicFuels.addRecipe(this);
-                    break;
-                // Fluid Generator. Usually 3. Every wrong Type ends up in the Semifluid Generator
-                default:
-                    // Gregtech_Recipe_Map.sDenseLiquidFuels.addRecipe(this);
-                    break;
-            }
-        }
     }
 
     /**

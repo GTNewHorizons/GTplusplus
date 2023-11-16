@@ -15,6 +15,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.SpecialEffects;
 import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.data.Quad;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -169,7 +170,7 @@ public class GregtechSimpleWasher {
 
     private static void addSimpleWashRecipe(ItemStack aInput, ItemStack aOutput) {
         if (aInput != null && aOutput != null) {
-            GTPP_Recipe aRecipe = new GTPP_Recipe(
+            GT_Recipe aRecipe = new GT_Recipe(
                     false,
                     new ItemStack[] { aInput },
                     new ItemStack[] { aOutput },

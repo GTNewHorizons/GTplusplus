@@ -38,7 +38,7 @@ public class GregtechIndustrialMassFabricator {
         // Generate Scrap->UUA Recipes
 
         // Basic UUA1
-        GT_Recipe UUA_From_Scrap = new GTPP_Recipe(
+        GT_Recipe UUA_From_Scrap = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(9), ItemUtils.getSimpleStack(getScrapPile(), 9) },
                 new ItemStack[] { GT_Values.NI },
@@ -50,7 +50,7 @@ public class GregtechIndustrialMassFabricator {
                 32,
                 0);
         // Basic UUA2
-        GT_Recipe UUA_From_ScrapBoxes = new GTPP_Recipe(
+        GT_Recipe UUA_From_ScrapBoxes = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(19), ItemUtils.getSimpleStack(getScrapBox(), 1) },
                 new ItemStack[] { GT_Values.NI },
@@ -66,7 +66,7 @@ public class GregtechIndustrialMassFabricator {
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(UUA_From_ScrapBoxes);
 
         // Basic UUM
-        GT_Recipe generateUUM_LV = new GTPP_Recipe(
+        GT_Recipe generateUUM_LV = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(1) },
                 new ItemStack[] { GT_Values.NI },
@@ -79,7 +79,7 @@ public class GregtechIndustrialMassFabricator {
                 0);
 
         // Basic UUM
-        GT_Recipe generateUUMFromUUA_LV = new GTPP_Recipe(
+        GT_Recipe generateUUMFromUUA_LV = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(2) },
                 new ItemStack[] { GT_Values.NI },
@@ -93,7 +93,7 @@ public class GregtechIndustrialMassFabricator {
 
         // Advanced UUM
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(
-                new GTPP_Recipe(
+                new GT_Recipe(
                         false,
                         new ItemStack[] { CI.getNumberedCircuit(3) },
                         new ItemStack[] { GT_Values.NI },
@@ -107,7 +107,7 @@ public class GregtechIndustrialMassFabricator {
 
         // Advanced UUM
         GTPP_Recipe.GTPP_Recipe_Map.sMatterFab2Recipes.add(
-                new GTPP_Recipe(
+                new GT_Recipe(
                         false,
                         new ItemStack[] { CI.getNumberedCircuit(4) },
                         new ItemStack[] { GT_Values.NI },

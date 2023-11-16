@@ -37,7 +37,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_OverclockCalculator;
@@ -205,7 +204,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
     private static GT_Recipe sRecipe_Redstone;
 
     private static void generateRecipes() {
-        sRecipe_Cobblestone = new GTPP_Recipe(
+        sRecipe_Cobblestone = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(1) },
                 new ItemStack[] { ItemUtils.getSimpleStack(Blocks.cobblestone) },
@@ -216,7 +215,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 16,
                 32,
                 0);
-        sRecipe_SmoothStone = new GTPP_Recipe(
+        sRecipe_SmoothStone = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(2) },
                 new ItemStack[] { ItemUtils.getSimpleStack(Blocks.stone) },
@@ -227,7 +226,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 16,
                 32,
                 0);
-        sRecipe_Redstone = new GTPP_Recipe(
+        sRecipe_Redstone = new GT_Recipe(
                 false,
                 new ItemStack[] { CI.getNumberedCircuit(3),
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Redstone, 1L) },

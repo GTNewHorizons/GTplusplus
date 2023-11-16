@@ -27,7 +27,7 @@ public class SemiFluidFuelHandler {
     public static boolean addSemiFluidFuel(FluidStack aFuel, int aFuelValue) {
         FluidStack p = aFuel;
         if (p != null && aFuelValue > 0) {
-            GT_Recipe aRecipe = new GTPP_Recipe(
+            GT_Recipe aRecipe = new GT_Recipe(
                     true,
                     new ItemStack[] {},
                     new ItemStack[] {},
@@ -99,7 +99,7 @@ public class SemiFluidFuelHandler {
                 }
 
                 if (aFuelValue <= (128 * 3)) {
-                    GT_Recipe aRecipe = new GTPP_Recipe(
+                    GT_Recipe aRecipe = new GT_Recipe(
                             true,
                             new ItemStack[] {},
                             new ItemStack[] {},

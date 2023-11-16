@@ -39,7 +39,6 @@ import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.FishPondFakeRecipe;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OverclockCalculator;
 import gregtech.api.util.GT_ParallelHelper;
@@ -205,7 +204,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
             ItemStack[] mFishOutput = generateLoot(this.mMode);
             mFishOutput = removeNulls(mFishOutput);
-            GT_Recipe g = new GTPP_Recipe(
+            GT_Recipe g = new GT_Recipe(
                     true,
                     new ItemStack[] {},
                     mFishOutput,

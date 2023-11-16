@@ -38,7 +38,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
-import gregtech.api.util.GTPP_Recipe;
 import gregtech.api.util.GTPP_Recipe.GTPP_Recipe_Map;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -180,7 +179,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 
     private static boolean generateRecipes() {
         for (GasSpargingRecipe aRecipe : GasSpargingRecipeMap.mRecipes) {
-            GTPP_Recipe newRecipe = new GTPP_Recipe(
+            GT_Recipe newRecipe = new GT_Recipe(
                     false,
                     new ItemStack[] {},
                     new ItemStack[] {},
