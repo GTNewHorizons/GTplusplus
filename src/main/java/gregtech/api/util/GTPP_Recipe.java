@@ -50,39 +50,6 @@ public class GTPP_Recipe extends GT_Recipe {
                 aSpecialValue);
     }
 
-    /**
-     * Even though this is deprecated, it's still used to keep binary compatibility. (GoodGenerator and GTNHLanthanides
-     * reference to `sSimpleWasherRecipes` and `sChemicalDehydratorRecipes`)
-     */
-    public static class GTPP_Recipe_Map_Internal extends GT_Recipe_Map {
-
-        @Deprecated
-        public static final Collection<GTPP_Recipe_Map_Internal> sMappingsEx = new ArrayList<>();
-
-        public GTPP_Recipe_Map_Internal(Collection<GT_Recipe> aRecipeList, String aUnlocalizedName, String aLocalName,
-                String aNEIName, String aNEIGUIPath, int aUsualInputCount, int aUsualOutputCount,
-                int aMinimalInputItems, int aMinimalInputFluids, int aAmperage, String aNEISpecialValuePre,
-                int aNEISpecialValueMultiplier, String aNEISpecialValuePost, boolean aShowVoltageAmperageInNEI,
-                boolean aNEIAllowed) {
-            super(
-                    aRecipeList,
-                    aUnlocalizedName,
-                    aLocalName,
-                    aNEIName,
-                    aNEIGUIPath,
-                    aUsualInputCount,
-                    aUsualOutputCount,
-                    aMinimalInputItems,
-                    aMinimalInputFluids,
-                    aAmperage,
-                    aNEISpecialValuePre,
-                    aNEISpecialValueMultiplier,
-                    aNEISpecialValuePost,
-                    aShowVoltageAmperageInNEI,
-                    aNEIAllowed);
-        }
-    }
-
     public static class GTPP_Recipe_Map {
 
         public static final GT_Recipe_Map sCokeOvenRecipes = new GT_Recipe_Map(
@@ -169,7 +136,7 @@ public class GTPP_Recipe extends GT_Recipe {
                 " EU",
                 true,
                 true).useModularUI(true);
-        public static final GTPP_Recipe_Map_Internal sChemicalDehydratorRecipes = (GTPP_Recipe_Map_Internal) new GTPP_Recipe_Map_Internal(
+        public static final GT_Recipe_Map sChemicalDehydratorRecipes = new GT_Recipe_Map(
                 new HashSet<>(200),
                 "gtpp.recipe.chemicaldehydrator",
                 "Dehydrator",
@@ -354,7 +321,7 @@ public class GTPP_Recipe extends GT_Recipe {
                 true).setProgressBar(GT_UITextures.PROGRESSBAR_SIFT, ProgressBar.Direction.DOWN);
 
         // Basic Washer Map
-        public static final GTPP_Recipe_Map_Internal sSimpleWasherRecipes = (GTPP_Recipe_Map_Internal) new GTPP_Recipe_Map_Internal(
+        public static final GT_Recipe_Map sSimpleWasherRecipes = new GT_Recipe_Map(
                 new HashSet<>(3),
                 "gtpp.recipe.simplewasher",
                 "Simple Dust Washer",
