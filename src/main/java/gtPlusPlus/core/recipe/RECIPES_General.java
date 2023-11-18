@@ -25,6 +25,7 @@ import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
+import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -48,8 +49,6 @@ public class RECIPES_General {
     static String RECIPE_BronzePlate = "plateBronze";
     static String RECIPE_StainlessPlate = "plateStainlessSteel";
     static ItemStack RECIPE_BasicCasingIC2;
-    static ItemStack OUTPUT_Workbench_Bronze;
-    static ItemStack OUTPUT_Workbench_Advanced;
     static ItemStack RECIPE_HydrogenDust;
 
     public static void loadRecipes() {
@@ -60,8 +59,6 @@ public class RECIPES_General {
         RECIPE_CraftingTable = ItemUtils.getSimpleStack(Blocks.crafting_table);
         RECIPE_HydrogenDust = ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob);
         RECIPE_BasicCasingIC2 = ItemUtils.getItemStackFromFQRN("IC2:blockMachine", 1);
-        OUTPUT_Workbench_Bronze = GregtechItemList.GT4_Workbench_Bronze.get(1);
-        OUTPUT_Workbench_Advanced = GregtechItemList.GT4_Workbench_Advanced.get(1);
         OUTPUT_Blueprint = ItemUtils.getSimpleStack(ModItems.itemBlueprintBase, 2);
         run();
         addCompressedObsidian();
@@ -81,31 +78,6 @@ public class RECIPES_General {
                 RECIPE_LapisDust,
                 NULL,
                 OUTPUT_Blueprint);
-
-        // Bronze Workbench
-        RecipeUtils.addShapedRecipe(
-                RECIPE_BronzePlate,
-                RECIPE_CraftingTable,
-                RECIPE_BronzePlate,
-                RECIPE_BronzePlate,
-                RECIPE_BasicCasingIC2,
-                RECIPE_BronzePlate,
-                RECIPE_BronzePlate,
-                CI.getTieredCircuitOreDictName(0),
-                RECIPE_BronzePlate,
-                OUTPUT_Workbench_Bronze);
-
-        RecipeUtils.addShapedRecipe(
-                RECIPE_StainlessPlate,
-                CI.getTieredCircuitOreDictName(3),
-                RECIPE_StainlessPlate,
-                RECIPE_StainlessPlate,
-                OUTPUT_Workbench_Bronze,
-                RECIPE_StainlessPlate,
-                RECIPE_StainlessPlate,
-                CI.getTieredCircuitOreDictName(3),
-                RECIPE_StainlessPlate,
-                OUTPUT_Workbench_Advanced);
 
         // Rainforest oak Sapling
         if (RecipeUtils.addShapedRecipe(
@@ -204,8 +176,8 @@ public class RECIPES_General {
                         ItemList.Large_Fluid_Cell_Steel.get(1),
                         CI.getNumberedAdvancedCircuit(4))
                 .itemOutputs(VolumetricFlaskHelper.getLargeVolumetricFlask(2))
-                .fluidInputs(FluidUtils.getFluidStack("molten.borosilicateglass", 2000)).noFluidOutputs()
-                .duration(15 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
+                .fluidInputs(FluidUtils.getFluidStack("molten.borosilicateglass", 2000)).duration(15 * SECONDS)
+                .eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
 
         GT_Values.RA.stdBuilder()
                 .itemInputs(
@@ -214,8 +186,8 @@ public class RECIPES_General {
                         ItemList.Large_Fluid_Cell_TungstenSteel.get(1),
                         CI.getNumberedAdvancedCircuit(5))
                 .itemOutputs(VolumetricFlaskHelper.getGiganticVolumetricFlask(2))
-                .fluidInputs(FluidUtils.getFluidStack("molten.borosilicateglass", 8000)).noFluidOutputs()
-                .duration(15 * SECONDS).eut(TierEU.RECIPE_IV).addTo(sAssemblerRecipes);
+                .fluidInputs(FluidUtils.getFluidStack("molten.borosilicateglass", 8000)).duration(15 * SECONDS)
+                .eut(TierEU.RECIPE_IV).addTo(sAssemblerRecipes);
 
         // Mining Explosive
         Logger.RECIPE("[Inspection] Explosives");
@@ -283,8 +255,8 @@ public class RECIPES_General {
                         Materials.Sapphire.getBlocks(32),
                         ItemUtils.getSimpleStack(Blocks.gold_block, 32))
                 .itemOutputs(ItemUtils.getSimpleStack(ModItems.itemMagicFeather, 1))
-                .fluidInputs(Materials.Silver.getMolten(32 * 144)).noFluidOutputs().duration(2 * MINUTES)
-                .eut(TierEU.RECIPE_EV).addTo(sAssemblerRecipes);
+                .fluidInputs(Materials.Silver.getMolten(32 * 144)).duration(2 * MINUTES).eut(TierEU.RECIPE_EV)
+                .addTo(sAssemblerRecipes);
 
         // Pest Killer
         GT_Values.RA.stdBuilder()
@@ -295,8 +267,8 @@ public class RECIPES_General {
                         ItemUtils.getItemStackOfAmountFromOreDict(CI.getTieredCircuitOreDictName(0), 2),
                         CI.getNumberedCircuit(16))
                 .itemOutputs(ItemUtils.getSimpleStack(ModBlocks.blockPestKiller))
-                .fluidInputs(FluidUtils.getHotWater(500)).noFluidOutputs().duration(1 * MINUTES)
-                .eut(TierEU.RECIPE_LV / 2).addTo(sAssemblerRecipes);
+                .fluidInputs(FluidUtils.getHotWater(500)).duration(1 * MINUTES).eut(TierEU.RECIPE_LV / 2)
+                .addTo(sAssemblerRecipes);
     }
 
     private static boolean addCompressedObsidian() {
@@ -385,18 +357,18 @@ public class RECIPES_General {
         generateWireRecipes(ELEMENT.STANDALONE.HYPOGEN);
         generateWireRecipes(ELEMENT.STANDALONE.CHRONOMATIC_GLASS);
 
-        GT_Materials[] g = new GT_Materials[] { GT_Materials.Staballoy, GT_Materials.Tantalloy60,
-                GT_Materials.Tantalloy61, GT_Materials.Void, GT_Materials.Potin, GT_Materials.MaragingSteel300,
-                GT_Materials.MaragingSteel350, GT_Materials.Inconel690, GT_Materials.Inconel792,
-                GT_Materials.HastelloyX, GT_Materials.TriniumNaquadahCarbonite, };
-        for (GT_Materials e : g) {
-            if (e == GT_Materials.Void) {
-                if (!Thaumcraft.isModLoaded()) {
-                    continue;
-                }
-            }
-            int tVoltageMultiplier = (e.mBlastFurnaceTemp >= 2800) ? 64 : 16;
-            generatePipeRecipes(e.mDefaultLocalName, e.getMass(), tVoltageMultiplier);
+        // No Material for void, natch.
+        if (Thaumcraft.isModLoaded()) {
+            generatePipeRecipes(GT_Materials.Void.mDefaultLocalName, GT_Materials.Void.getMass(), 16);
+        }
+
+        Material[] gtpp = new Material[] { ALLOY.STABALLOY, ALLOY.TANTALLOY_60, ALLOY.TANTALLOY_61, ALLOY.POTIN,
+                ALLOY.MARAGING300, ALLOY.MARAGING350, ALLOY.INCONEL_690, ALLOY.INCONEL_792, ALLOY.HASTELLOY_X,
+                ALLOY.TRINIUM_NAQUADAH_CARBON };
+
+        for (Material mat : gtpp) {
+            // generatePipeRecipes multiplies the voltage multiplier by 8 because ??! reasons.
+            generatePipeRecipes(mat.getLocalizedName(), mat.getMass(), mat.vVoltageMultiplier / 8);
         }
 
         Materials[] h = new Materials[] { Materials.Europium, Materials.Tungsten, Materials.DarkSteel, Materials.Clay,

@@ -22,7 +22,7 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import gtPlusPlus.api.objects.random.XSTR;
+import gregtech.api.objects.XSTR;
 import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
 import gtPlusPlus.core.util.math.MathUtils;
 
@@ -128,8 +128,7 @@ public class MiningExplosion extends Explosion {
         net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj, this, list, this.explosionSize);
         final Vec3 vec3 = Vec3.createVectorHelper(this.explosionX, this.explosionY, this.explosionZ);
 
-        for (int i1 = 0; i1 < list.size(); ++i1) {
-            final Entity entity = list.get(i1);
+        for (final Entity entity : list) {
             final double d4 = entity.getDistance(this.explosionX, this.explosionY, this.explosionZ)
                     / this.explosionSize;
 

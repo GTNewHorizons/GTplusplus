@@ -23,9 +23,9 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import gregtech.api.objects.XSTR;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
-import gtPlusPlus.api.objects.random.XSTR;
 import gtPlusPlus.core.util.reflect.ReflectionUtils;
 import gtPlusPlus.preloader.CORE_Preloader;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
@@ -60,7 +60,7 @@ public class CORE {
     public static final GameProfile gameProfile = new GameProfile(
             UUID.nameUUIDFromBytes("gtplusplus.core".getBytes()),
             "[GT++]");
-    public static final WeakHashMap<World, EntityPlayerMP> fakePlayerCache = new WeakHashMap<World, EntityPlayerMP>();
+    public static final WeakHashMap<World, EntityPlayerMP> fakePlayerCache = new WeakHashMap<>();
     // Tooltips;
     public static final Supplier<String> GT_Tooltip = () -> StatCollector.translateToLocal("GTPP.core.GT_Tooltip");
     public static final Supplier<String> GT_Tooltip_Builder = () -> StatCollector
@@ -76,14 +76,14 @@ public class CORE {
      */
 
     // Burnables List
-    public static List<Pair<Integer, ItemStack>> burnables = new ArrayList<Pair<Integer, ItemStack>>();
+    public static List<Pair<Integer, ItemStack>> burnables = new ArrayList<>();
 
     // TesseractMaps
     public static final Map<UUID, Map<Integer, GT_MetaTileEntity_TesseractGenerator>> sTesseractGeneratorOwnershipMap = new HashMap<>();
     public static final Map<UUID, Map<Integer, GT_MetaTileEntity_TesseractTerminal>> sTesseractTerminalOwnershipMap = new HashMap<>();
 
     // BookMap
-    public static final Map<String, ItemStack> sBookList = new ConcurrentHashMap<String, ItemStack>();
+    public static final Map<String, ItemStack> sBookList = new ConcurrentHashMap<>();
 
     /**
      * Some Gregtech Material and Recipe Variables
@@ -165,7 +165,6 @@ public class CORE {
         public static boolean enableMachine_FluidTanks = true;
         public static boolean enableMachine_RocketEngines = true;
         public static boolean enableMachine_GeothermalEngines = true;
-        public static boolean enableMachine_WorldAccelerators = true;
         public static boolean enableMachine_Tesseracts = true;
         public static boolean enableMachine_SimpleWasher = true;
         public static boolean enableMachine_Pollution = true;

@@ -35,11 +35,14 @@ import gtPlusPlus.preloader.asm.transformers.ClassTransformer_LWJGL_Keyboard;
  * A raw Keyboard interface. This can be used to poll the current state of the keys, or read all the keyboard presses /
  * releases since the last read.
  *
+ * DO NOT REMOVE. CALLED BY ASM CODE.
+ *
  * @author cix_foo <cix_foo@users.sourceforge.net>
  * @author elias_naur <elias_naur@users.sourceforge.net>
  * @author Brian Matzon <brian@matzon.dk>
  * @version $Revision$ $Id$
  */
+@SuppressWarnings("unused")
 public class BetterKeyboard {
 
     public static final int KEYBOARD_SIZE = Short.MAX_VALUE;

@@ -2,9 +2,8 @@ package gtPlusPlus.core.item.base;
 
 import static gregtech.api.enums.Mods.GTPlusPlus;
 import static gregtech.api.enums.Mods.GregTech;
-import static gregtech.api.enums.Mods.Thaumcraft;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,14 +77,6 @@ public class BaseItemComponent extends Item {
         if (componentType == ComponentTypes.GEAR) {
             GT_OreDictUnificator.registerOre("gear" + material.getUnlocalizedName(), ItemUtils.getSimpleStack(this));
         }
-        if (Thaumcraft.isModLoaded()) {
-            // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-            // TC_Aspect_Wrapper.generate(TC_Aspects.METALLUM.mAspect), 1);
-            if (componentMaterial.isRadioactive) {
-                // ThaumcraftUtils.addAspectToItem(ItemUtils.getSimpleStack(this),
-                // TC_Aspect_Wrapper.generate(TC_Aspects.RADIO.mAspect), componentMaterial.vRadiationLevel);
-            }
-        }
         registerComponent();
 
         GT_LanguageManager.addStringLocalization("gtplusplus.item." + unlocalName + ".name", getFormattedLangName());
@@ -136,7 +127,7 @@ public class BaseItemComponent extends Item {
         // Register Component
         Map<String, ItemStack> aMap = Material.mComponentMap.get(componentMaterial.getUnlocalizedName());
         if (aMap == null) {
-            aMap = new HashMap<String, ItemStack>();
+            aMap = new HashMap<>();
         }
         String aKey = componentType.getGtOrePrefix().name();
         ItemStack x = aMap.get(aKey);
@@ -426,10 +417,10 @@ public class BaseItemComponent extends Item {
         FINEWIRE("FineWire", "Fine @ Wire", "wireFine", OrePrefixes.wireFine),
         PLATEDENSE("PlateDense", "Dense @ Plate", "plateDense", OrePrefixes.plateDense),;
 
-        private String COMPONENT_NAME;
-        private String DISPLAY_NAME;
-        private String OREDICT_NAME;
-        private OrePrefixes a_GT_EQUAL;
+        private final String COMPONENT_NAME;
+        private final String DISPLAY_NAME;
+        private final String OREDICT_NAME;
+        private final OrePrefixes a_GT_EQUAL;
 
         private ComponentTypes(final String LocalName, final String DisplayName, final String OreDictName,
                 final OrePrefixes aPrefix) {

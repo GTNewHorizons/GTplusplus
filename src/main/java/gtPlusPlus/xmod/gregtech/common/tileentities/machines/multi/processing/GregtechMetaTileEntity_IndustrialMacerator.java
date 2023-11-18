@@ -14,6 +14,7 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -263,12 +264,10 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
 
     @Override
     protected int getCasingTextureId() {
-        switch (controllerTier) {
-            case 2:
-                return TAE.GTPP_INDEX(7);
-            default:
-                return GT_Utility.getCasingTextureIndex(GregTech_API.sBlockCasings4, 2);
-        }
+        return switch (controllerTier) {
+            case 2 -> TAE.GTPP_INDEX(7);
+            default -> GT_Utility.getCasingTextureIndex(GregTech_API.sBlockCasings4, 2);
+        };
     }
 
     @Override
@@ -298,17 +297,36 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         super.onPostTick(aBaseMetaTileEntity, aTick);
-        if (aTick % 20 == 0 && controllerTier == 1) {
+        if (aBaseMetaTileEntity.isServerSide() && aTick % 20 == 0 && controllerTier == 1) {
             ItemStack aGuiStack = this.getControllerSlot();
-            if (aGuiStack != null) {
-                if (GT_Utility.areStacksEqual(aGuiStack, GregtechItemList.Maceration_Upgrade_Chip.get(1))) {
-                    controllerTier = 2;
-                    mInventory[1] = ItemUtils.depleteStack(aGuiStack);
+            if (GregtechItemList.Maceration_Upgrade_Chip.isStackEqual(aGuiStack, false, true)) {
+                controllerTier = 2;
+                mInventory[1] = ItemUtils.depleteStack(aGuiStack);
+                markDirty();
+                // schedule a structure check
+                mUpdated = true;
+            }
+        }
+    }
+
+    @Override
+    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, ForgeDirection side,
+            float aX, float aY, float aZ) {
+        if (controllerTier == 1 && !aPlayer.isSneaking()) {
+            ItemStack heldItem = aPlayer.getHeldItem();
+            if (GregtechItemList.Maceration_Upgrade_Chip.isStackEqual(heldItem, false, true)) {
+                controllerTier = 2;
+                aPlayer.setCurrentItemOrArmor(0, ItemUtils.depleteStack(heldItem));
+                if (getBaseMetaTileEntity().isServerSide()) {
+                    markDirty();
+                    aPlayer.inventory.markDirty();
                     // schedule a structure check
                     mUpdated = true;
                 }
+                return true;
             }
         }
+        return super.onRightclick(aBaseMetaTileEntity, aPlayer, side, aX, aY, aZ);
     }
 
     @Override
@@ -411,7 +429,10 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
         super.getWailaBody(itemStack, currentTip, accessor, config);
         final NBTTagCompound tag = accessor.getNBTData();
         if (tag.hasKey("tier")) {
-            currentTip.add("Tier: " + EnumChatFormatting.YELLOW + tag.getInteger("tier") + EnumChatFormatting.RESET);
+            currentTip.add(
+                    "Tier: " + EnumChatFormatting.YELLOW
+                            + GT_Utility.formatNumbers(tag.getInteger("tier"))
+                            + EnumChatFormatting.RESET);
         }
     }
 }

@@ -11,6 +11,7 @@ import static gregtech.api.enums.GT_HatchElement.Muffler;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_Utility.filterValidMTEs;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,7 +58,7 @@ import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase<GregtechMTE_ElementalDuplicator>
         implements ISurvivalConstructable {
 
-    private final ArrayList<GT_MetaTileEntity_Hatch_ElementalDataOrbHolder> mReplicatorDataOrbHatches = new ArrayList<GT_MetaTileEntity_Hatch_ElementalDataOrbHolder>();
+    private final ArrayList<GT_MetaTileEntity_Hatch_ElementalDataOrbHolder> mReplicatorDataOrbHatches = new ArrayList<>();
     private static final int CASING_TEXTURE_ID = TAE.getIndexFromPage(0, 3);
     private int mCasing = 0;
 
@@ -376,11 +377,9 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
     @Override
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> tItems = super.getStoredInputs();
-        for (GT_MetaTileEntity_Hatch_ElementalDataOrbHolder tHatch : mReplicatorDataOrbHatches) {
+        for (GT_MetaTileEntity_Hatch_ElementalDataOrbHolder tHatch : filterValidMTEs(mReplicatorDataOrbHatches)) {
             tHatch.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tHatch)) {
-                tItems.add(tHatch.getOrbByCircuit());
-            }
+            tItems.add(tHatch.getOrbByCircuit());
         }
         tItems.removeAll(Collections.singleton(null));
         return tItems;
@@ -501,8 +500,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
     public static ItemStack getSpecialSlotStack(GT_Recipe aRecipe) {
         ItemStack aStack = null;
         if (aRecipe.mSpecialItems != null) {
-            if (aRecipe.mSpecialItems instanceof ItemStack[]) {
-                ItemStack[] aTempStackArray = (ItemStack[]) aRecipe.mSpecialItems;
+            if (aRecipe.mSpecialItems instanceof ItemStack[]aTempStackArray) {
                 aStack = aTempStackArray[0];
             }
         }

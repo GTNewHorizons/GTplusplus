@@ -3,7 +3,6 @@ package gtPlusPlus.xmod.gregtech.common.tileentities.machines.basic;
 import static gregtech.api.enums.GT_Values.V;
 
 import java.util.Collections;
-import java.util.HashMap;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -39,9 +38,7 @@ import gtPlusPlus.api.objects.data.AutoMap;
 import gtPlusPlus.core.item.general.ItemAirFilter;
 import gtPlusPlus.core.item.general.ItemBasicScrubberTurbine;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.math.MathUtils;
-import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
@@ -58,14 +55,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
 
     protected boolean mSaveRotor = false;
 
-    private static final HashMap<Byte, ItemStack> mConveyorMap = new HashMap<>();
-
-    static {
-        for (byte i = 0; i < 9; i++) {
-            mConveyorMap.put(i, CI.getConveyor(i, 1));
-        }
-    }
-
     public GregtechMetaAtmosphericReconditioner(int aID, String aName, String aNameRegional, int aTier) {
         super(
                 aID,
@@ -76,8 +65,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                 "Making sure you don't live in Gwalior - Uses 2A",
                 3,
                 0,
-                "Recycler.png",
-                "",
                 new ITexture[] { new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB_ACTIVE),
                         new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_MASSFAB),
                         new GT_RenderedTexture(TexturesGtBlock.Overlay_MatterFab_Active),
@@ -90,26 +77,14 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     }
 
     public GregtechMetaAtmosphericReconditioner(String aName, int aTier, String[] aDescription,
-            ITexture[][][] aTextures, String aGUIName, String aNEIName) {
-        super(aName, aTier, 2, aDescription, aTextures, 2, 0, aGUIName, aNEIName);
+            ITexture[][][] aTextures) {
+        super(aName, aTier, 2, aDescription, aTextures, 2, 0);
         mPollutionEnabled = PollutionUtils.isPollutionEnabled();
     }
 
-    /*
-     * public GregtechMetaAtmosphericReconditioner(String aName, int aTier, String[] aDescription, ITexture[][][]
-     * aTextures, String aGUIName, String aNEIName) { super(aName, aTier, 2, aDescription, aTextures, 2, 0, aGUIName,
-     * aNEIName); }
-     */
-
     @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GregtechMetaAtmosphericReconditioner(
-                this.mName,
-                this.mTier,
-                this.mDescriptionArray,
-                this.mTextures,
-                this.mGUIName,
-                this.mNEIName);
+        return new GregtechMetaAtmosphericReconditioner(this.mName, this.mTier, this.mDescriptionArray, this.mTextures);
     }
 
     @Override
@@ -382,7 +357,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (this.mTier < 7) {
             mCurrentChunkPollution = PollutionUtils.getPollution(getBaseMetaTileEntity());
         } else {
-            AutoMap<Chunk> aSurrounding = new AutoMap<Chunk>();
+            AutoMap<Chunk> aSurrounding = new AutoMap<>();
             World aWorld = this.getBaseMetaTileEntity().getWorld();
             int xPos = this.getBaseMetaTileEntity().getXCoord();
             int zPos = this.getBaseMetaTileEntity().getZCoord();
@@ -607,7 +582,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         } else {
             int chunksWithRemoval = 0;
             int totalRemoved = 0;
-            AutoMap<Chunk> aSurrounding = new AutoMap<Chunk>();
+            AutoMap<Chunk> aSurrounding = new AutoMap<>();
             Chunk aThisChunk = this.getBaseMetaTileEntity().getWorld().getChunkFromBlockCoords(
                     this.getBaseMetaTileEntity().getXCoord(),
                     this.getBaseMetaTileEntity().getZCoord());
@@ -691,10 +666,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         if (filter == null) {
             return false;
         }
-        if (filter.getItem() instanceof ItemAirFilter) {
-            return true;
-        }
-        return false;
+        return filter.getItem() instanceof ItemAirFilter;
     }
 
     public boolean damageAirFilter() {
@@ -768,17 +740,6 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
         super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ);
     }
 
-    public boolean onSolderingToolRightclick(ForgeDirection side, byte aWrenchingSide, EntityPlayer aPlayer, float aX,
-            float aY, float aZ) {
-        this.mSaveRotor = Utils.invertBoolean(mSaveRotor);
-        if (mSaveRotor) {
-            PlayerUtils.messagePlayer(aPlayer, "Running in low efficiency mode, rotors will not break.");
-        } else {
-            PlayerUtils.messagePlayer(aPlayer, "Running in high efficiency mode, rotors will break.");
-        }
-        return true;
-    }
-
     @Override
     public void doSound(byte aIndex, double aX, double aY, double aZ) {
         if (aIndex == -120) {
@@ -790,14 +751,8 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public boolean canHaveInsufficientEnergy() {
-        // TODO Auto-generated method stub
-        return super.canHaveInsufficientEnergy();
-    }
-
-    @Override
     public String[] getInfoData() {
-        AutoMap<String> aTooltipSuper = new AutoMap<String>();
+        AutoMap<String> aTooltipSuper = new AutoMap<>();
         for (String s : super.getInfoData()) {
             aTooltipSuper.put(s);
         }
@@ -918,7 +873,7 @@ public class GregtechMetaAtmosphericReconditioner extends GT_MetaTileEntity_Basi
                                 .setPos(106, 24))
                 .widget(
                         new SlotWidget(inventoryHandler, 7)
-                                .setFilter(stack -> GT_Utility.areStacksEqual(stack, mConveyorMap.get(mTier), true))
+                                .setFilter(stack -> GT_Utility.areStacksEqual(stack, CI.getConveyor(mTier, 1), true))
                                 .setPos(124, 62));
         builder.widget(
                 new DrawableWidget().setDrawable(GT_UITextures.PICTURE_INFORMATION)

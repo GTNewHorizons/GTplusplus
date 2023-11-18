@@ -163,12 +163,6 @@ item.itemGemShards.name=钻石碎片
 item.itemHalfCompleteCasings.name=半成品机械方块
 item.itemSulfuricPotion.name=喷溅型 硫酸
 item.itemHydrofluoricPotion.name=喷溅型 氢氟酸
-item.itemIngotRaisinBread.name=一份葡萄干面包
-item.itemHotIngotRaisinBread.name=一份热葡萄干面包
-item.itemFoodRaisinToast.name=一份葡萄干烤面包
-item.itemHotFoodRaisinToast.name=一份热葡萄干烤面包
-item.itemFoodCurriedSausages.name=一份咖喱香肠
-item.itemHotFoodCurriedSausages.name=一份热咖喱香肠
 
 
 //Conversion Dusts
@@ -3015,16 +3009,6 @@ item.dustPureRareEarthIII.name=洁净稀土(III)粉
 item.itemDustRareEarthIII.name=稀土(III)粉
 item.itemDustTinyRareEarthIII.name=小撮稀土(III)粉
 item.itemDustSmallRareEarthIII.name=小堆稀土(III)粉
-
-
-
-//Added 13/10/19
-tile.blockRoundRobinator.0.name=自动输出机 I
-tile.blockRoundRobinator.1.name=自动输出机 II
-tile.blockRoundRobinator.2.name=自动输出机 III
-tile.blockRoundRobinator.3.name=自动输出机 IV
-tile.blockRoundRobinator.4.name=自动输出机 V
-
 
 //Added 16/10/19
 item.BioRecipeSelector.name=编程生物电路

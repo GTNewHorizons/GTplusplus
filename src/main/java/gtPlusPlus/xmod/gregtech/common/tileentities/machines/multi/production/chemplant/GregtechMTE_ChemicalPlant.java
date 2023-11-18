@@ -11,19 +11,20 @@ import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import static gregtech.api.util.GT_StructureUtility.filterByMTETier;
 import static gregtech.api.util.GT_StructureUtility.ofCoil;
+import static gregtech.api.util.GT_Utility.filterValidMTEs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -86,7 +87,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     private int mCasing;
     private static IStructureDefinition<GregtechMTE_ChemicalPlant> STRUCTURE_DEFINITION = null;
 
-    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses = new ArrayList<GT_MetaTileEntity_Hatch_Catalysts>();
+    private final ArrayList<GT_MetaTileEntity_Hatch_Catalysts> mCatalystBuses = new ArrayList<>();
 
     private static final HashMap<Integer, Triplet<Block, Integer, Integer>> mTieredBlockRegistry = new HashMap<>();
 
@@ -99,10 +100,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     }
 
     public static boolean registerMachineCasingForTier(int aTier, Block aBlock, int aMeta, int aCasingTextureID) {
-        Triplet<Block, Integer, Integer> aCasingData = new Triplet<Block, Integer, Integer>(
-                aBlock,
-                aMeta,
-                aCasingTextureID);
+        Triplet<Block, Integer, Integer> aCasingData = new Triplet<>(aBlock, aMeta, aCasingTextureID);
         if (mTieredBlockRegistry.containsKey(aTier)) {
             CORE.crash(
                     "Tried to register a Machine casing for tier " + aTier
@@ -447,8 +445,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
     public boolean addToMachineList(IGregTechTileEntity aTileEntity) {
         int aMaxTier = getMachineCasingTier();
         final IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-        if (aMetaTileEntity instanceof GT_MetaTileEntity_TieredMachineBlock) {
-            GT_MetaTileEntity_TieredMachineBlock aMachineBlock = (GT_MetaTileEntity_TieredMachineBlock) aMetaTileEntity;
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_TieredMachineBlock aMachineBlock) {
             int aTileTier = aMachineBlock.mTier;
             if (aTileTier > aMaxTier) {
                 log("Hatch tier too high.");
@@ -542,7 +539,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    private void damageCatalyst(ItemStack aStack, int minParallel) {
+    private void damageCatalyst(@Nonnull ItemStack aStack, int minParallel) {
         // Awakened Draconium Coils with Tungstensteel Pipe Casings (or above) no longer consume catalysts.
         if (!isCatalystDamageable()) return;
         for (int i = 0; i < minParallel; i++) {
@@ -567,7 +564,6 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         return new ProcessingLogic() {
 
             ItemStack catalystRecipe;
-            int maxParallelCatalyst;
 
             @NotNull
             @Override
@@ -594,37 +590,24 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
                 }
 
                 // checks if it has enough catalyst durability
-                maxParallelCatalyst = maxParallel;
                 if (catalystRecipe != null) {
-                    maxParallelCatalyst = getCatalysts(inputItems, catalystRecipe, maxParallel);
+                    maxParallel = getParallelLimitedByCatalyst(inputItems, catalystRecipe, maxParallel);
                 }
-                maxParallel = Math.min(maxParallel, maxParallelCatalyst);
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
 
             @NotNull
             @Override
             protected GT_ParallelHelper createParallelHelper(@NotNull GT_Recipe recipe) {
-                return new GT_ParallelHelper() {
-
-                    @Override
-                    protected boolean tryConsumeRecipeInputs(GT_Recipe recipe, FluidStack[] fluids, ItemStack[] items,
-                            int minParallel) {
-                        if (catalystRecipe != null && getDamage(catalystRecipe) >= getMaxCatalystDurability()) {
-                            return false;
-                        }
-                        boolean hasInputs = super.tryConsumeRecipeInputs(recipe, fluids, items, minParallel);
-                        if (hasInputs && catalystRecipe != null) {
-                            damageCatalyst(catalystRecipe, minParallel);
-                        }
-                        return hasInputs;
-                    }
-                }.setRecipe(recipe).setItemInputs(inputItems).setFluidInputs(inputFluids)
-                        .setAvailableEUt(availableVoltage * availableAmperage)
-                        .setMachine(machine, protectItems, protectFluids)
-                        .setRecipeLocked(recipeLockableMachine, isRecipeLocked).setMaxParallel(maxParallel)
-                        .setEUtModifier(euModifier).enableBatchMode(batchSize).setConsumption(true)
-                        .setOutputCalculation(true);
+                return super.createParallelHelper(recipe)
+                        .setInputConsumer((recipeToConsume, amountMultiplier, aFluidInputs, aInputs) -> {
+                            // Correct parallel is already calculated by ProcessingLogic#validateRecipe,
+                            // so we don't need to set MaxParallelCalculator
+                            recipeToConsume.consumeInput(amountMultiplier, aFluidInputs, aInputs);
+                            if (catalystRecipe != null) {
+                                damageCatalyst(catalystRecipe, amountMultiplier);
+                            }
+                        });
             }
         }.setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
@@ -644,18 +627,17 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         }
     }
 
-    private int getCatalysts(ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParallel) {
+    private int getParallelLimitedByCatalyst(ItemStack[] aItemInputs, ItemStack aRecipeCatalyst, int aMaxParallel) {
         if (!isCatalystDamageable()) {
-            return getMaxParallelRecipes();
+            return aMaxParallel;
         }
-        int allowedParallel = 0;
         for (final ItemStack aInput : aItemInputs) {
             if (aRecipeCatalyst.isItemEqual(aInput)) {
                 int aDurabilityRemaining = getMaxCatalystDurability() - getDamage(aInput);
                 return Math.min(aMaxParallel, aDurabilityRemaining);
             }
         }
-        return allowedParallel;
+        return 0;
     }
 
     private ItemStack findCatalyst(ItemStack[] aItemInputs, ItemStack[] aRecipeInputs) {
@@ -675,11 +657,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         return null;
     }
 
-    private int getDamage(ItemStack aStack) {
+    private int getDamage(@Nonnull ItemStack aStack) {
         return ItemGenericChemBase.getCatalystDamage(aStack);
     }
 
-    private void setDamage(ItemStack aStack, int aAmount) {
+    private void setDamage(@Nonnull ItemStack aStack, int aAmount) {
         ItemGenericChemBase.setCatalystDamage(aStack, aAmount);
     }
 
@@ -692,13 +674,11 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
         if (this.getControllerSlot() != null) {
             tItems.add(this.getControllerSlot());
         }
-        for (GT_MetaTileEntity_Hatch_Catalysts tHatch : mCatalystBuses) {
+        for (GT_MetaTileEntity_Hatch_Catalysts tHatch : filterValidMTEs(mCatalystBuses)) {
             tHatch.mRecipeMap = getRecipeMap();
-            if (isValidMetaTileEntity(tHatch)) {
-                AutoMap<ItemStack> aHatchContent = tHatch.getContentUsageSlots();
-                if (!aHatchContent.isEmpty()) {
-                    tItems.addAll(aHatchContent);
-                }
+            AutoMap<ItemStack> aHatchContent = tHatch.getContentUsageSlots();
+            if (!aHatchContent.isEmpty()) {
+                tItems.addAll(aHatchContent);
             }
         }
         return tItems;

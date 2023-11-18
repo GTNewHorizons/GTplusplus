@@ -65,7 +65,6 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.ModItems;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.slots.SlotBuzzSaw.SAWTOOL;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -73,6 +72,7 @@ import gtPlusPlus.core.util.minecraft.MaterialUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper;
+import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper.SAWTOOL;
 
 public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntityTreeFarm>
         implements ISurvivalConstructable {
@@ -164,16 +164,12 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
      * @return an int corresponding to the boost
      */
     public int getSawBoost(SAWTOOL sawType) {
-        switch (sawType) {
-            case SAW:
-                return 1;
-            case BUZZSAW:
-                return 2;
-            case CHAINSAW:
-                return 4;
-            default:
-                return 1;
-        }
+        return switch (sawType) {
+            case SAW -> 1;
+            case BUZZSAW -> 2;
+            case CHAINSAW -> 4;
+            default -> 1;
+        };
     }
 
     @Override

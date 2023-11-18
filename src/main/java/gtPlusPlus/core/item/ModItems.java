@@ -43,6 +43,7 @@ import gtPlusPlus.core.item.chemistry.CoalTar;
 import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.item.chemistry.IonParticles;
 import gtPlusPlus.core.item.chemistry.MilledOreProcessing;
+import gtPlusPlus.core.item.chemistry.NuclearChem;
 import gtPlusPlus.core.item.chemistry.RocketFuels;
 import gtPlusPlus.core.item.chemistry.StandardBaseParticles;
 import gtPlusPlus.core.item.crafting.ItemDummyResearch;
@@ -61,16 +62,12 @@ import gtPlusPlus.core.item.general.chassis.ItemBoilerChassis;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoil;
 import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
-import gtPlusPlus.core.item.general.throwables.ItemHydrofluoricAcidPotion;
-import gtPlusPlus.core.item.general.throwables.ItemSulfuricAcidPotion;
-import gtPlusPlus.core.item.general.throwables.ItemThrowableBomb;
 import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
 import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.material.ALLOY;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.MISC_MATERIALS;
@@ -100,7 +97,7 @@ public final class ModItems {
     public static ItemCustomSpawnEgg itemCustomSpawnEgg;
 
     public static Item itemIngotBatteryAlloy;
-    public static Item itemPlateBatteryAlloy;
+
     public static Item itemHydrogenBlob;
 
     public static Item itemBedLocator_Base;
@@ -109,7 +106,6 @@ public final class ModItems {
     public static Item itemPersonalCloakingDevice;
     public static Item itemPersonalHealingDevice;
     public static Item itemSupremePizzaGloves;
-    public static Item itemSlowBuildingRing;
 
     public static ItemBlueprint itemBlueprintBase;
 
@@ -180,9 +176,6 @@ public final class ModItems {
 
     public static Item itemHalfCompleteCasings;
 
-    public static Item itemSulfuricPotion;
-    public static Item itemHydrofluoricPotion;
-
     public static Item itemCustomBook;
 
     // Unstable Elements & Related Content
@@ -222,11 +215,6 @@ public final class ModItems {
     public static DebugScanner itemDebugScanner;
 
     public static ItemDummyResearch itemDummyResearch;
-
-    public static CoreItem itemBombCasing;
-    public static CoreItem itemBombUnf;
-    public static CoreItem itemDetCable;
-    public static ItemThrowableBomb itemBomb;
 
     public static BaseItemMetaFood itemMetaFood;
 
@@ -287,14 +275,7 @@ public final class ModItems {
                 EnumChatFormatting.GRAY,
                 false,
                 Utils.rgbtoHexValue(255, 255, 255)).setTextureName(GregTech.ID + ":" + "gt.metaitem.01/" + "761");
-        itemSulfuricPotion = new ItemSulfuricAcidPotion(
-                "itemSulfuricPotion",
-                "Throwable Vial of Sulfuric Acid",
-                "Burn your foes alive!").setTextureName(GTPlusPlus.ID + ":itemSulfuricAcidPotion");
-        itemHydrofluoricPotion = new ItemHydrofluoricAcidPotion(
-                "itemHydrofluoricPotion",
-                "Throwable Vial of Hydrofluoric Acid",
-                "They won't see this coming, nor anything after!").setTextureName(GTPlusPlus.ID + ":itemPotion");
+
         // Start meta Item Generation
         ItemsFoods.load();
 
@@ -328,6 +309,7 @@ public final class ModItems {
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().PROTACTINIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().CURIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().CALIFORNIUM, false);
+            MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().NEPTUNIUM, false);
             MaterialGenerator.generateNuclearMaterial(ELEMENT.getInstance().FERMIUM, false);
 
             // Nuclear Isotopes
@@ -377,9 +359,6 @@ public final class ModItems {
             MaterialGenerator.generate(ALLOY.TUNGSTEN_TITANIUM_CARBIDE);
 
             // LFTR Fuel components
-            // MaterialGenerator.generate(MISC_MATERIALS.HYDROXIDE); //LFTR fuel component
-            // MaterialGenerator.generate(MISC_MATERIALS.AMMONIA); //LFTR fuel component
-            // MaterialGenerator.generate(MISC_MATERIALS.AMMONIUM); //LFTR fuel component
             MaterialGenerator.generateNuclearDusts(FLUORIDES.AMMONIUM_BIFLUORIDE); // LFTR fuel component
             MaterialGenerator.generateNuclearDusts(FLUORIDES.BERYLLIUM_HYDROXIDE); // LFTR fuel component
             // MaterialGenerator.generateNuclearDusts(FLUORIDES.AMMONIUM_TETRAFLUOROBERYLLATE); // LFTR fuel component
@@ -612,12 +591,6 @@ public final class ModItems {
         // fluidLftrCore4 = FluidUtils.addGTFluidNoPrefix("LiFBeF2UF4", "LiFBeF2UF4", new short[]{50, 255, 100, 100}, 0,
         // 800, null, CI.emptyCells(1), 1000, true);
         // LFTR Blanket Fluid Processing
-        // fluidLftrBlanket1 = FluidUtils.addGTFluidNoPrefix("LiFThF4", "LiFThF4", new short[]{50, 150, 255, 50}, 0,
-        // 500, null, CI.emptyCells(1), 1000, true);
-        // fluidLftrBlanket2 = FluidUtils.addGTFluidNoPrefix("LiFBeF2ThF4", "LiFBeF2ThF4", new short[]{100, 150, 100,
-        // 100}, 0, 500, null, CI.emptyCells(1), 1000, true);
-        // fluidLftrBlanket3 = FluidUtils.addGTFluidNoPrefix("UF6F2", "UF6F2", new short[]{10, 150, 10, 100}, 0, 500,
-        // null, CI.emptyCells(1), 1000, true);
         fluidNuclearWaste = FluidUtils.addGTFluidNoPrefix(
                 "nuclear.waste",
                 "Nuclear Waste",
@@ -665,10 +638,6 @@ public final class ModItems {
          * GT_OreDictUnificator.registerOre("dustZrF4",
          * ItemUtils.getItemStackOfAmountFromOreDict("dustZirconiumTetrafluoride", 1));
          */
-        // GT_OreDictUnificator.registerOre("cellZrF4",
-        // ItemUtils.getItemStackOfAmountFromOreDict("cellZirconiumTetrafluoride", 1));
-        // GT_OreDictUnificator.registerOre("dustZrF4",
-        // ItemUtils.getItemStackOfAmountFromOreDict("dustZirconiumTetrafluoride", 1));
         fluidZrF4 = FluidUtils.generateFluidNoPrefix(
                 "ZirconiumTetrafluoride",
                 "Zirconium Tetrafluoride",
@@ -703,9 +672,8 @@ public final class ModItems {
                         temp1,
                         null,
                         true);
-                GT_Values.RA.stdBuilder().itemInputs(temp2).noItemOutputs().noFluidInputs()
-                        .fluidOutputs(new FluidStack(fluidFertBasic, 36)).duration(5 * TICKS).eut(16)
-                        .addTo(sFluidExtractionRecipes);
+                GT_Values.RA.stdBuilder().itemInputs(temp2).fluidOutputs(new FluidStack(fluidFertBasic, 36))
+                        .duration(5 * TICKS).eut(16).addTo(sFluidExtractionRecipes);
             }
             fluidFertUN32 = FluidUtils.generateFluidNonMolten(
                     "UN32Fertiliser",
@@ -761,7 +729,7 @@ public final class ModItems {
                 "dustNeptunium238",
                 Utils.rgbtoHexValue(175, 240, 75),
                 50640,
-                new String[] { "" + StringUtils.superscript("238Np"),
+                new String[] { StringUtils.superscript("238Np"),
                         "Result: Plutonium 238 (" + StringUtils.superscript("238Pu") + ")" },
                 ELEMENT.getInstance().PLUTONIUM238.getDust(1).getItem(),
                 5);
@@ -774,7 +742,7 @@ public final class ModItems {
                 "dustRadium226",
                 ELEMENT.getInstance().RADIUM.getRgbAsHex(),
                 90000,
-                new String[] { "" + StringUtils.superscript("226Ra"),
+                new String[] { StringUtils.superscript("226Ra"),
                         "Result: Radon (" + StringUtils.superscript("222Rn") + ")" },
                 ItemUtils.getSimpleStack(dustDecayedRadium226).getItem(),
                 5);
@@ -782,7 +750,7 @@ public final class ModItems {
                 "dustProtactinium233",
                 ELEMENT.getInstance().PROTACTINIUM.getRgbAsHex(),
                 32000,
-                new String[] { "" + StringUtils.superscript("233Pa"),
+                new String[] { StringUtils.superscript("233Pa"),
                         "Result: Uranium 233(" + StringUtils.superscript("233U") + ")" },
                 ELEMENT.getInstance().URANIUM233.getDust(1).getItem(),
                 6);
@@ -790,7 +758,7 @@ public final class ModItems {
                 "dustMolybdenum99",
                 ELEMENT.getInstance().MOLYBDENUM.getRgbAsHex(),
                 16450,
-                new String[] { "" + StringUtils.superscript("99Mo"),
+                new String[] { StringUtils.superscript("99Mo"),
                         "Result: Technicium 99ᵐ (" + StringUtils.superscript("99ᵐTc") + ")" },
                 dustTechnetium99M,
                 4);
@@ -815,6 +783,9 @@ public final class ModItems {
         new CoalTar();
         new RocketFuels();
 
+        // Nuclear Processing
+        new NuclearChem();
+
         // Farm Animal Fun
         new AgriculturalChem();
 
@@ -823,15 +794,6 @@ public final class ModItems {
 
         // Milled Ore Processing
         new MilledOreProcessing();
-
-        // Bombs
-        itemBombCasing = new CoreItem("itemBombCasing", "Bomb Casing", tabMisc);
-        itemBombCasing.setTextureName(GTPlusPlus.ID + ":bomb_casing");
-        itemBombUnf = new CoreItem("itemBombUnf", "Bomb (unf)", tabMisc);
-        itemBombUnf.setTextureName(GTPlusPlus.ID + ":bomb_casing");
-        itemDetCable = new CoreItem("itemDetCable", "Det. Cable", tabMisc);
-        itemDetCable.setTextureName("string");
-        itemBomb = new ItemThrowableBomb();
 
         // IC2 Exp
         Logger.INFO("IndustrialCraft2 Found - Loading Resources.");
@@ -846,12 +808,6 @@ public final class ModItems {
             }
         } catch (final Throwable T) {
             Logger.INFO("Baubles Not Found - Skipping Resources.");
-        }
-
-        // Special Item Handling Case
-        if (ConfigSwitches.enableAlternativeBatteryAlloy) {
-            ModItems.itemPlateBatteryAlloy = ItemUtils
-                    .generateSpecialUsePlate("BatteryAlloy", "Battery Alloy", new short[] { 35, 228, 141 }, 0);
         }
 
         // Buffer Cores!
@@ -877,7 +833,7 @@ public final class ModItems {
         // Custom GT++ Crafting Components
 
         /*
-         * Try generate dusts for missing rare earth materials if they don't exist
+         * Try to generate dusts for missing rare earth materials if they don't exist
          */
         if (!ItemUtils.checkForInvalidItems(ItemUtils.getItemStackOfAmountFromOreDictNoBroken("dustGadolinium", 1))) {
             ItemUtils.generateSpecialUseDusts(

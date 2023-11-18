@@ -10,9 +10,7 @@ import gtPlusPlus.xmod.bop.HANDLER_BiomesOPlenty;
 import gtPlusPlus.xmod.forestry.HANDLER_FR;
 import gtPlusPlus.xmod.gregtech.HANDLER_GT;
 import gtPlusPlus.xmod.ic2.HANDLER_IC2;
-import gtPlusPlus.xmod.ob.HANDLER_OpenBlocks;
 import gtPlusPlus.xmod.railcraft.HANDLER_Railcraft;
-import gtPlusPlus.xmod.thaumcraft.HANDLER_Thaumcraft;
 import gtPlusPlus.xmod.thermalfoundation.HANDLER_TF;
 import gtPlusPlus.xmod.tinkers.HANDLER_Tinkers;
 
@@ -31,8 +29,6 @@ public class COMPAT_IntermodStaging {
     public static void init(FMLInitializationEvent init) {
         HANDLER_GT.init();
         HANDLER_TF.init();
-        HANDLER_Thaumcraft.init();
-        HANDLER_OpenBlocks.init();
     }
 
     public static void postInit(FMLPostInitializationEvent postinit) {
@@ -44,7 +40,6 @@ public class COMPAT_IntermodStaging {
         HANDLER_Tinkers.postInit();
         HANDLER_CropsPlusPlus.postInit(postinit);
         HANDLER_Railcraft.postInit();
-        HANDLER_OpenBlocks.postInit();
         RecipeRemovals.postInit();
     }
 

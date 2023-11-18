@@ -2,7 +2,7 @@ package gtPlusPlus.nei;
 
 import static gregtech.api.enums.Mods.GTPlusPlus;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -123,8 +123,8 @@ public class DecayableRecipeHandler extends TemplateRecipeHandler {
         }
     }
 
-    private final void sort() {
-        List<DecayableRecipeNEI> g = new ArrayList<DecayableRecipeNEI>();
+    private void sort() {
+        List<DecayableRecipeNEI> g = new ArrayList<>();
         for (CachedRecipe u : arecipes) {
             g.add((DecayableRecipeNEI) u);
         }

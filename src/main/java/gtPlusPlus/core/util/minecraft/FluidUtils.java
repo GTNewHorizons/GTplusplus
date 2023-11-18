@@ -1,5 +1,9 @@
 package gtPlusPlus.core.util.minecraft;
 
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidCannerRecipes;
+import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sFluidExtractionRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+
 import java.util.HashMap;
 
 import net.minecraft.init.Items;
@@ -12,6 +16,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidContainerItem;
 
 import gregtech.api.enums.Dyes;
+import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.util.GT_LanguageManager;
@@ -19,16 +24,14 @@ import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.FluidGT6;
 import gtPlusPlus.core.item.base.BaseItemComponent;
 import gtPlusPlus.core.item.base.cell.BaseItemPlasmaCell;
-import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialStack;
-import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechOrePrefixes.GT_Materials;
 
 public class FluidUtils {
 
-    private static HashMap<String, Fluid> sFluidCache = new HashMap<String, Fluid>();
+    private static HashMap<String, Fluid> sFluidCache = new HashMap<>();
 
     public static FluidStack getWater(final int amount) {
         return FluidUtils.getFluidStack("water", amount);
@@ -50,36 +53,12 @@ public class FluidUtils {
         return FluidUtils.getFluidStack("ic2pahoehoelava", amount);
     }
 
-    public static FluidStack getMilk(final int amount) {
-        return FluidUtils.getFluidStack("milk", amount);
-    }
-
-    public static FluidStack getColdCoolant(final int amount) {
-        return FluidUtils.getFluidStack("ic2coolant", amount);
-    }
-
-    public static FluidStack getHotCoolant(final int amount) {
-        return FluidUtils.getFluidStack("ic2hotcoolant", amount);
-    }
-
     public static FluidStack getSteam(final int amount) {
         return FluidUtils.getFluidStack("steam", amount);
     }
 
-    public static FluidStack getIC2Steam(final int amount) {
-        return FluidUtils.getFluidStack("ic2steam", amount);
-    }
-
     public static FluidStack getSuperHeatedSteam(final int amount) {
         return FluidUtils.getFluidStack("ic2superheatedsteam", amount);
-    }
-
-    public static FluidStack getUUA(final int amount) {
-        return FluidUtils.getFluidStack("uuamplifier", amount);
-    }
-
-    public static FluidStack getUUM(final int amount) {
-        return FluidUtils.getFluidStack("ic2uumatter", amount);
     }
 
     public static FluidStack getHydrofluoricAcid(int amount) {
@@ -138,26 +117,6 @@ public class FluidUtils {
         return new FluidStack(aFluid, aAmount);
     }
 
-    public static FluidStack[] getFluidStackArray(final String fluidName, final int amount) {
-        Logger.WARNING("Trying to get a fluid stack of " + fluidName);
-        try {
-            final FluidStack[] singleFluid = { getFluidStack(fluidName, amount) };
-            return singleFluid;
-        } catch (final Throwable e) {
-            return null;
-        }
-    }
-
-    public static FluidStack[] getFluidStackArray(final FluidStack fluidName, final int amount) {
-        Logger.WARNING("Trying to get a fluid stack of " + fluidName);
-        try {
-            final FluidStack[] singleFluid = { getFluidStack(fluidName, amount) };
-            return singleFluid;
-        } catch (final Throwable e) {
-            return null;
-        }
-    }
-
     public static Fluid addGtFluid(final String aName, final String aLocalized, final GT_Materials aMaterial,
             final int aState, final long aTemperatureK, final ItemStack aFullContainer, final ItemStack aEmptyContainer,
             final int aFluidAmount) {
@@ -187,26 +146,20 @@ public class FluidUtils {
                 aEmptyContainer,
                 aFluidAmount,
                 aGenerateCell);
-        if (g != null) {
-            if (aMaterial != null) {
-                switch (aState) {
-                    case 1: {
-                        aMaterial.mFluid = (g);
-                        break;
-                    }
-                    case 2: {
-                        aMaterial.mGas = (g);
-                        break;
-                    }
-                    case 3: {
-                        aMaterial.mPlasma = (g);
-                        break;
-                    }
+        if (aMaterial != null) {
+            switch (aState) {
+                case 1 -> {
+                    aMaterial.mFluid = (g);
+                }
+                case 2 -> {
+                    aMaterial.mGas = (g);
+                }
+                case 3 -> {
+                    aMaterial.mPlasma = (g);
                 }
             }
-            return g;
         }
-        return null;
+        return g;
     }
 
     public static Fluid addGTFluid(final String aName, final String aLocalized, final short[] aRGBa, final int aState,
@@ -257,7 +210,7 @@ public class FluidUtils {
                 aGenerateCell);
     }
 
-    // Gass
+    // Gas
     public static Fluid addGtGas(final String aName, final String aLocalized, final short[] aRGBa, final int aState,
             final long aTemperatureK, final ItemStack aFullContainer, final ItemStack aEmptyContainer,
             final int aFluidAmount, final boolean aGenerateCell) {
@@ -342,29 +295,24 @@ public class FluidUtils {
             GT_LanguageManager.addStringLocalization(rFluid.getUnlocalizedName(), aLocalName);
             if (FluidRegistry.registerFluid(rFluid)) {
                 switch (aState) {
-                    case 0: {
+                    case 0 -> {
                         rFluid.setGaseous(false);
                         rFluid.setViscosity(10000);
-                        break;
                     }
-                    case 1:
-                    case 4: {
+                    case 1, 4 -> {
                         rFluid.setGaseous(false);
                         rFluid.setViscosity(1000);
-                        break;
                     }
-                    case 2: {
+                    case 2 -> {
                         rFluid.setGaseous(true);
                         rFluid.setDensity(-100);
                         rFluid.setViscosity(200);
-                        break;
                     }
-                    case 3: {
+                    case 3 -> {
                         rFluid.setGaseous(true);
                         rFluid.setDensity(-10000);
                         rFluid.setViscosity(10);
                         rFluid.setLuminosity(15);
-                        break;
                     }
                 }
             }
@@ -417,22 +365,19 @@ public class FluidUtils {
                         new FluidStack(rFluid, aFluidAmount),
                         aFullContainer,
                         aEmptyContainer)) {
-            CORE.RA.addFluidCannerRecipe(CI.emptyCells(1), aFullContainer, new FluidStack(rFluid, aFluidAmount));
-        } else {
-            // Utils.LOG_INFO("Failed creating recipes to fill/empty cells of "+aName+".");
+            GT_Values.RA.stdBuilder().itemInputs(ItemList.Cell_Empty.get(1L)).itemOutputs(aFullContainer)
+                    .fluidInputs(new FluidStack(rFluid, aFluidAmount)).duration(4).eut(1).addTo(sFluidCannerRecipes);
         }
         return rFluid;
     }
 
     public static boolean valid(final Object aStack) {
-        return (aStack != null) && (aStack instanceof ItemStack)
-                && (((ItemStack) aStack).getItem() != null)
+        return (aStack instanceof ItemStack) && (((ItemStack) aStack).getItem() != null)
                 && (((ItemStack) aStack).stackSize >= 0);
     }
 
     public static boolean invalid(final Object aStack) {
-        return (aStack == null) || !(aStack instanceof ItemStack)
-                || (((ItemStack) aStack).getItem() == null)
+        return !(aStack instanceof ItemStack) || (((ItemStack) aStack).getItem() == null)
                 || (((ItemStack) aStack).stackSize < 0);
     }
 
@@ -517,40 +462,7 @@ public class FluidUtils {
         return amount(aStacksize, container(aStack, aCheckIFluidContainerItems));
     }
 
-    public static final Fluid generateFluid(final String unlocalizedName, final String localizedName,
-            final int MeltingPoint, final short[] RGBA, boolean aGenerateCell) {
-        FluidStack aFStack = (FluidUtils.getFluidStack("molten" + "." + unlocalizedName.toLowerCase(), 1));
-        if (aFStack == null) {
-            Logger.WARNING("Generating our own fluid.");
-            /*
-             * ItemStack cell = ItemUtils.getItemStackOfAmountFromOreDictNoBroken("cell"+unlocalizedName, 1); if (cell
-             * == null){ final Item temp = new BaseItemComponent(unlocalizedName, localizedName, RGBA); cell =
-             * ItemUtils.getSimpleStack(temp); }
-             */
-            final Fluid gtFluid = FluidUtils.addGTFluid(
-                    unlocalizedName,
-                    "Molten " + localizedName,
-                    RGBA,
-                    4,
-                    MeltingPoint,
-                    null,
-                    ItemUtils.getEmptyCell(),
-                    1000,
-                    aGenerateCell);
-
-            return gtFluid;
-        } else {
-            Logger.INFO("FLUID GENERATION FAILED FOR " + localizedName + ", ALREADY EXISTS");
-            return aFStack.getFluid();
-        }
-    }
-
-    public static final Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
-            final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
-        return generateFluidNonMolten(unlocalizedName, localizedName, MeltingPoint, RGBA, null, null, 0, aGenerateCell);
-    }
-
-    public static final Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
+    public static Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
             final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2) {
         return generateFluidNonMolten(
                 unlocalizedName,
@@ -563,7 +475,7 @@ public class FluidUtils {
                 true);
     }
 
-    public static final Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
+    public static Fluid generateFluidNonMolten(final String unlocalizedName, final String localizedName,
             final int MeltingPoint, final short[] RGBA, final ItemStack dustStack, final ItemStack dustStack2,
             final boolean aGenerateCell) {
         return generateFluidNonMolten(
@@ -600,20 +512,14 @@ public class FluidUtils {
                     aGenerateCell);
 
             if (dustStack != null) {
-                CORE.RA.addFluidExtractionRecipe(
-                        dustStack, // Input 2
-                        FluidUtils.getFluidStack(gtFluid, amountPerItem), // Fluid Output
-                        1 * 20, // Duration
-                        16 // Eu Tick
-                );
+                GT_Values.RA.stdBuilder().itemInputs(dustStack)
+                        .fluidOutputs(FluidUtils.getFluidStack(gtFluid, amountPerItem)).duration(1 * SECONDS).eut(16)
+                        .addTo(sFluidExtractionRecipes);
             }
             if (dustStack2 != null) {
-                CORE.RA.addFluidExtractionRecipe(
-                        dustStack2, // Input 2
-                        FluidUtils.getFluidStack(gtFluid, amountPerItem), // Fluid Output
-                        1 * 20, // Duration
-                        16 // Eu Tick
-                );
+                GT_Values.RA.stdBuilder().itemInputs(dustStack2)
+                        .fluidOutputs(FluidUtils.getFluidStack(gtFluid, amountPerItem)).duration(1 * SECONDS).eut(16)
+                        .addTo(sFluidExtractionRecipes);
             }
 
             return gtFluid;
@@ -623,12 +529,12 @@ public class FluidUtils {
         }
     }
 
-    public static final Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
+    public static Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
             final int MeltingPoint, final short[] RGBA) {
         return generateFluidNoPrefix(unlocalizedName, localizedName, MeltingPoint, RGBA, true);
     }
 
-    public static final Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
+    public static Fluid generateFluidNoPrefix(final String unlocalizedName, final String localizedName,
             final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
         Fluid gtFluid;
         if (FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1) == null) {
@@ -646,15 +552,11 @@ public class FluidUtils {
         } else {
             gtFluid = FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1).getFluid();
         }
-        // Generate a Cell if we need to
-        // if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("cell"+unlocalizedName, 1) == null){
-        // new BaseItemCell(unlocalizedName, localizedName, RGBA, gtFluid);
-        // }
         return gtFluid;
     }
 
-    public static final Fluid generateGas(final String unlocalizedName, final String localizedName,
-            final int MeltingPoint, final short[] RGBA, final boolean aGenerateCell) {
+    public static Fluid generateGas(final String unlocalizedName, final String localizedName, final int MeltingPoint,
+            final short[] RGBA, final boolean aGenerateCell) {
         Fluid gtFluid;
         if (FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1) == null) {
             Logger.WARNING("Generating our own gas.");
@@ -671,20 +573,11 @@ public class FluidUtils {
         } else {
             gtFluid = FluidUtils.getFluidStack(unlocalizedName.toLowerCase(), 1).getFluid();
         }
-        // Generate a Cell if we need to
-        /*
-         * if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("cell"+unlocalizedName, 1) == null){ new
-         * BaseItemCell(unlocalizedName, localizedName, RGBA, gtFluid); }
-         */
         return gtFluid;
     }
 
     public static FluidStack getMobEssence(final int amount) {
         return EnchantingUtils.getMobEssence(amount);
-    }
-
-    public static FluidStack getLiquidXP(final int amount) {
-        return EnchantingUtils.getLiquidXP(amount);
     }
 
     public static boolean doesFluidExist(String aFluidName) {

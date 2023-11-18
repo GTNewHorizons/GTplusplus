@@ -55,7 +55,7 @@ public class BaseItemIngotHot extends BaseItemIngot {
     private void generateRecipe() {
         Logger.WARNING("Adding Vacuum Freezer recipe for a Hot Ingot of " + this.materialName + ".");
         GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(this)).itemOutputs(this.outputIngot.copy())
-                .noFluidInputs().noFluidOutputs().duration(Math.max(this.componentMaterial.getMass() * 3L, 1L) * TICKS)
+                .duration(Math.max(this.componentMaterial.getMass() * 3L, 1L) * TICKS)
                 .eut(this.componentMaterial.vVoltageMultiplier).addTo(sVacuumRecipes);
     }
 
@@ -91,8 +91,6 @@ public class BaseItemIngotHot extends BaseItemIngot {
         } else {
             this.base = i.registerIcon(
                     GTPlusPlus.ID + ":" + "item" + BaseItemComponent.ComponentTypes.HOTINGOT.getComponent());
-            // this.overlay = i.registerIcon(GTPlusPlus.ID + ":" +
-            // "item"+BaseItemComponent.ComponentTypes.HOTINGOT.getComponent()+"_Overlay");
         }
         // this.overlay = cellMaterial.getFluid(1000).getFluid().get
     }
