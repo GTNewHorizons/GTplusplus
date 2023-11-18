@@ -123,6 +123,7 @@ public class GregtechSimpleWasher {
         // Generate Recipe Map for the Dust Washer.
         ItemStack dustClean;
         ItemStack dustDirty;
+        ItemStack dustPure;
         for (Materials v : Materials.values()) {
             if (v == Materials.Platinum || v == Materials.Osmium
                     || v == Materials.Iridium
@@ -132,13 +133,17 @@ public class GregtechSimpleWasher {
 
             dustClean = GT_OreDictUnificator.get(OrePrefixes.dust, v, 1L);
             dustDirty = GT_OreDictUnificator.get(OrePrefixes.dustImpure, v, 1L);
+            dustPure = GT_OreDictUnificator.get(OrePrefixes.dustPure, v, 1L);
             addSimpleWashRecipe(dustDirty, dustClean);
+            addSimpleWashRecipe(dustPure, dustClean);
         }
 
         for (Werkstoff v : Werkstoff.werkstoffHashSet) {
             dustClean = v.hasItemType(OrePrefixes.dust) ? v.get(OrePrefixes.dust) : null;
             dustDirty = v.hasItemType(OrePrefixes.dustImpure) ? v.get(OrePrefixes.dustImpure) : null;
+            dustPure = v.hasItemType(OrePrefixes.dustPure) ? v.get(OrePrefixes.dustPure) : null;
             addSimpleWashRecipe(dustDirty, dustClean);
+            addSimpleWashRecipe(dustPure, dustClean);
         }
 
         return GTPP_Recipe.GTPP_Recipe_Map.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
