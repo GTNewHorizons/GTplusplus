@@ -2,7 +2,6 @@ package gtPlusPlus.xmod.gregtech.loaders;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import net.minecraft.item.ItemStack;
@@ -11,8 +10,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.MaterialsUEVplus;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.ItemStackData;
@@ -67,22 +64,6 @@ public class RecipeGen_BlastSmelterGT_GTNH {
 
     public static synchronized boolean generateGTNHBlastSmelterRecipesFromEBFList() {
 
-        List<String> blacklist = new ArrayList<>();
-        // superconductor base
-        blacklist.add(Materials.Pentacadmiummagnesiumhexaoxid.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Titaniumonabariumdecacoppereikosaoxid.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Uraniumtriplatinid.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Vanadiumtriindinid.getDust(1).getUnlocalizedName());
-        blacklist.add(
-                Materials.Tetraindiumditindibariumtitaniumheptacoppertetrakaidekaoxid.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Tetranaquadahdiindiumhexaplatiumosminid.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Longasssuperconductornameforuvwire.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.Longasssuperconductornameforuhvwire.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.SuperconductorUEVBase.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.SuperconductorUIVBase.getDust(1).getUnlocalizedName());
-        blacklist.add(Materials.SuperconductorUMVBase.getDust(1).getUnlocalizedName());
-
-        blacklist.add(MaterialsUEVplus.TranscendentMetal.getDust(1).getUnlocalizedName());
         // Make a counting object
         int mSuccess = 0;
 
@@ -173,13 +154,10 @@ public class RecipeGen_BlastSmelterGT_GTNH {
                 time = x.mDuration;
                 enabled = x.mEnabled;
                 special = x.mSpecialValue;
-                // black list apply
-                if (blacklist.contains(x.mInputs[0].getUnlocalizedName())) {
-                    continue;
-                }
-                // skip high temp recipe with wrong voltage
-                if ((special > 3600) && (voltage == 120)) {
-                    Logger.MACHINE_INFO("[ABS] Skipping ABS addition for GTNH due to wrong voltage");
+
+                // continue to next recipe if the Temp is too high.
+                if (special > 3600) {
+                    Logger.MACHINE_INFO("[ABS] Skipping ABS addition for GTNH due to temp.");
                     continue;
                 } else {
                     FluidStack mMoltenStack = null;
