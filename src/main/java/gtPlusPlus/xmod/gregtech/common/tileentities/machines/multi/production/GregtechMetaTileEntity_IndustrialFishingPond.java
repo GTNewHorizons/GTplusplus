@@ -45,6 +45,7 @@ import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.data.AutoMap;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
@@ -168,7 +169,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
     @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return null;
+        return GTPPRecipeMaps.sFishPondRecipes;
     }
 
     @Override

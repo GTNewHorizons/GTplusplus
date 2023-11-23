@@ -44,7 +44,6 @@ import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.data.LocaleUtils;
-import gtPlusPlus.nei.NEI_IMC_Sender;
 import gtPlusPlus.plugin.manager.Core_Manager;
 import gtPlusPlus.xmod.gregtech.common.Meta_GT_Proxy;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
@@ -175,7 +174,6 @@ public class GTplusplus implements ActionListener {
         proxy.registerNetworkStuff();
         Meta_GT_Proxy.init();
         Core_Manager.init();
-        NEI_IMC_Sender.IMCSender();
         // Used by foreign players to generate .lang files for translation.
         if (CORE.ConfigSwitches.dumpItemAndBlockData) {
             LocaleUtils.generateFakeLocaleFile();

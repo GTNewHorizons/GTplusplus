@@ -53,6 +53,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
@@ -170,6 +171,12 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
             case CHAINSAW -> 4;
             default -> 1;
         };
+    }
+
+    @Override
+    public RecipeMap<?> getRecipeMap() {
+        // Only for visual
+        return GTPPRecipeMaps.sTreeSimFakeRecipes;
     }
 
     @Override

@@ -32,6 +32,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.util.GT_ModHandler;
@@ -81,6 +82,11 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     public int getDamageToComponent(ItemStack aStack) {
         // log("Trying to damage component.");
         return (aStack != null && aStack.getItem() == mLavaFilter) ? 1 : 0;
+    }
+
+    @Override
+    public RecipeMap<?> getRecipeMap() {
+        return GTPPRecipeMaps.sThermalFuels;
     }
 
     private static Item mLavaFilter;

@@ -18,6 +18,8 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.recipe.RecipeMap;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_Recipe;
@@ -183,5 +185,15 @@ public class GT_MTE_LargeTurbine_Gas extends GregtechMetaTileEntity_LargerTurbin
     @Override
     protected ITexture getTextureFrontFaceActive() {
         return new GT_RenderedTexture(gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_SS_ACTIVE5);
+    }
+
+    @Override
+    public RecipeMap<?> getRecipeMap() {
+        return RecipeMaps.gasTurbineFuels;
+    }
+
+    @Override
+    public int getRecipeCatalystPriority() {
+        return -20;
     }
 }
