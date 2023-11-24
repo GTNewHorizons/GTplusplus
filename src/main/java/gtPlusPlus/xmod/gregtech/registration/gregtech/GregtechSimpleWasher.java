@@ -89,16 +89,17 @@ public class GregtechSimpleWasher {
                             SoundResource.NONE,
                             SpecialEffects.NONE,
                             "SIMPLE_WASHER",
-                            null).getStackForm(1L));
+                            null).setRecipeCatalystPriority(-11).getStackForm(1L));
 
             for (int i = 0; i < washers.size(); i++) {
                 Quad<GregtechItemList, Integer, String, String> washer = washers.get(i);
+                int tier = i + 1;
                 washer.getKey().set(
                         new GT_MetaTileEntity_BasicMachine_GT_Recipe(
                                 washer.getValue_1(),
                                 washer.getValue_2(),
                                 washer.getValue_3(),
-                                i + 1,
+                                tier,
                                 new String[] { "It's like an automatic Cauldron for washing dusts.",
                                         CORE.GT_Tooltip.get() },
                                 GTPPRecipeMaps.sSimpleWasherRecipes,
@@ -108,7 +109,7 @@ public class GregtechSimpleWasher {
                                 SoundResource.NONE,
                                 SpecialEffects.NONE,
                                 "SIMPLE_WASHER",
-                                null).getStackForm(1L));
+                                null).setRecipeCatalystPriority(-tier).getStackForm(1L));
             }
         }
     }

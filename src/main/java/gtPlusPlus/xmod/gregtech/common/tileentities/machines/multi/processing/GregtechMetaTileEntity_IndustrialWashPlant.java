@@ -186,6 +186,11 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -10;
+    }
+
+    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
 

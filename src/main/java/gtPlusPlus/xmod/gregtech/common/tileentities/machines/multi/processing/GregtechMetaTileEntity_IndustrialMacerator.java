@@ -277,6 +277,11 @@ public class GregtechMetaTileEntity_IndustrialMacerator extends
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -10;
+    }
+
+    @Override
     public void onPreTick(final IGregTechTileEntity aBaseMetaTileEntity, final long aTick) {
         super.onPreTick(aBaseMetaTileEntity, aTick);
         if ((aBaseMetaTileEntity.isClientSide()) && (aBaseMetaTileEntity.isActive())

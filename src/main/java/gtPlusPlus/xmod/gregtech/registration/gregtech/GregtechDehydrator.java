@@ -79,7 +79,8 @@ public class GregtechDehydrator {
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E',
                                 OrePrefixes.wireFine.get(Materials.RedAlloy), 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Copper), 'G',
-                                OrePrefixes.gearGt.get(Materials.Steel) }).getStackForm(1L));
+                                OrePrefixes.gearGt.get(Materials.Steel) }).setRecipeCatalystPriority(6)
+                                        .getStackForm(1L));
 
         GregtechItemList.GT_Dehydrator_HV.set(
                 new GT_MetaTileEntity_BasicMachine_GT_Recipe(
@@ -98,7 +99,7 @@ public class GregtechDehydrator {
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E',
                                 OrePrefixes.wireFine.get(Materials.Electrum), 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Silver), 'G', ALLOY.POTIN.getGear(1) })
-                                        .getStackForm(1L));
+                                        .setRecipeCatalystPriority(5).getStackForm(1L));
 
         // Chemical
         GregtechItemList.GT_Dehydrator_EV.set(
@@ -118,7 +119,7 @@ public class GregtechDehydrator {
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT1, 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Aluminium), 'G', ALLOY.TUMBAGA.getGear(1) })
-                                        .getStackForm(1L));
+                                        .setRecipeCatalystPriority(4).getStackForm(1L));
 
         GregtechItemList.GT_Dehydrator_IV.set(
                 new GT_MetaTileEntity_BasicMachine_GT_Recipe(
@@ -137,7 +138,7 @@ public class GregtechDehydrator {
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT2, 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Tungsten), 'G', ALLOY.INCONEL_690.getGear(1) })
-                                        .getStackForm(1L));
+                                        .setRecipeCatalystPriority(3).getStackForm(1L));
 
         GregtechItemList.GT_Dehydrator_LuV.set(
                 new GT_MetaTileEntity_BasicMachine_GT_Recipe(
@@ -155,7 +156,7 @@ public class GregtechDehydrator {
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT3, 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Naquadah), 'G', ALLOY.HASTELLOY_N.getGear(1) })
-                                        .getStackForm(1L));
+                                        .setRecipeCatalystPriority(2).getStackForm(1L));
 
         GregtechItemList.GT_Dehydrator_ZPM.set(
                 new GT_MetaTileEntity_BasicMachine_GT_Recipe(
@@ -173,7 +174,7 @@ public class GregtechDehydrator {
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT4, 'C', CIRCUIT, 'W',
                                 OrePrefixes.cableGt04.get(Materials.Osmium), 'G', ALLOY.ZERON_100.getGear(1) })
-                                        .getStackForm(1L));
+                                        .setRecipeCatalystPriority(1).getStackForm(1L));
 
         // Advanced
         GregtechItemList.Controller_Vacuum_Furnace.set(

@@ -254,6 +254,11 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                 RecipeMaps.fluidSolidifierRecipes);
     }
 
+    @Override
+    public int getRecipeCatalystPriority() {
+        return -10;
+    }
+
     private static RecipeMap<?> getRecipeMap(int aMode) {
         if (aMode == MODE_COMPRESSOR) {
             return RecipeMaps.compressorRecipes;
