@@ -179,7 +179,7 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sAdvFreezerRecipes_GT;
+        return GTPPRecipeMaps.advancedFreezerRecipes;
     }
 
     @Override

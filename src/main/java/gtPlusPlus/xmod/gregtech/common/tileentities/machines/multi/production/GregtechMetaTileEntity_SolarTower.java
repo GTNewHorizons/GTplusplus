@@ -425,7 +425,7 @@ public class GregtechMetaTileEntity_SolarTower extends GregtechMeta_MultiBlockBa
     @Override
     public RecipeMap<?> getRecipeMap() {
         // Only for visual
-        return GTPPRecipeMaps.sSolarTowerRecipes;
+        return GTPPRecipeMaps.solarTowerRecipes;
     }
 
     private int getHeaterTier() {

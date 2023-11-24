@@ -157,7 +157,7 @@ public class GregtechMetaTileEntity_IndustrialMixer
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sMultiblockMixerRecipes_GT;
+        return GTPPRecipeMaps.mixerNonCellRecipes;
     }
 
     @Override

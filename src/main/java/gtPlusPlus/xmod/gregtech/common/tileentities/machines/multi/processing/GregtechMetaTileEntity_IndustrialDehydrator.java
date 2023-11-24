@@ -151,14 +151,13 @@ public class GregtechMetaTileEntity_IndustrialDehydrator extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return mDehydratorMode ? GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes
-                : GTPPRecipeMaps.sVacuumFurnaceRecipes;
+        return mDehydratorMode ? GTPPRecipeMaps.chemicalDehydratorNonCellRecipes : GTPPRecipeMaps.vacuumFurnaceRecipes;
     }
 
     @Nonnull
     @Override
     public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
-        return Arrays.asList(GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes, GTPPRecipeMaps.sVacuumFurnaceRecipes);
+        return Arrays.asList(GTPPRecipeMaps.chemicalDehydratorNonCellRecipes, GTPPRecipeMaps.vacuumFurnaceRecipes);
     }
 
     @Override

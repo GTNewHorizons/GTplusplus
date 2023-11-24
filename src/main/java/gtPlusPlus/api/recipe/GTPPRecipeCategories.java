@@ -11,7 +11,7 @@ public class GTPPRecipeCategories {
     @RecipeCategoryHolder
     public static final RecipeCategory absNonAlloyRecipes = new RecipeCategory(
             "gtpp.recipe.category.abs_non_alloy_recipes",
-            GTPPRecipeMaps.sAlloyBlastSmelterRecipes,
+            GTPPRecipeMaps.alloyBlastSmelterRecipes,
             builder -> builder.setDisplayImage(
                     createIcon(
                             Mods.GTPlusPlus

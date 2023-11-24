@@ -220,7 +220,7 @@ public class GregtechMetaTileEntity_RTG extends GT_MetaTileEntity_BasicGenerator
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sRTGFuels;
+        return GTPPRecipeMaps.rtgFuels;
     }
 
     @Override

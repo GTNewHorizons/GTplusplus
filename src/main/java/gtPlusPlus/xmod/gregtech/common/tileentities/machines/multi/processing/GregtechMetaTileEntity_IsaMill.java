@@ -202,7 +202,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sOreMillRecipes;
+        return GTPPRecipeMaps.millingRecipes;
     }
 
     @Override

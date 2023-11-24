@@ -151,7 +151,7 @@ public class GregtechMetaTileEntity_AlloyBlastSmelter extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sAlloyBlastSmelterRecipes;
+        return GTPPRecipeMaps.alloyBlastSmelterRecipes;
     }
 
     @Override

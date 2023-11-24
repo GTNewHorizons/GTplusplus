@@ -64,7 +64,7 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
     @Override
     public RecipeMap<?> getRecipeMap() {
         // Logger.WARNING("Fuel Count: "+Gregtech_Recipe_Map.sSemiFluidLiquidFuels.mRecipeList.size());
-        return GTPPRecipeMaps.sSemiFluidLiquidFuels;
+        return GTPPRecipeMaps.semiFluidFuels;
     }
 
     @Override

@@ -9,7 +9,7 @@ public class HotFuel {
 
     public static void addNewHotFuel(FluidStack aInput1, FluidStack aOutput1, ItemStack[] outputItems, int[] chances,
             int aSpecialValue) {
-        GTPPRecipeMaps.sThermalFuels.addRecipe(
+        GTPPRecipeMaps.thermalBoilerRecipes.addRecipe(
                 true,
                 null,
                 outputItems,
@@ -24,7 +24,7 @@ public class HotFuel {
     }
 
     public static void addNewHotFuel(FluidStack aInput1, FluidStack aOutput1, FluidStack aOutput2, int aSpecialValue) {
-        GTPPRecipeMaps.sThermalFuels.addRecipe(
+        GTPPRecipeMaps.thermalBoilerRecipes.addRecipe(
                 false,
                 null,
                 null,

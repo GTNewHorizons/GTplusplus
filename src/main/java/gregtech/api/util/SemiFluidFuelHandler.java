@@ -1,6 +1,6 @@
 package gregtech.api.util;
 
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.sSemiFluidLiquidFuels;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.semiFluidFuels;
 
 import java.util.HashMap;
 
@@ -45,7 +45,7 @@ public class SemiFluidFuelHandler {
                                 + " to the Semi-Fluid Generator fuel map. Fuel Produces "
                                 + (aRecipe.mSpecialValue * 1000)
                                 + "EU per 1000L.");
-                sSemiFluidLiquidFuels.add(aRecipe);
+                semiFluidFuels.add(aRecipe);
                 return true;
             }
         } else {
@@ -85,7 +85,7 @@ public class SemiFluidFuelHandler {
                                 + " to the Semi-Fluid Generator fuel map. Fuel Produces "
                                 + g.mSpecialValue
                                 + "EU per 1000L.");
-                sSemiFluidLiquidFuels.add(g);
+                semiFluidFuels.add(g);
             }
         }
         for (Pair<FluidStack, Integer> p : aFoundFluidsFromItems.values()) {
@@ -117,13 +117,13 @@ public class SemiFluidFuelHandler {
                                         + " to the Semi-Fluid Generator fuel map. Fuel Produces "
                                         + (aRecipe.mSpecialValue * 1000)
                                         + "EU per 1000L.");
-                        sSemiFluidLiquidFuels.add(aRecipe);
+                        semiFluidFuels.add(aRecipe);
                     }
                 } else {
                     Logger.INFO("Boosted Fuel value for " + p.getKey().getLocalizedName() + " exceeds 512k, ignoring.");
                 }
             }
         }
-        return !sSemiFluidLiquidFuels.getAllRecipes().isEmpty();
+        return !semiFluidFuels.getAllRecipes().isEmpty();
     }
 }

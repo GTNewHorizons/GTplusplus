@@ -82,7 +82,7 @@ public class GregtechSimpleWasher {
                             0,
                             new String[] { "It's like an automatic Cauldron for washing dusts.",
                                     "§cDEPRECATED: No recipe.§r Make a Simple Washer I.", CORE.GT_Tooltip.get() },
-                            GTPPRecipeMaps.sSimpleWasherRecipes,
+                            GTPPRecipeMaps.simpleWasherRecipes,
                             1,
                             1,
                             true,
@@ -102,7 +102,7 @@ public class GregtechSimpleWasher {
                                 tier,
                                 new String[] { "It's like an automatic Cauldron for washing dusts.",
                                         CORE.GT_Tooltip.get() },
-                                GTPPRecipeMaps.sSimpleWasherRecipes,
+                                GTPPRecipeMaps.simpleWasherRecipes,
                                 1,
                                 1,
                                 true,
@@ -142,11 +142,11 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(dustPure, dustClean);
         }
 
-        return GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
+        return GTPPRecipeMaps.simpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
     }
 
     private static boolean generateDirtyCrushedRecipes() {
-        int mRecipeCount = GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size();
+        int mRecipeCount = GTPPRecipeMaps.simpleWasherRecipes.getAllRecipes().size();
         // Generate Recipe Map for the Dust Washer.
         ItemStack crushedClean;
         ItemStack crushedDirty;
@@ -162,7 +162,7 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(crushedDirty, crushedClean);
         }
 
-        return GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
+        return GTPPRecipeMaps.simpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
     }
 
     private static void addSimpleWashRecipe(ItemStack aInput, ItemStack aOutput) {
@@ -178,7 +178,7 @@ public class GregtechSimpleWasher {
                     5,
                     8,
                     0);
-            GTPPRecipeMaps.sSimpleWasherRecipes.addRecipe(aRecipe);
+            GTPPRecipeMaps.simpleWasherRecipes.addRecipe(aRecipe);
         }
     }
 }

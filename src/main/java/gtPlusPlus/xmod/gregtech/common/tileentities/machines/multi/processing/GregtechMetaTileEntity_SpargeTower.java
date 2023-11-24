@@ -172,10 +172,10 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        if (GTPPRecipeMaps.sSpargeTowerRecipes.getAllRecipes().isEmpty()) {
+        if (GTPPRecipeMaps.spargeTowerFakeRecipes.getAllRecipes().isEmpty()) {
             generateRecipes();
         }
-        return GTPPRecipeMaps.sSpargeTowerRecipes;
+        return GTPPRecipeMaps.spargeTowerFakeRecipes;
     }
 
     private static boolean generateRecipes() {
@@ -191,9 +191,9 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     aRecipe.mDuration,
                     aRecipe.mEUt,
                     0);
-            GTPPRecipeMaps.sSpargeTowerRecipes.add(newRecipe);
+            GTPPRecipeMaps.spargeTowerFakeRecipes.add(newRecipe);
         }
-        return !GTPPRecipeMaps.sSpargeTowerRecipes.getAllRecipes().isEmpty();
+        return !GTPPRecipeMaps.spargeTowerFakeRecipes.getAllRecipes().isEmpty();
     }
 
     @Override

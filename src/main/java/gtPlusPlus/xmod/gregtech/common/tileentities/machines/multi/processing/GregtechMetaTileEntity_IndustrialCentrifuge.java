@@ -142,7 +142,7 @@ public class GregtechMetaTileEntity_IndustrialCentrifuge extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT;
+        return GTPPRecipeMaps.centrifugeNonCellRecipes;
     }
 
     @Override

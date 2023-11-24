@@ -187,7 +187,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes;
+        return GTPPRecipeMaps.nuclearSaltProcessingPlantRecipes;
     }
 
     @Override

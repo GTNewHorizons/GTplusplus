@@ -31,7 +31,7 @@ public class GregtechSolarTower {
                         0).getStackForm(1L));
 
         // NEI recipe
-        GTPPRecipeMaps.sSolarTowerRecipes.addRecipe(
+        GTPPRecipeMaps.solarTowerRecipes.addRecipe(
                 false,
                 null,
                 null,

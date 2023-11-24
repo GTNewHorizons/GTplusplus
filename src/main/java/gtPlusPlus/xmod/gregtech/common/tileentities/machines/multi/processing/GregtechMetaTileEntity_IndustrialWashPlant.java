@@ -173,7 +173,7 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     @Override
     public RecipeMap<?> getRecipeMap() {
         return mMode == 0 ? RecipeMaps.oreWasherRecipes
-                : mMode == 1 ? GTPPRecipeMaps.sSimpleWasherRecipes : RecipeMaps.chemicalBathRecipes;
+                : mMode == 1 ? GTPPRecipeMaps.simpleWasherRecipes : RecipeMaps.chemicalBathRecipes;
     }
 
     @Nonnull
@@ -181,7 +181,7 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
         return Arrays.asList(
                 RecipeMaps.oreWasherRecipes,
-                GTPPRecipeMaps.sSimpleWasherRecipes,
+                GTPPRecipeMaps.simpleWasherRecipes,
                 RecipeMaps.chemicalBathRecipes);
     }
 

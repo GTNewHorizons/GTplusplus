@@ -196,7 +196,7 @@ public class GregtechMetaTileEntity_IndustrialMolecularTransformer
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sMolecularTransformerRecipes;
+        return GTPPRecipeMaps.molecularTransformerRecipes;
     }
 
     @Override

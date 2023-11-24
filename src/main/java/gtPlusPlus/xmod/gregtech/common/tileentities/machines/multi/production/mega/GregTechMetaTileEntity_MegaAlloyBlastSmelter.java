@@ -385,7 +385,7 @@ public class GregTechMetaTileEntity_MegaAlloyBlastSmelter
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sAlloyBlastSmelterRecipes;
+        return GTPPRecipeMaps.alloyBlastSmelterRecipes;
     }
 
     public HeatingCoilLevel getCoilLevel() {

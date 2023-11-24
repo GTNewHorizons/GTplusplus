@@ -81,7 +81,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sLiquidFluorineThoriumReactorRecipes;
+        return GTPPRecipeMaps.liquidFluorineThoriumReactorRecipes;
     }
 
     @Override

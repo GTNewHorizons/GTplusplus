@@ -56,7 +56,7 @@ public class RecipeLoader_LFTR {
         FluidStack Li2BeF4 = NUCLIDE.Li2BeF4.getFluidStack(200);
 
         // LiFBeF2ThF4UF4 - T3
-        GTPPRecipeMaps.sLiquidFluorineThoriumReactorRecipes.addRecipe(
+        GTPPRecipeMaps.liquidFluorineThoriumReactorRecipes.addRecipe(
                 false,
                 new ItemStack[] {},
                 new ItemStack[] {},
@@ -72,7 +72,7 @@ public class RecipeLoader_LFTR {
         );
 
         // LiFBeF2ZrF4UF4 - T2
-        GTPPRecipeMaps.sLiquidFluorineThoriumReactorRecipes.addRecipe(
+        GTPPRecipeMaps.liquidFluorineThoriumReactorRecipes.addRecipe(
                 false,
                 new ItemStack[] {},
                 new ItemStack[] {},
@@ -88,7 +88,7 @@ public class RecipeLoader_LFTR {
         );
 
         // LiFBeF2ZrF4U235 - T1
-        GTPPRecipeMaps.sLiquidFluorineThoriumReactorRecipes.addRecipe(
+        GTPPRecipeMaps.liquidFluorineThoriumReactorRecipes.addRecipe(
                 false,
                 new ItemStack[] {},
                 new ItemStack[] {},

@@ -170,7 +170,7 @@ public class GregtechMetaTileEntity_IndustrialFishingPond extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sFishPondRecipes;
+        return GTPPRecipeMaps.fishPondRecipes;
     }
 
     @Override

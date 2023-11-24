@@ -126,7 +126,7 @@ public class GregtechMetaTileEntity_IndustrialElectrolyzer extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sMultiblockElectrolyzerRecipes_GT;
+        return GTPPRecipeMaps.electrolyzerNonCellRecipes;
     }
 
     @Override

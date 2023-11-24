@@ -62,8 +62,8 @@ public class GregtechIndustrialMassFabricator {
                 32,
                 0);
 
-        GTPPRecipeMaps.sMatterFab2Recipes.add(UUA_From_Scrap);
-        GTPPRecipeMaps.sMatterFab2Recipes.add(UUA_From_ScrapBoxes);
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(UUA_From_Scrap);
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(UUA_From_ScrapBoxes);
 
         // Basic UUM
         GT_Recipe generateUUM_LV = new GT_Recipe(
@@ -92,7 +92,7 @@ public class GregtechIndustrialMassFabricator {
                 0);
 
         // Advanced UUM
-        GTPPRecipeMaps.sMatterFab2Recipes.add(
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(
                 new GT_Recipe(
                         false,
                         new ItemStack[] { CI.getNumberedCircuit(3) },
@@ -106,7 +106,7 @@ public class GregtechIndustrialMassFabricator {
                         0));
 
         // Advanced UUM
-        GTPPRecipeMaps.sMatterFab2Recipes.add(
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(
                 new GT_Recipe(
                         false,
                         new ItemStack[] { CI.getNumberedCircuit(4) },
@@ -119,11 +119,11 @@ public class GregtechIndustrialMassFabricator {
                         65536,
                         0));
 
-        GTPPRecipeMaps.sMatterFab2Recipes.add(generateUUM_LV);
-        GTPPRecipeMaps.sMatterFab2Recipes.add(generateUUMFromUUA_LV);
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(generateUUM_LV);
+        GTPPRecipeMaps.multiblockMassFabricatorRecipes.add(generateUUMFromUUA_LV);
 
         Logger.INFO(
-                "Generated " + GTPPRecipeMaps.sMatterFab2Recipes.getAllRecipes().size()
+                "Generated " + GTPPRecipeMaps.multiblockMassFabricatorRecipes.getAllRecipes().size()
                         + " Matter Fabricator recipes.");
     }
 

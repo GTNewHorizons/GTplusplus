@@ -108,7 +108,7 @@ public class GregtechMTE_FrothFlotationCell extends GregtechMeta_MultiBlockBase<
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sFlotationCellRecipes;
+        return GTPPRecipeMaps.flotationCellRecipes;
     }
 
     @Override

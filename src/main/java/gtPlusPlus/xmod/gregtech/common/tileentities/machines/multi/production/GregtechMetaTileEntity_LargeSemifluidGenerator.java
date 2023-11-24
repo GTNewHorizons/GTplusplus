@@ -123,7 +123,7 @@ public class GregtechMetaTileEntity_LargeSemifluidGenerator extends
         }
 
         for (FluidStack hatchFluid : tFluids) { // Loops through hatches
-            GT_Recipe aFuel = GTPPRecipeMaps.sSemiFluidLiquidFuels.getBackend().findFuel(hatchFluid);
+            GT_Recipe aFuel = GTPPRecipeMaps.semiFluidFuels.getBackend().findFuel(hatchFluid);
             if (aFuel == null) {
                 // Not a valid semi-fluid fuel.
                 continue;

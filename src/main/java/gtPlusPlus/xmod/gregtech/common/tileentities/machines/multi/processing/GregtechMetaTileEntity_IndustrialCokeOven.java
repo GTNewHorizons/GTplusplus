@@ -168,7 +168,7 @@ public class GregtechMetaTileEntity_IndustrialCokeOven extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sCokeOvenRecipes;
+        return GTPPRecipeMaps.cokeOvenRecipes;
     }
 
     @Override

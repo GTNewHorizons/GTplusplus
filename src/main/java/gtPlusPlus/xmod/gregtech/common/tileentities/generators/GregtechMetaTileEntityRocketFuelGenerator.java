@@ -50,7 +50,7 @@ public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFue
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sRocketFuels;
+        return GTPPRecipeMaps.rocketFuels;
     }
 
     @Override

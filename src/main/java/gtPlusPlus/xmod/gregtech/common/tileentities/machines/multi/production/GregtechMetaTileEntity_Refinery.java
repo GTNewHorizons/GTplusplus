@@ -93,7 +93,7 @@ public class GregtechMetaTileEntity_Refinery extends GregtechMeta_MultiBlockBase
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sFissionFuelProcessing;
+        return GTPPRecipeMaps.fissionFuelProcessingRecipes;
     }
 
     @Override

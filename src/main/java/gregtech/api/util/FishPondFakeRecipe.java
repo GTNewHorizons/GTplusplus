@@ -72,6 +72,6 @@ public class FishPondFakeRecipe {
                 0, // No Eu produced
                 0);
         Logger.INFO("Fishing [" + circuit + "]: " + ItemUtils.getArrayStackNames(outputItems));
-        GTPPRecipeMaps.sFishPondRecipes.addRecipe(x, false, false, false);
+        GTPPRecipeMaps.fishPondRecipes.addRecipe(x, false, false, false);
     }
 }

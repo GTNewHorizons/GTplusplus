@@ -436,7 +436,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sQuantumForceTransformerRecipes;
+        return GTPPRecipeMaps.quantumForceTransformerRecipes;
     }
 
     @Override

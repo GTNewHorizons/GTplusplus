@@ -233,7 +233,7 @@ public class GregtechMetaTileEntity_LargeRocketEngine extends
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sRocketFuels;
+        return GTPPRecipeMaps.rocketFuels;
     }
 
     @Override

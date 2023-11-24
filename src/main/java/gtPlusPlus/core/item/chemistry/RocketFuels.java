@@ -283,7 +283,7 @@ public class RocketFuels extends ItemPackage {
             if (aFuelRecipe != null) {
                 mValidRocketFuelNames.add(FluidRegistry.getFluidName(aFuelRecipe.mFluidInputs[0].getFluid()));
                 mValidRocketFuels.put(mID, aFuelRecipe.mFluidInputs[0].getFluid());
-                GTPPRecipeMaps.sRocketFuels.add(aFuelRecipe);
+                GTPPRecipeMaps.rocketFuels.add(aFuelRecipe);
             }
         }
     }

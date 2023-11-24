@@ -417,7 +417,7 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sChemicalPlantRecipes;
+        return GTPPRecipeMaps.chemicalPlantRecipes;
     }
 
     @Override

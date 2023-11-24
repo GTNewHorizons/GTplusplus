@@ -220,13 +220,13 @@ public class GregtechMetaTileEntity_MassFabricator
      */
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return this.mMode == MODE_SCRAP ? RecipeMaps.recyclerRecipes : GTPPRecipeMaps.sMatterFab2Recipes;
+        return this.mMode == MODE_SCRAP ? RecipeMaps.recyclerRecipes : GTPPRecipeMaps.multiblockMassFabricatorRecipes;
     }
 
     @Nonnull
     @Override
     public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
-        return Arrays.asList(RecipeMaps.recyclerRecipes, GTPPRecipeMaps.sMatterFab2Recipes);
+        return Arrays.asList(RecipeMaps.recyclerRecipes, GTPPRecipeMaps.multiblockMassFabricatorRecipes);
     }
 
     @Override

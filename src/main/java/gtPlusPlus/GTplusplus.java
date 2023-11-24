@@ -257,25 +257,24 @@ public class GTplusplus implements ActionListener {
         FishPondFakeRecipe.generateFishPondRecipes();
         SemiFluidFuelHandler.generateFuels();
 
-        mInvalidCount[0] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                RecipeMaps.centrifugeRecipes,
-                GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT);
+        mInvalidCount[0] = RecipeGen_MultisUsingFluidInsteadOfCells
+                .generateRecipesNotUsingCells(RecipeMaps.centrifugeRecipes, GTPPRecipeMaps.centrifugeNonCellRecipes);
         mInvalidCount[1] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 RecipeMaps.electrolyzerRecipes,
-                GTPPRecipeMaps.sMultiblockElectrolyzerRecipes_GT);
+                GTPPRecipeMaps.electrolyzerNonCellRecipes);
         mInvalidCount[2] = RecipeGen_MultisUsingFluidInsteadOfCells
-                .generateRecipesNotUsingCells(RecipeMaps.vacuumFreezerRecipes, GTPPRecipeMaps.sAdvFreezerRecipes_GT);
+                .generateRecipesNotUsingCells(RecipeMaps.vacuumFreezerRecipes, GTPPRecipeMaps.advancedFreezerRecipes);
         mInvalidCount[3] = RecipeGen_MultisUsingFluidInsteadOfCells
-                .generateRecipesNotUsingCells(RecipeMaps.mixerRecipes, GTPPRecipeMaps.sMultiblockMixerRecipes_GT);
+                .generateRecipesNotUsingCells(RecipeMaps.mixerRecipes, GTPPRecipeMaps.mixerNonCellRecipes);
         mInvalidCount[4] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPPRecipeMaps.sChemicalDehydratorRecipes,
-                GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes);
+                GTPPRecipeMaps.chemicalDehydratorRecipes,
+                GTPPRecipeMaps.chemicalDehydratorNonCellRecipes);
         mInvalidCount[5] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPPRecipeMaps.sColdTrapRecipes,
-                GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes);
+                GTPPRecipeMaps.coldTrapRecipes,
+                GTPPRecipeMaps.nuclearSaltProcessingPlantRecipes);
         mInvalidCount[6] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GTPPRecipeMaps.sReactorProcessingUnitRecipes,
-                GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes);
+                GTPPRecipeMaps.reactorProcessingUnitRecipes,
+                GTPPRecipeMaps.nuclearSaltProcessingPlantRecipes);
     }
 
     private static void setupMaterialBlacklist() {

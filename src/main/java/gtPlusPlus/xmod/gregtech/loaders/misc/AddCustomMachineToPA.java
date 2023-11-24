@@ -8,6 +8,6 @@ public class AddCustomMachineToPA {
     public static void register() {
 
         // Simple Washers
-        GT_ProcessingArray_Manager.addRecipeMapToPA("simplewasher.01", GTPPRecipeMaps.sSimpleWasherRecipes);
+        GT_ProcessingArray_Manager.addRecipeMapToPA("simplewasher.01", GTPPRecipeMaps.simpleWasherRecipes);
     }
 }

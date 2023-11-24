@@ -86,7 +86,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sThermalFuels;
+        return GTPPRecipeMaps.thermalBoilerRecipes;
     }
 
     private static Item mLavaFilter;
@@ -121,7 +121,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
             }
         }
 
-        for (GT_Recipe tRecipe : GTPPRecipeMaps.sThermalFuels.getAllRecipes()) {
+        for (GT_Recipe tRecipe : GTPPRecipeMaps.thermalBoilerRecipes.getAllRecipes()) {
             FluidStack tFluid = tRecipe.mFluidInputs[0];
             if (tFluid != null) {
 

@@ -211,8 +211,8 @@ public class RecipeGen_BlastSmelterGT_GTNH {
                             .duration(MathUtils.roundToClosestInt(time * 0.8)).eut(voltage)
                             .recipeCategory(
                                     inputLength <= 2 ? GTPPRecipeCategories.absNonAlloyRecipes
-                                            : GTPPRecipeMaps.sAlloyBlastSmelterRecipes.getDefaultRecipeCategory())
-                            .addTo(GTPPRecipeMaps.sAlloyBlastSmelterRecipes);
+                                            : GTPPRecipeMaps.alloyBlastSmelterRecipes.getDefaultRecipeCategory())
+                            .addTo(GTPPRecipeMaps.alloyBlastSmelterRecipes);
                 } else {
                     if (!enabled) {
                         Logger.MACHINE_INFO("[ABS] Failure. EBF recipe was not enabled.");

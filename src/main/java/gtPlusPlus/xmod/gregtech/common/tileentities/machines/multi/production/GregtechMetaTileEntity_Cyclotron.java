@@ -208,7 +208,7 @@ public class GregtechMetaTileEntity_Cyclotron extends GregtechMeta_MultiBlockBas
 
     @Override
     public RecipeMap<?> getRecipeMap() {
-        return GTPPRecipeMaps.sCyclotronRecipes;
+        return GTPPRecipeMaps.cyclotronRecipes;
     }
 
     @Override
