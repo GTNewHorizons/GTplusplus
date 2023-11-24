@@ -10,11 +10,13 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import gregtech.api.enums.GT_Values;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.minecraft.ItemStackData;
-import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.api.recipe.GTPPRecipeCategories;
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -205,20 +207,12 @@ public class RecipeGen_BlastSmelterGT_GTNH {
                         newInput[l++] = y;
                     }
 
-                    // Logger.MACHINE_INFO("[ABS] Generating ABS recipe for "+mMoltenStack.getLocalizedName()+".");
-                    if (CORE.RA.addBlastSmelterRecipe(
-                            newInput,
-                            (inputsF.length > 0 ? inputsF[0] : null),
-                            mMoltenStack,
-                            100,
-                            MathUtils.roundToClosestInt(time * 0.8),
-                            voltage,
-                            special)) {
-                        // Logger.MACHINE_INFO("[ABS] Success.");
-                        mSuccess++;
-                    } else {
-                        Logger.MACHINE_INFO("[ABS] Failure.");
-                    }
+                    GT_Values.RA.stdBuilder().itemInputs(newInput).fluidInputs(inputsF).fluidOutputs(mMoltenStack)
+                            .duration(MathUtils.roundToClosestInt(time * 0.8)).eut(voltage)
+                            .recipeCategory(
+                                    inputLength <= 2 ? GTPPRecipeCategories.absNonAlloyRecipes
+                                            : GTPPRecipeMaps.sAlloyBlastSmelterRecipes.getDefaultRecipeCategory())
+                            .addTo(GTPPRecipeMaps.sAlloyBlastSmelterRecipes);
                 } else {
                     if (!enabled) {
                         Logger.MACHINE_INFO("[ABS] Failure. EBF recipe was not enabled.");

@@ -95,6 +95,9 @@ gtpp.recipe.semifluidgeneratorfuels=Semifluid Generator Fuels
 gtpp.recipe.flotationcell=Flotation Cell
 gtpp.recipe.treefarm=Tree Growth Simulator
 
+# Recipe categories
+gtpp.recipe.category.abs_non_alloy_recipes=ABS Non-Alloy Recipes
+
 # NEI
 gtpp.nei.lftr.power=Power: %s EU/t per Dynamo
 gtpp.nei.lftr.dynamo=Dynamo: %s EU
