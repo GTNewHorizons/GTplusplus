@@ -9,10 +9,10 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.ConfigCategories;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.SemiFluidFuelHandler;
 import gtPlusPlus.api.objects.Logger;
@@ -440,7 +440,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 Math.max(1, aDuration),
                 Math.max(1, aEUt),
                 0);
-        GT_Recipe_Map.sMixerRecipes.add(aSpecialRecipe);
+        RecipeMaps.mixerRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -655,7 +655,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 time,
                 eu,
                 0);
-        return GT_Recipe.GT_Recipe_Map.sChemicalRecipes.mRecipeList.add(aSpecialRecipe);
+        RecipeMaps.chemicalReactorRecipes.add(aSpecialRecipe);
+        return true;
     }
 
     @Override
@@ -694,7 +695,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if ((aDuration = GregTech_API.sRecipeFile.get("compressor", aInput1, aDuration)) <= 0) {
             return false;
         }
-        GT_Recipe.GT_Recipe_Map.sCompressorRecipes.addRecipe(
+        RecipeMaps.compressorRecipes.addRecipe(
                 true,
                 new ItemStack[] { aInput1 },
                 new ItemStack[] { aOutput1 },
@@ -722,7 +723,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if (!GregTech_API.sRecipeFile.get("brewing", aOutput.getUnlocalizedName(), true)) {
             return false;
         }
-        GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sBrewingRecipes.addRecipe(
+        GT_Recipe tRecipe = RecipeMaps.brewingRecipes.addRecipe(
                 false,
                 new ItemStack[] { aIngredient },
                 null,
@@ -843,7 +844,8 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 time,
                 (int) eu,
                 0);
-        return GT_Recipe.GT_Recipe_Map.sLaserEngraverRecipes.mRecipeList.add(u);
+        RecipeMaps.laserEngraverRecipes.add(u);
+        return true;
     }
 
     @Override
@@ -892,7 +894,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 (int) eu,
                 aHeat);
 
-        GT_Recipe.GT_Recipe_Map.sBlastRecipes.add(aSpecialRecipe);
+        RecipeMaps.blastFurnaceRecipes.add(aSpecialRecipe);
         return true;
     }
 
@@ -910,7 +912,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     .get("distillery", aOutput.getFluid().getUnlocalizedName(), aDuration)) <= 0) {
                 return false;
             } else {
-                GT_Recipe tRecipe = GT_Recipe_Map.sDistilleryRecipes.addRecipe(
+                GT_Recipe tRecipe = RecipeMaps.distilleryRecipes.addRecipe(
                         true,
                         new ItemStack[] { aCircuit },
                         new ItemStack[] { aSolidOutput },
@@ -949,7 +951,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                     aDuration,
                     aEUt,
                     0);
-            GT_Recipe_Map.sExtractorRecipes.add(aRecipe);
+            RecipeMaps.extractorRecipes.add(aRecipe);
             return true;
         } else {
             return false;
@@ -1184,7 +1186,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
         if ((aInput == null && aFluidInput == null) || aOutput == null) {
             return false;
         }
-        GT_Recipe.GT_Recipe_Map.sFluidHeaterRecipes.addRecipe(
+        RecipeMaps.fluidHeaterRecipes.addRecipe(
                 true,
                 new ItemStack[] { aInput },
                 null,
@@ -1214,7 +1216,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
                 aEUt,
                 0);
 
-        GT_Recipe_Map.sVacuumRecipes.add(aRecipe);
+        RecipeMaps.vacuumFreezerRecipes.add(aRecipe);
         return true;
     }
 

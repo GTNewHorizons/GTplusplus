@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
+import gregtech.api.recipe.RecipeMaps;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.objects.data.Pair;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
@@ -59,7 +60,7 @@ public class SemiFluidFuelHandler {
         final FluidStack aHeavyOil = FluidUtils.getFluidStack("liquid_heavy_oil", 1000);
         final HashMap<Integer, Pair<FluidStack, Integer>> aFoundFluidsFromItems = new HashMap<>();
         // Find Fluids From items
-        for (final GT_Recipe r : gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDenseLiquidFuels.mRecipeList) {
+        for (final GT_Recipe r : RecipeMaps.denseLiquidFuels.getAllRecipes()) {
 
             GT_Recipe g = r.copy();
 
@@ -123,6 +124,6 @@ public class SemiFluidFuelHandler {
                 }
             }
         }
-        return sSemiFluidLiquidFuels.mRecipeList.size() > 0;
+        return !sSemiFluidLiquidFuels.getAllRecipes().isEmpty();
     }
 }

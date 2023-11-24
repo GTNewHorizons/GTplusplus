@@ -31,9 +31,9 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
@@ -238,7 +238,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
             }
             if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_ElementalDataOrbHolder) {
                 try {
-                    ((GT_MetaTileEntity_Hatch_ElementalDataOrbHolder) aMetaTileEntity).mRecipeMap = getRecipeMap();
                     return addToMachineListInternal(mReplicatorDataOrbHatches, aMetaTileEntity, aBaseCasingIndex);
                 } catch (Throwable t) {
                     t.printStackTrace();
@@ -269,7 +268,7 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
+    public RecipeMap<?> getRecipeMap() {
         return RecipeMaps.replicatorRecipes;
     }
 
@@ -333,7 +332,6 @@ public class GregtechMTE_ElementalDuplicator extends GregtechMeta_MultiBlockBase
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> tItems = super.getStoredInputs();
         for (GT_MetaTileEntity_Hatch_ElementalDataOrbHolder tHatch : filterValidMTEs(mReplicatorDataOrbHatches)) {
-            tHatch.mRecipeMap = getRecipeMap();
             tItems.add(tHatch.getOrbByCircuit());
         }
         tItems.removeAll(Collections.singleton(null));

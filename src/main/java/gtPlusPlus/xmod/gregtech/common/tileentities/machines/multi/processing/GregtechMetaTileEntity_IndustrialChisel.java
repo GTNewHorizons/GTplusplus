@@ -11,13 +11,15 @@ import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.List;
+import java.util.stream.Stream;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
-
-import org.jetbrains.annotations.NotNull;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -30,10 +32,11 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
-import gregtech.api.recipe.check.FindRecipeResult;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
+import gregtech.api.util.StreamUtil;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -142,11 +145,6 @@ public class GregtechMetaTileEntity_IndustrialChisel
     @Override
     protected int getCasingTextureId() {
         return 90;
-    }
-
-    @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return null;
     }
 
     @Override
@@ -275,14 +273,10 @@ public class GregtechMetaTileEntity_IndustrialChisel
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
 
-            @NotNull
+            @Nonnull
             @Override
-            protected FindRecipeResult findRecipe(GT_Recipe.GT_Recipe_Map map) {
-                GT_Recipe recipe = getRecipe();
-                if (recipe == null) {
-                    return FindRecipeResult.NOT_FOUND;
-                }
-                return FindRecipeResult.ofSuccess(recipe);
+            protected Stream<GT_Recipe> findRecipeMatches(@Nullable RecipeMap<?> map) {
+                return StreamUtil.ofNullable(getRecipe());
             }
         }.setSpeedBonus(1F / 3F).setEuModifier(0.75F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

@@ -15,6 +15,11 @@ import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import javax.annotation.Nonnull;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -36,6 +41,8 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.recipe.RecipeMap;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
@@ -164,9 +171,18 @@ public class GregtechMetaTileEntity_IndustrialWashPlant extends
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return mMode == 0 ? GT_Recipe.GT_Recipe_Map.sOreWasherRecipes
-                : mMode == 1 ? GTPPRecipeMaps.sSimpleWasherRecipes : GT_Recipe.GT_Recipe_Map.sChemicalBathRecipes;
+    public RecipeMap<?> getRecipeMap() {
+        return mMode == 0 ? RecipeMaps.oreWasherRecipes
+                : mMode == 1 ? GTPPRecipeMaps.sSimpleWasherRecipes : RecipeMaps.chemicalBathRecipes;
+    }
+
+    @Nonnull
+    @Override
+    public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
+        return Arrays.asList(
+                RecipeMaps.oreWasherRecipes,
+                GTPPRecipeMaps.sSimpleWasherRecipes,
+                RecipeMaps.chemicalBathRecipes);
     }
 
     @Override

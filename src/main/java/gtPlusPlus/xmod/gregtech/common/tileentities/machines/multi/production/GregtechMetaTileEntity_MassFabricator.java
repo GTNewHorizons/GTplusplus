@@ -12,6 +12,13 @@ import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.stream.Stream;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -32,15 +39,15 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.recipe.RecipeMap;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
-import gregtech.api.recipe.check.FindRecipeResult;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
@@ -212,8 +219,14 @@ public class GregtechMetaTileEntity_MassFabricator
      * Special Recipe Handling
      */
     @Override
-    public GT_Recipe_Map getRecipeMap() {
-        return this.mMode == MODE_SCRAP ? GT_Recipe_Map.sRecyclerRecipes : GTPPRecipeMaps.sMatterFab2Recipes;
+    public RecipeMap<?> getRecipeMap() {
+        return this.mMode == MODE_SCRAP ? RecipeMaps.recyclerRecipes : GTPPRecipeMaps.sMatterFab2Recipes;
+    }
+
+    @Nonnull
+    @Override
+    public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
+        return Arrays.asList(RecipeMaps.recyclerRecipes, GTPPRecipeMaps.sMatterFab2Recipes);
     }
 
     @Override
@@ -238,9 +251,9 @@ public class GregtechMetaTileEntity_MassFabricator
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
 
-            @NotNull
+            @Nonnull
             @Override
-            protected FindRecipeResult findRecipe(GT_Recipe_Map map) {
+            protected Stream<GT_Recipe> findRecipeMatches(@Nullable RecipeMap<?> map) {
                 if (mMode == MODE_SCRAP) {
                     if (inputItems != null) {
                         for (ItemStack item : inputItems) {
@@ -258,12 +271,12 @@ public class GregtechMetaTileEntity_MassFabricator
                                     40,
                                     MaterialUtils.getVoltageForTier(1),
                                     0);
-                            return FindRecipeResult.ofSuccess(recipe);
+                            return Stream.of(recipe);
                         }
                     }
-                    return FindRecipeResult.NOT_FOUND;
+                    return Stream.empty();
                 }
-                return super.findRecipe(map);
+                return super.findRecipeMatches(map);
             }
         }.setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

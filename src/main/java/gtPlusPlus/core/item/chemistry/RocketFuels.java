@@ -1,8 +1,8 @@
 package gtPlusPlus.core.item.chemistry;
 
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sDistilleryRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sMixerRecipes;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sVacuumRecipes;
+import static gregtech.api.recipe.RecipeMaps.distilleryRecipes;
+import static gregtech.api.recipe.RecipeMaps.mixerRecipes;
+import static gregtech.api.recipe.RecipeMaps.vacuumFreezerRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 
 import java.util.HashMap;
@@ -73,12 +73,12 @@ public class RocketFuels extends ItemPackage {
         if (fuelA != null) {
             GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(23)).fluidInputs(fuelA)
                     .fluidOutputs(FluidUtils.getFluidStack(Kerosene, 1800)).duration(10 * SECONDS)
-                    .eut(TierEU.RECIPE_MV / 2).addTo(sDistilleryRecipes);
+                    .eut(TierEU.RECIPE_MV / 2).addTo(distilleryRecipes);
         }
         if (fuelA == null && fuelB != null) {
             GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(23)).fluidInputs(fuelB)
                     .fluidOutputs(FluidUtils.getFluidStack(Kerosene, 1800)).duration(10 * SECONDS)
-                    .eut(TierEU.RECIPE_MV / 2).addTo(sDistilleryRecipes);
+                    .eut(TierEU.RECIPE_MV / 2).addTo(distilleryRecipes);
         }
     }
 
@@ -87,7 +87,7 @@ public class RocketFuels extends ItemPackage {
         if (fuelA != null) {
             GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(23)).fluidInputs(fuelA)
                     .fluidOutputs(FluidUtils.getFluidStack(RP1, 750)).duration(40 * SECONDS).eut(TierEU.RECIPE_MV)
-                    .addTo(sDistilleryRecipes);
+                    .addTo(distilleryRecipes);
         }
     }
 
@@ -137,7 +137,7 @@ public class RocketFuels extends ItemPackage {
     private static void createLOH() {
         GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getItemStackOfAmountFromOreDict("cellHydrogen", 1))
                 .itemOutputs(ItemUtils.getItemStackOfAmountFromOreDict("cellLiquidHydrogen", 1)).duration(16 * SECONDS)
-                .eut(TierEU.RECIPE_MV).addTo(sVacuumRecipes);
+                .eut(TierEU.RECIPE_MV).addTo(vacuumFreezerRecipes);
 
         CORE.RA.addAdvancedFreezerRecipe(
                 new ItemStack[] {},
@@ -197,7 +197,7 @@ public class RocketFuels extends ItemPackage {
                         GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Vanadium, 1L),
                         GT_Utility.getIntegratedCircuit(18))
                 .itemOutputs(ItemUtils.getSimpleStack(Formaldehyde_Catalyst_Dust, 4)).duration(8 * SECONDS)
-                .eut(TierEU.RECIPE_LV).addTo(sMixerRecipes);
+                .eut(TierEU.RECIPE_LV).addTo(mixerRecipes);
     }
 
     private static void createUnsymmetricalDimethylhydrazine() {

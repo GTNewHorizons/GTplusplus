@@ -26,6 +26,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
@@ -185,7 +186,7 @@ public class GregtechMetaTileEntity_NuclearSaltProcessingPlant
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
+    public RecipeMap<?> getRecipeMap() {
         return GTPPRecipeMaps.sNuclearSaltProcessingPlantRecipes;
     }
 

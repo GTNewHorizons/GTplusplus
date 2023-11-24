@@ -28,8 +28,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.enums.Materials;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.FishPondFakeRecipe;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.SemiFluidFuelHandler;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
@@ -258,17 +258,15 @@ public class GTplusplus implements ActionListener {
         SemiFluidFuelHandler.generateFuels();
 
         mInvalidCount[0] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GT_Recipe.GT_Recipe_Map.sCentrifugeRecipes,
+                RecipeMaps.centrifugeRecipes,
                 GTPPRecipeMaps.sMultiblockCentrifugeRecipes_GT);
         mInvalidCount[1] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GT_Recipe.GT_Recipe_Map.sElectrolyzerRecipes,
+                RecipeMaps.electrolyzerRecipes,
                 GTPPRecipeMaps.sMultiblockElectrolyzerRecipes_GT);
-        mInvalidCount[2] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GT_Recipe.GT_Recipe_Map.sVacuumRecipes,
-                GTPPRecipeMaps.sAdvFreezerRecipes_GT);
-        mInvalidCount[3] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
-                GT_Recipe.GT_Recipe_Map.sMixerRecipes,
-                GTPPRecipeMaps.sMultiblockMixerRecipes_GT);
+        mInvalidCount[2] = RecipeGen_MultisUsingFluidInsteadOfCells
+                .generateRecipesNotUsingCells(RecipeMaps.vacuumFreezerRecipes, GTPPRecipeMaps.sAdvFreezerRecipes_GT);
+        mInvalidCount[3] = RecipeGen_MultisUsingFluidInsteadOfCells
+                .generateRecipesNotUsingCells(RecipeMaps.mixerRecipes, GTPPRecipeMaps.sMultiblockMixerRecipes_GT);
         mInvalidCount[4] = RecipeGen_MultisUsingFluidInsteadOfCells.generateRecipesNotUsingCells(
                 GTPPRecipeMaps.sChemicalDehydratorRecipes,
                 GTPPRecipeMaps.sMultiblockChemicalDehydratorRecipes);

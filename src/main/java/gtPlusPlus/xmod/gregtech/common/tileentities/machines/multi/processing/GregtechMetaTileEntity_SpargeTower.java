@@ -36,6 +36,7 @@ import gregtech.api.interfaces.fluid.IFluidStore;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
@@ -170,8 +171,8 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        if (GTPPRecipeMaps.sSpargeTowerRecipes.mRecipeList.isEmpty()) {
+    public RecipeMap<?> getRecipeMap() {
+        if (GTPPRecipeMaps.sSpargeTowerRecipes.getAllRecipes().isEmpty()) {
             generateRecipes();
         }
         return GTPPRecipeMaps.sSpargeTowerRecipes;
@@ -192,7 +193,7 @@ public class GregtechMetaTileEntity_SpargeTower extends GregtechMeta_MultiBlockB
                     0);
             GTPPRecipeMaps.sSpargeTowerRecipes.add(newRecipe);
         }
-        return !GTPPRecipeMaps.sSpargeTowerRecipes.mRecipeList.isEmpty();
+        return !GTPPRecipeMaps.sSpargeTowerRecipes.getAllRecipes().isEmpty();
     }
 
     @Override

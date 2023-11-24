@@ -12,8 +12,8 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_Recipe;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.generators.GregtechRocketFuelGeneratorBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
@@ -49,7 +49,7 @@ public class GregtechMetaTileEntityRocketFuelGenerator extends GregtechRocketFue
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipes() {
+    public RecipeMap<?> getRecipeMap() {
         return GTPPRecipeMaps.sRocketFuels;
     }
 

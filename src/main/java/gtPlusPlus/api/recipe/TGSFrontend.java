@@ -15,7 +15,7 @@ import gregtech.api.recipe.NEIRecipePropertiesBuilder;
 import gregtech.api.recipe.RecipeMapFrontend;
 import gregtech.api.util.MethodsReturnNonnullByDefault;
 import gregtech.nei.GT_NEI_DefaultHandler;
-import gregtech.nei.NEIRecipeInfo;
+import gregtech.nei.RecipeDisplayInfo;
 import gregtech.nei.formatter.INEISpecialInfoFormatter;
 import gtPlusPlus.core.item.ModItems;
 
@@ -28,10 +28,10 @@ public class TGSFrontend extends RecipeMapFrontend {
     }
 
     @Override
-    protected void drawNEIEnergyInfo(NEIRecipeInfo recipeInfo) {}
+    protected void drawEnergyInfo(RecipeDisplayInfo recipeInfo) {}
 
     @Override
-    protected void drawNEIDurationInfo(NEIRecipeInfo recipeInfo) {}
+    protected void drawDurationInfo(RecipeDisplayInfo recipeInfo) {}
 
     @Override
     protected List<String> handleNEIItemOutputTooltip(List<String> currentTip,
@@ -53,7 +53,7 @@ public class TGSFrontend extends RecipeMapFrontend {
     private static class TGSSpecialValueFormatter implements INEISpecialInfoFormatter {
 
         @Override
-        public List<String> format(NEIRecipeInfo recipeInfo) {
+        public List<String> format(RecipeDisplayInfo recipeInfo) {
             if (ModItems.fluidFertBasic == null) {
                 return Collections.emptyList();
             }

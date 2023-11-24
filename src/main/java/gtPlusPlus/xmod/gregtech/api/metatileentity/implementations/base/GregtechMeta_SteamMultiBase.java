@@ -160,7 +160,9 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
             log("Adding Steam Input Hatch");
             aDidAdd = addToMachineListInternal(mSteamInputFluids, aMetaTileEntity, aBaseCasingIndex);
         } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Steam_BusInput) {
-            log("Trying to set recipe map. Type: " + (getRecipeMap() != null ? getRecipeMap().mNEIName : "Null"));
+            log(
+                    "Trying to set recipe map. Type: "
+                            + (getRecipeMap() != null ? getRecipeMap().unlocalizedName : "Null"));
             this.resetRecipeMapForHatch(aTileEntity, getRecipeMap());
             log("Adding Steam Input Bus");
             aDidAdd = addToMachineListInternal(mSteamInputs, aMetaTileEntity, aBaseCasingIndex);

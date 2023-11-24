@@ -37,8 +37,6 @@ public class GregtechLFTR {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "REACTOR_PROCESSING_UNIT",
                         null).getStackForm(1L));
@@ -54,8 +52,6 @@ public class GregtechLFTR {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "REACTOR_PROCESSING_UNIT",
                         null).getStackForm(1L));
@@ -72,8 +68,6 @@ public class GregtechLFTR {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "COLD_TRAP",
                         null).getStackForm(1L));
@@ -89,8 +83,6 @@ public class GregtechLFTR {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "COLD_TRAP",
                         null).getStackForm(1L));

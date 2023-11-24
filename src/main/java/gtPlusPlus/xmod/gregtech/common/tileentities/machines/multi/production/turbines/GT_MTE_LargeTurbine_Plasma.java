@@ -20,8 +20,8 @@ import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
+import gregtech.api.recipe.maps.FuelBackend;
 import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Turbine;
@@ -69,11 +69,21 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
         if (aLiquid == null) {
             return 0;
         }
-        GT_Recipe tFuel = GT_Recipe_Map.sPlasmaFuels.findFuel(aLiquid);
+        GT_Recipe tFuel = getRecipeMap().getBackend().findFuel(aLiquid);
         if (tFuel != null) {
             return tFuel.mSpecialValue;
         }
         return 0;
+    }
+
+    @Override
+    public RecipeMap<FuelBackend> getRecipeMap() {
+        return RecipeMaps.plasmaFuels;
+    }
+
+    @Override
+    public int getRecipeCatalystPriority() {
+        return -20;
     }
 
     @Override
@@ -288,15 +298,5 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
     @Override
     protected ITexture getTextureFrontFaceActive() {
         return new GT_RenderedTexture(gregtech.api.enums.Textures.BlockIcons.LARGETURBINE_TU_ACTIVE5);
-    }
-
-    @Override
-    public RecipeMap<?> getRecipeMap() {
-        return RecipeMaps.plasmaFuels;
-    }
-
-    @Override
-    public int getRecipeCatalystPriority() {
-        return -20;
     }
 }

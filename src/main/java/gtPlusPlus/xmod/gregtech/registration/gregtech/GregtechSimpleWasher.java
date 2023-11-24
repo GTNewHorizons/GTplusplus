@@ -87,8 +87,6 @@ public class GregtechSimpleWasher {
                             1,
                             true,
                             SoundResource.NONE,
-                            false,
-                            false,
                             SpecialEffects.NONE,
                             "SIMPLE_WASHER",
                             null).getStackForm(1L));
@@ -108,8 +106,6 @@ public class GregtechSimpleWasher {
                                 1,
                                 true,
                                 SoundResource.NONE,
-                                false,
-                                false,
                                 SpecialEffects.NONE,
                                 "SIMPLE_WASHER",
                                 null).getStackForm(1L));
@@ -145,11 +141,11 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(dustPure, dustClean);
         }
 
-        return GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
+        return GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
     }
 
     private static boolean generateDirtyCrushedRecipes() {
-        int mRecipeCount = GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size();
+        int mRecipeCount = GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size();
         // Generate Recipe Map for the Dust Washer.
         ItemStack crushedClean;
         ItemStack crushedDirty;
@@ -165,7 +161,7 @@ public class GregtechSimpleWasher {
             addSimpleWashRecipe(crushedDirty, crushedClean);
         }
 
-        return GTPPRecipeMaps.sSimpleWasherRecipes.mRecipeList.size() > mRecipeCount;
+        return GTPPRecipeMaps.sSimpleWasherRecipes.getAllRecipes().size() > mRecipeCount;
     }
 
     private static void addSimpleWashRecipe(ItemStack aInput, ItemStack aOutput) {

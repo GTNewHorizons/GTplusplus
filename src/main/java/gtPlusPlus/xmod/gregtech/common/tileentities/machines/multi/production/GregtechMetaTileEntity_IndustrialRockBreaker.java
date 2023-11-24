@@ -9,11 +9,9 @@ import static gregtech.api.enums.GT_HatchElement.InputHatch;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
 import static gregtech.api.enums.GT_HatchElement.Muffler;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
-import static gregtech.api.enums.GT_Values.E;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -34,6 +32,8 @@ import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.recipe.RecipeMap;
+import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
@@ -42,12 +42,10 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_OverclockCalculator;
 import gregtech.api.util.GT_ParallelHelper;
 import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
@@ -153,45 +151,9 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
         return TAE.GTPP_INDEX(16);
     }
 
-    private static final GT_Recipe_Map sFakeRecipeMap = new GT_Recipe_Map(
-            new HashSet<>(0),
-            "gt.recipe.fakerockbreaker",
-            "Rock Breaker",
-            "smelting",
-            "",
-            1,
-            1,
-            0,
-            0,
-            1,
-            E,
-            1,
-            E,
-            true,
-            false);
-
-    private static void generateRecipeMap() {
-        if (sRecipe_Cobblestone == null || sRecipe_SmoothStone == null || sRecipe_Redstone == null) {
-            generateRecipes();
-        }
-        FluidStack[] aInputFluids = new FluidStack[] { FluidUtils.getWater(1000), FluidUtils.getLava(1000) };
-        GT_Recipe aTemp = sRecipe_Cobblestone.copy();
-        aTemp.mFluidInputs = aInputFluids;
-        sFakeRecipeMap.add(aTemp);
-        aTemp = sRecipe_SmoothStone.copy();
-        aTemp.mFluidInputs = aInputFluids;
-        sFakeRecipeMap.add(aTemp);
-        aTemp = sRecipe_Redstone.copy();
-        aTemp.mFluidInputs = aInputFluids;
-        sFakeRecipeMap.add(aTemp);
-    }
-
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        if (sFakeRecipeMap.mRecipeList.isEmpty()) {
-            generateRecipeMap();
-        }
-        return sFakeRecipeMap;
+    public RecipeMap<?> getRecipeMap() {
+        return RecipeMaps.rockBreakerFakeRecipes;
     }
 
     @Override
@@ -307,7 +269,7 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
 
             GT_ParallelHelper helper = new GT_ParallelHelper().setRecipe(tRecipe).setItemInputs(aItemInputs)
                     .setFluidInputs(aFluidInputs).setAvailableEUt(tEnergy).setMaxParallel(getMaxParallelRecipes())
-                    .enableConsumption().enableOutputCalculation().setEUtModifier(0.75F).setMachine(this);
+                    .setConsumption(true).setOutputCalculation(true).setEUtModifier(0.75F).setMachine(this);
 
             if (batchMode) {
                 helper.enableBatchMode(128);

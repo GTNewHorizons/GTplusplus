@@ -40,6 +40,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
@@ -200,7 +201,7 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipeMap() {
+    public RecipeMap<?> getRecipeMap() {
         return GTPPRecipeMaps.sOreMillRecipes;
     }
 
@@ -430,7 +431,6 @@ public class GregtechMetaTileEntity_IsaMill extends GregtechMeta_MultiBlockBase<
     public ArrayList<ItemStack> getStoredInputs() {
         ArrayList<ItemStack> tItems = super.getStoredInputs();
         for (GT_MetaTileEntity_Hatch_MillingBalls tHatch : filterValidMTEs(mMillingBallBuses)) {
-            tHatch.mRecipeMap = getRecipeMap();
             tItems.addAll(tHatch.getContentUsageSlots());
         }
         return tItems;

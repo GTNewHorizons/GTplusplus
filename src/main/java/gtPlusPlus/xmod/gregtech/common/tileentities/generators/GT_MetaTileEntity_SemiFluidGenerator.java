@@ -16,8 +16,8 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicGenerator;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.GT_RenderedTexture;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
@@ -62,7 +62,7 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
     }
 
     @Override
-    public GT_Recipe.GT_Recipe_Map getRecipes() {
+    public RecipeMap<?> getRecipeMap() {
         // Logger.WARNING("Fuel Count: "+Gregtech_Recipe_Map.sSemiFluidLiquidFuels.mRecipeList.size());
         return GTPPRecipeMaps.sSemiFluidLiquidFuels;
     }
@@ -96,7 +96,7 @@ public class GT_MetaTileEntity_SemiFluidGenerator extends GT_MetaTileEntity_Basi
 
     @Override
     public int getFuelValue(ItemStack aStack) {
-        if ((GT_Utility.isStackInvalid(aStack)) || (getRecipes() == null)) {
+        if ((GT_Utility.isStackInvalid(aStack)) || (getRecipeMap() == null)) {
             Logger.WARNING("Bad Fuel?");
             return 0;
         }

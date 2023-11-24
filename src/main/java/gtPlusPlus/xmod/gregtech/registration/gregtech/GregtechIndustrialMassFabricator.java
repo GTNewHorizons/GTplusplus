@@ -123,7 +123,8 @@ public class GregtechIndustrialMassFabricator {
         GTPPRecipeMaps.sMatterFab2Recipes.add(generateUUMFromUUA_LV);
 
         Logger.INFO(
-                "Generated " + GTPPRecipeMaps.sMatterFab2Recipes.mRecipeList.size() + " Matter Fabricator recipes.");
+                "Generated " + GTPPRecipeMaps.sMatterFab2Recipes.getAllRecipes().size()
+                        + " Matter Fabricator recipes.");
     }
 
     public static ItemStack getScrapPile() {

@@ -3,7 +3,7 @@ package gtPlusPlus.xmod.gregtech.registration.gregtech;
 import static gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT;
 import static gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL;
 import static gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM;
-import static gregtech.api.util.GT_Recipe.GT_Recipe_Map.sAssemblerRecipes;
+import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 
 import net.minecraft.item.ItemStack;
@@ -44,22 +44,22 @@ public class GregtechDehydrator {
                 .itemInputs(
                         new ItemStack(ModItems.itemDehydratorCoilWire, 4, 0),
                         GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Bronze, 1))
-                .itemOutputs(coilT1).duration(8 * SECONDS).eut(TierEU.RECIPE_MV).addTo(sAssemblerRecipes);
+                .itemOutputs(coilT1).duration(8 * SECONDS).eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
         GT_Values.RA.stdBuilder()
                 .itemInputs(
                         new ItemStack(ModItems.itemDehydratorCoilWire, 4, 1),
                         GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Steel, 1))
-                .itemOutputs(coilT2).duration(8 * SECONDS).eut(TierEU.RECIPE_HV / 2).addTo(sAssemblerRecipes);
+                .itemOutputs(coilT2).duration(8 * SECONDS).eut(TierEU.RECIPE_HV / 2).addTo(assemblerRecipes);
         GT_Values.RA.stdBuilder()
                 .itemInputs(
                         new ItemStack(ModItems.itemDehydratorCoilWire, 4, 2),
                         GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.StainlessSteel, 1))
-                .itemOutputs(coilT3).duration(8 * SECONDS).eut(TierEU.RECIPE_HV).addTo(sAssemblerRecipes);
+                .itemOutputs(coilT3).duration(8 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
         GT_Values.RA.stdBuilder()
                 .itemInputs(
                         new ItemStack(ModItems.itemDehydratorCoilWire, 4, 3),
                         GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Titanium, 1))
-                .itemOutputs(coilT4).duration(8 * SECONDS).eut(TierEU.RECIPE_EV / 2).addTo(sAssemblerRecipes);
+                .itemOutputs(coilT4).duration(8 * SECONDS).eut(TierEU.RECIPE_EV / 2).addTo(assemblerRecipes);
 
         // Basic
         GregtechItemList.GT_Dehydrator_MV.set(
@@ -74,8 +74,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E',
@@ -95,8 +93,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E',
@@ -118,8 +114,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT1, 'C', CIRCUIT, 'W',
@@ -139,8 +133,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT2, 'C', CIRCUIT, 'W',
@@ -159,8 +151,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT3, 'C', CIRCUIT, 'W',
@@ -179,8 +169,6 @@ public class GregtechDehydrator {
                         9,
                         true,
                         SoundResource.NONE,
-                        false,
-                        false,
                         SpecialEffects.NONE,
                         "DEHYDRATOR",
                         new Object[] { "ECE", "WMW", "GPG", 'M', HULL, 'P', ROBOT_ARM, 'E', coilT4, 'C', CIRCUIT, 'W',
