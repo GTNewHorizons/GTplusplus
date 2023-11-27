@@ -76,7 +76,7 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
                 .addInfo("Right-click controller with a Screwdriver to change modes")
                 .addInfo("Max Size required to process Plasma recipes").addPollutionAmount(getPollutionPerSecond(null))
                 .addSeparator().addController("Top center").addStructureInfo("Size: nxnx3 [WxHxL] (Hollow)")
-                .addStructureInfo("n can be 3, 5 or 7").addCasingInfoMin(mCasingName, 10, false)
+                .addStructureInfo("n can be 3, 5 or 7").addCasingInfoMin(mCasingName, 6, false)
                 .addInputBus("Any Casing", 1).addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1)
                 .addOutputHatch("Any Casing", 1).addEnergyHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1)
                 .addMufflerHatch("Any Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
@@ -147,17 +147,17 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
         mSize = 0;
         if (checkPiece(mName + "3", 1, 1, 0)) {
             mSize = 3;
-            return mCasing >= 10 && checkHatch();
+            return mCasing >= 6 && checkHatch();
         }
         mCasing = 0;
         if (checkPiece(mName + "5", 2, 2, 0)) {
             mSize = 5;
-            return mCasing >= 10 && checkHatch();
+            return mCasing >= 6 && checkHatch();
         }
         mCasing = 0;
         if (checkPiece(mName + "7", 3, 3, 0)) {
             mSize = 7;
-            return mCasing >= 10 && checkHatch();
+            return mCasing >= 6 && checkHatch();
         }
         return false;
     }
