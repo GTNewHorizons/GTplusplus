@@ -35,8 +35,8 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_StreamUtil;
 import gregtech.api.util.GT_Utility;
-import gregtech.api.util.StreamUtil;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
@@ -276,7 +276,7 @@ public class GregtechMetaTileEntity_IndustrialChisel
             @Nonnull
             @Override
             protected Stream<GT_Recipe> findRecipeMatches(@Nullable RecipeMap<?> map) {
-                return StreamUtil.ofNullable(getRecipe());
+                return GT_StreamUtil.ofNullable(getRecipe());
             }
         }.setSpeedBonus(1F / 3F).setEuModifier(0.75F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

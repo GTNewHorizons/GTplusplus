@@ -40,8 +40,8 @@ import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_StreamUtil;
 import gregtech.api.util.GT_Utility;
-import gregtech.api.util.StreamUtil;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.chemistry.AgriculturalChem;
@@ -313,7 +313,7 @@ public class GregtechMTE_AlgaePondBase extends GregtechMeta_MultiBlockBase<Gregt
             @Nonnull
             @Override
             protected Stream<GT_Recipe> findRecipeMatches(@Nullable RecipeMap<?> map) {
-                return StreamUtil.ofNullable(
+                return GT_StreamUtil.ofNullable(
                         RecipeLoader_AlgaeFarm.getTieredRecipeFromCache(mLevel, isUsingCompost(inputItems)));
             }
 
