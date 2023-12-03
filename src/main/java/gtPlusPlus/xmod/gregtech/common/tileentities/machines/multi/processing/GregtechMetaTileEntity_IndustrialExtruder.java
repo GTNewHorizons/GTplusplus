@@ -138,6 +138,11 @@ public class GregtechMetaTileEntity_IndustrialExtruder extends
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
+    }
+
+    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic().setSpeedBonus(1F / 3.5F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }

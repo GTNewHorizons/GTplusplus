@@ -139,6 +139,11 @@ public class GregtechMetaTileEntity_Adv_Implosion
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
+    }
+
+    @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
         return true;
     }

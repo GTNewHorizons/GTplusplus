@@ -134,6 +134,11 @@ public class GregtechMetaTileEntity_IndustrialSifter
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
+    }
+
+    @Override
     public void onPreTick(final IGregTechTileEntity aBaseMetaTileEntity, final long aTick) {
         super.onPreTick(aBaseMetaTileEntity, aTick);
         if ((aBaseMetaTileEntity.isClientSide()) && (aBaseMetaTileEntity.isActive())

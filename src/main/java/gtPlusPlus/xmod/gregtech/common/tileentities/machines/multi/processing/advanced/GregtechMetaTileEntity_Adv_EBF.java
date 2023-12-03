@@ -206,6 +206,11 @@ public class GregtechMetaTileEntity_Adv_EBF extends GregtechMeta_MultiBlockBase<
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
+    }
+
+    @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
         return true;
     }

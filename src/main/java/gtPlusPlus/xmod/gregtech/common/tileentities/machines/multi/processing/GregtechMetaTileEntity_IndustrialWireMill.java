@@ -141,6 +141,11 @@ public class GregtechMetaTileEntity_IndustrialWireMill extends
     }
 
     @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
+    }
+
+    @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic().setSpeedBonus(1F / 3F).setEuModifier(0.75F)
                 .setMaxParallelSupplier(this::getMaxParallelRecipes);

@@ -10,6 +10,11 @@ import static gregtech.api.enums.GT_HatchElement.Muffler;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import javax.annotation.Nonnull;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -135,6 +140,17 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
     @Override
     public RecipeMap<?> getRecipeMap() {
         return mFormingMode ? RecipeMaps.formingPressRecipes : RecipeMaps.benderRecipes;
+    }
+
+    @Nonnull
+    @Override
+    public Collection<RecipeMap<?>> getAvailableRecipeMaps() {
+        return Arrays.asList(RecipeMaps.formingPressRecipes, RecipeMaps.benderRecipes);
+    }
+
+    @Override
+    public int getRecipeCatalystPriority() {
+        return -1;
     }
 
     @Override
