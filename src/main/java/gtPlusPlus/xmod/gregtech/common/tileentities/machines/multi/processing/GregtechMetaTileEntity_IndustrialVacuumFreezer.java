@@ -85,8 +85,8 @@ public class GregtechMetaTileEntity_IndustrialVacuumFreezer extends
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
                 .addController("Front Center").addCasingInfoMin(mCasingName, 10, false)
                 .addInputBus("Any Casing", 1).addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1)
-                .addOutputHatch("Any Casing", 1).addEnergyHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1)
-                .addMufflerHatch("Any Casing", 1).addOtherStructurePart(mHatchName, "Any Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addOutputHatch("Any Casing", 1).addEnergyHatch("Any Casing", 1).addMufflerHatch("Any Casing", 1).addMaintenanceHatch("Any Casing", 1)
+                .addOtherStructurePart(mHatchName, "Any Casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
