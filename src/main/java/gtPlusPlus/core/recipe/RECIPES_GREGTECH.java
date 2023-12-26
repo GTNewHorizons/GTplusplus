@@ -35,6 +35,7 @@ import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_TIME;
 import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.thermalBoilerRecipes;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -50,7 +51,6 @@ import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_RecipeConstants;
 import gregtech.api.util.GT_Utility;
-import gregtech.api.util.HotFuel;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.item.ModItems;
@@ -106,6 +106,7 @@ public class RECIPES_GREGTECH {
         fluidHeaterRecipes();
         chemplantRecipes();
         alloySmelterRecipes();
+        thermalBoilerRecipes();
 
         /*
          * Special Recipe handlers
@@ -1101,38 +1102,36 @@ public class RECIPES_GREGTECH {
                 .eut(TierEU.RECIPE_MV / 2).addTo(distillationTowerRecipes);
     }
 
+    private static void thermalBoilerRecipes() {
+        Logger.INFO("Registering Thermal Boiler Recipes.");
+
+        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getLava(83)).fluidOutputs(FluidUtils.getPahoehoeLava(83))
+                .itemOutputs(
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Copper, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tin, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Gold, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Silver, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tantalum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Tungstate, 1),
+                        new ItemStack(Blocks.obsidian, 1, 0))
+                .outputChances(2000, 1000, 250, 250, 250, 250, 500).duration(1).eut(0).addTo(thermalBoilerRecipes);
+
+        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getPahoehoeLava(83))
+                .itemOutputs(
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Bronze, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Electrum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tantalum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Tungstate, 1),
+                        new ItemStack(Blocks.obsidian, 1, 0))
+                .outputChances(750, 250, 250, 250, 1850).duration(1).eut(0).addTo(thermalBoilerRecipes);
+
+        GT_Values.RA.stdBuilder().fluidInputs(MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100))
+                .fluidOutputs(MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100), FluidUtils.getSuperHeatedSteam(100000))
+                .duration(20).eut(0).addTo(thermalBoilerRecipes);
+    }
+
     private static void addFuels() {
         Logger.INFO("Registering New Fuels.");
-
-        HotFuel.addNewHotFuel(
-                FluidUtils.getLava(83),
-                FluidUtils.getPahoehoeLava(83),
-                new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("nuggetCopper", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetTin", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetGold", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetSilver", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetTantalum", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustSmallTungstate", 1),
-                        ItemUtils.getSimpleStack(Blocks.obsidian) },
-                new int[] { 2000, 1000, 250, 250, 250, 250, 500 },
-                0);
-
-        HotFuel.addNewHotFuel(
-                FluidUtils.getPahoehoeLava(83),
-                GT_Values.NF,
-                new ItemStack[] { ItemUtils.getItemStackOfAmountFromOreDict("nuggetBronze", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetElectrum", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("nuggetTantalum", 1),
-                        ItemUtils.getItemStackOfAmountFromOreDict("dustSmallTungstate", 1),
-                        ItemUtils.getSimpleStack(Blocks.obsidian) },
-                new int[] { 750, 250, 250, 250, 1850 },
-                0);
-
-        HotFuel.addNewHotFuel(
-                MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100),
-                MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100),
-                FluidUtils.getSuperHeatedSteam(100000),
-                0);
 
         GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(Items.lava_bucket)).metadata(FUEL_VALUE, 32)
                 .metadata(FUEL_TYPE, 2).duration(0).eut(0).addTo(GT_RecipeConstants.Fuel);
