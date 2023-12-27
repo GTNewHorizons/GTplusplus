@@ -1117,10 +1117,10 @@ public class RECIPES_GREGTECH {
                         new ItemStack(Blocks.obsidian, 1, 0))
                 .outputChances(4000, 2000, 500, 500, 500, 500, 1000).duration(1 * SECONDS).eut(0).noBuffer()
                 .setNEIDesc(
-                        "Steam output listed",
-                        "at maximum efficiency",
-                        "Without a Lava Filter",
-                        "only Obsidian is produced")
+                        "Steam output shown",
+                        "at maximum efficiency.",
+                        "Without a Lava Filter,",
+                        "only Obsidian is produced.")
                 .addTo(thermalBoilerRecipes);
 
         GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getPahoehoeLava(1660), FluidUtils.getWater(100))
@@ -1133,16 +1133,16 @@ public class RECIPES_GREGTECH {
                         new ItemStack(Blocks.obsidian, 1, 0))
                 .outputChances(1500, 500, 500, 500, 3700).duration(1 * SECONDS).eut(0)
                 .setNEIDesc(
-                        "Steam output listed",
-                        "at maximum efficiency",
-                        "Without a Lava Filter",
-                        "only Obsidian is produced")
+                        "Steam output shown",
+                        "at maximum efficiency.",
+                        "Without a Lava Filter,",
+                        "only Obsidian is produced.")
                 .addTo(thermalBoilerRecipes);
 
         GT_Values.RA.stdBuilder()
                 .fluidInputs(MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100), FluidUtils.getWater(625))
                 .fluidOutputs(MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100), FluidUtils.getSuperHeatedSteam(100000))
-                .duration(1 * SECONDS).eut(0).setNEIDesc("Steam output listed", "at maximum efficiency")
+                .duration(1 * SECONDS).eut(0).setNEIDesc("Steam output shown", "at maximum efficiency.")
                 .addTo(thermalBoilerRecipes);
     }
 
