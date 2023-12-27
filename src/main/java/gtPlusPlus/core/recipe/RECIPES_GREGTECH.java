@@ -1105,7 +1105,8 @@ public class RECIPES_GREGTECH {
     private static void thermalBoilerRecipes() {
         Logger.INFO("Registering Thermal Boiler Recipes.");
 
-        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getLava(83)).fluidOutputs(FluidUtils.getPahoehoeLava(83))
+        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getLava(1660), FluidUtils.getWater(100))
+                .fluidOutputs(FluidUtils.getPahoehoeLava(1660), FluidUtils.getSteam(16000))
                 .itemOutputs(
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Copper, 1),
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tin, 1),
@@ -1114,20 +1115,35 @@ public class RECIPES_GREGTECH {
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tantalum, 1),
                         GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Tungstate, 1),
                         new ItemStack(Blocks.obsidian, 1, 0))
-                .outputChances(2000, 1000, 250, 250, 250, 250, 500).duration(1).eut(0).addTo(thermalBoilerRecipes);
+                .outputChances(4000, 2000, 500, 500, 500, 500, 1000).duration(1 * SECONDS).eut(0).noBuffer()
+                .setNEIDesc(
+                        "Steam output listed",
+                        "at maximum efficiency",
+                        "Without a Lava Filter",
+                        "only Obsidian is produced")
+                .addTo(thermalBoilerRecipes);
 
-        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getPahoehoeLava(83))
+        GT_Values.RA.stdBuilder().fluidInputs(FluidUtils.getPahoehoeLava(1660), FluidUtils.getWater(100))
+                .fluidOutputs(FluidUtils.getSteam(16000))
                 .itemOutputs(
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Bronze, 1),
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Electrum, 1),
                         GT_OreDictUnificator.get(OrePrefixes.nugget, Materials.Tantalum, 1),
                         GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Tungstate, 1),
                         new ItemStack(Blocks.obsidian, 1, 0))
-                .outputChances(750, 250, 250, 250, 1850).duration(1).eut(0).addTo(thermalBoilerRecipes);
+                .outputChances(1500, 500, 500, 500, 3700).duration(1 * SECONDS).eut(0)
+                .setNEIDesc(
+                        "Steam output listed",
+                        "at maximum efficiency",
+                        "Without a Lava Filter",
+                        "only Obsidian is produced")
+                .addTo(thermalBoilerRecipes);
 
-        GT_Values.RA.stdBuilder().fluidInputs(MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100))
+        GT_Values.RA.stdBuilder()
+                .fluidInputs(MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100), FluidUtils.getWater(625))
                 .fluidOutputs(MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100), FluidUtils.getSuperHeatedSteam(100000))
-                .duration(20).eut(0).addTo(thermalBoilerRecipes);
+                .duration(1 * SECONDS).eut(0).setNEIDesc("Steam output listed", "at maximum efficiency")
+                .addTo(thermalBoilerRecipes);
     }
 
     private static void addFuels() {
