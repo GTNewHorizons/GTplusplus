@@ -57,7 +57,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     private int mCasing;
     private static IStructureDefinition<GT4Entity_ThermalBoiler> STRUCTURE_DEFINITION = null;
 
-    private static final int lavaFilterResilience = 30; // Damage lava filter with 1/n probability with every operation.
+    private static final int lavaFilterResilience = 30; // Damage lava filter with 1/n probability every operation.
     private int dryHeatCounter = 0; // Counts up to dryHeatMaximum to check for explosion conditions.
     private static final int dryHeatMaximum = 10; // 10 consecutive operations without water = BOOM
 
@@ -153,49 +153,59 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                 }
                 return super.createParallelHelper(adjustedRecipe);
             }
-
-            @NotNull
-            @Override
-            public CheckRecipeResult process() {
-                CheckRecipeResult result = super.process();
-                if (!result.wasSuccessful()) {
-                    return result;
-                }
-
-                // Adjust steam output based on efficiency.
-                if (outputFluids != null) {
-                    for (FluidStack outputFluid : outputFluids) {
-                        if (outputFluid != null
-                                && (outputFluid.getFluid() == fluidSteam || outputFluid.getFluid() == fluidSHSteam)) {
-
-                            // Adjust steam output based on efficiency.
-                            // TODO: This is not reflected in the GUI while the player has it open??
-                            if (mEfficiency < getMaxEfficiency(null)) {
-                                outputFluid.amount = Math
-                                        .max(1, (outputFluid.amount * mEfficiency) / getMaxEfficiency(null));
-                            }
-                            // Consume water to run recipe.
-                            if (!useWater(outputFluid.amount)) {
-                                outputFluid.amount = 0;
-                            }
-                        }
-                    }
-                }
-
-                // Remove non-obsidian outputs if we can't damage lava filter.
-                if (outputItems != null && outputItems.length > 0) {
-                    if (!damageLavaFilter()) {
-                        for (ItemStack outputItem : outputItems) {
-                            if (outputItem != null && outputItem.getItem() != itemObsidian) {
-                                outputItem.stackSize = 0;
-                            }
-                        }
-                    }
-                }
-
-                return result;
-            }
         };
+    }
+
+    @Override
+    public @NotNull CheckRecipeResult checkProcessing() {
+        // super.checkProcessing() instantly sets efficiency to maximum, override this.
+        int efficiency = mEfficiency;
+        CheckRecipeResult result = super.checkProcessing();
+        if (result.wasSuccessful()) {
+            mEfficiency = efficiency;
+            mEfficiencyIncrease = mMaxProgresstime * getEfficiencyIncrease();
+
+            // Adjust steam output based on efficiency.
+            if (mOutputFluids != null) {
+                for (FluidStack outputFluid : mOutputFluids) {
+                    if (outputFluid != null
+                            && (outputFluid.getFluid() == fluidSteam || outputFluid.getFluid() == fluidSHSteam)) {
+
+                        // Purely for display reasons, we don't actually make any EU.
+                        if (outputFluid.getFluid() == fluidSteam) {
+                            lEUt = outputFluid.amount / mMaxProgresstime / 2;
+                        } else {
+                            lEUt = outputFluid.amount / mMaxProgresstime;
+                        }
+
+                        // Adjust steam output based on efficiency.
+                        // TODO: This is not reflected in the GUI while the player has it open??
+                        if (mEfficiency < getMaxEfficiency(null)) {
+                            outputFluid.amount = Math
+                                    .max(1, (outputFluid.amount * mEfficiency) / getMaxEfficiency(null));
+                        }
+
+                        // Consume water to run recipe.
+                        if (!useWater(outputFluid.amount)) {
+                            outputFluid.amount = 0;
+                            lEUt = 0;
+                        }
+                    }
+                }
+            }
+
+            // Remove non-obsidian outputs if we can't damage lava filter.
+            if (mOutputItems != null && mOutputItems.length > 0) {
+                if (!damageLavaFilter()) {
+                    for (ItemStack outputItem : mOutputItems) {
+                        if (outputItem != null && outputItem.getItem() != itemObsidian) {
+                            outputItem.stackSize = 0;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     private boolean findLavaFilter() {
@@ -241,19 +251,6 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
             }
             return false;
         }
-    }
-
-    @Override
-    public @NotNull CheckRecipeResult checkProcessing() {
-        // super.checkProcessing() instantly sets efficiency to maximum, override this.
-        int efficiency = mEfficiency;
-        CheckRecipeResult result = super.checkProcessing();
-        if (result.wasSuccessful()) {
-            mEfficiency = efficiency;
-            mEfficiencyIncrease = mMaxProgresstime * getEfficiencyIncrease();
-            lEUt = mOutputFluids
-        }
-        return result;
     }
 
     @Override
