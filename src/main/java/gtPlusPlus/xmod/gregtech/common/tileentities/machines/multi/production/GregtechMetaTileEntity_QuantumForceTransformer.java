@@ -262,6 +262,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addInfo("Put a circuit in the controller to specify the focused output")
                 .addInfo("Check NEI to see the order of outputs, and which circuit number you need.")
                 .addInfo("If separate input busses are enabled put the circuit in the circuit slot of the bus")
+                .addInfo("If focusing is enabled and no circuit is found, the first output will be focused")
                 .addInfo("Uses FocusTier*4*sqrt(parallels) Neptunium Plasma if focusing")
                 .addInfo("Can use FocusTier*4*sqrt(parallels) Fermium Plasma for additional chance output")
                 .addInfo("This multi gets improved when all casings of some types are upgraded")
@@ -610,10 +611,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                             return stack.getItemDamage() - 1;
                         }
                     }
-                    return -1;
+                    return 0;
                 } else {
                     final ItemStack controllerStack = getControllerSlot();
-                    return controllerStack != null ? controllerStack.getItemDamage() - 1 : -1;
+                    return controllerStack != null ? controllerStack.getItemDamage() - 1 : 0;
                 }
             }
         };
