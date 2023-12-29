@@ -1,5 +1,6 @@
 package gtPlusPlus.api.recipe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -11,6 +12,8 @@ import gregtech.api.recipe.NEIRecipePropertiesBuilder;
 import gregtech.api.recipe.maps.LargeNEIFrontend;
 import gregtech.api.util.MethodsReturnNonnullByDefault;
 import gregtech.common.gui.modularui.UIHelper;
+import gregtech.nei.RecipeDisplayInfo;
+import gregtech.nei.formatter.INEISpecialInfoFormatter;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -23,7 +26,9 @@ public class ThermalBoilerFrontend extends LargeNEIFrontend {
 
     public ThermalBoilerFrontend(BasicUIPropertiesBuilder uiPropertiesBuilder,
             NEIRecipePropertiesBuilder neiPropertiesBuilder) {
-        super(uiPropertiesBuilder, neiPropertiesBuilder);
+        super(
+                uiPropertiesBuilder,
+                neiPropertiesBuilder.neiSpecialInfoFormatter(new ThermalBoilerSpecialValueFormatter()));
     }
 
     @Override
@@ -33,5 +38,31 @@ public class ThermalBoilerFrontend extends LargeNEIFrontend {
                 xOrigin + tileSize * (maxInputs - fluidInputCount),
                 yOrigin,
                 maxInputs);
+    }
+
+    private static class ThermalBoilerSpecialValueFormatter implements INEISpecialInfoFormatter {
+
+        @Override
+        public List<String> format(RecipeDisplayInfo recipeInfo) {
+            // TODO: Translation.
+            List<String> result = new ArrayList<>();
+            result.add("Steam output shown");
+            result.add("at maximum efficiency.");
+
+            switch ((recipeInfo.recipe.mSpecialValue)) {
+                case 1:
+                    // Obsidian.
+                    result.add("Without a Lava Filter,");
+                    result.add("only Obsidian is produced.");
+                    break;
+                case 2:
+                    // Coal.
+                    result.add("Without a Lava Filter,");
+                    result.add("only Coal is produced.");
+                    break;
+            }
+
+            return result;
+        }
     }
 }

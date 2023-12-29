@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -63,6 +64,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
 
     private static final Item itemLavaFilter = ItemList.Component_LavaFilter.getItem();
     private static final Item itemObsidian = Item.getItemFromBlock(Blocks.obsidian);
+    private static final Item itemCoal = Item.getItemFromBlock(Blocks.coal_block);
     private static final Fluid fluidWater = FluidRegistry.WATER;
     private static final Fluid fluidDistilledWater = FluidUtils.getDistilledWater(1).getFluid();
     private static final Fluid fluidSteam = FluidUtils.getSteam(1).getFluid();
@@ -146,7 +148,8 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                 // so that output space for them is not required if void protection is on.
                 if (!findLavaFilter()) {
                     for (ItemStack outputItem : adjustedRecipe.mOutputs) {
-                        if (outputItem != null && outputItem.getItem() != itemObsidian) {
+                        if (outputItem != null && outputItem.getItem() != itemObsidian
+                                && outputItem.getItem() != itemCoal) {
                             outputItem.stackSize = 0;
                         }
                     }
@@ -198,7 +201,8 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
             if (mOutputItems != null && mOutputItems.length > 0) {
                 if (!damageLavaFilter()) {
                     for (ItemStack outputItem : mOutputItems) {
-                        if (outputItem != null && outputItem.getItem() != itemObsidian) {
+                        if (outputItem != null && outputItem.getItem() != itemObsidian
+                                && outputItem.getItem() != itemCoal) {
                             outputItem.stackSize = 0;
                         }
                     }
@@ -276,9 +280,11 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType(getMachineType()).addInfo("Thermal Boiler Controller")
-                .addInfo("Converts Water & Heat into Steam").addInfo("Explodes if water is not supplied")
-                .addInfo("Consult user manual for more information").addPollutionAmount(getPollutionPerSecond(null))
-                .addSeparator().beginStructureBlock(3, 3, 3, true).addController("Front Center")
+                .addInfo("Converts Water & Heat into Steam").addInfo("Filters raw materials from lava")
+                .addInfo("Explodes if water is not supplied").addInfo("Consult user manual for more information")
+                .addPollutionAmount(getPollutionPerSecond(null))
+                .addInfo(EnumChatFormatting.GOLD + "Check out the new recipes!").addSeparator()
+                .beginStructureBlock(3, 3, 3, true).addController("Front Center")
                 .addCasingInfoMin("Thermal Containment Casings", 10, false).addInputBus("Any Casing", 1)
                 .addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1).addOutputHatch("Any Casing", 1)
                 .addMaintenanceHatch("Any Casing", 1).addMufflerHatch("Any Casing", 1)
