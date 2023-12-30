@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -283,7 +282,7 @@ public class GT4Entity_ThermalBoiler extends GregtechMeta_MultiBlockBase<GT4Enti
                 .addInfo("Converts Water & Heat into Steam").addInfo("Filters raw materials from lava")
                 .addInfo("Explodes if water is not supplied").addInfo("Consult user manual for more information")
                 .addPollutionAmount(getPollutionPerSecond(null))
-                .addInfo(EnumChatFormatting.GOLD + "Check out the new recipes!").addSeparator()
+                // .addInfo(EnumChatFormatting.GOLD + "Check out the new recipes!").addSeparator()
                 .beginStructureBlock(3, 3, 3, true).addController("Front Center")
                 .addCasingInfoMin("Thermal Containment Casings", 10, false).addInputBus("Any Casing", 1)
                 .addOutputBus("Any Casing", 1).addInputHatch("Any Casing", 1).addOutputHatch("Any Casing", 1)

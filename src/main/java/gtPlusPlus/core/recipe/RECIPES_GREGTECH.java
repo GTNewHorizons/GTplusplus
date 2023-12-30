@@ -42,8 +42,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import com.github.bartimaeusnek.bartworks.system.material.WerkstoffLoader;
-
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -1146,23 +1144,17 @@ public class RECIPES_GREGTECH {
                 .outputChances(50, 300, 150, 200, 100, 100, 400, 500).specialValue(1).duration(1 * SECONDS).eut(0)
                 .addTo(thermalBoilerRecipes);
 
-        // Blazing Pyrotheum
-
-        GT_Values.RA.stdBuilder()
-                .fluidInputs(
-                        FluidUtils.getFluidStack("pyrotheum", 100),
-                        FluidUtils.getWater(80_000 / GT_Values.STEAM_PER_WATER))
-                .fluidOutputs(FluidUtils.getPahoehoeLava(1000), FluidUtils.getSuperHeatedSteam(80_000))
-                .itemOutputs(
-                        WerkstoffLoader.Thorianit.get(OrePrefixes.dustImpure, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Scheelite, 1),
-                        WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dustImpure, 1),
-                        WerkstoffLoader.IrOsLeachResidue.get(OrePrefixes.dustImpure, 1),
-                        WerkstoffLoader.IrLeachResidue.get(OrePrefixes.dustImpure, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.FierySteel, 1),
-                        new ItemStack(Blocks.coal_block, 1, 0))
-                .outputChances(200, 150, 150, 100, 50, 200, 500).specialValue(2).duration(1 * SECONDS).eut(0)
-                .addTo(thermalBoilerRecipes);
+        /*
+         * // Blazing Pyrotheum GT_Values.RA.stdBuilder() .fluidInputs( FluidUtils.getFluidStack("pyrotheum", 100),
+         * FluidUtils.getWater(80_000 / GT_Values.STEAM_PER_WATER)) .fluidOutputs(FluidUtils.getPahoehoeLava(1000),
+         * FluidUtils.getSuperHeatedSteam(80_000)) .itemOutputs( WerkstoffLoader.Thorianit.get(OrePrefixes.dustImpure,
+         * 1), GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Scheelite, 1),
+         * WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dustImpure, 1),
+         * WerkstoffLoader.IrOsLeachResidue.get(OrePrefixes.dustImpure, 1),
+         * WerkstoffLoader.IrLeachResidue.get(OrePrefixes.dustImpure, 1), GT_OreDictUnificator.get(OrePrefixes.dust,
+         * Materials.FierySteel, 1), new ItemStack(Blocks.coal_block, 1, 0)) .outputChances(200, 150, 150, 100, 50, 200,
+         * 500).specialValue(2).duration(1 * SECONDS).eut(0) .addTo(thermalBoilerRecipes);
+         */
 
         // Hot Coolant
         // Special value makes the recipes sort correctly. For some reason.
