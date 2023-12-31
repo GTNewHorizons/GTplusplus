@@ -29,7 +29,7 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
     private final InventoryFishTrap inventoryContents;
     private String customName;
     // The number of water blocks is used as an index to get the tick rate.
-    private final static short[] waterBlocksToTickRate = new short[] { 0, 0, 6800, 5600, 4400, 3200, 1750 };
+    private final static short[] waterBlocksToTickRate = new short[] {0, 0, 6800, 5600, 4400, 3200, 1750};
     private int surroundingWaterBlocks = 0;
 
     public TileEntityFishTrap() {
@@ -52,9 +52,10 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
         for (final Block checkBlock : surroundingBlocks) {
             if (checkBlock == ModBlocks.blockFishTrap) {
                 trapCount++;
-            } else if ((checkBlock == Blocks.water) || (checkBlock == Blocks.flowing_water)) {
-                waterCount++;
-            }
+            } else if ((checkBlock == Blocks.water) || (checkBlock == Blocks.flowing_water)
+                    || checkBlock.getUnlocalizedName().toLowerCase().contains("water")) {
+                        waterCount++;
+                    }
         }
         // Explicitly check for at least 2 water blocks.
         if (waterCount < 2) {
