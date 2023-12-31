@@ -1105,77 +1105,57 @@ public class RECIPES_GREGTECH {
     private static void thermalBoilerRecipes() {
         Logger.INFO("Registering Thermal Boiler Recipes.");
 
-        // Special value is used for building NEI tooltip.
-        // 1: Outputs Obsidian.
-        // 2: Outputs coal.
-        // Leave unset otherwise.
+        // Recipes with special value -1 display additional tooltip in NEI about lava filters.
 
         // Lava
 
         GT_Values.RA.stdBuilder()
-                .fluidInputs(FluidUtils.getLava(1000), FluidUtils.getWater(40_000 / GT_Values.STEAM_PER_WATER))
-                .fluidOutputs(FluidUtils.getPahoehoeLava(1000), FluidUtils.getSteam(40_000))
+                .fluidInputs(FluidUtils.getLava(1000), FluidUtils.getWater(16_000 / GT_Values.STEAM_PER_WATER))
+                .fluidOutputs(FluidUtils.getPahoehoeLava(1000), FluidUtils.getSteam(16_000))
                 .itemOutputs(
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Copper, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Tin, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Silver, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Gold, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Redstone, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.GraniteBlack, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Basalt, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Copper, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Tin, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Gold, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Silver, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Tantalum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Tungstate, 1),
                         new ItemStack(Blocks.obsidian, 1, 0))
-                .outputChances(300, 200, 100, 80, 150, 400, 400, 500).specialValue(1).duration(1 * SECONDS).eut(0)
+                .outputChances(444, 222, 56, 56, 56, 125, 1000).specialValue(-1).duration(1 * SECONDS).eut(0)
                 .addTo(thermalBoilerRecipes);
 
         // Pahoehoe Lava
 
         GT_Values.RA.stdBuilder()
-                .fluidInputs(FluidUtils.getPahoehoeLava(1000), FluidUtils.getWater(40_000 / GT_Values.STEAM_PER_WATER))
-                .fluidOutputs(FluidUtils.getSteam(40_000))
+                .fluidInputs(FluidUtils.getPahoehoeLava(1000), FluidUtils.getWater(16_000 / GT_Values.STEAM_PER_WATER))
+                .fluidOutputs(FluidUtils.getSteam(16_000))
                 .itemOutputs(
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Electrum, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Tantalite, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Bauxite, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Ilmenite, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Tungstate, 1),
-                        GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Phosphate, 1),
-                        ItemUtils.getItemStackFromFQRN("appliedenergistics2:tile.BlockSkyStone", 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Bronze, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Electrum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Tantalum, 1),
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Tungstate, 1),
                         new ItemStack(Blocks.obsidian, 1, 0))
-                .outputChances(50, 300, 150, 200, 100, 100, 400, 500).specialValue(1).duration(1 * SECONDS).eut(0)
+                .outputChances(167, 56, 56, 125, 3700).specialValue(-1).duration(1 * SECONDS).eut(0)
                 .addTo(thermalBoilerRecipes);
 
-        /*
-         * // Blazing Pyrotheum GT_Values.RA.stdBuilder() .fluidInputs( FluidUtils.getFluidStack("pyrotheum", 100),
-         * FluidUtils.getWater(80_000 / GT_Values.STEAM_PER_WATER)) .fluidOutputs(FluidUtils.getPahoehoeLava(1000),
-         * FluidUtils.getSuperHeatedSteam(80_000)) .itemOutputs( WerkstoffLoader.Thorianit.get(OrePrefixes.dustImpure,
-         * 1), GT_OreDictUnificator.get(OrePrefixes.dustImpure, Materials.Scheelite, 1),
-         * WerkstoffLoader.PTMetallicPowder.get(OrePrefixes.dustImpure, 1),
-         * WerkstoffLoader.IrOsLeachResidue.get(OrePrefixes.dustImpure, 1),
-         * WerkstoffLoader.IrLeachResidue.get(OrePrefixes.dustImpure, 1), GT_OreDictUnificator.get(OrePrefixes.dust,
-         * Materials.FierySteel, 1), new ItemStack(Blocks.coal_block, 1, 0)) .outputChances(200, 150, 150, 100, 50, 200,
-         * 500).specialValue(2).duration(1 * SECONDS).eut(0) .addTo(thermalBoilerRecipes);
-         */
-
         // Hot Coolant
-        // Special value makes the recipes sort correctly. For some reason.
 
         GT_Values.RA.stdBuilder()
                 .fluidInputs(
-                        FluidUtils.getFluidStack("ic2hotcoolant", 800),
-                        FluidUtils.getWater(160_000 / GT_Values.STEAM_PER_WATER))
-                .fluidOutputs(FluidUtils.getFluidStack("ic2coolant", 800), FluidUtils.getSuperHeatedSteam(160_000))
-                .specialValue(99).duration(1 * SECONDS).eut(0).addTo(thermalBoilerRecipes);
+                        FluidUtils.getFluidStack("ic2hotcoolant", 500),
+                        FluidUtils.getWater(100_000 / GT_Values.STEAM_PER_WATER))
+                .fluidOutputs(FluidUtils.getFluidStack("ic2coolant", 500), FluidUtils.getSuperHeatedSteam(100_000))
+                .duration(1 * SECONDS).eut(0).addTo(thermalBoilerRecipes);
 
         // Solar Salt (Hot)
 
         GT_Values.RA.stdBuilder()
                 .fluidInputs(
-                        MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(160),
-                        FluidUtils.getWater(160_000 / GT_Values.STEAM_PER_WATER))
+                        MISC_MATERIALS.SOLAR_SALT_HOT.getFluidStack(100),
+                        FluidUtils.getWater(100_000 / GT_Values.STEAM_PER_WATER))
                 .fluidOutputs(
-                        MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(160),
-                        FluidUtils.getSuperHeatedSteam(160_000))
-                .specialValue(99).duration(1 * SECONDS).eut(0).addTo(thermalBoilerRecipes);
+                        MISC_MATERIALS.SOLAR_SALT_COLD.getFluidStack(100),
+                        FluidUtils.getSuperHeatedSteam(100_000))
+                .duration(1 * SECONDS).eut(0).addTo(thermalBoilerRecipes);
     }
 
     private static void addFuels() {
