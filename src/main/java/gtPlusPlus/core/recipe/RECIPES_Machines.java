@@ -1277,17 +1277,7 @@ public class RECIPES_Machines {
                     GregtechItemList.GT_FluidTank_LV, GregtechItemList.GT_FluidTank_MV,
                     GregtechItemList.GT_FluidTank_HV };
             for (GregtechItemList aTank : aTanks) {
-                RecipeUtils.addShapedGregtechRecipe(
-                        aTank.get(1),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        aTank.get(1));
+                RecipeUtils.addShapelessGregtechRecipe(new Object[] { aTank.get(1) }, aTank.get(1));
             }
 
             RecipeUtils.addShapedGregtechRecipe(
@@ -3009,24 +2999,26 @@ public class RECIPES_Machines {
                 GregtechItemList.Hatch_SuperBus_Output_EV.get(1), };
 
         // Input Buses
-        for (int i = 1; i < mSuperBusesInput.length; i++) {
+        for (int tier = 1; tier < mSuperBusesInput.length + 1; tier++) {
             CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { CI.getNumberedCircuit(17), mInputHatch[i], CI.getElectricMotor(i, 2),
-                            CI.getConveyor(i, 5), CI.getBolt(i, 16), CI.getTieredComponent(OrePrefixes.circuit, i, 2) },
-                    CI.getAlternativeTieredFluid(i, 144 * 8),
-                    mSuperBusesInput[i - 1].get(1),
+                    new ItemStack[] { CI.getNumberedCircuit(17), mInputHatch[tier - 1], CI.getElectricMotor(tier, 2),
+                            CI.getConveyor(tier, 5), CI.getBolt(tier, 16),
+                            CI.getTieredComponent(OrePrefixes.circuit, tier, 2) },
+                    CI.getAlternativeTieredFluid(tier, 144 * 8),
+                    mSuperBusesInput[tier - 1].get(1),
                     20 * 30 * 2,
-                    (int) GT_Values.V[i]);
+                    (int) GT_Values.V[tier]);
         }
         // Output Buses
-        for (int i = 1; i < mSuperBusesOutput.length; i++) {
+        for (int tier = 1; tier < mSuperBusesOutput.length + 1; tier++) {
             CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { CI.getNumberedCircuit(18), mOutputHatch[i], CI.getElectricPiston(i, 2),
-                            CI.getConveyor(i, 5), CI.getGear(i, 3), CI.getTieredComponent(OrePrefixes.circuit, i, 2) },
-                    CI.getTertiaryTieredFluid(i, 144 * 8),
-                    mSuperBusesOutput[i - 1].get(1),
+                    new ItemStack[] { CI.getNumberedCircuit(18), mOutputHatch[tier - 1], CI.getElectricPiston(tier, 2),
+                            CI.getConveyor(tier, 5), CI.getGear(tier, 3),
+                            CI.getTieredComponent(OrePrefixes.circuit, tier, 2) },
+                    CI.getTertiaryTieredFluid(tier, 144 * 8),
+                    mSuperBusesOutput[tier - 1].get(1),
                     20 * 30 * 2,
-                    (int) GT_Values.V[i]);
+                    (int) GT_Values.V[tier]);
         }
     }
 
@@ -3038,14 +3030,14 @@ public class RECIPES_Machines {
                 GregtechItemList.GT_MetaTileEntity_ChiselBus_MV.get(1),
                 GregtechItemList.GT_MetaTileEntity_ChiselBus_HV.get(1), };
 
-        for (int i = 1; i < mChiselBuses.length; i++) {
+        for (int tier = 1; tier < mChiselBuses.length + 1; tier++) {
             CORE.RA.addSixSlotAssemblingRecipe(
-                    new ItemStack[] { CI.getNumberedCircuit(17), mSuperBusesInput[i], CI.getSensor(i, 1),
-                            CI.getRobotArm(i, 2), CI.getBolt(i, 16), ItemUtils.getSimpleStack(Blocks.chest) },
-                    CI.getAlternativeTieredFluid(i, 144 * 2),
-                    mChiselBuses[i - 1],
+                    new ItemStack[] { CI.getNumberedCircuit(17), mSuperBusesInput[tier - 1], CI.getSensor(tier, 1),
+                            CI.getRobotArm(tier, 2), CI.getBolt(tier, 16), ItemUtils.getSimpleStack(Blocks.chest) },
+                    CI.getAlternativeTieredFluid(tier, 144 * 2),
+                    mChiselBuses[tier - 1],
                     20 * 30 * 2,
-                    (int) GT_Values.VP[i + 1]);
+                    (int) GT_Values.VP[tier + 1]);
         }
     }
 

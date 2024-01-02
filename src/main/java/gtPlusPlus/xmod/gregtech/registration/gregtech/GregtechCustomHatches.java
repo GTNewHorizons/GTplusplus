@@ -26,7 +26,7 @@ public class GregtechCustomHatches {
             run2();
         }
         run3();
-        run5(); // Chisel buses
+        run4(); // Chisel buses
         run6(); // Solidifier hatches
     }
 
@@ -156,7 +156,7 @@ public class GregtechCustomHatches {
                 (new GT_MetaTileEntity_Hatch_Muffler_Adv(
                         30009,
                         "hatch.muffler.adv.tier.09",
-                        "Advanced Muffler Hatch (MAX)",
+                        "Advanced Muffler Hatch (UHV)",
                         9)).getStackForm(1L));
     }
 
@@ -192,7 +192,7 @@ public class GregtechCustomHatches {
                 ((IMetaTileEntity) makeInputBus(aStartID++, "hatch.superbus.input.tier.08", "Super Bus (I) (UV)", 8))
                         .getStackForm(1L));
         GregtechItemList.Hatch_SuperBus_Input_MAX.set(
-                ((IMetaTileEntity) makeInputBus(aStartID, "hatch.superbus.input.tier.09", "Super Bus (I) (MAX)", 9))
+                ((IMetaTileEntity) makeInputBus(aStartID, "hatch.superbus.input.tier.09", "Super Bus (I) (UHV)", 9))
                         .getStackForm(1L));
 
         /*
@@ -224,7 +224,7 @@ public class GregtechCustomHatches {
                 ((IMetaTileEntity) makeOutputBus(aStartID++, "hatch.superbus.output.tier.08", "Super Bus (O) (UV)", 8))
                         .getStackForm(1L));
         GregtechItemList.Hatch_SuperBus_Output_MAX.set(
-                ((IMetaTileEntity) makeOutputBus(aStartID, "hatch.superbus.output.tier.09", "Super Bus (O) (MAX)", 9))
+                ((IMetaTileEntity) makeOutputBus(aStartID, "hatch.superbus.output.tier.09", "Super Bus (O) (UHV)", 9))
                         .getStackForm(1L));
     }
 
@@ -243,15 +243,15 @@ public class GregtechCustomHatches {
         return new GT_MetaTileEntity_ChiselBus(id, unlocalizedName, localizedName, tier);
     }
 
-    private static void run5() {
+    private static void run4() {
         int aID = 31778; // 31778 - 31780
 
         GregtechItemList.GT_MetaTileEntity_ChiselBus_LV
-                .set((makeChiselBus(aID++, "hatch.chisel.tier.01", "Chisel Bus II", 1)).getStackForm(1L));
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.01", "Chisel Bus I", 1)).getStackForm(1L));
         GregtechItemList.GT_MetaTileEntity_ChiselBus_MV
-                .set((makeChiselBus(aID++, "hatch.chisel.tier.02", "Chisel Bus III", 2)).getStackForm(1L));
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.02", "Chisel Bus II", 2)).getStackForm(1L));
         GregtechItemList.GT_MetaTileEntity_ChiselBus_HV
-                .set((makeChiselBus(aID++, "hatch.chisel.tier.03", "Chisel Bus IV", 3)).getStackForm(1L));
+                .set((makeChiselBus(aID++, "hatch.chisel.tier.03", "Chisel Bus III", 3)).getStackForm(1L));
 
     }
 
