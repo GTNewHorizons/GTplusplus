@@ -354,9 +354,9 @@ public class GregtechMTE_ChemicalPlant extends GregtechMeta_MultiBlockBase<Gregt
             mCoilTier = checkCoil.getTier();
             getBaseMetaTileEntity().sendBlockEvent(GregTechTileClientEvents.CHANGE_CUSTOM_DATA, getUpdateData());
             updateHatchTexture();
-            return mMachineCasingTier >= 9 || mMachineCasingTier >= maxTierOfHatch;
+            return (mMachineCasingTier >= 9 || mMachineCasingTier >= maxTierOfHatch) && mCatalystBuses.size() <= 1;
         }
-        return mCatalystBuses.size() <= 1;
+        return false;
     }
 
     public void updateHatchTexture() {
