@@ -21,6 +21,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffl
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockBase;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Config;
+import gregtech.common.GT_Pollution;
 import gtPlusPlus.core.item.general.ItemAirFilter;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.gregtech.PollutionUtils;
@@ -57,11 +58,8 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
 
     final String[] mDescription = new String[] { "Outputs pollution from a multiblock", "DO NOT OBSTRUCT THE OUTPUT!",
             "Requires 3 Air Blocks in front of the exhaust face",
-            mTier < 5 ? "Requires an Air Filter to function"
-                    : "Requires an Air Filter " + EnumChatFormatting.WHITE
-                            + "[Tier 2]"
-                            + EnumChatFormatting.GRAY
-                            + " to function",
+            mTier < 5 ? "Requires an Air Filter"
+                    : "Requires an Air Filter " + EnumChatFormatting.WHITE + "[Tier 2]" + EnumChatFormatting.GRAY,
             "Can take Air Filters from an input bus of the multiblock",
             "Reduces Pollution to " + calculatePollutionReduction(100, true) + "%",
             "Recovers " + (100 - calculatePollutionReduction(100, true)) + "% of CO2/CO/SO2", CORE.GT_Tooltip.get() };
@@ -109,10 +107,13 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
 
         int emission = 10000;
         if (damageAirFilter(parentTileEntity)) {
-            emission = calculatePollutionReduction(emission, false);
+            // damageAirFilter already checks that we have a valid filter.
+            emission = calculatePollutionReduction(emission, true);
+        } else {
+            // Revert to reduction of the basic muffler.
+            emission = super.calculatePollutionReduction(emission);
         }
-
-        PollutionUtils.addPollution(this.getBaseMetaTileEntity(), emission);
+        GT_Pollution.addPollution(getBaseMetaTileEntity(), emission);
         return true;
     }
 
@@ -131,7 +132,10 @@ public class GT_MetaTileEntity_Hatch_Muffler_Adv extends GT_MetaTileEntity_Hatch
      * @return Amount of pollution after reduction.
      */
     protected int calculatePollutionReduction(int aPollution, boolean ignoreFilter) {
-        if (!ignoreFilter && !hasAirFilter()) return aPollution; // Do not reduce pollution without a filter.
+        if (!ignoreFilter && !hasAirFilter()) {
+            // Without a filter, downgrade to basic muffler reduction.
+            return super.calculatePollutionReduction(aPollution);
+        }
 
         // Special case to be always better than a basic muffler.
         if (mTier < 2) return (int) (aPollution * 0.95);
