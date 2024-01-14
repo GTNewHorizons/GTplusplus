@@ -147,7 +147,6 @@ public final class ModItems {
     // Possibly missing base items that GT may be missing.
 
     public static Item itemSmallWroughtIronGear;
-    public static Item itemPlateRawMeat;
     public static Item itemPlateClay;
     public static Item itemPlateLithium;
     public static Item itemPlateEuropium;
@@ -156,7 +155,6 @@ public final class ModItems {
     public static Item itemDoublePlateEuropium;
     public static Item itemFoilUranium235;
     public static Item itemDustIndium;
-    public static BlockBaseModular blockRawMeat;
 
     public static Item itemBoilerChassis;
     public static Item itemDehydratorCoilWire;
@@ -885,6 +883,7 @@ public final class ModItems {
         if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("gearGtSmallWroughtIron", 1) == null) {
             itemSmallWroughtIronGear = new BaseItemSmallGear(NONMATERIAL.WROUGHT_IRON);
         }
+
         // Krypton Processing
         if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("ingotHotTitanium", 1) == null) {
             itemHotTitaniumIngot = ItemUtils
@@ -946,23 +945,8 @@ public final class ModItems {
         MaterialUtils.generateComponentAndAssignToAMaterial(ComponentTypes.FOIL, ELEMENT.STANDALONE.CHRONOMATIC_GLASS);
 
         // Special Sillyness
-        if (true) {
-
-            if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateSodium", 1) == null) {
-                new BaseItemPlate(ELEMENT.getInstance().SODIUM);
-            }
-
-            Material meatRaw = NONMATERIAL.MEAT;
-            // A plate of Meat.
-            if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateMeatRaw", 1) == null) {
-                itemPlateRawMeat = new BaseItemPlate(meatRaw);
-                ItemUtils.registerFuel(ItemUtils.getSimpleStack(itemPlateRawMeat), 100);
-            }
-            // A Block of Meat.
-            if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("blockMeatRaw", 1) == null) {
-                blockRawMeat = new BlockBaseModular(meatRaw, BlockTypes.STANDARD);
-                ItemUtils.registerFuel(ItemUtils.getSimpleStack(blockRawMeat), 900);
-            }
+        if (ItemUtils.getItemStackOfAmountFromOreDictNoBroken("plateSodium", 1) == null) {
+            new BaseItemPlate(ELEMENT.getInstance().SODIUM);
         }
 
         // A plate of Vanadium.

@@ -267,17 +267,7 @@ public class MilledOreProcessing extends ItemPackage {
         /*
          * Second 5
          */
-        // milledRedstone
-        registerOreDataForMilledType(
-                RedstoneFlotationFroth,
-                NONMATERIAL.REDSTONE,
-                300,
-                ELEMENT.getInstance().CHROMIUM,
-                60,
-                MaterialUtils.generateMaterialFromGtENUM(Materials.Firestone),
-                45,
-                ELEMENT.getInstance().DYSPROSIUM,
-                16);
+
         // milledSpessartine
         registerOreDataForMilledType(
                 SpessartineFlotationFroth,

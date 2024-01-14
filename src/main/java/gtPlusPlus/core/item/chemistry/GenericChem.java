@@ -46,28 +46,6 @@ import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 public class GenericChem extends ItemPackage {
 
     /**
-     * Materials
-     */
-
-    // Refined PTFE
-    public static final Material TEFLON = new Material(
-            "Teflon",
-            MaterialState.SOLID,
-            TextureSet.SET_SHINY,
-            new short[] { 75, 45, 75 },
-            330,
-            640,
-            -1,
-            -1,
-            false,
-            null,
-            0,
-            new MaterialStack(NONMATERIAL.PTFE, 75),
-            new MaterialStack(NONMATERIAL.PLASTIC, 15),
-            new MaterialStack(ELEMENT.getInstance().CARBON, 5),
-            new MaterialStack(ELEMENT.getInstance().SODIUM, 5));
-
-    /**
      * Fluids
      */
     public static Fluid Benzene;
@@ -141,8 +119,6 @@ public class GenericChem extends ItemPackage {
 
     @Override
     public void items() {
-
-        MaterialGenerator.generate(TEFLON, false);
 
         mGenericChemItem1 = new ItemGenericChemBase();
         mAdvancedCircuit = new GTPP_IntegratedCircuit_Item("T3RecipeSelector", "science/general/AdvancedCircuit");
