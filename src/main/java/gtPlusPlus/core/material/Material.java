@@ -365,10 +365,16 @@ public class Material {
                 inputs);
     }
 
+    private static int materialCounter = 2000;
+    private final int materialID;
+
     public Material(final String materialName, final MaterialState defaultState, final TextureSet set,
             final long durability, short[] rgba, final int meltingPoint, final int boilingPoint, final long protons,
             final long neutrons, final boolean blastFurnace, String chemicalSymbol, final int radiationLevel,
             boolean generateCells, boolean generateFluid, final MaterialStack... inputs) {
+
+        this.materialID = materialCounter++;
+        System.out.println(materialName + ": " + materialID);
 
         if (mMaterialMap.add(this)) {}
 
