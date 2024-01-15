@@ -346,10 +346,6 @@ public class RECIPES_General {
 
     private static void migratedRecipes() {
 
-        RecipeUtils.generateMortarRecipe(
-                ItemUtils.getSimpleStack(ModItems.itemPlateRawMeat),
-                ItemUtils.getItemStackOfAmountFromOreDict("dustMeatRaw", 1));
-
         generateWireRecipes(ELEMENT.getInstance().ZIRCONIUM);
         generateWireRecipes(ALLOY.HG1223);
         generateWireRecipes(ALLOY.LEAGRISIUM);
