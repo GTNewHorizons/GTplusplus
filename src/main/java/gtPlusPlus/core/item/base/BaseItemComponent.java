@@ -7,12 +7,18 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
+import com.colen.postea.API.ItemStackReplacementManager;
+import gregtech.api.modernmaterials.ModernMaterial;
+import gregtech.api.modernmaterials.items.partclasses.ItemsEnum;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -80,7 +86,65 @@ public class BaseItemComponent extends Item {
         registerComponent();
 
         GT_LanguageManager.addStringLocalization("gtplusplus.item." + unlocalName + ".name", getFormattedLangName());
+
+        // --------------------------------------------------------------------
+        // --------- Postea conversion management for ModernMaterials ---------
+        // --------------------------------------------------------------------
+
+        // We can do this here because the item has already been registered. It has been assigned an ID.
+
+        Function<NBTTagCompound, NBTTagCompound> transformer = (tag) -> {
+
+            byte stackSize = tag.getByte("Count");
+
+            int materialID = material.getMaterialID();
+            ModernMaterial modernMaterial = ModernMaterial.getMaterialFromID(materialID);
+
+            if (modernMaterial == null) {
+                System.out.println("Could not convert item! ModernMaterial with ID " + materialID + " does not exist.");
+                return tag;
+            }
+
+            ItemsEnum itemsEnum = convertComponentTypeToItemEnum(componentType);
+            ItemStack itemStack = itemsEnum.getPart(modernMaterial, stackSize);
+
+            tag.setShort("Damage", (short) itemStack.getItemDamage());
+            tag.setShort("id", (short) Item.getIdFromItem(itemStack.getItem()));
+
+            return tag;
+        };
+
+        ItemStackReplacementManager.addItemReplacement("miscutils:" + this.unlocalName, transformer);
+        System.out.println("Registered conversion for " + "miscutils:" + this.unlocalName);
     }
+
+    public static ItemsEnum convertComponentTypeToItemEnum(ComponentTypes componentType) {
+        switch (componentType) {
+            case DUST -> {
+                return ItemsEnum.Dust;
+            }
+            case DUSTSMALL -> {
+                return ItemsEnum.SmallDust;
+            }
+            case DUSTTINY -> {
+                return ItemsEnum.TinyDust;
+            }
+            case INGOT -> {
+                return ItemsEnum.Ingot;
+            }
+            case HOTINGOT -> {
+                return ItemsEnum.HotIngot;
+            }
+            case PLATE -> {
+                return ItemsEnum.Plate;
+            }
+            case PLATEDOUBLE -> {
+                return ItemsEnum.DoublePlate;
+            }
+        }
+        return null;
+    }
+
 
     // For Cell Generation
     public BaseItemComponent(final String unlocalName, final String localName, final short[] RGBA) {
