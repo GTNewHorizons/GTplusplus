@@ -6,7 +6,6 @@ import gtPlusPlus.core.util.minecraft.MaterialUtils;
 
 public class NONMATERIAL {
 
-
     // Clay
     public static final Material CLAY = MaterialUtils.generateMaterialFromGtENUM(Materials.Clay);
 

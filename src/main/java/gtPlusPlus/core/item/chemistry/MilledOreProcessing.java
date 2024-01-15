@@ -22,7 +22,6 @@ import gtPlusPlus.core.item.base.ore.BaseItemMilledOre;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.ELEMENT;
 import gtPlusPlus.core.material.Material;
-import gtPlusPlus.core.material.NONMATERIAL;
 import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;

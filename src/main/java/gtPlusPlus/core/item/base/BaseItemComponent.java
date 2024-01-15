@@ -7,12 +7,8 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import com.colen.postea.API.ItemStackReplacementManager;
-import gregtech.api.modernmaterials.ModernMaterial;
-import gregtech.api.modernmaterials.items.partclasses.ItemsEnum;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,12 +19,16 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import com.colen.postea.API.ItemStackReplacementManager;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TextureSet;
+import gregtech.api.modernmaterials.ModernMaterial;
+import gregtech.api.modernmaterials.items.partclasses.ItemsEnum;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -144,7 +144,6 @@ public class BaseItemComponent extends Item {
         }
         return null;
     }
-
 
     // For Cell Generation
     public BaseItemComponent(final String unlocalName, final String localName, final short[] RGBA) {

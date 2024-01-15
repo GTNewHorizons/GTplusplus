@@ -22,8 +22,6 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.objects.Logger;
-import gtPlusPlus.core.block.base.BasicBlock.BlockTypes;
-import gtPlusPlus.core.block.base.BlockBaseModular;
 import gtPlusPlus.core.common.compat.COMPAT_Baubles;
 import gtPlusPlus.core.creative.AddToCreativeTab;
 import gtPlusPlus.core.item.base.BaseItemComponent.ComponentTypes;
