@@ -1705,4 +1705,8 @@ public class Material {
     public void setWerkstoffID(short werkstoffID) {
         this.werkstoffID = werkstoffID;
     }
+
+    public int getMaterialID() {
+        return materialID;
+    }
 }
