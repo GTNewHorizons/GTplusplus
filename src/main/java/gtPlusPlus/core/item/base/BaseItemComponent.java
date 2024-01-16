@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+import com.gtnewhorizons.postea.api.ItemStackReplacementManager;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +20,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import com.colen.postea.API.ItemStackReplacementManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -106,6 +106,7 @@ public class BaseItemComponent extends Item {
             }
 
             ItemsEnum itemsEnum = convertComponentTypeToItemEnum(componentType);
+            if (itemsEnum == null) return tag;
             ItemStack itemStack = itemsEnum.getPart(modernMaterial, stackSize);
 
             tag.setShort("Damage", (short) itemStack.getItemDamage());

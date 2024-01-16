@@ -1,5 +1,8 @@
 package gtPlusPlus.core.common;
 
+import gregtech.api.enums.TierEU;
+import gregtech.api.modernmaterials.ModernMaterial;
+import gregtech.api.modernmaterials.fluids.ModernMaterialFluid;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -43,6 +46,13 @@ import gtPlusPlus.xmod.gregtech.api.util.SpecialBehaviourTooltipHandler;
 import gtPlusPlus.xmod.gregtech.recipes.GregtechRecipeAdder;
 import gtPlusPlus.xmod.ic2.CustomInternalName;
 
+import static gregtech.api.modernmaterials.fluids.FluidEnum.Gas;
+import static gregtech.api.modernmaterials.fluids.FluidEnum.Molten;
+import static gregtech.api.modernmaterials.fluids.FluidEnum.NoPrefix;
+import static gregtech.api.modernmaterials.fluids.FluidEnum.Plasma;
+import static gregtech.api.modernmaterials.items.partproperties.TextureType.Metal_Dull;
+import static gregtech.api.modernmaterials.items.partproperties.TextureType.Metal_Shiny;
+
 public class CommonProxy {
 
     public CommonProxy() {
@@ -78,6 +88,18 @@ public class CommonProxy {
 
         Logger.INFO("[Proxy] Calling Render registration.");
         registerRenderThings();
+
+        ModernMaterial Zeron100 = new ModernMaterial.ModernMaterialBuilder("Zeron-100").setMaterialID(2142)
+                .setColor(120, 100, 0)
+                .setTextureMode(Metal_Shiny)
+                .addAllParts()
+                .addFluid(Gas, 100_000)
+                .addFluid(NoPrefix, 3_000)
+                .addFluid(Molten, 10_000)
+                .addFluid(Plasma, 100_000)
+                .addCustomFluid(new ModernMaterialFluid.Builder("Zebra % Fluid %").setTemperature(120_000_000), false)
+                .setMaterialTier(TierEU.MAX)
+                .build();
     }
 
     public void init(final FMLInitializationEvent e) {
