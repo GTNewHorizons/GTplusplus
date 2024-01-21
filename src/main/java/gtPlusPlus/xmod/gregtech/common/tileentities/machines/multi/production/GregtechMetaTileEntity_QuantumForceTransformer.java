@@ -623,6 +623,16 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     }
 
     @Override
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+        super.onPostTick(aBaseMetaTileEntity, aTick);
+        if (aBaseMetaTileEntity.isServerSide()) {
+            // TODO: Look for proper fix
+            // Updates every 30 sec
+            if (mUpdate <= -550) mUpdate = 50;
+        }
+    }
+
+    @Override
     public int getMaxEfficiency(final ItemStack aStack) {
         return 10000;
     }
