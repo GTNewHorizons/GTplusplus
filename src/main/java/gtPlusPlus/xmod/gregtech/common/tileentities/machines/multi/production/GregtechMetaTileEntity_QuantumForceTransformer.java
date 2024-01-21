@@ -12,6 +12,9 @@ import static gregtech.api.enums.GT_HatchElement.Maintenance;
 import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_OreDictUnificator.getAssociation;
+import static gregtech.api.util.GT_ParallelHelper.addFluidsLong;
+import static gregtech.api.util.GT_ParallelHelper.addItemsLong;
+import static gregtech.api.util.GT_ParallelHelper.calculateChancedOutputMultiplier;
 import static gregtech.api.util.GT_RecipeBuilder.BUCKETS;
 import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
@@ -453,6 +456,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         return new ProcessingLogic() {
 
             private int[] chances;
+            private FluidStack[] fluidModeItems;
 
             @NotNull
             @Override
@@ -497,6 +501,25 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
 
                 chances = getOutputChances(recipe, doNeptunium ? findProgrammedCircuitNumber() : -1);
 
+                // Handle Fluid Mode. Add fluid that item can be turned into to fluidModeItems.
+                // null if Fluid Mode is disabled or item cannot be turned into fluid.
+                fluidModeItems = new FluidStack[recipe.mOutputs.length];
+                if (mFluidMode) {
+                    for (int i = 0; i < recipe.mOutputs.length; i++) {
+                        ItemStack item = recipe.getOutput(i);
+                        if (item == null) continue;
+                        ItemData data = getAssociation(item);
+                        Materials mat = data == null ? null : data.mMaterial.mMaterial;
+                        if (mat != null) {
+                            if (mat.mStandardMoltenFluid != null) {
+                                fluidModeItems[i] = mat.getMolten(INGOTS);
+                            } else if (mat.mFluid != null) {
+                                fluidModeItems[i] = mat.getFluid(BUCKETS);
+                            }
+                        }
+                    }
+                }
+
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
 
@@ -505,84 +528,29 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             public GT_ParallelHelper createParallelHelper(@Nonnull GT_Recipe recipe) {
                 return super.createParallelHelper(recipe).setCustomItemOutputCalculation(parallel -> {
                     ArrayList<ItemStack> items = new ArrayList<>();
-                    if (mFluidMode) {
-                        for (int i = 0; i < recipe.mOutputs.length; i++) {
-                            ItemStack item = recipe.getOutput(i);
-                            if (item == null) continue;
-                            ItemData data = getAssociation(item);
-                            Materials mat = data == null ? null : data.mMaterial.mMaterial;
-                            if (mat != null) {
-                                if (mat.getMolten(0) != null) {
-                                    continue;
-                                } else if (mat.getFluid(0) != null) {
-                                    continue;
-                                }
-                            }
-                            ItemStack itemToAdd = item.copy();
-                            itemToAdd.stackSize = 0;
-                            for (int j = 0; j < parallel; j++) {
-                                if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
-                                    itemToAdd.stackSize += item.stackSize;
-                                }
-                            }
-                            if (itemToAdd.stackSize == 0) {
-                                continue;
-                            }
-                            items.add(itemToAdd);
-                        }
-                    } else {
-                        for (int i = 0; i < recipe.mOutputs.length; i++) {
-                            ItemStack item = recipe.getOutput(i);
-                            if (item == null) continue;
-                            ItemStack itemToAdd = item.copy();
-                            itemToAdd.stackSize = 0;
-                            for (int j = 0; j < parallel; j++) {
-                                if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
-                                    itemToAdd.stackSize += item.stackSize;
-                                }
-                            }
-                            if (itemToAdd.stackSize == 0) {
-                                continue;
-                            }
-                            items.add(itemToAdd);
-                        }
+
+                    for (int i = 0; i < recipe.mOutputs.length; i++) {
+                        ItemStack item = recipe.getOutput(i);
+                        if (item == null || fluidModeItems[i] != null) continue;
+                        ItemStack itemToAdd = item.copy();
+                        double outputMultiplier = calculateChancedOutputMultiplier(chances[i], parallel);
+                        long itemAmount = (long) (item.stackSize * outputMultiplier);
+                        addItemsLong(items, itemToAdd, itemAmount);
                     }
 
                     return items.toArray(new ItemStack[0]);
                 }).setCustomFluidOutputCalculation(parallel -> {
                     ArrayList<FluidStack> fluids = new ArrayList<>();
+
                     if (mFluidMode) {
                         for (int i = 0; i < recipe.mOutputs.length; i++) {
-                            ItemStack item = recipe.getOutput(i);
-                            if (item == null) continue;
-                            ItemData data = getAssociation(item);
-                            Materials mat = data == null ? null : data.mMaterial.mMaterial;
-                            if (mat == null) {
-                                continue;
-                            }
-                            if (mat.getMolten(0) != null) {
-                                FluidStack fluid = mat.getMolten(0);
-                                for (int j = 0; j < parallel; j++) {
-                                    if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
-                                        fluid.amount += item.stackSize * INGOTS;
-                                    }
-                                }
-                                if (fluid.amount == 0) {
-                                    continue;
-                                }
-                                fluids.add(fluid);
-                            } else if (mat.getFluid(0) != null) {
-                                FluidStack fluid = mat.getFluid(0);
-                                for (int j = 0; j < parallel; j++) {
-                                    if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i]) {
-                                        fluid.amount += item.stackSize * BUCKETS;
-                                    }
-                                }
-                                if (fluid.amount == 0) {
-                                    continue;
-                                }
-                                fluids.add(fluid);
-                            }
+                            FluidStack fluid = fluidModeItems[i];
+                            if (fluid == null) continue;
+                            FluidStack fluidToAdd = fluid.copy();
+                            double outputMultiplier = calculateChancedOutputMultiplier(chances[i], parallel);
+                            int itemAmount = recipe.mOutputs[i].stackSize;
+                            long fluidAmount = (long) (fluidToAdd.amount * outputMultiplier * itemAmount);
+                            addFluidsLong(fluids, fluidToAdd, fluidAmount);
                         }
                     }
 
@@ -590,16 +558,11 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                         FluidStack fluid = recipe.getFluidOutput(i);
                         if (fluid == null) continue;
                         FluidStack fluidToAdd = fluid.copy();
-                        fluidToAdd.amount = 0;
-                        for (int j = 0; j < parallel; j++) {
-                            if (getBaseMetaTileEntity().getRandomNumber(10000) < chances[i + recipe.mOutputs.length]) {
-                                fluidToAdd.amount += fluid.amount;
-                            }
-                        }
-                        if (fluidToAdd.amount == 0) {
-                            continue;
-                        }
-                        fluids.add(fluidToAdd);
+                        double outputMultiplier = calculateChancedOutputMultiplier(
+                                chances[i + recipe.mOutputs.length],
+                                parallel);
+                        long fluidAmount = (long) (fluidToAdd.amount * outputMultiplier);
+                        addFluidsLong(fluids, fluidToAdd, fluidAmount);
                     }
 
                     return fluids.toArray(new FluidStack[0]);
