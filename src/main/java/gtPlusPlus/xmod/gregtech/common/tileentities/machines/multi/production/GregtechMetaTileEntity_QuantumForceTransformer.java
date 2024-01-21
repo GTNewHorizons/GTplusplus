@@ -487,14 +487,10 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 doNeptunium = false;
 
                 if (recipe.mSpecialValue <= getFocusingTier()) {
-                    if (mFermiumHatch != null && mFermiumHatch.getFluid() != null
-                            && mFermiumHatch.getFluid().getFluid() != null
-                            && mFermiumHatch.getFluid().getFluid().equals(mFermium)) {
+                    if (drain(mFermiumHatch, new FluidStack(mFermium, 1), false)) {
                         doFermium = true;
                     }
-                    if (mNeptuniumHatch != null && mNeptuniumHatch.getFluid() != null
-                            && mNeptuniumHatch.getFluid().getFluid() != null
-                            && mNeptuniumHatch.getFluid().getFluid().equals(mNeptunium)) {
+                    if (drain(mNeptuniumHatch, new FluidStack(mNeptunium, 1), false)) {
                         doNeptunium = true;
                     }
                 }
@@ -603,8 +599,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         if (runningTick % 20 == 0) {
             int amount = (int) (getFocusingTier() * 4 * Math.sqrt(processingLogic.getCurrentParallels()));
             if (doFermium) {
-                FluidStack tLiquid = mFermiumHatch.drain(amount, true);
-                if (tLiquid == null || tLiquid.amount < amount) {
+                if (!drain(mFermiumHatch, new FluidStack(mFermium, amount), true)) {
                     doFermium = false;
                     criticalStopMachine();
                     return false;
@@ -612,8 +607,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             }
 
             if (doNeptunium) {
-                FluidStack tLiquid = mNeptuniumHatch.drain(amount, true);
-                if (tLiquid == null || tLiquid.amount < amount) {
+                if (!drain(mNeptuniumHatch, new FluidStack(mNeptunium, amount), true)) {
                     doNeptunium = false;
                     criticalStopMachine();
                     return false;
