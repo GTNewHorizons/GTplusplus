@@ -325,34 +325,18 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         this.mCasing = 0;
+        this.mCraftingTier = 0;
+        this.mFocusingTier = 0;
         if (!checkPiece(MAIN_PIECE, 7, 20, 4)) {
             return false;
         }
 
-        if (mMaintenanceHatches.size() != 1 || mOutputBusses.size() < 1
-                || mInputBusses.size() < 1
-                || mInputHatches.size() < 1
-                || mOutputHatches.size() < 1) {
+        if (mMaintenanceHatches.size() != 1 || mOutputBusses.isEmpty()
+                || mOutputHatches.isEmpty()) {
             return false;
         }
 
-        // Makes sure that the multi can accept only 1 TT Energy Hatch OR up to 2 Normal Energy Hatches. Deform if both
-        // present or more than 1 TT Hatch.
-        if (mExoticEnergyHatches.isEmpty() && mEnergyHatches.isEmpty()) {
-            return false;
-        }
-
-        if (mExoticEnergyHatches.size() >= 1) {
-            if (!mEnergyHatches.isEmpty()) {
-                return false;
-            }
-
-            if (mExoticEnergyHatches.size() != 1) {
-                return false;
-            }
-        }
-
-        return mEnergyHatches.size() <= 2;
+        return checkExoticAndNormalEnergyHatches();
     }
 
     @Override
