@@ -89,6 +89,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
     private int mCasing;
     protected int mCraftingTier = 0;
     protected int mFocusingTier = 0;
+    protected int mMaxParallel = 0;
     private boolean mFluidMode = false, doFermium = false, doNeptunium = false;
     private static final Fluid mNeptunium = ELEMENT.getInstance().NEPTUNIUM.getPlasma();
     private static final Fluid mFermium = ELEMENT.getInstance().FERMIUM.getPlasma();
@@ -483,6 +484,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                     }
                 }
 
+                mMaxParallel = maxParallel;
                 doFermium = false;
                 doNeptunium = false;
 
@@ -597,7 +599,8 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         }
 
         if (runningTick % 20 == 0) {
-            int amount = (int) (getFocusingTier() * 4 * Math.sqrt(processingLogic.getCurrentParallels()));
+            int amount = (int) (getFocusingTier() * 4
+                    * Math.sqrt(Math.min(mMaxParallel, processingLogic.getCurrentParallels())));
             if (doFermium) {
                 if (!drain(mFermiumHatch, new FluidStack(mFermium, amount), true)) {
                     doFermium = false;
@@ -756,6 +759,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         aNBT.setBoolean("mFluidMode", mFluidMode);
         aNBT.setBoolean("doFermium", doFermium);
         aNBT.setBoolean("doNeptunium", doNeptunium);
+        aNBT.setInteger("mMaxParallel", mMaxParallel);
         super.saveNBTData(aNBT);
     }
 
@@ -771,6 +775,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
         mFluidMode = aNBT.getBoolean("mFluidMode");
         doFermium = aNBT.getBoolean("doFermium");
         doNeptunium = aNBT.getBoolean("doNeptunium");
+        mMaxParallel = aNBT.getInteger("mMaxParallel");
     }
 
     @Override
