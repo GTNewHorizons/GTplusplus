@@ -280,11 +280,35 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
                 .addCasingInfoMin("Quantum Force Conductor", 177, false)
                 .addCasingInfoMin("Force Field Glass", 224, false)
                 .addCasingInfoMin("Neutron Pulse Manipulators", 233, false)
-                .addCasingInfoMin("Neutron Shielding Cores", 142, false).addInputBus("Bottom Layer", 4)
-                .addInputHatch("Bottom Layer", 4).addOutputHatch("Top Layer", 5).addOutputBus("Top Layer", 5)
-                .addEnergyHatch("Bottom Layer", 4).addMaintenanceHatch("Bottom Layer", 4)
-                .addStructureInfo("Neptunium Plasma Hatch: Left side of Controller")
-                .addStructureInfo("Fermium Plasma Hatch: Right side of Controller").toolTipFinisher(
+                .addCasingInfoMin("Neutron Shielding Cores", 142, false)
+                .addInputBus(EnumChatFormatting.BLUE + "Bottom" + EnumChatFormatting.GRAY + " Layer", 4)
+                .addInputHatch(EnumChatFormatting.BLUE + "Bottom" + EnumChatFormatting.GRAY + " Layer", 4)
+                .addOutputHatch(EnumChatFormatting.AQUA + "Top" + EnumChatFormatting.GRAY + " Layer", 5)
+                .addOutputBus(EnumChatFormatting.AQUA + "Top" + EnumChatFormatting.GRAY + " Layer", 5)
+                .addEnergyHatch(EnumChatFormatting.BLUE + "Bottom" + EnumChatFormatting.GRAY + " Layer", 4)
+                .addMaintenanceHatch(
+                        EnumChatFormatting.BLUE + "Bottom"
+                                + EnumChatFormatting.GRAY
+                                + " or "
+                                + EnumChatFormatting.AQUA
+                                + "Top"
+                                + EnumChatFormatting.GRAY
+                                + " Layer",
+                        4,
+                        5)
+                .addStructureInfo(
+                        EnumChatFormatting.WHITE + "Neptunium Plasma Hatch: "
+                                + EnumChatFormatting.GREEN
+                                + "Left"
+                                + EnumChatFormatting.GRAY
+                                + " side of Controller")
+                .addStructureInfo(
+                        EnumChatFormatting.WHITE + "Fermium Plasma Hatch: "
+                                + EnumChatFormatting.DARK_GREEN
+                                + "Right"
+                                + EnumChatFormatting.GRAY
+                                + " side of Controller")
+                .toolTipFinisher(
                         GT_Values.AuthorBlueWeabo + EnumChatFormatting.RESET
                                 + EnumChatFormatting.GREEN
                                 + " + Steelux"
