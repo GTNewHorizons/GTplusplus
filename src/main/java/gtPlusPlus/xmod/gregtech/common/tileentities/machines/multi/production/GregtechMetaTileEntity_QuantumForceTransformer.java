@@ -570,7 +570,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             private int findProgrammedCircuitNumber() {
                 if (isInputSeparationEnabled()) {
                     for (ItemStack stack : inputItems) {
-                        if (ItemList.Circuit_Integrated.isStackEqual(stack)) {
+                        if (ItemList.Circuit_Integrated.isStackEqual(stack, true, false)) {
                             return stack.getItemDamage() - 1;
                         }
                     }
