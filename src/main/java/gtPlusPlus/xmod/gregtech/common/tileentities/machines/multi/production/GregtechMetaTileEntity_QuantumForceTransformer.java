@@ -331,8 +331,7 @@ public class GregtechMetaTileEntity_QuantumForceTransformer
             return false;
         }
 
-        if (mMaintenanceHatches.size() != 1 || mOutputBusses.isEmpty()
-                || mOutputHatches.isEmpty()) {
+        if (mMaintenanceHatches.size() != 1 || mOutputBusses.isEmpty() || mOutputHatches.isEmpty()) {
             return false;
         }
 
