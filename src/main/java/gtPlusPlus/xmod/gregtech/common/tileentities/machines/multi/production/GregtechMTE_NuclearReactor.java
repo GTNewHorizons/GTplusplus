@@ -178,8 +178,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             return false;
         } else {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler hatch
-                    && hatch.getTierForStructure() >= 5) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler hatch && hatch.getTierForStructure() >= 5) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
             }
         }
