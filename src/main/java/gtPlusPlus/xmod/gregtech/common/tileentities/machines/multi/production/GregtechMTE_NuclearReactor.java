@@ -101,7 +101,7 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
                 .addDynamoHatch("Top or bottom layer edges", 1).addMaintenanceHatch("Top or bottom layer edges", 1)
                 .addMufflerHatch("Top 3x3", 2).addStructureInfo("All dynamos must be between EV and LuV tier.")
                 .addStructureInfo("All other hatches must be IV+ tier.")
-                .addStructureInfo("4x Output Hatches, 2x Input Hatches, 4x Dynamo Hatches")
+                .addStructureInfo("4x Output Hatches or 1x Output Hatch (ME), 1+ Input Hatches, 4x Dynamo Hatches")
                 .addStructureInfo("2x Maintenance Hatches, 4x Mufflers").toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
@@ -156,17 +156,17 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
             if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Maintenance) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
-            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Dynamo
-                    && (((GT_MetaTileEntity_Hatch_Dynamo) aMetaTileEntity).mTier >= 4
-                            && ((GT_MetaTileEntity_Hatch_Dynamo) aMetaTileEntity).mTier <= 6)) {
-                                return addToMachineList(aTileEntity, aBaseCasingIndex);
-                            } else
-                if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input
-                        && ((GT_MetaTileEntity_Hatch_Input) aMetaTileEntity).mTier >= 5) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Dynamo dynamo
+                    && dynamo.getTierForStructure() >= 4
+                    && dynamo.getTierForStructure() <= 6) {
+                        return addToMachineList(aTileEntity, aBaseCasingIndex);
+                    } else
+                if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Input hatch
+                        && hatch.getTierForStructure() >= 5) {
                             return addToMachineList(aTileEntity, aBaseCasingIndex);
                         } else
-                    if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output
-                            && ((GT_MetaTileEntity_Hatch_Output) aMetaTileEntity).mTier >= 5) {
+                    if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Output hatch
+                            && hatch.getTierForStructure() >= 5) {
                                 return addToMachineList(aTileEntity, aBaseCasingIndex);
                             }
         }
@@ -178,8 +178,8 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             return false;
         } else {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler
-                    && ((GT_MetaTileEntity_Hatch_Muffler) aMetaTileEntity).mTier >= 5) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Muffler hatch
+                    && hatch.getTierForStructure() >= 5) {
                 return addToMachineList(aTileEntity, aBaseCasingIndex);
             }
         }
@@ -239,16 +239,11 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         mCasing = 0;
         if (checkPiece(mName, 3, 3, 0) && mCasing >= 27) {
-            if (mOutputHatches.size() >= 3 && mInputHatches.size() >= 2
+            if ((mOutputHatches.size() >= 3 || canDumpFluidToME()) && mInputHatches.size() >= 1
                     && mDynamoHatches.size() == 4
                     && mMufflerHatches.size() == 4
                     && mMaintenanceHatches.size() == 2) {
-                this.mWrench = true;
-                this.mScrewdriver = true;
-                this.mSoftHammer = true;
-                this.mHardHammer = true;
-                this.mSolderingTool = true;
-                this.mCrowbar = true;
+                fixAllMaintenanceIssue();
                 this.turnCasingActive(false);
                 return true;
             }
