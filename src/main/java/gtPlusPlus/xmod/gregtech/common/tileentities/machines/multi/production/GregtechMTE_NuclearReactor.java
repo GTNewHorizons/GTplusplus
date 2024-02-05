@@ -323,27 +323,6 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
         return true;
     }
 
-    public int getStoredFuel(GT_Recipe aRecipe) {
-        int aFuelStored = 0;
-        FluidStack aFuelFluid = null;
-        for (FluidStack aFluidInput : aRecipe.mFluidInputs) {
-            if (!aFluidInput.getFluid().equals(NUCLIDE.Li2BeF4.getFluid())) {
-                aFuelFluid = aFluidInput;
-                break;
-            }
-        }
-        if (aFuelFluid != null) {
-            for (GT_MetaTileEntity_Hatch_Input aInputHatch : this.mInputHatches) {
-                if (aInputHatch.getFluid() != null && aInputHatch.getFluidAmount() > 0) {
-                    if (aInputHatch.getFluid().isFluidEqual(aFuelFluid)) {
-                        aFuelStored += aInputHatch.getFluidAmount();
-                    }
-                }
-            }
-        }
-        return aFuelStored;
-    }
-
     @Override
     protected ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
@@ -367,15 +346,29 @@ public class GregtechMTE_NuclearReactor extends GregtechMeta_MultiBlockBase<Greg
             @NotNull
             @Override
             protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
-                mFuelRemaining = getStoredFuel(recipe);
+                mFuelRemaining = 0;
+                int li2bef4 = 0;
+                FluidStack aFuelFluid = null;
+                for (FluidStack aFluidInput : recipe.mFluidInputs) {
+                    if (!aFluidInput.getFluid().equals(NUCLIDE.Li2BeF4.getFluid())) {
+                        aFuelFluid = aFluidInput;
+                        break;
+                    }
+                }
+                if (aFuelFluid != null) {
+                    for (FluidStack fluidStack : getStoredFluids()) {
+                        if (fluidStack.isFluidEqual(aFuelFluid)) {
+                            mFuelRemaining += fluidStack.amount;
+                        } else if (fluidStack.getFluid().equals(NUCLIDE.Li2BeF4.getFluid())) {
+                            li2bef4 += fluidStack.amount;
+                        }
+                    }
+                }
                 if (mFuelRemaining < 100) {
                     return CheckRecipeResultRegistry.NO_FUEL_FOUND;
                 }
-                for (GT_MetaTileEntity_Hatch_Input aInputHatch : mInputHatches) {
-                    if (aInputHatch.getFluid().getFluid().equals(NUCLIDE.Li2BeF4.getFluid())
-                            && aInputHatch.getFluidAmount() < 200) {
-                        return SimpleCheckRecipeResult.ofFailure("no_li2bef4");
-                    }
+                if (li2bef4 < 200) {
+                    return SimpleCheckRecipeResult.ofFailure("no_li2bef4");
                 }
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
