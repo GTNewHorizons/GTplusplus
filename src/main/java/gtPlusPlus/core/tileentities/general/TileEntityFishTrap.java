@@ -60,7 +60,7 @@ public class TileEntityFishTrap extends TileEntity implements ISidedInventory {
         if (waterCount < 2) {
             return 0;
         }
-        // Only allow the first four traps to could towards valid neighbor blocks.
+        // Only allow the first four traps to count towards valid neighbor blocks.
         return waterCount + Math.min(trapCount, 4);
     }
 
