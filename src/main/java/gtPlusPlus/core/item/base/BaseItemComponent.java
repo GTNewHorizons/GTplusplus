@@ -142,6 +142,48 @@ public class BaseItemComponent extends Item {
             case PLATEDOUBLE -> {
                 return ItemsEnum.DoublePlate;
             }
+            case ROD -> {
+                return ItemsEnum.Rod;
+            }
+            case RODLONG -> {
+                return ItemsEnum.LongRod;
+            }
+            case GEAR -> {
+                return ItemsEnum.Gear;
+            }
+            case SMALLGEAR -> {
+                return ItemsEnum.SmallGear;
+            }
+            case SCREW -> {
+                return ItemsEnum.Screw;
+            }
+            case BOLT -> {
+                return ItemsEnum.Bolt;
+            }
+            case ROTOR -> {
+                return ItemsEnum.Rotor;
+            }
+            case RING -> {
+                return ItemsEnum.Ring;
+            }
+            case FOIL -> {
+                return ItemsEnum.Foil;
+            }
+            case NUGGET -> {
+                return ItemsEnum.Nugget;
+            }
+            case SPRING -> {
+                return ItemsEnum.Spring;
+            }
+            case SMALLSPRING -> {
+                return ItemsEnum.SmallSpring;
+            }
+            case FINEWIRE -> {
+                return ItemsEnum.FineWire;
+            }
+            case PLATEDENSE -> {
+                return ItemsEnum.DensePlate;
+            }
         }
         return null;
     }
