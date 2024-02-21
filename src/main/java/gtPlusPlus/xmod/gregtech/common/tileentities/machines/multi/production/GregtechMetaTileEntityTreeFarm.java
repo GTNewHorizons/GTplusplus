@@ -34,11 +34,10 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import gregtech.api.enums.GT_Values;
-import gregtech.api.logic.ProcessingLogic;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -53,11 +52,13 @@ import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.arboriculture.ITree;
 import forestry.api.arboriculture.TreeManager;
 import forestry.api.genetics.IAlleleBoolean;
+import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
@@ -66,6 +67,7 @@ import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.VoidProtectionHelper;
+import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
@@ -79,6 +81,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper;
 import gtPlusPlus.xmod.gregtech.common.helpers.TreeFarmHelper.SAWTOOL;
+import gtPlusPlus.xmod.gregtech.common.items.MetaGeneratedGregtechTools;
 
 public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<GregtechMetaTileEntityTreeFarm>
         implements ISurvivalConstructable {
@@ -155,14 +158,13 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack aStack) {
-        if (true) return true;
+        return isValidSapling(aStack);
 
-        // is correct part && either not powered tool or have enough power
-        if (TreeFarmHelper.isValidForGUI(aStack)
-                && GT_MetaGenerated_Tool.getToolDamage(aStack) < GT_MetaGenerated_Tool.getToolMaxDamage(aStack)) {
-            return GT_ModHandler.isElectricItem(aStack) ? GT_ModHandler.canUseElectricItem(aStack, 32) : true;
-        }
-        return false;
+        /*
+         * // is correct part && either not powered tool or have enough power if (TreeFarmHelper.isValidForGUI(aStack)
+         * && GT_MetaGenerated_Tool.getToolDamage(aStack) < GT_MetaGenerated_Tool.getToolMaxDamage(aStack)) { return
+         * GT_ModHandler.isElectricItem(aStack) ? GT_ModHandler.canUseElectricItem(aStack, 32) : true; } return false;
+         */
     }
 
     /**
@@ -186,28 +188,39 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         return GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes;
     }
 
-    public enum Mode { LOG, LEAVES, SAPLING, FRUIT }
+    public enum Mode {
+        LOG,
+        SAPLING,
+        LEAVES,
+        FRUIT
+    }
+
     private static final EnumMap<Mode, Integer> modeMultiplier = new EnumMap<>(Mode.class);
     static {
         modeMultiplier.put(Mode.LOG, 5);
-        modeMultiplier.put(Mode.LEAVES, 2);
         modeMultiplier.put(Mode.SAPLING, 1);
+        modeMultiplier.put(Mode.LEAVES, 2);
         modeMultiplier.put(Mode.FRUIT, 1);
     }
     public static final HashMap<String, EnumMap<Mode, ItemStack>> outputMap = new HashMap<>();
     static {
         EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
         map.put(Mode.LOG, new ItemStack(Blocks.log, 1, 0));
-        map.put(Mode.LEAVES, new ItemStack(Blocks.leaves, 1, 0));
         map.put(Mode.SAPLING, new ItemStack(Blocks.sapling, 1, 0));
+        map.put(Mode.LEAVES, new ItemStack(Blocks.leaves, 1, 0));
         map.put(Mode.FRUIT, new ItemStack(Items.apple, 1, 0));
         outputMap.put("minecraft:sapling:0", map);
     }
 
+    private static final int TOOL_DAMAGE_PER_USE = 1;
+    private static final int TOOL_CHARGE_PER_USE = 32;
+
     @Override
     public ProcessingLogic createProcessingLogic() {
         return new ProcessingLogic() {
-            @Override @Nonnull
+
+            @Override
+            @Nonnull
             public CheckRecipeResult process() {
                 if (inputItems == null) {
                     inputItems = new ItemStack[0];
@@ -219,7 +232,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 ItemStack sapling = findSapling();
                 if (sapling == null) return CheckRecipeResultRegistry.NO_RECIPE;
 
-                var outputPerMode = getOutputsForSapling(sapling);
+                EnumMap<Mode, ItemStack> outputPerMode = getOutputsForSapling(sapling);
                 if (outputPerMode == null) {
                     Logger.INFO("No output found for sapling: " + sapling.getDisplayName());
                     return CheckRecipeResultRegistry.NO_RECIPE;
@@ -247,8 +260,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
                 outputItems = outputs.toArray(new ItemStack[0]);
 
-                VoidProtectionHelper voidProtection = new VoidProtectionHelper().setMachine(machine).setItemOutputs(outputItems)
-                        .build();
+                VoidProtectionHelper voidProtection = new VoidProtectionHelper().setMachine(machine)
+                        .setItemOutputs(outputItems).build();
                 if (voidProtection.isItemFull()) {
                     return CheckRecipeResultRegistry.ITEM_OUTPUT_FULL;
                 }
@@ -287,7 +300,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     private boolean isValidSapling(ItemStack stack) {
         if (stack == null) return false;
         String registryName = Item.itemRegistry.getNameForObject(stack.getItem());
-        return outputMap.containsKey(registryName + ":" +stack.getItemDamage()) || "Forestry:sapling".equals(registryName);
+        return outputMap.containsKey(registryName + ":" + stack.getItemDamage())
+                || "Forestry:sapling".equals(registryName);
     }
 
     private static EnumMap<Mode, ItemStack> getOutputsForSapling(ItemStack sapling) {
@@ -295,8 +309,102 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         return outputMap.get(registryName + ":" + sapling.getItemDamage());
     }
 
+    /**
+     * Attempts to find a tool appropriate for the given mode, and damage/discharge it by one use.
+     * 
+     * @param mode Mode to use.
+     * @return Production multiplier based on the tool used, or -1 if no appropriate tool was found.
+     */
     private int useToolForMode(Mode mode) {
-        return 1;
+        for (ItemStack stack : getStoredInputs()) {
+            int toolMultiplier = getToolModifier(stack, mode);
+            if (toolMultiplier > 0) {
+                boolean canDamage = GT_ModHandler
+                        .damageOrDechargeItem(stack, TOOL_DAMAGE_PER_USE, TOOL_CHARGE_PER_USE, null);
+                if (canDamage) {
+                    // Item was used.
+                    if (GT_ModHandler.isElectricItem(stack)
+                            && !GT_ModHandler.canUseElectricItem(stack, TOOL_CHARGE_PER_USE)) {
+                        // Item out of charge, move to output.
+                        depleteInput(stack);
+                        addOutput(stack);
+                    }
+                    return toolMultiplier;
+                } else {
+                    // Correct item type, but could not be used.
+                    depleteInput(stack);
+                    addOutput(stack);
+                }
+            }
+        }
+        return -1;
+    }
+
+    private static int getToolModifier(ItemStack toolStack, Mode mode) {
+        Item tool = toolStack.getItem();
+        switch (mode) {
+            case LOG:
+                if (tool instanceof GT_MetaGenerated_Tool_01) {
+                    switch (toolStack.getItemDamage()) {
+                        case GT_MetaGenerated_Tool_01.SAW:
+                        case GT_MetaGenerated_Tool_01.POCKET_SAW:
+                        case GT_MetaGenerated_Tool_01.POCKET_MULTITOOL:
+                            return 1;
+                        case GT_MetaGenerated_Tool_01.BUZZSAW_LV:
+                        case GT_MetaGenerated_Tool_01.BUZZSAW_MV:
+                        case GT_MetaGenerated_Tool_01.BUZZSAW_HV:
+                            return 2;
+                        case GT_MetaGenerated_Tool_01.CHAINSAW_LV:
+                        case GT_MetaGenerated_Tool_01.CHAINSAW_MV:
+                        case GT_MetaGenerated_Tool_01.CHAINSAW_HV:
+                            return 4;
+                    }
+                }
+                break;
+
+            case SAPLING:
+                if (tool instanceof GT_MetaGenerated_Tool_01) {
+                    switch (toolStack.getItemDamage()) {
+                        case GT_MetaGenerated_Tool_01.BRANCHCUTTER:
+                        case GT_MetaGenerated_Tool_01.POCKET_BRANCHCUTTER:
+                        case GT_MetaGenerated_Tool_01.POCKET_MULTITOOL:
+                            return 1;
+                    }
+                }
+                break;
+
+            case LEAVES:
+                if (tool instanceof ItemShears && tool.isDamageable()) {
+                    return 1;
+                }
+                if (tool instanceof GT_MetaGenerated_Tool_01) {
+                    switch (toolStack.getItemDamage()) {
+                        case GT_MetaGenerated_Tool_01.POCKET_MULTITOOL:
+                            return 1;
+                        case GT_MetaGenerated_Tool_01.WIRECUTTER:
+                        case GT_MetaGenerated_Tool_01.POCKET_WIRECUTTER:
+                            return 2;
+                    }
+                }
+                if (tool instanceof MetaGeneratedGregtechTools) {
+                    if (toolStack.getItemDamage() == MetaGeneratedGregtechTools.ELECTRIC_SNIPS) {
+                        return 4;
+                    }
+                }
+                break;
+
+            case FRUIT:
+                if (tool instanceof GT_MetaGenerated_Tool_01) {
+                    switch (toolStack.getItemDamage()) {
+                        case GT_MetaGenerated_Tool_01.KNIFE:
+                        case GT_MetaGenerated_Tool_01.POCKET_KNIFE:
+                        case GT_MetaGenerated_Tool_01.POCKET_MULTITOOL:
+                            return 1;
+                    }
+                }
+                break;
+        }
+        return -1;
     }
 
     public @NotNull CheckRecipeResult checkProcessingOld() {
@@ -363,6 +471,11 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     @Override
     public int getMaxParallelRecipes() {
         return 1;
+    }
+
+    @Override
+    public boolean supportsBatchMode() {
+        return false;
     }
 
     @Override
