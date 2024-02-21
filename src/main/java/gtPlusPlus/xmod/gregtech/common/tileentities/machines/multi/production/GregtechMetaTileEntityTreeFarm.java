@@ -34,6 +34,8 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import gregtech.api.enums.ToolDictNames;
+import gregtech.api.util.GT_OreDictUnificator;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -158,13 +160,9 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack aStack) {
-        return isValidSapling(aStack);
-
-        /*
-         * // is correct part && either not powered tool or have enough power if (TreeFarmHelper.isValidForGUI(aStack)
-         * && GT_MetaGenerated_Tool.getToolDamage(aStack) < GT_MetaGenerated_Tool.getToolMaxDamage(aStack)) { return
-         * GT_ModHandler.isElectricItem(aStack) ? GT_ModHandler.canUseElectricItem(aStack, 32) : true; } return false;
-         */
+        // TODO: comment
+        // TODO: accept legacy saws & stuff so that processing does not stop with update
+        return isValidSapling(aStack) || aStack.getItem() instanceof GT_MetaGenerated_Tool_01;
     }
 
     /**
@@ -202,15 +200,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         modeMultiplier.put(Mode.LEAVES, 2);
         modeMultiplier.put(Mode.FRUIT, 1);
     }
-    public static final HashMap<String, EnumMap<Mode, ItemStack>> outputMap = new HashMap<>();
-    static {
-        EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
-        map.put(Mode.LOG, new ItemStack(Blocks.log, 1, 0));
-        map.put(Mode.SAPLING, new ItemStack(Blocks.sapling, 1, 0));
-        map.put(Mode.LEAVES, new ItemStack(Blocks.leaves, 1, 0));
-        map.put(Mode.FRUIT, new ItemStack(Items.apple, 1, 0));
-        outputMap.put("minecraft:sapling:0", map);
-    }
+    public static final HashMap<String, EnumMap<Mode, ItemStack>> treeProductsMap = new HashMap<>();
 
     private static final int TOOL_DAMAGE_PER_USE = 1;
     private static final int TOOL_CHARGE_PER_USE = 32;
@@ -300,13 +290,13 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     private boolean isValidSapling(ItemStack stack) {
         if (stack == null) return false;
         String registryName = Item.itemRegistry.getNameForObject(stack.getItem());
-        return outputMap.containsKey(registryName + ":" + stack.getItemDamage())
+        return treeProductsMap.containsKey(registryName + ":" + stack.getItemDamage())
                 || "Forestry:sapling".equals(registryName);
     }
 
     private static EnumMap<Mode, ItemStack> getOutputsForSapling(ItemStack sapling) {
         String registryName = Item.itemRegistry.getNameForObject(sapling.getItem());
-        return outputMap.get(registryName + ":" + sapling.getItemDamage());
+        return treeProductsMap.get(registryName + ":" + sapling.getItemDamage());
     }
 
     /**
@@ -405,6 +395,61 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 break;
         }
         return -1;
+    }
+
+    private static void registerTreeProducts(ItemStack sapling, ItemStack log, ItemStack leaves, ItemStack fruit) {
+        registerTreeProducts(sapling, log, sapling, leaves, fruit);
+    }
+
+    private static void registerTreeProducts(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
+                                             ItemStack fruit) {
+        String key = Item.itemRegistry.getNameForObject(saplingIn.getItem()) + ":" + saplingIn.getItemDamage();
+        EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
+        if (log != null) map.put(Mode.LOG, log);
+        if (saplingOut != null) map.put(Mode.SAPLING, saplingOut);
+        if (leaves != null) map.put(Mode.LEAVES, leaves);
+        if (fruit != null) map.put(Mode.FRUIT, fruit);
+        treeProductsMap.put(key, map);
+        addFakeRecipeToNEI(saplingIn, log, saplingOut, leaves, fruit);
+    }
+
+    public static boolean addFakeRecipeToNEI(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
+                                             ItemStack fruit) {
+        int recipeCount = GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size();
+        ItemStack[] outputs = new ItemStack[] { log, saplingOut, leaves, fruit };
+
+        Logger.INFO(
+                "Adding Tree Growth Simulation for " + saplingIn.getDisplayName()
+                        + " -> "
+                        + ItemUtils.getArrayStackNames(outputs));
+
+        ItemStack inputStack = saplingIn.copy();
+        inputStack.stackSize = 0;
+
+        GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.addFakeRecipe(
+                false,
+                new ItemStack[] {
+                        GT_OreDictUnificator.get(ToolDictNames.craftingToolSaw, 1),
+                        GT_OreDictUnificator.get(ToolDictNames.craftingToolBranchCutter, 1),
+                        new ItemStack(Items.shears, 1),
+                        GT_OreDictUnificator.get(ToolDictNames.craftingToolKnife, 1)
+                },
+                outputs,
+                inputStack,
+                null,
+                null,
+                TICKS_PER_OPERATION,
+                0,
+                0);
+        return GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size() > recipeCount;
+    }
+
+    public static void initializeTreeProducts() {
+        registerTreeProducts( // Oak
+                new ItemStack(Blocks.sapling, 1, 0),
+                new ItemStack(Blocks.log, 1, 0),
+                new ItemStack(Blocks.leaves, 1, 0),
+                new ItemStack(Items.apple, 1, 0));
     }
 
     public @NotNull CheckRecipeResult checkProcessingOld() {
@@ -780,7 +825,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         ItemStack aSaplingStack = ItemUtils.getItemStackFromFQRN(aSapling, 1);
         if (aSaplingStack != null && aLog != null) {
             sLogCache.put(aSapling, aLog);
-            addFakeRecipeToNEI(aSaplingStack, aLog);
+            //addFakeRecipeToNEI(aSaplingStack, aLog);
         } else {
             Logger.INFO("Unable to add Tree Growth Simulation for " + aSapling);
         }
@@ -788,7 +833,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     private static int sRecipeID = 0;
 
-    public static boolean addFakeRecipeToNEI(@Nonnull ItemStack aSapling, ItemStack aLog) {
+    public static boolean addFakeRecipeToNEIOld(@Nonnull ItemStack aSapling, ItemStack aLog) {
         int aRecipes = GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size();
         Logger.INFO(
                 "Adding Tree Growth Simulation for " + aSapling.getDisplayName()
