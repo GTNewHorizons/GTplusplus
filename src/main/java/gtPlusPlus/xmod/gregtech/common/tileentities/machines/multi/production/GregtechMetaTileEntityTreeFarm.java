@@ -28,11 +28,16 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTEnergy;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import gregtech.api.enums.GT_Values;
+import gregtech.api.logic.ProcessingLogic;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -150,6 +155,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack aStack) {
+        if (true) return true;
+
         // is correct part && either not powered tool or have enough power
         if (TreeFarmHelper.isValidForGUI(aStack)
                 && GT_MetaGenerated_Tool.getToolDamage(aStack) < GT_MetaGenerated_Tool.getToolMaxDamage(aStack)) {
@@ -179,8 +186,120 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         return GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes;
     }
 
+    public enum Mode { LOG, LEAVES, SAPLING, FRUIT }
+    private static final EnumMap<Mode, Integer> modeMultiplier = new EnumMap<>(Mode.class);
+    static {
+        modeMultiplier.put(Mode.LOG, 5);
+        modeMultiplier.put(Mode.LEAVES, 2);
+        modeMultiplier.put(Mode.SAPLING, 1);
+        modeMultiplier.put(Mode.FRUIT, 1);
+    }
+    public static final HashMap<String, EnumMap<Mode, ItemStack>> outputMap = new HashMap<>();
+    static {
+        EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
+        map.put(Mode.LOG, new ItemStack(Blocks.log, 1, 0));
+        map.put(Mode.LEAVES, new ItemStack(Blocks.leaves, 1, 0));
+        map.put(Mode.SAPLING, new ItemStack(Blocks.sapling, 1, 0));
+        map.put(Mode.FRUIT, new ItemStack(Items.apple, 1, 0));
+        outputMap.put("minecraft:sapling:0", map);
+    }
+
     @Override
-    public @NotNull CheckRecipeResult checkProcessing() {
+    public ProcessingLogic createProcessingLogic() {
+        return new ProcessingLogic() {
+            @Override @Nonnull
+            public CheckRecipeResult process() {
+                if (inputItems == null) {
+                    inputItems = new ItemStack[0];
+                }
+                if (inputFluids == null) {
+                    inputFluids = new FluidStack[0];
+                }
+
+                ItemStack sapling = findSapling();
+                if (sapling == null) return CheckRecipeResultRegistry.NO_RECIPE;
+
+                var outputPerMode = getOutputsForSapling(sapling);
+                if (outputPerMode == null) {
+                    Logger.INFO("No output found for sapling: " + sapling.getDisplayName());
+                    return CheckRecipeResultRegistry.NO_RECIPE;
+                }
+
+                int tier = Math.max(1, GT_Utility.getTier(availableVoltage * availableAmperage));
+                int tierMultiplier = (2 * (tier * tier)) - (2 * tier) + 5;
+
+                List<ItemStack> outputs = new ArrayList<>();
+                for (Mode mode : Mode.values()) {
+                    ItemStack output = outputPerMode.get(mode);
+                    if (output == null) continue;
+
+                    int toolMultiplier = useToolForMode(mode);
+                    if (toolMultiplier < 0) continue; // No valid tool for this mode.
+
+                    ItemStack out = output.copy();
+                    out.stackSize *= tierMultiplier * modeMultiplier.get(mode) * toolMultiplier;
+                    outputs.add(out);
+                }
+
+                if (outputs.isEmpty()) {
+                    return CheckRecipeResultRegistry.NO_RECIPE;
+                }
+
+                outputItems = outputs.toArray(new ItemStack[0]);
+
+                VoidProtectionHelper voidProtection = new VoidProtectionHelper().setMachine(machine).setItemOutputs(outputItems)
+                        .build();
+                if (voidProtection.isItemFull()) {
+                    return CheckRecipeResultRegistry.ITEM_OUTPUT_FULL;
+                }
+
+                duration = TICKS_PER_OPERATION;
+                calculatedEut = GT_Values.VP[tier];
+
+                return CheckRecipeResultRegistry.SUCCESSFUL;
+            }
+        };
+    }
+
+    private ItemStack findSapling() {
+        ItemStack controllerSlot = getControllerSlot();
+
+        if (isValidSapling(controllerSlot)) {
+            return controllerSlot;
+        }
+
+        if (controllerSlot != null) {
+            // Non-sapling item in controller slot. Possibly saw from older version.
+            addOutput(controllerSlot);
+            mInventory[1] = null;
+        }
+
+        for (ItemStack stack : getStoredInputs()) {
+            if (isValidSapling(stack)) {
+                mInventory[1] = stack.splitStack(1);
+                return mInventory[1];
+            }
+        }
+
+        return null;
+    }
+
+    private boolean isValidSapling(ItemStack stack) {
+        if (stack == null) return false;
+        String registryName = Item.itemRegistry.getNameForObject(stack.getItem());
+        return outputMap.containsKey(registryName + ":" +stack.getItemDamage()) || "Forestry:sapling".equals(registryName);
+    }
+
+    private static EnumMap<Mode, ItemStack> getOutputsForSapling(ItemStack sapling) {
+        String registryName = Item.itemRegistry.getNameForObject(sapling.getItem());
+        return outputMap.get(registryName + ":" + sapling.getItemDamage());
+    }
+
+    private int useToolForMode(Mode mode) {
+        return 1;
+    }
+
+    public @NotNull CheckRecipeResult checkProcessingOld() {
         final ItemStack controllerStack = getControllerSlot();
         if (!isCorrectMachinePart(controllerStack) && !replaceTool())
             return SimpleCheckRecipeResult.ofFailure("no_saw");
