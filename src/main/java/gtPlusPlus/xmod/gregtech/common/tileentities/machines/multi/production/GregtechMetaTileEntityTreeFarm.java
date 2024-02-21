@@ -34,8 +34,6 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import gregtech.api.enums.ToolDictNames;
-import gregtech.api.util.GT_OreDictUnificator;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -67,6 +65,7 @@ import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
+import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.VoidProtectionHelper;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
@@ -402,7 +401,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     }
 
     private static void registerTreeProducts(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
-                                             ItemStack fruit) {
+            ItemStack fruit) {
         String key = Item.itemRegistry.getNameForObject(saplingIn.getItem()) + ":" + saplingIn.getItemDamage();
         EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
         if (log != null) map.put(Mode.LOG, log);
@@ -413,34 +412,82 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         addFakeRecipeToNEI(saplingIn, log, saplingOut, leaves, fruit);
     }
 
+    private static final ItemStack[][] altToolsForNEI;
+    static {
+        GT_MetaGenerated_Tool toolInstance = GT_MetaGenerated_Tool_01.INSTANCE;
+        altToolsForNEI = new ItemStack[][] {
+                { toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.SAW, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_SAW, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.BUZZSAW_LV, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.CHAINSAW_LV, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.BUZZSAW_MV, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.CHAINSAW_MV, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.BUZZSAW_HV, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.CHAINSAW_HV, 1, null, null, null), },
+                { toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.BRANCHCUTTER, 1, null, null, null),
+                        toolInstance
+                                .getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_BRANCHCUTTER, 1, null, null, null), },
+                { new ItemStack(Items.shears),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.WIRECUTTER, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_WIRECUTTER, 1, null, null, null),
+                        MetaGeneratedGregtechTools.getInstance()
+                                .getToolWithStats(MetaGeneratedGregtechTools.ELECTRIC_SNIPS, 1, null, null, null), },
+                { toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.KNIFE, 1, null, null, null),
+                        toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_KNIFE, 1, null, null, null), } };
+    }
+
     public static boolean addFakeRecipeToNEI(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
-                                             ItemStack fruit) {
+            ItemStack fruit) {
         int recipeCount = GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size();
-        ItemStack[] outputs = new ItemStack[] { log, saplingOut, leaves, fruit };
+
+        ItemStack specialStack = saplingIn.copy();
+        specialStack.stackSize = 0;
+
+        // Calculate the correct amount of outputs for NEI display.
+        ItemStack[][] inputStacks = new ItemStack[Mode.values().length][];
+        ItemStack[] outputStacks = new ItemStack[Mode.values().length];
+
+        if (log != null) {
+            inputStacks[Mode.LOG.ordinal()] = altToolsForNEI[Mode.LOG.ordinal()];
+            outputStacks[Mode.LOG.ordinal()] = log.copy();
+            outputStacks[Mode.LOG.ordinal()].stackSize *= modeMultiplier.get(Mode.LOG);
+        }
+        if (saplingOut != null) {
+            inputStacks[Mode.SAPLING.ordinal()] = altToolsForNEI[Mode.SAPLING.ordinal()];
+            outputStacks[Mode.SAPLING.ordinal()] = saplingOut.copy();
+            outputStacks[Mode.SAPLING.ordinal()].stackSize *= modeMultiplier.get(Mode.SAPLING);
+        }
+        if (leaves != null) {
+            inputStacks[Mode.LEAVES.ordinal()] = altToolsForNEI[Mode.LEAVES.ordinal()];
+            outputStacks[Mode.LEAVES.ordinal()] = leaves.copy();
+            outputStacks[Mode.LEAVES.ordinal()].stackSize *= modeMultiplier.get(Mode.LEAVES);
+        }
+        if (fruit != null) {
+            inputStacks[Mode.FRUIT.ordinal()] = altToolsForNEI[Mode.FRUIT.ordinal()];
+            outputStacks[Mode.FRUIT.ordinal()] = fruit.copy();
+            outputStacks[Mode.FRUIT.ordinal()].stackSize *= modeMultiplier.get(Mode.FRUIT);
+        }
 
         Logger.INFO(
-                "Adding Tree Growth Simulation for " + saplingIn.getDisplayName()
+                "Adding Tree Growth Simulation for " + specialStack.getDisplayName()
                         + " -> "
-                        + ItemUtils.getArrayStackNames(outputs));
-
-        ItemStack inputStack = saplingIn.copy();
-        inputStack.stackSize = 0;
+                        + ItemUtils.getArrayStackNames(outputStacks));
 
         GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.addFakeRecipe(
                 false,
-                new ItemStack[] {
-                        GT_OreDictUnificator.get(ToolDictNames.craftingToolSaw, 1),
-                        GT_OreDictUnificator.get(ToolDictNames.craftingToolBranchCutter, 1),
-                        new ItemStack(Items.shears, 1),
-                        GT_OreDictUnificator.get(ToolDictNames.craftingToolKnife, 1)
-                },
-                outputs,
-                inputStack,
-                null,
-                null,
-                TICKS_PER_OPERATION,
-                0,
-                0);
+                new GT_Recipe.GT_Recipe_WithAlt(
+                        false,
+                        null,
+                        outputStacks,
+                        specialStack,
+                        null,
+                        null,
+                        null,
+                        TICKS_PER_OPERATION,
+                        0,
+                        recipeCount,
+                        inputStacks));
+
         return GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size() > recipeCount;
     }
 
@@ -450,6 +497,13 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 new ItemStack(Blocks.log, 1, 0),
                 new ItemStack(Blocks.leaves, 1, 0),
                 new ItemStack(Items.apple, 1, 0));
+
+        registerTreeProducts( // Spruce (testing)
+                new ItemStack(Blocks.sapling, 1, 1),
+                new ItemStack(Blocks.log, 1, 1),
+                null,
+                new ItemStack(Blocks.leaves, 1, 1),
+                null);
     }
 
     public @NotNull CheckRecipeResult checkProcessingOld() {
@@ -825,7 +879,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         ItemStack aSaplingStack = ItemUtils.getItemStackFromFQRN(aSapling, 1);
         if (aSaplingStack != null && aLog != null) {
             sLogCache.put(aSapling, aLog);
-            //addFakeRecipeToNEI(aSaplingStack, aLog);
+            // addFakeRecipeToNEI(aSaplingStack, aLog);
         } else {
             Logger.INFO("Unable to add Tree Growth Simulation for " + aSapling);
         }

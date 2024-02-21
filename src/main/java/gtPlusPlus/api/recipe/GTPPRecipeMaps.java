@@ -3,7 +3,6 @@ package gtPlusPlus.api.recipe;
 import java.util.Arrays;
 import java.util.Collections;
 
-import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
 import net.minecraft.util.StatCollector;
 
 import com.gtnewhorizons.modularui.common.widget.ProgressBar;
@@ -22,6 +21,7 @@ import gregtech.nei.formatter.SimpleSpecialValueFormatter;
 import gtPlusPlus.core.util.math.MathUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.gui.GTPP_UITextures;
+import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
 
 public class GTPPRecipeMaps {
 
@@ -155,8 +155,10 @@ public class GTPPRecipeMaps {
             .of("gtpp.recipe.flotationcell").maxIO(6, 0, 1, 1).build();
     public static final RecipeMap<RecipeMapBackend> treeGrowthSimulatorFakeRecipes = RecipeMapBuilder
             .of("gtpp.recipe.treefarm")
-            .maxIO(GregtechMetaTileEntityTreeFarm.Mode.values().length, GregtechMetaTileEntityTreeFarm.Mode.values().length, 0, 0)
-            .minInputs(1, 0)
-            .useSpecialSlot()
-            .frontend(TGSFrontend::new).build();
+            .maxIO(
+                    GregtechMetaTileEntityTreeFarm.Mode.values().length,
+                    GregtechMetaTileEntityTreeFarm.Mode.values().length,
+                    0,
+                    0)
+            .minInputs(1, 0).useSpecialSlot().frontend(TGSFrontend::new).build();
 }

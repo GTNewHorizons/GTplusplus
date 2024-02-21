@@ -57,7 +57,7 @@ public class HANDLER_FR {
                         .put(value.getUID(), ReflectionUtils.getField(value, "vanillaWood"));
             }
 
-            //GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
+            // GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
         }
     }
 
@@ -74,7 +74,7 @@ public class HANDLER_FR {
                 GregtechMetaTileEntityTreeFarm.sLogCache.put(value.getUID() + "fireproof", aLog);
             }
 
-            //GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
+            // GregtechMetaTileEntityTreeFarm.addFakeRecipeToNEI(aSaplingStack, aLog);
         }
     }
 }
