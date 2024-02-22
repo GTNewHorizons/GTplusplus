@@ -342,18 +342,18 @@ public class RecipeLoader_ChemicalSkips {
 
         // MK5 versions
         GT_Values.RA.addFusionReactorRecipe(
-                new FluidStack[] { new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 144),
-                        Materials.Yttrium.getMolten(144) },
-                new FluidStack[] { new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 144) },
-                3 * SECONDS + 4 * TICKS,
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().XENON.getPlasma(), 288),
+                        Materials.Yttrium.getMolten(288) },
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().NEPTUNIUM.getPlasma(), 288) },
+                1 * SECONDS + 12 * TICKS,
                 (int) TierEU.RECIPE_UEV,
                 1_000_000_000);
 
         GT_Values.RA.addFusionReactorRecipe(
-                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 144),
-                        Materials.Rubidium.getMolten(144) },
-                new FluidStack[] { new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 144) },
-                3 * SECONDS + 4 * TICKS,
+                new FluidStack[] { new FluidStack(ELEMENT.STANDALONE.FORCE.getPlasma(), 288),
+                        Materials.Rubidium.getMolten(288) },
+                new FluidStack[] { new FluidStack(ELEMENT.getInstance().FERMIUM.getPlasma(), 288) },
+                1 * SECONDS + 12 * TICKS,
                 (int) TierEU.RECIPE_UEV,
                 1_000_000_000);
     }
