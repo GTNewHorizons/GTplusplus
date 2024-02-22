@@ -31,9 +31,10 @@ import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructa
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
-import com.gtnewhorizons.modularui.api.forge.ItemStackHandler;
 
+import forestry.api.arboriculture.IToolGrafter;
 import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.Mods;
 import gregtech.api.enums.TAE;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -98,7 +99,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 .addInfo("Farms and harvests trees using EU").addInfo("Place a sapling in the controller slot")
                 .addInfo("Place a tool in an input bus").addInfo("Different tools are required for different outputs")
                 .addInfo("Advanced tools multiply output amount")
-                .addInfo("  Logs: Saw (1x), Buzzsaw (2x), Chainsaw (4x)").addInfo("  Saplings: Branch Cutter (1x)")
+                .addInfo("  Logs: Saw (1x), Buzzsaw (2x), Chainsaw (4x)")
+                .addInfo("  Saplings: Branch Cutter (1x), Grafter (3x)")
                 .addInfo("  Leaves: Shears (1x), Wire Cutter (2x), Automatic Snips (4x)").addInfo("  Fruit: Knife (1x)")
                 .addInfo("Multiple tools can be used at the same time").addSeparator()
                 .addInfo("Work time is fixed at 5 seconds").addInfo("Energy input tier multiplies output further")
@@ -335,25 +337,14 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
             return controllerSlot;
         }
 
-        RecoverSaw: if (controllerSlot != null) {
+        if (controllerSlot != null) {
             // Non-sapling item in controller slot. This could be a saw from an older version of the TGS.
-            // We try to place it into an input bus first to not interrupt existing setups.
-            if (controllerSlot.getItem() instanceof GT_MetaGenerated_Tool) {
-                for (GT_MetaTileEntity_Hatch_InputBus inputBus : filterValidMTEs(mInputBusses)) {
-                    ItemStackHandler handler = inputBus.getInventoryHandler();
-                    for (int slot = 0; slot < handler.getSlots(); ++slot) {
-                        if (handler.insertItem(slot, controllerSlot, false) == null) {
-                            inputBus.updateSlots();
-                            mInventory[1] = null;
-                            break RecoverSaw;
-                        }
-                    }
-                }
+            // We first try to swap it with a sapling from an input bus to not interrupt existing setups.
+            if (!legacyToolSwap()) {
+                // Swap failed, output whatever is blocking the slot.
+                addOutput(controllerSlot);
+                mInventory[1] = null;
             }
-
-            // Unable to place the item in an input, output it instead.
-            addOutput(controllerSlot);
-            mInventory[1] = null;
         }
 
         // Here controller slot is empty, find a valid sapling to use.
@@ -366,6 +357,31 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
         // No saplings were found.
         return null;
+    }
+
+    /**
+     * In previous versions, the saw used to be placed in the controller slot and the sapling into an input bus. We do
+     * not want to break existing setups like this, so we attempt to swap the two if possible.
+     * 
+     * @return True on success, false otherwise.
+     */
+    private boolean legacyToolSwap() {
+        ItemStack controllerSlot = getControllerSlot();
+        if (controllerSlot == null || !(controllerSlot.getItem() instanceof GT_MetaGenerated_Tool_01)) return false;
+
+        for (GT_MetaTileEntity_Hatch_InputBus inputBus : filterValidMTEs(mInputBusses)) {
+            ItemStack[] inventory = inputBus.getRealInventory();
+            for (int slot = 0; slot < inventory.length; ++slot) {
+                if (isValidSapling(inventory[slot])) {
+                    // Do the swap.
+                    mInventory[1] = inventory[slot];
+                    inventory[slot] = controllerSlot;
+                    inputBus.updateSlots();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -464,6 +480,9 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                         case GT_MetaGenerated_Tool_01.POCKET_MULTITOOL:
                             return 1;
                     }
+                }
+                if (tool instanceof IToolGrafter && tool.isDamageable()) {
+                    return 3;
                 }
                 break;
 
@@ -564,7 +583,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 // Mode.SAPLING
                 { toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.BRANCHCUTTER, 1, null, null, null),
                         toolInstance
-                                .getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_BRANCHCUTTER, 1, null, null, null), },
+                                .getToolWithStats(GT_MetaGenerated_Tool_01.POCKET_BRANCHCUTTER, 1, null, null, null),
+                        GT_ModHandler.getModItem(Mods.Forestry.ID, "grafter", 1, 0), },
                 // Mode.LEAVES
                 { new ItemStack(Items.shears),
                         toolInstance.getToolWithStats(GT_MetaGenerated_Tool_01.WIRECUTTER, 1, null, null, null),
