@@ -21,7 +21,6 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemShears;
@@ -517,7 +516,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
      * @param leaves  ItemStack to output in mode LEAVES.
      * @param fruit   ItemStack to output in mode FRUIT.
      */
-    private static void registerTreeProducts(ItemStack sapling, ItemStack log, ItemStack leaves, ItemStack fruit) {
+    public static void registerTreeProducts(ItemStack sapling, ItemStack log, ItemStack leaves, ItemStack fruit) {
         registerTreeProducts(sapling, log, sapling, leaves, fruit);
     }
 
@@ -530,7 +529,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
      * @param leaves     ItemStack to output in mode LEAVES.
      * @param fruit      ItemStack to output in mode FRUIT.
      */
-    private static void registerTreeProducts(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
+    public static void registerTreeProducts(ItemStack saplingIn, ItemStack log, ItemStack saplingOut, ItemStack leaves,
             ItemStack fruit) {
         String key = Item.itemRegistry.getNameForObject(saplingIn.getItem()) + ":" + saplingIn.getItemDamage();
         EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
@@ -633,20 +632,5 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                         inputStacks));
 
         return GTPPRecipeMaps.treeGrowthSimulatorFakeRecipes.getAllRecipes().size() > recipeCount;
-    }
-
-    public static void initializeTreeProducts() {
-        registerTreeProducts( // Oak
-                new ItemStack(Blocks.sapling, 1, 0),
-                new ItemStack(Blocks.log, 1, 0),
-                new ItemStack(Blocks.leaves, 1, 0),
-                new ItemStack(Items.apple, 1, 0));
-
-        registerTreeProducts( // Spruce (testing)
-                new ItemStack(Blocks.sapling, 1, 1),
-                new ItemStack(Blocks.log, 1, 1),
-                null,
-                new ItemStack(Blocks.leaves, 1, 1),
-                null);
     }
 }
