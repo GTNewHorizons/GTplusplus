@@ -1,6 +1,6 @@
 package gtPlusPlus.api.recipe;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,7 +46,9 @@ public class TGSFrontend extends RecipeMapFrontend {
     }
 
     @Override
-    protected void drawEnergyInfo(RecipeDisplayInfo recipeInfo) {}
+    protected void drawEnergyInfo(RecipeDisplayInfo recipeInfo) {
+        // Do not.
+    }
 
     @Override
     public Pos2d getSpecialItemPosition() {
@@ -89,7 +91,7 @@ public class TGSFrontend extends RecipeMapFrontend {
          * inputs/outputs in CachedDefaultRecipe.
          */
 
-        // The last input in neiCachedRecipe is always the special slot.
+        // The last input in neiCachedRecipe is always the special slot, this is the input sapling.
         if (stack == neiCachedRecipe.mInputs.get(neiCachedRecipe.mInputs.size() - 1).item) {
             currentTip.add(EnumChatFormatting.YELLOW + tooltipSapling);
             super.handleNEIItemTooltip(stack, currentTip, neiCachedRecipe);
@@ -102,6 +104,7 @@ public class TGSFrontend extends RecipeMapFrontend {
         int slot = 0;
         for (int mode = 0; mode < Mode.values().length; ++mode) {
             if (mode < recipe.mOreDictAlt.length && recipe.mOreDictAlt[mode] != null) {
+                // There is a valid input in this mode.
                 if (slot < neiCachedRecipe.mInputs.size() && stack == neiCachedRecipe.mInputs.get(slot).item) {
                     int toolMultiplier = GregtechMetaTileEntityTreeFarm.getToolMultiplier(stack, Mode.values()[mode]);
                     currentTip.add(EnumChatFormatting.YELLOW + tooltipInputs[mode]);
@@ -118,6 +121,7 @@ public class TGSFrontend extends RecipeMapFrontend {
         slot = 0;
         for (int mode = 0; mode < Mode.values().length; ++mode) {
             if (mode < recipe.mOutputs.length && recipe.mOutputs[mode] != null) {
+                // There is a valid output in this mode.
                 if (slot < neiCachedRecipe.mOutputs.size() && stack == neiCachedRecipe.mOutputs.get(slot).item) {
                     currentTip.add(EnumChatFormatting.YELLOW + tooltipOutputs[mode]);
                     return currentTip;
