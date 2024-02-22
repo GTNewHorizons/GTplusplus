@@ -25,6 +25,7 @@ import static gregtech.api.enums.Mods.TinkerConstruct;
 import static gregtech.api.enums.Mods.TwilightForest;
 import static gregtech.api.enums.Mods.Witchery;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
+import static gregtech.api.util.GT_Utility.filterValidMTEs;
 import static gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase.GTPPHatchElement.TTEnergy;
 
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructa
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import com.gtnewhorizons.modularui.api.forge.ItemStackHandler;
 
 import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.arboriculture.ITree;
@@ -59,6 +61,7 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
@@ -159,9 +162,14 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     @Override
     public boolean isCorrectMachinePart(final ItemStack aStack) {
-        // TODO: comment
-        // TODO: accept legacy saws & stuff so that processing does not stop with update
-        return isValidSapling(aStack) || aStack.getItem() instanceof GT_MetaGenerated_Tool_01;
+        if (aStack == null) return false;
+        if (isValidSapling(aStack)) return true;
+        /*
+         * In previous versions, a saw used to go in the controller slot. We do not want an update to stop processing of
+         * a machine set up like this. Instead, a sapling is placed in this slot at the start of the next operation.
+         */
+        if (aStack.getItem() instanceof GT_MetaGenerated_Tool_01) return true;
+        return false;
     }
 
     /**
@@ -270,8 +278,23 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
             return controllerSlot;
         }
 
-        if (controllerSlot != null) {
+        RecoverSaw: if (controllerSlot != null) {
             // Non-sapling item in controller slot. Possibly saw from older version.
+            // We try to place it into an input bus first to not interrupt existing setups.
+            if (controllerSlot.getItem() instanceof GT_MetaGenerated_Tool) {
+                for (GT_MetaTileEntity_Hatch_InputBus inputBus : filterValidMTEs(mInputBusses)) {
+                    ItemStackHandler handler = inputBus.getInventoryHandler();
+                    for (int slot = 0; slot < handler.getSlots(); ++slot) {
+                        if (handler.insertItem(slot, controllerSlot, false) == null) {
+                            inputBus.updateSlots();
+                            mInventory[1] = null;
+                            break RecoverSaw;
+                        }
+                    }
+                }
+            }
+
+            // Unable to place item in an input, output it instead.
             addOutput(controllerSlot);
             mInventory[1] = null;
         }
@@ -306,7 +329,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
      */
     private int useToolForMode(Mode mode) {
         for (ItemStack stack : getStoredInputs()) {
-            int toolMultiplier = getToolModifier(stack, mode);
+            int toolMultiplier = getToolMultiplier(stack, mode);
             if (toolMultiplier > 0) {
                 boolean canDamage = GT_ModHandler
                         .damageOrDechargeItem(stack, TOOL_DAMAGE_PER_USE, TOOL_CHARGE_PER_USE, null);
@@ -329,7 +352,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         return -1;
     }
 
-    private static int getToolModifier(ItemStack toolStack, Mode mode) {
+    public static int getToolMultiplier(ItemStack toolStack, Mode mode) {
         Item tool = toolStack.getItem();
         switch (mode) {
             case LOG:

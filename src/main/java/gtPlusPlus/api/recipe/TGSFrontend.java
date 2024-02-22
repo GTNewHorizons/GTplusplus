@@ -21,6 +21,7 @@ import gregtech.common.gui.modularui.UIHelper;
 import gregtech.nei.GT_NEI_DefaultHandler;
 import gregtech.nei.RecipeDisplayInfo;
 import gregtech.nei.formatter.INEISpecialInfoFormatter;
+import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm;
 import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.production.GregtechMetaTileEntityTreeFarm.Mode;
 
 @ParametersAreNonnullByDefault
@@ -72,6 +73,7 @@ public class TGSFrontend extends RecipeMapFrontend {
             StatCollector.translateToLocal("gtpp.nei.tgs.tooltip.needsShears"),
             StatCollector.translateToLocal("gtpp.nei.tgs.tooltip.needsKnife") };
     private static final String tooltipSapling = StatCollector.translateToLocal("gtpp.nei.tgs.tooltip.sapling");
+    private static final String tooltipMultiplier = StatCollector.translateToLocal("gtpp.nei.tgs.tooltip.multiplier");
 
     @Override
     public List<String> handleNEIItemTooltip(ItemStack stack, List<String> currentTip,
@@ -101,7 +103,11 @@ public class TGSFrontend extends RecipeMapFrontend {
         for (int mode = 0; mode < Mode.values().length; ++mode) {
             if (mode < recipe.mOreDictAlt.length && recipe.mOreDictAlt[mode] != null) {
                 if (slot < neiCachedRecipe.mInputs.size() && stack == neiCachedRecipe.mInputs.get(slot).item) {
+                    int toolMultiplier = GregtechMetaTileEntityTreeFarm.getToolMultiplier(stack, Mode.values()[mode]);
                     currentTip.add(EnumChatFormatting.YELLOW + tooltipInputs[mode]);
+                    if (toolMultiplier > 0) {
+                        currentTip.add(EnumChatFormatting.YELLOW + tooltipMultiplier + " " + toolMultiplier + "x");
+                    }
                     return currentTip;
                 }
                 ++slot;
@@ -129,7 +135,8 @@ public class TGSFrontend extends RecipeMapFrontend {
         public List<String> format(RecipeDisplayInfo recipeInfo) {
             return Arrays.asList(
                     StatCollector.translateToLocal("gtpp.nei.tgs.info-1"),
-                    StatCollector.translateToLocal("gtpp.nei.tgs.info-2"));
+                    StatCollector.translateToLocal("gtpp.nei.tgs.info-2"),
+                    StatCollector.translateToLocal("gtpp.nei.tgs.info-3"));
         }
     }
 }
