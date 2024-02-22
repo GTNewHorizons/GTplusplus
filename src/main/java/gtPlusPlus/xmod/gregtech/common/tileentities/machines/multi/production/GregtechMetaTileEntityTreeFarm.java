@@ -94,20 +94,19 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType(getMachineType()).addInfo("Converts EU to Logs").addInfo("Eu Usage: 100% | Parallel: 1")
-                .addInfo("Requires a Saw or Chainsaw in GUI slot").addInfo("Output multiplier:").addInfo("Saw = 1x")
-                .addInfo("Buzzsaw = 2x").addInfo("Chainsaw = 4x")
-                .addInfo("Add a sapling in the input bus to select wood type output")
-                .addInfo("The sapling is not consumed").addInfo("Tools can also be fed to the controller via input bus")
-                .addInfo("The working speed is fixed for 5s")
-                .addInfo("Production Formula: (2 * tier^2 - 2 * tier + 5) * 5 * saw boost")
-                .addInfo("When fertilizer is supplied, produces saplings instead of logs")
-                .addInfo("Forestry saplings can get increased production")
+        tt.addMachineType(getMachineType()).addInfo("Controller block for the Tree Growth Simulator")
+                .addInfo("Farms and harvests trees using EU").addInfo("Place a sapling in the controller slot")
+                .addInfo("Place a tool in an input bus").addInfo("Different tools are required for different outputs")
+                .addInfo("Advanced tools multiply output amount")
+                .addInfo("  Logs: Saw (1x), Buzzsaw (2x), Chainsaw (4x)").addInfo("  Saplings: Branch Cutter (1x)")
+                .addInfo("  Leaves: Shears (1x), Wire Cutter (2x), Automatic Snips (4x)").addInfo("  Fruit: Knife (1x)")
+                .addInfo("Multiple tools can be used at the same time").addSeparator()
+                .addInfo("Work time is fixed at 5 seconds").addInfo("Energy input tier multiplies output further")
+                .addInfo("Output multiplier is equal to: 2*tier^2 - 2*tier + 5")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
-                .addController("Front center").addCasingInfoMin("Sterile Farm Casing", 8, false)
-                .addInputBus("Any casing", 1).addOutputBus("Any casing", 1).addEnergyHatch("Any casing", 1)
-                .addMaintenanceHatch("Any casing", 1).addMufflerHatch("Any casing", 1)
-                .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addController("Front center").addCasingInfoMin(mCasingName, 8, false).addInputBus("Any casing", 1)
+                .addOutputBus("Any casing", 1).addEnergyHatch("Any casing", 1).addMaintenanceHatch("Any casing", 1)
+                .addMufflerHatch("Any casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
@@ -509,7 +508,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
     /**
      * Registers outputs for a sapling. This method assumes that output in mode SAPLING is the same as the input
-     * sapling. Output amount is further modified by mode, machine tier, and tool used.
+     * sapling. Output amount is further modified by mode, machine tier, and tool used. Recipes are added in
+     * {@link gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_TreeFarm}.
      * 
      * @param sapling The input sapling to farm, and also the output in mode SAPLING.
      * @param log     ItemStack to output in mode LOG.
@@ -521,7 +521,8 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     }
 
     /**
-     * Registers outputs for a sapling. Output amount is further modified by mode, machine tier, and tool used.
+     * Registers outputs for a sapling. Output amount is further modified by mode, machine tier, and tool used. Recipes
+     * are added in {@link gtPlusPlus.xmod.gregtech.loaders.recipe.RecipeLoader_TreeFarm}.
      *
      * @param saplingIn  The input sapling to farm.
      * @param log        ItemStack to output in mode LOG.
