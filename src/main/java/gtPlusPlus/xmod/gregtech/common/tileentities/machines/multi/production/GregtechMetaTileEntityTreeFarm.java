@@ -53,6 +53,7 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.api.util.VoidProtectionHelper;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
+import gregtech.common.tileentities.machines.GT_MetaTileEntity_Hatch_InputBus_ME;
 import gtPlusPlus.api.objects.Logger;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
@@ -133,6 +134,24 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         mCasing = 0;
         return checkPiece(mName, 1, 1, 0) && mCasing >= 8 && checkHatch();
+    }
+
+    @Override
+    public boolean checkHatch() {
+        // Tools from a stocking inout bus can not be damaged, this would cause an infinite durability exploit.
+        // Therefore disallow ME input bus.
+        if (!super.checkHatch()) return false;
+        for (GT_MetaTileEntity_Hatch_InputBus inputBus : mInputBusses) {
+            if (inputBus instanceof GT_MetaTileEntity_Hatch_InputBus_ME) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean supportsCraftingMEBuffer() {
+        return false;
     }
 
     @Override
