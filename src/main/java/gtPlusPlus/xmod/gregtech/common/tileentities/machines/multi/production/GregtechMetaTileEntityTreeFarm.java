@@ -33,6 +33,8 @@ import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import forestry.api.arboriculture.IToolGrafter;
+import forestry.api.arboriculture.ITree;
+import forestry.api.arboriculture.TreeManager;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Mods;
 import gregtech.api.enums.TAE;
@@ -323,92 +325,6 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         };
     }
 
-    /* Handling saplings. */
-
-    /**
-     * Finds a valid sapling from input buses, and places it into the controller slot.
-     * 
-     * @return The sapling that was found (now in the controller slot).
-     */
-    private ItemStack findSapling() {
-        ItemStack controllerSlot = getControllerSlot();
-
-        if (isValidSapling(controllerSlot)) {
-            return controllerSlot;
-        }
-
-        if (controllerSlot != null) {
-            // Non-sapling item in controller slot. This could be a saw from an older version of the TGS.
-            // We first try to swap it with a sapling from an input bus to not interrupt existing setups.
-            if (!legacyToolSwap()) {
-                // Swap failed, output whatever is blocking the slot.
-                addOutput(controllerSlot);
-                mInventory[1] = null;
-            }
-        }
-
-        // Here controller slot is empty, find a valid sapling to use.
-        for (ItemStack stack : getStoredInputs()) {
-            if (isValidSapling(stack)) {
-                mInventory[1] = stack.splitStack(1);
-                return mInventory[1];
-            }
-        }
-
-        // No saplings were found.
-        return null;
-    }
-
-    /**
-     * In previous versions, the saw used to be placed in the controller slot and the sapling into an input bus. We do
-     * not want to break existing setups like this, so we attempt to swap the two if possible.
-     * 
-     * @return True on success, false otherwise.
-     */
-    private boolean legacyToolSwap() {
-        ItemStack controllerSlot = getControllerSlot();
-        if (controllerSlot == null || !(controllerSlot.getItem() instanceof GT_MetaGenerated_Tool_01)) return false;
-
-        for (GT_MetaTileEntity_Hatch_InputBus inputBus : filterValidMTEs(mInputBusses)) {
-            ItemStack[] inventory = inputBus.getRealInventory();
-            for (int slot = 0; slot < inventory.length; ++slot) {
-                if (isValidSapling(inventory[slot])) {
-                    // Do the swap.
-                    mInventory[1] = inventory[slot];
-                    inventory[slot] = controllerSlot;
-                    inputBus.updateSlots();
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Check if an ItemStack is a sapling that can be farmed.
-     * 
-     * @param stack An ItemStack.
-     * @return True if stack is a valid sapling that can be farmed.
-     */
-    private boolean isValidSapling(ItemStack stack) {
-        if (stack == null) return false;
-        String registryName = Item.itemRegistry.getNameForObject(stack.getItem());
-        return treeProductsMap.containsKey(registryName + ":" + stack.getItemDamage())
-                || "Forestry:sapling".equals(registryName);
-    }
-
-    /**
-     * Get a list of possible outputs for a sapling, for each mode. This is either recovered from
-     * {@link #treeProductsMap}, or generated from stats of Forestry saplings.
-     * 
-     * @param sapling A sapling to farm.
-     * @return A map of outputs for each mode. Outputs for some modes might be null.
-     */
-    private static EnumMap<Mode, ItemStack> getOutputsForSapling(ItemStack sapling) {
-        String registryName = Item.itemRegistry.getNameForObject(sapling.getItem());
-        return treeProductsMap.get(registryName + ":" + sapling.getItemDamage());
-    }
-
     /* Handling tools. */
 
     /**
@@ -523,6 +439,163 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         return -1;
     }
 
+    /* Handling saplings. */
+
+    /**
+     * Finds a valid sapling from input buses, and places it into the controller slot.
+     *
+     * @return The sapling that was found (now in the controller slot).
+     */
+    private ItemStack findSapling() {
+        ItemStack controllerSlot = getControllerSlot();
+
+        if (isValidSapling(controllerSlot)) {
+            return controllerSlot;
+        }
+
+        if (controllerSlot != null) {
+            // Non-sapling item in controller slot. This could be a saw from an older version of the TGS.
+            // We first try to swap it with a sapling from an input bus to not interrupt existing setups.
+            if (!legacyToolSwap()) {
+                // Swap failed, output whatever is blocking the slot.
+                addOutput(controllerSlot);
+                mInventory[1] = null;
+            }
+        }
+
+        // Here controller slot is empty, find a valid sapling to use.
+        for (ItemStack stack : getStoredInputs()) {
+            if (isValidSapling(stack)) {
+                mInventory[1] = stack.splitStack(1);
+                return mInventory[1];
+            }
+        }
+
+        // No saplings were found.
+        return null;
+    }
+
+    /**
+     * In previous versions, the saw used to be placed in the controller slot and the sapling into an input bus. We do
+     * not want to break existing setups like this, so we attempt to swap the two if possible.
+     *
+     * @return True on success, false otherwise.
+     */
+    private boolean legacyToolSwap() {
+        ItemStack controllerSlot = getControllerSlot();
+        if (controllerSlot == null || !(controllerSlot.getItem() instanceof GT_MetaGenerated_Tool_01)) return false;
+
+        for (GT_MetaTileEntity_Hatch_InputBus inputBus : filterValidMTEs(mInputBusses)) {
+            ItemStack[] inventory = inputBus.getRealInventory();
+            for (int slot = 0; slot < inventory.length; ++slot) {
+                if (isValidSapling(inventory[slot])) {
+                    // Do the swap.
+                    mInventory[1] = inventory[slot];
+                    inventory[slot] = controllerSlot;
+                    inputBus.updateSlots();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Check if an ItemStack is a sapling that can be farmed.
+     *
+     * @param stack An ItemStack.
+     * @return True if stack is a valid sapling that can be farmed.
+     */
+    private boolean isValidSapling(ItemStack stack) {
+        if (stack == null) return false;
+        String registryName = Item.itemRegistry.getNameForObject(stack.getItem());
+        return treeProductsMap.containsKey(registryName + ":" + stack.getItemDamage())
+                || "Forestry:sapling".equals(registryName);
+    }
+
+    /**
+     * Get a list of possible outputs for a sapling, for each mode. This is either recovered from
+     * {@link #treeProductsMap}, or generated from stats of Forestry saplings.
+     *
+     * @param sapling A sapling to farm.
+     * @return A map of outputs for each mode. Outputs for some modes might be null.
+     */
+    private static EnumMap<Mode, ItemStack> getOutputsForSapling(ItemStack sapling) {
+        String registryName = Item.itemRegistry.getNameForObject(sapling.getItem());
+        if ("Forestry:sapling".equals(registryName)) {
+            return getOutputsForForestrySapling(sapling);
+        } else {
+            return treeProductsMap.get(registryName + ":" + sapling.getItemDamage());
+        }
+    }
+
+    /**
+     * Calculate outputs for Forestry saplings. Default amounts stored in {@link #treeProductsMap} are adjusted based
+     * the genetics of the input sapling.
+     * <p>
+     * Relevant stats:
+     * <ul>
+     * <li>height, girth: Affects log output.</li>
+     * <li>fertility (called Saplings in game): Affects sapling output.</li>
+     * <li>yield: Affects fruit output.</li>
+     * </ul>
+     * See {@link forestry.core.genetics.alleles.EnumAllele} for detailed numeric values for each allele.
+     * 
+     * @param sapling A sapling to farm. Must be a Forestry sapling with a valid genome.
+     * @return A map of outputs for each mode. Outputs for some modes might be null.
+     */
+    private static EnumMap<Mode, ItemStack> getOutputsForForestrySapling(ItemStack sapling) {
+        ITree tree = TreeManager.treeRoot.getMember(sapling);
+        if (tree == null) return null;
+
+        String speciesUUID = tree.getIdent();
+
+        EnumMap<Mode, ItemStack> defaultMap = treeProductsMap.get("Forestry:sapling:" + speciesUUID);
+        if (defaultMap == null) return null;
+
+        // We need to make a new map so that we don't modify the stored amounts of outputs.
+        EnumMap<Mode, ItemStack> adjustedMap = new EnumMap<>(Mode.class);
+
+        ItemStack log = defaultMap.get(Mode.LOG);
+        if (log != null) {
+            double height = Math.max(3 * (tree.getGenome().getHeight() - 1), 0) + 1;
+            double girth = tree.getGenome().getGirth();
+
+            log = log.copy();
+            log.stackSize = (int) (log.stackSize * height * girth);
+            adjustedMap.put(Mode.LOG, log);
+        }
+
+        ItemStack saplingOut = defaultMap.get(Mode.SAPLING);
+        if (saplingOut != null) {
+            // Lowest = 0.01 ... Average = 0.05 ... Highest = 0.3
+            double fertility = tree.getGenome().getFertility() * 10;
+
+            // Return a copy of the *input* sapling, retaining its genetics.
+            int stackSize = Math.max(1, (int) (saplingOut.stackSize * fertility));
+            saplingOut = sapling.copy();
+            saplingOut.stackSize = stackSize;
+            adjustedMap.put(Mode.SAPLING, saplingOut);
+        }
+
+        ItemStack leaves = defaultMap.get(Mode.LEAVES);
+        if (leaves != null) {
+            adjustedMap.put(Mode.LEAVES, leaves.copy());
+        }
+
+        ItemStack fruit = defaultMap.get(Mode.FRUIT);
+        if (fruit != null) {
+            // Lowest = 0.025 ... Average = 0.2 ... Highest = 0.4
+            double yield = tree.getGenome().getYield() * 10;
+
+            fruit = fruit.copy();
+            fruit.stackSize = (int) (fruit.stackSize * yield);
+            adjustedMap.put(Mode.FRUIT, fruit);
+        }
+
+        return adjustedMap;
+    }
+
     /* Recipe registration. */
 
     /**
@@ -562,6 +635,36 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
         if (!addFakeRecipeToNEI(saplingIn, log, saplingOut, leaves, fruit)) {
             Logger.INFO("Registering NEI fake recipe for " + key + " failed!");
         }
+    }
+
+    /**
+     * For Forestry trees, the output amounts depend on the genetics of the sapling. Here we register only the types of
+     * items to output. In {@link #getOutputsForForestrySapling(ItemStack)} these outputs are then multiplied according
+     * to the stats of the real sapling that is in the controller slot.
+     */
+    public static void registerForestryTree(String speciesUID, ItemStack sapling, ItemStack log, ItemStack leaves,
+            ItemStack fruit) {
+        String key = "Forestry:sapling:" + speciesUID;
+        EnumMap<Mode, ItemStack> map = new EnumMap<>(Mode.class);
+        map.put(Mode.LOG, log);
+        map.put(Mode.SAPLING, sapling);
+        map.put(Mode.LEAVES, leaves);
+        map.put(Mode.FRUIT, fruit);
+        treeProductsMap.put(key, map);
+
+        // In the NEI recipe we want to display outputs adjusted for the default genetics of this tree type.
+        // To do this we use the same method as when calculating real outputs.
+        map = getOutputsForForestrySapling(sapling);
+        if (map == null) {
+            Logger.INFO("Could not create Forestry tree output map for " + speciesUID);
+            return;
+        }
+        addFakeRecipeToNEI(
+                sapling,
+                map.get(Mode.LOG),
+                map.get(Mode.SAPLING),
+                map.get(Mode.LEAVES),
+                map.get(Mode.FRUIT));
     }
 
     /**
