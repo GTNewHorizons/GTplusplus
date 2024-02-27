@@ -857,7 +857,7 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addChemicalPlantRecipe(ItemStack[] aInputs, FluidStack[] aInputFluids, ItemStack[] aOutputs,
             FluidStack[] aFluidOutputs, int[] aChances, int time, long eu, int aTier) {
-        if (aInputs.length > 4 || aInputFluids.length > 4 || aOutputs.length > 4 || aFluidOutputs.length > 2) {
+        if (aInputs.length > 4 || aInputFluids.length > 4 || aOutputs.length > 6 || aFluidOutputs.length > 3) {
             Logger.INFO("Inputs: " + ItemUtils.getArrayStackNames(aInputs));
             Logger.INFO("Fluid Inputs: " + ItemUtils.getArrayStackNames(aInputFluids));
             Logger.INFO("Outputs: " + ItemUtils.getArrayStackNames(aOutputs));
