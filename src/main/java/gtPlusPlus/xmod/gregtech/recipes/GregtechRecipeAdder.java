@@ -34,15 +34,17 @@ public class GregtechRecipeAdder implements IGregtech_RecipeAdder {
     @Override
     public boolean addCokeOvenRecipe(final ItemStack aInput1, final ItemStack aInput2, final FluidStack aFluidInput,
             final FluidStack aFluidOutput, final ItemStack aOutput, int aDuration, final int aEUt) {
-        if (aInput1 == null || (aOutput == null || aFluidOutput == null)) {
+        if (aInput1 == null || (aOutput == null && aFluidOutput == null)) {
             Logger.WARNING("Something was null, returning false");
             return false;
         }
-        if ((aDuration = GregTech_API.sRecipeFile.get("cokeoven", aOutput, aDuration)) <= 0) {
+        if (aOutput != null && (aDuration = GregTech_API.sRecipeFile.get("cokeoven", aOutput, aDuration)) <= 0) {
             Logger.WARNING("Something was null, returning false");
             return false;
         }
-        if ((aDuration = GregTech_API.sRecipeFile.get("cokeoven", aFluidOutput.getFluid().getName(), aDuration)) <= 0) {
+        if (aFluidOutput != null
+                && (aDuration = GregTech_API.sRecipeFile.get("cokeoven", aFluidOutput.getFluid().getName(), aDuration))
+                        <= 0) {
             Logger.WARNING("Something was null, returning false");
             return false;
         }
