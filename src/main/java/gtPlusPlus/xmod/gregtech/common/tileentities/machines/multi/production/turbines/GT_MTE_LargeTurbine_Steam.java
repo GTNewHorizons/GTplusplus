@@ -123,7 +123,7 @@ public class GT_MTE_LargeTurbine_Steam extends GregtechMetaTileEntity_LargerTurb
         tEU = totalFlow;
         int waterToOutput = useWater(totalFlow / 160.0f);
         addOutput(GT_ModHandler.getDistilledWater(waterToOutput));
-        if (totalFlow != aOptFlow) {
+        if (totalFlow != realOptFlow) {
             float efficiency = 1.0f - Math.abs((totalFlow - (float) realOptFlow) / (float) realOptFlow);
             // if(totalFlow>aOptFlow){efficiency = 1.0f;}
             tEU *= efficiency;
