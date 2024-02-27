@@ -77,13 +77,14 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
                 aBaseEff *= 0.75f;
             }
         }
-        int tEU = 0;
+        // prevent overflow like that in SC Steam
+        long tEU = 0;
         int totalFlow = 0; // Byproducts are based on actual flow
         int flow = 0;
 
         // Variable required outside of loop for
         // multi-hatch scenarios.
-        this.realOptFlow = (double) aOptFlow * (double) flowMultipliers[0];
+        this.realOptFlow = aOptFlow * flowMultipliers[0];
 
         int remainingFlow = MathUtils.safeInt((long) (realOptFlow * 1.25f)); // Allowed to use up to
         // 125% of optimal flow.
@@ -118,9 +119,9 @@ public class GT_MTE_LargeTurbine_SHSteam extends GregtechMetaTileEntity_LargerTu
             float efficiency = 1.0f - Math.abs((totalFlow - (float) realOptFlow) / (float) realOptFlow);
             // if(totalFlow>aOptFlow){efficiency = 1.0f;}
             tEU *= efficiency;
-            tEU = Math.max(1, MathUtils.safeInt((long) tEU * (long) aBaseEff / 10000L));
+            tEU = Math.max(1, tEU * aBaseEff / 10000L);
         } else {
-            tEU = MathUtils.safeInt((long) tEU * (long) aBaseEff / 10000L);
+            tEU = tEU * aBaseEff / 10000L;
         }
 
         return tEU;
