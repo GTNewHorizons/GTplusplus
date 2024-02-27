@@ -172,7 +172,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
             }
 
             // How much the turbine should be producing with this flow
-            int newPower = fluidIntoPower(tFluids, optFlow, baseEff, flowMultipliers);
+            long newPower = fluidIntoPower(tFluids, optFlow, baseEff, flowMultipliers);
 
             // Reduce produced power depending on the ratio between fuel value and turbine EU/t with the following
             // formula:
@@ -182,7 +182,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                 fuelValue = getFuelValue(new FluidStack(tFluids.get(0), 0));
             }
             float magicValue = (fuelValue * 0.005f) * (fuelValue * 0.005f);
-            float efficiencyLoss = Math.min(1.0f, magicValue / euPerTurbine);
+            long efficiencyLoss = (long) Math.min(1.0f, magicValue / euPerTurbine);
             newPower *= efficiencyLoss;
 
             long difference = newPower - this.lEUt; // difference between current output and new output
@@ -218,7 +218,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
     }
 
     @Override
-    int fluidIntoPower(ArrayList<FluidStack> aFluids, long aOptFlow, int aBaseEff, float[] flowMultipliers) {
+    long fluidIntoPower(ArrayList<FluidStack> aFluids, long aOptFlow, int aBaseEff, float[] flowMultipliers) {
         if (aFluids.size() >= 1) {
             aOptFlow *= 800; // CHANGED THINGS HERE, check recipe runs once per 20 ticks
             int tEU = 0;
