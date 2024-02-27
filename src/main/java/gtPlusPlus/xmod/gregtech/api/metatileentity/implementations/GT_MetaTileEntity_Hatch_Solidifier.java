@@ -25,7 +25,7 @@ public class GT_MetaTileEntity_Hatch_Solidifier extends GT_MetaTileEntity_Hatch_
     public String[] getDescription() {
         return new String[] {
                 "Fluid Input with Mold for " + EnumChatFormatting.YELLOW
-                        + "Large Processing Array"
+                        + "Large Processing Factory"
                         + EnumChatFormatting.RESET,
                 "#22 Circuit is imprinted in Hatch", "Capacity: " + GT_Utility.formatNumbers(getCapacity()) + "L",
                 "Added by: " + EnumChatFormatting.AQUA
