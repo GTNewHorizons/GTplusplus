@@ -130,7 +130,7 @@ public class GT_MTE_LargeTurbine_Steam extends GregtechMetaTileEntity_LargerTurb
             float efficiency = 1.0f - Math.abs((totalFlow - (float) realOptFlow) / (float) realOptFlow);
             // if(totalFlow>aOptFlow){efficiency = 1.0f;}
             tEU *= efficiency;
-            tEU = Math.max(1, tEU * aBaseEff / 20000L);
+            tEU = Math.max(1L, tEU * aBaseEff / 20000L);
         } else {
             tEU = tEU * aBaseEff / 20000L;
         }
