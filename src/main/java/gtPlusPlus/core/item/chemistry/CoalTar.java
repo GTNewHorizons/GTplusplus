@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -34,22 +35,15 @@ public class CoalTar extends ItemPackage {
     public static Fluid Naphthalene;
 
     private static void recipeEthylBenzineFuelsIntoHeavyFuel() {
-        CORE.RA.addChemicalRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("cellFuel", 9),
-                ItemUtils.getItemStackOfAmountFromOreDict("cellEthylbenzene", 2),
-                null,
-                FluidUtils.getFluidStack("nitrofuel", 7500),
-                ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 11),
-                100,
-                1000);
-        CORE.RA.addChemicalRecipe(
-                ItemUtils.getItemStackOfAmountFromOreDict("cellBioDiesel", 9),
-                ItemUtils.getItemStackOfAmountFromOreDict("cellEthylbenzene", 2),
-                null,
-                FluidUtils.getFluidStack("nitrofuel", 3000),
-                ItemUtils.getItemStackOfAmountFromOreDict("cellEmpty", 11),
-                300,
-                1000);
+        GT_Values.RA.stdBuilder().itemInputs(Materials.Fuel.getCells(9))
+                .fluidInputs(FluidUtils.getFluidStack(Ethylbenzene, 2000)).itemOutputs(ItemList.Cell_Empty.get(9L))
+                .fluidOutputs(Materials.NitroFuel.getFluid(7500)).duration(5 * SECONDS).eut(1000).noOptimize()
+                .addTo(UniversalChemical);
+
+        GT_Values.RA.stdBuilder().itemInputs(Materials.BioDiesel.getCells(9))
+                .fluidInputs(FluidUtils.getFluidStack(Ethylbenzene, 4000)).itemOutputs(ItemList.Cell_Empty.get(9L))
+                .fluidOutputs(Materials.NitroFuel.getFluid(6000)).duration(5 * SECONDS).eut(1000).noOptimize()
+                .addTo(UniversalChemical);
     }
 
     public static void recipeCreateEthylene() {
