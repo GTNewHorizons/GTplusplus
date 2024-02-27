@@ -182,7 +182,7 @@ public class GT_MTE_LargeTurbine_Plasma extends GregtechMetaTileEntity_LargerTur
                 fuelValue = getFuelValue(new FluidStack(tFluids.get(0), 0));
             }
             float magicValue = (fuelValue * 0.005f) * (fuelValue * 0.005f);
-            long efficiencyLoss = (long) Math.min(1.0f, magicValue / euPerTurbine);
+            float efficiencyLoss = Math.min(1.0f, magicValue / euPerTurbine);
             newPower *= efficiencyLoss;
 
             long difference = newPower - this.lEUt; // difference between current output and new output
