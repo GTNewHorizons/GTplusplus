@@ -47,6 +47,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
+import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -162,6 +163,11 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     @Override
     public boolean supportsBatchMode() {
         // Batch mode would not do anything, processing time is fixed at 100 ticks.
+        return false;
+    }
+
+    @Override
+    public boolean isBatchModeEnabled() {
         return false;
     }
 
@@ -296,13 +302,13 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 }
 
                 ItemStack sapling = findSapling();
-                if (sapling == null) return CheckRecipeResultRegistry.NO_RECIPE;
+                if (sapling == null) return SimpleCheckRecipeResult.ofFailure("no_sapling");
 
                 EnumMap<Mode, ItemStack> outputPerMode = getOutputsForSapling(sapling);
                 if (outputPerMode == null) {
                     // This should usually not be possible, outputs for all valid saplings should be defined.
                     Logger.INFO("No output found for sapling: " + sapling.getDisplayName());
-                    return CheckRecipeResultRegistry.NO_RECIPE;
+                    return SimpleCheckRecipeResult.ofFailure("no_output_for_sapling");
                 }
 
                 int tier = Math.max(1, GT_Utility.getTier(availableVoltage * availableAmperage));
@@ -325,7 +331,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
 
                 if (outputs.isEmpty()) {
                     // No outputs can be produced using the tools we have available.
-                    return CheckRecipeResultRegistry.NO_RECIPE;
+                    return SimpleCheckRecipeResult.ofFailure("no_tools");
                 }
 
                 outputItems = outputs.toArray(new ItemStack[0]);
@@ -339,7 +345,7 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 duration = TICKS_PER_OPERATION;
                 calculatedEut = GT_Values.VP[tier];
 
-                return CheckRecipeResultRegistry.SUCCESSFUL;
+                return SimpleCheckRecipeResult.ofSuccess("growing_trees");
             }
         };
     }
@@ -355,24 +361,24 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
     private int useToolForMode(Mode mode) {
         for (ItemStack stack : getStoredInputs()) {
             int toolMultiplier = getToolMultiplier(stack, mode);
-            if (toolMultiplier > 0) {
-                boolean canDamage = GT_ModHandler
-                        .damageOrDechargeItem(stack, TOOL_DAMAGE_PER_OPERATION, TOOL_CHARGE_PER_OPERATION, null);
-                if (canDamage) {
-                    // Tool was used.
-                    if (GT_ModHandler.isElectricItem(stack)
-                            && !GT_ModHandler.canUseElectricItem(stack, TOOL_CHARGE_PER_OPERATION)) {
-                        // Tool is out of charge, move it to output.
-                        depleteInput(stack);
-                        addOutput(stack);
-                    }
-                    return toolMultiplier;
-                } else {
-                    // Correct item type, but the tool could not be used.
+            if (toolMultiplier < 0) continue;
+            boolean canDamage = GT_ModHandler
+                    .damageOrDechargeItem(stack, TOOL_DAMAGE_PER_OPERATION, TOOL_CHARGE_PER_OPERATION, null);
+            if (canDamage) {
+                // Tool was used.
+                if (GT_ModHandler.isElectricItem(stack)
+                        && !GT_ModHandler.canUseElectricItem(stack, TOOL_CHARGE_PER_OPERATION)) {
+                    // Tool is out of charge, move it to output.
                     depleteInput(stack);
                     addOutput(stack);
                 }
+                return toolMultiplier;
+            } else {
+                // Correct item type, but the tool could not be used.
+                depleteInput(stack);
+                addOutput(stack);
             }
+
         }
         return -1;
     }

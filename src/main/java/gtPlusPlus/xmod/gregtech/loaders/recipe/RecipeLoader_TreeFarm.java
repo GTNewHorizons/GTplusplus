@@ -6,7 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import binnie.extratrees.genetics.ExtraTreeSpecies;
-import cpw.mods.fml.common.Optional;
 import forestry.api.arboriculture.EnumGermlingType;
 import forestry.api.arboriculture.EnumWoodType;
 import forestry.api.arboriculture.ITree;
@@ -96,7 +95,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.INDUSTRIAL_CRAFT2)
     private static void generateIC2Trees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Rubber Tree
                 GT_ModHandler.getModItem(Mods.IndustrialCraft2.ID, "blockRubSapling", 1, 0),
@@ -105,7 +103,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.IndustrialCraft2.ID, "itemHarz", 1, 0));
     }
 
-    @Optional.Method(modid = Mods.Names.TINKER_CONSTRUCT)
     private static void generateTinkersTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Slimy
                 GT_ModHandler.getModItem(Mods.TinkerConstruct.ID, "slime.sapling", 1, 0),
@@ -114,7 +111,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.TinkerConstruct.ID, "strangeFood", 1, 0));
     }
 
-    @Optional.Method(modid = Mods.Names.G_T_PLUS_PLUS)
     private static void generateGTPPTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Rainforest Oak
                 GT_ModHandler.getModItem(Mods.GTPlusPlus.ID, "blockRainforestOakSapling", 1, 0),
@@ -129,7 +125,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.GTPlusPlus.ID, "item.BasicAgrichemItem", 1, 24));
     }
 
-    @Optional.Method(modid = Mods.Names.TWILIGHT_FOREST)
     private static void generateTwilightForestTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Sickly Twilight Oak
                 GT_ModHandler.getModItem(Mods.TwilightForest.ID, "tile.TFSapling", 1, 0),
@@ -202,7 +197,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.GALAXY_SPACE)
     private static void generateGalaxySpaceTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Barnarda C
                 GT_ModHandler.getModItem(Mods.GalaxySpace.ID, "barnardaCsapling", 1, 0),
@@ -211,7 +205,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.GALACTICRAFT_AMUN_RA)
     private static void generateAmunRaTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Virilig
                 GT_ModHandler.getModItem(Mods.GalacticraftAmunRa.ID, "tile.saplings", 1, 0),
@@ -226,7 +219,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.GalacticraftAmunRa.ID, "tile.wood1", 1, 1));
     }
 
-    @Optional.Method(modid = Mods.Names.NATURA)
     private static void generateNaturaTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Redwood
                 GT_ModHandler.getModItem(Mods.Natura.ID, "florasapling", 1, 0),
@@ -326,7 +318,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.BIOMES_O_PLENTY)
     private static void generateBOPTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Apple
                 GT_ModHandler.getModItem(Mods.BiomesOPlenty.ID, "saplings", 1, 0),
@@ -486,7 +477,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.PAMS_HARVEST_CRAFT)
     private static void addPamTree(String name, int meta) {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts(
                 GT_ModHandler.getModItem(Mods.PamsHarvestCraft.ID, "pam" + name + "Sapling", 1, 0),
@@ -495,7 +485,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.PamsHarvestCraft.ID, name + "Item", 2, 0));
     }
 
-    @Optional.Method(modid = Mods.Names.PAMS_HARVEST_CRAFT)
     private static void generatePamsTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Cinnamon
                 GT_ModHandler.getModItem(Mods.PamsHarvestCraft.ID, "pamappleSapling", 1, 0),
@@ -558,7 +547,6 @@ public class RecipeLoader_TreeFarm {
         addPamTree("gooseberry", 0);
     }
 
-    @Optional.Method(modid = Mods.Names.PAMS_HARVEST_THE_NETHER)
     private static void generatePamsNetherTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Ignis Fruit
                 GT_ModHandler.getModItem(Mods.PamsHarvestTheNether.ID, "netherSapling", 1, 0),
@@ -567,7 +555,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.PamsHarvestTheNether.ID, "ignisfruitItem", 2, 0));
     }
 
-    @Optional.Method(modid = Mods.Names.THAUMCRAFT)
     private static void generateThaumcraftTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Greatwood
                 GT_ModHandler.getModItem(Mods.Thaumcraft.ID, "blockCustomPlant", 1, 0),
@@ -582,7 +569,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.THAUMIC_BASES)
     private static void generateThaumicBasesTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Golden Oak
                 GT_ModHandler.getModItem(Mods.ThaumicBases.ID, "goldenOakSapling", 1, 0),
@@ -610,7 +596,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.TAINTED_MAGIC)
     private static void generateTaintedMagicTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Warpwood
                 GT_ModHandler.getModItem(Mods.TaintedMagic.ID, "BlockWarpwoodSapling", 1, 0),
@@ -619,7 +604,6 @@ public class RecipeLoader_TreeFarm {
                 null);
     }
 
-    @Optional.Method(modid = Mods.Names.FORBIDDEN_MAGIC)
     private static void generateForbiddenMagicTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Warpwood
                 GT_ModHandler.getModItem(Mods.ForbiddenMagic.ID, "TaintSapling", 1, 0),
@@ -628,7 +612,6 @@ public class RecipeLoader_TreeFarm {
                 GT_ModHandler.getModItem(Mods.ForbiddenMagic.ID, "TaintFruit", 1, 0));
     }
 
-    @Optional.Method(modid = Mods.Names.WITCHERY)
     private static void generateWitcheryTrees() {
         GregtechMetaTileEntityTreeFarm.registerTreeProducts( // Rowan
                 GT_ModHandler.getModItem(Mods.Witchery.ID, "witchsapling", 1, 0),
@@ -657,7 +640,6 @@ public class RecipeLoader_TreeFarm {
      * than I do, and knows a more straightforward way to retrieve the relevant ItemStacks here, please update this.
      */
 
-    @Optional.Method(modid = Mods.Names.FORESTRY)
     private static void generateForestryTrees() {
         for (TreeDefinition tree : TreeDefinition.values()) {
             String speciesUID = tree.getUID();
@@ -697,7 +679,6 @@ public class RecipeLoader_TreeFarm {
         }
     }
 
-    @Optional.Method(modid = Mods.Names.EXTRA_TREES)
     private static void generateExtraTreesTrees() {
         for (ExtraTreeSpecies species : ExtraTreeSpecies.values()) {
 
