@@ -229,7 +229,7 @@ public class GTPP_Render_MachineBlock extends GT_Renderer_Block {
     }
 
     public boolean renderStandardBlock(IBlockAccess aWorld, int aX, int aY, int aZ, Block aBlock,
-                                       RenderBlocks aRenderer) {
+            RenderBlocks aRenderer) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
 
         return tTileEntity instanceof ITexturedTileEntity
