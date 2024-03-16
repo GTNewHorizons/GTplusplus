@@ -109,8 +109,8 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
                             new String[][] { { "CCCCC", "C   C", "C   C", "C   C", "CCCCC" } })
                     .addShape(
                             STRUCTURE_PIECE_FRONT + 3,
-                            new String[][] { { "CCCCCCC", "C     C", "C     C", "C     C", "C     C", "C     C",
-                                    " CCCCCCC " }, })
+                            new String[][] {
+                                    { "CCCCCCC", "C     C", "C     C", "C     C", "C     C", "C     C", "CCCCCCC" }, })
                     .addShape(
                             STRUCTURE_PIECE_REST + 1,
                             new String[][] { { "CCC", "C-C", "CCC" }, { "CCC", "CCC", "CCC" } })
@@ -125,7 +125,6 @@ public class GregtechMetaTileEntity_IndustrialArcFurnace extends
                                     { "CCCCCCC", "CCCCCCC", "CCCCCCC", "CCCCCCC", "CCCCCCC", "CCCCCCC", "CCCCCCC" }, })
                     .addElement(
                             'C',
-
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialArcFurnace.class)
                                     .atLeast(InputBus, InputHatch, OutputBus, OutputHatch, Maintenance, Energy, Muffler)
                                     .casingIndex(getCasingTextureIndex()).dot(1).allowOnly(ForgeDirection.NORTH)
