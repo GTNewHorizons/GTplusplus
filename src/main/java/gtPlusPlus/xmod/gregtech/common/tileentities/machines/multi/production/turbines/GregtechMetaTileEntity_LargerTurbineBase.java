@@ -744,7 +744,7 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
     }
 
     @Override
-    public void stopMachine(ShutDownReason reason) {
+    public void stopMachine(@NotNull ShutDownReason reason) {
         baseEff = 0;
         optFlow = 0;
         disableAllTurbineHatches();
