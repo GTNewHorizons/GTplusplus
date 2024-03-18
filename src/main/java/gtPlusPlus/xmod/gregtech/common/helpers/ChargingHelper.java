@@ -137,15 +137,16 @@ public class ChargingHelper {
         }
     }
 
+    public static GregtechMetaWirelessCharger getEntry(BlockPos mPos) {
+        return mChargerMap.get(mPos);
+    }
+
     public static boolean addEntry(BlockPos mPos, GregtechMetaWirelessCharger mEntity) {
         if (mEntity == null) {
             return false;
         }
-        if (!mChargerMap.containsKey(mPos)) {
-            return mChargerMap.put(mPos, mEntity) == null;
-        } else {
-            return true;
-        }
+        mChargerMap.put(mPos, mEntity);
+        return true;
     }
 
     public static boolean removeEntry(BlockPos mPos, GregtechMetaWirelessCharger mEntity) {

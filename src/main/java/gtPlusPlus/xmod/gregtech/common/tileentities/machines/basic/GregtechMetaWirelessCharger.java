@@ -28,7 +28,6 @@ import gtPlusPlus.xmod.gregtech.common.helpers.ChargingHelper;
 
 public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
 
-    private boolean mHasBeenMapped = false;
     private int mCurrentDimension = 0;
     public int mMode = 0;
     public boolean mLocked = true;
@@ -471,6 +470,7 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
                 this.mCurrentDimension = aBaseMetaTileEntity.getWorld().provider.dimensionId;
             }
 
+            boolean mHasBeenMapped = this.equals(ChargingHelper.getEntry(getTileEntityPosition()));
             if (!mHasBeenMapped && ChargingHelper.addEntry(getTileEntityPosition(), this)) {
                 mHasBeenMapped = true;
             }
@@ -654,15 +654,5 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
     public void doExplosion(long aExplosionPower) {
         ChargingHelper.removeEntry(getTileEntityPosition(), this);
         super.doExplosion(aExplosionPower);
-    }
-
-    @Override
-    public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        if (aBaseMetaTileEntity.isServerSide()) {
-            if (!mHasBeenMapped && ChargingHelper.addEntry(getTileEntityPosition(), this)) {
-                mHasBeenMapped = true;
-            }
-        }
-        super.onPreTick(aBaseMetaTileEntity, aTick);
     }
 }
