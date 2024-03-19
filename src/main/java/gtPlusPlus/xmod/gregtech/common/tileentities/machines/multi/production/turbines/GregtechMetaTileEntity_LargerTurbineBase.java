@@ -740,6 +740,9 @@ public abstract class GregtechMetaTileEntity_LargerTurbineBase extends
             if (this.maxProgresstime() > 0 || this.getBaseMetaTileEntity().hasWorkJustBeenEnabled()) {
                 enableAllTurbineHatches();
             }
+            if (this.maxProgresstime() <= 0) {
+                stopMachine(ShutDownReasonRegistry.NONE);
+            }
         }
     }
 
