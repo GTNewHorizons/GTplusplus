@@ -470,13 +470,13 @@ public class GregtechMetaWirelessCharger extends GregtechMetaTileEntity {
                 this.mCurrentDimension = aBaseMetaTileEntity.getWorld().provider.dimensionId;
             }
 
-            boolean mHasBeenMapped = this.equals(ChargingHelper.getEntry(getTileEntityPosition()));
-            if (!mHasBeenMapped && ChargingHelper.addEntry(getTileEntityPosition(), this)) {
-                mHasBeenMapped = true;
-            }
+            if (aTick % 20 == 0) {
+                boolean mHasBeenMapped = this.equals(ChargingHelper.getEntry(getTileEntityPosition()));
+                if (!mHasBeenMapped) {
+                    mHasBeenMapped = ChargingHelper.addEntry(getTileEntityPosition(), this);
+                }
 
-            if (aTick % 20 == 0 && mHasBeenMapped) {
-                if (!aBaseMetaTileEntity.getWorld().playerEntities.isEmpty()) {
+                if (mHasBeenMapped && !aBaseMetaTileEntity.getWorld().playerEntities.isEmpty()) {
                     for (Object mTempPlayer : aBaseMetaTileEntity.getWorld().playerEntities) {
                         if (mTempPlayer instanceof EntityPlayer || mTempPlayer instanceof EntityPlayerMP) {
                             EntityPlayer mTemp = (EntityPlayer) mTempPlayer;
