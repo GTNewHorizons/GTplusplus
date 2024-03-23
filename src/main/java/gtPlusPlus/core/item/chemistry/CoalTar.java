@@ -155,7 +155,7 @@ public class CoalTar extends ItemPackage {
                 FluidUtils.getFluidStack("liquid_naphtha", 150), FluidUtils.getFluidStack("fluid.ethylbenzene", 200),
                 FluidUtils.getFluidStack("fluid.anthracene", 50), FluidUtils.getFluidStack("fluid.kerosene", 600) };
         for (int i = 0; i < distOutputs.length; i++) {
-            GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(i))
+            GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(i + 1))
                     .fluidInputs(FluidUtils.getFluidStack("fluid.coaltar", 1000)).fluidOutputs(distOutputs[i])
                     .duration(30 * SECONDS).eut(64).addTo(distilleryRecipes);
         }
