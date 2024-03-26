@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -33,6 +32,8 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
+
+import org.jetbrains.annotations.NotNull;
 
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -52,6 +53,7 @@ import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
+import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -70,7 +72,6 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
-import org.jetbrains.annotations.NotNull;
 
 public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
@@ -334,8 +335,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                 int myDim = GregtechMetaTileEntity_IndustrialMultiMachine.this.getBaseMetaTileEntity()
                         .getWorld().provider.dimensionId;
                 boolean valid = !requiresSpace || GT_MetaTileEntity_BasicMachine.isValidForLowGravity(recipe, myDim);
-                return valid ? CheckRecipeResultRegistry.SUCCESSFUL :
-                        SimpleCheckRecipeResult.ofFailure("high_gravity");
+                return valid ? CheckRecipeResultRegistry.SUCCESSFUL : SimpleCheckRecipeResult.ofFailure("high_gravity");
             }
         }.setSpeedBonus(1F / 3.5F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
