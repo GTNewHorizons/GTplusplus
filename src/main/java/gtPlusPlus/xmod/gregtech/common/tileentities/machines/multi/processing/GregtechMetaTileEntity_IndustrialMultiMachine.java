@@ -43,6 +43,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_MultiInput;
@@ -320,7 +321,14 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                 if (foundMap == null) {
                     return Stream.empty();
                 }
-                return super.findRecipeMatches(foundMap);
+                return super.findRecipeMatches(foundMap).filter((recipe) -> {
+                    int specVal = recipe.mSpecialValue;
+                    boolean requiresSpace = specVal == -100 || specVal == -300;
+                    int myDim = GregtechMetaTileEntity_IndustrialMultiMachine.this.getBaseMetaTileEntity()
+                            .getWorld().provider.dimensionId;
+                    return !requiresSpace
+                            || (requiresSpace && GT_MetaTileEntity_BasicMachine.isValidForLowGravity(recipe, myDim));
+                });
             }
         }.setSpeedBonus(1F / 3.5F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
