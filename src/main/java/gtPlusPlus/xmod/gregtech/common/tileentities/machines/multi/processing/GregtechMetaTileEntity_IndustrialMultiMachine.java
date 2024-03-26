@@ -22,6 +22,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -69,6 +70,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
+import org.jetbrains.annotations.NotNull;
 
 public class GregtechMetaTileEntity_IndustrialMultiMachine extends
         GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
@@ -321,14 +323,19 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                 if (foundMap == null) {
                     return Stream.empty();
                 }
-                return super.findRecipeMatches(foundMap).filter((recipe) -> {
-                    int specVal = recipe.mSpecialValue;
-                    boolean requiresSpace = specVal == -100 || specVal == -300;
-                    int myDim = GregtechMetaTileEntity_IndustrialMultiMachine.this.getBaseMetaTileEntity()
-                            .getWorld().provider.dimensionId;
-                    return !requiresSpace
-                            || (requiresSpace && GT_MetaTileEntity_BasicMachine.isValidForLowGravity(recipe, myDim));
-                });
+                return super.findRecipeMatches(foundMap);
+            }
+
+            @NotNull
+            @Override
+            protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
+                int specVal = recipe.mSpecialValue;
+                boolean requiresSpace = specVal == -100 || specVal == -300;
+                int myDim = GregtechMetaTileEntity_IndustrialMultiMachine.this.getBaseMetaTileEntity()
+                        .getWorld().provider.dimensionId;
+                boolean valid = !requiresSpace || GT_MetaTileEntity_BasicMachine.isValidForLowGravity(recipe, myDim);
+                return valid ? CheckRecipeResultRegistry.SUCCESSFUL :
+                        SimpleCheckRecipeResult.ofFailure("high_gravity");
             }
         }.setSpeedBonus(1F / 3.5F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
