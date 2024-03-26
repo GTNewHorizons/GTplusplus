@@ -33,6 +33,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
@@ -43,6 +45,7 @@ import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_MultiInput;
@@ -50,6 +53,7 @@ import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
+import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -321,6 +325,17 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                     return Stream.empty();
                 }
                 return super.findRecipeMatches(foundMap);
+            }
+
+            @NotNull
+            @Override
+            protected CheckRecipeResult validateRecipe(@NotNull GT_Recipe recipe) {
+                int specVal = recipe.mSpecialValue;
+                boolean requiresSpace = specVal == -100 || specVal == -300;
+                int myDim = GregtechMetaTileEntity_IndustrialMultiMachine.this.getBaseMetaTileEntity()
+                        .getWorld().provider.dimensionId;
+                boolean valid = !requiresSpace || GT_MetaTileEntity_BasicMachine.isValidForLowGravity(recipe, myDim);
+                return valid ? CheckRecipeResultRegistry.SUCCESSFUL : SimpleCheckRecipeResult.ofFailure("high_gravity");
             }
         }.setSpeedBonus(1F / 3.5F).setEuModifier(0.8F).setMaxParallelSupplier(this::getMaxParallelRecipes);
     }
