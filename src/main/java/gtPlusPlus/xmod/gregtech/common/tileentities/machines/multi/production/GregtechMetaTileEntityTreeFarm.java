@@ -111,10 +111,10 @@ public class GregtechMetaTileEntityTreeFarm extends GregtechMeta_MultiBlockBase<
                 .addInfo("Work time is fixed at 5 seconds").addInfo("Energy input tier multiplies output further")
                 .addInfo("Output multiplier is equal to: 2*tier^2 - 2*tier + 5")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 3, 3, true)
+                .addController("Front center").addCasingInfoMin(mCasingName, 8, false).addInputBus("Any casing", 1)
                 .addStructureInfo(
                         EnumChatFormatting.YELLOW
                                 + "Stocking Input Busses and Crafting Input Busses/Buffers are not allowed!")
-                .addController("Front center").addCasingInfoMin(mCasingName, 8, false).addInputBus("Any casing", 1)
                 .addOutputBus("Any casing", 1).addEnergyHatch("Any casing", 1).addMaintenanceHatch("Any casing", 1)
                 .addMufflerHatch("Any casing", 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
