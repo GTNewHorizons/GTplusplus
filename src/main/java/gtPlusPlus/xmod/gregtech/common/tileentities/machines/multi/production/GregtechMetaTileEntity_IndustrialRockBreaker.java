@@ -13,9 +13,6 @@ import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
 import java.util.ArrayList;
 
-import gregtech.api.util.GT_LanguageManager;
-import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-import gtPlusPlus.xmod.gregtech.common.blocks.GregtechMetaCasingItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -40,6 +37,7 @@ import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
 import gregtech.api.recipe.check.SimpleCheckRecipeResult;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_OverclockCalculator;
@@ -78,7 +76,8 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
     }
 
     private static final String casingBaseName = GT_LanguageManager.getTranslation("gtplusplus.blockcasings.2.0.name");
-    private static final String casingMiddleName = GT_LanguageManager.getTranslation("gtplusplus.blockcasings.2.11.name");
+    private static final String casingMiddleName = GT_LanguageManager
+            .getTranslation("gtplusplus.blockcasings.2.11.name");
     private static final String anyBaseCasing = "Any " + casingBaseName;
 
     @Override
@@ -89,11 +88,10 @@ public class GregtechMetaTileEntity_IndustrialRockBreaker extends
                 .addInfo("1 = cobble, 2 = stone, 3 = obsidian").addInfo("Supply Water/Lava")
                 .addPollutionAmount(getPollutionPerSecond(null)).addSeparator().beginStructureBlock(3, 4, 3, true)
                 .addController("Bottom Center").addCasingInfoMin(casingBaseName, 9, false)
-                .addCasingInfoExactly(casingMiddleName, 16, false)
-                .addInputBus(anyBaseCasing, 1).addInputHatch(anyBaseCasing, 1)
-                .addOutputBus(anyBaseCasing, 1).addEnergyHatch(anyBaseCasing, 1)
-                .addMaintenanceHatch(anyBaseCasing, 1)
-                .addMufflerHatch(anyBaseCasing, 1).toolTipFinisher(CORE.GT_Tooltip_Builder.get());
+                .addCasingInfoExactly(casingMiddleName, 16, false).addInputBus(anyBaseCasing, 1)
+                .addInputHatch(anyBaseCasing, 1).addOutputBus(anyBaseCasing, 1).addEnergyHatch(anyBaseCasing, 1)
+                .addMaintenanceHatch(anyBaseCasing, 1).addMufflerHatch(anyBaseCasing, 1)
+                .toolTipFinisher(CORE.GT_Tooltip_Builder.get());
         return tt;
     }
 
