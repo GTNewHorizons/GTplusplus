@@ -17,7 +17,6 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -41,11 +40,12 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
-public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
-        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialCuttingMachine> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialCuttingMachine
+        extends GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialCuttingMachine>
+        implements ISurvivalConstructable {
 
     private boolean mCuttingMode = true;
     private int mCasing;
@@ -96,9 +96,13 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
                                             { "CCC", "CCC", "CCC", "CCC", "CCC" }, }))
                     .addElement(
                             'C',
-                            buildHatchAdder(GregtechMetaTileEntity_IndustrialCuttingMachine.class)
-                                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler)
-                                    .casingIndex(getCasingTextureIndex()).dot(1).buildAndChain(
+                            buildHatchAdder(GregtechMetaTileEntity_IndustrialCuttingMachine.class).atLeast(
+                                    InputBus,
+                                    InputHatch,
+                                    OutputBus,
+                                    Maintenance,
+                                    Energy.or(ExoticEnergy),
+                                    Muffler).casingIndex(getCasingTextureIndex()).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 13))))
                     .build();
         }

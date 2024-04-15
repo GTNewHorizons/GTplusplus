@@ -300,12 +300,11 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         153,
                         "Multi-Amp Upgrade Chip",
                         "Used to make some machines compatible with Multi-Amp energy Hatchs."));
-    /*  +"\n" + "Disables tierskipping "
-        +"\n" + "Supports Extruder, LPF, Cutting Machine, Mixer, Press, and Forge Hammer "
-
-        TODO: not sure if there is an easy way to get multiline tooltips here
-        */
-
+        /*
+         * +"\n" + "Disables tierskipping " +"\n" +
+         * "Supports Extruder, LPF, Cutting Machine, Mixer, Press, and Forge Hammer " TODO: not sure if there is an easy
+         * way to get multiline tooltips here
+         */
 
     }
 

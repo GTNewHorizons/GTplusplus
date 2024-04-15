@@ -23,7 +23,6 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -66,13 +65,14 @@ import gtPlusPlus.core.recipe.common.CI;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
 import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Solidifier;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 
-public class GregtechMetaTileEntity_IndustrialMultiMachine extends
-        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialMultiMachine
+        extends GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialMultiMachine>
+        implements ISurvivalConstructable {
 
     protected int mInternalMode = 0;
     private static final int MODE_COMPRESSOR = 0;
@@ -164,9 +164,14 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                                             { "CCC", "CCC", "CCC" }, }))
                     .addElement(
                             'C',
-                            buildHatchAdder(GregtechMetaTileEntity_IndustrialMultiMachine.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler, InputHatch, OutputHatch)
-                                    .casingIndex(getTextureIndex()).dot(1).buildAndChain(
+                            buildHatchAdder(GregtechMetaTileEntity_IndustrialMultiMachine.class).atLeast(
+                                    InputBus,
+                                    OutputBus,
+                                    Maintenance,
+                                    Energy.or(ExoticEnergy),
+                                    Muffler,
+                                    InputHatch,
+                                    OutputHatch).casingIndex(getTextureIndex()).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 2))))
                     .build();
         }

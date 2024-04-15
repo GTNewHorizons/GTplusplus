@@ -3,9 +3,6 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 import java.util.ArrayList;
 import java.util.List;
 
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.util.GT_ExoticEnergyInputHelper;
-import gtPlusPlus.api.objects.Logger;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,13 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_EnergyMulti;
 import com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_EnergyTunnel;
 
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
+import gregtech.api.util.GT_ExoticEnergyInputHelper;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
-
-import static gregtech.api.util.GT_Utility.filterValidMTEs;
 
 // how to use this class
 // extend this instead of GregtechMeta_MultiBlockBase
@@ -73,7 +70,7 @@ public abstract class GregtechMeta_MultiBlockBase_ExoticCapable<T extends Gregte
                 return true;
             }
         }
-        return super.onRightclick(aBaseMetaTileEntity,aPlayer,side,aX,aY,aZ);
+        return super.onRightclick(aBaseMetaTileEntity, aPlayer, side, aX, aY, aZ);
     }
 
     @Override
@@ -143,18 +140,17 @@ public abstract class GregtechMeta_MultiBlockBase_ExoticCapable<T extends Gregte
     @Override
     protected void setProcessingLogicPower(ProcessingLogic logic) {
         logic.setAvailableVoltage(getMaxInputVoltage());
-        logic.setAvailableAmperage(multiAmp?getMaxInputAmps():1);
+        logic.setAvailableAmperage(multiAmp ? getMaxInputAmps() : 1);
         logic.setAmperageOC(!multiAmp);
     }
 
-  /* As far as I can tell, this never runs. It just doesn't work, and I have no idea what is going on in
-            GregtechMeta_MultiBlockBase that makes it not work
-
-   @Override
-    public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
-        boolean exotic = addExoticEnergyInputToMachineList(aTileEntity, aBaseCasingIndex);
-        return super.addToMachineList(aTileEntity, aBaseCasingIndex) || exotic;
-    }*/
+    /*
+     * As far as I can tell, this never runs. It just doesn't work, and I have no idea what is going on in
+     * GregtechMeta_MultiBlockBase that makes it not work
+     * @Override public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) { boolean exotic
+     * = addExoticEnergyInputToMachineList(aTileEntity, aBaseCasingIndex); return super.addToMachineList(aTileEntity,
+     * aBaseCasingIndex) || exotic; }
+     */
 
     @Override
     public boolean addToMachineList(final IMetaTileEntity aMetaTileEntity, final int aBaseCasingIndex) {
@@ -170,15 +166,19 @@ public abstract class GregtechMeta_MultiBlockBase_ExoticCapable<T extends Gregte
     }
 
     @Override
-    public String[] getInfoData() {System.out.println("MCMEME");
-        for(GT_MetaTileEntity_Hatch tHatch : this.getExoticEnergyHatches()){
+    public String[] getInfoData() {
+        System.out.println("MCMEME");
+        for (GT_MetaTileEntity_Hatch tHatch : this.getExoticEnergyHatches()) {
             System.out.println("FUGGO");
         }
-        for(GT_MetaTileEntity_Hatch tHatch: this.mAllEnergyHatches){System.out.println(tHatch.mName);}
+        for (GT_MetaTileEntity_Hatch tHatch : this.mAllEnergyHatches) {
+            System.out.println(tHatch.mName);
+        }
 
-        for(GT_MetaTileEntity_Hatch tHatch: this.mTecTechEnergyHatches){System.out.println(tHatch.mName);}
+        for (GT_MetaTileEntity_Hatch tHatch : this.mTecTechEnergyHatches) {
+            System.out.println(tHatch.mName);
+        }
         return super.getInfoData();
     }
-
 
 }

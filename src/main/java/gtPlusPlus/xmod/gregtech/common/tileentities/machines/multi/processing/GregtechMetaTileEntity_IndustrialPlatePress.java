@@ -16,7 +16,6 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,11 +38,12 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.util.minecraft.PlayerUtils;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
-public class GregtechMetaTileEntity_IndustrialPlatePress extends
-        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialPlatePress> implements ISurvivalConstructable {
+public class GregtechMetaTileEntity_IndustrialPlatePress
+        extends GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialPlatePress>
+        implements ISurvivalConstructable {
 
     private boolean mFormingMode = false;
     private int mCasing;
@@ -94,8 +94,8 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialPlatePress.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler).casingIndex(50).dot(1)
-                                    .buildAndChain(
+                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler)
+                                    .casingIndex(50).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasingsMisc, 4))))
                     .build();
         }

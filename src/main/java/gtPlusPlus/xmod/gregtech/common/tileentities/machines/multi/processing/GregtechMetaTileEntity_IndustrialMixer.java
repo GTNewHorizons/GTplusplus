@@ -13,7 +13,6 @@ import static gregtech.api.enums.GT_HatchElement.OutputBus;
 import static gregtech.api.enums.GT_HatchElement.OutputHatch;
 import static gregtech.api.util.GT_StructureUtility.buildHatchAdder;
 
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,11 +37,12 @@ import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.block.ModBlocks;
 import gtPlusPlus.core.lib.CORE;
-import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase;
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 public class GregtechMetaTileEntity_IndustrialMixer
-        extends GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialMixer> implements ISurvivalConstructable {
+        extends GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialMixer>
+        implements ISurvivalConstructable {
 
     public static int CASING_TEXTURE_ID;
     public static String mCasingName = "Multi-Use Casing";
@@ -111,9 +111,14 @@ public class GregtechMetaTileEntity_IndustrialMixer
                                             { "C~C", "CMC", "CCC" }, { "CCC", "CCC", "CCC" }, }))
                     .addElement(
                             'C',
-                            buildHatchAdder(GregtechMetaTileEntity_IndustrialMixer.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler, InputHatch, OutputHatch)
-                                    .casingIndex(CASING_TEXTURE_ID).dot(1).buildAndChain(
+                            buildHatchAdder(GregtechMetaTileEntity_IndustrialMixer.class).atLeast(
+                                    InputBus,
+                                    OutputBus,
+                                    Maintenance,
+                                    Energy.or(ExoticEnergy),
+                                    Muffler,
+                                    InputHatch,
+                                    OutputHatch).casingIndex(CASING_TEXTURE_ID).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 2))))
                     .addElement('M', ofBlock(GregTech_API.sBlockCasings4, 11)).build();
         }
