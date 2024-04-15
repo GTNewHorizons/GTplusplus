@@ -9,6 +9,7 @@ import static gregtech.api.enums.Mods.Railcraft;
 import static gregtech.api.enums.Mods.RemoteIO;
 import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.HOURS;
+import static gregtech.api.util.GT_RecipeBuilder.INGOTS;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeConstants.AssemblyLine;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
@@ -3076,7 +3077,7 @@ public class RECIPES_Machines {
         // research item recipe
         GT_Values.RA.stdBuilder()
                 .itemInputs(
-                        GT_OreDictUnificator.get(OrePrefixes.cableGt16, Materials.SuperconductorUIV, 64),
+                        GT_OreDictUnificator.get(OrePrefixes.wireGt16, Materials.SuperconductorUIV, 64),
                         ItemList.Casing_Coil_Hypogen.get(64),
                         GT_Utility.getIntegratedCircuit(1))
                 .itemOutputs(ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_12_HIGH_AMPERAGE, 1))
@@ -3089,10 +3090,22 @@ public class RECIPES_Machines {
                         RESEARCH_ITEM,
                         ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_12_HIGH_AMPERAGE, 1))
                 .metadata(RESEARCH_TIME, 2 * HOURS)
-                .itemInputs(GT_OreDictUnificator.get("batteryUMV", 4), ItemList.Casing_Coil_Hypogen.get(64))
-                .fluidInputs(Materials.Infinity.getMolten(9216))
+                .itemInputs(
+                        ItemList.Field_Generator_UIV.get(32),
+                        ItemList.Electric_Motor_UEV.get(64),
+                        ItemList.Wireless_Dynamo_Energy_UMV.get(32),
+                        ALLOY.PIKYONIUM.getGear(8),
+                        new Object[] { CI.getTieredCircuitOreDictName(7), 64 },
+                        new Object[] { CI.getTieredCircuitOreDictName(8), 32 },
+                        new Object[] { CI.getTieredCircuitOreDictName(9), 16 },
+                        GregtechItemList.Laser_Lens_Special.get(1),
+                        ItemUtils.simpleMetaStack("miscutils:itemDehydratorCoilWire", 3, 64))
+                .fluidInputs(
+                        ALLOY.NITINOL_60.getFluidStack(144 * 9 * 4),
+                        ALLOY.ENERGYCRYSTAL.getFluidStack(144 * 9 * 8),
+                        ALLOY.TUMBAGA.getFluidStack(144 * 9 * 32),
+                        Materials.Nichrome.getMolten(16 * INGOTS))
                 .itemOutputs(GregtechItemList.MultiAmp_Upgrade_Chip.get(1)).eut(TierEU.RECIPE_UIV).duration(2 * HOURS)
                 .addTo(AssemblyLine);
-
     }
 }

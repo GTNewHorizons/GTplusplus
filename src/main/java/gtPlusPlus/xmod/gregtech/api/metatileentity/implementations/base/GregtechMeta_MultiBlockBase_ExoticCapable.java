@@ -3,6 +3,8 @@ package gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base;
 import java.util.ArrayList;
 import java.util.List;
 
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.util.GT_ExoticEnergyInputHelper;
 import gtPlusPlus.api.objects.Logger;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -140,8 +142,31 @@ public abstract class GregtechMeta_MultiBlockBase_ExoticCapable<T extends Gregte
 
     @Override
     protected void setProcessingLogicPower(ProcessingLogic logic) {
-        logic.setAvailableVoltage(getMaxInputEu());
-        logic.setAvailableAmperage(1);
+        logic.setAvailableVoltage(getMaxInputVoltage());
+        logic.setAvailableAmperage(multiAmp?getMaxInputAmps():1);
+        logic.setAmperageOC(!multiAmp);
+    }
+
+  /* As far as I can tell, this never runs. It just doesn't work, and I have no idea what is going on in
+            GregtechMeta_MultiBlockBase that makes it not work
+
+   @Override
+    public boolean addToMachineList(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        boolean exotic = addExoticEnergyInputToMachineList(aTileEntity, aBaseCasingIndex);
+        return super.addToMachineList(aTileEntity, aBaseCasingIndex) || exotic;
+    }*/
+
+    @Override
+    public boolean addToMachineList(final IMetaTileEntity aMetaTileEntity, final int aBaseCasingIndex) {
+        boolean exotic = false;
+        if (aMetaTileEntity == null) return false;
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch hatch
+                && GT_ExoticEnergyInputHelper.isExoticEnergyInput(aMetaTileEntity)) {
+            hatch.updateTexture(aBaseCasingIndex);
+            hatch.updateCraftingIcon(this.getMachineCraftingIcon());
+            exotic = mExoticEnergyHatches.add(hatch);
+        }
+        return super.addToMachineList(aMetaTileEntity, aBaseCasingIndex) || exotic;
     }
 
     @Override
@@ -149,6 +174,11 @@ public abstract class GregtechMeta_MultiBlockBase_ExoticCapable<T extends Gregte
         for(GT_MetaTileEntity_Hatch tHatch : this.getExoticEnergyHatches()){
             System.out.println("FUGGO");
         }
+        for(GT_MetaTileEntity_Hatch tHatch: this.mAllEnergyHatches){System.out.println(tHatch.mName);}
+
+        for(GT_MetaTileEntity_Hatch tHatch: this.mTecTechEnergyHatches){System.out.println(tHatch.mName);}
         return super.getInfoData();
     }
+
+
 }
