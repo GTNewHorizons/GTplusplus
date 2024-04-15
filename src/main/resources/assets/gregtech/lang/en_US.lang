@@ -278,3 +278,6 @@ achievement.gt.blockmachines.moleculartransformer.controller.tier.single=Molecul
 achievement.gt.blockmachines.moleculartransformer.controller.tier.single.desc=[AL] Pickup this item to see the recipe in NEI
 achievement.gt.blockmachines.gtpp.multimachine.replicator=Elemental Duplicator
 achievement.gt.blockmachines.gtpp.multimachine.replicator.desc=[AL] Pickup this item to see the recipe in NEI
+
+//2024-4-15
+tooltip.multi_amp_enabled=Compatible with Multi-Amp Hatches

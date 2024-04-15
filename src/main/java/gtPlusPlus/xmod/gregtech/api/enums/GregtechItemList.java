@@ -168,9 +168,10 @@ public enum GregtechItemList implements GregtechItemContainer {
     // Pellet Mold
     Pellet_Mold,
 
-    // Upgrade chip for Distillus
+    // Upgrade chips
     Distillus_Upgrade_Chip,
     Maceration_Upgrade_Chip,
+    MultiAmp_Upgrade_Chip,
 
     // Milling Balls
     Milling_Ball_Alumina,

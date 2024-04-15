@@ -7,6 +7,12 @@ import static gregtech.api.enums.Mods.GoodGenerator;
 import static gregtech.api.enums.Mods.GregTech;
 import static gregtech.api.enums.Mods.Railcraft;
 import static gregtech.api.enums.Mods.RemoteIO;
+import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.HOURS;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.AssemblyLine;
+import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
+import static gregtech.api.util.GT_RecipeConstants.RESEARCH_TIME;
 
 import java.util.List;
 
@@ -26,6 +32,7 @@ import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
@@ -252,6 +259,7 @@ public class RECIPES_Machines {
         advHeatExchanger();
         chiselBuses();
         solidifierHatches();
+        maUpgradeChip();
 
         gt4FarmManager();
         gt4Inventory();
@@ -3062,5 +3070,29 @@ public class RECIPES_Machines {
                     20 * 30,
                     (int) GT_Values.VP[componentTier]);
         }
+    }
+
+    private static void maUpgradeChip() {
+        // research item recipe
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.cableGt16, Materials.SuperconductorUIV, 64),
+                        ItemList.Casing_Coil_Hypogen.get(64),
+                        GT_Utility.getIntegratedCircuit(1))
+                .itemOutputs(ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_12_HIGH_AMPERAGE, 1))
+                .duration(20 * SECONDS).eut(TierEU.RECIPE_UIV).addTo(assemblerRecipes);
+
+        // upgrade chip recipe
+
+        GT_Values.RA.stdBuilder()
+                .metadata(
+                        RESEARCH_ITEM,
+                        ItemDummyResearch.getResearchStack(ASSEMBLY_LINE_RESEARCH.RESEARCH_12_HIGH_AMPERAGE, 1))
+                .metadata(RESEARCH_TIME, 2 * HOURS)
+                .itemInputs(GT_OreDictUnificator.get("batteryUMV", 4), ItemList.Casing_Coil_Hypogen.get(64))
+                .fluidInputs(Materials.Infinity.getMolten(9216))
+                .itemOutputs(GregtechItemList.MultiAmp_Upgrade_Chip.get(1)).eut(TierEU.RECIPE_UIV).duration(2 * HOURS)
+                .addTo(AssemblyLine);
+
     }
 }

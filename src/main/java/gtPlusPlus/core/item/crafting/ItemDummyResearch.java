@@ -31,7 +31,8 @@ public class ItemDummyResearch extends ItemGenericToken {
         RESEARCH_8_TURBINE_AUTOMATION("Turbine Automation", "You really don't want to share this with anyone!"),
         RESEARCH_9_CLOAKING("Cloaking Technologies", "Sneaking around like a mouse"),
         RESEARCH_10_SPARGING("Gas Sparging", "Blowing gas for results"),
-        RESEARCH_11_MOLECULAR_TRANSFORMER("Molecular Transformation", "Turning things into something better");
+        RESEARCH_11_MOLECULAR_TRANSFORMER("Molecular Transformation", "Turning things into something better"),
+        RESEARCH_12_HIGH_AMPERAGE("High-Amp Technologies", "I want it louder, more power.");
 
         private final String mName;
         private final String mDesc;
