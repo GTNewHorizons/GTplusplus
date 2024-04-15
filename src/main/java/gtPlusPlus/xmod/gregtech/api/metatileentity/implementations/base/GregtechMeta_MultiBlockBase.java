@@ -204,7 +204,11 @@ public abstract class GregtechMeta_MultiBlockBase<T extends GT_MetaTileEntity_Ex
                             "" + EnumChatFormatting.YELLOW
                                     + Long.toString(getMaxInputVoltage())
                                     + EnumChatFormatting.RESET
-                                    + " EU/t(*2A) "
+                                    + " EU/t(*"
+                                    + EnumChatFormatting.YELLOW
+                                    + Long.toString(getMaxInputAmps())
+                                    + EnumChatFormatting.RESET
+                                    +") "
                                     + StatCollector.translateToLocal("GTPP.machines.tier")
                                     + ": "
                                     + EnumChatFormatting.YELLOW
