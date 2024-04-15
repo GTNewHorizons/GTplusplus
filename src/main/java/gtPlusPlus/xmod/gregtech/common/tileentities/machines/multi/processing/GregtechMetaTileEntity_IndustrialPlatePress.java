@@ -4,6 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.ExoticEnergy;
 import static gregtech.api.enums.GT_HatchElement.InputBus;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
 import static gregtech.api.enums.GT_HatchElement.Muffler;
@@ -15,6 +16,7 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -41,7 +43,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 public class GregtechMetaTileEntity_IndustrialPlatePress extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialPlatePress> implements ISurvivalConstructable {
+        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialPlatePress> implements ISurvivalConstructable {
 
     private boolean mFormingMode = false;
     private int mCasing;
@@ -92,7 +94,7 @@ public class GregtechMetaTileEntity_IndustrialPlatePress extends
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialPlatePress.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy, Muffler).casingIndex(50).dot(1)
+                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler).casingIndex(50).dot(1)
                                     .buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasingsMisc, 4))))
                     .build();

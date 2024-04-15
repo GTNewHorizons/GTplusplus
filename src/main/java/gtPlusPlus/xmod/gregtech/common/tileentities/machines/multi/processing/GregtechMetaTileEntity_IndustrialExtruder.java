@@ -88,7 +88,7 @@ public class GregtechMetaTileEntity_IndustrialExtruder
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialExtruder.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(TTEnergy), Muffler)
+                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler)
                                     .casingIndex(getCasingTextureIndex()).dot(1).buildAndChain(
                                             onElementPass(
                                                     x -> ++x.mCasing,

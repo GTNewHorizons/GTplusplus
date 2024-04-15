@@ -4,6 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.ExoticEnergy;
 import static gregtech.api.enums.GT_HatchElement.InputBus;
 import static gregtech.api.enums.GT_HatchElement.InputHatch;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
@@ -22,6 +23,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -70,7 +72,7 @@ import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 
 public class GregtechMetaTileEntity_IndustrialMultiMachine extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
+        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialMultiMachine> implements ISurvivalConstructable {
 
     protected int mInternalMode = 0;
     private static final int MODE_COMPRESSOR = 0;
@@ -163,7 +165,7 @@ public class GregtechMetaTileEntity_IndustrialMultiMachine extends
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialMultiMachine.class)
-                                    .atLeast(InputBus, OutputBus, Maintenance, Energy, Muffler, InputHatch, OutputHatch)
+                                    .atLeast(InputBus, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler, InputHatch, OutputHatch)
                                     .casingIndex(getTextureIndex()).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 2))))
                     .build();

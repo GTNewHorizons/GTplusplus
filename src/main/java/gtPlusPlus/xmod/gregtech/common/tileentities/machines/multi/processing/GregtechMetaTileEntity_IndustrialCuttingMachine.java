@@ -4,6 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.enums.GT_HatchElement.Energy;
+import static gregtech.api.enums.GT_HatchElement.ExoticEnergy;
 import static gregtech.api.enums.GT_HatchElement.InputBus;
 import static gregtech.api.enums.GT_HatchElement.InputHatch;
 import static gregtech.api.enums.GT_HatchElement.Maintenance;
@@ -16,6 +17,7 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
+import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.GregtechMeta_MultiBlockBase_ExoticCapable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -43,7 +45,7 @@ import gtPlusPlus.xmod.gregtech.api.metatileentity.implementations.base.Gregtech
 import gtPlusPlus.xmod.gregtech.common.blocks.textures.TexturesGtBlock;
 
 public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
-        GregtechMeta_MultiBlockBase<GregtechMetaTileEntity_IndustrialCuttingMachine> implements ISurvivalConstructable {
+        GregtechMeta_MultiBlockBase_ExoticCapable<GregtechMetaTileEntity_IndustrialCuttingMachine> implements ISurvivalConstructable {
 
     private boolean mCuttingMode = true;
     private int mCasing;
@@ -95,7 +97,7 @@ public class GregtechMetaTileEntity_IndustrialCuttingMachine extends
                     .addElement(
                             'C',
                             buildHatchAdder(GregtechMetaTileEntity_IndustrialCuttingMachine.class)
-                                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy, Muffler)
+                                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy.or(ExoticEnergy), Muffler)
                                     .casingIndex(getCasingTextureIndex()).dot(1).buildAndChain(
                                             onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings2Misc, 13))))
                     .build();
