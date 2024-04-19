@@ -2760,7 +2760,7 @@ public class RECIPES_Machines {
 
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { GregtechItemList.Casing_Vacuum_Furnace.get(1),
-                        CI.getTieredComponent(OrePrefixes.wireGt16, 6, 4), CI.getEnergyCore(6, 1), CI.getRobotArm(4, 4),
+                        CI.getTieredComponent(OrePrefixes.wireGt16, 6, 4), CI.getEnergyCore(5, 1), CI.getRobotArm(4, 4),
                         CI.getTieredComponent(OrePrefixes.plate, 6, 8),
                         CI.getTieredComponent(OrePrefixes.circuit, 6, 8), },
                 CI.getTieredFluid(6, (144 * 4 * 5)), // Input Fluid
