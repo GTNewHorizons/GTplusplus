@@ -85,6 +85,8 @@ public class BaseOreComponent extends Item {
             aKey = OrePrefixes.dustPure.name();
         } else if (componentType == ComponentTypes.MILLED) {
             aKey = OrePrefixes.milled.name();
+        } else if (componentType == ComponentTypes.RAWORE) {
+            aKey = OrePrefixes.rawOre.name();
         }
 
         ItemStack x = aMap.get(aKey);
@@ -241,6 +243,7 @@ public class BaseOreComponent extends Item {
         CRUSHED("crushed", "Crushed ", " Ore", true),
         CRUSHEDCENTRIFUGED("crushedCentrifuged", "Centrifuged Crushed ", " Ore", true),
         CRUSHEDPURIFIED("crushedPurified", "Purified Crushed ", " Ore", true),
+        RAWORE("oreRaw", "Raw ", " Ore", true),
         MILLED("milled", "Milled ", " Ore", true);
 
         private final String COMPONENT_NAME;
