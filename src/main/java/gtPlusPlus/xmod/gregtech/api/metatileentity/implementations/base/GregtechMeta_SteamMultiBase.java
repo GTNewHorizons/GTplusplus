@@ -364,7 +364,7 @@ public abstract class GregtechMeta_SteamMultiBase<T extends GregtechMeta_SteamMu
             int tAverageTime = tag.getInteger("averageNS");
             currentTip.add("Average CPU load of ~" + formatNumbers(tAverageTime) + " ns");
         }
-        super.getOriginalWailaBody(itemStack, currentTip, accessor, config);
+        super.getMTEWailaBody(itemStack, currentTip, accessor, config);
     }
 
     protected static <T extends GregtechMeta_SteamMultiBase<T>> GT_HatchElementBuilder<T> buildSteamInput(
