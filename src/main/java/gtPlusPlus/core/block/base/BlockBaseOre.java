@@ -7,11 +7,13 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -36,7 +38,6 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
 
     private final Material blockMaterial;
     protected static boolean shouldFortune = false;
-    public boolean mNatural = false;
 
     public BlockBaseOre(final Material material, final BlockTypes blockType) {
         super(
@@ -139,6 +140,17 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
     public void registerBlockIcons(IIconRegister p_149651_1_) {}
 
     @Override
+    public void harvestBlock(World worldIn, EntityPlayer player, int x, int y, int z, int meta) {
+        if (!(player instanceof FakePlayer)) {
+            shouldFortune = true;
+        }
+        super.harvestBlock(worldIn, player, x, y, z, meta);
+        if (shouldFortune) {
+            shouldFortune = false;
+        }
+    }
+
+    @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
         ArrayList<ItemStack> drops = new ArrayList<>();
         // TODO: Silk Touch?
@@ -154,7 +166,7 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
                 // if not shouldFortune or not isNatural then get normal drops
                 // if not shouldFortune and isNatural then get normal drops
                 // if shouldFortune and not isNatural then get normal drops
-                if (shouldFortune && this.mNatural) {
+                if (shouldFortune) {
                     Random tRandom = new XSTR(x ^ y ^ z);
                     long amount = (long) Math.max(1, tRandom.nextInt(1 + Math.min(3, fortune)));
                     drops.add(
