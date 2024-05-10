@@ -1,20 +1,28 @@
 package gtPlusPlus.core.block.base;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.GT_Mod;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
+import gregtech.api.objects.XSTR;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.interfaces.ITexturedBlock;
 import gtPlusPlus.core.client.renderer.CustomOreBlockRenderer;
@@ -29,6 +37,7 @@ import gtPlusPlus.xmod.gregtech.api.objects.GTPP_RenderedTexture;
 public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
 
     private final Material blockMaterial;
+    protected static boolean shouldFortune = false;
 
     public BlockBaseOre(final Material material, final BlockTypes blockType) {
         super(
@@ -129,5 +138,62 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
 
     @Override
     public void registerBlockIcons(IIconRegister p_149651_1_) {}
+
+    @Override
+    public void harvestBlock(World worldIn, EntityPlayer player, int x, int y, int z, int meta) {
+        if (!(player instanceof FakePlayer)) {
+            shouldFortune = true;
+        }
+        super.harvestBlock(worldIn, player, x, y, z, meta);
+        if (shouldFortune) {
+            shouldFortune = false;
+        }
+    }
+
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        ArrayList<ItemStack> drops = new ArrayList<>();
+        // TODO: Silk Touch?
+        switch (GT_Mod.gregtechproxy.oreDropSystem) {
+            case Item -> {
+                drops.add(
+                        ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
+                                "oreRaw" + this.blockMaterial.getLocalizedName(),
+                                1));
+            }
+            case FortuneItem -> {
+                // if shouldFortune and isNatural then get fortune drops
+                // if not shouldFortune or not isNatural then get normal drops
+                // if not shouldFortune and isNatural then get normal drops
+                // if shouldFortune and not isNatural then get normal drops
+                if (shouldFortune) {
+                    Random tRandom = new XSTR(x ^ y ^ z);
+                    long amount = (long) Math.max(1, tRandom.nextInt(1 + Math.min(3, fortune)));
+                    drops.add(
+                            ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
+                                    "oreRaw" + this.blockMaterial.getLocalizedName(),
+                                    (int) amount));
+                } else {
+                    drops.add(
+                            ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
+                                    "oreRaw" + this.blockMaterial.getLocalizedName(),
+                                    1));
+                }
+            }
+            case UnifiedBlock -> {
+                // Unified ore
+                drops.add(ItemUtils.simpleMetaStack(this, metadata, 1));
+            }
+            case PerDimBlock -> {
+                // Per Dimension ore
+                drops.add(ItemUtils.simpleMetaStack(this, metadata, 1));
+            }
+            case Block -> {
+                // Regular ore
+                drops.add(ItemUtils.simpleMetaStack(this, metadata, 1));
+            }
+        }
+        return drops;
+    }
 
 }
