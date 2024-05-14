@@ -127,8 +127,6 @@ public class CORE {
     public static class ConfigSwitches {
 
         // Debug
-        public static boolean disableEnderIOIntegration = false;
-        public static boolean disableEnderIOIngotTooltips = false;
         public static boolean MACHINE_INFO = true;
         public static boolean showHiddenNEIItems = false;
         public static boolean dumpItemAndBlockData = false;
@@ -140,7 +138,6 @@ public class CORE {
         public static int chanceToDropDrainedShard = 196;
 
         // Machine Related
-        public static boolean enableAlternativeBatteryAlloy = false;
         public static boolean enableThaumcraftShardUnification = false;
         public static boolean disableIC2Recipes = false;
         public static boolean enableAlternativeDivisionSigilRecipe = false;

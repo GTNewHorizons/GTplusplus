@@ -16,21 +16,5 @@ public class COMPAT_ExtraUtils {
 
     private static void run() {
         ItemUtils.getItemForOreDict("ExtraUtilities:bedrockiumIngot", "ingotBedrockium", "Bedrockium Ingot", 0);
-        // GT_OreDictUnificator.registerOre("plateBedrockium", new ItemStack(ModItems.itemPlateBedrockium));
-
-        if (ConfigSwitches.enableAlternativeDivisionSigilRecipe) {
-            // Division Sigil
-            RecipeUtils.addShapedRecipe(
-                    "plateNetherStar",
-                    "gemIridium",
-                    "plateNetherStar",
-                    "plateIridium",
-                    RECIPES_Tools.craftingToolHardHammer,
-                    "plateIridium",
-                    "plateNetherStar",
-                    "gemIridium",
-                    "plateNetherStar",
-                    RECIPES_Tools.RECIPE_DivisionSigil);
-        }
     }
 }

@@ -9,11 +9,8 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondGeot
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondSemiFluidGenerator;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.boilerSteamPerSecond;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropDrainedShard;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIngotTooltips;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIntegration;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableIC2Recipes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.dumpItemAndBlockData;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeBatteryAlloy;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeDivisionSigilRecipe;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAnimatedTextures;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
@@ -128,13 +125,6 @@ public class ConfigHandler {
          * DEBUG = config.getBoolean("debugMode", "debug", false,
          * "Enables all sorts of debug logging. (Don't use unless told to, breaks other things.)");
          */
-        disableEnderIOIntegration = config
-                .getBoolean("disableEnderIO", "debug", false, "Disables EnderIO Integration.");
-        disableEnderIOIngotTooltips = config.getBoolean(
-                "disableEnderIOIngotTooltips",
-                "debug",
-                false,
-                "Disables EnderIO Ingot Tooltips. These apparently may cause issues for a very small number of users.");
         MACHINE_INFO = config.getBoolean(
                 "enableMachineInfoLogging",
                 "debug",
@@ -154,11 +144,6 @@ public class ConfigHandler {
                 "machines",
                 false,
                 "Allows the use of TC shards across many recipes by oreDicting them into a common group.");
-        enableAlternativeBatteryAlloy = config.getBoolean(
-                "enableAlternativeBatteryAlloy",
-                "machines",
-                false,
-                "Adds a non-Antimony using Battery Alloy. Not Balanced at all..");
         disableIC2Recipes = config.getBoolean(
                 "disableIC2Recipes",
                 "machines",
@@ -173,9 +158,6 @@ public class ConfigHandler {
                 0,
                 10000,
                 "Sets the steam per second value in LV,MV,HV boilers (respectively 1x,2x,3x this number for the tiers)");
-
-        // requireControlCores
-        boolean temp = config.getBoolean("requireControlCores", "machines", true, "Multiblocks Require Control Cores");
 
         // Circuits
         enableCustomCircuits = config.getBoolean(
