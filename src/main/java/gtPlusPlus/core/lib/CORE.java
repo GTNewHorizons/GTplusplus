@@ -1,7 +1,5 @@
 package gtPlusPlus.core.lib;
 
-import static gregtech.api.enums.Mods.GTPlusPlus;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,13 +10,10 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.util.FakePlayerFactory;
 
 import com.mojang.authlib.GameProfile;
 
@@ -41,8 +36,7 @@ public class CORE {
     public static final float PI = (float) Math.PI;
     public static volatile Random RANDOM = new XSTR();
 
-    public static boolean DEVENV = false;
-    ;
+    public static boolean DEVENV = false;;
 
     // Mod Variables
     public static final String name = "GT++";

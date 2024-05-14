@@ -4,6 +4,7 @@ import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
 
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Materials;
@@ -13,7 +14,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
-import net.minecraftforge.fluids.FluidRegistry;
 
 public class NuclearChem extends ItemPackage {
 

@@ -1,7 +1,6 @@
 package gtPlusPlus.xmod.gregtech.common.blocks.textures;
 
 import static gregtech.api.enums.Mods.GTPlusPlus;
-import static gregtech.api.enums.Mods.Minecraft;
 
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
@@ -69,7 +68,6 @@ public class TexturesGtBlock {
      * Add Some Custom Textures below. I am not sure whether or not I need to declare them as such, but better to be
      * safe than sorry. Right?
      */
-
 
     // PlaceHolder Texture
     private static final CustomIcon Internal_PlaceHolder = new CustomIcon("TileEntities/_PlaceHolder");
@@ -350,7 +348,6 @@ public class TexturesGtBlock {
     public static final CustomIcon Casing_Adv_Workbench_Crafting_Overlay = new CustomIcon(
             "TileEntities/gt4/machine_top_crafting");
 
-
     public static final CustomIcon Casing_CropHarvester_Cutter = new CustomIcon("TileEntities/gt4/OVERLAY_CROP");
     public static final CustomIcon Casing_CropHarvester_Boxes = new CustomIcon("TileEntities/gt4/OVERLAY_BOXES");
 
@@ -455,7 +452,6 @@ public class TexturesGtBlock {
 
     public static final CustomIcon TEXTURE_TECH_PANEL_D = new CustomIcon("metro/TEXTURE_TECH_PANEL_D");
     public static final CustomIcon TEXTURE_TECH_PANEL_H = new CustomIcon("metro/TEXTURE_TECH_PANEL_H");
-
 
     public static ITexture[] OVERLAYS_ENERGY_OUT_MULTI_BUFFER = new ITexture[] {
             new GT_RenderedTexture(OVERLAY_ENERGY_OUT_MULTI_BUFFER, new short[] { 220, 220, 220, 0 }),
