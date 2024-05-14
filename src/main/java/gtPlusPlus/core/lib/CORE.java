@@ -42,11 +42,9 @@ public class CORE {
     public static volatile Random RANDOM = new XSTR();
 
     public static boolean DEVENV = false;
-    // Only can be set in Dev, no config or setting elsewhere.
-    public static final boolean LOAD_ALL_CONTENT = false;;
+    ;
 
     // Mod Variables
-
     public static final String name = "GT++";
     public static final String VERSION = "GRADLETOKEN_VERSION";
 
@@ -67,7 +65,6 @@ public class CORE {
             .translateToLocal("GTPP.core.GT_Tooltip_Builder");
     public static final Supplier<String> GT_Tooltip_Radioactive = () -> StatCollector
             .translateToLocal("GTPP.core.GT_Tooltip_Radioactive");
-    public static final String noItem = "";
 
     public static final String SEPERATOR = "/";
 
@@ -91,38 +88,6 @@ public class CORE {
     public static IGregtech_RecipeAdder RA;
 
     public static final GT_Materials[] sMU_GeneratedMaterials = new GT_Materials[1000];
-
-    /**
-     * File Paths and Resource Paths
-     */
-    public static final String TEX_DIR = "textures/", TEX_DIR_GUI = TEX_DIR + "gui/", TEX_DIR_ITEM = TEX_DIR + "items/",
-            TEX_DIR_BLOCK = TEX_DIR + "blocks/", TEX_DIR_ENTITY = TEX_DIR + "entity/",
-            TEX_DIR_ASPECTS = TEX_DIR + "aspects/", TEX_DIR_FLUIDS = TEX_DIR_BLOCK + "fluids/",
-            RES_PATH = GTPlusPlus.ID + ":" + TEX_DIR, RES_PATH_GUI = GTPlusPlus.ID + ":" + TEX_DIR_GUI,
-            RES_PATH_ITEM = GTPlusPlus.ID + ":" + TEX_DIR_ITEM, RES_PATH_BLOCK = GTPlusPlus.ID + ":" + TEX_DIR_BLOCK,
-            RES_PATH_ENTITY = GTPlusPlus.ID + ":" + TEX_DIR_ENTITY,
-            RES_PATH_ASPECTS = GTPlusPlus.ID + ":" + TEX_DIR_ASPECTS,
-            RES_PATH_FLUIDS = GTPlusPlus.ID + ":" + TEX_DIR_FLUIDS;
-
-    /**
-     * Used to create a {@link EntityPlayer} instance from {@link FakePlayerFactory}. If this instance already exists in
-     * the cache, we will return that instead. These instances are held via weak reference, if the world object is
-     * unloaded, they too will be removed. This is the suggested way to handle them, as suggested by Forge.
-     *
-     * @param world - The {@link World} object for which you want to check for in the cache. This object is used as a
-     *              weak reference in a {@link WeakHashMap}.
-     * @return - An {@link EntityPlayerMP} instance, returned either from cache or created and cached prior to return.
-     */
-    public static EntityPlayerMP getFakePlayer(World world) {
-        if (fakePlayerCache.get(world) == null) {
-            fakePlayerCache.put(world, FakePlayerFactory.get((WorldServer) world, CORE.gameProfile));
-        }
-        return fakePlayerCache.get(world);
-    }
-
-    /*
-     * Config Switch Class
-     */
 
     public static class ConfigSwitches {
 
@@ -181,7 +146,6 @@ public class CORE {
         public static boolean enableMultiblock_Cyclotron = true;
 
         // Visuals
-        public static boolean enableTreeFarmerParticles = true;
         public static boolean useGregtechTextures = true;
         public static boolean enableAnimatedTextures = false;
 
@@ -217,11 +181,9 @@ public class CORE {
         public static int pollutionPerSecondMultiABS = 200;
         public static int pollutionPerSecondMultiCyclotron = 200;
         public static int pollutionPerSecondMultiIndustrialFishingPond = 20;
-        public static int pollutionPerSecondMultiLargeRocketEngine;
         public static int pollutionPerSecondMultiLargeSemiFluidGenerator = 1280;
         public static int pollutionPerSecondMultiMassFabricator = 40;
         public static int pollutionPerSecondMultiRefinery = 4000;
-        public static int pollutionPerSecondMultiGeneratorArray;
         public static int pollutionPerSecondMultiTreeFarm = 100;
         public static int pollutionPerSecondMultiFrothFlotationCell = 0;
         public static int pollutionPerSecondMultiAutoCrafter = 500;

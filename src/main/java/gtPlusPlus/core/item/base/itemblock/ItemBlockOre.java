@@ -28,7 +28,6 @@ public class ItemBlockOre extends ItemBlock {
     private final BlockBaseOre mThisOre;
     private final Material mThisMaterial;
     private final int mThisRadiation;
-    private final int mThisColour;
 
     public ItemBlockOre(final Block block) {
         super(block);
@@ -36,17 +35,11 @@ public class ItemBlockOre extends ItemBlock {
             this.mThisOre = (BlockBaseOre) block;
             this.mThisMaterial = this.mThisOre.getMaterialEx();
             this.mThisRadiation = this.mThisMaterial.vRadiationLevel;
-            this.mThisColour = this.mThisMaterial.getRgbAsHex();
         } else {
             this.mThisOre = null;
             this.mThisMaterial = null;
             this.mThisRadiation = 0;
-            this.mThisColour = Utils.rgbtoHexValue(255, 255, 255);
         }
-    }
-
-    public int getRenderColor(final int aMeta) {
-        return this.mThisColour;
     }
 
     private static Map<String, AutoMap<String>> mMapOreBlockItemToDimName = new LinkedHashMap<>();
@@ -98,7 +91,6 @@ public class ItemBlockOre extends ItemBlock {
 
             Block b = Block.getBlockFromItem(stack.getItem());
             if (b != null) {
-                String aTool = b.getHarvestTool(stack.getItemDamage());
                 int aMiningLevel1 = b.getHarvestLevel(stack.getItemDamage());
                 if (aMiningLevel1 != 0) {
                     list.add("Mining Level: " + Math.min(Math.max(aMiningLevel1, 0), 5));
