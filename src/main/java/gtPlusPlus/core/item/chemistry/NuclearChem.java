@@ -13,6 +13,7 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.api.objects.minecraft.ItemPackage;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class NuclearChem extends ItemPackage {
 
@@ -94,7 +95,7 @@ public class NuclearChem extends ItemPackage {
                 .itemInputs(
                         GT_OreDictUnificator.get(OrePrefixes.gem, Materials.NetherStar, 2),
                         GT_Utility.getIntegratedCircuit(20))
-                .fluidInputs(FluidUtils.getMobEssence(5000))
+                .fluidInputs(FluidRegistry.getFluidStack("mobessence", 5000))
                 .fluidOutputs(FluidUtils.getFluidStack(GeneticMutagen, 8000)).duration(30 * SECONDS)
                 .eut(TierEU.RECIPE_HV).addTo(UniversalChemical);
     }

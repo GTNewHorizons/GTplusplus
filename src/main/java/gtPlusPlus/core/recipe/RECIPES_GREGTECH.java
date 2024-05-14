@@ -565,12 +565,6 @@ public class RECIPES_GREGTECH {
     }
 
     private static void breweryRecipes() {
-        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14))
-                .fluidInputs(EnchantingUtils.getMobEssence(100)).fluidOutputs(EnchantingUtils.getLiquidXP(1332))
-                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(brewingRecipes);
-        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14))
-                .fluidInputs(EnchantingUtils.getLiquidXP(1332)).fluidOutputs(EnchantingUtils.getMobEssence(100))
-                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(brewingRecipes);
         GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest))
                 .fluidInputs(Materials.Water.getFluid(100L)).fluidOutputs(Materials.Biomass.getFluid(100L))
                 .duration(1 * MINUTES).eut(3).addTo(brewingRecipes);

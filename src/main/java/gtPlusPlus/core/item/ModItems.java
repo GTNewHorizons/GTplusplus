@@ -716,10 +716,7 @@ public final class ModItems {
 
         // Xp Fluids - Dev
         if (!FluidRegistry.isFluidRegistered("mobessence")) {
-            FluidUtils.generateFluidNoPrefix("mobessence", "mobessence", 0, new short[] { 125, 175, 125, 100 });
-        }
-        if (!FluidRegistry.isFluidRegistered("xpjuice")) {
-            FluidUtils.generateFluidNoPrefix("xpjuice", "xpjuice", 0, new short[] { 50, 150, 50, 100 });
+            FluidUtils.generateFluidNoPrefix("mobessence", "Mob Essence", 0, new short[] { 125, 175, 125, 100 });
         }
 
         dustNeptunium238 = new DustDecayable(
