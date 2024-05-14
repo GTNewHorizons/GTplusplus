@@ -186,7 +186,7 @@ public class TexturesGtBlock {
 
     // Quantum Force Transformer Casing
     // spotless:off
-    private static final CustomIcon Internal_Casing_QFT = mAnimated ? new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL") : new CustomIcon("TileEntites/MACHINE_CASING_QFT_COIL");
+        private static final CustomIcon Internal_Casing_QFT = new CustomIcon("TileEntities/MACHINE_CASING_QFT_COIL");
     public static final CustomIcon Casing_Coil_QFT = Internal_Casing_QFT;
     public static final CustomIcon NeutronPulseManipulator = mAnimated ? new CustomIcon("NeutronPulseManipulator") : new CustomIcon("NeutronPulseManipulatorStatic");
     public static final CustomIcon CosmicFabricManipulator = mAnimated ? new CustomIcon("CosmicFabricManipulator") : new CustomIcon("CosmicFabricManipulatorStatic");
