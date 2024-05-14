@@ -67,7 +67,6 @@ import gtPlusPlus.core.material.ORES;
 import gtPlusPlus.core.material.Particle;
 import gtPlusPlus.core.material.nuclear.FLUORIDES;
 import gtPlusPlus.core.recipe.common.CI;
-import gtPlusPlus.core.util.minecraft.EnchantingUtils;
 import gtPlusPlus.core.util.minecraft.FluidUtils;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
 import gtPlusPlus.core.util.minecraft.MaterialUtils;
@@ -1074,7 +1073,7 @@ public class RECIPES_GREGTECH {
                 .fluidInputs(Materials.Air.getGas(1000L)).fluidOutputs(Materials.Helium.getGas(1L))
                 .duration(20 * SECONDS).eut(TierEU.RECIPE_LV).addTo(distilleryRecipes);
 
-        GT_Values.RA.stdBuilder().itemOutputs(ItemUtils.getSimpleStack(ModItems.itemHydrogenBlob, 1))
+        GT_Values.RA.stdBuilder()
                 .fluidInputs(Materials.Air.getGas(20000L)).fluidOutputs(Materials.Helium.getGas(25L))
                 .duration(10 * SECONDS).eut(TierEU.RECIPE_MV / 2).addTo(distillationTowerRecipes);
 

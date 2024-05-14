@@ -97,8 +97,6 @@ public final class ModItems {
 
     public static Item itemIngotBatteryAlloy;
 
-    public static Item itemHydrogenBlob;
-
     public static Item itemBedLocator_Base;
     public static Item itemBaseItemWithCharge;
 
@@ -252,8 +250,6 @@ public final class ModItems {
         MetaGeneratedGregtechItems.INSTANCE.generateMetaItems();
 
         // Register Hydrogen Blobs first, so we can replace old helium blobs.
-        itemHydrogenBlob = new CoreItem("itemHydrogenBlob", "Mysterious Hydrogen Blob", tabMisc)
-                .setTextureName(GTPlusPlus.ID + ":itemHeliumBlob");
         // Register Old Helium Blob, this will be replaced when held by a player.
 
         // Load Wearable Items
