@@ -17,8 +17,6 @@ import gtPlusPlus.core.block.base.BlockBaseOre;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.material.Material;
 import gtPlusPlus.core.material.MaterialStack;
-import gtPlusPlus.core.material.nuclear.FLUORIDES;
-import gtPlusPlus.core.util.Utils;
 import gtPlusPlus.core.util.minecraft.EntityUtils;
 import gtPlusPlus.core.util.sys.KeyboardUtils;
 import gtPlusPlus.everglades.gen.gt.WorldGen_GT_Ore_Layer;

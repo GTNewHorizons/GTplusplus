@@ -1,7 +1,6 @@
 package gtPlusPlus.core.recipe;
 
 import static gregtech.api.enums.Mods.BartWorks;
-import static gregtech.api.enums.Mods.COFHCore;
 import static gregtech.api.enums.Mods.EternalSingularity;
 import static gregtech.api.enums.Mods.GoodGenerator;
 import static gregtech.api.enums.Mods.GregTech;

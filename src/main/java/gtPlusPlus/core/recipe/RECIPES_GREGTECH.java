@@ -1073,8 +1073,7 @@ public class RECIPES_GREGTECH {
                 .fluidInputs(Materials.Air.getGas(1000L)).fluidOutputs(Materials.Helium.getGas(1L))
                 .duration(20 * SECONDS).eut(TierEU.RECIPE_LV).addTo(distilleryRecipes);
 
-        GT_Values.RA.stdBuilder()
-                .fluidInputs(Materials.Air.getGas(20000L)).fluidOutputs(Materials.Helium.getGas(25L))
+        GT_Values.RA.stdBuilder().fluidInputs(Materials.Air.getGas(20000L)).fluidOutputs(Materials.Helium.getGas(25L))
                 .duration(10 * SECONDS).eut(TierEU.RECIPE_MV / 2).addTo(distillationTowerRecipes);
 
         // Apatite Distillation
