@@ -9,7 +9,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondGeot
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondSemiFluidGenerator;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.boilerSteamPerSecond;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropDrainedShard;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropFluoriteOre;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIngotTooltips;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableEnderIOIntegration;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableIC2Recipes;
@@ -223,13 +222,6 @@ public class ConfigHandler {
                 0,
                 10000,
                 "Drained shards have a 1 in X chance to drop.");
-        chanceToDropFluoriteOre = config.getInt(
-                "chanceToDropFluoriteOre",
-                "blockdrops",
-                32,
-                0,
-                10000,
-                "Fluorite Ore has a 1 in X chance to drop from Limestone and a 1 in X*20 from Sandstone..");
 
         // Single machines
         enableMachine_SolarGenerators = config.getBoolean(

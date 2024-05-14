@@ -138,7 +138,6 @@ public class CORE {
 
         // Block Drops
         public static int chanceToDropDrainedShard = 196;
-        public static int chanceToDropFluoriteOre = 32;
 
         // Machine Related
         public static boolean enableAlternativeBatteryAlloy = false;

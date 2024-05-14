@@ -83,17 +83,6 @@ public class ItemBlockOre extends ItemBlock {
             list.add(CORE.GT_Tooltip_Radioactive.get());
         }
 
-        /**
-         * Tooltip Handler for Ores
-         */
-        if (this.mThisMaterial == FLUORIDES.FLUORITE) {
-            list.add(
-                    "Mined from Sandstone with a 1/" + (CORE.ConfigSwitches.chanceToDropFluoriteOre * 20)
-                            + " chance, or Limestone with a 1/"
-                            + (CORE.ConfigSwitches.chanceToDropFluoriteOre)
-                            + " chance.");
-        }
-
         if (this.mThisMaterial != null) {
             list.add("Ore contains:    ");
             if (mThisMaterial.getComposites().isEmpty()) {
