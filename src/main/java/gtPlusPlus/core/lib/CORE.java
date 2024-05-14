@@ -131,12 +131,6 @@ public class CORE {
         public static boolean showHiddenNEIItems = false;
         public static boolean dumpItemAndBlockData = false;
 
-        // Tools
-        public static boolean enableMultiSizeTools = true;
-
-        // Block Drops
-        public static int chanceToDropDrainedShard = 196;
-
         // Machine Related
         public static boolean enableThaumcraftShardUnification = false;
         public static boolean disableIC2Recipes = false;
@@ -146,16 +140,10 @@ public class CORE {
 
         // Feature Related
         public static boolean enableCustomCapes = false;
-        public static boolean enableCustomCircuits = true;
-        public static boolean enableOldGTcircuits = false;
         public static int enableWatchdogBGM = CORE_Preloader.enableWatchdogBGM;
         public static boolean hideUniversalCells = true;
 
-        // GT Fixes
-        public static boolean enableSulfuricAcidFix = false;
-
         // Single Block Machines
-        public static boolean enableMachine_SolarGenerators = false;
         public static boolean enableMachine_Dehydrators = true;
         public static boolean enableMachine_SteamConverter = true;
         public static boolean enableMachine_FluidTanks = true;

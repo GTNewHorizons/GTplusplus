@@ -1,5 +1,10 @@
 package gtPlusPlus.core.config;
 
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
+
 import static gregtech.api.enums.Mods.GregTech;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.MACHINE_INFO;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.baseMaxPollutionPerSecondRocketFuelGenerator;
@@ -8,13 +13,11 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondBoil
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondGeothermalGenerator;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondSemiFluidGenerator;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.boilerSteamPerSecond;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.chanceToDropDrainedShard;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableIC2Recipes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.dumpItemAndBlockData;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeDivisionSigilRecipe;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAnimatedTextures;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCircuits;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustom_Cables;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustom_Pipes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Dehydrators;
@@ -24,10 +27,8 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Pollution;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_RF_Convetor;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_RocketEngines;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_SimpleWasher;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_SolarGenerators;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_SteamConverter;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Tesseracts;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiSizeTools;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_AlloyBlastSmelter;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_Cyclotron;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_IndustrialCentrifuge;
@@ -51,8 +52,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_NuclearFu
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_NuclearSaltProcessingPlant;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_PowerSubstation;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMultiblock_ThermalBoiler;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableOldGTcircuits;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableSulfuricAcidFix;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableThaumcraftShardUnification;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableWatchdogBGM;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.hideUniversalCells;
@@ -107,12 +106,6 @@ import static gtPlusPlus.core.lib.CORE.EVERGLADESBIOME_ID;
 import static gtPlusPlus.core.lib.CORE.EVERGLADES_ID;
 import static gtPlusPlus.core.lib.CORE.turbineCutoffBase;
 
-import java.io.File;
-
-import net.minecraftforge.common.config.Configuration;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-
 public class ConfigHandler {
 
     public static void handleConfigFile(final FMLPreInitializationEvent event) {
@@ -159,31 +152,7 @@ public class ConfigHandler {
                 10000,
                 "Sets the steam per second value in LV,MV,HV boilers (respectively 1x,2x,3x this number for the tiers)");
 
-        // Circuits
-        enableCustomCircuits = config.getBoolean(
-                "enableCustomCircuits",
-                GregTech.ID,
-                false,
-                "Adds custom circuits to expand past the Master Tier. Only really recommended to enable if enableOldGTcircuits is enabled.");
-        enableOldGTcircuits = config.getBoolean(
-                "enableOldGTcircuits",
-                GregTech.ID,
-                false,
-                "Restores circuits and their recipes from Pre-5.09.28 times.");
-
-        // Tools
-        enableMultiSizeTools = config.getBoolean(
-                "enableMultiSizeTools",
-                GregTech.ID,
-                true,
-                "Adds Custom GT Shovels and Pickaxes which mine in a 3x3 style. One of each whill be generated for each Gregtech Material which has Dense Plates and Long Rods available.");
-
         // GT-Fixes
-        enableSulfuricAcidFix = config.getBoolean(
-                "enableSulfuricAcidFix",
-                GregTech.ID,
-                false,
-                "Adds GT6 recipes for Sulfuric Acid. Should remove all pre-existing recipes.");
         turbineCutoffBase = config.getInt(
                 "turbineCutoffBase",
                 GregTech.ID,
@@ -195,22 +164,6 @@ public class ConfigHandler {
         // Pipes & Cables
         enableCustom_Pipes = config.getBoolean("enableCustom_Pipes", GregTech.ID, true, "Adds Custom GT Fluid Pipes.");
         enableCustom_Cables = config.getBoolean("enableCustom_Cables", GregTech.ID, true, "Adds Custom GT Cables.");
-
-        // Block Drops
-        chanceToDropDrainedShard = config.getInt(
-                "chanceToDropDrainedShard",
-                "blockdrops",
-                196,
-                0,
-                10000,
-                "Drained shards have a 1 in X chance to drop.");
-
-        // Single machines
-        enableMachine_SolarGenerators = config.getBoolean(
-                "enableSolarGenerators",
-                GregTech.ID,
-                false,
-                "These may be overpowered, Consult a local electrician.");
 
         enableMachine_Dehydrators = config
                 .getBoolean("enableMachineDehydrators", GregTech.ID, true, "These dehydrate stuff.");
