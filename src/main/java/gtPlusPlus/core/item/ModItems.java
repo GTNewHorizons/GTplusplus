@@ -64,7 +64,6 @@ import gtPlusPlus.core.item.general.chassis.ItemDehydratorCoilWire;
 import gtPlusPlus.core.item.general.spawn.ItemCustomSpawnEgg;
 import gtPlusPlus.core.item.init.ItemsFoods;
 import gtPlusPlus.core.item.materials.DustDecayable;
-import gtPlusPlus.core.item.tool.misc.DebugScanner;
 import gtPlusPlus.core.item.tool.misc.GregtechPump;
 import gtPlusPlus.core.item.wearable.WearableLoader;
 import gtPlusPlus.core.lib.CORE;
@@ -212,8 +211,6 @@ public final class ModItems {
     public static BatteryPackBaseBauble itemChargePack_High_3;
     public static BatteryPackBaseBauble itemChargePack_High_4;
 
-    public static DebugScanner itemDebugScanner;
-
     public static ItemDummyResearch itemDummyResearch;
 
     public static BaseItemMetaFood itemMetaFood;
@@ -234,7 +231,6 @@ public final class ModItems {
 
     public static void init() {
 
-        itemDebugScanner = new DebugScanner();
         itemMagicFeather = new ItemMagicFeather();
 
         itemAlkalusDisk = new BaseItemDamageable(
