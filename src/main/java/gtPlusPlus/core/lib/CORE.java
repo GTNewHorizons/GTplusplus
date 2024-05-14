@@ -152,7 +152,6 @@ public class CORE {
         public static boolean enableMachine_Pollution = true;
         public static boolean enableCustom_Pipes = true;
         public static boolean enableCustom_Cables = true;
-        public static boolean enableMachine_RF_Convetor = false;
 
         // Multiblocks
         public static boolean enableMultiblock_AlloyBlastSmelter = true;

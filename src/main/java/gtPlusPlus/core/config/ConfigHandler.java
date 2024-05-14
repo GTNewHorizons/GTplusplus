@@ -15,7 +15,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.basePollutionPerSecondSemi
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.boilerSteamPerSecond;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.disableIC2Recipes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.dumpItemAndBlockData;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAlternativeDivisionSigilRecipe;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableAnimatedTextures;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustomCapes;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableCustom_Cables;
@@ -24,7 +23,6 @@ import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Dehydrators;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_FluidTanks;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_GeothermalEngines;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_Pollution;
-import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_RF_Convetor;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_RocketEngines;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_SimpleWasher;
 import static gtPlusPlus.core.lib.CORE.ConfigSwitches.enableMachine_SteamConverter;
@@ -191,11 +189,6 @@ public class ConfigHandler {
                 "Very basic automated cauldron for dust washing.");
         enableMachine_Pollution = config
                 .getBoolean("enableMachinePollution", GregTech.ID, true, "Pollution Detector & Scrubbers.");
-        enableMachine_RF_Convetor = config.getBoolean(
-                "enableMachineRFConvetor",
-                GregTech.ID,
-                true,
-                "Converts RF to GTEU. Requires COFH-Core to be installed.");
 
         // Multi machines
         enableMultiblock_AlloyBlastSmelter = config.getBoolean(

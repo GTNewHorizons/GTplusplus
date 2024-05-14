@@ -955,21 +955,6 @@ public class RECIPES_Machines {
                 "plateBronze",
                 GregtechItemList.Hatch_Output_Bus_Steam.get(1));
 
-        // RF Convertor
-        if (COFHCore.isModLoaded() && CORE.ConfigSwitches.enableMachine_RF_Convetor) {
-            RecipeUtils.addShapedGregtechRecipe(
-                    CI.getPlate(4, 1),
-                    CI.getTieredCircuitOreDictName(5),
-                    CI.getPlate(4, 1),
-                    CI.getTransmissionComponent(3, 1),
-                    CI.getTieredGTPPMachineCasing(4, 1),
-                    CI.getTransmissionComponent(3, 1),
-                    CI.getPlate(4, 1),
-                    plateEnergeticAlloy,
-                    CI.getPlate(4, 1),
-                    GregtechItemList.Energy_Buffer_RF_Convertor.get(1));
-        }
-
         // Flask Configurator
         CORE.RA.addSixSlotAssemblingRecipe(
                 new ItemStack[] { CI.getNumberedAdvancedCircuit(8), CI.getTieredMachineHull(2),
