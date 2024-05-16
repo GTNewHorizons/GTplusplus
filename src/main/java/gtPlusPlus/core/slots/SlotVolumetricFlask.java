@@ -9,8 +9,6 @@ import gtPlusPlus.xmod.gregtech.common.helpers.VolumetricFlaskHelper;
 
 public class SlotVolumetricFlask extends Slot {
 
-    public static Item mFlask;
-
     public SlotVolumetricFlask(final IInventory inventory, final int slot, final int x, final int y) {
         super(inventory, slot, x, y);
     }

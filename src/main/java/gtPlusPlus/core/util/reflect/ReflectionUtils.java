@@ -48,40 +48,30 @@ public class ReflectionUtils {
 
     private static class CachedMethod {
 
-        private final boolean STATIC;
         private final Method METHOD;
 
         public CachedMethod(Method aMethod, boolean isStatic) {
             METHOD = aMethod;
-            STATIC = isStatic;
         }
 
         public Method get() {
             return METHOD;
         }
 
-        public boolean type() {
-            return STATIC;
-        }
     }
 
     private static class CachedField {
 
-        private final boolean STATIC;
         private final Field FIELD;
 
         public CachedField(Field aField, boolean isStatic) {
             FIELD = aField;
-            STATIC = isStatic;
         }
 
         public Field get() {
             return FIELD;
         }
 
-        public boolean type() {
-            return STATIC;
-        }
     }
 
     private static Fields.ClassFields.Field cacheAccessor(Field f) {
@@ -236,10 +226,6 @@ public class ReflectionUtils {
         } else {
             return y.get();
         }
-    }
-
-    public static boolean isStaticMethod(Class<?> aClass, String aMethodName, Class<?>... aTypes) {
-        return isStaticMethod(ReflectionUtils.getMethod(aClass, aMethodName, aTypes));
     }
 
     public static boolean isStaticMethod(Method aMethod) {

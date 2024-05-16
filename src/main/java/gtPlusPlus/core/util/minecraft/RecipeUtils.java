@@ -216,27 +216,6 @@ public class RecipeUtils {
                 aOutput);
     }
 
-    public static String[] getRecipeInfo(GT_Recipe m) {
-        if (m == null) {
-            return new String[] {};
-        }
-        AutoMap<String> result = new AutoMap<>();
-        result.put(m.toString());
-        result.put("Input " + ItemUtils.getArrayStackNames(m.mInputs));
-        result.put("Output " + ItemUtils.getArrayStackNames(m.mOutputs));
-        result.put("Input " + ItemUtils.getArrayStackNames(m.mFluidInputs));
-        result.put("Output " + ItemUtils.getArrayStackNames(m.mFluidOutputs));
-        result.put("Can be buffered? " + m.mCanBeBuffered);
-        result.put("Duration: " + m.mDuration);
-        result.put("EU/t: " + m.mEUt);
-        result.put("Is Hidden? " + m.mHidden);
-        result.put("Is Enabled? " + m.mEnabled);
-        result.put("Special Value: " + m.mSpecialValue);
-        result.put("=====================================");
-        String s[] = result.toArray();
-        return s;
-    }
-
     public static class InternalRecipeObject implements RunnableWithInfo<String> {
 
         final ItemStack mOutput;
@@ -305,7 +284,7 @@ public class RecipeUtils {
         @Override
         public String getInfoData() {
             if (mOutput != null && mOutput instanceof ItemStack) {
-                return ((ItemStack) mOutput).getDisplayName();
+                return mOutput.getDisplayName();
             }
             return "";
         }
