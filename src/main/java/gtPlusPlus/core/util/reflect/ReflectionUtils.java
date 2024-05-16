@@ -122,19 +122,13 @@ public class ReflectionUtils {
         return false;
     }
 
-    private static boolean cacheConstructor(Class<?> aClass, Constructor<?> aConstructor) {
+    private static void cacheConstructor(Class<?> aClass, Constructor<?> aConstructor) {
         if (aConstructor == null) {
-            return false;
+            return;
         }
-        CachedConstructor y = mCachedConstructors
-                .get(aClass.getName() + "." + ArrayUtils.toString(aConstructor.getParameterTypes()));
-        if (y == null) {
-            mCachedConstructors.put(
-                    aClass.getName() + "." + ArrayUtils.toString(aConstructor.getParameterTypes()),
-                    new CachedConstructor(aConstructor));
-            return true;
-        }
-        return false;
+        mCachedConstructors.computeIfAbsent(
+                aClass.getName() + "." + ArrayUtils.toString(aConstructor.getParameterTypes()),
+                k -> new CachedConstructor(aConstructor));
     }
 
     /**
@@ -264,21 +258,6 @@ public class ReflectionUtils {
         }
     }
 
-    public static Field[] getAllFields(final Class<?> aClass) {
-        if (aClass == null) {
-            return null;
-        }
-        Field[] aFields = aClass.getDeclaredFields();
-        for (Field f : aFields) {
-            CachedField y = mCachedFields.get(aClass.getName() + "." + f.getName());
-            if (y == null) {
-                makeFieldAccessible(f);
-                cacheField(aClass, f);
-            }
-        }
-        return aFields;
-    }
-
     /**
      * Returns a cached {@link Field} object.
      * 
@@ -300,20 +279,6 @@ public class ReflectionUtils {
 
     public static boolean doesClassExist(final String classname) {
         return isClassPresent(classname);
-    }
-
-    /**
-     * Returns the class of the objects type parameter
-     * 
-     * @param o - Object to examine paramters on
-     * @return - a Class<?> or null
-     */
-    public static Class<?> getTypeOfGenericObject(Object o) {
-        Class<?> aTypeParam = findSuperClassParameterType(o, o.getClass(), 0);
-        if (aTypeParam == null) {
-            aTypeParam = findSubClassParameterType(o, o.getClass(), 0);
-        }
-        return aTypeParam;
     }
 
     public static void makeFieldAccessible(final Field field) {
@@ -439,18 +404,7 @@ public class ReflectionUtils {
         }
     }
 
-    /**
-     * Allows to change the state of an immutable instance. Huh?!?
-     */
-    public static void setFinalFieldValue(Class<?> clazz, Field field, Object newValue) {
-        try {
-            setFieldValue_Internal(clazz, field, newValue);
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-    }
-
-    public static void setByte(Object clazz, String fieldName, byte newValue) throws Exception {
+    public static void setByte(Object clazz, String fieldName, byte newValue) {
         Field nameField = getField(clazz.getClass(), fieldName);
         cacheAccessor(nameField).setValue(null, newValue);
     }
@@ -609,48 +563,6 @@ public class ReflectionUtils {
     /*
      * Below Code block is used for determining generic types associated with type<E>
      */
-
-    // https://xebia.com/blog/acessing-generic-types-at-runtime-in-java/
-    // https://www.javacodegeeks.com/2013/12/advanced-java-generics-retreiving-generic-type-arguments.html
-    public static Class<?> findSuperClassParameterType(Object instance, Class<?> classOfInterest, int parameterIndex) {
-        Class<?> subClass = instance.getClass();
-        while (classOfInterest != subClass.getSuperclass()) {
-            // instance.getClass() is no subclass of classOfInterest or instance is a direct instance of classOfInterest
-            subClass = subClass.getSuperclass();
-            if (subClass == null) {
-                return null;
-            }
-        }
-        ParameterizedType parameterizedType = (ParameterizedType) subClass.getGenericSuperclass();
-        Class<?> aReturn;
-        aReturn = (Class<?>) parameterizedType.getActualTypeArguments()[parameterIndex];
-        return aReturn;
-    }
-
-    public static Class<?> findSubClassParameterType(Object instance, Class<?> classOfInterest, int parameterIndex) {
-        Map<Type, Type> typeMap = new HashMap<>();
-        Class<?> instanceClass = instance.getClass();
-        while (classOfInterest != instanceClass.getSuperclass()) {
-            extractTypeArguments(typeMap, instanceClass);
-            instanceClass = instanceClass.getSuperclass();
-            if (instanceClass == null) {
-                return null;
-            }
-        }
-
-        ParameterizedType parameterizedType = (ParameterizedType) instanceClass.getGenericSuperclass();
-        Type actualType = parameterizedType.getActualTypeArguments()[parameterIndex];
-        if (typeMap.containsKey(actualType)) {
-            actualType = typeMap.get(actualType);
-        }
-        if (actualType instanceof Class) {
-            return (Class<?>) actualType;
-        } else if (actualType instanceof TypeVariable) {
-            return browseNestedTypes(instance, (TypeVariable<?>) actualType);
-        } else {
-            return null;
-        }
-    }
 
     private static void extractTypeArguments(Map<Type, Type> typeMap, Class<?> clazz) {
         Type genericSuperclass = clazz.getGenericSuperclass();
