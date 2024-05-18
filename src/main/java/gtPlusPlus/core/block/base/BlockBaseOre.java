@@ -22,7 +22,6 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.ITexture;
-import gregtech.api.objects.XSTR;
 import gregtech.api.util.GT_OreDictUnificator;
 import gtPlusPlus.api.interfaces.ITexturedBlock;
 import gtPlusPlus.core.client.renderer.CustomOreBlockRenderer;
@@ -166,18 +165,20 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
                 // if not shouldFortune or not isNatural then get normal drops
                 // if not shouldFortune and isNatural then get normal drops
                 // if shouldFortune and not isNatural then get normal drops
-                if (shouldFortune) {
-                    Random tRandom = new XSTR(x ^ y ^ z);
-                    long amount = (long) Math.max(1, tRandom.nextInt(1 + Math.min(3, fortune)));
-                    drops.add(
-                            ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
-                                    "oreRaw" + this.blockMaterial.getLocalizedName(),
-                                    (int) amount));
+                if (shouldFortune && fortune > 0) {
+                    int aMinAmount = 1;
+                    // Max applicable fortune
+                    if (fortune > 3) fortune = 3;
+                    long amount = (long) new Random().nextInt((fortune - aMinAmount) + aMinAmount);
+                    if (amount < 1) amount = 1;
+                    for (int i = 0; i < amount; i++) {
+                        drops.add(
+                                ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
+                                        "oreRaw" + this.blockMaterial.getLocalizedName(),
+                                        1));
+                    }
                 } else {
-                    drops.add(
-                            ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
-                                    "oreRaw" + this.blockMaterial.getLocalizedName(),
-                                    1));
+                    drops.add(ItemUtils.simpleMetaStack(this, metadata, 1));
                 }
             }
             case UnifiedBlock -> {
