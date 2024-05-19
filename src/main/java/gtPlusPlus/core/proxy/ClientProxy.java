@@ -34,11 +34,15 @@ import gtPlusPlus.core.client.renderer.CustomItemBlockRenderer;
 import gtPlusPlus.core.client.renderer.CustomOreBlockRenderer;
 import gtPlusPlus.core.client.renderer.RenderDecayChest;
 import gtPlusPlus.core.client.renderer.RenderMiningExplosivesPrimed;
+import gtPlusPlus.core.client.renderer.RenderSickBlaze;
 import gtPlusPlus.core.client.renderer.RenderStaballoyConstruct;
+import gtPlusPlus.core.client.renderer.RenderToxinball;
 import gtPlusPlus.core.common.CommonProxy;
 import gtPlusPlus.core.entity.EntityPrimedMiningExplosive;
+import gtPlusPlus.core.entity.monster.EntitySickBlaze;
 import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.entity.projectile.EntityLightningAttack;
+import gtPlusPlus.core.entity.projectile.EntityToxinballSmall;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.core.lib.CORE.ConfigSwitches;
 import gtPlusPlus.core.tileentities.general.TileEntityDecayablesChest;
@@ -113,8 +117,10 @@ public class ClientProxy extends CommonProxy implements Runnable {
          */
         RenderingRegistry
                 .registerEntityRenderingHandler(EntityPrimedMiningExplosive.class, new RenderMiningExplosivesPrimed());
+        RenderingRegistry.registerEntityRenderingHandler(EntitySickBlaze.class, new RenderSickBlaze());
         RenderingRegistry
                 .registerEntityRenderingHandler(EntityStaballoyConstruct.class, new RenderStaballoyConstruct());
+        RenderingRegistry.registerEntityRenderingHandler(EntityToxinballSmall.class, new RenderToxinball(1F));
         RenderingRegistry.registerEntityRenderingHandler(EntityLightningAttack.class, new RenderFireball(1F));
 
         /**

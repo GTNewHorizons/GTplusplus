@@ -11,6 +11,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gtPlusPlus.core.entity.monster.EntitySickBlaze;
 import gtPlusPlus.core.entity.monster.EntityStaballoyConstruct;
 import gtPlusPlus.core.lib.CORE;
 import gtPlusPlus.everglades.dimension.Dimension_Everglades;
@@ -37,8 +38,10 @@ public class Biome_Everglades {
         @SuppressWarnings("unchecked")
         public BiomeGenEverglades() {
             super(CORE.EVERGLADESBIOME_ID);
+            // this.setBiomeID();
             this.theBiomeDecorator = new BiomeGenerator_Custom();
             this.theBiomeDecorator.treesPerChunk = 10;
+            // Logger.INFO("Dark World Temperature Category: "+getTempCategory());
             this.setBiomeName("Toxic Everglades");
             this.topBlock = Dimension_Everglades.blockTopLayer;
             this.fillerBlock = Dimension_Everglades.blockSecondLayer;
@@ -56,6 +59,7 @@ public class Biome_Everglades {
             this.spawnableCaveCreatureList.clear();
 
             // Enemies
+            this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntitySickBlaze.class, 100, 2, 6));
             this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityPigZombie.class, 75, 4, 16));
             this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityStaballoyConstruct.class, 20, 1, 2));
 
