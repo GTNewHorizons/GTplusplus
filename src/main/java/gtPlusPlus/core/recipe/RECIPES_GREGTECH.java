@@ -40,6 +40,7 @@ import static gtPlusPlus.api.recipe.GTPPRecipeMaps.thermalBoilerRecipes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
@@ -564,6 +565,13 @@ public class RECIPES_GREGTECH {
     }
 
     private static void breweryRecipes() {
+
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14)).fluidInputs(FluidRegistry.getFluidStack("mobessence", 100)).fluidOutputs(FluidRegistry.getFluidStack("liquidxp", 1332))
+                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(brewingRecipes);
+        GT_Values.RA.stdBuilder().itemInputs(GT_Utility.getIntegratedCircuit(14))
+                .fluidInputs(FluidRegistry.getFluidStack("liquidxp", 1332)).fluidOutputs(FluidRegistry.getFluidStack("mobessence", 100))
+                .duration(5 * SECONDS).eut(TierEU.RECIPE_MV).addTo(brewingRecipes);
+
         GT_Values.RA.stdBuilder().itemInputs(ItemUtils.getSimpleStack(BOP_Block_Registrator.sapling_Rainforest))
                 .fluidInputs(Materials.Water.getFluid(100L)).fluidOutputs(Materials.Biomass.getFluid(100L))
                 .duration(1 * MINUTES).eut(3).addTo(brewingRecipes);
