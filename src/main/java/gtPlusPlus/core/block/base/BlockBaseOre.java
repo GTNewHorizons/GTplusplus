@@ -169,8 +169,7 @@ public class BlockBaseOre extends BasicBlock implements ITexturedBlock {
                     int aMinAmount = 1;
                     // Max applicable fortune
                     if (fortune > 3) fortune = 3;
-                    long amount = (long) new Random().nextInt((fortune - aMinAmount) + aMinAmount);
-                    if (amount < 1) amount = 1;
+                    long amount = (long) new Random().nextInt(fortune) + aMinAmount;
                     for (int i = 0; i < amount; i++) {
                         drops.add(
                                 ItemUtils.getItemStackOfAmountFromOreDictNoBroken(
