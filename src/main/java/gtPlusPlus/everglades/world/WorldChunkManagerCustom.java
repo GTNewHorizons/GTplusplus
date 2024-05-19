@@ -47,10 +47,6 @@ public class WorldChunkManagerCustom extends WorldChunkManager {
         this.biomeIndexLayer = agenlayer[1];
     }
 
-    public WorldChunkManagerCustom(World world) {
-        this(world.getSeed(), world.getWorldInfo().getTerrainType());
-    }
-
     /**
      * Gets the list of valid biomes for the player to spawn in.
      */

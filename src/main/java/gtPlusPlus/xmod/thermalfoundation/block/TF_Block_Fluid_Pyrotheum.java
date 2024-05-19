@@ -25,8 +25,6 @@ import gtPlusPlus.xmod.thermalfoundation.fluid.TF_Fluids;
 public class TF_Block_Fluid_Pyrotheum extends BlockFluidInteractive {
 
     Random random = new Random();
-    public static final int LEVELS = 5;
-    public static final Material materialFluidPyrotheum = new MaterialLiquid(MapColor.tntColor);
     private static boolean effect = true;
     private static boolean enableSourceFall = true;
 

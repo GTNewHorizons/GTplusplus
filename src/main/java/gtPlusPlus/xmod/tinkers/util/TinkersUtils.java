@@ -261,39 +261,6 @@ public class TinkersUtils {
         return aData;
     }
 
-    public static Object generateToolMaterial(String name, String localizationString, int level, int durability,
-            int speed, int damage, float handle, int reinforced, float stonebound, String style, int primaryColor) {
-        try {
-            Constructor<?> constructor = mClass_ToolMaterial.getConstructor(
-                    String.class,
-                    String.class,
-                    int.class,
-                    int.class,
-                    int.class,
-                    int.class,
-                    float.class,
-                    int.class,
-                    float.class,
-                    String.class,
-                    int.class);
-            return constructor.newInstance(
-                    name,
-                    localizationString,
-                    level,
-                    durability,
-                    speed,
-                    damage,
-                    handle,
-                    reinforced,
-                    stonebound,
-                    style,
-                    primaryColor);
-        } catch (Throwable t) {
-            t.printStackTrace();
-            return null;
-        }
-    }
-
     public static List<?> getTableCastingRecipes() {
         Object aCastingTableHandlerInstance = getCastingInstance(0);
         List<?> aTemp;
