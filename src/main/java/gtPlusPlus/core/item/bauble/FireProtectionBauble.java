@@ -86,8 +86,7 @@ public class FireProtectionBauble extends BaseBauble {
     }
 
     @Override
-    public void onEquipped(final ItemStack arg0, final EntityLivingBase aPlayer) {
-    }
+    public void onEquipped(final ItemStack arg0, final EntityLivingBase aPlayer) {}
 
     @Override
     public void onUnequipped(final ItemStack arg0, final EntityLivingBase aPlayer) {

@@ -173,7 +173,6 @@ public class GTplusplus_Everglades implements ActionListener {
         getEvergladesBiome().serverLoad(event);
     }
 
-
     @EventHandler
     public static void postInit(final FMLPostInitializationEvent e) {
         Logger.INFO("Finished loading Everglades plugin for GT++.");
