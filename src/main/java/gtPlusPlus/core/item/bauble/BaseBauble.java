@@ -2,14 +2,12 @@ package gtPlusPlus.core.item.bauble;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
@@ -22,7 +20,6 @@ import baubles.common.container.InventoryBaubles;
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.enums.Mods;
 import gregtech.api.util.GT_LanguageManager;
 import gtPlusPlus.core.creative.AddToCreativeTab;
@@ -65,7 +62,6 @@ public class BaseBauble extends Item implements IBauble {
                 event.setCanceled(true);
         }
     }
-
 
     @Override
     public boolean canEquip(ItemStack arg0, EntityLivingBase arg1) {

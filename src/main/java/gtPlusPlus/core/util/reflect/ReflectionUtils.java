@@ -423,7 +423,6 @@ public class ReflectionUtils {
         return false;
     }
 
-
     /*
      * Below Code block is used for determining generic types associated with type<E>
      */
