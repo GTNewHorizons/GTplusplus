@@ -153,7 +153,7 @@ public class MetaGeneratedGregtechItems extends Gregtech_MetaItem_X32 {
                         getTcAspectStack(TC_Aspects.ELECTRUM, 8L),
                         getTcAspectStack(TC_Aspects.METALLUM, 8L),
                         getTcAspectStack(TC_Aspects.POTENTIA, 8L)));
-        this.setElectricStats(32000 + tLastID, GT_Values.V[6] * 10 * 60 * 20, GT_Values.V[5], 5L, -3L, true);
+        this.setElectricStats(32000 + tLastID, GT_Values.V[6] * 10 * 60 * 20, GT_Values.V[5], 5L, -3L, false);
 
         GregtechItemList.Cover_Overflow_LV.set(
                 this.addItem(
