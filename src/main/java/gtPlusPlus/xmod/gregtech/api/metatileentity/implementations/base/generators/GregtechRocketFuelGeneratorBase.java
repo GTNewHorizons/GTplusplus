@@ -279,7 +279,7 @@ public abstract class GregtechRocketFuelGeneratorBase extends GT_MetaTileEntity_
                     if (aBaseMetaTileEntity.addStackToSlot(this.getOutputSlot(), tEmptyContainer)) {
                         aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
                         aBaseMetaTileEntity.decrStackSize(this.getInputSlot(), 1);
-                        PollutionUtils.addPollution(getBaseMetaTileEntity(), 10 * getPollution());
+                        PollutionUtils.addPollution(getBaseMetaTileEntity(), getPollution() / 2);
                     }
                 }
             }
